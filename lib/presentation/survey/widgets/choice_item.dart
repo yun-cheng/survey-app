@@ -1,60 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/answer_cubit.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
 import 'note_box.dart';
 
 class ChoiceItem extends StatelessWidget {
-  final String questionId;
-  final QuestionType questionType;
   final Choice choice;
-  final bool isSpecialAnswer;
+  final bool isSpecialChoice;
   final bool isinCell;
 
   const ChoiceItem({
     Key? key,
-    required this.questionId,
-    required this.questionType,
     required this.choice,
-    required this.isSpecialAnswer,
+    required this.isSpecialChoice,
     this.isinCell = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AnswerCubit, Answer>(
+    return BlocBuilder<QuestionBloc, QuestionState>(
       buildWhen: (p, c) =>
-          p.contains(choice.simple()) || c.contains(choice.simple()),
-      builder: (context, answer) {
+          p.answer.contains(choice.simple()) ||
+          c.answer.contains(choice.simple()),
+      builder: (context, state) {
         logger('Build').i('ChoiceItem');
 
-        final isSelected = answer.contains(choice.simple());
+        final questionId = state.question.id;
+        final questionType = state.question.type;
+        final answer = state.answer;
 
-        final state = context.read<UpdateAnswerStatusBloc>().state;
-        final canEdit = !state.isReadOnly && !state.isRecodeModule;
+        final isSelected = state.answer.contains(choice.simple());
+
+        final _state = context.read<UpdateAnswerStatusBloc>().state;
+        final canEdit = !_state.isReadOnly && !_state.isRecodeModule;
 
         final isSingleAnswer =
-            questionType.isSingle || choice.asSingle || isSpecialAnswer;
+            questionType.isSingle || choice.asSingle || isSpecialChoice;
 
         final activeColor = canEdit ? Colors.teal : Colors.grey[600];
 
-        // NOTE 點擊後，先在 AnswerCubit 處理，之後再傳進 UpdateAnswerStatusBloc，如此可減少延遲
+        // NOTE 點擊後，先在 QuestionBloc 處理，之後再傳進 UpdateAnswerStatusBloc，如此可減少延遲
         void clickAction({
           bool toggle = false,
         }) {
           if (canEdit) {
-            if (!toggle) {
-              context.read<AnswerCubit>().setChoice(choice);
-            } else {
-              context.read<AnswerCubit>().toggleChoice(choice);
-            }
+            context.read<QuestionBloc>().add(
+                  toggle
+                      ? QuestionEvent.toggleChoice(choice)
+                      : QuestionEvent.setChoice(choice),
+                );
           }
         }
 

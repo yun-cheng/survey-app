@@ -53,7 +53,7 @@ class NoteBox extends HookWidget {
         onChanged: (value) {
           timer?.cancel();
           timer = Timer(
-            const Duration(milliseconds: 500),
+            const Duration(milliseconds: 0),
             () => context.read<UpdateAnswerStatusBloc>().add(
                   UpdateAnswerStatusEvent.answerUpdated(
                     questionId: questionId,

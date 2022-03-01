@@ -8,7 +8,7 @@ import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import 'local_storage.dart';
 
-class EventTask extends AsyncTask<Map, bool> {
+class IsolateStorageEventTask extends AsyncTask<Map, bool> {
   final String boxName;
   final Future<dynamic> Function(
     ILocalStorage localStorage,
@@ -22,7 +22,7 @@ class EventTask extends AsyncTask<Map, bool> {
   ) eventWorker;
   final ILocalStorage _localStorage = LocalStorage();
 
-  EventTask({
+  IsolateStorageEventTask({
     required this.path,
     required this.boxName,
     required this.stateFromStorage,
@@ -34,7 +34,7 @@ class EventTask extends AsyncTask<Map, bool> {
     Map parameters, [
     Map<String, SharedData>? sharedData,
   ]) =>
-      EventTask(
+      IsolateStorageEventTask(
         path: parameters['path'],
         boxName: parameters['boxName'],
         stateFromStorage: stateFromStorage,
@@ -66,13 +66,13 @@ class EventTask extends AsyncTask<Map, bool> {
       } else if (msg is bool) {
         break;
       } else {
-        logger('Task').e('Unsupported Event!');
+        logger('Task').e('Unsupported Task!');
         logger('Task').e(msg);
 
-        throw Exception('Unsupported Event!');
+        throw Exception('Unsupported Task!');
       }
     }
-    logger('Task').e('EventTask closed.');
+    logger('Task').e('IsolateStorageEventTask closed.');
 
     return true;
   }

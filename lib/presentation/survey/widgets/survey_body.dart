@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
 
-import '../../../application/survey/is_special_answer_cubit.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
+import '../listeners/question_listeners.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
@@ -42,12 +43,11 @@ class SurveyBody extends StatelessWidget {
             scrollController.jumpTo(0);
           });
 
-          final pageQIdList = state.pageQIdSet
+          final pageQuestionList = state.pageQIdSet
               .map((questionId) => state.questionMap[questionId]!)
               .filter((question) =>
                   question.tableId == '' ||
                   (question.tableId != '' && question.type.isTable))
-              .map((question) => question.id)
               .toList();
 
           return CustomScrollView(
@@ -59,18 +59,24 @@ class SurveyBody extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: SizedBox(height: 25.0),
               ),
-              ...pageQIdList
+              ...pageQuestionList
                   .asMap()
                   .entries
                   .map(
                     (e) => BlocProvider(
-                      create: (context) => IsSpecialAnswerCubit(
-                        state.answerStatusMap[e.value]?.isSpecialAnswer,
+                      create: (context) => QuestionBloc(
+                        question: e.value,
+                        answer: state.answerMap[e.value.id],
+                        isSpecialAnswer:
+                            state.answerStatusMap[e.value.id]?.isSpecialAnswer,
                       ),
-                      child: QaCard(
-                        questionId: e.value,
-                        questionIndex: e.key,
-                        scrollController: scrollController,
+                      child: QuestionListeners(
+                        child: Center(
+                          child: QaCard(
+                            questionIndex: e.key,
+                            scrollController: scrollController,
+                          ),
+                        ),
                       ),
                     ),
                   )

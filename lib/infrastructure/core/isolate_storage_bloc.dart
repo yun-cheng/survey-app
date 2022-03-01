@@ -1,20 +1,28 @@
 import 'package:async_task/async_task.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:tuple/tuple.dart';
 
-import 'isolate_event_task.dart';
+import '../../domain/core/i_local_storage.dart';
+import 'isolate_storage_event_task.dart';
 
-abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
+// NOTE 避免使用 HydratedBloc，因可能有 memory leak
+abstract class IsolateStorageBloc<Event, State> extends Bloc<Event, State> {
   AsyncExecutor? executor;
   AsyncTaskChannel? channel;
-  late final IsolateEventTask eventTask;
+  late final IsolateStorageEventTask eventTask;
 
-  IsolateBloc(State state) : super(state);
+  IsolateStorageBloc(State state) : super(state);
 
   Future<void> initialize({
+    required String boxName,
+    required Future<dynamic> Function(ILocalStorage localStorage)
+        stateFromStorage,
     required void Function(
       Tuple2 tuple,
       AsyncTaskChannel channel,
+      ILocalStorage localStorage,
     )
         eventWorker,
     required AsyncTaskRegister taskTypeRegister,
@@ -26,13 +34,25 @@ abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
     );
 
     // S_ event task
+    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
+    final path = dir?.path ?? '';
 
-    eventTask = IsolateEventTask(
+    eventTask = IsolateStorageEventTask(
+      path: path,
+      boxName: boxName,
+      stateFromStorage: stateFromStorage,
       eventWorker: eventWorker,
     );
 
     executor!.execute(eventTask);
     channel = await eventTask.channel();
+
+    // S_ initState
+    final initState = await channel!.sendAndWaitResponse('initState');
+
+    if (initState is State) {
+      emit(initState);
+    }
   }
 
   bool executionFinished(State newState);

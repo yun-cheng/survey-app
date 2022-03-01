@@ -25,9 +25,9 @@ import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
 import '../../../domain/survey/typedefs.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/extensions.dart';
-import '../../../infrastructure/core/isolate_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_event_task.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
 part 'response_bloc.freezed.dart';
@@ -36,7 +36,7 @@ part 'response_event.dart';
 part 'response_event_worker.dart';
 part 'response_state.dart';
 
-class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
+class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, ResponseMap>>?
       _responseMapSubscription;
@@ -110,16 +110,16 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
           ),
         );
 
-        // S_1 若閒置 10 秒未更新則上傳，
+        // S_1 若閒置 30 秒未更新則上傳，
         _inactiveTimer = Timer(
-          const Duration(seconds: 10),
+          const Duration(seconds: 30),
           () => add(const ResponseEvent.responseMapUploading()),
         );
 
-        // S_2 或從同步後第一次更新開始算 30 秒未閒置則依然上傳
+        // S_2 或從同步後第一次更新開始算 5 分鐘未閒置則依然上傳
         if (_activeTimer == null || !_activeTimer!.isActive) {
           _activeTimer = Timer(
-            const Duration(seconds: 30),
+            const Duration(minutes: 5),
             () => add(const ResponseEvent.responseMapUploading()),
           );
         }
@@ -178,8 +178,8 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
       editFinished: (e) async {
         logger('User Event').i('ResponseEvent: editFinished');
 
-        add(const ResponseEvent.uploadTimerUpdated());
         await execute(event, emit);
+        add(const ResponseEvent.responseMapUploading());
       },
       // H_ 使用者在閒置後，選擇繼續訪問
       responseResumed: (e) async {

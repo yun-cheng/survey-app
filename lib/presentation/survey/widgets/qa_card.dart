@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
-import '../../../domain/survey/question.dart';
 import '../../core/style/main.dart';
 import 'answer_box.dart';
 import 'question_box.dart';
@@ -16,14 +16,12 @@ import 'special_answer_switch.dart';
 import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
-  final String questionId;
   final int questionIndex;
   final AutoScrollController scrollController;
 
   // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
   const QaCard({
     Key? key,
-    required this.questionId,
     required this.questionIndex,
     required this.scrollController,
   }) : super(key: key);
@@ -33,6 +31,10 @@ class QaCard extends StatelessWidget {
   // TODO 若是遠端資料改變，則會觸發 stateRestore，則全部 rebuild
   @override
   Widget build(BuildContext context) {
+    final question = context.read<QuestionBloc>().state.question;
+    final questionId = question.id;
+    final questionType = question.type;
+
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
@@ -49,7 +51,6 @@ class QaCard extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('QaCard');
 
-        final question = state.questionMap[questionId] ?? Question.empty();
         final canEdit = !state.isReadOnly && !state.isRecodeModule;
         final visible =
             !(state.answerStatusMap[questionId] ?? AnswerStatus.empty())
@@ -71,36 +72,30 @@ class QaCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         // H_ QuestionBox
-                        QuestionBox(questionId: questionId),
+                        const QuestionBox(),
                         Row(
                           children: [
                             const SizedBox(height: 40),
                             // H_ SpecialAnswerSwitch
                             if (question.hasSpecialAnswer &&
-                                !question.type.isTable) ...[
+                                !questionType.isTable) ...[
                               Visibility(
                                 visible: canEdit,
                                 maintainState: true,
-                                child: SpecialAnswerSwitch(
-                                  questionId: question.id,
-                                  showText: false,
-                                ),
+                                child:
+                                    const SpecialAnswerSwitch(showText: false),
                               ),
                               const SizedBox(width: 20),
                             ],
                             // // H_ WarningBox
-                            WarningBox(
-                              question: question,
-                              questionId: questionId,
-                            ),
+                            const WarningBox(),
                           ],
                         ),
-                        if (!question.type.isTable) ...[
+                        // H_ AnswerBox
+                        if (!questionType.isTable) ...[
                           Align(
                             alignment: Alignment.topLeft,
                             child: AnswerBox(
-                              questionId: question.id,
-                              questionType: question.type,
                               tableId: question.tableId,
                               scrollController: scrollController,
                             ),
@@ -111,11 +106,9 @@ class QaCard extends StatelessWidget {
                   ),
                 ),
               ),
-              // H_ AnswerBox
-              if (question.type.isTable) ...[
+              // H_ Table
+              if (questionType.isTable) ...[
                 AnswerBox(
-                  questionId: question.id,
-                  questionType: question.type,
                   tableId: question.tableId,
                   scrollController: scrollController,
                 ),
@@ -131,9 +124,9 @@ class QaCard extends StatelessWidget {
                       // H_ RecodeBox
                       if (state.isRecodeModule && question.recodeNeeded) ...[
                         const SizedBox(height: 10),
-                        Align(
+                        const Align(
                           alignment: Alignment.topLeft,
-                          child: RecodeBox(questionId: question.id),
+                          child: RecodeBox(),
                         ),
                       ],
                       const SizedBox(height: 15),

@@ -24,16 +24,8 @@ UpdateAnswerStatusState answerUpdated(
       newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
     } else if ((!question.type.isChoice & !e.isSpecialAnswer) || e.isRecode) {
       newAnswer = oldAnswer.setString(e.answerValue);
-    } else if ((e.answerValue as Choice).asSingle || !e.toggle) {
-      newAnswer = oldAnswer.setChoice(
-        choice: e.answerValue.simple(),
-        asNote: e.answerValue.asNote,
-      );
     } else {
-      newAnswer = oldAnswer.toggleChoice(
-        choice: e.answerValue.simple(),
-        asNote: e.answerValue.asNote,
-      );
+      newAnswer = oldAnswer;
     }
   }
   answerMap[e.questionId] = newAnswer;

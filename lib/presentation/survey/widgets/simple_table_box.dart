@@ -5,11 +5,12 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../../../application/survey/is_special_answer_cubit.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
+import '../listeners/question_listeners.dart';
 import 'simple_table_row.dart';
 
 class SimpleTableBox extends HookWidget {
@@ -92,14 +93,18 @@ class SimpleTableBox extends HookWidget {
           children: tableQuestionList
               .map(
                 (question) => BlocProvider(
-                  create: (context) => IsSpecialAnswerCubit(
-                    state.answerStatusMap[question.id]?.isSpecialAnswer,
+                  create: (context) => QuestionBloc(
+                    question: question,
+                    answer: state.answerMap[question.id],
+                    isSpecialAnswer:
+                        state.answerStatusMap[question.id]?.isSpecialAnswer,
                   ),
-                  child: SimpleTableRow(
-                    // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                    key: Key(UniqueId.v1().value),
-                    questionId: question.id,
-                    scrollController: getController(question.id),
+                  child: QuestionListeners(
+                    child: SimpleTableRow(
+                      // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                      key: Key(UniqueId.v1().value),
+                      scrollController: getController(question.id),
+                    ),
                   ),
                 ),
               )

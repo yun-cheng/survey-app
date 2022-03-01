@@ -32,6 +32,7 @@ class Answer with _$Answer {
       );
 
   bool get isEmpty => this == Answer.empty();
+  bool get isNotEmpty => this != Answer.empty();
 
   bool get valueIsUnfinished {
     if (value == null) {

@@ -21,9 +21,9 @@ import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
-import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/extensions.dart';
-import '../../../infrastructure/core/isolate_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_event_task.dart';
 import '../../../infrastructure/survey/update_answer_status_state_dtos.dart';
 
 part 'update_answer_compute.dart';
@@ -34,8 +34,8 @@ part 'update_answer_status_event_worker.dart';
 part 'update_answer_status_state.dart';
 part 'update_survey_page_compute.dart';
 
-class UpdateAnswerStatusBloc
-    extends IsolateBloc<UpdateAnswerStatusEvent, UpdateAnswerStatusState> {
+class UpdateAnswerStatusBloc extends IsolateStorageBloc<UpdateAnswerStatusEvent,
+    UpdateAnswerStatusState> {
   UpdateAnswerStatusBloc() : super(UpdateAnswerStatusState.initial()) {
     on<UpdateAnswerStatusEvent>(_onEvent, transformer: sequential());
     add(const UpdateAnswerStatusEvent.initialized());

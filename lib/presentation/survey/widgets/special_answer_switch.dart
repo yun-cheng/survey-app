@@ -1,57 +1,41 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/is_special_answer_cubit.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 
 class SpecialAnswerSwitch extends StatelessWidget {
-  final String questionId;
   final bool showText;
 
   const SpecialAnswerSwitch({
     Key? key,
-    required this.questionId,
     this.showText = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Timer? timer;
-
-    return BlocConsumer<IsSpecialAnswerCubit, bool>(
-      listener: (context, isSpecialAnswer) {
-        timer?.cancel();
-        timer = Timer(
-          const Duration(milliseconds: 500),
-          () => context.read<UpdateAnswerStatusBloc>().add(
-                UpdateAnswerStatusEvent.answerUpdated(
-                  questionId: questionId,
-                  answerValue: null,
-                  setIsSpecialAnswer: isSpecialAnswer,
-                ),
-              ),
-        );
-      },
-      builder: (context, isSpecialAnswer) {
+    return BlocBuilder<QuestionBloc, QuestionState>(
+      buildWhen: (p, c) => p.isSpecialAnswer != c.isSpecialAnswer,
+      builder: (context, state) {
         logger('Build').i('SpecialAnswerSwitch');
 
-        final state = context.read<UpdateAnswerStatusBloc>().state;
-        final canEdit = !state.isReadOnly && !state.isRecodeModule;
+        final _state = context.read<UpdateAnswerStatusBloc>().state;
+        final canEdit = !_state.isReadOnly && !_state.isRecodeModule;
 
         return Row(
           // NOTE 強制 rebuild 取消動畫
           key: Key(UniqueId.v1().value),
           children: [
             Switch(
-              value: isSpecialAnswer,
+              value: state.isSpecialAnswer,
               onChanged: (_) {
                 if (canEdit) {
-                  context.read<IsSpecialAnswerCubit>().toggle();
+                  context.read<QuestionBloc>().add(
+                        QuestionEvent.setSpecialAnswer(!state.isSpecialAnswer),
+                      );
                 }
               },
             ),

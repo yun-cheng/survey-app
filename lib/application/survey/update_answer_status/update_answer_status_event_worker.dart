@@ -1,7 +1,7 @@
 part of 'update_answer_status_bloc.dart';
 
 List<AsyncTask> _taskTypeRegister() => [
-      EventTask(
+      IsolateStorageEventTask(
         path: '',
         boxName: '',
         stateFromStorage: stateFromStorage,

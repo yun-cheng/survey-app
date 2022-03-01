@@ -5,9 +5,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 void useAutomaticKeepAlive({
   bool? wantKeepAlive,
 }) =>
-    use(_AutomaticKeepAliveHook(
-      wantKeepAlive: wantKeepAlive ?? true,
-    ));
+    use(
+      _AutomaticKeepAliveHook(
+        wantKeepAlive: wantKeepAlive ?? true,
+      ),
+    );
 
 class _AutomaticKeepAliveHook extends Hook<void> {
   final bool wantKeepAlive;
@@ -26,7 +28,6 @@ class _AutomaticKeepAliveHookState
   KeepAliveHandle? _keepAliveHandle;
 
   void _ensureKeepAlive() {
-    assert(_keepAliveHandle == null);
     _keepAliveHandle = KeepAliveHandle();
     KeepAliveNotification(_keepAliveHandle!).dispatch(context);
   }
@@ -53,7 +54,7 @@ class _AutomaticKeepAliveHookState
   @override
   void build(BuildContext context) {
     if (hook.wantKeepAlive && _keepAliveHandle == null) _ensureKeepAlive();
-    // return null;
+    return;
   }
 
   @override
@@ -63,7 +64,7 @@ class _AutomaticKeepAliveHookState
   }
 
   @override
-  Object? get debugValue => _keepAliveHandle;
+  Object get debugValue => _keepAliveHandle!;
 
   @override
   String get debugLabel => 'useAutomaticKeepAlive';

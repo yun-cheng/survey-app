@@ -26,9 +26,9 @@ import '../../domain/survey/choice.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
-import '../../infrastructure/core/event_task.dart';
 import '../../infrastructure/core/extensions.dart';
-import '../../infrastructure/core/isolate_bloc.dart';
+import '../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../infrastructure/core/isolate_storage_event_task.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
 part 'respondent_bloc.freezed.dart';
@@ -37,7 +37,8 @@ part 'respondent_event.dart';
 part 'respondent_event_worker.dart';
 part 'respondent_state.dart';
 
-class RespondentBloc extends IsolateBloc<RespondentEvent, RespondentState> {
+class RespondentBloc
+    extends IsolateStorageBloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;
   StreamSubscription<Either<RespondentFailure, SurveyRespondentMap>>?
       _surveyRespondentMapSubscription;

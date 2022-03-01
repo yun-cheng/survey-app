@@ -4,7 +4,7 @@ import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
-import '../core/event_task.dart';
+import '../core/isolate_storage_event_task.dart';
 import '../core/extensions.dart';
 import '../survey/response_list_dtos.dart';
 import '../survey/survey_dtos.dart';

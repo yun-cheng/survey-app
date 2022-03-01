@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
-import '../core/event_task.dart';
+import '../core/isolate_storage_event_task.dart';
 
 part 'navigation_state_dtos.freezed.dart';
 part 'navigation_state_dtos.g.dart';

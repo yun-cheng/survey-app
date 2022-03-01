@@ -8,8 +8,8 @@ import 'package:tuple/tuple.dart';
 
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
-import '../../infrastructure/core/event_task.dart';
-import '../../infrastructure/core/isolate_bloc.dart';
+import '../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../infrastructure/core/isolate_storage_event_task.dart';
 import '../../infrastructure/navigation/navigation_state_dtos.dart';
 
 part 'navigation_bloc.freezed.dart';
@@ -17,7 +17,8 @@ part 'navigation_event.dart';
 part 'navigation_event_worker.dart';
 part 'navigation_state.dart';
 
-class NavigationBloc extends IsolateBloc<NavigationEvent, NavigationState> {
+class NavigationBloc
+    extends IsolateStorageBloc<NavigationEvent, NavigationState> {
   NavigationBloc() : super(NavigationState.initial()) {
     on<NavigationEvent>(_onEvent, transformer: sequential());
     // HIGHLIGHT 剛開始一定要先有一個 event 才會觸發 listener

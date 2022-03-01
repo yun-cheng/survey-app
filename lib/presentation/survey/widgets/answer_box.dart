@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/answer_cubit.dart';
-import '../../../application/survey/is_special_answer_cubit.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/value_objects.dart';
 import 'choices_box.dart';
@@ -15,16 +13,12 @@ import 'simple_table_box.dart';
 import 'text_box.dart';
 
 class AnswerBox extends StatelessWidget {
-  final String questionId;
-  final QuestionType questionType;
   final bool isinCell;
   final String tableId;
   final ScrollController? scrollController;
 
   const AnswerBox({
     Key? key,
-    required this.questionId,
-    required this.questionType,
     this.isinCell = false,
     this.tableId = '',
     this.scrollController,
@@ -34,7 +28,9 @@ class AnswerBox extends StatelessWidget {
   Widget build(BuildContext context) {
     logger('Build').i('AnswerBox');
 
-    final isSpecialAnswer = context.watch<IsSpecialAnswerCubit>().state;
+    final questionType = context.read<QuestionBloc>().state.question.type;
+    final isSpecialAnswer =
+        context.select((QuestionBloc bloc) => bloc.state.isSpecialAnswer);
 
     if (questionType.isValid) {
       if (questionType == QuestionType.simpleTable()) {
@@ -55,8 +51,6 @@ class AnswerBox extends StatelessWidget {
               visible: isSpecialAnswer,
               maintainState: true,
               child: PureAnswerBox(
-                questionId: questionId,
-                questionType: questionType,
                 isSpecialAnswer: true,
                 isinCell: isinCell,
               ),
@@ -66,8 +60,6 @@ class AnswerBox extends StatelessWidget {
               visible: !isSpecialAnswer,
               maintainState: true,
               child: PureAnswerBox(
-                questionId: questionId,
-                questionType: questionType,
                 isSpecialAnswer: false,
                 isinCell: isinCell,
               ),
@@ -81,15 +73,11 @@ class AnswerBox extends StatelessWidget {
 }
 
 class PureAnswerBox extends StatelessWidget {
-  final String questionId;
-  final QuestionType questionType;
   final bool isSpecialAnswer;
   final bool isinCell;
 
   const PureAnswerBox({
     Key? key,
-    required this.questionId,
-    required this.questionType,
     required this.isSpecialAnswer,
     this.isinCell = false,
   }) : super(key: key);
@@ -98,39 +86,29 @@ class PureAnswerBox extends StatelessWidget {
   Widget build(BuildContext context) {
     logger('Build').i('PureAnswerBox');
 
+    final question = context.read<QuestionBloc>().state.question;
+    final questionType = question.type;
+
+    if (!question.hasSpecialAnswer && isSpecialAnswer) {
+      return const SizedBox();
+    }
+
     if ((questionType == QuestionType.popupSingle() && !isSpecialAnswer) ||
         (isSpecialAnswer && isinCell)) {
       return DropdownBox(
-        questionId: questionId,
-        isSpecialAnswer: isSpecialAnswer,
+        isSpecialChoice: isSpecialAnswer,
       );
     } else if (questionType.isNormalChoice || isSpecialAnswer) {
-      return BlocProvider(
-        create: (context) => AnswerCubit(
-          context.read<UpdateAnswerStatusBloc>().state.answerMap[questionId],
-        ),
-        child: ChoicesBox(
-          questionId: questionId,
-          questionType: questionType,
-          isSpecialAnswer: isSpecialAnswer,
-          isinCell: isinCell,
-        ),
+      return ChoicesBox(
+        isSpecialChoice: isSpecialAnswer,
+        isinCell: isinCell,
       );
     } else if (questionType.isInput) {
-      return TextBox(
-        questionId: questionId,
-        questionType: questionType,
-      );
+      return const TextBox();
     } else if (questionType.isDateTime) {
-      return DateTimeBox(
-        questionId: questionId,
-        questionType: questionType,
-      );
+      return const DateTimeBox();
     } else if (questionType.isPhone) {
-      return PhoneBox(
-        questionId: questionId,
-        questionType: questionType,
-      );
+      return const PhoneBox();
     }
     return const SizedBox();
   }

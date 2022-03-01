@@ -1,7 +1,7 @@
 part of 'watch_survey_bloc.dart';
 
 List<AsyncTask> _taskTypeRegister() => [
-      EventTask(
+      IsolateStorageEventTask(
         path: '',
         boxName: '',
         stateFromStorage: stateFromStorage,

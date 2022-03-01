@@ -15,15 +15,15 @@ import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
-import '../../infrastructure/core/event_task.dart';
-import '../../infrastructure/core/isolate_bloc.dart';
+import '../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../infrastructure/core/isolate_storage_event_task.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_event_worker.dart';
 part 'auth_state.dart';
 
-class AuthBloc extends IsolateBloc<AuthEvent, AuthState> {
+class AuthBloc extends IsolateStorageBloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
   StreamSubscription<Either<AuthFailure, List<Team>>>? _teamListSubscription;
   StreamSubscription<Either<AuthFailure, List<Interviewer>>>?

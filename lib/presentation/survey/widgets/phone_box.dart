@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
-import '../../../domain/survey/value_objects.dart';
 
 class PhoneBox extends StatelessWidget {
-  final String questionId;
-  final QuestionType questionType;
-
   const PhoneBox({
     Key? key,
-    required this.questionId,
-    required this.questionType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final question = context.read<QuestionBloc>().state.question;
+    final questionId = question.id;
+    final questionType = question.type;
+
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
         buildWhen: (p, c) =>
             (p.updateState != c.updateState &&
@@ -41,8 +39,7 @@ class PhoneBox extends StatelessWidget {
             child: TextFormField(
               initialValue: note,
               enabled: !isReadOnly && !isRecodeModule,
-              decoration: const InputDecoration(
-              ),
+              decoration: const InputDecoration(),
               keyboardType: TextInputType.phone,
               onChanged: (value) {
                 context.read<UpdateAnswerStatusBloc>().add(

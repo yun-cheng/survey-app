@@ -5,7 +5,7 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../../../application/survey/is_special_answer_cubit.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -13,6 +13,7 @@ import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../core/style/main.dart';
+import '../listeners/question_listeners.dart';
 import 'complex_cell_box.dart';
 
 class ComplexTableBox extends HookWidget {
@@ -74,12 +75,16 @@ class ComplexTableBox extends HookWidget {
               .entries
               .map(
                 (e) => BlocProvider(
-                  create: (context) => IsSpecialAnswerCubit(
-                    state.answerStatusMap[e.value.id]?.isSpecialAnswer,
+                  create: (context) => QuestionBloc(
+                    question: e.value,
+                    answer: state.answerMap[e.value.id],
+                    isSpecialAnswer:
+                        state.answerStatusMap[e.value.id]?.isSpecialAnswer,
                   ),
-                  child: ComplexCellBox(
-                    questionId: e.value.id,
-                    colQuestionId: titleQuestionList[e.key].id,
+                  child: QuestionListeners(
+                    child: ComplexCellBox(
+                      colQuestionId: titleQuestionList[e.key].id,
+                    ),
                   ),
                 ),
               )
@@ -92,9 +97,10 @@ class ComplexTableBox extends HookWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ComplexCellBox(
-                    questionId: questionList[0].id,
-                    isFirstColumn: true,
+                  BlocProvider(
+                    create: (context) =>
+                        QuestionBloc(question: questionList[0]),
+                    child: const ComplexCellBox(isFirstColumn: true),
                   ),
                   Flexible(
                     child: SingleChildScrollView(
@@ -130,9 +136,11 @@ class ComplexTableBox extends HookWidget {
                 child: Row(
                   children: titleQuestionList
                       .map(
-                        (question) => ComplexCellBox(
-                          questionId: question.id,
-                          isTitle: true,
+                        (question) => BlocProvider(
+                          create: (context) => QuestionBloc(question: question),
+                          child: const QuestionListeners(
+                            child: ComplexCellBox(isTitle: true),
+                          ),
                         ),
                       )
                       .toList(),

@@ -15,9 +15,9 @@ import '../../../domain/overview/project.dart';
 import '../../../domain/overview/survey.dart';
 import '../../../domain/survey/i_survey_repository.dart';
 import '../../../domain/survey/survey_failure.dart';
-import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/extensions.dart';
-import '../../../infrastructure/core/isolate_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_event_task.dart';
 import '../../../infrastructure/survey/survey_state_dtos.dart';
 
 part 'watch_survey_bloc.freezed.dart';
@@ -25,7 +25,8 @@ part 'watch_survey_event.dart';
 part 'watch_survey_event_worker.dart';
 part 'watch_survey_state.dart';
 
-class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
+class WatchSurveyBloc
+    extends IsolateStorageBloc<WatchSurveyEvent, WatchSurveyState> {
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, Map<String, Survey>>>?
       _surveyMapSubscription;

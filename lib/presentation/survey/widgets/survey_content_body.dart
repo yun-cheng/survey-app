@@ -7,6 +7,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
+import '../../core/widgets/automatic_keep_alive_widget.dart';
 
 class SurveyContentBody extends StatelessWidget {
   const SurveyContentBody({Key? key}) : super(key: key);
@@ -63,29 +64,31 @@ class SurveyContentBody extends StatelessWidget {
               page = state.recodeQuestionMap[questionId]!.pageNumber;
             }
 
-            return Align(
-              alignment: Alignment.topCenter,
-              child: ConstrainedBox(
-                constraints: kCardMaxWith,
-                child: Card(
-                  child: ListTile(
-                    leading: leadingIcon,
-                    title: Text(
-                      contentText,
-                      style: kPTextStyle,
-                      maxLines: 1,
-                      overflow: TextOverflow.clip,
-                      softWrap: false,
+            return AutomaticKeepAliveWidget(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: ConstrainedBox(
+                  constraints: kCardMaxWith,
+                  child: Card(
+                    child: ListTile(
+                      leading: leadingIcon,
+                      title: Text(
+                        contentText,
+                        style: kPTextStyle,
+                        maxLines: 1,
+                        overflow: TextOverflow.clip,
+                        softWrap: false,
+                      ),
+                      onTap: () {
+                        context.read<UpdateAnswerStatusBloc>().add(
+                              UpdateAnswerStatusEvent.navigatedToQuestionId(
+                                page: page,
+                                questionId: questionId,
+                              ),
+                            );
+                        context.router.pop();
+                      },
                     ),
-                    onTap: () {
-                      context.read<UpdateAnswerStatusBloc>().add(
-                            UpdateAnswerStatusEvent.navigatedToQuestionId(
-                              page: page,
-                              questionId: questionId,
-                            ),
-                          );
-                      context.router.pop();
-                    },
                   ),
                 ),
               ),

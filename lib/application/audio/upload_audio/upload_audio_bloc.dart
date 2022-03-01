@@ -15,15 +15,16 @@ import '../../../domain/core/i_local_storage.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../infrastructure/audio/upload_audio_state_dtos.dart';
-import '../../../infrastructure/core/event_task.dart';
-import '../../../infrastructure/core/isolate_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_bloc.dart';
+import '../../../infrastructure/core/isolate_storage_event_task.dart';
 
 part 'upload_audio_bloc.freezed.dart';
 part 'upload_audio_event.dart';
 part 'upload_audio_event_worker.dart';
 part 'upload_audio_state.dart';
 
-class UploadAudioBloc extends IsolateBloc<UploadAudioEvent, UploadAudioState> {
+class UploadAudioBloc
+    extends IsolateStorageBloc<UploadAudioEvent, UploadAudioState> {
   final IAudioRepository _iAudioRepository;
   StreamSubscription<Either<AudioFailure, Audio>>? _uploadProgressWatcher;
 

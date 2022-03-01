@@ -59,7 +59,6 @@ class _$UpdateAnswerStatusEventTearOff {
       Answer? answer,
       bool isSpecialAnswer = false,
       bool isNote = false,
-      bool toggle = false,
       String? noteOf,
       bool isRecode = false,
       bool? setIsSpecialAnswer}) {
@@ -69,7 +68,6 @@ class _$UpdateAnswerStatusEventTearOff {
       answer: answer,
       isSpecialAnswer: isSpecialAnswer,
       isNote: isNote,
-      toggle: toggle,
       noteOf: noteOf,
       isRecode: isRecode,
       setIsSpecialAnswer: setIsSpecialAnswer,
@@ -184,7 +182,6 @@ mixin _$UpdateAnswerStatusEvent {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -232,7 +229,6 @@ mixin _$UpdateAnswerStatusEvent {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -278,7 +274,6 @@ mixin _$UpdateAnswerStatusEvent {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -683,7 +678,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -747,7 +741,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -809,7 +802,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -1044,7 +1036,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -1095,7 +1086,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -1144,7 +1134,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -1276,7 +1265,6 @@ abstract class _$AnswerUpdatedCopyWith<$Res> {
       Answer? answer,
       bool isSpecialAnswer,
       bool isNote,
-      bool toggle,
       String? noteOf,
       bool isRecode,
       bool? setIsSpecialAnswer});
@@ -1302,7 +1290,6 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
     Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
     Object? isNote = freezed,
-    Object? toggle = freezed,
     Object? noteOf = freezed,
     Object? isRecode = freezed,
     Object? setIsSpecialAnswer = freezed,
@@ -1327,10 +1314,6 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
       isNote: isNote == freezed
           ? _value.isNote
           : isNote // ignore: cast_nullable_to_non_nullable
-              as bool,
-      toggle: toggle == freezed
-          ? _value.toggle
-          : toggle // ignore: cast_nullable_to_non_nullable
               as bool,
       noteOf: noteOf == freezed
           ? _value.noteOf
@@ -1368,7 +1351,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       this.answer,
       this.isSpecialAnswer = false,
       this.isNote = false,
-      this.toggle = false,
       this.noteOf,
       this.isRecode = false,
       this.setIsSpecialAnswer});
@@ -1385,9 +1367,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @JsonKey()
   @override
   final bool isNote;
-  @JsonKey()
-  @override
-  final bool toggle;
   @override
   final String? noteOf;
   @JsonKey()
@@ -1398,7 +1377,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, answer: $answer, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, toggle: $toggle, noteOf: $noteOf, isRecode: $isRecode, setIsSpecialAnswer: $setIsSpecialAnswer)';
+    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, answer: $answer, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf, isRecode: $isRecode, setIsSpecialAnswer: $setIsSpecialAnswer)';
   }
 
   @override
@@ -1412,7 +1391,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       ..add(DiagnosticsProperty('answer', answer))
       ..add(DiagnosticsProperty('isSpecialAnswer', isSpecialAnswer))
       ..add(DiagnosticsProperty('isNote', isNote))
-      ..add(DiagnosticsProperty('toggle', toggle))
       ..add(DiagnosticsProperty('noteOf', noteOf))
       ..add(DiagnosticsProperty('isRecode', isRecode))
       ..add(DiagnosticsProperty('setIsSpecialAnswer', setIsSpecialAnswer));
@@ -1431,7 +1409,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             const DeepCollectionEquality()
                 .equals(other.isSpecialAnswer, isSpecialAnswer) &&
             const DeepCollectionEquality().equals(other.isNote, isNote) &&
-            const DeepCollectionEquality().equals(other.toggle, toggle) &&
             const DeepCollectionEquality().equals(other.noteOf, noteOf) &&
             const DeepCollectionEquality().equals(other.isRecode, isRecode) &&
             const DeepCollectionEquality()
@@ -1446,7 +1423,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       const DeepCollectionEquality().hash(answer),
       const DeepCollectionEquality().hash(isSpecialAnswer),
       const DeepCollectionEquality().hash(isNote),
-      const DeepCollectionEquality().hash(toggle),
       const DeepCollectionEquality().hash(noteOf),
       const DeepCollectionEquality().hash(isRecode),
       const DeepCollectionEquality().hash(setIsSpecialAnswer));
@@ -1481,7 +1457,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -1505,7 +1480,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function() initialized,
   }) {
     return answerUpdated(questionId, answerValue, answer, isSpecialAnswer,
-        isNote, toggle, noteOf, isRecode, setIsSpecialAnswer);
+        isNote, noteOf, isRecode, setIsSpecialAnswer);
   }
 
   @override
@@ -1533,7 +1508,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -1555,7 +1529,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? initialized,
   }) {
     return answerUpdated?.call(questionId, answerValue, answer, isSpecialAnswer,
-        isNote, toggle, noteOf, isRecode, setIsSpecialAnswer);
+        isNote, noteOf, isRecode, setIsSpecialAnswer);
   }
 
   @override
@@ -1583,7 +1557,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -1607,7 +1580,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   }) {
     if (answerUpdated != null) {
       return answerUpdated(questionId, answerValue, answer, isSpecialAnswer,
-          isNote, toggle, noteOf, isRecode, setIsSpecialAnswer);
+          isNote, noteOf, isRecode, setIsSpecialAnswer);
     }
     return orElse();
   }
@@ -1708,7 +1681,6 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
       Answer? answer,
       bool isSpecialAnswer,
       bool isNote,
-      bool toggle,
       String? noteOf,
       bool isRecode,
       bool? setIsSpecialAnswer}) = _$_AnswerUpdated;
@@ -1718,7 +1690,6 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
   Answer? get answer;
   bool get isSpecialAnswer;
   bool get isNote;
-  bool get toggle;
   String? get noteOf;
   bool get isRecode;
   bool? get setIsSpecialAnswer;
@@ -1837,7 +1808,6 @@ class _$_PageNavigatedTo
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -1888,7 +1858,6 @@ class _$_PageNavigatedTo
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -1937,7 +1906,6 @@ class _$_PageNavigatedTo
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -2176,7 +2144,6 @@ class _$_ScrolledToQuestionId
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -2227,7 +2194,6 @@ class _$_ScrolledToQuestionId
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -2276,7 +2242,6 @@ class _$_ScrolledToQuestionId
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -2506,7 +2471,6 @@ class _$_JumpedToWarningQuestion
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -2557,7 +2521,6 @@ class _$_JumpedToWarningQuestion
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -2606,7 +2569,6 @@ class _$_JumpedToWarningQuestion
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -2808,7 +2770,6 @@ class _$_ContentQuestionMapUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -2859,7 +2820,6 @@ class _$_ContentQuestionMapUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -2908,7 +2868,6 @@ class _$_ContentQuestionMapUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -3102,7 +3061,6 @@ class _$_FinishedButtonPressed
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -3153,7 +3111,6 @@ class _$_FinishedButtonPressed
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -3202,7 +3159,6 @@ class _$_FinishedButtonPressed
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -3427,7 +3383,6 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -3478,7 +3433,6 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -3527,7 +3481,6 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -3724,7 +3677,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -3775,7 +3727,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -3824,7 +3775,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4018,7 +3968,6 @@ class _$_LeaveButtonPressed
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -4069,7 +4018,6 @@ class _$_LeaveButtonPressed
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4118,7 +4066,6 @@ class _$_LeaveButtonPressed
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4312,7 +4259,6 @@ class _$_LeaveButtonHidden
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -4363,7 +4309,6 @@ class _$_LeaveButtonHidden
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4412,7 +4357,6 @@ class _$_LeaveButtonHidden
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4611,7 +4555,6 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -4662,7 +4605,6 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4711,7 +4653,6 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -4933,7 +4874,6 @@ class _$_AppLifeCycleChanged
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -4984,7 +4924,6 @@ class _$_AppLifeCycleChanged
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5033,7 +4972,6 @@ class _$_AppLifeCycleChanged
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5264,7 +5202,6 @@ class _$_RespondentResponseListUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -5315,7 +5252,6 @@ class _$_RespondentResponseListUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5364,7 +5300,6 @@ class _$_RespondentResponseListUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5593,7 +5528,6 @@ class _$_ReferenceListUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -5644,7 +5578,6 @@ class _$_ReferenceListUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5693,7 +5626,6 @@ class _$_ReferenceListUpdated
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5890,7 +5822,6 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)
@@ -5941,7 +5872,6 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?
@@ -5990,7 +5920,6 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
-            bool toggle,
             String? noteOf,
             bool isRecode,
             bool? setIsSpecialAnswer)?

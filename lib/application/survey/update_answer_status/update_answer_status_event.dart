@@ -29,7 +29,6 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     Answer? answer,
     @Default(false) bool isSpecialAnswer,
     @Default(false) bool isNote,
-    @Default(false) bool toggle,
     String? noteOf,
     @Default(false) bool isRecode,
     bool? setIsSpecialAnswer,

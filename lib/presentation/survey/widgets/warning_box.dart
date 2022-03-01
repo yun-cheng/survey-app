@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../../domain/survey/question.dart';
 import '../../core/style/main.dart';
 
 class WarningBox extends StatelessWidget {
-  final Question question;
-  final String questionId;
   final bool isinCell;
 
   const WarningBox({
     Key? key,
-    required this.question,
-    required this.questionId,
     this.isinCell = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final question = context.read<QuestionBloc>().state.question;
+    final questionId = question.id;
+
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) =>
           (p.updateState != c.updateState &&

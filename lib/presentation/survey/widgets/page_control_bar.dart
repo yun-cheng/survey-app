@@ -66,7 +66,7 @@ class PageControlBar extends HookWidget {
         // NOTE timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
         timer?.cancel();
         timer = Timer(
-          const Duration(milliseconds: 500),
+          const Duration(milliseconds: 0),
           () {
             if (direction != null) {
               context.read<UpdateAnswerStatusBloc>().add(
