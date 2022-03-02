@@ -54,9 +54,9 @@ class RespondentsBody extends StatelessWidget {
                 state.tabRespondentMap[tabType]?.values.toList() ?? [];
 
             return ListView.builder(
-              shrinkWrap: true,
               controller: scrollController,
               itemCount: respondentList.length,
+              // cacheExtent: screenLong * 2,
               itemBuilder: (context, index) {
                 final respondent = respondentList[index];
                 return AutomaticKeepAliveWidget(
@@ -65,6 +65,7 @@ class RespondentsBody extends StatelessWidget {
                     controller: scrollController,
                     index: index,
                     child: RespondentItem(
+                      index: index,
                       tabType: tabType,
                       respondent: respondent,
                     ),

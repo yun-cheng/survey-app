@@ -72,6 +72,15 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
             )
             .emit(emit);
       },
+      questionShowed: (e) async {
+        if (!state.show) {
+          state
+              .copyWith(
+                show: true,
+              )
+              .emit(emit);
+        }
+      },
       orElse: () async {},
     );
   }

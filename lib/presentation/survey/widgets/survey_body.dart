@@ -71,11 +71,9 @@ class SurveyBody extends StatelessWidget {
                             state.answerStatusMap[e.value.id]?.isSpecialAnswer,
                       ),
                       child: QuestionListeners(
-                        child: Center(
-                          child: QaCard(
-                            questionIndex: e.key,
-                            scrollController: scrollController,
-                          ),
+                        child: QaCard(
+                          questionIndex: e.key,
+                          scrollController: scrollController,
                         ),
                       ),
                     ),

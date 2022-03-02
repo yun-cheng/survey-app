@@ -45,11 +45,11 @@ class RespondentCard extends StatelessWidget {
             : state.visitRecordsMap[respondent.id]?.firstOrNull?.description ??
                 '';
 
-        return Card(
-          shape: RoundedRectangleBorder(
+        return Container(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
+            color: Theme.of(context).cardColor,
           ),
-          margin: const EdgeInsets.only(top: 10),
           child: InkWell(
             onTap: () {
               context.read<RespondentBloc>().add(
@@ -60,8 +60,8 @@ class RespondentCard extends StatelessWidget {
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 18.0,
-                horizontal: 18.0,
+                vertical: 18,
+                horizontal: 18,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

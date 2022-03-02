@@ -9,6 +9,7 @@ class QuestionState with _$QuestionState {
     required Question question,
     required Answer answer,
     required bool isSpecialAnswer,
+    required bool show,
   }) = _QuestionState;
 
   factory QuestionState.empty() => QuestionState(
@@ -16,6 +17,7 @@ class QuestionState with _$QuestionState {
         question: Question.empty(),
         answer: Answer.empty(),
         isSpecialAnswer: false,
+        show: false,
       );
 
   factory QuestionState.initial({
@@ -28,6 +30,7 @@ class QuestionState with _$QuestionState {
         question: question,
         answer: answer ?? Answer.empty(),
         isSpecialAnswer: isSpecialAnswer ?? false,
+        show: false,
       );
 
   void emit(Emitter<QuestionState> emit) {

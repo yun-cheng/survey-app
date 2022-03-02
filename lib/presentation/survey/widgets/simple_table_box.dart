@@ -10,6 +10,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
+import '../../core/widgets/delayed_widget.dart';
 import '../listeners/question_listeners.dart';
 import 'simple_table_row.dart';
 
@@ -89,26 +90,28 @@ class SimpleTableBox extends HookWidget {
       ),
       // NOTE 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
-        child: Column(
-          children: tableQuestionList
-              .map(
-                (question) => BlocProvider(
-                  create: (context) => QuestionBloc(
-                    question: question,
-                    answer: state.answerMap[question.id],
-                    isSpecialAnswer:
-                        state.answerStatusMap[question.id]?.isSpecialAnswer,
-                  ),
-                  child: QuestionListeners(
-                    child: SimpleTableRow(
-                      // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                      key: Key(UniqueId.v1().value),
-                      scrollController: getController(question.id),
+        child: DelayedWidget(
+          child: Column(
+            children: tableQuestionList
+                .map(
+                  (question) => BlocProvider(
+                    create: (context) => QuestionBloc(
+                      question: question,
+                      answer: state.answerMap[question.id],
+                      isSpecialAnswer:
+                          state.answerStatusMap[question.id]?.isSpecialAnswer,
+                    ),
+                    child: QuestionListeners(
+                      child: SimpleTableRow(
+                        // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                        key: Key(UniqueId.v1().value),
+                        scrollController: getController(question.id),
+                      ),
                     ),
                   ),
-                ),
-              )
-              .toList(),
+                )
+                .toList(),
+          ),
         ),
       ),
     );

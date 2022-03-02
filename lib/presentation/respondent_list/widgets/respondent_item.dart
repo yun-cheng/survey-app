@@ -9,11 +9,13 @@ import '../../core/style/main.dart';
 import 'respondent_card.dart';
 
 class RespondentItem extends StatelessWidget {
+  final int index;
   final TabType tabType;
   final Respondent respondent;
 
   const RespondentItem({
     Key? key,
+    required this.index,
     required this.tabType,
     required this.respondent,
   }) : super(key: key);
@@ -33,12 +35,15 @@ class RespondentItem extends StatelessWidget {
 
         return Container(
           alignment: Alignment.topCenter,
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: ConstrainedBox(
             constraints: kCardMaxWith,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                if (index == 0) ...[
+                  const SizedBox(height: 10),
+                ],
                 // H_ village card
                 if (isFirst) ...[
                   Container(
@@ -46,8 +51,10 @@ class RespondentItem extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       color: kRespondentGroupBackgroundColor,
                     ),
-                    margin: const EdgeInsets.only(top: 10),
-                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 18,
+                      horizontal: 18,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -62,6 +69,7 @@ class RespondentItem extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 10),
                 ],
                 // H_ respondent card
                 if (visible) ...[
@@ -69,6 +77,7 @@ class RespondentItem extends StatelessWidget {
                     tabType: tabType,
                     respondent: respondent,
                   ),
+                  const SizedBox(height: 10),
                 ],
               ],
             ),

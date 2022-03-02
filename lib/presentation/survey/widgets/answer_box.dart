@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../core/widgets/delayed_widget.dart';
 import 'choices_box.dart';
 import 'complex_table_box.dart';
 import 'date_time_box.dart';
@@ -44,27 +45,30 @@ class AnswerBox extends StatelessWidget {
           questionType: questionType,
         );
       } else {
-        return Column(
-          children: [
-            // H_ special answer
-            Visibility(
-              visible: isSpecialAnswer,
-              maintainState: true,
-              child: PureAnswerBox(
-                isSpecialAnswer: true,
-                isinCell: isinCell,
+        return DelayedWidget(
+          isinCell: isinCell,
+          child: Column(
+            children: [
+              // H_ special answer
+              Visibility(
+                visible: isSpecialAnswer,
+                maintainState: true,
+                child: PureAnswerBox(
+                  isSpecialAnswer: true,
+                  isinCell: isinCell,
+                ),
               ),
-            ),
-            // H_ normal answer
-            Visibility(
-              visible: !isSpecialAnswer,
-              maintainState: true,
-              child: PureAnswerBox(
-                isSpecialAnswer: false,
-                isinCell: isinCell,
+              // H_ normal answer
+              Visibility(
+                visible: !isSpecialAnswer,
+                maintainState: true,
+                child: PureAnswerBox(
+                  isSpecialAnswer: false,
+                  isinCell: isinCell,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       }
     }

@@ -39,6 +39,10 @@ class _$QuestionEventTearOff {
       isSpecialAnswer,
     );
   }
+
+  _QuestionShowed questionShowed() {
+    return const _QuestionShowed();
+  }
 }
 
 /// @nodoc
@@ -52,6 +56,7 @@ mixin _$QuestionEvent {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function() questionShowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +65,7 @@ mixin _$QuestionEvent {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +74,7 @@ mixin _$QuestionEvent {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +84,7 @@ mixin _$QuestionEvent {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_QuestionShowed value) questionShowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +93,7 @@ mixin _$QuestionEvent {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +102,7 @@ mixin _$QuestionEvent {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,6 +169,7 @@ class _$_ClearAnswer implements _ClearAnswer {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function() questionShowed,
   }) {
     return clearAnswer();
   }
@@ -170,6 +181,7 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
   }) {
     return clearAnswer?.call();
   }
@@ -181,6 +193,7 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
     required TResult orElse(),
   }) {
     if (clearAnswer != null) {
@@ -196,6 +209,7 @@ class _$_ClearAnswer implements _ClearAnswer {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_QuestionShowed value) questionShowed,
   }) {
     return clearAnswer(this);
   }
@@ -207,6 +221,7 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
   }) {
     return clearAnswer?.call(this);
   }
@@ -218,6 +233,7 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
     required TResult orElse(),
   }) {
     if (clearAnswer != null) {
@@ -307,6 +323,7 @@ class _$_SetChoice implements _SetChoice {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function() questionShowed,
   }) {
     return setChoice(choice);
   }
@@ -318,6 +335,7 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
   }) {
     return setChoice?.call(choice);
   }
@@ -329,6 +347,7 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
     required TResult orElse(),
   }) {
     if (setChoice != null) {
@@ -344,6 +363,7 @@ class _$_SetChoice implements _SetChoice {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_QuestionShowed value) questionShowed,
   }) {
     return setChoice(this);
   }
@@ -355,6 +375,7 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
   }) {
     return setChoice?.call(this);
   }
@@ -366,6 +387,7 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
     required TResult orElse(),
   }) {
     if (setChoice != null) {
@@ -462,6 +484,7 @@ class _$_ToggleChoice implements _ToggleChoice {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function() questionShowed,
   }) {
     return toggleChoice(choice);
   }
@@ -473,6 +496,7 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
   }) {
     return toggleChoice?.call(choice);
   }
@@ -484,6 +508,7 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
     required TResult orElse(),
   }) {
     if (toggleChoice != null) {
@@ -499,6 +524,7 @@ class _$_ToggleChoice implements _ToggleChoice {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_QuestionShowed value) questionShowed,
   }) {
     return toggleChoice(this);
   }
@@ -510,6 +536,7 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
   }) {
     return toggleChoice?.call(this);
   }
@@ -521,6 +548,7 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
     required TResult orElse(),
   }) {
     if (toggleChoice != null) {
@@ -609,6 +637,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function() questionShowed,
   }) {
     return setSpecialAnswer(isSpecialAnswer);
   }
@@ -620,6 +649,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
   }) {
     return setSpecialAnswer?.call(isSpecialAnswer);
   }
@@ -631,6 +661,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
     required TResult orElse(),
   }) {
     if (setSpecialAnswer != null) {
@@ -646,6 +677,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_QuestionShowed value) questionShowed,
   }) {
     return setSpecialAnswer(this);
   }
@@ -657,6 +689,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
   }) {
     return setSpecialAnswer?.call(this);
   }
@@ -668,6 +701,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
     required TResult orElse(),
   }) {
     if (setSpecialAnswer != null) {
@@ -687,6 +721,129 @@ abstract class _SetSpecialAnswer implements QuestionEvent {
 }
 
 /// @nodoc
+abstract class _$QuestionShowedCopyWith<$Res> {
+  factory _$QuestionShowedCopyWith(
+          _QuestionShowed value, $Res Function(_QuestionShowed) then) =
+      __$QuestionShowedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$QuestionShowedCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$QuestionShowedCopyWith<$Res> {
+  __$QuestionShowedCopyWithImpl(
+      _QuestionShowed _value, $Res Function(_QuestionShowed) _then)
+      : super(_value, (v) => _then(v as _QuestionShowed));
+
+  @override
+  _QuestionShowed get _value => super._value as _QuestionShowed;
+}
+
+/// @nodoc
+
+class _$_QuestionShowed implements _QuestionShowed {
+  const _$_QuestionShowed();
+
+  @override
+  String toString() {
+    return 'QuestionEvent.questionShowed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _QuestionShowed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function() questionShowed,
+  }) {
+    return questionShowed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
+  }) {
+    return questionShowed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function()? questionShowed,
+    required TResult orElse(),
+  }) {
+    if (questionShowed != null) {
+      return questionShowed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_QuestionShowed value) questionShowed,
+  }) {
+    return questionShowed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
+  }) {
+    return questionShowed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_QuestionShowed value)? questionShowed,
+    required TResult orElse(),
+  }) {
+    if (questionShowed != null) {
+      return questionShowed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _QuestionShowed implements QuestionEvent {
+  const factory _QuestionShowed() = _$_QuestionShowed;
+}
+
+/// @nodoc
 class _$QuestionStateTearOff {
   const _$QuestionStateTearOff();
 
@@ -694,12 +851,14 @@ class _$QuestionStateTearOff {
       {required UniqueId stateId,
       required Question question,
       required Answer answer,
-      required bool isSpecialAnswer}) {
+      required bool isSpecialAnswer,
+      required bool show}) {
     return _QuestionState(
       stateId: stateId,
       question: question,
       answer: answer,
       isSpecialAnswer: isSpecialAnswer,
+      show: show,
     );
   }
 }
@@ -713,6 +872,7 @@ mixin _$QuestionState {
   Question get question => throw _privateConstructorUsedError;
   Answer get answer => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get show => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionStateCopyWith<QuestionState> get copyWith =>
@@ -728,7 +888,8 @@ abstract class $QuestionStateCopyWith<$Res> {
       {UniqueId stateId,
       Question question,
       Answer answer,
-      bool isSpecialAnswer});
+      bool isSpecialAnswer,
+      bool show});
 
   $UniqueIdCopyWith<$Res> get stateId;
   $QuestionCopyWith<$Res> get question;
@@ -750,6 +911,7 @@ class _$QuestionStateCopyWithImpl<$Res>
     Object? question = freezed,
     Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
+    Object? show = freezed,
   }) {
     return _then(_value.copyWith(
       stateId: stateId == freezed
@@ -767,6 +929,10 @@ class _$QuestionStateCopyWithImpl<$Res>
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      show: show == freezed
+          ? _value.show
+          : show // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -804,7 +970,8 @@ abstract class _$QuestionStateCopyWith<$Res>
       {UniqueId stateId,
       Question question,
       Answer answer,
-      bool isSpecialAnswer});
+      bool isSpecialAnswer,
+      bool show});
 
   @override
   $UniqueIdCopyWith<$Res> get stateId;
@@ -831,6 +998,7 @@ class __$QuestionStateCopyWithImpl<$Res>
     Object? question = freezed,
     Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
+    Object? show = freezed,
   }) {
     return _then(_QuestionState(
       stateId: stateId == freezed
@@ -849,6 +1017,10 @@ class __$QuestionStateCopyWithImpl<$Res>
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
+      show: show == freezed
+          ? _value.show
+          : show // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -860,7 +1032,8 @@ class _$_QuestionState extends _QuestionState {
       {required this.stateId,
       required this.question,
       required this.answer,
-      required this.isSpecialAnswer})
+      required this.isSpecialAnswer,
+      required this.show})
       : super._();
 
   @override
@@ -871,10 +1044,12 @@ class _$_QuestionState extends _QuestionState {
   final Answer answer;
   @override
   final bool isSpecialAnswer;
+  @override
+  final bool show;
 
   @override
   String toString() {
-    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer)';
+    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, show: $show)';
   }
 
   @override
@@ -886,7 +1061,8 @@ class _$_QuestionState extends _QuestionState {
             const DeepCollectionEquality().equals(other.question, question) &&
             const DeepCollectionEquality().equals(other.answer, answer) &&
             const DeepCollectionEquality()
-                .equals(other.isSpecialAnswer, isSpecialAnswer));
+                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality().equals(other.show, show));
   }
 
   @override
@@ -895,7 +1071,8 @@ class _$_QuestionState extends _QuestionState {
       const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(question),
       const DeepCollectionEquality().hash(answer),
-      const DeepCollectionEquality().hash(isSpecialAnswer));
+      const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(show));
 
   @JsonKey(ignore: true)
   @override
@@ -908,7 +1085,8 @@ abstract class _QuestionState extends QuestionState {
       {required UniqueId stateId,
       required Question question,
       required Answer answer,
-      required bool isSpecialAnswer}) = _$_QuestionState;
+      required bool isSpecialAnswer,
+      required bool show}) = _$_QuestionState;
   const _QuestionState._() : super._();
 
   @override
@@ -919,6 +1097,8 @@ abstract class _QuestionState extends QuestionState {
   Answer get answer;
   @override
   bool get isSpecialAnswer;
+  @override
+  bool get show;
   @override
   @JsonKey(ignore: true)
   _$QuestionStateCopyWith<_QuestionState> get copyWith =>

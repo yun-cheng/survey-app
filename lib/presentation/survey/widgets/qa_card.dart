@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:sliver_tools/sliver_tools.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
@@ -63,45 +64,55 @@ class QaCard extends StatelessWidget {
                 key: ValueKey(questionIndex),
                 controller: scrollController,
                 index: questionIndex,
-                child: Align(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    width: double.infinity,
-                    constraints: kCardMaxWith,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        // H_ QuestionBox
-                        const QuestionBox(),
-                        Row(
-                          children: [
-                            const SizedBox(height: 40),
-                            // H_ SpecialAnswerSwitch
-                            if (question.hasSpecialAnswer &&
-                                !questionType.isTable) ...[
-                              Visibility(
-                                visible: canEdit,
-                                maintainState: true,
-                                child:
-                                    const SpecialAnswerSwitch(showText: false),
-                              ),
-                              const SizedBox(width: 20),
+                child: VisibilityDetector(
+                  key: Key(questionId),
+                  onVisibilityChanged: (info) {
+                    if (info.visibleFraction > 0) {
+                      context
+                          .read<QuestionBloc>()
+                          .add(const QuestionEvent.questionShowed());
+                    }
+                  },
+                  child: Align(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      width: double.infinity,
+                      constraints: kCardMaxWith,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          // H_ QuestionBox
+                          const QuestionBox(),
+                          Row(
+                            children: [
+                              const SizedBox(height: 40),
+                              // H_ SpecialAnswerSwitch
+                              if (question.hasSpecialAnswer &&
+                                  !questionType.isTable) ...[
+                                Visibility(
+                                  visible: canEdit,
+                                  maintainState: true,
+                                  child: const SpecialAnswerSwitch(
+                                      showText: false),
+                                ),
+                                const SizedBox(width: 20),
+                              ],
+                              // // H_ WarningBox
+                              const WarningBox(),
                             ],
-                            // // H_ WarningBox
-                            const WarningBox(),
-                          ],
-                        ),
-                        // H_ AnswerBox
-                        if (!questionType.isTable) ...[
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: AnswerBox(
-                              tableId: question.tableId,
-                              scrollController: scrollController,
-                            ),
                           ),
+                          // H_ AnswerBox
+                          if (!questionType.isTable) ...[
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: AnswerBox(
+                                tableId: question.tableId,
+                                scrollController: scrollController,
+                              ),
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ),
                 ),

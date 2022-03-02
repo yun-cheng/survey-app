@@ -13,6 +13,7 @@ import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../core/style/main.dart';
+import '../../core/widgets/delayed_widget.dart';
 import '../listeners/question_listeners.dart';
 import 'complex_cell_box.dart';
 
@@ -153,8 +154,10 @@ class ComplexTableBox extends HookWidget {
       // H_ rows
       // NOTE 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
-        child: Column(
-          children: rowList,
+        child: DelayedWidget(
+          child: Column(
+            children: rowList,
+          ),
         ),
       ),
     );
