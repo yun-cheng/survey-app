@@ -25,6 +25,7 @@ class TextBox extends HookWidget {
     final question = useContext().read<QuestionBloc>().state.question;
     final questionId = question.id;
     final questionType = question.type;
+    final canEdit = useContext().read<QuestionBloc>().state.canEdit;
 
     Timer? timer;
     late final TextEditingController controller;
@@ -43,7 +44,6 @@ class TextBox extends HookWidget {
       },
     );
 
-    final canEdit = !state.isReadOnly && !state.isRecodeModule;
     final note =
         (state.answerMap[questionId] ?? Answer.empty()).stringTypeValue;
 

@@ -69,6 +69,7 @@ class SurveyBody extends StatelessWidget {
                         answer: state.answerMap[e.value.id],
                         isSpecialAnswer:
                             state.answerStatusMap[e.value.id]?.isSpecialAnswer,
+                        canEdit: !state.isReadOnly && !state.isRecodeModule,
                       ),
                       child: QuestionListeners(
                         child: QaCard(

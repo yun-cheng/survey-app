@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
@@ -28,6 +29,7 @@ class ComplexCellBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final question = context.read<QuestionBloc>().state.question;
     final questionId = question.id;
+    final canEdit = context.read<QuestionBloc>().state.canEdit;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
@@ -64,7 +66,6 @@ class ComplexCellBox extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('ComplexCellBox');
 
-        final canEdit = !state.isReadOnly && !state.isRecodeModule;
         final visible =
             !(state.answerStatusMap[questionId] ?? AnswerStatus.empty())
                 .isHidden;
@@ -85,36 +86,46 @@ class ComplexCellBox extends StatelessWidget {
           cellBox = Container(
             alignment: Alignment.topCenter,
             width: kComplexTableCellWidth,
-            child: const QuestionBox(isinCell: true),
+            child: const QuestionBox(),
           );
           // H_ first column
         } else if (isFirstColumn) {
           cellBox = const SizedBox(
             width: kFirstColumnWidth,
-            child: QuestionBox(isinCell: true),
+            child: QuestionBox(),
           );
           // H_ cell
         } else {
-          cellBox = SizedBox(
-            width: kComplexTableCellWidth,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    if (question.hasSpecialAnswer) ...[
-                      Visibility(
-                        visible: canEdit,
-                        maintainState: true,
-                        child: const SpecialAnswerSwitch(showText: false),
-                      ),
+          cellBox = VisibilityDetector(
+            key: Key(questionId),
+            onVisibilityChanged: (info) {
+              if (info.visibleFraction > 0) {
+                context
+                    .read<QuestionBloc>()
+                    .add(const QuestionEvent.questionShowed());
+              }
+            },
+            child: SizedBox(
+              width: kComplexTableCellWidth,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      if (question.hasSpecialAnswer) ...[
+                        Visibility(
+                          visible: canEdit,
+                          maintainState: true,
+                          child: const SpecialAnswerSwitch(showText: false),
+                        ),
+                      ],
+                      const WarningBox(),
                     ],
-                    const WarningBox(isinCell: true),
-                  ],
-                ),
-                const AnswerBox(isinCell: true),
-              ],
+                  ),
+                  const AnswerBox(),
+                ],
+              ),
             ),
           );
         }

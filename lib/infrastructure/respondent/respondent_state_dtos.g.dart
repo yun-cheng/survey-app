@@ -26,13 +26,6 @@ _$_RespondentStateDto _$$_RespondentStateDtoFromJson(
         (k, e) =>
             MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
       ),
-      currentTab: $enumDecodeNullable(_$TabTypeEnumMap, json['currentTab']),
-      tabScrollPosition:
-          (json['tabScrollPosition'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry($enumDecode(_$TabTypeEnumMap, k),
-            CardScrollPositionDto.fromJson(e as Map<String, dynamic>)),
-      ),
-      selectedRespondentId: json['selectedRespondentId'] as String?,
       visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(
             k,
@@ -40,17 +33,38 @@ _$_RespondentStateDto _$$_RespondentStateDtoFromJson(
                 .map((e) => VisitRecordDto.fromJson(e as Map<String, dynamic>))
                 .toList()),
       ),
+      lastVisitRecordMap:
+          (json['lastVisitRecordMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       housingMap: (json['housingMap'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, HousingDto.fromJson(e as Map<String, dynamic>)),
       ),
-      tabRespondentMap:
-          (json['tabRespondentMap'] as Map<String, dynamic>?)?.map(
+      groupList: (json['groupList'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      tabGroupedRespondentList:
+          (json['tabGroupedRespondentList'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(
-            $enumDecode(_$TabTypeEnumMap, k),
+            k,
             (e as Map<String, dynamic>).map(
               (k, e) => MapEntry(
-                  k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+                  k,
+                  (e as List<dynamic>)
+                      .map((e) =>
+                          RespondentDto.fromJson(e as Map<String, dynamic>))
+                      .toList()),
             )),
+      ),
+      tabGroupMap: (json['tabGroupMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(
+            k,
+            (e as Map<String, dynamic>).map(
+              (k, e) => MapEntry(int.parse(k), e as String),
+            )),
+      ),
+      tabCountMap: (json['tabCountMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as int),
       ),
       responseInfoMap: json['responseInfoMap'] == null
           ? null
@@ -76,30 +90,23 @@ Map<String, dynamic> _$$_RespondentStateDtoToJson(
   writeNotNull('surveyId', instance.surveyId);
   writeNotNull('respondentMap',
       instance.respondentMap?.map((k, e) => MapEntry(k, e.toJson())));
-  writeNotNull('currentTab', _$TabTypeEnumMap[instance.currentTab]);
-  writeNotNull(
-      'tabScrollPosition',
-      instance.tabScrollPosition
-          ?.map((k, e) => MapEntry(_$TabTypeEnumMap[k], e.toJson())));
-  writeNotNull('selectedRespondentId', instance.selectedRespondentId);
   writeNotNull(
       'visitRecordsMap',
       instance.visitRecordsMap
           ?.map((k, e) => MapEntry(k, e.map((e) => e.toJson()).toList())));
+  writeNotNull('lastVisitRecordMap', instance.lastVisitRecordMap);
   writeNotNull('housingMap',
       instance.housingMap?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('groupList', instance.groupList);
   writeNotNull(
-      'tabRespondentMap',
-      instance.tabRespondentMap?.map((k, e) => MapEntry(
-          _$TabTypeEnumMap[k], e.map((k, e) => MapEntry(k, e.toJson())))));
+      'tabGroupedRespondentList',
+      instance.tabGroupedRespondentList?.map((k, e) => MapEntry(
+          k, e.map((k, e) => MapEntry(k, e.map((e) => e.toJson()).toList())))));
+  writeNotNull(
+      'tabGroupMap',
+      instance.tabGroupMap?.map(
+          (k, e) => MapEntry(k, e.map((k, e) => MapEntry(k.toString(), e)))));
+  writeNotNull('tabCountMap', instance.tabCountMap);
   writeNotNull('responseInfoMap', instance.responseInfoMap?.toJson());
   return val;
 }
-
-const _$TabTypeEnumMap = {
-  TabType.start: 'start',
-  TabType.housingType: 'housingType',
-  TabType.interviewReport: 'interviewReport',
-  TabType.recode: 'recode',
-  TabType.finished: 'finished',
-};

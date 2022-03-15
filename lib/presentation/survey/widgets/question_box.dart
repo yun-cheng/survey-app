@@ -9,16 +9,14 @@ import '../../../domain/survey/question.dart';
 import '../../core/style/main.dart';
 
 class QuestionBox extends StatelessWidget {
-  final bool isinCell;
-
   const QuestionBox({
     Key? key,
-    this.isinCell = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final questionId = context.read<QuestionBloc>().state.question.id;
+    final withinCell = context.read<QuestionBloc>().state.withinCell;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       // NOTE 只在該題前後 body 都存在，且 body 有變更時，才 rebuild
@@ -47,7 +45,7 @@ class QuestionBox extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: isinCell
+            color: withinCell
                 ? null
                 : (isRecoding
                     ? kRecodeBackgroundColor
@@ -61,7 +59,7 @@ class QuestionBox extends StatelessWidget {
                 text: TextSpan(
                   text: withId ? '$questionId. ' : '',
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        fontSize: isinCell ? kPFontSize : kH3FontSize,
+                        fontSize: withinCell ? kPFontSize : kH3FontSize,
                         fontWeight: FontWeight.w500,
                       ),
                   children: question.toTextSpanList(),
@@ -71,7 +69,7 @@ class QuestionBox extends StatelessWidget {
                 const SizedBox(height: 10.0),
                 Text(
                   question.note,
-                  style: (isinCell ? kPTextStyle : kH4TextStyle).copyWith(
+                  style: (withinCell ? kPTextStyle : kH4TextStyle).copyWith(
                     fontStyle: FontStyle.italic,
                     color: Colors.blue[800],
                   ),

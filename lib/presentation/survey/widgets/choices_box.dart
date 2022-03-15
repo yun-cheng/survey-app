@@ -10,17 +10,16 @@ import 'answer/choices_column.dart';
 
 class ChoicesBox extends StatelessWidget {
   final bool isSpecialChoice;
-  final bool isinCell;
 
   const ChoicesBox({
     Key? key,
-    required this.isSpecialChoice,
-    this.isinCell = false,
+    this.isSpecialChoice = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final questionId = context.read<QuestionBloc>().state.question.id;
+    final withinCell = context.read<QuestionBloc>().state.withinCell;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
@@ -54,7 +53,8 @@ class ChoicesBox extends StatelessWidget {
         // S_ 選項數量大於等於 splitColumnChoiceCount 就要分 2 個 column
         int col1Count = totalCount;
         final useTwoCols =
-            totalCount >= (question?.splitColumnChoiceCount ?? 4) && !isinCell;
+            totalCount >= (question?.splitColumnChoiceCount ?? 4) &&
+                !withinCell;
 
         if (useTwoCols) {
           col1Count = (totalCount / 2).ceil();
@@ -84,4 +84,3 @@ class ChoicesBox extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,6 @@
 part of 'main.dart';
 
-final kRespondentGroupBackgroundColor = Colors.grey[300];
+final kRespondentGroupBackgroundColor = Colors.grey[300]!;
 
 final kModuleButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(kCardBlueTextColor),

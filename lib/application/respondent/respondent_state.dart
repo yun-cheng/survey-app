@@ -10,23 +10,23 @@ class RespondentState with _$RespondentState {
     required SurveyRespondentMap surveyRespondentMap,
     required Survey survey,
     required Map<String, Respondent> respondentMap,
-    required TabType currentTab,
-    required Map<TabType, CardScrollPosition> tabScrollPosition,
-    required String selectedRespondentId,
     required VisitRecordsMap visitRecordsMap,
+    required Map<String, String> lastVisitRecordMap,
     required Map<String, Housing> housingMap,
-    required TabRespondentMap tabRespondentMap,
+    required List<String> groupList,
+    required TabGroupedRespondentList tabGroupedRespondentList,
+    required Map<TabType, Map<int, String>> tabGroupMap,
+    required Map<TabType, int> tabCountMap,
     required ResponseMap responseInfoMap,
     required String searchText,
     required Map<String, bool> searchRespondentMap,
     // H_ 中間資料
-    required bool needToJump,
-    required int jumpToIndex,
     // H_ 狀態更新進度
     required LoadState surveyRespondentMapState,
     required Option<RespondentFailure> respondentFailure,
     required LoadState eventState,
-    // H_ 標記儲存參數
+    // H_ 更新/儲存參數
+    required StateParameters updateParameters,
     required StateParameters saveParameters,
   }) = _RespondentState;
 
@@ -36,24 +36,23 @@ class RespondentState with _$RespondentState {
         survey: Survey.empty(),
         surveyRespondentMap: const {},
         respondentMap: const {},
-        currentTab: TabType.start,
-        tabScrollPosition:
-            TabTypeX.toMap().mapValues((e) => CardScrollPosition.empty()),
-        selectedRespondentId: '',
         visitRecordsMap: const {},
+        lastVisitRecordMap: const {},
         housingMap: const {},
-        tabRespondentMap: const {},
+        groupList: const [],
+        tabGroupedRespondentList: const {},
+        tabGroupMap: const {},
+        tabCountMap: const {},
         responseInfoMap: const {},
         searchText: '',
         searchRespondentMap: const {},
         // H_ 中間資料
-        needToJump: false,
-        jumpToIndex: 0,
         // H_ 狀態更新進度
         surveyRespondentMapState: LoadState.initial(),
         respondentFailure: none(),
         eventState: LoadState.initial(),
-        // H_ 標記儲存參數
+        // H_ 更新/儲存參數
+        updateParameters: StateParameters.initial(),
         saveParameters: StateParameters.initial(),
       );
 
@@ -95,9 +94,6 @@ class StateParameters with _$StateParameters {
     required bool surveyRespondentMap,
     required bool survey,
     required bool respondentMap,
-    required bool currentTab,
-    required bool tabScrollPosition,
-    required bool selectedRespondentId,
     required bool visitRecordsMap,
     required bool housingMap,
     required bool tabRespondentMap,
@@ -108,9 +104,6 @@ class StateParameters with _$StateParameters {
         surveyRespondentMap: false,
         survey: false,
         respondentMap: false,
-        currentTab: false,
-        tabScrollPosition: false,
-        selectedRespondentId: false,
         visitRecordsMap: false,
         housingMap: false,
         tabRespondentMap: false,
@@ -121,9 +114,6 @@ class StateParameters with _$StateParameters {
         surveyRespondentMap: true,
         survey: true,
         respondentMap: true,
-        currentTab: true,
-        tabScrollPosition: true,
-        selectedRespondentId: true,
         visitRecordsMap: true,
         housingMap: true,
         tabRespondentMap: true,

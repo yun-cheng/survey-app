@@ -121,5 +121,6 @@ class AnswerStatus with _$AnswerStatus {
   bool get noteIsAnswered => noteMap.entries.every((e) => e.value.isCompleted);
   bool get isAnswered => type.isAnswered && noteIsAnswered;
   bool get isHidden => type.isHidden;
+  bool get isNotHidden => type.isNotHidden;
   bool get isCompleted => isAnswered || isHidden;
 }

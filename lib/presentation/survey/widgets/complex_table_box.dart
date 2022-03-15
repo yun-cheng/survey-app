@@ -10,115 +10,138 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../core/style/main.dart';
+import '../../core/widgets/center_progress_indicator.dart';
 import '../../core/widgets/delayed_widget.dart';
 import '../listeners/question_listeners.dart';
 import 'complex_cell_box.dart';
 
 class ComplexTableBox extends HookWidget {
   final String tableId;
-  final QuestionType questionType;
 
   const ComplexTableBox({
     Key? key,
     required this.tableId,
-    required this.questionType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    logger('Build').i('TableBox');
+    logger('Build').i('ComplexTableBox');
 
-    final _context = useContext();
-    final state = _context.read<UpdateAnswerStatusBloc>().state;
-
-    // S_ 篩出是這個 tableId 的 questions
-    final tableQuestionList = state.pageQIdSet
-        .map((questionId) => state.questionMap[questionId]!)
-        .filter(
-            (question) => question.tableId == tableId && !question.type.isTable)
-        .toList();
-
-    // S_ 分成 title 跟 row questions
-    final pTableQuestionList =
-        tableQuestionList.partition((question) => question.rowId == -1);
-
-    // S_ title question list
-    final titleQuestionList = pTableQuestionList.item1;
-
-    // S_ row question map
-    final rowQuestionMap = pTableQuestionList.item2
-        .groupBy<int, Question>((question) => question.rowId);
-
-    // S_ scroll controllers
+    // H_ scroll controllers
     final controllers = useMemoized(() => LinkedScrollControllerGroup());
     final controllerMap = <String, ScrollController>{};
 
-    ScrollController getController(String key) {
+    final getController = useCallback((String key) {
       controllerMap.putIfAbsent(key, () => controllers.addAndGet());
 
       return controllerMap[key]!;
-    }
+    }, []);
 
     useEffect(() {
       return () => controllerMap.values.map((c) => c.dispose());
     }, []);
 
-    // S_
-    final rowList = rowQuestionMap
-        .map((index, questionList) {
-          final questionCells = questionList
-              .withoutFirst()
-              .toList()
-              .asMap()
-              .entries
-              .map(
-                (e) => BlocProvider(
-                  create: (context) => QuestionBloc(
-                    question: e.value,
-                    answer: state.answerMap[e.value.id],
-                    isSpecialAnswer:
-                        state.answerStatusMap[e.value.id]?.isSpecialAnswer,
-                  ),
-                  child: QuestionListeners(
-                    child: ComplexCellBox(
-                      colQuestionId: titleQuestionList[e.key].id,
-                    ),
-                  ),
-                ),
-              )
-              .toList();
+    // H_ state
+    final _context = useContext();
+    final state = _context.read<UpdateAnswerStatusBloc>().state;
 
-          return MapEntry(
-              index,
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  BlocProvider(
-                    create: (context) =>
-                        QuestionBloc(question: questionList[0]),
-                    child: const ComplexCellBox(isFirstColumn: true),
-                  ),
-                  Flexible(
-                    child: SingleChildScrollView(
-                      key: Key(UniqueId.v1().value),
-                      scrollDirection: Axis.horizontal,
-                      controller: getController('$index'),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: questionCells,
+    final titleQuestionList = useRef(<Question>[]);
+    final rowQuestionMap = useRef(<int, List<Question>>{});
+    final rowList = useRef(<Row>[]);
+    final taskFinished = useState(false);
+
+    // H_ 提取資料任務
+    final runTask = useMemoized(() {
+      Future(() async {
+        // S_ 篩出是這個 tableId 的 questions
+        final tableQuestionList = state.pageQIdSet
+            .map((questionId) => state.questionMap[questionId]!)
+            .filter((question) =>
+                question.tableId == tableId && !question.type.isTable)
+            .toList();
+
+        // S_ 分成 title 跟 row questions
+        final pTableQuestionList =
+            tableQuestionList.partition((question) => question.rowId == -1);
+
+        // S_ title question list
+        titleQuestionList.value = pTableQuestionList.item1;
+
+        // S_ row question map
+        rowQuestionMap.value = pTableQuestionList.item2
+            .groupBy<int, Question>((question) => question.rowId);
+
+        // S_ row list
+        rowList.value = rowQuestionMap.value
+            .map((index, questionList) {
+              final rowQuestionCells = questionList
+                  .withoutFirst()
+                  .toList()
+                  .asMap()
+                  .entries
+                  .map(
+                    (e) => BlocProvider(
+                      create: (context) => QuestionBloc(
+                        question: e.value,
+                        answer: state.answerMap[e.value.id],
+                        isSpecialAnswer:
+                            state.answerStatusMap[e.value.id]?.isSpecialAnswer,
+                        withinCell: true,
+                        canEdit: !state.isReadOnly && !state.isRecodeModule,
+                      ),
+                      child: QuestionListeners(
+                        child: ComplexCellBox(
+                          colQuestionId: titleQuestionList.value[e.key].id,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ));
-        })
-        .values
-        .toList();
+                  )
+                  .toList();
+
+              return MapEntry(
+                  index,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BlocProvider(
+                        create: (context) => QuestionBloc(
+                          question: questionList[0],
+                          withinCell: true,
+                          canEdit: !state.isReadOnly && !state.isRecodeModule,
+                        ),
+                        child: const ComplexCellBox(isFirstColumn: true),
+                      ),
+                      Flexible(
+                        child: SingleChildScrollView(
+                          key: Key(UniqueId.v1().value),
+                          scrollDirection: Axis.horizontal,
+                          controller: getController('$index'),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: rowQuestionCells,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ));
+            })
+            .values
+            .toList();
+
+        taskFinished.value = true;
+      });
+    });
+
+    // S_ 執行任務
+    useFuture(runTask);
+
+    if (!taskFinished.value) {
+      return const SliverToBoxAdapter(child: CenterProgressIndicator());
+    }
 
     return SliverStickyHeader(
       // H_ title
@@ -135,10 +158,14 @@ class ComplexTableBox extends HookWidget {
                 scrollDirection: Axis.horizontal,
                 controller: getController('_titleRow'),
                 child: Row(
-                  children: titleQuestionList
+                  children: titleQuestionList.value
                       .map(
                         (question) => BlocProvider(
-                          create: (context) => QuestionBloc(question: question),
+                          create: (context) => QuestionBloc(
+                            question: question,
+                            withinCell: true,
+                            canEdit: !state.isReadOnly && !state.isRecodeModule,
+                          ),
                           child: const QuestionListeners(
                             child: ComplexCellBox(isTitle: true),
                           ),
@@ -156,7 +183,7 @@ class ComplexTableBox extends HookWidget {
       sliver: SliverToBoxAdapter(
         child: DelayedWidget(
           child: Column(
-            children: rowList,
+            children: rowList.value,
           ),
         ),
       ),

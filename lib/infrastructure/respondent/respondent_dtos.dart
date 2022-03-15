@@ -15,8 +15,6 @@ class RespondentDto with _$RespondentDto {
     required String countyTown,
     required String village,
     required String remainAddress,
-    bool? isCountyTownFirst,
-    bool? isVillageFirst,
   }) = _RespondentDto;
 
   factory RespondentDto.fromDomain(Respondent domain) {
@@ -25,8 +23,6 @@ class RespondentDto with _$RespondentDto {
       countyTown: domain.countyTown,
       village: domain.village,
       remainAddress: domain.remainAddress,
-      isCountyTownFirst: domain.isCountyTownFirst,
-      isVillageFirst: domain.isVillageFirst,
     );
   }
 
@@ -36,8 +32,6 @@ class RespondentDto with _$RespondentDto {
       countyTown: countyTown,
       village: village,
       remainAddress: remainAddress,
-      isCountyTownFirst: isCountyTownFirst ?? false,
-      isVillageFirst: isVillageFirst ?? false,
     );
   }
 

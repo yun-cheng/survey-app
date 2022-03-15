@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
-import '../../../domain/core/logger.dart';
-import 'choice_item.dart';
+import '../../../../application/survey/question/question_bloc.dart';
+import '../../../../domain/core/logger.dart';
+import 'simple_table_choice_item.dart';
 
-class SimpleTableChoicesBox extends StatelessWidget {
-  const SimpleTableChoicesBox({
-    Key? key,
-  }) : super(key: key);
+class SimpleTableChoicesRow extends StatelessWidget {
+  const SimpleTableChoicesRow({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    logger('Build').i('SimpleTableChoicesBox');
+    logger('Build').i('SimpleTableChoicesRow');
 
     final choiceList = context.read<QuestionBloc>().state.question.choiceList;
 
@@ -20,11 +18,9 @@ class SimpleTableChoicesBox extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: choiceList
           .map(
-            (choice) => ChoiceItem(
+            (choice) => SimpleTableChoiceItem(
               key: Key(choice.id),
               choice: choice,
-              isSpecialChoice: false,
-              isinCell: true,
             ),
           )
           .toList(),

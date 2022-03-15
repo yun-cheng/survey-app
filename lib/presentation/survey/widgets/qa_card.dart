@@ -11,8 +11,10 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../core/style/main.dart';
 import 'answer_box.dart';
+import 'complex_table_box.dart';
 import 'question_box.dart';
 import 'recode_box.dart';
+import 'simple_table_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';
 
@@ -35,6 +37,7 @@ class QaCard extends StatelessWidget {
     final question = context.read<QuestionBloc>().state.question;
     final questionId = question.id;
     final questionType = question.type;
+    final canEdit = context.read<QuestionBloc>().state.canEdit;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
@@ -52,7 +55,6 @@ class QaCard extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('QaCard');
 
-        final canEdit = !state.isReadOnly && !state.isRecodeModule;
         final visible =
             !(state.answerStatusMap[questionId] ?? AnswerStatus.empty())
                 .isHidden;
@@ -102,13 +104,11 @@ class QaCard extends StatelessWidget {
                             ],
                           ),
                           // H_ AnswerBox
-                          if (!questionType.isTable) ...[
-                            Align(
+                          if (questionType.isValid &&
+                              !questionType.isTable) ...[
+                            const Align(
                               alignment: Alignment.topLeft,
-                              child: AnswerBox(
-                                tableId: question.tableId,
-                                scrollController: scrollController,
-                              ),
+                              child: AnswerBox(),
                             ),
                           ],
                         ],
@@ -118,10 +118,14 @@ class QaCard extends StatelessWidget {
                 ),
               ),
               // H_ Table
-              if (questionType.isTable) ...[
-                AnswerBox(
+              if (questionType.isSimpleTable) ...[
+                SimpleTableBox(
                   tableId: question.tableId,
-                  scrollController: scrollController,
+                ),
+              ],
+              if (questionType.isComplexTable) ...[
+                ComplexTableBox(
+                  tableId: question.tableId,
                 ),
               ],
               Align(

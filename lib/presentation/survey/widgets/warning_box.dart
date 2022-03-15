@@ -8,17 +8,15 @@ import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 
 class WarningBox extends StatelessWidget {
-  final bool isinCell;
-
   const WarningBox({
     Key? key,
-    this.isinCell = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final question = context.read<QuestionBloc>().state.question;
     final questionId = question.id;
+    final withinCell = context.read<QuestionBloc>().state.withinCell;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) =>
@@ -43,7 +41,7 @@ class WarningBox extends StatelessWidget {
             visible: state.showWarning && !warning.isEmpty,
             child: Text(
               warning.type.value,
-              style: (isinCell ? kPTextStyle : kH4TextStyle).copyWith(
+              style: (withinCell ? kPTextStyle : kH4TextStyle).copyWith(
                 color: Colors.red,
                 fontWeight: FontWeight.w600,
               ),

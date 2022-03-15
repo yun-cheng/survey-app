@@ -39,10 +39,8 @@ class RootRouter extends _i7.RootStackRouter {
           routeData: routeData, child: const _i3.OverviewPage());
     },
     RespondentsRoute.name: (routeData) {
-      final args = routeData.argsAs<RespondentsRouteArgs>(
-          orElse: () => const RespondentsRouteArgs());
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i4.RespondentsPage(key: args.key));
+          routeData: routeData, child: const _i4.RespondentsPage());
     },
     SurveyRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
@@ -91,23 +89,10 @@ class OverviewRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.RespondentsPage]
-class RespondentsRoute extends _i7.PageRouteInfo<RespondentsRouteArgs> {
-  RespondentsRoute({_i8.Key? key})
-      : super(RespondentsRoute.name,
-            path: '/respondents', args: RespondentsRouteArgs(key: key));
+class RespondentsRoute extends _i7.PageRouteInfo<void> {
+  const RespondentsRoute() : super(RespondentsRoute.name, path: '/respondents');
 
   static const String name = 'RespondentsRoute';
-}
-
-class RespondentsRouteArgs {
-  const RespondentsRouteArgs({this.key});
-
-  final _i8.Key? key;
-
-  @override
-  String toString() {
-    return 'RespondentsRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for

@@ -17,16 +17,22 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   final Question question;
   final Answer? answer;
   final bool? isSpecialAnswer;
+  final bool withinCell;
+  final bool canEdit;
 
   QuestionBloc({
     required this.question,
     this.answer,
-    this.isSpecialAnswer,
+    this.isSpecialAnswer = false,
+    this.withinCell = false,
+    this.canEdit = false,
   }) : super(
           QuestionState.initial(
             question: question,
             answer: answer,
-            isSpecialAnswer: isSpecialAnswer,
+            isSpecialAnswer: isSpecialAnswer ?? false,
+            withinCell: withinCell,
+            canEdit: canEdit,
           ),
         ) {
     on<QuestionEvent>(_onEvent, transformer: sequential());

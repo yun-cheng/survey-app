@@ -2,60 +2,41 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
+import '../../application/respondent/respondents_page/respondents_page_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
+import 'respondents_body.dart';
 import 'widgets/badged_tab_bar.dart';
-import 'widgets/group_top_bar.dart';
-import 'widgets/respondents_body.dart';
 
 class RespondentsPage extends HookWidget {
-  RespondentsPage({Key? key}) : super(key: key);
-
-  final tabScrollControllerMap = {
-    TabType.start: AutoScrollController(
-      suggestedRowHeight: 106,
-      axis: Axis.vertical,
-    ),
-    TabType.housingType: AutoScrollController(
-      suggestedRowHeight: 106,
-      axis: Axis.vertical,
-    ),
-    TabType.interviewReport: AutoScrollController(
-      suggestedRowHeight: 106,
-      axis: Axis.vertical,
-    ),
-    TabType.recode: AutoScrollController(
-      suggestedRowHeight: 106,
-      axis: Axis.vertical,
-    ),
-    TabType.finished: AutoScrollController(
-      suggestedRowHeight: 106,
-      axis: Axis.vertical,
-    ),
-  };
+  const RespondentsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     logger('Build').i('RespondentsPage');
 
-    // HIGHLIGHT 必須要這樣創
-    final _tabController = useTabController(initialLength: 5);
+    // H_ tabController
+    final tabController = useTabController(initialLength: 5);
 
-    // H_ 切換分頁時
-    _tabController.addListener(() {
-      if (_tabController.indexIsChanging ||
-          (_tabController.index != _tabController.previousIndex)) {
-        context.read<RespondentBloc>().add(
-              RespondentEvent.tabSwitched(index: _tabController.index),
-            );
-      }
-    });
+    useEffect(() {
+      // H_ 切換分頁時
+      // NOTE 不需要特別 remove listener
+      tabController.addListener(() {
+        if (tabController.indexIsChanging ||
+            (tabController.index != tabController.previousIndex)) {
+          context.read<RespondentsPageBloc>().add(
+                RespondentsPageEvent.tabSwitched(
+                  tab: TabType.values.elementAt(tabController.index),
+                ),
+              );
+        }
+      });
+    }, []);
 
     return TapOutDismissKeyboard(
       child: Scaffold(
@@ -63,6 +44,12 @@ class RespondentsPage extends HookWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
+              context.read<RespondentBloc>().add(
+                    const RespondentEvent.leaveButtonPressed(),
+                  );
+              context.read<RespondentsPageBloc>().add(
+                    const RespondentsPageEvent.stateCleared(),
+                  );
               context.read<NavigationBloc>().add(
                     NavigationEvent.pageChanged(
                       page: NavigationPage.overview(),
@@ -77,46 +64,15 @@ class RespondentsPage extends HookWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(width: 60),
-                Flexible(child: BadgedTabBar(tabController: _tabController)),
+                Flexible(
+                  child: BadgedTabBar(tabController: tabController),
+                ),
               ],
             ),
           ),
         ),
         body: SafeArea(
-          child: Column(
-            children: [
-              GroupTopBar(
-                tabScrollControllerMap: tabScrollControllerMap,
-              ),
-              Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [
-                    RespondentsBody(
-                      tabType: TabType.start,
-                      tabScrollControllerMap: tabScrollControllerMap,
-                    ),
-                    RespondentsBody(
-                      tabType: TabType.housingType,
-                      tabScrollControllerMap: tabScrollControllerMap,
-                    ),
-                    RespondentsBody(
-                      tabType: TabType.interviewReport,
-                      tabScrollControllerMap: tabScrollControllerMap,
-                    ),
-                    RespondentsBody(
-                      tabType: TabType.recode,
-                      tabScrollControllerMap: tabScrollControllerMap,
-                    ),
-                    RespondentsBody(
-                      tabType: TabType.finished,
-                      tabScrollControllerMap: tabScrollControllerMap,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          child: RespondentsBody(tabController: tabController),
         ),
       ),
     );

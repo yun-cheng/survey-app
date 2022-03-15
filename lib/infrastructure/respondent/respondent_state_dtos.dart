@@ -4,11 +4,10 @@ import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
-import '../core/isolate_storage_event_task.dart';
 import '../core/extensions.dart';
+import '../core/isolate_storage_event_task.dart';
 import '../survey/response_list_dtos.dart';
 import '../survey/survey_dtos.dart';
-import 'card_scroll_position_dtos.dart';
 import 'housing_dtos.dart';
 import 'respondent_dtos.dart';
 import 'visit_record_dtos.dart';
@@ -26,12 +25,13 @@ class RespondentStateDto with _$RespondentStateDto {
     SurveyDto? survey,
     String? surveyId,
     Map<String, RespondentDto>? respondentMap,
-    TabType? currentTab,
-    Map<TabType, CardScrollPositionDto>? tabScrollPosition,
-    String? selectedRespondentId,
     Map<String, List<VisitRecordDto>>? visitRecordsMap,
+    Map<String, String>? lastVisitRecordMap,
     Map<String, HousingDto>? housingMap,
-    Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
+    List<String>? groupList,
+    Map<String, Map<String, List<RespondentDto>>>? tabGroupedRespondentList,
+    Map<String, Map<int, String>>? tabGroupMap,
+    Map<String, int>? tabCountMap,
     ResponseMapDto? responseInfoMap,
     @JsonKey(ignore: true) StateParameters? saveParameters,
   }) = _RespondentStateDto;
@@ -68,28 +68,35 @@ class RespondentStateDto with _$RespondentStateDto {
             )
           : null,
       surveyId: domain.saveParameters.survey ? domain.survey.id : null,
-      currentTab: domain.saveParameters.currentTab ? domain.currentTab : null,
-      tabScrollPosition: domain.saveParameters.tabScrollPosition
-          ? domain.tabScrollPosition.map((key, value) =>
-              MapEntry(key, CardScrollPositionDto.fromDomain(value)))
-          : null,
-      selectedRespondentId: domain.saveParameters.selectedRespondentId
-          ? domain.selectedRespondentId
-          : null,
       visitRecordsMap: domain.saveParameters.visitRecordsMap
           ? domain.visitRecordsMap.mapValues(
               (e) => e.map((e1) => VisitRecordDto.fromDomain(e1)).toList(),
             )
+          : null,
+      lastVisitRecordMap: domain.saveParameters.visitRecordsMap
+          ? domain.lastVisitRecordMap
           : null,
       housingMap: domain.saveParameters.housingMap
           ? domain.housingMap.mapValues(
               (e) => HousingDto.fromDomain(e),
             )
           : null,
-      tabRespondentMap: domain.saveParameters.tabRespondentMap
-          ? domain.tabRespondentMap.mapValues(
-              (e) => e.mapValues((e1) => RespondentDto.fromDomain(e1)),
+      groupList: domain.saveParameters.respondentMap ? domain.groupList : null,
+      tabGroupedRespondentList: domain.saveParameters.tabRespondentMap
+          ? domain.tabGroupedRespondentList.map(
+              (k, v) => MapEntry(
+                  k.value,
+                  v.mapValues(
+                    (e1) =>
+                        e1.map((e2) => RespondentDto.fromDomain(e2)).toList(),
+                  )),
             )
+          : null,
+      tabGroupMap: domain.saveParameters.tabRespondentMap
+          ? domain.tabGroupMap.mapKeys((e) => e.value)
+          : null,
+      tabCountMap: domain.saveParameters.tabRespondentMap
+          ? domain.tabCountMap.mapKeys((e) => e.value)
           : null,
       responseInfoMap: domain.saveParameters.responseInfoMap
           ? ResponseMapDto.fromDomain(domain.responseInfoMap)
@@ -102,7 +109,6 @@ class RespondentStateDto with _$RespondentStateDto {
     final initial = RespondentState.initial();
     return initial.copyWith(
       eventState: LoadState.success(),
-      // surveyRespondentMapState: LoadState.success(),
       surveyRespondentMapState: surveyRespondentMap != null
           ? LoadState.success()
           : initial.surveyRespondentMapState,
@@ -113,21 +119,25 @@ class RespondentStateDto with _$RespondentStateDto {
       survey: survey?.toDomain() ?? initial.survey,
       respondentMap: respondentMap?.mapValues((e) => e.toDomain()) ??
           initial.respondentMap,
-      currentTab: currentTab ?? initial.currentTab,
-      tabScrollPosition: tabScrollPosition
-              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
-          initial.tabScrollPosition,
-      selectedRespondentId:
-          selectedRespondentId ?? initial.selectedRespondentId,
       visitRecordsMap: visitRecordsMap?.map((key, value) =>
               MapEntry(key, value.map((dto) => dto.toDomain()).toList())) ??
           initial.visitRecordsMap,
+      lastVisitRecordMap: lastVisitRecordMap ?? initial.lastVisitRecordMap,
       housingMap:
           housingMap?.mapValues((e) => e.toDomain()) ?? initial.housingMap,
-      tabRespondentMap: tabRespondentMap?.mapValues(
-            (e) => e.mapValues((e1) => e1.toDomain()),
+      groupList: groupList ?? initial.groupList,
+      tabGroupedRespondentList: tabGroupedRespondentList?.map(
+            (k, v) => MapEntry(
+                TabType(k),
+                v.mapValues(
+                  (e1) => e1.map((e2) => e2.toDomain()).toList(),
+                )),
           ) ??
-          initial.tabRespondentMap,
+          initial.tabGroupedRespondentList,
+      tabGroupMap:
+          tabGroupMap?.mapKeys((e) => TabType(e)) ?? initial.tabGroupMap,
+      tabCountMap:
+          tabCountMap?.mapKeys((e) => TabType(e)) ?? initial.tabCountMap,
       responseInfoMap: responseInfoMap?.toDomain() ?? initial.responseInfoMap,
     );
   }

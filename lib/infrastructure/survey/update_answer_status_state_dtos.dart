@@ -4,6 +4,7 @@ import '../../application/survey/update_answer_status/update_answer_status_bloc.
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/survey/value_objects.dart';
+import '../core/extensions.dart';
 import '../core/isolate_storage_event_task.dart';
 import '../respondent/respondent_dtos.dart';
 import 'answer_dtos.dart';
@@ -63,20 +64,18 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     return UpdateAnswerStatusStateDto(
       // H_ 主要資料
       answerMap: domain.saveParameters.answerMap
-          ? domain.answerMap
-              .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value)))
+          ? domain.answerMap.mapValues((e) => AnswerDto.fromDomain(e))
           : null,
       answerStatusMap: domain.saveParameters.answerStatusMap
-          ? domain.answerStatusMap.map(
-              (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value)))
+          ? domain.answerStatusMap
+              .mapValues((e) => AnswerStatusDto.fromDomain(e))
           : null,
       recodeAnswerMap: domain.saveParameters.recodeAnswerMap
-          ? domain.recodeAnswerMap
-              .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value)))
+          ? domain.recodeAnswerMap.mapValues((e) => AnswerDto.fromDomain(e))
           : null,
       recodeAnswerStatusMap: domain.saveParameters.recodeAnswerStatusMap
-          ? domain.recodeAnswerStatusMap.map(
-              (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value)))
+          ? domain.recodeAnswerStatusMap
+              .mapValues((e) => AnswerStatusDto.fromDomain(e))
           : null,
       page: domain.saveParameters.page ? domain.page : null,
       newestPage: domain.saveParameters.newestPage ? domain.newestPage : null,
@@ -110,12 +109,10 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           : null,
       // H_ 同 session 會變的參考資料
       questionMap: domain.saveParameters.questionMap
-          ? domain.questionMap
-              .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value)))
+          ? domain.questionMap.mapValues((e) => QuestionDto.fromDomain(e))
           : null,
       recodeQuestionMap: domain.saveParameters.recodeQuestionMap
-          ? domain.recodeQuestionMap
-              .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value)))
+          ? domain.recodeQuestionMap.mapValues((e) => QuestionDto.fromDomain(e))
           : null,
     );
   }
@@ -124,18 +121,14 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     final initial = UpdateAnswerStatusState.initial();
     final state = initial.copyWith(
       // H_ 主要資料
-      answerMap:
-          answerMap?.map((key, value) => MapEntry(key, value.toDomain())) ??
-              initial.answerMap,
-      answerStatusMap: answerStatusMap
-              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+      answerMap: answerMap?.mapValues((e) => e.toDomain()) ?? initial.answerMap,
+      answerStatusMap: answerStatusMap?.mapValues((e) => e.toDomain()) ??
           initial.answerStatusMap,
-      recodeAnswerMap: recodeAnswerMap
-              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+      recodeAnswerMap: recodeAnswerMap?.mapValues((e) => e.toDomain()) ??
           initial.recodeAnswerMap,
-      recodeAnswerStatusMap: recodeAnswerStatusMap
-              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
-          initial.recodeAnswerStatusMap,
+      recodeAnswerStatusMap:
+          recodeAnswerStatusMap?.mapValues((e) => e.toDomain()) ??
+              initial.recodeAnswerStatusMap,
       page: page ?? initial.page,
       newestPage: newestPage ?? initial.newestPage,
       isLastPage: isLastPage ?? initial.isLastPage,
@@ -158,10 +151,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           initial.respondentResponseMap,
       // H_ 同 session 會變的參考資料
       questionMap:
-          questionMap?.map((key, value) => MapEntry(key, value.toDomain())) ??
-              initial.questionMap,
-      recodeQuestionMap: recodeQuestionMap
-              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+          questionMap?.mapValues((e) => e.toDomain()) ?? initial.questionMap,
+      recodeQuestionMap: recodeQuestionMap?.mapValues((e) => e.toDomain()) ??
           initial.recodeQuestionMap,
       // H_ 狀態更新進度
       eventState: LoadState.success(),

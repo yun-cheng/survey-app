@@ -7,6 +7,7 @@ import '../../application/auth/auth_bloc.dart';
 import '../../application/core/device/device_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
+import '../../application/respondent/respondents_page/respondents_page_bloc.dart';
 import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
@@ -57,6 +58,10 @@ class AppProviders extends StatelessWidget {
           create: (_) => RespondentBloc(
             getIt<IRespondentRepository>(),
           ),
+          lazy: false,
+        ),
+        BlocProvider(
+          create: (_) => RespondentsPageBloc(),
           lazy: false,
         ),
         BlocProvider(

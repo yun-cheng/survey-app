@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../respondent/value_objects.dart';
+
 part 'value_objects.freezed.dart';
 
 @freezed
@@ -42,6 +44,7 @@ class QuestionType with _$QuestionType {
   bool get isMultiple => ['multiple', 'popupMultiple'].contains(value);
   bool get isChoice => isSingle || isMultiple;
   bool get isNormalChoice => ['single', 'multiple'].contains(value);
+  bool get isPopup => ['popupSingle', 'popupMultiple'].contains(value);
   bool get isInput => ['number', 'integer', 'text'].contains(value);
   bool get isNumberOrInteger => ['number', 'integer'].contains(value);
   bool get isNumber => value == 'number';
@@ -49,6 +52,8 @@ class QuestionType with _$QuestionType {
   bool get isDateTime => ['date', 'time', 'dateTime'].contains(value);
   bool get isPhone => value == 'phone';
   bool get isTable => ['simpleTable', 'complexTable'].contains(value);
+  bool get isSimpleTable => value == 'simpleTable';
+  bool get isComplexTable => value == 'complexTable';
   bool get needAnswer =>
       !['description', 'simpleTable', 'complexTable'].contains(value);
   bool get isValid =>
@@ -91,6 +96,7 @@ class AnswerStatusType with _$AnswerStatusType {
   bool get isUnanswered => value == 'unanswered';
   bool get isInvalid => value == 'invalid';
   bool get isHidden => value == 'hidden';
+  bool get isNotHidden => !['hidden', ''].contains(value);
   bool get isCompleted => isAnswered || isHidden;
 }
 
@@ -178,6 +184,25 @@ class ModuleType with _$ModuleType {
         return '預過錄';
       default:
         return '';
+    }
+  }
+
+  bool focusInTab(TabType tabType) {
+    switch (value) {
+      case 'samplingWithinHousehold':
+        return tabType.isStart;
+      case 'main':
+        return tabType.isStart;
+      case 'visitReport':
+        return tabType.isStart;
+      case 'housingType':
+        return tabType.index <= 1;
+      case 'interviewReport':
+        return tabType.isInterviewReport;
+      case 'recode':
+        return tabType.isRecode;
+      default:
+        return false;
     }
   }
 }

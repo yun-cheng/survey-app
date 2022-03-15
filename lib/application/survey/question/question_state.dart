@@ -9,6 +9,8 @@ class QuestionState with _$QuestionState {
     required Question question,
     required Answer answer,
     required bool isSpecialAnswer,
+    required bool withinCell,
+    required bool canEdit,
     required bool show,
   }) = _QuestionState;
 
@@ -17,19 +19,25 @@ class QuestionState with _$QuestionState {
         question: Question.empty(),
         answer: Answer.empty(),
         isSpecialAnswer: false,
+        withinCell: false,
+        canEdit: false,
         show: false,
       );
 
   factory QuestionState.initial({
     required Question question,
     Answer? answer,
-    bool? isSpecialAnswer,
+    required bool isSpecialAnswer,
+    required bool withinCell,
+    required bool canEdit,
   }) =>
       QuestionState(
         stateId: UniqueId.v1(),
         question: question,
         answer: answer ?? Answer.empty(),
-        isSpecialAnswer: isSpecialAnswer ?? false,
+        isSpecialAnswer: isSpecialAnswer,
+        withinCell: withinCell,
+        canEdit: canEdit,
         show: false,
       );
 

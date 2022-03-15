@@ -1,10 +1,8 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/style/main.dart';
 
@@ -58,12 +56,9 @@ class BadgedTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
         buildWhen: (p, c) =>
-            (p.eventState != c.eventState &&
-                c.eventState == LoadState.success()) &&
-            (!const DeepCollectionEquality().equals(
-              p.tabRespondentMap,
-              c.tabRespondentMap,
-            )),
+            p.updateParameters.tabRespondentMap !=
+                c.updateParameters.tabRespondentMap &&
+            c.updateParameters.tabRespondentMap,
         builder: (context, state) {
           logger('Build').i('BadgedTabBar');
 
@@ -72,16 +67,11 @@ class BadgedTabBar extends StatelessWidget {
             labelStyle: kH3TextStyle,
             isScrollable: screenWidth < 600.0,
             tabs: <Widget>[
-              tabTitle(
-                  '訪問', state.tabRespondentMap[TabType.start]?.length ?? 0),
-              tabTitle('住屋',
-                  state.tabRespondentMap[TabType.housingType]?.length ?? 0),
-              tabTitle('訪問紀錄',
-                  state.tabRespondentMap[TabType.interviewReport]?.length ?? 0),
-              tabTitle(
-                  '預過錄', state.tabRespondentMap[TabType.recode]?.length ?? 0),
-              tabTitle(
-                  '完成', state.tabRespondentMap[TabType.finished]?.length ?? 0),
+              tabTitle('訪問', state.tabCountMap[TabType.start] ?? 0),
+              tabTitle('住屋', state.tabCountMap[TabType.housingType] ?? 0),
+              tabTitle('訪問紀錄', state.tabCountMap[TabType.interviewReport] ?? 0),
+              tabTitle('預過錄', state.tabCountMap[TabType.recode] ?? 0),
+              tabTitle('完成', state.tabCountMap[TabType.finished] ?? 0),
             ],
           );
         });

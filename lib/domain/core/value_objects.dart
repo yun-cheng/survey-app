@@ -25,6 +25,9 @@ class LoadState with _$LoadState {
   factory LoadState.inProgress() => const LoadState('inProgress');
   factory LoadState.failure() => const LoadState('failure');
   factory LoadState.success() => const LoadState('success');
+
+  bool get isInitial => value == 'initial';
+  bool get isSuccess => value == 'success';
 }
 
 @freezed

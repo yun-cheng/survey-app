@@ -17,4 +17,6 @@ class Housing with _$Housing {
         type: '',
         usage: '',
       );
+
+  bool get isEmpty => type == '' && usage == '';
 }

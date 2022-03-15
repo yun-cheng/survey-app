@@ -26,16 +26,12 @@ class _$RespondentDtoTearOff {
       {required String respondentId,
       required String countyTown,
       required String village,
-      required String remainAddress,
-      bool? isCountyTownFirst,
-      bool? isVillageFirst}) {
+      required String remainAddress}) {
     return _RespondentDto(
       respondentId: respondentId,
       countyTown: countyTown,
       village: village,
       remainAddress: remainAddress,
-      isCountyTownFirst: isCountyTownFirst,
-      isVillageFirst: isVillageFirst,
     );
   }
 
@@ -53,8 +49,6 @@ mixin _$RespondentDto {
   String get countyTown => throw _privateConstructorUsedError;
   String get village => throw _privateConstructorUsedError;
   String get remainAddress => throw _privateConstructorUsedError;
-  bool? get isCountyTownFirst => throw _privateConstructorUsedError;
-  bool? get isVillageFirst => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,9 +65,7 @@ abstract class $RespondentDtoCopyWith<$Res> {
       {String respondentId,
       String countyTown,
       String village,
-      String remainAddress,
-      bool? isCountyTownFirst,
-      bool? isVillageFirst});
+      String remainAddress});
 }
 
 /// @nodoc
@@ -91,8 +83,6 @@ class _$RespondentDtoCopyWithImpl<$Res>
     Object? countyTown = freezed,
     Object? village = freezed,
     Object? remainAddress = freezed,
-    Object? isCountyTownFirst = freezed,
-    Object? isVillageFirst = freezed,
   }) {
     return _then(_value.copyWith(
       respondentId: respondentId == freezed
@@ -111,14 +101,6 @@ class _$RespondentDtoCopyWithImpl<$Res>
           ? _value.remainAddress
           : remainAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      isCountyTownFirst: isCountyTownFirst == freezed
-          ? _value.isCountyTownFirst
-          : isCountyTownFirst // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      isVillageFirst: isVillageFirst == freezed
-          ? _value.isVillageFirst
-          : isVillageFirst // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -134,9 +116,7 @@ abstract class _$RespondentDtoCopyWith<$Res>
       {String respondentId,
       String countyTown,
       String village,
-      String remainAddress,
-      bool? isCountyTownFirst,
-      bool? isVillageFirst});
+      String remainAddress});
 }
 
 /// @nodoc
@@ -156,8 +136,6 @@ class __$RespondentDtoCopyWithImpl<$Res>
     Object? countyTown = freezed,
     Object? village = freezed,
     Object? remainAddress = freezed,
-    Object? isCountyTownFirst = freezed,
-    Object? isVillageFirst = freezed,
   }) {
     return _then(_RespondentDto(
       respondentId: respondentId == freezed
@@ -176,14 +154,6 @@ class __$RespondentDtoCopyWithImpl<$Res>
           ? _value.remainAddress
           : remainAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      isCountyTownFirst: isCountyTownFirst == freezed
-          ? _value.isCountyTownFirst
-          : isCountyTownFirst // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      isVillageFirst: isVillageFirst == freezed
-          ? _value.isVillageFirst
-          : isVillageFirst // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -195,9 +165,7 @@ class _$_RespondentDto extends _RespondentDto {
       {required this.respondentId,
       required this.countyTown,
       required this.village,
-      required this.remainAddress,
-      this.isCountyTownFirst,
-      this.isVillageFirst})
+      required this.remainAddress})
       : super._();
 
   factory _$_RespondentDto.fromJson(Map<String, dynamic> json) =>
@@ -211,14 +179,10 @@ class _$_RespondentDto extends _RespondentDto {
   final String village;
   @override
   final String remainAddress;
-  @override
-  final bool? isCountyTownFirst;
-  @override
-  final bool? isVillageFirst;
 
   @override
   String toString() {
-    return 'RespondentDto(respondentId: $respondentId, countyTown: $countyTown, village: $village, remainAddress: $remainAddress, isCountyTownFirst: $isCountyTownFirst, isVillageFirst: $isVillageFirst)';
+    return 'RespondentDto(respondentId: $respondentId, countyTown: $countyTown, village: $village, remainAddress: $remainAddress)';
   }
 
   @override
@@ -232,11 +196,7 @@ class _$_RespondentDto extends _RespondentDto {
                 .equals(other.countyTown, countyTown) &&
             const DeepCollectionEquality().equals(other.village, village) &&
             const DeepCollectionEquality()
-                .equals(other.remainAddress, remainAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.isCountyTownFirst, isCountyTownFirst) &&
-            const DeepCollectionEquality()
-                .equals(other.isVillageFirst, isVillageFirst));
+                .equals(other.remainAddress, remainAddress));
   }
 
   @override
@@ -245,9 +205,7 @@ class _$_RespondentDto extends _RespondentDto {
       const DeepCollectionEquality().hash(respondentId),
       const DeepCollectionEquality().hash(countyTown),
       const DeepCollectionEquality().hash(village),
-      const DeepCollectionEquality().hash(remainAddress),
-      const DeepCollectionEquality().hash(isCountyTownFirst),
-      const DeepCollectionEquality().hash(isVillageFirst));
+      const DeepCollectionEquality().hash(remainAddress));
 
   @JsonKey(ignore: true)
   @override
@@ -265,9 +223,7 @@ abstract class _RespondentDto extends RespondentDto {
       {required String respondentId,
       required String countyTown,
       required String village,
-      required String remainAddress,
-      bool? isCountyTownFirst,
-      bool? isVillageFirst}) = _$_RespondentDto;
+      required String remainAddress}) = _$_RespondentDto;
   const _RespondentDto._() : super._();
 
   factory _RespondentDto.fromJson(Map<String, dynamic> json) =
@@ -281,10 +237,6 @@ abstract class _RespondentDto extends RespondentDto {
   String get village;
   @override
   String get remainAddress;
-  @override
-  bool? get isCountyTownFirst;
-  @override
-  bool? get isVillageFirst;
   @override
   @JsonKey(ignore: true)
   _$RespondentDtoCopyWith<_RespondentDto> get copyWith =>

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
@@ -22,9 +21,6 @@ class SpecialAnswerSwitch extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('SpecialAnswerSwitch');
 
-        final _state = context.read<UpdateAnswerStatusBloc>().state;
-        final canEdit = !_state.isReadOnly && !_state.isRecodeModule;
-
         return Row(
           // NOTE 強制 rebuild 取消動畫
           key: Key(UniqueId.v1().value),
@@ -32,7 +28,7 @@ class SpecialAnswerSwitch extends StatelessWidget {
             Switch(
               value: state.isSpecialAnswer,
               onChanged: (_) {
-                if (canEdit) {
+                if (state.canEdit) {
                   context.read<QuestionBloc>().add(
                         QuestionEvent.setSpecialAnswer(!state.isSpecialAnswer),
                       );

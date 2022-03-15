@@ -21,27 +21,6 @@ class RespondentEvent with _$RespondentEvent {
     required String text,
   }) = _TextSearched;
 
-  // H_ 使用者選擇受訪者
-  const factory RespondentEvent.respondentSelected({
-    required String respondentId,
-  }) = _RespondentSelected;
-
-  // H_ 切換分頁時
-  const factory RespondentEvent.tabSwitched({
-    required int index,
-  }) = _TabSwitched;
-
-  // H_ 滾動頁面時
-  const factory RespondentEvent.pageScrolled({
-    required TabType tabType,
-    // required List<ItemPosition> positions,
-  }) = _PageScrolled;
-
-  // H_ 切換鄉鎮市區
-  const factory RespondentEvent.jumpedToTown({
-    required String countyTown,
-  }) = _JumpedToTown;
-
   // H_ 查址紀錄更新時
   const factory RespondentEvent.visitReportUpdated({
     required ResponseMap responseMap,
@@ -56,6 +35,8 @@ class RespondentEvent with _$RespondentEvent {
   const factory RespondentEvent.tabRespondentsUpdated({
     required ResponseMap responseMap,
   }) = _TabRespondentsUpdated;
+
+  const factory RespondentEvent.leaveButtonPressed() = _LeaveButtonPressed;
 
   const factory RespondentEvent.loggedOut() = _LoggedOut;
 

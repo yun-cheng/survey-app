@@ -11,8 +11,6 @@ class Respondent with _$Respondent {
     required String countyTown,
     required String village,
     required String remainAddress,
-    required bool isCountyTownFirst,
-    required bool isVillageFirst,
   }) = _Respondent;
 
   factory Respondent.empty() => const Respondent(
@@ -20,7 +18,7 @@ class Respondent with _$Respondent {
         countyTown: '',
         village: '',
         remainAddress: '',
-        isCountyTownFirst: false,
-        isVillageFirst: false,
       );
+
+  bool get isEmpty => this == Respondent.empty();
 }

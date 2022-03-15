@@ -4,9 +4,20 @@ part of 'respondent_bloc.dart';
 RespondentState respondentMapLoaded(RespondentState state) {
   logger('Compute').i('respondentMapLoaded');
 
+  final respondentMap = state.surveyRespondentMap[state.survey.id] ?? {};
+
+  final groupList =
+      respondentMap.values.groupListsBy((r) => r.countyTown).keys.toList();
+  groupList.sort();
+  groupList.insert(0, '所有訪區');
+
   return state.copyWith(
-    respondentMap: state.surveyRespondentMap[state.survey.id] ?? {},
+    respondentMap: respondentMap,
+    groupList: groupList,
     respondentFailure: none(),
+    saveParameters: state.saveParameters.copyWith(
+      respondentMap: true,
+    ),
   );
 }
 
@@ -132,9 +143,16 @@ RespondentState visitReportUpdated(RespondentState state) {
       .sortedByDescendingX((v) => v.visitTime.toInt())
       .groupListsBy((r) => r.respondentId);
 
+  final lastVisitRecordMap =
+      visitRecordsMap.mapValues((l) => l.firstOrNull?.description ?? '');
+
   return state.copyWith(
     visitRecordsMap: visitRecordsMap,
+    lastVisitRecordMap: lastVisitRecordMap,
     saveParameters: state.saveParameters.copyWith(
+      visitRecordsMap: true,
+    ),
+    updateParameters: state.saveParameters.copyWith(
       visitRecordsMap: true,
     ),
   );
@@ -283,74 +301,43 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
   // S_5 剩下的就在訪問分頁
   tabRespondentMap[TabType.start] = pRespondentMap.item2;
 
-  // S_ 排序
-  tabRespondentMap.updateValues(
-    (e) {
-      final list = e.values.toList().sortedByX((r) => r.id);
+  // S_ 整理
+  final tabCountMap = <TabType, int>{};
+  final tabGroupMap = <TabType, Map<int, String>>{};
 
-      list.forEachIndexed((i, r) {
-        if (i > 0) {
-          if (r.village != list[i - 1].village) {
-            list[i] = r.copyWith(isVillageFirst: true);
-          }
+  final tabGroupedRespondentList = tabRespondentMap.map(
+    (tabType, map) {
+      final sortedList = map.values
+          .toList()
+          .sortedByMultiX((r) => [r.countyTown, r.village, r.id]);
 
-          if (r.countyTown != list[i - 1].countyTown) {
-            list[i] = r.copyWith(
-              isCountyTownFirst: true,
-              isVillageFirst: true,
-            );
-          }
-        } else {
-          list[i] = r.copyWith(
-            isCountyTownFirst: true,
-            isVillageFirst: true,
-          );
-        }
-      });
+      tabCountMap[tabType] = sortedList.length;
 
-      return list.map((r) => MapEntry(r.id, r)).toMap();
+      final grouped =
+          sortedList.groupListsBy((r) => Tuple2(r.countyTown, r.village));
+
+      tabGroupMap[tabType] = grouped.keys
+          .mapIndexed((index, e) => MapEntry(index, e.item1))
+          .groupListsBy((e) => e.value)
+          .mapValues((e) => e.first)
+          .values
+          .toMap();
+
+      final groupedRespondentList = grouped.mapKeys((e) => e.item1 + e.item2);
+
+      return MapEntry(tabType, groupedRespondentList);
     },
   );
 
   return state.copyWith(
-    tabRespondentMap: tabRespondentMap,
+    tabGroupedRespondentList: tabGroupedRespondentList,
+    tabCountMap: tabCountMap,
+    tabGroupMap: tabGroupMap,
     saveParameters: state.saveParameters.copyWith(
       tabRespondentMap: true,
     ),
+    updateParameters: state.updateParameters.copyWith(
+      tabRespondentMap: true,
+    ),
   );
-}
-
-RespondentState pageScrolled(
-  _PageScrolled e,
-  RespondentState state,
-) {
-  // logger('Compute').i('pageScrolled');
-
-  // final firstCardIndex =
-  //     e.positions.isEmpty ? 0 : e.positions.map((p) => p.index).reduce(min);
-  // final firstCardAlignment = e.positions.isEmpty
-  //     ? 0.0
-  //     : e.positions
-  //         .firstWhere((e) => e.index == firstCardIndex)
-  //         .itemLeadingEdge;
-  // final firstRespondent =
-  //     state.tabRespondentMap[state.currentTab]!.values.firstOrNull;
-
-  // if (firstRespondent != null) {
-  //   final TabScrollPosition tabScrollPosition =
-  //       Map.from(state.tabScrollPosition);
-  //   tabScrollPosition[e.tabType] = CardScrollPosition(
-  //     firstCardIndex: firstCardIndex,
-  //     firstCardAlignment: firstCardAlignment,
-  //     firstRespondent: firstRespondent,
-  //   );
-
-  //   return state.copyWith(
-  //     tabScrollPosition: tabScrollPosition,
-  //   );
-  // } else {
-  //   return state;
-  // }
-
-  return state;
 }

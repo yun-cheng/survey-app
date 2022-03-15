@@ -852,12 +852,16 @@ class _$QuestionStateTearOff {
       required Question question,
       required Answer answer,
       required bool isSpecialAnswer,
+      required bool withinCell,
+      required bool canEdit,
       required bool show}) {
     return _QuestionState(
       stateId: stateId,
       question: question,
       answer: answer,
       isSpecialAnswer: isSpecialAnswer,
+      withinCell: withinCell,
+      canEdit: canEdit,
       show: show,
     );
   }
@@ -872,6 +876,8 @@ mixin _$QuestionState {
   Question get question => throw _privateConstructorUsedError;
   Answer get answer => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get withinCell => throw _privateConstructorUsedError;
+  bool get canEdit => throw _privateConstructorUsedError;
   bool get show => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -889,6 +895,8 @@ abstract class $QuestionStateCopyWith<$Res> {
       Question question,
       Answer answer,
       bool isSpecialAnswer,
+      bool withinCell,
+      bool canEdit,
       bool show});
 
   $UniqueIdCopyWith<$Res> get stateId;
@@ -911,6 +919,8 @@ class _$QuestionStateCopyWithImpl<$Res>
     Object? question = freezed,
     Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
+    Object? withinCell = freezed,
+    Object? canEdit = freezed,
     Object? show = freezed,
   }) {
     return _then(_value.copyWith(
@@ -929,6 +939,14 @@ class _$QuestionStateCopyWithImpl<$Res>
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      withinCell: withinCell == freezed
+          ? _value.withinCell
+          : withinCell // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canEdit: canEdit == freezed
+          ? _value.canEdit
+          : canEdit // ignore: cast_nullable_to_non_nullable
               as bool,
       show: show == freezed
           ? _value.show
@@ -971,6 +989,8 @@ abstract class _$QuestionStateCopyWith<$Res>
       Question question,
       Answer answer,
       bool isSpecialAnswer,
+      bool withinCell,
+      bool canEdit,
       bool show});
 
   @override
@@ -998,6 +1018,8 @@ class __$QuestionStateCopyWithImpl<$Res>
     Object? question = freezed,
     Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
+    Object? withinCell = freezed,
+    Object? canEdit = freezed,
     Object? show = freezed,
   }) {
     return _then(_QuestionState(
@@ -1017,6 +1039,14 @@ class __$QuestionStateCopyWithImpl<$Res>
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
+      withinCell: withinCell == freezed
+          ? _value.withinCell
+          : withinCell // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canEdit: canEdit == freezed
+          ? _value.canEdit
+          : canEdit // ignore: cast_nullable_to_non_nullable
+              as bool,
       show: show == freezed
           ? _value.show
           : show // ignore: cast_nullable_to_non_nullable
@@ -1033,6 +1063,8 @@ class _$_QuestionState extends _QuestionState {
       required this.question,
       required this.answer,
       required this.isSpecialAnswer,
+      required this.withinCell,
+      required this.canEdit,
       required this.show})
       : super._();
 
@@ -1045,11 +1077,15 @@ class _$_QuestionState extends _QuestionState {
   @override
   final bool isSpecialAnswer;
   @override
+  final bool withinCell;
+  @override
+  final bool canEdit;
+  @override
   final bool show;
 
   @override
   String toString() {
-    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, show: $show)';
+    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, withinCell: $withinCell, canEdit: $canEdit, show: $show)';
   }
 
   @override
@@ -1062,6 +1098,9 @@ class _$_QuestionState extends _QuestionState {
             const DeepCollectionEquality().equals(other.answer, answer) &&
             const DeepCollectionEquality()
                 .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.withinCell, withinCell) &&
+            const DeepCollectionEquality().equals(other.canEdit, canEdit) &&
             const DeepCollectionEquality().equals(other.show, show));
   }
 
@@ -1072,6 +1111,8 @@ class _$_QuestionState extends _QuestionState {
       const DeepCollectionEquality().hash(question),
       const DeepCollectionEquality().hash(answer),
       const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(withinCell),
+      const DeepCollectionEquality().hash(canEdit),
       const DeepCollectionEquality().hash(show));
 
   @JsonKey(ignore: true)
@@ -1086,6 +1127,8 @@ abstract class _QuestionState extends QuestionState {
       required Question question,
       required Answer answer,
       required bool isSpecialAnswer,
+      required bool withinCell,
+      required bool canEdit,
       required bool show}) = _$_QuestionState;
   const _QuestionState._() : super._();
 
@@ -1097,6 +1140,10 @@ abstract class _QuestionState extends QuestionState {
   Answer get answer;
   @override
   bool get isSpecialAnswer;
+  @override
+  bool get withinCell;
+  @override
+  bool get canEdit;
   @override
   bool get show;
   @override

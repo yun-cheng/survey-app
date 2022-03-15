@@ -1,19 +1,33 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum TabType {
-  @JsonValue('start')
-  start,
-  @JsonValue('housingType')
-  housingType,
-  @JsonValue('interviewReport')
-  interviewReport,
-  @JsonValue('recode')
-  recode,
-  @JsonValue('finished')
-  finished,
-}
+part 'value_objects.freezed.dart';
 
-extension TabTypeX on TabType {
-  static Map<TabType, dynamic> toMap() =>
-      TabType.values.asMap().map((key, value) => MapEntry(value, null));
+@freezed
+class TabType with _$TabType {
+  const TabType._();
+
+  const factory TabType(String value) = _TabType;
+
+  static const TabType empty = TabType('');
+  static const TabType start = TabType('start');
+  static const TabType housingType = TabType('housingType');
+  static const TabType interviewReport = TabType('interviewReport');
+  static const TabType recode = TabType('recode');
+  static const TabType finished = TabType('finished');
+
+  static Set<TabType> values = {
+    TabType.start,
+    TabType.housingType,
+    TabType.interviewReport,
+    TabType.recode,
+    TabType.finished,
+  };
+
+  int get index => values.toList().indexOf(this);
+
+  bool get isStart => this == TabType.start;
+  bool get isHousingType => this == TabType.housingType;
+  bool get isInterviewReport => this == TabType.interviewReport;
+  bool get isRecode => this == TabType.recode;
+  bool get isFinished => this == TabType.finished;
 }

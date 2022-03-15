@@ -15,12 +15,13 @@ class DropdownBox extends StatelessWidget {
 
   const DropdownBox({
     Key? key,
-    required this.isSpecialChoice,
+    this.isSpecialChoice = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final questionId = context.read<QuestionBloc>().state.question.id;
+    final canEdit = context.read<QuestionBloc>().state.canEdit;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
@@ -51,7 +52,6 @@ class DropdownBox extends StatelessWidget {
                 ? question?.specialAnswerList
                 : question?.choiceList) ??
             [];
-        final canEdit = !_state.isReadOnly && !_state.isRecodeModule;
 
         return BlocBuilder<QuestionBloc, QuestionState>(
           buildWhen: (p, c) => p.answer != c.answer,

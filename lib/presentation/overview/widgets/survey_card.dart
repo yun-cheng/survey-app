@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
+import '../../../application/respondent/respondents_page/respondents_page_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -47,6 +48,9 @@ class SurveyCard extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       if (survey.isCompatible) {
+                        context.read<RespondentsPageBloc>().add(
+                              const RespondentsPageEvent.stateCleared(),
+                            );
                         context.read<RespondentBloc>().add(
                             RespondentEvent.surveySelected(survey: survey));
                         context.read<WatchSurveyBloc>().add(
