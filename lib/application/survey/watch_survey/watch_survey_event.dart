@@ -7,9 +7,9 @@ class WatchSurveyEvent with _$WatchSurveyEvent {
     required String interviewerId,
   }) = _WatchSurveyMapStarted;
 
-  const factory WatchSurveyEvent.surveyMapReceived(
-    Either<SurveyFailure, Map<String, Survey>> failureOrSurveyMap,
-  ) = _SurveyMapReceived;
+  const factory WatchSurveyEvent.rawSurveyMapReceived(
+    Either<SurveyFailure, Map<String, Uint8List?>> failureOrSurveyMap,
+  ) = _RawSurveyMapReceived;
 
   const factory WatchSurveyEvent.projectMapReceived(
     Either<SurveyFailure, Map<String, Project>> failureOrProjectMap,

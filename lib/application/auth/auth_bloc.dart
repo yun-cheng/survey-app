@@ -5,7 +5,6 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
@@ -15,12 +14,13 @@ import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
+import '../../infrastructure/core/storage_bloc_worker.dart';
 import '../../infrastructure/core/isolate_storage_bloc.dart';
-import '../../infrastructure/core/isolate_storage_event_task.dart';
+import '../../infrastructure/core/bloc_async_task.dart';
 
 part 'auth_bloc.freezed.dart';
+part 'auth_bloc_worker.dart';
 part 'auth_event.dart';
-part 'auth_event_worker.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends IsolateStorageBloc<AuthEvent, AuthState> {
@@ -46,8 +46,8 @@ class AuthBloc extends IsolateStorageBloc<AuthEvent, AuthState> {
         await initialize(
           boxName: 'AuthState',
           stateFromStorage: stateFromStorage,
-          eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          blocWorker: AuthBlocWorker(),
           emit: emit,
         );
       },

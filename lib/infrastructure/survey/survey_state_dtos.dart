@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
-import '../core/isolate_storage_event_task.dart';
+import '../core/dto_helpers.dart';
 import '../core/extensions.dart';
 import '../overview/project_dtos.dart';
 import 'survey_dtos.dart';

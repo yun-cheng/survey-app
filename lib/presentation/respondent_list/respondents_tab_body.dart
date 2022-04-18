@@ -31,6 +31,8 @@ class RespondentsTabBody extends HookWidget {
     // H_ tabRespondentMap、搜尋文字變更時 rebuild
     final state = useBloc<RespondentBloc, RespondentState>(
       buildWhen: (p, c) =>
+          (p.surveyRespondentMapState != c.surveyRespondentMapState &&
+              c.surveyRespondentMapState.hasResult) ||
           (p.updateParameters.tabRespondentMap !=
                   c.updateParameters.tabRespondentMap &&
               c.updateParameters.tabRespondentMap) ||

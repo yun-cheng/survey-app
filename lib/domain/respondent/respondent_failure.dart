@@ -9,6 +9,8 @@ class RespondentFailure with _$RespondentFailure {
   const factory RespondentFailure(String value) = _RespondentFailure;
 
   factory RespondentFailure.empty() => const RespondentFailure('');
+  factory RespondentFailure.noInternet() =>
+      const RespondentFailure('noInternet');
   factory RespondentFailure.serverError() =>
       const RespondentFailure('serverError');
   factory RespondentFailure.insufficientPermission() =>

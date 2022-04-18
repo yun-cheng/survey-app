@@ -17,5 +17,7 @@ abstract class IAudioRepository {
     required Audio audio,
   });
 
+  Future<Either<AudioFailure, Map<UniqueId, Audio>>> getAudioMapFromDir();
+
   Future<Either<AudioFailure, Unit>> clearLocalAudioDirectory();
 }

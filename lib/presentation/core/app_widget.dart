@@ -10,7 +10,7 @@ import 'style/main.dart';
 class AppWidget extends StatelessWidget {
   AppWidget({Key? key}) : super(key: key);
 
-  // HIGHLIGHT 必須要放在 build 外，才不會讓 hot reload 失敗
+  // ! 必須要放在 build 外，才不會讓 hot reload 失敗
   final _rootRouter = RootRouter();
 
   @override

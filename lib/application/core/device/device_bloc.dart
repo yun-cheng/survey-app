@@ -3,7 +3,9 @@ import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/core/logger.dart';
@@ -15,8 +17,13 @@ part 'device_state.dart';
 
 class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
   StreamSubscription<ConnectivityResult>? _networkMonitor;
+  final FirebaseFirestore _firestore;
+  final FirebaseStorage _storage;
 
-  DeviceBloc() : super(DeviceState.initial()) {
+  DeviceBloc(
+    this._firestore,
+    this._storage,
+  ) : super(DeviceState.initial()) {
     on<DeviceEvent>(_onEvent, transformer: sequential());
   }
 
@@ -25,26 +32,40 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
     Emitter<DeviceState> emit,
   ) async {
     await event.map(
-      // H_ 監聽網路狀態
+      // > 監聽網路狀態
       watchNetworkStarted: (e) async {
         logger('Watch').i('DeviceEvent: watchNetworkStarted');
+
+        // - 初始狀態
+        final result = await Connectivity().checkConnectivity();
+        add(DeviceEvent.networkChanged(result.index));
 
         await _networkMonitor?.cancel();
         _networkMonitor = Connectivity().onConnectivityChanged.listen(
               (result) => add(DeviceEvent.networkChanged(result.index)),
             );
       },
-      // H_ 網路狀態改變時
+      // > 網路狀態改變時
       networkChanged: (e) async {
         logger('Event').i('DeviceEvent: networkChanged');
 
+        final networkType = NetworkType.fromIndex(e.resultIndex);
+
         state
             .copyWith(
-              networkType: NetworkType.fromIndex(e.resultIndex),
+              networkType: networkType,
             )
             .emit(emit);
+
+        // - 視網路連線狀態開關 firestore、storage 功能
+        // TODO storage
+        if (networkType.isConnected) {
+          _firestore.enableNetwork();
+        } else {
+          _firestore.disableNetwork();
+        }
       },
-      // H_ lifeCycle 變更時
+      // > lifeCycle 變更時
       appLifeCycleChanged: (e) async {
         logger('Event').i('DeviceEvent: appLifeCycleChanged');
 
@@ -62,7 +83,7 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
             )
             .emit(emit);
 
-        // S_ 如果 app 從閒置中回復，則重新監聽網路狀態
+        // - 如果 app 從閒置中回復，則重新監聽網路狀態
         if (state.appIsPaused != appIsPaused && !appIsPaused) {
           add(const DeviceEvent.watchNetworkStarted());
         }

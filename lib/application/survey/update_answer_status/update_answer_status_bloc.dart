@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:supercharged/supercharged.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../../domain/core/i_local_storage.dart';
 import '../../../domain/core/logger.dart';
@@ -14,23 +13,23 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
-import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/reference.dart';
 import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
+import '../../../infrastructure/core/storage_bloc_worker.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../../infrastructure/core/isolate_storage_bloc.dart';
-import '../../../infrastructure/core/isolate_storage_event_task.dart';
+import '../../../infrastructure/core/bloc_async_task.dart';
 import '../../../infrastructure/survey/update_answer_status_state_dtos.dart';
 
 part 'update_answer_compute.dart';
 part 'update_answer_status_bloc.freezed.dart';
+part 'update_answer_status_bloc_worker.dart';
 part 'update_answer_status_compute.dart';
 part 'update_answer_status_event.dart';
-part 'update_answer_status_event_worker.dart';
 part 'update_answer_status_state.dart';
 part 'update_survey_page_compute.dart';
 
@@ -50,8 +49,8 @@ class UpdateAnswerStatusBloc extends IsolateStorageBloc<UpdateAnswerStatusEvent,
         await initialize(
           boxName: 'UpdateAnswerStatusState',
           stateFromStorage: stateFromStorage,
-          eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          blocWorker: UpdateAnswerStatusBlocWorker(),
           emit: emit,
         );
       },

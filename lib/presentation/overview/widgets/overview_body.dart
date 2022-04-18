@@ -14,7 +14,8 @@ class OverviewBody extends StatelessWidget {
     logger('Build').i('OverviewBody');
 
     return BlocBuilder<WatchSurveyBloc, WatchSurveyState>(
-      buildWhen: (p, c) => p.eventState != c.eventState,
+      buildWhen: (p, c) =>
+          p.eventState != c.eventState && c.eventState.isSuccess,
       builder: (context, state) {
         if (state.surveyMap.isNotEmpty) {
           return ListView.builder(

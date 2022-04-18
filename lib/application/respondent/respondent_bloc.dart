@@ -25,22 +25,24 @@ import '../../domain/survey/choice.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
+import '../../infrastructure/core/bloc_async_task.dart';
+import '../../infrastructure/core/dto_helpers.dart';
 import '../../infrastructure/core/extensions.dart';
 import '../../infrastructure/core/isolate_storage_bloc.dart';
-import '../../infrastructure/core/isolate_storage_event_task.dart';
+import '../../infrastructure/core/storage_bloc_worker.dart';
+import '../../infrastructure/respondent/respondent_dtos.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
 part 'respondent_bloc.freezed.dart';
+part 'respondent_bloc_worker.dart';
 part 'respondent_compute.dart';
 part 'respondent_event.dart';
-part 'respondent_event_worker.dart';
 part 'respondent_state.dart';
 
 class RespondentBloc
     extends IsolateStorageBloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;
-  StreamSubscription<Either<RespondentFailure, SurveyRespondentMap>>?
-      _surveyRespondentMapSubscription;
+  StreamSubscription<Either<RespondentFailure, List<Object>>>? _subscription;
 
   RespondentBloc(
     this._respondentRepository,
@@ -58,28 +60,28 @@ class RespondentBloc
         await initialize(
           boxName: 'RespondentState',
           stateFromStorage: stateFromStorage,
-          eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          blocWorker: RespondentBlocWorker(),
           emit: emit,
         );
       },
       watchSurveyRespondentMapStarted: (e) async {
         await execute(event, emit);
 
-        await _surveyRespondentMapSubscription?.cancel();
-        _surveyRespondentMapSubscription = _respondentRepository
+        await _subscription?.cancel();
+        _subscription = _respondentRepository
             .watchSurveyRespondentMap(
               teamId: e.teamId,
               interviewerId: e.interviewerId,
             )
             .listen(
               (failureOrSurveyRespondentMap) => add(
-                  RespondentEvent.surveyRespondentMapReceived(
+                  RespondentEvent.rawSurveyRespondentMapReceived(
                       failureOrSurveyRespondentMap)),
             );
       },
       loggedOut: (e) async {
-        _surveyRespondentMapSubscription?.cancel();
+        _subscription?.cancel();
         await execute(event, emit);
       },
       orElse: () async {
@@ -94,7 +96,7 @@ class RespondentBloc
 
   @override
   Future<void> close() {
-    _surveyRespondentMapSubscription?.cancel();
+    _subscription?.cancel();
 
     return super.close();
   }

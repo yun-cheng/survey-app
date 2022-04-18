@@ -8,13 +8,13 @@ class ResponseEvent with _$ResponseEvent {
     required Interviewer interviewer,
   }) = _WatchResponseMapStarted;
 
-  const factory ResponseEvent.responseMapReceived(
-    Either<SurveyFailure, ResponseMap> failureOrResponseMap,
-  ) = _ResponseMapReceived;
+  const factory ResponseEvent.rawResponseMapReceived(
+    Either<SurveyFailure, List<Object>> failureOrResponseMap,
+  ) = _RawResponseMapReceived;
 
-  const factory ResponseEvent.referenceListReceived(
-    Either<SurveyFailure, List<Reference>> failureOrReferenceList,
-  ) = _ReferenceListReceived;
+  const factory ResponseEvent.rawReferenceListReceived(
+    Either<SurveyFailure, ReferenceListDto> failureOrReferenceList,
+  ) = _RawReferenceListReceived;
 
   // H_ 上傳倒數計時
   const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
@@ -22,9 +22,9 @@ class ResponseEvent with _$ResponseEvent {
   // H_ 上傳 responseMap
   const factory ResponseEvent.responseMapUploading() = _ResponseMapUploading;
 
-  const factory ResponseEvent.responseMapUploaded(
-    Either<SurveyFailure, Set<UniqueId>> failureOrResult,
-  ) = _ResponseMapUploaded;
+  const factory ResponseEvent.responseUploaded(
+    Either<SurveyFailure, String> failureOrResult,
+  ) = _ResponseUploaded;
 
   // H_ 使用者選擇問卷
   const factory ResponseEvent.surveySelected({

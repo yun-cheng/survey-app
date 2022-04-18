@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
-import '../core/isolate_storage_event_task.dart';
+import '../core/dto_helpers.dart';
 import 'interviewer_dtos.dart';
 import 'team_list_dtos.dart';
 

@@ -4,8 +4,8 @@ import '../../application/respondent/respondents_page/respondents_page_bloc.dart
 import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
+import '../core/dto_helpers.dart';
 import '../core/extensions.dart';
-import '../core/isolate_storage_event_task.dart';
 
 part 'respondents_page_state_dtos.freezed.dart';
 part 'respondents_page_state_dtos.g.dart';

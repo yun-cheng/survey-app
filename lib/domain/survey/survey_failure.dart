@@ -9,6 +9,7 @@ class SurveyFailure with _$SurveyFailure {
   const factory SurveyFailure(String value) = _SurveyFailure;
 
   factory SurveyFailure.empty() => const SurveyFailure('');
+  factory SurveyFailure.noInternet() => const SurveyFailure('noInternet');
   factory SurveyFailure.serverError() => const SurveyFailure('serverError');
   factory SurveyFailure.unexpected() => const SurveyFailure('unexpected');
   factory SurveyFailure.insufficientPermission() =>

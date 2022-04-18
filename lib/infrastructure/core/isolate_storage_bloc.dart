@@ -1,53 +1,47 @@
 import 'package:async_task/async_task.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../domain/core/i_local_storage.dart';
-import 'isolate_storage_event_task.dart';
+import 'bloc_async_task.dart';
+import 'path_provider.dart';
+import 'storage_bloc_worker.dart';
 
-// NOTE 避免使用 HydratedBloc，因可能有 memory leak
 abstract class IsolateStorageBloc<Event, State> extends Bloc<Event, State> {
   AsyncExecutor? executor;
   AsyncTaskChannel? channel;
-  late final IsolateStorageEventTask eventTask;
+  late final BlocAsyncTask asyncTask;
 
   IsolateStorageBloc(State state) : super(state);
 
   Future<void> initialize({
     required String boxName,
-    required Future<dynamic> Function(ILocalStorage localStorage)
-        stateFromStorage,
-    required void Function(
-      Tuple2 tuple,
-      AsyncTaskChannel channel,
+    required Future<State?> Function(
       ILocalStorage localStorage,
     )
-        eventWorker,
+        stateFromStorage,
+    required StorageBlocWorker<Event, State> blocWorker,
     required AsyncTaskRegister taskTypeRegister,
     required Emitter<State> emit,
   }) async {
+    // - 建立 AsyncTask
     executor = AsyncExecutor(
       parallelism: 1,
       taskTypeRegister: taskTypeRegister,
     );
+    asyncTask = BlocAsyncTask<Event, State>(
+      blocWorker: blocWorker,
+    );
+    executor!.execute(asyncTask);
+    // * 用來與 isolate 傳遞資訊
+    channel = await asyncTask.channel();
 
-    // S_ event task
-    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
-    final path = dir?.path ?? '';
-
-    eventTask = IsolateStorageEventTask(
-      path: path,
-      boxName: boxName,
-      stateFromStorage: stateFromStorage,
-      eventWorker: eventWorker,
+    // - 初始化 localStorage
+    channel!.send(
+      Tuple3(PathProvider.appDirPath, boxName, stateFromStorage),
     );
 
-    executor!.execute(eventTask);
-    channel = await eventTask.channel();
-
-    // S_ initState
+    // - 取得 initState
     final initState = await channel!.sendAndWaitResponse('initState');
 
     if (initState is State) {
@@ -57,6 +51,7 @@ abstract class IsolateStorageBloc<Event, State> extends Bloc<Event, State> {
 
   bool executionFinished(State newState);
 
+  /// > 將 event 傳進 isolate 處理
   Future<void> execute(
     Event event,
     Emitter<State> emit,

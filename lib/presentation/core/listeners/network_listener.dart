@@ -21,5 +21,7 @@ final networkListener = BlocListener<DeviceBloc, DeviceState>(
             networkType: state.networkType,
           ),
         );
+
+    // TODO 其他 bloc
   },
 );

@@ -12,6 +12,8 @@ class UniqueId with _$UniqueId {
 
   factory UniqueId.empty() => const UniqueId('');
   factory UniqueId.v1() => UniqueId(const Uuid().v1());
+
+  bool get isEmpty => value == '';
 }
 
 @freezed
@@ -28,6 +30,7 @@ class LoadState with _$LoadState {
 
   bool get isInitial => value == 'initial';
   bool get isSuccess => value == 'success';
+  bool get hasResult => ['success', 'failure'].contains(value);
 }
 
 @freezed

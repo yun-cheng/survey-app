@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,6 +17,7 @@ import '../../domain/audio/audio_recorder/i_audio_recorder.dart';
 import '../../domain/audio/i_audio_repository.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
+import '../../domain/survey/i_response_repository.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../injection.dart';
 
@@ -28,18 +31,21 @@ class AppProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // HIGHLIGHT 如果會需要在多個頁面共用的資料都要在這邊 provide
+    // ! 如果會需要在多個頁面共用的資料都要在這邊 provide
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (_) => NavigationBloc(),
-          // HIGHLIGHT lazy: false 讓 app 啟動時就預備好這個 Bloc，
+          // ! lazy=false 讓 app 啟動時就預備好這個 Bloc，
           //  而不是呼叫了某個 event 才開始準備。
           //  但可能因提早預備，加上 SplashPage listener 還沒準備好，導致沒有監聽到變化
           lazy: false,
         ),
         BlocProvider(
-          create: (_) => DeviceBloc(),
+          create: (_) => DeviceBloc(
+            getIt<FirebaseFirestore>(),
+            getIt<FirebaseStorage>(),
+          ),
           lazy: false,
         ),
         BlocProvider(
@@ -66,7 +72,7 @@ class AppProviders extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => ResponseBloc(
-            getIt<ISurveyRepository>(),
+            getIt<IResponseRepository>(),
           ),
           lazy: false,
         ),

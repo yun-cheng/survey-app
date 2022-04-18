@@ -1,11 +1,9 @@
 import 'package:dartz/dartz.dart';
 
 import 'respondent_failure.dart';
-import 'typedefs.dart';
 
 abstract class IRespondentRepository {
-  Stream<Either<RespondentFailure, SurveyRespondentMap>>
-      watchSurveyRespondentMap({
+  Stream<Either<RespondentFailure, List<Object>>> watchSurveyRespondentMap({
     required String teamId,
     required String interviewerId,
   });

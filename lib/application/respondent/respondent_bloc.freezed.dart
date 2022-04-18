@@ -26,10 +26,9 @@ class _$RespondentEventTearOff {
     );
   }
 
-  _SurveyRespondentMapReceived surveyRespondentMapReceived(
-      Either<RespondentFailure, Map<String, Map<String, Respondent>>>
-          failureOrSurveyRespondentMap) {
-    return _SurveyRespondentMapReceived(
+  _RawSurveyRespondentMapReceived rawSurveyRespondentMapReceived(
+      Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap) {
+    return _RawSurveyRespondentMapReceived(
       failureOrSurveyRespondentMap,
     );
   }
@@ -90,9 +89,9 @@ mixin _$RespondentEvent {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -111,9 +110,9 @@ mixin _$RespondentEvent {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -130,9 +129,9 @@ mixin _$RespondentEvent {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -149,8 +148,8 @@ mixin _$RespondentEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -166,8 +165,8 @@ mixin _$RespondentEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -182,8 +181,8 @@ mixin _$RespondentEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -257,9 +256,10 @@ class __$WatchSurveyRespondentMapStartedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_WatchSurveyRespondentMapStarted
-    implements _WatchSurveyRespondentMapStarted {
+    extends _WatchSurveyRespondentMapStarted {
   const _$_WatchSurveyRespondentMapStarted(
-      {required this.teamId, required this.interviewerId});
+      {required this.teamId, required this.interviewerId})
+      : super._();
 
   @override
   final String teamId;
@@ -299,9 +299,9 @@ class _$_WatchSurveyRespondentMapStarted
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -323,9 +323,9 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -345,9 +345,9 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -370,8 +370,8 @@ class _$_WatchSurveyRespondentMapStarted
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -390,8 +390,8 @@ class _$_WatchSurveyRespondentMapStarted
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -409,8 +409,8 @@ class _$_WatchSurveyRespondentMapStarted
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -428,10 +428,11 @@ class _$_WatchSurveyRespondentMapStarted
   }
 }
 
-abstract class _WatchSurveyRespondentMapStarted implements RespondentEvent {
+abstract class _WatchSurveyRespondentMapStarted extends RespondentEvent {
   const factory _WatchSurveyRespondentMapStarted(
       {required String teamId,
       required String interviewerId}) = _$_WatchSurveyRespondentMapStarted;
+  const _WatchSurveyRespondentMapStarted._() : super._();
 
   String get teamId;
   String get interviewerId;
@@ -441,62 +442,61 @@ abstract class _WatchSurveyRespondentMapStarted implements RespondentEvent {
 }
 
 /// @nodoc
-abstract class _$SurveyRespondentMapReceivedCopyWith<$Res> {
-  factory _$SurveyRespondentMapReceivedCopyWith(
-          _SurveyRespondentMapReceived value,
-          $Res Function(_SurveyRespondentMapReceived) then) =
-      __$SurveyRespondentMapReceivedCopyWithImpl<$Res>;
+abstract class _$RawSurveyRespondentMapReceivedCopyWith<$Res> {
+  factory _$RawSurveyRespondentMapReceivedCopyWith(
+          _RawSurveyRespondentMapReceived value,
+          $Res Function(_RawSurveyRespondentMapReceived) then) =
+      __$RawSurveyRespondentMapReceivedCopyWithImpl<$Res>;
   $Res call(
-      {Either<RespondentFailure, Map<String, Map<String, Respondent>>>
-          failureOrSurveyRespondentMap});
+      {Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap});
 }
 
 /// @nodoc
-class __$SurveyRespondentMapReceivedCopyWithImpl<$Res>
+class __$RawSurveyRespondentMapReceivedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$SurveyRespondentMapReceivedCopyWith<$Res> {
-  __$SurveyRespondentMapReceivedCopyWithImpl(
-      _SurveyRespondentMapReceived _value,
-      $Res Function(_SurveyRespondentMapReceived) _then)
-      : super(_value, (v) => _then(v as _SurveyRespondentMapReceived));
+    implements _$RawSurveyRespondentMapReceivedCopyWith<$Res> {
+  __$RawSurveyRespondentMapReceivedCopyWithImpl(
+      _RawSurveyRespondentMapReceived _value,
+      $Res Function(_RawSurveyRespondentMapReceived) _then)
+      : super(_value, (v) => _then(v as _RawSurveyRespondentMapReceived));
 
   @override
-  _SurveyRespondentMapReceived get _value =>
-      super._value as _SurveyRespondentMapReceived;
+  _RawSurveyRespondentMapReceived get _value =>
+      super._value as _RawSurveyRespondentMapReceived;
 
   @override
   $Res call({
     Object? failureOrSurveyRespondentMap = freezed,
   }) {
-    return _then(_SurveyRespondentMapReceived(
+    return _then(_RawSurveyRespondentMapReceived(
       failureOrSurveyRespondentMap == freezed
           ? _value.failureOrSurveyRespondentMap
           : failureOrSurveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Either<RespondentFailure,
-                  Map<String, Map<String, Respondent>>>,
+              as Either<RespondentFailure, List<Object>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
-  const _$_SurveyRespondentMapReceived(this.failureOrSurveyRespondentMap);
+class _$_RawSurveyRespondentMapReceived
+    extends _RawSurveyRespondentMapReceived {
+  const _$_RawSurveyRespondentMapReceived(this.failureOrSurveyRespondentMap)
+      : super._();
 
   @override
-  final Either<RespondentFailure, Map<String, Map<String, Respondent>>>
-      failureOrSurveyRespondentMap;
+  final Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap;
 
   @override
   String toString() {
-    return 'RespondentEvent.surveyRespondentMapReceived(failureOrSurveyRespondentMap: $failureOrSurveyRespondentMap)';
+    return 'RespondentEvent.rawSurveyRespondentMapReceived(failureOrSurveyRespondentMap: $failureOrSurveyRespondentMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveyRespondentMapReceived &&
+            other is _RawSurveyRespondentMapReceived &&
             const DeepCollectionEquality().equals(
                 other.failureOrSurveyRespondentMap,
                 failureOrSurveyRespondentMap));
@@ -508,9 +508,9 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyRespondentMapReceivedCopyWith<_SurveyRespondentMapReceived>
-      get copyWith => __$SurveyRespondentMapReceivedCopyWithImpl<
-          _SurveyRespondentMapReceived>(this, _$identity);
+  _$RawSurveyRespondentMapReceivedCopyWith<_RawSurveyRespondentMapReceived>
+      get copyWith => __$RawSurveyRespondentMapReceivedCopyWithImpl<
+          _RawSurveyRespondentMapReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -518,9 +518,9 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -533,7 +533,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return surveyRespondentMapReceived(failureOrSurveyRespondentMap);
+    return rawSurveyRespondentMapReceived(failureOrSurveyRespondentMap);
   }
 
   @override
@@ -542,9 +542,9 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -555,7 +555,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return surveyRespondentMapReceived?.call(failureOrSurveyRespondentMap);
+    return rawSurveyRespondentMapReceived?.call(failureOrSurveyRespondentMap);
   }
 
   @override
@@ -564,9 +564,9 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -578,8 +578,8 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
-    if (surveyRespondentMapReceived != null) {
-      return surveyRespondentMapReceived(failureOrSurveyRespondentMap);
+    if (rawSurveyRespondentMapReceived != null) {
+      return rawSurveyRespondentMapReceived(failureOrSurveyRespondentMap);
     }
     return orElse();
   }
@@ -589,8 +589,8 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -601,7 +601,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
-    return surveyRespondentMapReceived(this);
+    return rawSurveyRespondentMapReceived(this);
   }
 
   @override
@@ -609,8 +609,8 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -620,7 +620,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
-    return surveyRespondentMapReceived?.call(this);
+    return rawSurveyRespondentMapReceived?.call(this);
   }
 
   @override
@@ -628,8 +628,8 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -640,22 +640,22 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
-    if (surveyRespondentMapReceived != null) {
-      return surveyRespondentMapReceived(this);
+    if (rawSurveyRespondentMapReceived != null) {
+      return rawSurveyRespondentMapReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class _SurveyRespondentMapReceived implements RespondentEvent {
-  const factory _SurveyRespondentMapReceived(
-      Either<RespondentFailure, Map<String, Map<String, Respondent>>>
-          failureOrSurveyRespondentMap) = _$_SurveyRespondentMapReceived;
+abstract class _RawSurveyRespondentMapReceived extends RespondentEvent {
+  const factory _RawSurveyRespondentMapReceived(
+      Either<RespondentFailure, List<Object>>
+          failureOrSurveyRespondentMap) = _$_RawSurveyRespondentMapReceived;
+  const _RawSurveyRespondentMapReceived._() : super._();
 
-  Either<RespondentFailure, Map<String, Map<String, Respondent>>>
-      get failureOrSurveyRespondentMap;
+  Either<RespondentFailure, List<Object>> get failureOrSurveyRespondentMap;
   @JsonKey(ignore: true)
-  _$SurveyRespondentMapReceivedCopyWith<_SurveyRespondentMapReceived>
+  _$RawSurveyRespondentMapReceivedCopyWith<_RawSurveyRespondentMapReceived>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -702,8 +702,8 @@ class __$SurveySelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SurveySelected implements _SurveySelected {
-  const _$_SurveySelected({required this.survey});
+class _$_SurveySelected extends _SurveySelected {
+  const _$_SurveySelected({required this.survey}) : super._();
 
   @override
   final Survey survey;
@@ -736,9 +736,9 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -760,9 +760,9 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -782,9 +782,9 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -807,8 +807,8 @@ class _$_SurveySelected implements _SurveySelected {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -827,8 +827,8 @@ class _$_SurveySelected implements _SurveySelected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -846,8 +846,8 @@ class _$_SurveySelected implements _SurveySelected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -865,8 +865,9 @@ class _$_SurveySelected implements _SurveySelected {
   }
 }
 
-abstract class _SurveySelected implements RespondentEvent {
+abstract class _SurveySelected extends RespondentEvent {
   const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
+  const _SurveySelected._() : super._();
 
   Survey get survey;
   @JsonKey(ignore: true)
@@ -908,8 +909,8 @@ class __$TextSearchedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TextSearched implements _TextSearched {
-  const _$_TextSearched({required this.text});
+class _$_TextSearched extends _TextSearched {
+  const _$_TextSearched({required this.text}) : super._();
 
   @override
   final String text;
@@ -942,9 +943,9 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -966,9 +967,9 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -988,9 +989,9 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1013,8 +1014,8 @@ class _$_TextSearched implements _TextSearched {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -1033,8 +1034,8 @@ class _$_TextSearched implements _TextSearched {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1052,8 +1053,8 @@ class _$_TextSearched implements _TextSearched {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1071,8 +1072,9 @@ class _$_TextSearched implements _TextSearched {
   }
 }
 
-abstract class _TextSearched implements RespondentEvent {
+abstract class _TextSearched extends RespondentEvent {
   const factory _TextSearched({required String text}) = _$_TextSearched;
+  const _TextSearched._() : super._();
 
   String get text;
   @JsonKey(ignore: true)
@@ -1114,8 +1116,8 @@ class __$VisitReportUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_VisitReportUpdated implements _VisitReportUpdated {
-  const _$_VisitReportUpdated({required this.responseMap});
+class _$_VisitReportUpdated extends _VisitReportUpdated {
+  const _$_VisitReportUpdated({required this.responseMap}) : super._();
 
   @override
   final Map<UniqueId, Response> responseMap;
@@ -1149,9 +1151,9 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -1173,9 +1175,9 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1195,9 +1197,9 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1220,8 +1222,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -1240,8 +1242,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1259,8 +1261,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1278,9 +1280,10 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
   }
 }
 
-abstract class _VisitReportUpdated implements RespondentEvent {
+abstract class _VisitReportUpdated extends RespondentEvent {
   const factory _VisitReportUpdated(
       {required Map<UniqueId, Response> responseMap}) = _$_VisitReportUpdated;
+  const _VisitReportUpdated._() : super._();
 
   Map<UniqueId, Response> get responseMap;
   @JsonKey(ignore: true)
@@ -1322,8 +1325,8 @@ class __$HousingUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HousingUpdated implements _HousingUpdated {
-  const _$_HousingUpdated({required this.responseMap});
+class _$_HousingUpdated extends _HousingUpdated {
+  const _$_HousingUpdated({required this.responseMap}) : super._();
 
   @override
   final Map<UniqueId, Response> responseMap;
@@ -1357,9 +1360,9 @@ class _$_HousingUpdated implements _HousingUpdated {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -1381,9 +1384,9 @@ class _$_HousingUpdated implements _HousingUpdated {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1403,9 +1406,9 @@ class _$_HousingUpdated implements _HousingUpdated {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1428,8 +1431,8 @@ class _$_HousingUpdated implements _HousingUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -1448,8 +1451,8 @@ class _$_HousingUpdated implements _HousingUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1467,8 +1470,8 @@ class _$_HousingUpdated implements _HousingUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1486,9 +1489,10 @@ class _$_HousingUpdated implements _HousingUpdated {
   }
 }
 
-abstract class _HousingUpdated implements RespondentEvent {
+abstract class _HousingUpdated extends RespondentEvent {
   const factory _HousingUpdated(
       {required Map<UniqueId, Response> responseMap}) = _$_HousingUpdated;
+  const _HousingUpdated._() : super._();
 
   Map<UniqueId, Response> get responseMap;
   @JsonKey(ignore: true)
@@ -1530,8 +1534,8 @@ class __$TabRespondentsUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
-  const _$_TabRespondentsUpdated({required this.responseMap});
+class _$_TabRespondentsUpdated extends _TabRespondentsUpdated {
+  const _$_TabRespondentsUpdated({required this.responseMap}) : super._();
 
   @override
   final Map<UniqueId, Response> responseMap;
@@ -1566,9 +1570,9 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -1590,9 +1594,9 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1612,9 +1616,9 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1637,8 +1641,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -1657,8 +1661,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1676,8 +1680,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1695,10 +1699,11 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
   }
 }
 
-abstract class _TabRespondentsUpdated implements RespondentEvent {
+abstract class _TabRespondentsUpdated extends RespondentEvent {
   const factory _TabRespondentsUpdated(
           {required Map<UniqueId, Response> responseMap}) =
       _$_TabRespondentsUpdated;
+  const _TabRespondentsUpdated._() : super._();
 
   Map<UniqueId, Response> get responseMap;
   @JsonKey(ignore: true)
@@ -1727,8 +1732,8 @@ class __$LeaveButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LeaveButtonPressed implements _LeaveButtonPressed {
-  const _$_LeaveButtonPressed();
+class _$_LeaveButtonPressed extends _LeaveButtonPressed {
+  const _$_LeaveButtonPressed() : super._();
 
   @override
   String toString() {
@@ -1750,9 +1755,9 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -1774,9 +1779,9 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1796,9 +1801,9 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1821,8 +1826,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -1841,8 +1846,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1860,8 +1865,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -1879,8 +1884,9 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
   }
 }
 
-abstract class _LeaveButtonPressed implements RespondentEvent {
+abstract class _LeaveButtonPressed extends RespondentEvent {
   const factory _LeaveButtonPressed() = _$_LeaveButtonPressed;
+  const _LeaveButtonPressed._() : super._();
 }
 
 /// @nodoc
@@ -1902,8 +1908,8 @@ class __$LoggedOutCopyWithImpl<$Res> extends _$RespondentEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut implements _LoggedOut {
-  const _$_LoggedOut();
+class _$_LoggedOut extends _LoggedOut {
+  const _$_LoggedOut() : super._();
 
   @override
   String toString() {
@@ -1925,9 +1931,9 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -1949,9 +1955,9 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1971,9 +1977,9 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -1996,8 +2002,8 @@ class _$_LoggedOut implements _LoggedOut {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -2016,8 +2022,8 @@ class _$_LoggedOut implements _LoggedOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -2035,8 +2041,8 @@ class _$_LoggedOut implements _LoggedOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -2054,8 +2060,9 @@ class _$_LoggedOut implements _LoggedOut {
   }
 }
 
-abstract class _LoggedOut implements RespondentEvent {
+abstract class _LoggedOut extends RespondentEvent {
   const factory _LoggedOut() = _$_LoggedOut;
+  const _LoggedOut._() : super._();
 }
 
 /// @nodoc
@@ -2079,8 +2086,8 @@ class __$InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized();
+class _$_Initialized extends _Initialized {
+  const _$_Initialized() : super._();
 
   @override
   String toString() {
@@ -2102,9 +2109,9 @@ class _$_Initialized implements _Initialized {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyRespondentMapStarted,
     required TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(String text) textSearched,
     required TResult Function(Map<UniqueId, Response> responseMap)
@@ -2126,9 +2133,9 @@ class _$_Initialized implements _Initialized {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -2148,9 +2155,9 @@ class _$_Initialized implements _Initialized {
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
     TResult Function(
-            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+            Either<RespondentFailure, List<Object>>
                 failureOrSurveyRespondentMap)?
-        surveyRespondentMapReceived,
+        rawSurveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(String text)? textSearched,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
@@ -2173,8 +2180,8 @@ class _$_Initialized implements _Initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchSurveyRespondentMapStarted value)
         watchSurveyRespondentMapStarted,
-    required TResult Function(_SurveyRespondentMapReceived value)
-        surveyRespondentMapReceived,
+    required TResult Function(_RawSurveyRespondentMapReceived value)
+        rawSurveyRespondentMapReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
@@ -2193,8 +2200,8 @@ class _$_Initialized implements _Initialized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -2212,8 +2219,8 @@ class _$_Initialized implements _Initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchSurveyRespondentMapStarted value)?
         watchSurveyRespondentMapStarted,
-    TResult Function(_SurveyRespondentMapReceived value)?
-        surveyRespondentMapReceived,
+    TResult Function(_RawSurveyRespondentMapReceived value)?
+        rawSurveyRespondentMapReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
@@ -2231,8 +2238,9 @@ class _$_Initialized implements _Initialized {
   }
 }
 
-abstract class _Initialized implements RespondentEvent {
+abstract class _Initialized extends RespondentEvent {
   const factory _Initialized() = _$_Initialized;
+  const _Initialized._() : super._();
 }
 
 /// @nodoc

@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/interviewer.dart';
 import '../../../domain/core/i_local_storage.dart';
@@ -17,7 +16,7 @@ import '../../../domain/overview/survey.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
-import '../../../domain/survey/i_survey_repository.dart';
+import '../../../domain/survey/i_response_repository.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/reference.dart';
 import '../../../domain/survey/response.dart';
@@ -25,29 +24,35 @@ import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
 import '../../../domain/survey/typedefs.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../../infrastructure/core/bloc_async_task.dart';
+import '../../../infrastructure/core/dto_helpers.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../../infrastructure/core/isolate_storage_bloc.dart';
-import '../../../infrastructure/core/isolate_storage_event_task.dart';
+import '../../../infrastructure/core/storage_bloc_worker.dart';
+import '../../../infrastructure/survey/reference_dtos.dart';
+import '../../../infrastructure/survey/response_list_dtos.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
 part 'response_bloc.freezed.dart';
+part 'response_bloc_worker.dart';
 part 'response_compute.dart';
 part 'response_event.dart';
-part 'response_event_worker.dart';
 part 'response_state.dart';
 
 class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
-  final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, ResponseMap>>?
+  final IResponseRepository _repository;
+  StreamSubscription<Either<SurveyFailure, List<Object>>>?
       _responseMapSubscription;
-  StreamSubscription<Either<SurveyFailure, List<Reference>>>?
+  StreamSubscription<Either<SurveyFailure, ReferenceListDto>>?
       _referenceListSubscription;
+  StreamSubscription<Either<SurveyFailure, String>>?
+      _uploadProgressSubscription;
 
   Timer? _activeTimer;
   Timer? _inactiveTimer;
 
   ResponseBloc(
-    this._surveyRepository,
+    this._repository,
   ) : super(ResponseState.initial()) {
     on<ResponseEvent>(_onEvent, transformer: sequential());
     add(const ResponseEvent.initialized());
@@ -62,12 +67,12 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
         await initialize(
           boxName: 'ResponseState',
           stateFromStorage: stateFromStorage,
-          eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          blocWorker: ResponseBlocWorker(),
           emit: emit,
         );
       },
-      // H_ 監聽 responseMap
+      // > 監聽 responseMap
       watchResponseMapAndReferenceListStarted: (e) async {
         logger('Watch')
             .i('ResponseBloc: watchResponseMapAndReferenceListStarted');
@@ -75,32 +80,32 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
         await execute(event, emit);
 
         await _responseMapSubscription?.cancel();
-        _responseMapSubscription = _surveyRepository
+        _responseMapSubscription = _repository
             .watchResponseMap(
               teamId: e.teamId,
               interviewerId: e.interviewer.id,
             )
             .listen(
               (failureOrResponseMap) => add(
-                ResponseEvent.responseMapReceived(failureOrResponseMap),
+                ResponseEvent.rawResponseMapReceived(failureOrResponseMap),
               ),
             );
 
         await _referenceListSubscription?.cancel();
-        _referenceListSubscription = _surveyRepository
+        _referenceListSubscription = _repository
             .watchReferenceList(
               teamId: e.teamId,
               interviewerId: e.interviewer.id,
             )
             .listen(
               (failureOrReferenceList) => add(
-                ResponseEvent.referenceListReceived(failureOrReferenceList),
+                ResponseEvent.rawReferenceListReceived(failureOrReferenceList),
               ),
             );
 
         add(const ResponseEvent.responseMapUploading());
       },
-      // H_ 上傳倒數計時
+      // > 上傳倒數計時
       uploadTimerUpdated: (e) async {
         _inactiveTimer?.cancel();
 
@@ -110,13 +115,13 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
           ),
         );
 
-        // S_1 若閒置 30 秒未更新則上傳，
+        // - 若閒置 1 分鐘未更新則上傳
         _inactiveTimer = Timer(
-          const Duration(seconds: 30),
+          const Duration(minutes: 1),
           () => add(const ResponseEvent.responseMapUploading()),
         );
 
-        // S_2 或從同步後第一次更新開始算 5 分鐘未閒置則依然上傳
+        // - 或從同步後第一次更新開始算 5 分鐘未閒置則依然上傳
         if (_activeTimer == null || !_activeTimer!.isActive) {
           _activeTimer = Timer(
             const Duration(minutes: 5),
@@ -124,7 +129,7 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
           );
         }
       },
-      // H_ 上傳 responseMap
+      // > 上傳 responseMap
       responseMapUploading: (e) async {
         _activeTimer?.cancel();
         _inactiveTimer?.cancel();
@@ -139,18 +144,16 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
 
           // FIXME 目前先一律允許 web
           if (state.networkType.isConnected || kIsWeb) {
-            // S_ 篩出要上傳的 response
-            final responseMap = state.uploadResponseIdSet
-                .map((id) => MapEntry(id, state.responseMap[id]!))
-                .toMap();
+            await execute(event, emit);
 
-            _surveyRepository
+            await _uploadProgressSubscription?.cancel();
+            _uploadProgressSubscription = _repository
                 .uploadResponseMap(
-                  responseMap: responseMap,
+                  responseMap: state.uploadResponseMap,
                 )
-                .then(
+                .listen(
                   (failureOrResult) =>
-                      add(ResponseEvent.responseMapUploaded(failureOrResult)),
+                      add(ResponseEvent.responseUploaded(failureOrResult)),
                 );
           } else {
             emit(
@@ -167,21 +170,21 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
           );
         }
       },
-      // H_ 作答或切換頁數時更新 response
+      // > 作答或切換頁數時更新 response
       responseUpdated: (e) async {
         logger('Event').i('ResponseEvent: responseUpdated');
 
         add(const ResponseEvent.uploadTimerUpdated());
         await execute(event, emit);
       },
-      // H_ 使用者結束編輯這次問卷模組的回覆
+      // > 使用者結束編輯這次問卷模組的回覆
       editFinished: (e) async {
         logger('User Event').i('ResponseEvent: editFinished');
 
         await execute(event, emit);
         add(const ResponseEvent.responseMapUploading());
       },
-      // H_ 使用者在閒置後，選擇繼續訪問
+      // > 使用者在閒置後，選擇繼續訪問
       responseResumed: (e) async {
         logger('User Event').i('ResponseEvent: responseResumed');
 
@@ -190,6 +193,7 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
       },
       loggedOut: (e) async {
         _responseMapSubscription?.cancel();
+        _uploadProgressSubscription?.cancel();
         _inactiveTimer?.cancel();
         _activeTimer?.cancel();
         await execute(event, emit);
@@ -208,6 +212,7 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
   Future<void> close() {
     _responseMapSubscription?.cancel();
     _referenceListSubscription?.cancel();
+    _uploadProgressSubscription?.cancel();
     _inactiveTimer?.cancel();
     _activeTimer?.cancel();
 
