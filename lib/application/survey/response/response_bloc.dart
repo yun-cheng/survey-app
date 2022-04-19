@@ -43,7 +43,7 @@ class ResponseBloc extends IsolateStorageBloc<ResponseEvent, ResponseState> {
   final IResponseRepository _repository;
   StreamSubscription<Either<SurveyFailure, List<Object>>>?
       _responseMapSubscription;
-  StreamSubscription<Either<SurveyFailure, ReferenceListDto>>?
+  StreamSubscription<Either<SurveyFailure, List<Object>>>?
       _referenceListSubscription;
   StreamSubscription<Either<SurveyFailure, String>>?
       _uploadProgressSubscription;

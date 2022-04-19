@@ -7,7 +7,6 @@ import '../../domain/core/logger.dart';
 import '../../domain/survey/i_response_repository.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../core/firestore_helpers.dart';
-import 'reference_dtos.dart';
 
 @LazySingleton(as: IResponseRepository)
 class ResponseRepository implements IResponseRepository {
@@ -18,7 +17,7 @@ class ResponseRepository implements IResponseRepository {
   );
 
   @override
-  Stream<Either<SurveyFailure, ReferenceListDto>> watchReferenceList({
+  Stream<Either<SurveyFailure, List<Object>>> watchReferenceList({
     required String teamId,
     required String interviewerId,
   }) async* {
@@ -31,13 +30,11 @@ class ResponseRepository implements IResponseRepository {
         .map((snapshot) {
       if (snapshot.metadata.isFromCache) {
         logger('Warning').e('watchReferenceList: isFromCache');
-        return left<SurveyFailure, ReferenceListDto>(
-            SurveyFailure.noInternet());
+        return left<SurveyFailure, List<Object>>(SurveyFailure.noInternet());
       }
+      final result = snapshot.docs.map((doc) => doc.data()!).toList();
 
-      final result = ReferenceListDto.fromFirestore(snapshot);
-
-      return right<SurveyFailure, ReferenceListDto>(result);
+      return right<SurveyFailure, List<Object>>(result);
     }).onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(SurveyFailure.insufficientPermission());

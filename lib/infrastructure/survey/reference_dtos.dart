@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/survey/reference.dart';
@@ -66,14 +65,4 @@ class ReferenceListDto with _$ReferenceListDto {
 
   factory ReferenceListDto.fromJson(Map<String, dynamic> json) =>
       _$ReferenceListDtoFromJson(json);
-
-  factory ReferenceListDto.fromFirestore(QuerySnapshot snapshot) {
-    // NOTE 直接合併不同 survey 的 referenceList
-    final list = snapshot.docs
-        .map((doc) => (doc.data()! as Map)['list'] as List)
-        .expand((i) => i)
-        .toList();
-
-    return ReferenceListDto.fromJson({'list': list});
-  }
 }

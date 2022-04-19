@@ -13,7 +13,7 @@ class ResponseEvent with _$ResponseEvent {
   ) = _RawResponseMapReceived;
 
   const factory ResponseEvent.rawReferenceListReceived(
-    Either<SurveyFailure, ReferenceListDto> failureOrReferenceList,
+    Either<SurveyFailure, List<Object>> failureOrReferenceList,
   ) = _RawReferenceListReceived;
 
   // H_ 上傳倒數計時

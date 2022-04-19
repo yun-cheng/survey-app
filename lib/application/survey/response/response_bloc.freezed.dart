@@ -34,7 +34,7 @@ class _$ResponseEventTearOff {
   }
 
   _RawReferenceListReceived rawReferenceListReceived(
-      Either<SurveyFailure, ReferenceListDto> failureOrReferenceList) {
+      Either<SurveyFailure, List<Object>> failureOrReferenceList) {
     return _RawReferenceListReceived(
       failureOrReferenceList,
     );
@@ -129,7 +129,7 @@ mixin _$ResponseEvent {
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -163,7 +163,7 @@ mixin _$ResponseEvent {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -197,7 +197,7 @@ mixin _$ResponseEvent {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -410,7 +410,7 @@ class _$_WatchResponseMapStarted
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -447,7 +447,7 @@ class _$_WatchResponseMapStarted
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -484,7 +484,7 @@ class _$_WatchResponseMapStarted
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -685,7 +685,7 @@ class _$_RawResponseMapReceived
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -722,7 +722,7 @@ class _$_RawResponseMapReceived
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -759,7 +759,7 @@ class _$_RawResponseMapReceived
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -881,7 +881,7 @@ abstract class _$RawReferenceListReceivedCopyWith<$Res> {
   factory _$RawReferenceListReceivedCopyWith(_RawReferenceListReceived value,
           $Res Function(_RawReferenceListReceived) then) =
       __$RawReferenceListReceivedCopyWithImpl<$Res>;
-  $Res call({Either<SurveyFailure, ReferenceListDto> failureOrReferenceList});
+  $Res call({Either<SurveyFailure, List<Object>> failureOrReferenceList});
 }
 
 /// @nodoc
@@ -904,7 +904,7 @@ class __$RawReferenceListReceivedCopyWithImpl<$Res>
       failureOrReferenceList == freezed
           ? _value.failureOrReferenceList
           : failureOrReferenceList // ignore: cast_nullable_to_non_nullable
-              as Either<SurveyFailure, ReferenceListDto>,
+              as Either<SurveyFailure, List<Object>>,
     ));
   }
 }
@@ -917,7 +917,7 @@ class _$_RawReferenceListReceived
   const _$_RawReferenceListReceived(this.failureOrReferenceList);
 
   @override
-  final Either<SurveyFailure, ReferenceListDto> failureOrReferenceList;
+  final Either<SurveyFailure, List<Object>> failureOrReferenceList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -962,7 +962,7 @@ class _$_RawReferenceListReceived
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -999,7 +999,7 @@ class _$_RawReferenceListReceived
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1036,7 +1036,7 @@ class _$_RawReferenceListReceived
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1144,10 +1144,10 @@ class _$_RawReferenceListReceived
 
 abstract class _RawReferenceListReceived implements ResponseEvent {
   const factory _RawReferenceListReceived(
-          Either<SurveyFailure, ReferenceListDto> failureOrReferenceList) =
+          Either<SurveyFailure, List<Object>> failureOrReferenceList) =
       _$_RawReferenceListReceived;
 
-  Either<SurveyFailure, ReferenceListDto> get failureOrReferenceList;
+  Either<SurveyFailure, List<Object>> get failureOrReferenceList;
   @JsonKey(ignore: true)
   _$RawReferenceListReceivedCopyWith<_RawReferenceListReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1209,7 +1209,7 @@ class _$_UploadTimerUpdated
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -1246,7 +1246,7 @@ class _$_UploadTimerUpdated
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1283,7 +1283,7 @@ class _$_UploadTimerUpdated
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1449,7 +1449,7 @@ class _$_ResponseMapUploading
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -1486,7 +1486,7 @@ class _$_ResponseMapUploading
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1523,7 +1523,7 @@ class _$_ResponseMapUploading
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1715,7 +1715,7 @@ class _$_ResponseUploaded
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -1752,7 +1752,7 @@ class _$_ResponseUploaded
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1789,7 +1789,7 @@ class _$_ResponseUploaded
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -1995,7 +1995,7 @@ class _$_SurveySelected
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -2032,7 +2032,7 @@ class _$_SurveySelected
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -2069,7 +2069,7 @@ class _$_SurveySelected
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -2366,7 +2366,7 @@ class _$_ResponseStarted
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -2404,7 +2404,7 @@ class _$_ResponseStarted
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -2442,7 +2442,7 @@ class _$_ResponseStarted
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -2689,7 +2689,7 @@ class _$_ResponseUpdated
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -2726,7 +2726,7 @@ class _$_ResponseUpdated
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -2763,7 +2763,7 @@ class _$_ResponseUpdated
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -2963,7 +2963,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -3000,7 +3000,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3037,7 +3037,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3245,7 +3245,7 @@ class _$_ResponseResumed
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -3282,7 +3282,7 @@ class _$_ResponseResumed
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3319,7 +3319,7 @@ class _$_ResponseResumed
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3525,7 +3525,7 @@ class _$_NetworkUpdated
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -3562,7 +3562,7 @@ class _$_NetworkUpdated
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3599,7 +3599,7 @@ class _$_NetworkUpdated
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3766,7 +3766,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -3803,7 +3803,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -3840,7 +3840,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -4002,7 +4002,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             Either<SurveyFailure, List<Object>> failureOrResponseMap)
         rawResponseMapReceived,
     required TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)
         rawReferenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
@@ -4039,7 +4039,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
@@ -4076,7 +4076,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(Either<SurveyFailure, List<Object>> failureOrResponseMap)?
         rawResponseMapReceived,
     TResult Function(
-            Either<SurveyFailure, ReferenceListDto> failureOrReferenceList)?
+            Either<SurveyFailure, List<Object>> failureOrReferenceList)?
         rawReferenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,

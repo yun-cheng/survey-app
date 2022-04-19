@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/value_objects.dart';
@@ -35,12 +34,6 @@ class ResponseMapDto with _$ResponseMapDto {
 
   factory ResponseMapDto.fromJson(Map<String, dynamic> json) =>
       _$ResponseMapDtoFromJson(json);
-
-  factory ResponseMapDto.fromFirestore(QuerySnapshot snapshot) {
-    final iterable = snapshot.docs.map((doc) => MapEntry(doc.id, doc.data()));
-
-    return ResponseMapDto.fromJson({'map': Map.fromEntries(iterable)});
-  }
 }
 
 @freezed

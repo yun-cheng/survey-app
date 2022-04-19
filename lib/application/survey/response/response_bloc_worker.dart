@@ -108,11 +108,17 @@ class ResponseBlocWorker
             responseMapState: LoadState.failure(),
             responseFailure: some(f),
           ),
-          (referenceListDto) {
+          (rawReferenceList) {
+            final list = rawReferenceList
+                .map((e) => (e as Map<String, dynamic>)['list'] as List)
+                .expand((i) => i)
+                .toList();
+            final referenceList =
+                ReferenceListDto.fromJson({'list': list}).toDomain();
             return state.copyWith(
               updateState: LoadState.success(),
               responseMapState: LoadState.success(),
-              referenceList: referenceListDto.toDomain(),
+              referenceList: referenceList,
               responseFailure: none(),
               saveParameters: state.saveParameters.copyWith(
                 referenceList: true,
