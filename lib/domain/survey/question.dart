@@ -35,6 +35,7 @@ class Question with _$Question {
     // H_ expression
     required FullExpression show,
     required FullExpression validateAnswer,
+    required Set<String> childrenQIdSet,
     // H_ table
     required String tableId,
     required int rowId,
@@ -60,6 +61,7 @@ class Question with _$Question {
         // H_ expression
         show: FullExpression.empty(),
         validateAnswer: FullExpression.empty(),
+        childrenQIdSet: <String>{},
         // H_ table
         tableId: '',
         rowId: -1,

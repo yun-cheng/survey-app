@@ -40,6 +40,7 @@ class _$QuestionDtoTearOff {
       List<ChoiceDto>? specialAnswerList,
       required FullExpressionDto showQuestion,
       required FullExpressionDto validateAnswer,
+      List<String>? childrenQIdSet,
       required String tableId,
       required int rowId}) {
     return _QuestionDto(
@@ -60,6 +61,7 @@ class _$QuestionDtoTearOff {
       specialAnswerList: specialAnswerList,
       showQuestion: showQuestion,
       validateAnswer: validateAnswer,
+      childrenQIdSet: childrenQIdSet,
       tableId: tableId,
       rowId: rowId,
     );
@@ -93,7 +95,8 @@ mixin _$QuestionDto {
   List<ChoiceDto>? get specialAnswerList =>
       throw _privateConstructorUsedError; // H_ expression
   FullExpressionDto get showQuestion => throw _privateConstructorUsedError;
-  FullExpressionDto get validateAnswer =>
+  FullExpressionDto get validateAnswer => throw _privateConstructorUsedError;
+  List<String>? get childrenQIdSet =>
       throw _privateConstructorUsedError; // H_ table
   String get tableId => throw _privateConstructorUsedError;
   int get rowId => throw _privateConstructorUsedError;
@@ -127,6 +130,7 @@ abstract class $QuestionDtoCopyWith<$Res> {
       List<ChoiceDto>? specialAnswerList,
       FullExpressionDto showQuestion,
       FullExpressionDto validateAnswer,
+      List<String>? childrenQIdSet,
       String tableId,
       int rowId});
 
@@ -161,6 +165,7 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
     Object? specialAnswerList = freezed,
     Object? showQuestion = freezed,
     Object? validateAnswer = freezed,
+    Object? childrenQIdSet = freezed,
     Object? tableId = freezed,
     Object? rowId = freezed,
   }) {
@@ -233,6 +238,10 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
           ? _value.validateAnswer
           : validateAnswer // ignore: cast_nullable_to_non_nullable
               as FullExpressionDto,
+      childrenQIdSet: childrenQIdSet == freezed
+          ? _value.childrenQIdSet
+          : childrenQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       tableId: tableId == freezed
           ? _value.tableId
           : tableId // ignore: cast_nullable_to_non_nullable
@@ -284,6 +293,7 @@ abstract class _$QuestionDtoCopyWith<$Res>
       List<ChoiceDto>? specialAnswerList,
       FullExpressionDto showQuestion,
       FullExpressionDto validateAnswer,
+      List<String>? childrenQIdSet,
       String tableId,
       int rowId});
 
@@ -322,6 +332,7 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
     Object? specialAnswerList = freezed,
     Object? showQuestion = freezed,
     Object? validateAnswer = freezed,
+    Object? childrenQIdSet = freezed,
     Object? tableId = freezed,
     Object? rowId = freezed,
   }) {
@@ -394,6 +405,10 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
           ? _value.validateAnswer
           : validateAnswer // ignore: cast_nullable_to_non_nullable
               as FullExpressionDto,
+      childrenQIdSet: childrenQIdSet == freezed
+          ? _value.childrenQIdSet
+          : childrenQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       tableId: tableId == freezed
           ? _value.tableId
           : tableId // ignore: cast_nullable_to_non_nullable
@@ -427,6 +442,7 @@ class _$_QuestionDto extends _QuestionDto {
       this.specialAnswerList,
       required this.showQuestion,
       required this.validateAnswer,
+      this.childrenQIdSet,
       required this.tableId,
       required this.rowId})
       : super._();
@@ -468,6 +484,8 @@ class _$_QuestionDto extends _QuestionDto {
   final FullExpressionDto showQuestion;
   @override
   final FullExpressionDto validateAnswer;
+  @override
+  final List<String>? childrenQIdSet;
   @override // H_ table
   final String tableId;
   @override
@@ -475,7 +493,7 @@ class _$_QuestionDto extends _QuestionDto {
 
   @override
   String toString() {
-    return 'QuestionDto(questionId: $questionId, hideQuestionId: $hideQuestionId, serialNumber: $serialNumber, questionBody: $questionBody, stringBody: $stringBody, questionNote: $questionNote, questionType: $questionType, hasSpecialAnswer: $hasSpecialAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded, splitColumnChoiceCount: $splitColumnChoiceCount, initChoiceList: $initChoiceList, choiceList: $choiceList, specialAnswerList: $specialAnswerList, showQuestion: $showQuestion, validateAnswer: $validateAnswer, tableId: $tableId, rowId: $rowId)';
+    return 'QuestionDto(questionId: $questionId, hideQuestionId: $hideQuestionId, serialNumber: $serialNumber, questionBody: $questionBody, stringBody: $stringBody, questionNote: $questionNote, questionType: $questionType, hasSpecialAnswer: $hasSpecialAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded, splitColumnChoiceCount: $splitColumnChoiceCount, initChoiceList: $initChoiceList, choiceList: $choiceList, specialAnswerList: $specialAnswerList, showQuestion: $showQuestion, validateAnswer: $validateAnswer, childrenQIdSet: $childrenQIdSet, tableId: $tableId, rowId: $rowId)';
   }
 
   @override
@@ -517,6 +535,8 @@ class _$_QuestionDto extends _QuestionDto {
                 .equals(other.showQuestion, showQuestion) &&
             const DeepCollectionEquality()
                 .equals(other.validateAnswer, validateAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.childrenQIdSet, childrenQIdSet) &&
             const DeepCollectionEquality().equals(other.tableId, tableId) &&
             const DeepCollectionEquality().equals(other.rowId, rowId));
   }
@@ -541,6 +561,7 @@ class _$_QuestionDto extends _QuestionDto {
         const DeepCollectionEquality().hash(specialAnswerList),
         const DeepCollectionEquality().hash(showQuestion),
         const DeepCollectionEquality().hash(validateAnswer),
+        const DeepCollectionEquality().hash(childrenQIdSet),
         const DeepCollectionEquality().hash(tableId),
         const DeepCollectionEquality().hash(rowId)
       ]);
@@ -575,6 +596,7 @@ abstract class _QuestionDto extends QuestionDto {
       List<ChoiceDto>? specialAnswerList,
       required FullExpressionDto showQuestion,
       required FullExpressionDto validateAnswer,
+      List<String>? childrenQIdSet,
       required String tableId,
       required int rowId}) = _$_QuestionDto;
   const _QuestionDto._() : super._();
@@ -616,6 +638,8 @@ abstract class _QuestionDto extends QuestionDto {
   FullExpressionDto get showQuestion;
   @override
   FullExpressionDto get validateAnswer;
+  @override
+  List<String>? get childrenQIdSet;
   @override // H_ table
   String get tableId;
   @override

@@ -33,6 +33,7 @@ class QuestionDto with _$QuestionDto {
     // H_ expression
     required FullExpressionDto showQuestion,
     required FullExpressionDto validateAnswer,
+    List<String>? childrenQIdSet,
     // H_ table
     required String tableId,
     required int rowId,
@@ -66,6 +67,7 @@ class QuestionDto with _$QuestionDto {
       // H_ expression
       showQuestion: FullExpressionDto.fromDomain(domain.show),
       validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
+      childrenQIdSet: domain.childrenQIdSet.toList(),
       // H_ table
       tableId: domain.tableId,
       rowId: domain.rowId,
@@ -97,6 +99,7 @@ class QuestionDto with _$QuestionDto {
       // H_ expression
       show: showQuestion.toDomain(),
       validateAnswer: validateAnswer.toDomain(),
+      childrenQIdSet: childrenQIdSet?.toSet() ?? <String>{},
       // H_ table
       tableId: tableId,
       rowId: rowId,

@@ -27,7 +27,7 @@ UpdateAnswerStatusState answerStatusMapUpdated(
 
   if (!state.isRecodeModule) {
     state = chainQuestionChecked(state);
-    state = showQuestionChecked(state, allAfter: true);
+    state = showQuestionChecked(state, children: true);
   }
 
   return state;
@@ -141,79 +141,98 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
   );
 }
 
-// H_ 判斷有設定題目出現條件的題目是否顯示
-// NOTE 預設只檢查當前頁面
+// > 判斷有設定題目出現條件的題目是否顯示
 UpdateAnswerStatusState showQuestionChecked(
   UpdateAnswerStatusState state, {
-  // NOTE 所有需判斷是否顯示的題目
+  // * 檢查所有需判斷是否顯示的題目
   bool all = false,
-  // NOTE 只需要找到下一題要顯示的題目
+  // * 只檢查該頁的題目
+  bool currentPage = false,
+  // * 只需要找到下一題要顯示的題目
   bool toNextQuestion = false,
-  // NOTE 當前頁面到最新頁需判斷是否顯示的題目
-  bool allAfter = false,
+  // * 與該題有連動的題目
+  bool children = false,
 }) {
-  logger('Compute').i('showQuestionChecked');
-
-  if (state.isRecodeModule) {
-    return showQuestionCheckedRecodeJob(state);
-  }
+  logger('Compute').i('childrenShowQuestionChecked');
 
   final answerStatusMap = {...state.answerStatusMap};
   final clearAnswerQIdSet = {...state.clearAnswerQIdSet};
 
-  // S_ 篩出有設定題目出現條件的題目，或該頁之後的題目
-  late final Map<String, Question> showQuestionMap;
+  final childrenQIdSet = <String>{};
 
-  if (toNextQuestion) {
-    // S_ 篩出當前頁面以後的題目
-    showQuestionMap =
-        state.questionMap.filterByValues((q) => q.pageNumber > state.page);
-  } else if (allAfter) {
-    // S_ 篩出從當前頁面到最新頁需判斷是否顯示的題目
-    showQuestionMap = state.questionMap.filterByValues((q) =>
-        !q.show.isEmpty &&
-        q.pageNumber <= state.newestPage &&
-        q.pageNumber >= state.page);
-  } else {
-    // S_ 篩出 當前頁面/所有頁面 需判斷是否顯示的題目
-    showQuestionMap = state.questionMap.filterByValues(
-        (q) => !q.show.isEmpty && (all || q.pageNumber == state.page));
+  if (children) {
+    childrenQIdSet.addAll(state.questionMap[state.questionId]!.childrenQIdSet);
   }
 
-  for (final question in showQuestionMap.values) {
-    // S_ 如果只需要找到下一題要顯示的題目，且此題必顯示則停止
-    if (toNextQuestion && question.show.isEmpty) {
-      break;
+  for (final question in state.questionMap.values) {
+    final questionId = question.id;
+
+    // - 如果只需要找到下一題要顯示的題目
+    if (toNextQuestion) {
+      // - 則當前頁面以前的題目都跳過
+      if (question.pageNumber <= state.page) {
+        continue;
+      }
+      // - 且此題必顯示則停止
+      if (question.show.isEmpty) {
+        break;
+      }
     }
 
-    final questionId = question.id;
-    AnswerStatus newAnswerStatus = answerStatusMap[questionId]!;
-    bool showQuestion;
+    if (currentPage) {
+      if (question.pageNumber > state.page) {
+        break;
+      }
+      // - 如果不是當前頁面則跳過
+      if (question.show.isEmpty || question.pageNumber != state.page) {
+        continue;
+      }
+    }
 
-    // S_ 判斷該題是否要出現
-    // NOTE 有可能取到還未清空的答案，因此同時參考答題狀態
-    showQuestion = question.show.evaluate(
+    if (all && question.show.isEmpty) {
+      continue;
+    }
+
+    // - 沒有題目出現條件或不是 children 則跳過
+    if (children &&
+        (question.show.isEmpty || !childrenQIdSet.contains(questionId))) {
+      continue;
+    }
+
+    final oldAnswerStatus = answerStatusMap[questionId]!;
+    late final AnswerStatus newAnswerStatus;
+
+    // - 判斷該題是否要出現
+    // * 有可能取到還未清空的答案，因此同時參考答題狀態
+    final showQuestion = question.show.evaluate(
       answerMap: state.answerMap,
       answerStatusMap: answerStatusMap,
     );
 
-    // S_ 更新該題的 answerStatus
-    // S_- 過去隱藏，現在要顯示時
-    if (showQuestion && newAnswerStatus.isHidden) {
+    // > 更新該題的 answerStatus
+    // - 過去隱藏，現在要顯示時
+    if (showQuestion && oldAnswerStatus.isHidden) {
       if (!question.type.needAnswer) {
-        newAnswerStatus = newAnswerStatus.setAnswered();
+        newAnswerStatus = oldAnswerStatus.setAnswered();
       } else {
-        newAnswerStatus = newAnswerStatus.setUnanswered();
+        newAnswerStatus = oldAnswerStatus.setUnanswered();
       }
-      // S_- 過去顯示，現在要隱藏時，清空作答
-    } else if (!showQuestion && !newAnswerStatus.isHidden) {
+      // - 過去顯示，現在要隱藏時，清空作答
+    } else if (!showQuestion && !oldAnswerStatus.isHidden) {
       clearAnswerQIdSet.add(questionId);
-      newAnswerStatus = newAnswerStatus.setHidden();
+      newAnswerStatus = oldAnswerStatus.setHidden();
+    } else {
+      newAnswerStatus = oldAnswerStatus;
     }
 
     answerStatusMap[questionId] = newAnswerStatus;
 
-    // S_ 如果只需要找到下一題要顯示的題目，且此題需顯示則停止
+    // - 現在和過去不同時
+    if (children && showQuestion == oldAnswerStatus.isHidden) {
+      childrenQIdSet.addAll(question.childrenQIdSet);
+    }
+
+    // - 如果只需要找到下一題要顯示的題目，且此題需顯示則停止
     if (toNextQuestion && showQuestion) {
       break;
     }

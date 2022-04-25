@@ -35,6 +35,9 @@ _$_QuestionDto _$$_QuestionDtoFromJson(Map<String, dynamic> json) =>
           json['showQuestion'] as Map<String, dynamic>),
       validateAnswer: FullExpressionDto.fromJson(
           json['validateAnswer'] as Map<String, dynamic>),
+      childrenQIdSet: (json['childrenQIdSet'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       tableId: json['tableId'] as String,
       rowId: json['rowId'] as int,
     );
@@ -60,6 +63,7 @@ Map<String, dynamic> _$$_QuestionDtoToJson(_$_QuestionDto instance) =>
           instance.specialAnswerList?.map((e) => e.toJson()).toList(),
       'showQuestion': instance.showQuestion.toJson(),
       'validateAnswer': instance.validateAnswer.toJson(),
+      'childrenQIdSet': instance.childrenQIdSet,
       'tableId': instance.tableId,
       'rowId': instance.rowId,
     };

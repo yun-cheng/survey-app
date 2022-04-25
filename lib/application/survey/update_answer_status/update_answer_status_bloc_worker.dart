@@ -368,7 +368,7 @@ UpdateAnswerStatusState pageUpdatedFlow(
   }
 
   state1 = pageUpdated(state1);
-  state1 = showQuestionChecked(state1);
+  state1 = showQuestionChecked(state1, currentPage: true);
   state1 = pageQuestionMapUpdated(state1);
   state1 = checkIsLastPage(state1);
 

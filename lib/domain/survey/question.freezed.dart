@@ -36,6 +36,7 @@ class _$QuestionTearOff {
       required List<Choice> specialAnswerList,
       required FullExpression show,
       required FullExpression validateAnswer,
+      required Set<String> childrenQIdSet,
       required String tableId,
       required int rowId}) {
     return _Question(
@@ -56,6 +57,7 @@ class _$QuestionTearOff {
       specialAnswerList: specialAnswerList,
       show: show,
       validateAnswer: validateAnswer,
+      childrenQIdSet: childrenQIdSet,
       tableId: tableId,
       rowId: rowId,
     );
@@ -85,7 +87,8 @@ mixin _$Question {
   List<Choice> get specialAnswerList =>
       throw _privateConstructorUsedError; // H_ expression
   FullExpression get show => throw _privateConstructorUsedError;
-  FullExpression get validateAnswer =>
+  FullExpression get validateAnswer => throw _privateConstructorUsedError;
+  Set<String> get childrenQIdSet =>
       throw _privateConstructorUsedError; // H_ table
   String get tableId => throw _privateConstructorUsedError;
   int get rowId => throw _privateConstructorUsedError;
@@ -117,6 +120,7 @@ abstract class $QuestionCopyWith<$Res> {
       List<Choice> specialAnswerList,
       FullExpression show,
       FullExpression validateAnswer,
+      Set<String> childrenQIdSet,
       String tableId,
       int rowId});
 
@@ -152,6 +156,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
     Object? specialAnswerList = freezed,
     Object? show = freezed,
     Object? validateAnswer = freezed,
+    Object? childrenQIdSet = freezed,
     Object? tableId = freezed,
     Object? rowId = freezed,
   }) {
@@ -224,6 +229,10 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           ? _value.validateAnswer
           : validateAnswer // ignore: cast_nullable_to_non_nullable
               as FullExpression,
+      childrenQIdSet: childrenQIdSet == freezed
+          ? _value.childrenQIdSet
+          : childrenQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       tableId: tableId == freezed
           ? _value.tableId
           : tableId // ignore: cast_nullable_to_non_nullable
@@ -280,6 +289,7 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       List<Choice> specialAnswerList,
       FullExpression show,
       FullExpression validateAnswer,
+      Set<String> childrenQIdSet,
       String tableId,
       int rowId});
 
@@ -319,6 +329,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object? specialAnswerList = freezed,
     Object? show = freezed,
     Object? validateAnswer = freezed,
+    Object? childrenQIdSet = freezed,
     Object? tableId = freezed,
     Object? rowId = freezed,
   }) {
@@ -391,6 +402,10 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           ? _value.validateAnswer
           : validateAnswer // ignore: cast_nullable_to_non_nullable
               as FullExpression,
+      childrenQIdSet: childrenQIdSet == freezed
+          ? _value.childrenQIdSet
+          : childrenQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
       tableId: tableId == freezed
           ? _value.tableId
           : tableId // ignore: cast_nullable_to_non_nullable
@@ -424,6 +439,7 @@ class _$_Question extends _Question {
       required this.specialAnswerList,
       required this.show,
       required this.validateAnswer,
+      required this.childrenQIdSet,
       required this.tableId,
       required this.rowId})
       : super._();
@@ -462,6 +478,8 @@ class _$_Question extends _Question {
   final FullExpression show;
   @override
   final FullExpression validateAnswer;
+  @override
+  final Set<String> childrenQIdSet;
   @override // H_ table
   final String tableId;
   @override
@@ -469,7 +487,7 @@ class _$_Question extends _Question {
 
   @override
   String toString() {
-    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, stringBody: $stringBody, note: $note, type: $type, hasSpecialAnswer: $hasSpecialAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded, splitColumnChoiceCount: $splitColumnChoiceCount, initChoiceList: $initChoiceList, choiceList: $choiceList, specialAnswerList: $specialAnswerList, show: $show, validateAnswer: $validateAnswer, tableId: $tableId, rowId: $rowId)';
+    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, stringBody: $stringBody, note: $note, type: $type, hasSpecialAnswer: $hasSpecialAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded, splitColumnChoiceCount: $splitColumnChoiceCount, initChoiceList: $initChoiceList, choiceList: $choiceList, specialAnswerList: $specialAnswerList, show: $show, validateAnswer: $validateAnswer, childrenQIdSet: $childrenQIdSet, tableId: $tableId, rowId: $rowId)';
   }
 
   @override
@@ -505,6 +523,8 @@ class _$_Question extends _Question {
             const DeepCollectionEquality().equals(other.show, show) &&
             const DeepCollectionEquality()
                 .equals(other.validateAnswer, validateAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.childrenQIdSet, childrenQIdSet) &&
             const DeepCollectionEquality().equals(other.tableId, tableId) &&
             const DeepCollectionEquality().equals(other.rowId, rowId));
   }
@@ -529,6 +549,7 @@ class _$_Question extends _Question {
         const DeepCollectionEquality().hash(specialAnswerList),
         const DeepCollectionEquality().hash(show),
         const DeepCollectionEquality().hash(validateAnswer),
+        const DeepCollectionEquality().hash(childrenQIdSet),
         const DeepCollectionEquality().hash(tableId),
         const DeepCollectionEquality().hash(rowId)
       ]);
@@ -558,6 +579,7 @@ abstract class _Question extends Question {
       required List<Choice> specialAnswerList,
       required FullExpression show,
       required FullExpression validateAnswer,
+      required Set<String> childrenQIdSet,
       required String tableId,
       required int rowId}) = _$_Question;
   const _Question._() : super._();
@@ -596,6 +618,8 @@ abstract class _Question extends Question {
   FullExpression get show;
   @override
   FullExpression get validateAnswer;
+  @override
+  Set<String> get childrenQIdSet;
   @override // H_ table
   String get tableId;
   @override
