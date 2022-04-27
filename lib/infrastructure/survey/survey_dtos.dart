@@ -19,7 +19,7 @@ class SurveyDto with _$SurveyDto {
     String? version,
     bool? isCompatible,
     int? lastUpdatedTimeStamp,
-    required Map<String, SurveyModuleDto> module,
+    Map<String, SurveyModuleDto>? module,
   }) = _SurveyDto;
 
   factory SurveyDto.fromDomain(Survey domain) {
@@ -49,7 +49,7 @@ class SurveyDto with _$SurveyDto {
       isCompatible: isCompatible ?? versionIsCompatible,
       lastUpdatedTimeStamp: DeviceTimeStamp.fromInt(lastUpdatedTimeStamp ?? 0),
       module: versionIsCompatible
-          ? module
+          ? module!
               .map((key, value) => MapEntry(ModuleType(key), value.toDomain()))
           : {},
     );

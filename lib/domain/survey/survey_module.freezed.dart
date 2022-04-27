@@ -21,11 +21,13 @@ class _$SurveyModuleTearOff {
   _SurveyModule call(
       {required Map<String, Question> questionMap,
       required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap}) {
+      required Map<String, AnswerStatus> answerStatusMap,
+      required Map<String, Set<String>> pageQIdSetMap}) {
     return _SurveyModule(
       questionMap: questionMap,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
+      pageQIdSetMap: pageQIdSetMap,
     );
   }
 }
@@ -38,6 +40,8 @@ mixin _$SurveyModule {
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  Map<String, Set<String>> get pageQIdSetMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -53,7 +57,8 @@ abstract class $SurveyModuleCopyWith<$Res> {
   $Res call(
       {Map<String, Question> questionMap,
       Map<String, Answer> answerMap,
-      Map<String, AnswerStatus> answerStatusMap});
+      Map<String, AnswerStatus> answerStatusMap,
+      Map<String, Set<String>> pageQIdSetMap});
 }
 
 /// @nodoc
@@ -69,6 +74,7 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
     Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
+    Object? pageQIdSetMap = freezed,
   }) {
     return _then(_value.copyWith(
       questionMap: questionMap == freezed
@@ -83,6 +89,10 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
     ));
   }
 }
@@ -97,7 +107,8 @@ abstract class _$SurveyModuleCopyWith<$Res>
   $Res call(
       {Map<String, Question> questionMap,
       Map<String, Answer> answerMap,
-      Map<String, AnswerStatus> answerStatusMap});
+      Map<String, AnswerStatus> answerStatusMap,
+      Map<String, Set<String>> pageQIdSetMap});
 }
 
 /// @nodoc
@@ -115,6 +126,7 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
     Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
+    Object? pageQIdSetMap = freezed,
   }) {
     return _then(_SurveyModule(
       questionMap: questionMap == freezed
@@ -129,6 +141,10 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
     ));
   }
 }
@@ -139,7 +155,8 @@ class _$_SurveyModule extends _SurveyModule {
   const _$_SurveyModule(
       {required this.questionMap,
       required this.answerMap,
-      required this.answerStatusMap})
+      required this.answerStatusMap,
+      required this.pageQIdSetMap})
       : super._();
 
   @override
@@ -148,10 +165,12 @@ class _$_SurveyModule extends _SurveyModule {
   final Map<String, Answer> answerMap;
   @override
   final Map<String, AnswerStatus> answerStatusMap;
+  @override
+  final Map<String, Set<String>> pageQIdSetMap;
 
   @override
   String toString() {
-    return 'SurveyModule(questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
+    return 'SurveyModule(questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, pageQIdSetMap: $pageQIdSetMap)';
   }
 
   @override
@@ -163,7 +182,9 @@ class _$_SurveyModule extends _SurveyModule {
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
             const DeepCollectionEquality()
-                .equals(other.answerStatusMap, answerStatusMap));
+                .equals(other.answerStatusMap, answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other.pageQIdSetMap, pageQIdSetMap));
   }
 
   @override
@@ -171,7 +192,8 @@ class _$_SurveyModule extends _SurveyModule {
       runtimeType,
       const DeepCollectionEquality().hash(questionMap),
       const DeepCollectionEquality().hash(answerMap),
-      const DeepCollectionEquality().hash(answerStatusMap));
+      const DeepCollectionEquality().hash(answerStatusMap),
+      const DeepCollectionEquality().hash(pageQIdSetMap));
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +205,8 @@ abstract class _SurveyModule extends SurveyModule {
   const factory _SurveyModule(
       {required Map<String, Question> questionMap,
       required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap}) = _$_SurveyModule;
+      required Map<String, AnswerStatus> answerStatusMap,
+      required Map<String, Set<String>> pageQIdSetMap}) = _$_SurveyModule;
   const _SurveyModule._() : super._();
 
   @override
@@ -192,6 +215,8 @@ abstract class _SurveyModule extends SurveyModule {
   Map<String, Answer> get answerMap;
   @override
   Map<String, AnswerStatus> get answerStatusMap;
+  @override
+  Map<String, Set<String>> get pageQIdSetMap;
   @override
   @JsonKey(ignore: true)
   _$SurveyModuleCopyWith<_SurveyModule> get copyWith =>

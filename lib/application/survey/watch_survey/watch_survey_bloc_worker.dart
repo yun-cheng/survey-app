@@ -116,7 +116,14 @@ Survey rawDataToSurvey(
   final jsonStr = data != null ? String.fromCharCodes(data) : '';
   final result = json.decode(jsonStr) as Map<String, dynamic>;
 
+  final versionIsCompatible =
+      surveyCompatibility.contains(result['version'] ?? '');
+
+  if (!versionIsCompatible) {
+    result.remove('module');
+  }
+
   return SurveyDto.fromJson(result).toDomain(
-    versionIsCompatible: surveyCompatibility.contains(result['version'] ?? ''),
+    versionIsCompatible: versionIsCompatible,
   );
 }

@@ -25,11 +25,13 @@ class _$SurveyModuleDtoTearOff {
   _SurveyModuleDto call(
       {required Map<String, QuestionDto> questionMap,
       required Map<String, AnswerDto> answerMap,
-      required Map<String, AnswerStatusDto> answerStatusMap}) {
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required Map<String, List<String>> pageQIdSetMap}) {
     return _SurveyModuleDto(
       questionMap: questionMap,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
+      pageQIdSetMap: pageQIdSetMap,
     );
   }
 
@@ -48,6 +50,8 @@ mixin _$SurveyModuleDto {
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
+  Map<String, List<String>> get pageQIdSetMap =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,7 +67,8 @@ abstract class $SurveyModuleDtoCopyWith<$Res> {
   $Res call(
       {Map<String, QuestionDto> questionMap,
       Map<String, AnswerDto> answerMap,
-      Map<String, AnswerStatusDto> answerStatusMap});
+      Map<String, AnswerStatusDto> answerStatusMap,
+      Map<String, List<String>> pageQIdSetMap});
 }
 
 /// @nodoc
@@ -80,6 +85,7 @@ class _$SurveyModuleDtoCopyWithImpl<$Res>
     Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
+    Object? pageQIdSetMap = freezed,
   }) {
     return _then(_value.copyWith(
       questionMap: questionMap == freezed
@@ -94,6 +100,10 @@ class _$SurveyModuleDtoCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>,
     ));
   }
 }
@@ -108,7 +118,8 @@ abstract class _$SurveyModuleDtoCopyWith<$Res>
   $Res call(
       {Map<String, QuestionDto> questionMap,
       Map<String, AnswerDto> answerMap,
-      Map<String, AnswerStatusDto> answerStatusMap});
+      Map<String, AnswerStatusDto> answerStatusMap,
+      Map<String, List<String>> pageQIdSetMap});
 }
 
 /// @nodoc
@@ -127,6 +138,7 @@ class __$SurveyModuleDtoCopyWithImpl<$Res>
     Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
+    Object? pageQIdSetMap = freezed,
   }) {
     return _then(_SurveyModuleDto(
       questionMap: questionMap == freezed
@@ -141,6 +153,10 @@ class __$SurveyModuleDtoCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>,
     ));
   }
 }
@@ -151,7 +167,8 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
   const _$_SurveyModuleDto(
       {required this.questionMap,
       required this.answerMap,
-      required this.answerStatusMap})
+      required this.answerStatusMap,
+      required this.pageQIdSetMap})
       : super._();
 
   factory _$_SurveyModuleDto.fromJson(Map<String, dynamic> json) =>
@@ -163,10 +180,12 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
   final Map<String, AnswerDto> answerMap;
   @override
   final Map<String, AnswerStatusDto> answerStatusMap;
+  @override
+  final Map<String, List<String>> pageQIdSetMap;
 
   @override
   String toString() {
-    return 'SurveyModuleDto(questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
+    return 'SurveyModuleDto(questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, pageQIdSetMap: $pageQIdSetMap)';
   }
 
   @override
@@ -178,7 +197,9 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
             const DeepCollectionEquality()
-                .equals(other.answerStatusMap, answerStatusMap));
+                .equals(other.answerStatusMap, answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other.pageQIdSetMap, pageQIdSetMap));
   }
 
   @override
@@ -186,7 +207,8 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
       runtimeType,
       const DeepCollectionEquality().hash(questionMap),
       const DeepCollectionEquality().hash(answerMap),
-      const DeepCollectionEquality().hash(answerStatusMap));
+      const DeepCollectionEquality().hash(answerStatusMap),
+      const DeepCollectionEquality().hash(pageQIdSetMap));
 
   @JsonKey(ignore: true)
   @override
@@ -201,10 +223,10 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
 
 abstract class _SurveyModuleDto extends SurveyModuleDto {
   const factory _SurveyModuleDto(
-          {required Map<String, QuestionDto> questionMap,
-          required Map<String, AnswerDto> answerMap,
-          required Map<String, AnswerStatusDto> answerStatusMap}) =
-      _$_SurveyModuleDto;
+      {required Map<String, QuestionDto> questionMap,
+      required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required Map<String, List<String>> pageQIdSetMap}) = _$_SurveyModuleDto;
   const _SurveyModuleDto._() : super._();
 
   factory _SurveyModuleDto.fromJson(Map<String, dynamic> json) =
@@ -216,6 +238,8 @@ abstract class _SurveyModuleDto extends SurveyModuleDto {
   Map<String, AnswerDto> get answerMap;
   @override
   Map<String, AnswerStatusDto> get answerStatusMap;
+  @override
+  Map<String, List<String>> get pageQIdSetMap;
   @override
   @JsonKey(ignore: true)
   _$SurveyModuleDtoCopyWith<_SurveyModuleDto> get copyWith =>

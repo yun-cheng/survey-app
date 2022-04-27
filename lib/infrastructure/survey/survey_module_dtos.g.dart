@@ -18,6 +18,10 @@ _$_SurveyModuleDto _$$_SurveyModuleDtoFromJson(Map<String, dynamic> json) =>
         (k, e) =>
             MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
       ),
+      pageQIdSetMap: (json['pageQIdSetMap'] as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
+      ),
     );
 
 Map<String, dynamic> _$$_SurveyModuleDtoToJson(_$_SurveyModuleDto instance) =>
@@ -27,4 +31,5 @@ Map<String, dynamic> _$$_SurveyModuleDtoToJson(_$_SurveyModuleDto instance) =>
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':
           instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
+      'pageQIdSetMap': instance.pageQIdSetMap,
     };

@@ -14,11 +14,13 @@ class SurveyModule with _$SurveyModule {
     required Map<String, Question> questionMap,
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
+    required Map<String, Set<String>> pageQIdSetMap,
   }) = _SurveyModule;
 
   factory SurveyModule.empty() => const SurveyModule(
         questionMap: <String, Question>{},
         answerMap: <String, Answer>{},
         answerStatusMap: <String, AnswerStatus>{},
+        pageQIdSetMap: <String, Set<String>>{},
       );
 }

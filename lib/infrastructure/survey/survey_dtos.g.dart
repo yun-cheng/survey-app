@@ -14,7 +14,7 @@ _$_SurveyDto _$$_SurveyDtoFromJson(Map<String, dynamic> json) => _$_SurveyDto(
       version: json['version'] as String?,
       isCompatible: json['isCompatible'] as bool?,
       lastUpdatedTimeStamp: json['lastUpdatedTimeStamp'] as int?,
-      module: (json['module'] as Map<String, dynamic>).map(
+      module: (json['module'] as Map<String, dynamic>?)?.map(
         (k, e) =>
             MapEntry(k, SurveyModuleDto.fromJson(e as Map<String, dynamic>)),
       ),
@@ -29,5 +29,5 @@ Map<String, dynamic> _$$_SurveyDtoToJson(_$_SurveyDto instance) =>
       'version': instance.version,
       'isCompatible': instance.isCompatible,
       'lastUpdatedTimeStamp': instance.lastUpdatedTimeStamp,
-      'module': instance.module.map((k, e) => MapEntry(k, e.toJson())),
+      'module': instance.module?.map((k, e) => MapEntry(k, e.toJson())),
     };

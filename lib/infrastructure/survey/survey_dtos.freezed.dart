@@ -30,7 +30,7 @@ class _$SurveyDtoTearOff {
       String? version,
       bool? isCompatible,
       int? lastUpdatedTimeStamp,
-      required Map<String, SurveyModuleDto> module}) {
+      Map<String, SurveyModuleDto>? module}) {
     return _SurveyDto(
       surveyId: surveyId,
       surveyName: surveyName,
@@ -60,7 +60,8 @@ mixin _$SurveyDto {
   String? get version => throw _privateConstructorUsedError;
   bool? get isCompatible => throw _privateConstructorUsedError;
   int? get lastUpdatedTimeStamp => throw _privateConstructorUsedError;
-  Map<String, SurveyModuleDto> get module => throw _privateConstructorUsedError;
+  Map<String, SurveyModuleDto>? get module =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -80,7 +81,7 @@ abstract class $SurveyDtoCopyWith<$Res> {
       String? version,
       bool? isCompatible,
       int? lastUpdatedTimeStamp,
-      Map<String, SurveyModuleDto> module});
+      Map<String, SurveyModuleDto>? module});
 }
 
 /// @nodoc
@@ -134,7 +135,7 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
-              as Map<String, SurveyModuleDto>,
+              as Map<String, SurveyModuleDto>?,
     ));
   }
 }
@@ -153,7 +154,7 @@ abstract class _$SurveyDtoCopyWith<$Res> implements $SurveyDtoCopyWith<$Res> {
       String? version,
       bool? isCompatible,
       int? lastUpdatedTimeStamp,
-      Map<String, SurveyModuleDto> module});
+      Map<String, SurveyModuleDto>? module});
 }
 
 /// @nodoc
@@ -208,7 +209,7 @@ class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
-              as Map<String, SurveyModuleDto>,
+              as Map<String, SurveyModuleDto>?,
     ));
   }
 }
@@ -224,7 +225,7 @@ class _$_SurveyDto extends _SurveyDto {
       this.version,
       this.isCompatible,
       this.lastUpdatedTimeStamp,
-      required this.module})
+      this.module})
       : super._();
 
   factory _$_SurveyDto.fromJson(Map<String, dynamic> json) =>
@@ -245,7 +246,7 @@ class _$_SurveyDto extends _SurveyDto {
   @override
   final int? lastUpdatedTimeStamp;
   @override
-  final Map<String, SurveyModuleDto> module;
+  final Map<String, SurveyModuleDto>? module;
 
   @override
   String toString() {
@@ -302,7 +303,7 @@ abstract class _SurveyDto extends SurveyDto {
       String? version,
       bool? isCompatible,
       int? lastUpdatedTimeStamp,
-      required Map<String, SurveyModuleDto> module}) = _$_SurveyDto;
+      Map<String, SurveyModuleDto>? module}) = _$_SurveyDto;
   const _SurveyDto._() : super._();
 
   factory _SurveyDto.fromJson(Map<String, dynamic> json) =
@@ -323,7 +324,7 @@ abstract class _SurveyDto extends SurveyDto {
   @override
   int? get lastUpdatedTimeStamp;
   @override
-  Map<String, SurveyModuleDto> get module;
+  Map<String, SurveyModuleDto>? get module;
   @override
   @JsonKey(ignore: true)
   _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>
