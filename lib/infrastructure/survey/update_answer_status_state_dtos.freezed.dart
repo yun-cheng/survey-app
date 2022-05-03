@@ -43,6 +43,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       bool? isRecodeModule,
       List<ReferenceDto>? referenceList,
       Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, List<String>>? pageQIdSetMap,
       Map<String, QuestionDto>? questionMap,
       Map<String, QuestionDto>? recodeQuestionMap,
       String? restoreState,
@@ -67,6 +68,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       isRecodeModule: isRecodeModule,
       referenceList: referenceList,
       respondentResponseMap: respondentResponseMap,
+      pageQIdSetMap: pageQIdSetMap,
       questionMap: questionMap,
       recodeQuestionMap: recodeQuestionMap,
       restoreState: restoreState,
@@ -108,6 +110,8 @@ mixin _$UpdateAnswerStatusStateDto {
   bool? get isRecodeModule => throw _privateConstructorUsedError;
   List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   Map<String, ResponseDto>? get respondentResponseMap =>
+      throw _privateConstructorUsedError;
+  Map<String, List<String>>? get pageQIdSetMap =>
       throw _privateConstructorUsedError; // H_ 同 session 會變的參考資料
   Map<String, QuestionDto>? get questionMap =>
       throw _privateConstructorUsedError;
@@ -147,6 +151,7 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
       bool? isRecodeModule,
       List<ReferenceDto>? referenceList,
       Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, List<String>>? pageQIdSetMap,
       Map<String, QuestionDto>? questionMap,
       Map<String, QuestionDto>? recodeQuestionMap,
       String? restoreState,
@@ -186,6 +191,7 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? referenceList = freezed,
     Object? respondentResponseMap = freezed,
+    Object? pageQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? restoreState = freezed,
@@ -268,6 +274,10 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<String, ResponseDto>?,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>?,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -338,6 +348,7 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       bool? isRecodeModule,
       List<ReferenceDto>? referenceList,
       Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, List<String>>? pageQIdSetMap,
       Map<String, QuestionDto>? questionMap,
       Map<String, QuestionDto>? recodeQuestionMap,
       String? restoreState,
@@ -382,6 +393,7 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? referenceList = freezed,
     Object? respondentResponseMap = freezed,
+    Object? pageQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? restoreState = freezed,
@@ -464,6 +476,10 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<String, ResponseDto>?,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>?,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -508,6 +524,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       this.isRecodeModule,
       this.referenceList,
       this.respondentResponseMap,
+      this.pageQIdSetMap,
       this.questionMap,
       this.recodeQuestionMap,
       this.restoreState,
@@ -555,6 +572,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   final List<ReferenceDto>? referenceList;
   @override
   final Map<String, ResponseDto>? respondentResponseMap;
+  @override
+  final Map<String, List<String>>? pageQIdSetMap;
   @override // H_ 同 session 會變的參考資料
   final Map<String, QuestionDto>? questionMap;
   @override
@@ -566,7 +585,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
+    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
   }
 
   @override
@@ -609,6 +628,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
             const DeepCollectionEquality()
                 .equals(other.respondentResponseMap, respondentResponseMap) &&
             const DeepCollectionEquality()
+                .equals(other.pageQIdSetMap, pageQIdSetMap) &&
+            const DeepCollectionEquality()
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap) &&
@@ -640,6 +661,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
         const DeepCollectionEquality().hash(isRecodeModule),
         const DeepCollectionEquality().hash(referenceList),
         const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(pageQIdSetMap),
         const DeepCollectionEquality().hash(questionMap),
         const DeepCollectionEquality().hash(recodeQuestionMap),
         const DeepCollectionEquality().hash(restoreState),
@@ -679,6 +701,7 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       bool? isRecodeModule,
       List<ReferenceDto>? referenceList,
       Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, List<String>>? pageQIdSetMap,
       Map<String, QuestionDto>? questionMap,
       Map<String, QuestionDto>? recodeQuestionMap,
       String? restoreState,
@@ -726,6 +749,8 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   List<ReferenceDto>? get referenceList;
   @override
   Map<String, ResponseDto>? get respondentResponseMap;
+  @override
+  Map<String, List<String>>? get pageQIdSetMap;
   @override // H_ 同 session 會變的參考資料
   Map<String, QuestionDto>? get questionMap;
   @override

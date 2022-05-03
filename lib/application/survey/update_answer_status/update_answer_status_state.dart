@@ -41,6 +41,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required bool isRecodeModule,
     required List<Reference> referenceList,
     required Map<ModuleType, Response> respondentResponseMap,
+    required Map<String, Set<String>> pageQIdSetMap,
     // H_ 同 session 會變的參考資料
     required Map<String, Question> questionMap,
     required Map<String, Question> recodeQuestionMap,
@@ -88,6 +89,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         isRecodeModule: false,
         referenceList: const [],
         respondentResponseMap: const {},
+        pageQIdSetMap: const {},
         // H_ 同 session 會變的參考資料
         questionMap: const {},
         recodeQuestionMap: const {},
@@ -204,6 +206,7 @@ class StateParameters with _$StateParameters {
     required bool isReadOnly,
     required bool isRecodeModule,
     required bool respondentResponseMap,
+    required bool pageQIdSetMap,
     // H_ 同 session 會變的參考資料
     required bool questionMap,
     required bool recodeQuestionMap,
@@ -233,6 +236,7 @@ class StateParameters with _$StateParameters {
         isReadOnly: false,
         isRecodeModule: false,
         respondentResponseMap: false,
+        pageQIdSetMap: false,
         // H_ 同 session 會變的參考資料
         questionMap: false,
         recodeQuestionMap: false,
@@ -260,6 +264,7 @@ class StateParameters with _$StateParameters {
         isReadOnly: true,
         isRecodeModule: true,
         respondentResponseMap: true,
+        pageQIdSetMap: true,
         // H_ 同 session 會變的參考資料
         questionMap: true,
         recodeQuestionMap: true,

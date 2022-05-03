@@ -45,6 +45,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             updatedQIdSet: const {},
             direction: Direction.current,
             dialogType: e.dialogType,
+            pageQIdSetMap: e.pageQIdSetMap,
             saveParameters: StateParameters.clear(),
           );
           state = showQuestionChecked(state, all: true);
@@ -362,13 +363,8 @@ UpdateAnswerStatusState pageUpdatedFlow(
   UpdateAnswerStatusState state,
 ) {
   var state1 = state;
-  if (state.direction == Direction.next) {
-    // S_ 找到下一題
-    state1 = showQuestionChecked(state, toNextQuestion: true);
-  }
 
   state1 = pageUpdated(state1);
-  state1 = showQuestionChecked(state1, currentPage: true);
   state1 = pageQuestionMapUpdated(state1);
   state1 = checkIsLastPage(state1);
 

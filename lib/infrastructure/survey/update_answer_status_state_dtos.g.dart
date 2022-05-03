@@ -52,6 +52,10 @@ _$_UpdateAnswerStatusStateDto _$$_UpdateAnswerStatusStateDtoFromJson(
           (json['respondentResponseMap'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, ResponseDto.fromJson(e as Map<String, dynamic>)),
       ),
+      pageQIdSetMap: (json['pageQIdSetMap'] as Map<String, dynamic>?)?.map(
+        (k, e) =>
+            MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
+      ),
       questionMap: (json['questionMap'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
       ),
@@ -98,6 +102,7 @@ Map<String, dynamic> _$$_UpdateAnswerStatusStateDtoToJson(
       'referenceList', instance.referenceList?.map((e) => e.toJson()).toList());
   writeNotNull('respondentResponseMap',
       instance.respondentResponseMap?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('pageQIdSetMap', instance.pageQIdSetMap);
   writeNotNull('questionMap',
       instance.questionMap?.map((k, e) => MapEntry(k, e.toJson())));
   writeNotNull('recodeQuestionMap',

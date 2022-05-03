@@ -31,7 +31,8 @@ class _$UpdateAnswerStatusEventTearOff {
       required bool isRecodeModule,
       required Map<String, Question> questionMap,
       required Map<String, Question> recodeQuestionMap,
-      required DialogType dialogType}) {
+      required DialogType dialogType,
+      required Map<String, Set<String>> pageQIdSetMap}) {
     return _ModuleLoaded(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -46,6 +47,7 @@ class _$UpdateAnswerStatusEventTearOff {
       questionMap: questionMap,
       recodeQuestionMap: recodeQuestionMap,
       dialogType: dialogType,
+      pageQIdSetMap: pageQIdSetMap,
     );
   }
 
@@ -173,7 +175,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -220,7 +223,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -265,7 +269,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -409,7 +414,8 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
       bool isRecodeModule,
       Map<String, Question> questionMap,
       Map<String, Question> recodeQuestionMap,
-      DialogType dialogType});
+      DialogType dialogType,
+      Map<String, Set<String>> pageQIdSetMap});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
   $RespondentCopyWith<$Res> get respondent;
@@ -443,6 +449,7 @@ class __$ModuleLoadedCopyWithImpl<$Res>
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? dialogType = freezed,
+    Object? pageQIdSetMap = freezed,
   }) {
     return _then(_ModuleLoaded(
       answerMap: answerMap == freezed
@@ -497,6 +504,10 @@ class __$ModuleLoadedCopyWithImpl<$Res>
           ? _value.dialogType
           : dialogType // ignore: cast_nullable_to_non_nullable
               as DialogType,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
     ));
   }
 
@@ -546,7 +557,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       required this.isRecodeModule,
       required this.questionMap,
       required this.recodeQuestionMap,
-      required this.dialogType});
+      required this.dialogType,
+      required this.pageQIdSetMap});
 
   @override
   final Map<String, Answer> answerMap;
@@ -574,10 +586,12 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   final Map<String, Question> recodeQuestionMap;
   @override
   final DialogType dialogType;
+  @override
+  final Map<String, Set<String>> pageQIdSetMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.moduleLoaded(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, surveyPageState: $surveyPageState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, dialogType: $dialogType)';
+    return 'UpdateAnswerStatusEvent.moduleLoaded(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, surveyPageState: $surveyPageState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, dialogType: $dialogType, pageQIdSetMap: $pageQIdSetMap)';
   }
 
   @override
@@ -597,7 +611,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap))
-      ..add(DiagnosticsProperty('dialogType', dialogType));
+      ..add(DiagnosticsProperty('dialogType', dialogType))
+      ..add(DiagnosticsProperty('pageQIdSetMap', pageQIdSetMap));
   }
 
   @override
@@ -628,7 +643,9 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap) &&
             const DeepCollectionEquality()
-                .equals(other.dialogType, dialogType));
+                .equals(other.dialogType, dialogType) &&
+            const DeepCollectionEquality()
+                .equals(other.pageQIdSetMap, pageQIdSetMap));
   }
 
   @override
@@ -646,7 +663,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       const DeepCollectionEquality().hash(isRecodeModule),
       const DeepCollectionEquality().hash(questionMap),
       const DeepCollectionEquality().hash(recodeQuestionMap),
-      const DeepCollectionEquality().hash(dialogType));
+      const DeepCollectionEquality().hash(dialogType),
+      const DeepCollectionEquality().hash(pageQIdSetMap));
 
   @JsonKey(ignore: true)
   @override
@@ -669,7 +687,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -713,7 +732,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         isRecodeModule,
         questionMap,
         recodeQuestionMap,
-        dialogType);
+        dialogType,
+        pageQIdSetMap);
   }
 
   @override
@@ -732,7 +752,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -774,7 +795,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         isRecodeModule,
         questionMap,
         recodeQuestionMap,
-        dialogType);
+        dialogType,
+        pageQIdSetMap);
   }
 
   @override
@@ -793,7 +815,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -837,7 +860,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
           isRecodeModule,
           questionMap,
           recodeQuestionMap,
-          dialogType);
+          dialogType,
+          pageQIdSetMap);
     }
     return orElse();
   }
@@ -945,7 +969,8 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
       required bool isRecodeModule,
       required Map<String, Question> questionMap,
       required Map<String, Question> recodeQuestionMap,
-      required DialogType dialogType}) = _$_ModuleLoaded;
+      required DialogType dialogType,
+      required Map<String, Set<String>> pageQIdSetMap}) = _$_ModuleLoaded;
 
   Map<String, Answer> get answerMap;
   Map<String, AnswerStatus> get answerStatusMap;
@@ -960,6 +985,7 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
   Map<String, Question> get questionMap;
   Map<String, Question> get recodeQuestionMap;
   DialogType get dialogType;
+  Map<String, Set<String>> get pageQIdSetMap;
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1027,7 +1053,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -1077,7 +1104,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1125,7 +1153,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1448,7 +1477,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -1499,7 +1529,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1548,7 +1579,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1799,7 +1831,8 @@ class _$_PageNavigatedTo
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -1849,7 +1882,8 @@ class _$_PageNavigatedTo
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1897,7 +1931,8 @@ class _$_PageNavigatedTo
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2135,7 +2170,8 @@ class _$_ScrolledToQuestionId
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2185,7 +2221,8 @@ class _$_ScrolledToQuestionId
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2233,7 +2270,8 @@ class _$_ScrolledToQuestionId
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2462,7 +2500,8 @@ class _$_JumpedToWarningQuestion
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2512,7 +2551,8 @@ class _$_JumpedToWarningQuestion
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2560,7 +2600,8 @@ class _$_JumpedToWarningQuestion
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2761,7 +2802,8 @@ class _$_ContentQuestionMapUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2811,7 +2853,8 @@ class _$_ContentQuestionMapUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2859,7 +2902,8 @@ class _$_ContentQuestionMapUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3052,7 +3096,8 @@ class _$_FinishedButtonPressed
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -3102,7 +3147,8 @@ class _$_FinishedButtonPressed
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3150,7 +3196,8 @@ class _$_FinishedButtonPressed
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3374,7 +3421,8 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -3424,7 +3472,8 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3472,7 +3521,8 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3668,7 +3718,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -3718,7 +3769,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3766,7 +3818,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3959,7 +4012,8 @@ class _$_LeaveButtonPressed
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -4009,7 +4063,8 @@ class _$_LeaveButtonPressed
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4057,7 +4112,8 @@ class _$_LeaveButtonPressed
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4250,7 +4306,8 @@ class _$_LeaveButtonHidden
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -4300,7 +4357,8 @@ class _$_LeaveButtonHidden
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4348,7 +4406,8 @@ class _$_LeaveButtonHidden
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4546,7 +4605,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -4596,7 +4656,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4644,7 +4705,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4865,7 +4927,8 @@ class _$_AppLifeCycleChanged
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -4915,7 +4978,8 @@ class _$_AppLifeCycleChanged
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4963,7 +5027,8 @@ class _$_AppLifeCycleChanged
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -5193,7 +5258,8 @@ class _$_RespondentResponseListUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -5243,7 +5309,8 @@ class _$_RespondentResponseListUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -5291,7 +5358,8 @@ class _$_RespondentResponseListUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -5519,7 +5587,8 @@ class _$_ReferenceListUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -5569,7 +5638,8 @@ class _$_ReferenceListUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -5617,7 +5687,8 @@ class _$_ReferenceListUpdated
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -5813,7 +5884,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -5863,7 +5935,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -5911,7 +5984,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isRecodeModule,
             Map<String, Question> questionMap,
             Map<String, Question> recodeQuestionMap,
-            DialogType dialogType)?
+            DialogType dialogType,
+            Map<String, Set<String>> pageQIdSetMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -6076,6 +6150,7 @@ class _$UpdateAnswerStatusStateTearOff {
       required bool isRecodeModule,
       required List<Reference> referenceList,
       required Map<ModuleType, Response> respondentResponseMap,
+      required Map<String, Set<String>> pageQIdSetMap,
       required Map<String, Question> questionMap,
       required Map<String, Question> recodeQuestionMap,
       required LoadState restoreState,
@@ -6115,6 +6190,7 @@ class _$UpdateAnswerStatusStateTearOff {
       isRecodeModule: isRecodeModule,
       referenceList: referenceList,
       respondentResponseMap: respondentResponseMap,
+      pageQIdSetMap: pageQIdSetMap,
       questionMap: questionMap,
       recodeQuestionMap: recodeQuestionMap,
       restoreState: restoreState,
@@ -6167,6 +6243,8 @@ mixin _$UpdateAnswerStatusState {
   bool get isRecodeModule => throw _privateConstructorUsedError;
   List<Reference> get referenceList => throw _privateConstructorUsedError;
   Map<ModuleType, Response> get respondentResponseMap =>
+      throw _privateConstructorUsedError;
+  Map<String, Set<String>> get pageQIdSetMap =>
       throw _privateConstructorUsedError; // H_ 同 session 會變的參考資料
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Map<String, Question> get recodeQuestionMap =>
@@ -6219,6 +6297,7 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       bool isRecodeModule,
       List<Reference> referenceList,
       Map<ModuleType, Response> respondentResponseMap,
+      Map<String, Set<String>> pageQIdSetMap,
       Map<String, Question> questionMap,
       Map<String, Question> recodeQuestionMap,
       LoadState restoreState,
@@ -6281,6 +6360,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? referenceList = freezed,
     Object? respondentResponseMap = freezed,
+    Object? pageQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? restoreState = freezed,
@@ -6414,6 +6494,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, Response>,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -6555,6 +6639,7 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       bool isRecodeModule,
       List<Reference> referenceList,
       Map<ModuleType, Response> respondentResponseMap,
+      Map<String, Set<String>> pageQIdSetMap,
       Map<String, Question> questionMap,
       Map<String, Question> recodeQuestionMap,
       LoadState restoreState,
@@ -6630,6 +6715,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? referenceList = freezed,
     Object? respondentResponseMap = freezed,
+    Object? pageQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? restoreState = freezed,
@@ -6763,6 +6849,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, Response>,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -6831,6 +6921,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.isRecodeModule,
       required this.referenceList,
       required this.respondentResponseMap,
+      required this.pageQIdSetMap,
       required this.questionMap,
       required this.recodeQuestionMap,
       required this.restoreState,
@@ -6903,6 +6994,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   final List<Reference> referenceList;
   @override
   final Map<ModuleType, Response> respondentResponseMap;
+  @override
+  final Map<String, Set<String>> pageQIdSetMap;
   @override // H_ 同 session 會變的參考資料
   final Map<String, Question> questionMap;
   @override
@@ -6920,7 +7013,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -6959,6 +7052,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('referenceList', referenceList))
       ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('pageQIdSetMap', pageQIdSetMap))
       ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap))
       ..add(DiagnosticsProperty('restoreState', restoreState))
@@ -7029,6 +7123,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             const DeepCollectionEquality()
                 .equals(other.respondentResponseMap, respondentResponseMap) &&
             const DeepCollectionEquality()
+                .equals(other.pageQIdSetMap, pageQIdSetMap) &&
+            const DeepCollectionEquality()
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap) &&
@@ -7078,6 +7174,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
         const DeepCollectionEquality().hash(isRecodeModule),
         const DeepCollectionEquality().hash(referenceList),
         const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(pageQIdSetMap),
         const DeepCollectionEquality().hash(questionMap),
         const DeepCollectionEquality().hash(recodeQuestionMap),
         const DeepCollectionEquality().hash(restoreState),
@@ -7127,6 +7224,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
       required bool isRecodeModule,
       required List<Reference> referenceList,
       required Map<ModuleType, Response> respondentResponseMap,
+      required Map<String, Set<String>> pageQIdSetMap,
       required Map<String, Question> questionMap,
       required Map<String, Question> recodeQuestionMap,
       required LoadState restoreState,
@@ -7199,6 +7297,8 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   List<Reference> get referenceList;
   @override
   Map<ModuleType, Response> get respondentResponseMap;
+  @override
+  Map<String, Set<String>> get pageQIdSetMap;
   @override // H_ 同 session 會變的參考資料
   Map<String, Question> get questionMap;
   @override
@@ -7242,6 +7342,7 @@ class _$StateParametersTearOff {
       required bool isReadOnly,
       required bool isRecodeModule,
       required bool respondentResponseMap,
+      required bool pageQIdSetMap,
       required bool questionMap,
       required bool recodeQuestionMap}) {
     return _StateParameters(
@@ -7263,6 +7364,7 @@ class _$StateParametersTearOff {
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
       respondentResponseMap: respondentResponseMap,
+      pageQIdSetMap: pageQIdSetMap,
       questionMap: questionMap,
       recodeQuestionMap: recodeQuestionMap,
     );
@@ -7293,7 +7395,8 @@ mixin _$StateParameters {
   bool get moduleType => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
-  bool get respondentResponseMap =>
+  bool get respondentResponseMap => throw _privateConstructorUsedError;
+  bool get pageQIdSetMap =>
       throw _privateConstructorUsedError; // H_ 同 session 會變的參考資料
   bool get questionMap => throw _privateConstructorUsedError;
   bool get recodeQuestionMap => throw _privateConstructorUsedError;
@@ -7327,6 +7430,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool isReadOnly,
       bool isRecodeModule,
       bool respondentResponseMap,
+      bool pageQIdSetMap,
       bool questionMap,
       bool recodeQuestionMap});
 }
@@ -7360,6 +7464,7 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
     Object? respondentResponseMap = freezed,
+    Object? pageQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
   }) {
@@ -7436,6 +7541,10 @@ class _$StateParametersCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -7474,6 +7583,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool isReadOnly,
       bool isRecodeModule,
       bool respondentResponseMap,
+      bool pageQIdSetMap,
       bool questionMap,
       bool recodeQuestionMap});
 }
@@ -7509,6 +7619,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
     Object? respondentResponseMap = freezed,
+    Object? pageQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
   }) {
@@ -7585,6 +7696,10 @@ class __$StateParametersCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      pageQIdSetMap: pageQIdSetMap == freezed
+          ? _value.pageQIdSetMap
+          : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -7619,6 +7734,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       required this.isReadOnly,
       required this.isRecodeModule,
       required this.respondentResponseMap,
+      required this.pageQIdSetMap,
       required this.questionMap,
       required this.recodeQuestionMap})
       : super._();
@@ -7659,6 +7775,8 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   final bool isRecodeModule;
   @override
   final bool respondentResponseMap;
+  @override
+  final bool pageQIdSetMap;
   @override // H_ 同 session 會變的參考資料
   final bool questionMap;
   @override
@@ -7666,7 +7784,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
+    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
   }
 
   @override
@@ -7692,6 +7810,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('pageQIdSetMap', pageQIdSetMap))
       ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap));
   }
@@ -7734,6 +7853,8 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
             const DeepCollectionEquality()
                 .equals(other.respondentResponseMap, respondentResponseMap) &&
             const DeepCollectionEquality()
+                .equals(other.pageQIdSetMap, pageQIdSetMap) &&
+            const DeepCollectionEquality()
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap));
@@ -7760,6 +7881,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
         const DeepCollectionEquality().hash(isReadOnly),
         const DeepCollectionEquality().hash(isRecodeModule),
         const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(pageQIdSetMap),
         const DeepCollectionEquality().hash(questionMap),
         const DeepCollectionEquality().hash(recodeQuestionMap)
       ]);
@@ -7790,6 +7912,7 @@ abstract class _StateParameters extends StateParameters {
       required bool isReadOnly,
       required bool isRecodeModule,
       required bool respondentResponseMap,
+      required bool pageQIdSetMap,
       required bool questionMap,
       required bool recodeQuestionMap}) = _$_StateParameters;
   const _StateParameters._() : super._();
@@ -7830,6 +7953,8 @@ abstract class _StateParameters extends StateParameters {
   bool get isRecodeModule;
   @override
   bool get respondentResponseMap;
+  @override
+  bool get pageQIdSetMap;
   @override // H_ 同 session 會變的參考資料
   bool get questionMap;
   @override

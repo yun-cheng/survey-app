@@ -1,3 +1,4 @@
+import 'package:collection/src/list_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
@@ -60,20 +61,18 @@ class SurveyBody extends StatelessWidget {
                 child: SizedBox(height: 25.0),
               ),
               ...pageQuestionList
-                  .asMap()
-                  .entries
-                  .map(
-                    (e) => BlocProvider(
+                  .mapIndexed(
+                    (index, question) => BlocProvider(
                       create: (context) => QuestionBloc(
-                        question: e.value,
-                        answer: state.answerMap[e.value.id],
+                        question: question,
+                        answer: state.answerMap[question.id],
                         isSpecialAnswer:
-                            state.answerStatusMap[e.value.id]?.isSpecialAnswer,
+                            state.answerStatusMap[question.id]?.isSpecialAnswer,
                         canEdit: !state.isReadOnly && !state.isRecodeModule,
                       ),
                       child: QuestionListeners(
                         child: QaCard(
-                          questionIndex: e.key,
+                          questionIndex: index,
                           scrollController: scrollController,
                         ),
                       ),

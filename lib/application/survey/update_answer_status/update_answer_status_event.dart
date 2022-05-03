@@ -17,6 +17,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     required Map<String, Question> questionMap,
     required Map<String, Question> recodeQuestionMap,
     required DialogType dialogType,
+    required Map<String, Set<String>> pageQIdSetMap,
   }) = _ModuleLoaded;
 
   // H_ 離開問卷時清空 state

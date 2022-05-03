@@ -45,6 +45,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     bool? isRecodeModule,
     List<ReferenceDto>? referenceList,
     Map<String, ResponseDto>? respondentResponseMap,
+    Map<String, List<String>>? pageQIdSetMap,
     // H_ 同 session 會變的參考資料
     Map<String, QuestionDto>? questionMap,
     Map<String, QuestionDto>? recodeQuestionMap,
@@ -107,6 +108,9 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           ? domain.respondentResponseMap.map((key, value) =>
               MapEntry(key.value, ResponseDto.fromDomain(value)))
           : null,
+      pageQIdSetMap: domain.saveParameters.pageQIdSetMap
+          ? domain.pageQIdSetMap.mapValues((e) => e.toList())
+          : null,
       // H_ 同 session 會變的參考資料
       questionMap: domain.saveParameters.questionMap
           ? domain.questionMap.mapValues((e) => QuestionDto.fromDomain(e))
@@ -149,6 +153,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       respondentResponseMap: respondentResponseMap?.map(
               (key, value) => MapEntry(ModuleType(key), value.toDomain())) ??
           initial.respondentResponseMap,
+      pageQIdSetMap:
+          pageQIdSetMap?.mapValues((e) => e.toSet()) ?? initial.pageQIdSetMap,
       // H_ 同 session 會變的參考資料
       questionMap:
           questionMap?.mapValues((e) => e.toDomain()) ?? initial.questionMap,

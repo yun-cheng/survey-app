@@ -10,6 +10,7 @@ UpdateAnswerStatusState pageQuestionMapUpdated(UpdateAnswerStatusState state) {
   final answerMap = state.answerMap;
   final answerStatusMap = state.answerStatusMap;
 
+  // FIXME 改成更新一題就 emit 一次
   for (final questionId in state.pageQIdSet) {
     var question = questionMap[questionId]!;
 
@@ -33,6 +34,7 @@ UpdateAnswerStatusState pageQuestionMapUpdated(UpdateAnswerStatusState state) {
     // S_ 如果是選擇題要篩選項
     if (question.type.isChoice) {
       // H_ 區分是否為特殊作答的選項
+      // FIXME 讓資料來源就直接區分
       final pChoiceList =
           question.initChoiceList.partition((choice) => choice.isSpecialAnswer);
 
@@ -116,8 +118,7 @@ UpdateAnswerStatusState pageUpdated(UpdateAnswerStatusState state) {
   // S_ 篩出該頁面的題目id，如果是唯讀模式，則呈現所有題目
   Set<String> pageQIdSet;
   if (!state.isReadOnly) {
-    pageQIdSet =
-        questionMap.filterByValues((q) => q.pageNumber == newPage).keys.toSet();
+    pageQIdSet = state.pageQIdSetMap[newPage.toString()] ?? <String>{};
   } else {
     pageQIdSet = questionMap.keys.toSet();
   }
