@@ -70,7 +70,7 @@ class ChoiceItem extends StatelessWidget {
         return Visibility(
           visible: canEdit || isSelected,
           child: Container(
-            // NOTE 強制 rebuild 取消動畫
+            // * 強制 rebuild 取消動畫
             color: isSelected
                 ? canEdit
                     ? kAnswerBackgroundColor

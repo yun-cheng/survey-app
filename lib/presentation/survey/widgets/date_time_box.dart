@@ -94,7 +94,7 @@ class DateTimeBox extends StatelessWidget {
             if ([QuestionType.date(), QuestionType.dateTime()]
                 .contains(questionType)) ...[
               TextButton(
-                // NOTE 如果是唯讀，讓按鈕無效
+                // * 如果是唯讀，讓按鈕無效
                 onPressed: () => isReadOnly ? null : _selectDate(context),
                 child: Text(
                   dateTime.toDateString(),

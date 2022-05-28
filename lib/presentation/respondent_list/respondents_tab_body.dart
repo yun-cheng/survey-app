@@ -28,7 +28,7 @@ class RespondentsTabBody extends HookWidget {
 
     final scrollController = useScrollController();
 
-    // H_ tabRespondentMap、搜尋文字變更時 rebuild
+    // > tabRespondentMap、搜尋文字變更時 rebuild
     final state = useBloc<RespondentBloc, RespondentState>(
       buildWhen: (p, c) =>
           (p.surveyRespondentMapState != c.surveyRespondentMapState &&
@@ -39,7 +39,7 @@ class RespondentsTabBody extends HookWidget {
           (p.searchText != c.searchText),
     );
 
-    // H_ 切換組別時 rebuild
+    // > 切換組別時 rebuild
     useBloc<RespondentsPageBloc, RespondentsPageState>(
       buildWhen: (p, c) => p.selectedGroup != c.selectedGroup,
     );
@@ -56,7 +56,7 @@ class RespondentsTabBody extends HookWidget {
       return const SizedBox();
     }
 
-    // H_ 監聽滾動位置
+    // > 監聽滾動位置
     // WidgetsBinding.instance?.addPostFrameCallback((_) {
     //   if (!scrollController.hasClients) return;
 

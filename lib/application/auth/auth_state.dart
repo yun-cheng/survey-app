@@ -6,16 +6,16 @@ class AuthState with _$AuthState {
 
   const factory AuthState({
     required UniqueId stateId,
-    // H_ 主要資料
+    // > 主要資料
     required List<Team> teamList,
     required Team team,
     required List<Interviewer> interviewerList,
     required Interviewer interviewer,
-    // H_ 中間資料
+    // > 中間資料
     required String id,
     required String password,
     required bool validate,
-    // H_ 狀態更新進度
+    // > 狀態更新進度
     required LoadState signInState,
     required Option<AuthFailure> authFailure,
     required LoadState eventState,
@@ -23,16 +23,16 @@ class AuthState with _$AuthState {
 
   factory AuthState.initial() => AuthState(
         stateId: UniqueId.v1(),
-        // H_ 主要資料
+        // > 主要資料
         teamList: const [],
         team: Team.empty(),
         interviewerList: const [],
         interviewer: Interviewer.empty(),
-        // H_ 中間資料
+        // > 中間資料
         id: '',
         password: '',
         validate: false,
-        // H_ 狀態更新進度
+        // > 狀態更新進度
         signInState: LoadState.initial(),
         authFailure: none(),
         eventState: LoadState.initial(),

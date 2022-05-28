@@ -6,7 +6,7 @@ class RespondentState with _$RespondentState {
 
   const factory RespondentState({
     required UniqueId stateId,
-    // H_ 主要資料
+    // > 主要資料
     required SurveyRespondentMap surveyRespondentMap,
     required Survey survey,
     required Map<String, Respondent> respondentMap,
@@ -20,19 +20,19 @@ class RespondentState with _$RespondentState {
     required ResponseMap responseInfoMap,
     required String searchText,
     required Map<String, bool> searchRespondentMap,
-    // H_ 中間資料
-    // H_ 狀態更新進度
+    // > 中間資料
+    // > 狀態更新進度
     required LoadState surveyRespondentMapState,
     required Option<RespondentFailure> respondentFailure,
     required LoadState eventState,
-    // H_ 更新/儲存參數
+    // > 更新/儲存參數
     required StateParameters updateParameters,
     required StateParameters saveParameters,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
         stateId: UniqueId.v1(),
-        // H_ 主要資料
+        // > 主要資料
         survey: Survey.empty(),
         surveyRespondentMap: const {},
         respondentMap: const {},
@@ -46,12 +46,12 @@ class RespondentState with _$RespondentState {
         responseInfoMap: const {},
         searchText: '',
         searchRespondentMap: const {},
-        // H_ 中間資料
-        // H_ 狀態更新進度
+        // > 中間資料
+        // > 狀態更新進度
         surveyRespondentMapState: LoadState.initial(),
         respondentFailure: none(),
         eventState: LoadState.initial(),
-        // H_ 更新/儲存參數
+        // > 更新/儲存參數
         updateParameters: StateParameters.initial(),
         saveParameters: StateParameters.initial(),
       );

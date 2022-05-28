@@ -23,7 +23,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
 
   @JsonSerializable(includeIfNull: false)
   const factory UpdateAnswerStatusStateDto({
-    // H_ 主要資料
+    // > 主要資料
     Map<String, AnswerDto>? answerMap,
     Map<String, AnswerStatusDto>? answerStatusMap,
     Map<String, AnswerDto>? recodeAnswerMap,
@@ -33,12 +33,12 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     bool? isLastPage,
     WarningDto? warning,
     bool? showWarning,
-    // H_ 中間資料
+    // > 中間資料
     List<String>? pageQIdSet,
     List<String>? contentQIdSet,
     List<String>? showQIdSet,
     bool? showLeaveButton,
-    // H_ 同 session 不變的參考資料
+    // > 同 session 不變的參考資料
     RespondentDto? respondent,
     String? surveyId,
     String? moduleType,
@@ -47,10 +47,10 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     List<ReferenceDto>? referenceList,
     Map<String, ResponseDto>? respondentResponseMap,
     Map<String, List<String>>? pageQIdSetMap,
-    // H_ 同 session 會變的參考資料
+    // > 同 session 會變的參考資料
     Map<String, QuestionDto>? questionMap,
     Map<String, QuestionDto>? recodeQuestionMap,
-    // H_ 狀態更新進度
+    // > 狀態更新進度
     String? restoreState,
     String? updateState,
   }) = _UpdateAnswerStatusStateDto;
@@ -64,7 +64,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   factory UpdateAnswerStatusStateDto.fromDomain(
       UpdateAnswerStatusState domain) {
     return UpdateAnswerStatusStateDto(
-      // H_ 主要資料
+      // > 主要資料
       answerMap: domain.saveParameters.answerMap
           ? domain.answerMap.mapValues((e) => AnswerDto.fromDomain(e))
           : null,
@@ -87,7 +87,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           : null,
       showWarning:
           domain.saveParameters.showWarning ? domain.showWarning : null,
-      // H_ 中間資料
+      // > 中間資料
       pageQIdSet:
           domain.saveParameters.pageQIdSet ? domain.pageQIdSet.toList() : null,
       contentQIdSet: domain.saveParameters.contentQIdSet
@@ -98,7 +98,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           : null,
       showLeaveButton:
           domain.saveParameters.showLeaveButton ? domain.showLeaveButton : null,
-      // H_ 同 session 不變的參考資料
+      // > 同 session 不變的參考資料
       respondent: domain.saveParameters.respondent
           ? RespondentDto.fromDomain(domain.respondent)
           : null,
@@ -115,7 +115,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       pageQIdSetMap: domain.saveParameters.pageQIdSetMap
           ? domain.pageQIdSetMap.mapValues((e) => e.toList())
           : null,
-      // H_ 同 session 會變的參考資料
+      // > 同 session 會變的參考資料
       questionMap: domain.saveParameters.questionMap
           ? domain.questionMap.mapValues((e) => QuestionDto.fromDomain(e))
           : null,
@@ -128,7 +128,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   UpdateAnswerStatusState toDomain() {
     final initial = UpdateAnswerStatusState.initial();
     final state = initial.copyWith(
-      // H_ 主要資料
+      // > 主要資料
       answerMap: answerMap?.mapValues((e) => e.toDomain()) ?? initial.answerMap,
       answerStatusMap: answerStatusMap?.mapValues((e) => e.toDomain()) ??
           initial.answerStatusMap,
@@ -142,12 +142,12 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       isLastPage: isLastPage ?? initial.isLastPage,
       warning: warning?.toDomain() ?? initial.warning,
       showWarning: showWarning ?? initial.showWarning,
-      // H_ 中間資料
+      // > 中間資料
       pageQIdSet: pageQIdSet?.toSet() ?? initial.pageQIdSet,
       contentQIdSet: contentQIdSet?.toSet() ?? initial.contentQIdSet,
       showQIdSet: showQIdSet?.toSet() ?? initial.showQIdSet,
       showLeaveButton: showLeaveButton ?? initial.showLeaveButton,
-      // H_ 同 session 不變的參考資料
+      // > 同 session 不變的參考資料
       respondent: respondent?.toDomain() ?? initial.respondent,
       surveyId: surveyId ?? initial.surveyId,
       moduleType: ModuleType(moduleType ?? initial.moduleType.value),
@@ -160,18 +160,18 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           initial.respondentResponseMap,
       pageQIdSetMap:
           pageQIdSetMap?.mapValues((e) => e.toSet()) ?? initial.pageQIdSetMap,
-      // H_ 同 session 會變的參考資料
+      // > 同 session 會變的參考資料
       questionMap:
           questionMap?.mapValues((e) => e.toDomain()) ?? initial.questionMap,
       recodeQuestionMap: recodeQuestionMap?.mapValues((e) => e.toDomain()) ??
           initial.recodeQuestionMap,
-      // H_ 狀態更新進度
+      // > 狀態更新進度
       eventState: LoadState.success(),
       restoreState: LoadState.success(),
       updateState: LoadState.success(),
     );
     return state.copyWith(
-      // NOTE 確保真的有出現 dialog
+      // * 確保真的有出現 dialog
       dialogType: state.moduleType.shouldRecord && !state.isReadOnly
           ? DialogType.breakInterview()
           : state.dialogType,

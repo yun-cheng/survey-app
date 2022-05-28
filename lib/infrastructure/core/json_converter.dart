@@ -1,4 +1,4 @@
-// NOTE 從 hydrated_bloc 借來的，
+// * 從 hydrated_bloc 借來的，
 //  因為 hive 在讀取時會將 map 讀成 Map<dynamic, dynamic>，
 //  因此要自行 cast 成 Map<String, dynamic>
 class MyJsonConverter {

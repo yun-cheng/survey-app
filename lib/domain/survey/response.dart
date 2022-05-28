@@ -13,31 +13,31 @@ class Response with _$Response {
   const Response._();
 
   const factory Response({
-    // H_ 區分不同 response
+    // > 區分不同 response
     required String teamId,
     required String projectId,
     required String surveyId,
     required ModuleType moduleType,
     required String respondentId,
-    // H_ 區分 response 版本
-    // NOTE 每次新的 edit session 都會產生新的 responseId，
+    // > 區分 response 版本
+    // * 每次新的 edit session 都會產生新的 responseId，
     //  因此不會發生不同設備同 responseId 的情形
     required UniqueId responseId,
-    // NOTE 每次的 response update 都會產生新的 tempResponseId
+    // * 每次的 response update 都會產生新的 tempResponseId
     //  在 edit session 結束時會改成跟 responseId 相同
     required UniqueId tempResponseId,
     required UniqueId ticketId,
     required bool editFinished,
     required String interviewerId,
     required UniqueId deviceId,
-    // H_ 狀態
+    // > 狀態
     required DeviceTimeStamp createdTimeStamp,
     required DeviceTimeStamp sessionStartTimeStamp,
     required DeviceTimeStamp sessionEndTimeStamp,
     required DeviceTimeStamp lastChangedTimeStamp,
     required ResponseStatus responseStatus,
     required bool isDeleted,
-    // H_ 內容
+    // > 內容
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
     required SimpleSurveyPageState surveyPageState,
@@ -71,7 +71,7 @@ class Response with _$Response {
 
   bool get isNotEmpty => surveyId.isNotEmpty;
 
-  // NOTE 避免 print 太多東西出來
+  // * 避免 print 太多東西出來
   @override
   String toString() {
     return '''
@@ -85,7 +85,7 @@ class Response with _$Response {
     ''';
   }
 
-  // H_ 簡化
+  // > 簡化
   Response onlyInfo() {
     return copyWith(
       answerMap:

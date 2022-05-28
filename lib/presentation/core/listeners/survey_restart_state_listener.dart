@@ -11,7 +11,7 @@ import '../../routes/router.dart';
 
 final surveyRestartStateListener =
     BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-  // H_ 需要重置 state 時
+  // > 需要重置 state 時
   listenWhen: (p, c) => p.restartState != c.restartState && c.restartState,
   listener: (context, state) {
     logger('Listen').e('UpdateAnswerStatusBloc: restartState');
@@ -29,7 +29,7 @@ final surveyRestartStateListener =
           ),
         );
 
-    // NOTE 從目錄頁要跳兩層，所以直接用 navigate
+    // * 從目錄頁要跳兩層，所以直接用 navigate
     context.router.navigate(RespondentsRoute());
   },
 );

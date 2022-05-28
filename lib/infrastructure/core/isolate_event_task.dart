@@ -40,12 +40,12 @@ class IsolateEventTask extends AsyncTask<Map, bool> {
     // TODO services?
 
     while (true) {
-      // S_ 等待 bloc 指定
+      // - 等待 bloc 指定
       final msg = await _channel.waitMessage();
 
-      // S_ 如果是 bloc event
+      // - 如果是 bloc event
       if (msg is Tuple2) {
-        // S_ 在裡面處理，並用 channel emit new state
+        // - 在裡面處理，並用 channel emit new state
         eventWorker(msg, _channel);
       } else if (msg is bool) {
         break;

@@ -18,7 +18,7 @@ final kLightTheme = lightTheme.copyWith(
   ),
   bottomAppBarColor: Colors.teal[700],
   // TODO ListTile Theme，後續 Flutter 版本才會有
-  // H_ font
+  // > font
   textTheme: lightTheme.textTheme.apply(
     fontFamily: notoSansTC,
   ),

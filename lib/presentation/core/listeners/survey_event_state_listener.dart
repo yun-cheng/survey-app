@@ -12,14 +12,14 @@ import '../../routes/router.dart';
 
 final surveyEventStateListener =
     BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-  // H_ event 完成時
+  // > event 完成時
   listenWhen: (p, c) =>
       p.eventState != c.eventState && c.eventState == LoadState.success(),
   listener: (context, state) {
     if (!state.isReadOnly && state.updateParameters.saveResponse()) {
       logger('Listen').i('UpdateAnswerStatusBloc: saveResponse');
 
-      // H_ 存回 response
+      // > 存回 response
       context.read<ResponseBloc>().add(
             ResponseEvent.responseUpdated(
               answerMap: state.isRecodeModule
@@ -39,7 +39,7 @@ final surveyEventStateListener =
           );
     }
 
-    // H_ 在完成問卷或要離開問卷時
+    // > 在完成問卷或要離開問卷時
     if (state.leavePage) {
       context
           .read<AudioRecorderBloc>()
@@ -57,7 +57,7 @@ final surveyEventStateListener =
             ),
           );
 
-      // NOTE 從目錄頁要跳兩層，所以直接用 navigate
+      // * 從目錄頁要跳兩層，所以直接用 navigate
       context.router.navigate(RespondentsRoute());
     }
   },

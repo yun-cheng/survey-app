@@ -10,7 +10,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../routes/router.gr.dart';
 
-// H_ 監聽 Firestore
+// > 監聽 Firestore
 final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
   listenWhen: (p, c) =>
       p.signInState != c.signInState && c.signInState == LoadState.success(),

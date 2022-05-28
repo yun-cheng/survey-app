@@ -25,13 +25,13 @@ class ChoicesBox extends StatelessWidget {
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
-          // S_ 若 question 前或後不存在，交由上層 widget 處理
+          // - 若 question 前或後不存在，交由上層 widget 處理
           if (!p.pageQIdSet.contains(questionId) ||
               !c.pageQIdSet.contains(questionId)) {
             return false;
           }
 
-          // S_ 該題選項有變更時，需要 rebuild
+          // - 該題選項有變更時，需要 rebuild
           return !isSpecialChoice &&
               !const DeepCollectionEquality().equals(
                 p.questionMap[questionId]!.choiceList,
@@ -50,7 +50,7 @@ class ChoicesBox extends StatelessWidget {
             [];
         final totalCount = choiceList.length;
 
-        // S_ 選項數量大於等於 splitColumnChoiceCount 就要分 2 個 column
+        // - 選項數量大於等於 splitColumnChoiceCount 就要分 2 個 column
         int col1Count = totalCount;
         final useTwoCols =
             totalCount >= (question?.splitColumnChoiceCount ?? 4) &&

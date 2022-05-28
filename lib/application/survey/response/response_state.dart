@@ -6,14 +6,14 @@ class ResponseState with _$ResponseState {
 
   const factory ResponseState({
     required UniqueId stateId,
-    // H_ 主要資料
+    // > 主要資料
     required Survey survey,
     required Interviewer interviewer,
     required Respondent respondent,
     required Response response,
     required ResponseMap responseMap,
     required List<Reference> referenceList,
-    // H_ 中間資料
+    // > 中間資料
     required ModuleType moduleType,
     required UniqueId responseId,
     required Response mainResponse,
@@ -24,27 +24,27 @@ class ResponseState with _$ResponseState {
     required Map<ModuleType, Response> respondentResponseMap,
     required DialogType dialogType,
     required NetworkType networkType,
-    // H_ 狀態更新進度
+    // > 狀態更新進度
     required LoadState responseMapState,
     required SyncState syncState,
     required Option<SurveyFailure> responseFailure,
     required LoadState eventState,
     required LoadState updateState,
-    // H_ 更新/儲存參數
+    // > 更新/儲存參數
     required StateParameters updateParameters,
     required StateParameters saveParameters,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
         stateId: UniqueId.v1(),
-        // H_ 主要資料
+        // > 主要資料
         survey: Survey.empty(),
         interviewer: Interviewer.empty(),
         respondent: Respondent.empty(),
         response: Response.empty(),
         responseMap: const {},
         referenceList: const [],
-        // H_ 中間資料
+        // > 中間資料
         moduleType: ModuleType.empty(),
         responseId: UniqueId.empty(),
         mainResponse: Response.empty(),
@@ -55,13 +55,13 @@ class ResponseState with _$ResponseState {
         respondentResponseMap: const {},
         dialogType: DialogType.none(),
         networkType: NetworkType.empty(),
-        // H_ 狀態更新進度
+        // > 狀態更新進度
         responseMapState: LoadState.initial(),
         syncState: SyncState.inProgress(),
         responseFailure: none(),
         eventState: LoadState.initial(),
         updateState: LoadState.initial(),
-        // H_ 標記更新/儲存參數
+        // > 標記更新/儲存參數
         updateParameters: StateParameters.initial(),
         saveParameters: StateParameters.initial(),
       );
@@ -111,23 +111,23 @@ class ResponseState with _$ResponseState {
   Map<String, dynamic> toMap() => ResponseStateDto.fromDomain(this).toJson();
 }
 
-// H_ 參數狀態
+// > 參數狀態
 @freezed
 class StateParameters with _$StateParameters {
   const StateParameters._();
 
   const factory StateParameters({
-    // H_ 共用
+    // > 共用
     required bool referenceList,
     required bool response,
-    // H_ 儲存
+    // > 儲存
     required bool survey,
     required bool interviewer,
     required bool respondent,
     required bool responseMap,
     required Set<UniqueId> responseMapKeys,
     required bool uploadResponseIdSet,
-    // H_ 更新
+    // > 更新
     required bool visitReportsMap,
     required bool housingMap,
     required bool respondentResponseMap,

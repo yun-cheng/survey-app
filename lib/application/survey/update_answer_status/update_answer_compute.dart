@@ -1,6 +1,6 @@
 part of 'update_answer_status_bloc.dart';
 
-// H_ 該題作答更新
+// > 該題作答更新
 UpdateAnswerStatusState answerUpdated(
   _AnswerUpdated e,
   UpdateAnswerStatusState state,
@@ -41,7 +41,7 @@ UpdateAnswerStatusState answerUpdated(
   );
 }
 
-// H_ 清空部分題目作答
+// > 清空部分題目作答
 UpdateAnswerStatusState answerQIdListCleared(
   UpdateAnswerStatusState state,
 ) {

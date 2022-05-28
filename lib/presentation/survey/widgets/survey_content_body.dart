@@ -15,7 +15,7 @@ class SurveyContentBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      // NOTE 回復 response 或該頁題目有變更時才需要 rebuild
+      // * 回復 response 或該頁題目有變更時才需要 rebuild
       buildWhen: (p, c) =>
           (p.restoreState != c.restoreState &&
               c.restoreState == LoadState.success()) ||

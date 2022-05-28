@@ -55,7 +55,7 @@ class BreakInterviewDialog extends StatelessWidget {
                   const UpdateAnswerStatusEvent.stateCleared(),
                 );
 
-            // S_ 進入中止訪問後的查址模組
+            // - 進入中止訪問後的查址模組
             if (moduleType.isMain) {
               context.read<UpdateAnswerStatusBloc>().add(
                     const UpdateAnswerStatusEvent.leaveButtonHidden(),
@@ -75,7 +75,7 @@ class BreakInterviewDialog extends StatelessWidget {
                     ),
                   );
 
-              // NOTE 從目錄頁要跳兩層，所以直接用 navigate
+              // * 從目錄頁要跳兩層，所以直接用 navigate
               context.router.navigate(RespondentsRoute());
             }
           },
@@ -91,7 +91,7 @@ class BreakInterviewDialog extends StatelessWidget {
                   const UpdateAnswerStatusEvent.dialogClosed(),
                 );
 
-            // S_ 開新的 response，並開始錄音
+            // - 開新的 response，並開始錄音
             final fileName = UniqueId.v1();
             context.read<ResponseBloc>().add(
                   ResponseEvent.responseResumed(fileName),

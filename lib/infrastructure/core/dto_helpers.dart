@@ -6,11 +6,11 @@ void commonSaveState({
   required ILocalStorage localStorage,
   required Map<String, DtoInfo> infoMap,
 }) {
-  // S_ 迴圈有定義 DtoInfo 的參數
+  // - 迴圈有定義 DtoInfo 的參數
   for (final parameter in infoMap.keys) {
     final info = infoMap[parameter]!;
 
-    // S_ 真正需要特別儲存的參數
+    // - 真正需要特別儲存的參數
     if (!info.readOnly && info.key == null) {
       final box = info.box ?? parameter;
       final data = json[parameter];
@@ -25,7 +25,7 @@ void commonSaveState({
     }
   }
 
-  // S_ 剩下的參數一起存在 default box
+  // - 剩下的參數一起存在 default box
   if (json.isNotEmpty) {
     localStorage.write(
       isMapEntries: true,
@@ -38,11 +38,11 @@ void commonClearStorage({
   required ILocalStorage localStorage,
   required Map<String, DtoInfo> infoMap,
 }) {
-  // S_ 迴圈有定義 DtoInfo 的參數
+  // - 迴圈有定義 DtoInfo 的參數
   for (final parameter in infoMap.keys) {
     final info = infoMap[parameter]!;
 
-    // S_ 有特別儲存的參數
+    // - 有特別儲存的參數
     if (!info.readOnly && info.key == null) {
       final box = info.box ?? parameter;
 
@@ -50,7 +50,7 @@ void commonClearStorage({
     }
   }
 
-  // S_ 剩下存在 default box 的參數
+  // - 剩下存在 default box 的參數
   localStorage.clear();
 }
 
@@ -61,7 +61,7 @@ Future<Map<String, dynamic>?> jsonFromStorage({
   final json = await localStorage.read(all: true) as Map<String, dynamic>?;
 
   if (json != null) {
-    // S_ 迴圈有定義 DtoInfo 的參數
+    // - 迴圈有定義 DtoInfo 的參數
     for (final parameter in infoMap.keys) {
       final info = infoMap[parameter]!;
 

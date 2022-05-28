@@ -6,14 +6,14 @@ class WatchSurveyState with _$WatchSurveyState {
 
   const factory WatchSurveyState({
     required UniqueId stateId,
-    // H_ 主要資料
+    // > 主要資料
     required Map<String, Survey> surveyMap,
     required Map<String, Project> projectMap,
     required Survey survey,
     required List<String> surveyCompatibility,
     required String teamId,
     required String interviewerId,
-    // H_ 狀態更新進度
+    // > 狀態更新進度
     required LoadState eventState,
     required LoadState surveyMapState,
     required Option<SurveyFailure> surveyFailure,
@@ -21,14 +21,14 @@ class WatchSurveyState with _$WatchSurveyState {
 
   factory WatchSurveyState.initial() => WatchSurveyState(
         stateId: UniqueId.v1(),
-        // H_ 主要資料
+        // > 主要資料
         surveyMap: const {},
         projectMap: const {},
         survey: Survey.empty(),
         surveyCompatibility: [],
         teamId: '',
         interviewerId: '',
-        // H_ 狀態更新進度
+        // > 狀態更新進度
         eventState: LoadState.initial(),
         surveyMapState: LoadState.initial(),
         surveyFailure: none(),
@@ -66,7 +66,7 @@ class WatchSurveyState with _$WatchSurveyState {
   Map<String, dynamic> toMap() => WatchSurveyStateDto.fromDomain(this).toJson();
 }
 
-// H_ 參數狀態
+// > 參數狀態
 @freezed
 class StateParameters with _$StateParameters {
   const StateParameters._();

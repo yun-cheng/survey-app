@@ -34,7 +34,7 @@ class TextBox extends HookWidget {
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
-          // S_ 該題作答清空時，更新 answer
+          // - 該題作答清空時，更新 answer
           if (c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {
             controller.clear();

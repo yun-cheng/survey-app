@@ -19,11 +19,11 @@ class QuestionBox extends StatelessWidget {
     final withinCell = context.read<QuestionBloc>().state.withinCell;
 
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      // NOTE 只在該題前後 body 都存在，且 body 有變更時，才 rebuild
+      // * 只在該題前後 body 都存在，且 body 有變更時，才 rebuild
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
-          // S_ 若 question 前或後不存在，交由上層 widget 處理
+          // - 若 question 前或後不存在，交由上層 widget 處理
           if (!p.pageQIdSet.contains(questionId) ||
               !c.pageQIdSet.contains(questionId)) {
             return false;

@@ -1,17 +1,17 @@
 part of 'response_bloc.dart';
 
-// H_ 合併下載的與本地的 responseMap
+// > 合併下載的與本地的 responseMap
 ResponseState responseMapMerged(ResponseState state) {
   logger('Compute').i('responseMapMerged');
 
   final responseMap = {...state.responseMap};
-  // NOTE 如果還沒點進任何 survey 則都要更新，目的是把 responseMap 傳到 RespondentBloc
+  // * 如果還沒點進任何 survey 則都要更新，目的是把 responseMap 傳到 RespondentBloc
   bool updateVisitReportsMap = state.survey.id.isEmpty;
   bool updateHousingMap = state.survey.id.isEmpty;
   bool updateTabRespondentMap = state.survey.id.isEmpty;
   final saveKeys = <UniqueId>{};
 
-  // S_ 合併剛下載的 responseMap 與當前的 responseMap
+  // - 合併剛下載的 responseMap 與當前的 responseMap
   for (final response in state.downloadedResponseMap.values) {
     final responseId = response.responseId;
     if (!responseMap.containsKey(response.responseId)) {
@@ -19,21 +19,21 @@ ResponseState responseMapMerged(ResponseState state) {
 
       saveKeys.add(responseId);
 
-      // S_ 新下載的 responseMap 包含查址模組
+      // - 新下載的 responseMap 包含查址模組
       if (!updateVisitReportsMap &&
           response.surveyId == state.survey.id &&
           response.moduleType == ModuleType.visitReport()) {
         updateVisitReportsMap = true;
       }
 
-      // S_ 新下載的 responseMap 包含住屋模組
+      // - 新下載的 responseMap 包含住屋模組
       if (!updateHousingMap &&
           response.surveyId == state.survey.id &&
           response.moduleType == ModuleType.housingType()) {
         updateHousingMap = true;
       }
 
-      // S_ 新下載的 responseMap 包含完成的 response
+      // - 新下載的 responseMap 包含完成的 response
       if (!updateVisitReportsMap &&
           response.surveyId == state.survey.id &&
           response.responseStatus.isFinished) {
@@ -59,7 +59,7 @@ ResponseState responseMapMerged(ResponseState state) {
   );
 }
 
-// H_ 從 responseMap 回復要進行的 response
+// > 從 responseMap 回復要進行的 response
 ResponseState responseRestored(
   _ResponseStarted e,
   ResponseState state,
@@ -69,9 +69,9 @@ ResponseState responseRestored(
   ModuleType moduleType = state.moduleType;
   DialogType dialogType = DialogType.none();
 
-  // S_1 篩出 response
+  // - 1 篩出 response
   Response? response;
-  // S_1-c1 如果有 responseId 則直接篩出來
+  // - 1-c1 如果有 responseId 則直接篩出來
   if (e.withResponseId) {
     response = state.responseMap[state.responseId];
   } else if (moduleType != ModuleType.visitReport() && !e.isNewResponse) {
@@ -96,7 +96,7 @@ ResponseState responseRestored(
       dialogType = DialogType.switchToSamplingWithinHouseholdModule();
     }
 
-    // S_1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
+    // - 1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
     // FIXME 可能要再加上篩同 deviceId
     response = state.responseMap.values
         .where(
@@ -114,17 +114,17 @@ ResponseState responseRestored(
 
   final module = state.survey.module[moduleType]!;
 
-  // S_2 若無篩出，則新創一個 response
+  // - 2 若無篩出，則新創一個 response
   if (response == null) {
-    // S_ 填入預設答案
+    // - 填入預設答案
     final initAnswerMap = {...module.answerMap};
 
-    // S_ 如果是查址模組且 breakInterview
+    // - 如果是查址模組且 breakInterview
     if (moduleType == ModuleType.visitReport() && e.breakInterview) {
       initAnswerMap['break_interview'] = Answer.empty().setString('1');
     }
 
-    // S_ 如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
+    // - 如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
     final initAnswerList = state.referenceList.where(
       (r) =>
           r.respondentId == state.respondent.id &&
@@ -149,7 +149,7 @@ ResponseState responseRestored(
     );
   }
 
-  // S_3 無論是否是新的 response，只要不是已完成，都要產生新的 responseId、tempResponseId
+  // - 3 無論是否是新的 response，只要不是已完成，都要產生新的 responseId、tempResponseId
   final uploadResponseIdSet = {...state.uploadResponseIdSet};
   if (response.responseStatus != ResponseStatus.finished()) {
     final newResponseId = UniqueId.v1();
@@ -165,7 +165,7 @@ ResponseState responseRestored(
     );
   }
 
-  // S_4 如果是預過錄，則需要參考 mainResponse
+  // - 4 如果是預過錄，則需要參考 mainResponse
   Response? mainResponse;
   if (moduleType == ModuleType.recode()) {
     mainResponse = state.responseMap.values
@@ -184,7 +184,7 @@ ResponseState responseRestored(
   }
   mainResponse ??= Response.empty();
 
-  // S_
+  // -
   final responseMap = {...state.responseMap};
   responseMap[response.responseId] = response;
 
@@ -199,14 +199,14 @@ ResponseState responseRestored(
   );
 }
 
-// H_ 作答或切換頁數時更新 response
+// > 作答或切換頁數時更新 response
 ResponseState responseUpdated(
   _ResponseUpdated e,
   ResponseState state,
 ) {
   logger('Compute').i('ResponseUpdated');
 
-  // S_1 newResponse
+  // - 1 newResponse
   final newResponse = state.response.copyWith(
     tempResponseId: UniqueId.v1(),
     lastChangedTimeStamp: DeviceTimeStamp.now(),
@@ -215,7 +215,7 @@ ResponseState responseUpdated(
     surveyPageState: e.surveyPageState,
   );
 
-  // S_2
+  // - 2
   final responseMap = {...state.responseMap};
   responseMap[newResponse.responseId] = newResponse;
 
@@ -225,7 +225,7 @@ ResponseState responseUpdated(
   );
 }
 
-// H_ 使用者結束編輯這次問卷模組的回覆
+// > 使用者結束編輯這次問卷模組的回覆
 ResponseState editFinished(
   _EditFinished e,
   ResponseState state,
@@ -233,7 +233,7 @@ ResponseState editFinished(
   logger('Compute').i('EditFinished');
 
   if (!state.response.editFinished) {
-    // S_1 newResponse
+    // - 1 newResponse
     final now = DeviceTimeStamp.now();
     Response newResponse = state.response.copyWith(
       tempResponseId: state.response.responseId,
@@ -253,7 +253,7 @@ ResponseState editFinished(
       );
     }
 
-    // S_2
+    // - 2
     final responseMap = {...state.responseMap};
     responseMap[newResponse.responseId] = newResponse;
 
@@ -278,7 +278,7 @@ ResponseState editFinished(
   }
 }
 
-// H_ 使用者在暫停問卷後，點擊繼續訪問
+// > 使用者在暫停問卷後，點擊繼續訪問
 ResponseState responseResumed(
   _ResponseResumed e,
   ResponseState state,
@@ -295,7 +295,7 @@ ResponseState responseResumed(
     lastChangedTimeStamp: now,
   );
 
-  // S_
+  // -
   final responseMap = {...state.responseMap};
   final uploadResponseIdSet = {...state.uploadResponseIdSet};
   responseMap[newResponse.responseId] = newResponse;
@@ -314,11 +314,11 @@ ResponseState responseResumed(
   );
 }
 
-// H_ 更新當前受訪者在其他模組的 responses
+// > 更新當前受訪者在其他模組的 responses
 ResponseState respondentResponseMapUpdated(ResponseState state) {
   logger('Compute').i('RespondentResponseMapUpdated');
 
-  // S_ 篩出當前 moduleType 以外的不同 moduleType 最後更新那筆
+  // - 篩出當前 moduleType 以外的不同 moduleType 最後更新那筆
   final subsetMap = state.responseMap.values
       .where(
         (r) =>

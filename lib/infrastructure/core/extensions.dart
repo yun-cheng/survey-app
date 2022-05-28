@@ -9,5 +9,5 @@ part 'list_extensions.dart';
 part 'map_extensions.dart';
 part 'set_extensions.dart';
 
-// NOTE 方便 import
+// * 方便 import
 class MyExtensions {}

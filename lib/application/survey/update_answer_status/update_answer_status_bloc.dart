@@ -60,7 +60,7 @@ class UpdateAnswerStatusBloc extends IsolateStorageBloc<UpdateAnswerStatusEvent,
     );
   }
 
-  // HIGHLIGHT 用 eventState 來判斷是否結束這回的 state emit 較直觀也較快
+  // !!! 用 eventState 來判斷是否結束這回的 state emit 較直觀也較快
   @override
   bool executionFinished(UpdateAnswerStatusState newState) =>
       newState.eventState == LoadState.success();

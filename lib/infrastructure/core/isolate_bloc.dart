@@ -25,7 +25,7 @@ abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
       taskTypeRegister: taskTypeRegister,
     );
 
-    // S_ event task
+    // - event task
     eventTask = IsolateEventTask(
       eventWorker: eventWorker,
     );

@@ -1,6 +1,6 @@
 part of 'respondent_bloc.dart';
 
-// H_ 載入受訪者名單
+// > 載入受訪者名單
 RespondentState respondentMapLoaded(RespondentState state) {
   logger('Compute').i('respondentMapLoaded');
 
@@ -21,7 +21,7 @@ RespondentState respondentMapLoaded(RespondentState state) {
   );
 }
 
-// H_ 更新 responseInfoMap
+// > 更新 responseInfoMap
 RespondentState responseInfoMapUpdated(
   ResponseMap responseMap,
   RespondentState state,
@@ -36,7 +36,7 @@ RespondentState responseInfoMapUpdated(
   );
 }
 
-// H_ 查址紀錄更新時
+// > 查址紀錄更新時
 RespondentState visitReportUpdated(RespondentState state) {
   logger('Compute').i('visitReportUpdated');
 
@@ -59,7 +59,7 @@ RespondentState visitReportUpdated(RespondentState state) {
 
       final dateStr = (r!.answerMap['date'] ?? Answer.empty()).value;
 
-      // S_ 紙本
+      // - 紙本
       if (dateStr != null) {
         date = DateTimeX.fromDateTimeString(dateStr)!;
         timeSession =
@@ -75,7 +75,7 @@ RespondentState visitReportUpdated(RespondentState state) {
         }
       }
 
-      // S_ 要取得所選選項之分組
+      // - 要取得所選選項之分組
       final statusChoiceList = state.survey.module[ModuleType.visitReport()]!
           .questionMap['status']?.choiceList;
 
@@ -158,7 +158,7 @@ RespondentState visitReportUpdated(RespondentState state) {
   );
 }
 
-// H_ 住屋更新時
+// > 住屋更新時
 RespondentState housingUpdated(RespondentState state) {
   logger('Compute').i('housingUpdated');
 
@@ -217,7 +217,7 @@ RespondentState housingUpdated(RespondentState state) {
   );
 }
 
-// H_ 分頁受訪者名單更新時
+// > 分頁受訪者名單更新時
 RespondentState tabRespondentsUpdated(RespondentState state) {
   logger('Compute').i('tabRespondentsUpdated');
 
@@ -228,7 +228,7 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
   RespondentMap respondentMap;
   List<Response> finishedResponseList;
 
-  // S_1-1 先篩出除了查址外已完成的 responses
+  // - 1-1 先篩出除了查址外已完成的 responses
   respondentMap = {...state.respondentMap};
 
   finishedResponseList = state.responseInfoMap.values
@@ -240,8 +240,8 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
       )
       .toList();
 
-  // NOTE 從最後一個分頁開始篩
-  // S_1-2 篩出預過錄已完成，代表全部都已完成
+  // * 從最後一個分頁開始篩
+  // - 1-2 篩出預過錄已完成，代表全部都已完成
   pResponseList = finishedResponseList.partition((r) => r.moduleType.isRecode);
 
   pRespondentMap = respondentMap.partitionByValues(
@@ -249,11 +249,11 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
 
   tabRespondentMap[TabType.finished] = pRespondentMap.item1;
 
-  // S_2-1 篩剩餘的往下繼續篩
+  // - 2-1 篩剩餘的往下繼續篩
   respondentMap = pRespondentMap.item2;
   finishedResponseList = pResponseList.item2;
 
-  // S_2-2 篩出訪問紀錄已完成，代表進到預過錄分頁
+  // - 2-2 篩出訪問紀錄已完成，代表進到預過錄分頁
   pResponseList =
       finishedResponseList.partition((r) => r.moduleType.isInterviewReport);
 
@@ -262,31 +262,31 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
 
   tabRespondentMap[TabType.recode] = pRespondentMap.item1;
 
-  // S_3-1
+  // - 3-1
   respondentMap = pRespondentMap.item2;
   finishedResponseList = pResponseList.item2;
 
-  // S_3-2 篩出主問卷、住屋都已完成，代表進到訪問紀錄分頁
+  // - 3-2 篩出主問卷、住屋都已完成，代表進到訪問紀錄分頁
   pResponseList = finishedResponseList
       .partition((r) => !r.moduleType.isSamplingWithinHousehold);
 
   pRespondentMap = respondentMap.partitionByValues(
     (r) => pResponseList.item1
-        // S_ 篩出是當前 respondent 的 responses
+        // - 篩出是當前 respondent 的 responses
         .where((s) => s.respondentId == r.id)
-        // S_ 轉換成當前 respondent 的 moduleTypes
+        // - 轉換成當前 respondent 的 moduleTypes
         .map((s) => s.moduleType)
-        // S_ 判斷主問卷、住屋是否都已完成
+        // - 判斷主問卷、住屋是否都已完成
         .containsAll([ModuleType.main(), ModuleType.housingType()]),
   );
 
   tabRespondentMap[TabType.interviewReport] = pRespondentMap.item1;
 
-  // S_4-1
+  // - 4-1
   respondentMap = pRespondentMap.item2;
   finishedResponseList = pResponseList.item1;
 
-  // S_4-2 篩出主問卷已完成，代表進到住屋分頁
+  // - 4-2 篩出主問卷已完成，代表進到住屋分頁
   pResponseList = finishedResponseList.partition((r) => r.moduleType.isMain);
 
   pRespondentMap = respondentMap.partitionByValues(
@@ -298,10 +298,10 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
 
   tabRespondentMap[TabType.housingType] = pRespondentMap.item1;
 
-  // S_5 剩下的就在訪問分頁
+  // - 5 剩下的就在訪問分頁
   tabRespondentMap[TabType.start] = pRespondentMap.item2;
 
-  // S_ 整理
+  // - 整理
   final tabCountMap = <TabType, int>{};
   final tabGroupMap = <TabType, Map<int, String>>{};
 

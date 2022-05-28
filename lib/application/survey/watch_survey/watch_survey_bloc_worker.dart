@@ -4,7 +4,7 @@ class WatchSurveyBlocWorker
     extends StorageBlocWorker<WatchSurveyEvent, WatchSurveyState> {
   @override
   void eventHandler(event, state) async {
-    // S_
+    // -
     state = state.sendEventInProgress(channel);
 
     event.maybeMap(
@@ -98,7 +98,7 @@ class WatchSurveyBlocWorker
       orElse: () {},
     );
 
-    // S_ 儲存資料
+    // - 儲存資料
     state = state.sendEventSuccessAndSave(channel, localStorage);
   }
 }

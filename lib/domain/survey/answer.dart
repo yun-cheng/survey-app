@@ -19,7 +19,7 @@ class Answer with _$Answer {
     Map<String, String>? noteMap,
   }) = _Answer;
 
-  // H_ 產生
+  // > 產生
   factory Answer.empty() => Answer(
         type: AnswerType.empty(),
         withNote: false,
@@ -86,7 +86,7 @@ class Answer with _$Answer {
     }
   }
 
-  // H_ 轉成可比對的 valueString，目前用在比對連鎖題上層的值
+  // > 轉成可比對的 valueString，目前用在比對連鎖題上層的值
   String get valueString {
     String? result;
     if (type == AnswerType.int()) {
@@ -102,7 +102,7 @@ class Answer with _$Answer {
     return result ?? '';
   }
 
-  // H_ 單選題使用
+  // > 單選題使用
   String? get groupValue {
     if (type == AnswerType.choice()) {
       return choiceValue?.id;
@@ -166,7 +166,7 @@ class Answer with _$Answer {
     }
   }
 
-  // H_ 文字操作
+  // > 文字操作
   Answer setString(String answerValue) {
     return clearValue().copyWith(
       type: AnswerType.string(),
@@ -174,7 +174,7 @@ class Answer with _$Answer {
     );
   }
 
-  // H_ 新增 choiceNote
+  // > 新增 choiceNote
   Answer addChoiceNote({
     required String choiceId,
     required bool asNote,
@@ -193,7 +193,7 @@ class Answer with _$Answer {
     );
   }
 
-  // H_ 移除 choiceNote
+  // > 移除 choiceNote
   Answer removeChoiceNote({
     required String choiceId,
     required bool asNote,
@@ -212,7 +212,7 @@ class Answer with _$Answer {
     );
   }
 
-  // H_ 單選操作
+  // > 單選操作
   Answer setChoice({
     required SimpleChoice choice,
     required bool asNote,
@@ -228,7 +228,7 @@ class Answer with _$Answer {
         );
   }
 
-  // H_ 多選操作
+  // > 多選操作
   Answer toggleChoice({
     required SimpleChoice choice,
     required bool asNote,
@@ -261,7 +261,7 @@ class Answer with _$Answer {
     }
   }
 
-  // H_ note 操作
+  // > note 操作
   Answer setNote(String noteValue, String noteOf) {
     final newNoteMap = {...noteMap ?? {}};
     newNoteMap[noteOf] = noteValue;
@@ -271,7 +271,7 @@ class Answer with _$Answer {
     );
   }
 
-  // H_ 清除
+  // > 清除
   Answer clearValue() {
     return copyWith(
       stringValue: null,

@@ -1,6 +1,6 @@
 part of 'update_answer_status_bloc.dart';
 
-// H_ answerStatusMap 有變更時
+// > answerStatusMap 有變更時
 UpdateAnswerStatusState answerStatusMapUpdated(
   _AnswerUpdated e,
   UpdateAnswerStatusState previousState,
@@ -45,7 +45,7 @@ UpdateAnswerStatusState answerStatusMapUpdated(
   return state;
 }
 
-// H_ 更新該題答題狀態
+// > 更新該題答題狀態
 UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
   logger('Compute').i('AnswerStatusTypeUpdated');
 
@@ -80,24 +80,24 @@ UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
   );
 }
 
-// H_ 某題作答變更後，檢驗後續連鎖題的作答，如不符則清空並重置該題作答與答題狀況
+// > 某題作答變更後，檢驗後續連鎖題的作答，如不符則清空並重置該題作答與答題狀況
 UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   logger('Compute').i('chainQuestionChecked');
 
   final answerStatusMap = {...state.answerStatusMap};
 
   final changedUpperQIdList = [state.questionId];
-  // NOTE 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdSet，後面一次清除
+  // * 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdSet，後面一次清除
   final clearAnswerQIdSet = {...state.clearAnswerQIdSet};
 
-  // S_ 篩出所有是連鎖題下層的題目
+  // - 篩出所有是連鎖題下層的題目
   final lowerQuestionMap =
       state.questionMap.filterByValues((q) => q.upperQuestionId != '');
 
   lowerQuestionMap.forEach((questionId, question) {
-    // S_0 如果該題的 upperQuestionId 在 changedUpperQIdList 中
+    // - 0 如果該題的 upperQuestionId 在 changedUpperQIdList 中
     if (changedUpperQIdList.contains(question.upperQuestionId)) {
-      // S_1 準備比對上層的答案跟下層答案選項的 upperChoiceId
+      // - 1 準備比對上層的答案跟下層答案選項的 upperChoiceId
       final upperAnswerChoiceId =
           state.answerMap[question.upperQuestionId]!.value?.id;
       final lowerAnswerChoice = state.answerMap[questionId]!.value;
@@ -110,13 +110,13 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
           (lowerChoice.upperChoiceId != upperAnswerChoiceId ||
               clearAnswerQIdSet.contains(question.upperQuestionId)) &&
           !state.answerStatusMap[questionId]!.isSpecialAnswer) {
-        // S_2-1 清空該題作答、重置該題答題狀況
+        // - 2-1 清空該題作答、重置該題答題狀況
         answerStatusMap[questionId] = answerStatusMap[questionId]!.reset();
 
-        // S_2-2 將該題 questionId 加入 changedUpperQIdList
+        // - 2-2 將該題 questionId 加入 changedUpperQIdList
         changedUpperQIdList.add(questionId);
 
-        // S_2-3 將該題 questionId 加入 clearAnswerQIdSet
+        // - 2-3 將該題 questionId 加入 clearAnswerQIdSet
         clearAnswerQIdSet.add(questionId);
       }
     }
@@ -131,14 +131,14 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   );
 }
 
-// H_ 抽出預過錄模組的 showQuestionChecked
+// > 抽出預過錄模組的 showQuestionChecked
 UpdateAnswerStatusState showQuestionCheckedRecodeJob(
     UpdateAnswerStatusState state) {
   logger('Compute').i('showQuestionCheckedRecodeJob');
 
   final answerStatusMap = {...state.recodeAnswerStatusMap};
 
-  // S_ 在 answerStatusMap 隱藏的，也在 recodeAnswerStatusMap 隱藏，其餘不變
+  // - 在 answerStatusMap 隱藏的，也在 recodeAnswerStatusMap 隱藏，其餘不變
   state.recodeQuestionMap.forEach((questionId, question) {
     if (state.answerStatusMap[questionId]!.isHidden) {
       answerStatusMap[questionId] = answerStatusMap[questionId]!.setHidden();

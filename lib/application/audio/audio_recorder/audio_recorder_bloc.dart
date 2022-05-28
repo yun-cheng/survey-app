@@ -30,9 +30,9 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
     Emitter<AudioRecorderState> emit,
   ) async {
     await event.map(
-      // H_ 開始錄音
+      // > 開始錄音
       recordStarted: (e) async {
-        // S_ 沒有在錄音
+        // - 沒有在錄音
         if (!state.isRecording) {
           logger('Event').i('AudioRecorderEvent: recordStarted');
 
@@ -80,7 +80,7 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
           }
         }
       },
-      // H_ 監聽分貝數
+      // > 監聽分貝數
       watchDbStreamStarted: (e) async {
         logger('Watch').i('AudioRecorderEvent: watchDbStreamStarted');
 
@@ -100,7 +100,7 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
               );
         }
       },
-      // H_ 分貝數更新
+      // > 分貝數更新
       dbUpdated: (e) async {
         state
             .copyWith(
@@ -108,7 +108,7 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
             )
             .emit(emit);
       },
-      // H_ 停止錄音
+      // > 停止錄音
       recordStopped: (e) async {
         if (state.isRecording) {
           logger('Event').i('AudioRecorderBloc: recordStopped');

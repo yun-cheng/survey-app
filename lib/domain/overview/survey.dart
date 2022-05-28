@@ -37,7 +37,7 @@ class Survey with _$Survey {
 
   String versionText() => isCompatible ? '$version版' : '版本不相容 ($version版)';
 
-  // NOTE 避免 print 太多東西出來
+  // * 避免 print 太多東西出來
   @override
   String toString() {
     return 'Survey(id: $id, name: $name, version: $version)';

@@ -9,7 +9,7 @@ class RespondentBlocWorker
       saveParameters: StateParameters.initial(),
     );
 
-    // S_
+    // -
     state = state.sendEventInProgress(channel);
 
     event.maybeMap(
@@ -58,7 +58,7 @@ class RespondentBlocWorker
           state = tabRespondentsUpdated(state);
         }
       },
-      // H_ 使用者選擇問卷
+      // > 使用者選擇問卷
       surveySelected: (e) {
         logger('User Event').i('RespondentEvent: surveySelected');
 
@@ -77,28 +77,28 @@ class RespondentBlocWorker
         state = housingUpdated(state);
       },
 
-      // H_ 分頁受訪者名單更新時
+      // > 分頁受訪者名單更新時
       tabRespondentsUpdated: (e) {
         logger('Event').i('RespondentEvent: tabRespondentsUpdated');
 
         state = responseInfoMapUpdated(e.responseMap, state);
         state = tabRespondentsUpdated(state);
       },
-      // H_ 查址紀錄更新時
+      // > 查址紀錄更新時
       visitReportUpdated: (e) {
         logger('Event').i('RespondentEvent: visitReportUpdated');
 
         state = responseInfoMapUpdated(e.responseMap, state);
         state = visitReportUpdated(state);
       },
-      // H_ 住屋更新時
+      // > 住屋更新時
       housingUpdated: (e) {
         logger('Event').i('RespondentEvent: housingUpdated');
 
         state = responseInfoMapUpdated(e.responseMap, state);
         state = housingUpdated(state);
       },
-      // H_ 使用者搜尋文字
+      // > 使用者搜尋文字
       textSearched: (e) {
         logger('Event').i('RespondentEvent: textSearched');
 
@@ -112,7 +112,7 @@ class RespondentBlocWorker
           searchRespondentMap: searchRespondentMap,
         );
       },
-      // H_ 離開頁面時
+      // > 離開頁面時
       leaveButtonPressed: (e) {
         state = RespondentState.initial().copyWith(
           surveyRespondentMap: state.surveyRespondentMap,
@@ -121,7 +121,7 @@ class RespondentBlocWorker
           saveParameters: StateParameters.clear(),
         );
       },
-      // H_ 登出
+      // > 登出
       loggedOut: (e) {
         commonClearStorage(
           localStorage: localStorage,
@@ -134,7 +134,7 @@ class RespondentBlocWorker
       orElse: () {},
     );
 
-    // S_ 儲存資料
+    // - 儲存資料
     state = state.sendEventSuccessAndSave(channel, localStorage);
   }
 }

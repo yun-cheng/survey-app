@@ -29,7 +29,7 @@ class ComplexTableBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('ComplexTableBox');
 
-    // H_ scroll controllers
+    // > scroll controllers
     final controllers = useMemoized(() => LinkedScrollControllerGroup());
     final controllerMap = <String, ScrollController>{};
 
@@ -43,7 +43,7 @@ class ComplexTableBox extends HookWidget {
       return () => controllerMap.values.map((c) => c.dispose());
     }, []);
 
-    // H_ state
+    // > state
     final _context = useContext();
     final state = _context.read<UpdateAnswerStatusBloc>().state;
 
@@ -52,28 +52,28 @@ class ComplexTableBox extends HookWidget {
     final rowList = useRef(<Row>[]);
     final taskFinished = useState(false);
 
-    // H_ 提取資料任務
+    // > 提取資料任務
     final runTask = useMemoized(() {
       Future(() async {
-        // S_ 篩出是這個 tableId 的 questions
+        // - 篩出是這個 tableId 的 questions
         final tableQuestionList = state.pageQIdSet
             .map((questionId) => state.questionMap[questionId]!)
             .filter((question) =>
                 question.tableId == tableId && !question.type.isTable)
             .toList();
 
-        // S_ 分成 title 跟 row questions
+        // - 分成 title 跟 row questions
         final pTableQuestionList =
             tableQuestionList.partition((question) => question.rowId == -1);
 
-        // S_ title question list
+        // - title question list
         titleQuestionList.value = pTableQuestionList.item1;
 
-        // S_ row question map
+        // - row question map
         rowQuestionMap.value = pTableQuestionList.item2
             .groupBy<int, Question>((question) => question.rowId);
 
-        // S_ row list
+        // - row list
         rowList.value = rowQuestionMap.value
             .map((index, questionList) {
               final rowQuestionCells = questionList
@@ -137,7 +137,7 @@ class ComplexTableBox extends HookWidget {
       });
     });
 
-    // S_ 執行任務
+    // - 執行任務
     useFuture(runTask);
 
     if (!taskFinished.value) {
@@ -145,7 +145,7 @@ class ComplexTableBox extends HookWidget {
     }
 
     return SliverStickyHeader(
-      // H_ title
+      // > title
       header: DelayedWidget(
         answerBox: true,
         hideLoadingIndicator: true,
@@ -184,8 +184,8 @@ class ComplexTableBox extends HookWidget {
           ),
         ),
       ),
-      // H_ rows
-      // NOTE 用 SliverList 在實機上會卡，所以改 Column
+      // > rows
+      // * 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
         child: DelayedWidget(
           answerBox: true,

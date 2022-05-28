@@ -21,7 +21,7 @@ class Expression with _$Expression {
     AnswerStatus? answerStatus,
   }) {
     try {
-      // NOTE 前面為 validateAnswer，後面為 showQuestion
+      // * 前面為 validateAnswer，後面為 showQuestion
       //  為了讓 description 題型也能加入判斷，在 showQuestion 不考慮 answer
       if ((answer.valueIsFinished && answerStatus == null) ||
           (answerStatus != null && answerStatus.type.isAnswered)) {

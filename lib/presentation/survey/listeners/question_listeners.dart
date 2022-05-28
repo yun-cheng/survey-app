@@ -22,8 +22,8 @@ class QuestionListeners extends StatelessWidget {
         BlocListener<QuestionBloc, QuestionState>(
           listenWhen: (p, c) => p.answer != c.answer,
           listener: (context, state) {
-            // H_ 將 cubit 最新的 answer 傳進 bloc
-            // HIGHLIGHT 不需事先與 bloc 的 answer 比對，
+            // > 將 cubit 最新的 answer 傳進 bloc
+            // !!! 不需事先與 bloc 的 answer 比對，
             //  因短時間快速切換 answer 可能不是比對到真正最新的 answer，而造成錯誤！
             if (state.answer.isNotEmpty) {
               context.read<UpdateAnswerStatusBloc>().add(
@@ -49,7 +49,7 @@ class QuestionListeners extends StatelessWidget {
                 );
           },
         ),
-        // H_ 該題作答清空時，更新 local answer
+        // > 該題作答清空時，更新 local answer
         // FIXME 在快速切換答案後，切換特殊作答並答題，顯示的作答會因這邊被清空，但資料沒問題
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
           listenWhen: (p, c) =>

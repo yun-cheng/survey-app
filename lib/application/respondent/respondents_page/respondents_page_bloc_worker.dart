@@ -4,7 +4,7 @@ class RespondentsPageBlocWorker
     extends StorageBlocWorker<RespondentsPageEvent, RespondentsPageState> {
   @override
   void eventHandler(event, state) async {
-    // S_
+    // -
     state = state.sendEventInProgress(channel);
 
     event.maybeMap(
@@ -48,7 +48,7 @@ class RespondentsPageBlocWorker
       orElse: () {},
     );
 
-    // S_ 儲存資料
+    // - 儲存資料
     state = state.sendEventSuccessAndSave(channel, localStorage);
   }
 }

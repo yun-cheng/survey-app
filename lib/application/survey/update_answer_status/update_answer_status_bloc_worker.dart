@@ -10,11 +10,11 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
       saveParameters: StateParameters.initial(),
     );
 
-    // S_
+    // -
     state = state.sendEventInProgress(channel);
     try {
       event.maybeMap(
-        // H_ 進入問卷時載入必要 state
+        // > 進入問卷時載入必要 state
         moduleLoaded: (e) {
           logger('Event').i('UpdateAnswerStatusEvent: moduleLoaded');
 
@@ -55,7 +55,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             restoreState: LoadState.success(),
           );
         },
-        // H_ 離開問卷時清空 state
+        // > 離開問卷時清空 state
         stateCleared: (e) {
           logger('Event').i('UpdateAnswerStatusEvent: stateCleared');
 
@@ -66,13 +66,13 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
               )
               .send(channel);
         },
-        // H_ 該題作答更新
+        // > 該題作答更新
         answerUpdated: (e) {
           if (!state.isReadOnly &&
               (!state.isRecodeModule || (state.isRecodeModule && e.isRecode))) {
             logger('User Event').i('UpdateAnswerStatusEvent: answerUpdated');
 
-            // S_ 單純更新 answerMap
+            // - 單純更新 answerMap
             state = state.copyWith(
               updatedQIdSet: const {},
             ).sendInProgress(channel);
@@ -83,7 +83,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
               ),
             );
 
-            // S_ 更新 answerStatus
+            // - 更新 answerStatus
             state = state.copyWith(
               updatedQIdSet: const {},
               questionId: e.questionId,
@@ -97,7 +97,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
               ),
             );
 
-            // S_ 更新 page question
+            // - 更新 page question
             if (!state.isRecodeModule) {
               state = state.sendInProgress(channel);
 
@@ -110,11 +110,11 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
               );
             }
 
-            // S_ 更新 warning
+            // - 更新 warning
             state = warningUpdatedFlow(channel, state);
           }
         },
-        // H_ 切換頁面
+        // > 切換頁面
         pageNavigatedTo: (e) {
           logger('User Event').i('UpdateAnswerStatusEvent: pageNavigatedTo');
 
@@ -127,19 +127,19 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             ),
           );
 
-          // S_c1 不是按下一頁，或不是在最新一頁
+          // - c1 不是按下一頁，或不是在最新一頁
           if (e.direction != Direction.next || state.page != state.newestPage) {
             state = pageUpdatedFlow(channel, state);
 
-            // S_c2 在最新一頁，沒有 warning，則進到最新一頁
+            // - c2 在最新一頁，沒有 warning，則進到最新一頁
           } else if (state.warning.isEmpty) {
             state = pageUpdatedFlow(channel, state);
 
-            // S_ 更新 warning
+            // - 更新 warning
             state = state.copyWith(showWarning: false);
             state = warningUpdatedFlow(channel, state);
 
-            // S_c3 在最新一頁，但有 warning
+            // - c3 在最新一頁，但有 warning
           } else {
             state = state
                 .copyWith(
@@ -177,7 +177,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
 
           final warning = state.warning;
 
-          // S_ 確認要去的 warning 還在
+          // - 確認要去的 warning 還在
           if (e.questionId == warning.id) {
             state = jumpedToQuestionFlow(
               channel,
@@ -187,7 +187,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             );
           }
         },
-        // H_ 更新目錄題目
+        // > 更新目錄題目
         contentQuestionMapUpdated: (e) {
           logger('User Event')
               .i('UpdateAnswerStatusEvent: contentQuestionMapUpdated');
@@ -202,7 +202,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             ),
           );
         },
-        // H_ 使用者點擊完成問卷
+        // > 使用者點擊完成問卷
         finishedButtonPressed: (e) {
           logger('User Event')
               .i('UpdateAnswerStatusEvent: finishedButtonPressed');
@@ -226,7 +226,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
                 ),
               );
         },
-        // H_ 顯示 dialog
+        // > 顯示 dialog
         dialogShowed: (e) {
           logger('Event').i('UpdateAnswerStatusEvent: dialogShowed');
 
@@ -247,7 +247,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             );
           }
         },
-        // H_ 關閉 dialog
+        // > 關閉 dialog
         dialogClosed: (e) {
           logger('User Event').i('UpdateAnswerStatusEvent: dialogClosed');
 
@@ -255,7 +255,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             dialogType: DialogType.none(),
           );
         },
-        // H_ 點擊離開按鈕時
+        // > 點擊離開按鈕時
         leaveButtonPressed: (e) {
           logger('User Event').i('UpdateAnswerStatusEvent: leaveButtonPressed');
 
@@ -268,7 +268,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
                 leavePage ? DialogType.none() : DialogType.breakInterview(),
           );
         },
-        // H_ 隱藏離開按鈕
+        // > 隱藏離開按鈕
         leaveButtonHidden: (e) {
           state = state.copyWith(
             showLeaveButton: false,
@@ -277,13 +277,13 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             ),
           );
         },
-        // H_ 切換到戶抽模組
+        // > 切換到戶抽模組
         switchedToSamplingWithinHouseholdModule: (e) {
           state = state.copyWith(
             dialogType: DialogType.switchToSamplingWithinHouseholdModule(),
           );
         },
-        // H_ lifeCycle 變更時
+        // > lifeCycle 變更時
         appLifeCycleChanged: (e) {
           logger('Event').i('UpdateAnswerStatusEvent: appLifeCycleChanged');
 
@@ -300,7 +300,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             dialogType: dialogType,
           );
         },
-        // H_ 當前受訪者在其他模組的 response 更新時，更新頁面
+        // > 當前受訪者在其他模組的 response 更新時，更新頁面
         respondentResponseMapUpdated: (e) {
           logger('Event')
               .i('UpdateAnswerStatusEvent: respondentResponseMapUpdated');
@@ -322,7 +322,7 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
             ),
           );
         },
-        // H_ referenceList 更新時
+        // > referenceList 更新時
         referenceListUpdated: (e) {
           state = state.copyWith(
             referenceList: e.referenceList,
@@ -331,14 +331,14 @@ class UpdateAnswerStatusBlocWorker extends StorageBlocWorker<
         orElse: () {},
       );
 
-      // S_ 儲存資料
+      // - 儲存資料
       state = state.sendEventSuccessAndSave(channel, localStorage);
     } catch (e, stackTrace) {
       logger('Error').e('EventWorker Error!');
       logger('Error').e(e);
       logger('Error').e(stackTrace);
 
-      // S_ 重啟 state
+      // - 重啟 state
       state = state.restartStateAndSave(channel, localStorage);
       channel.send('RESTART_STATE');
     }
@@ -406,7 +406,7 @@ UpdateAnswerStatusState jumpedToQuestionFlow(
       .map((question) => question.id)
       .toList();
 
-  // S_ 在該頁的題目順序
+  // - 在該頁的題目順序
   final questionIndex = pageQIdList.indexOfFirst((qId) => qId == questionId);
 
   state = state

@@ -8,7 +8,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 
-// H_ 從 response 回復 answer/survey page state
+// > 從 response 回復 answer/survey page state
 final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
   listenWhen: (p, c) =>
       p.updateState != c.updateState && c.updateState == LoadState.success(),
@@ -50,7 +50,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
             ),
           );
 
-      // S_ 開始錄音
+      // - 開始錄音
       if (state.moduleType.shouldRecord && !isReadOnly) {
         context
             .read<AudioRecorderBloc>()

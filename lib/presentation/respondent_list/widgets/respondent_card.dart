@@ -47,7 +47,7 @@ class RespondentCard extends HookWidget {
 
     useBlocListener<RespondentsPageBloc, RespondentsPageState>(
       listenWhen: (p, c) =>
-          // S_ 改變前後跟此卡片有關
+          // - 改變前後跟此卡片有關
           p.selectedRespondentId == respondent.id ||
           c.selectedRespondentId == respondent.id,
       listener: (context, state) {
@@ -85,18 +85,18 @@ class RespondentCard extends HookWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // H_ respondent id
+                  // > respondent id
                   Text(
                     respondent.id,
                     style: kCardH4TextStyle,
                   ),
-                  // H_ last visit record status
+                  // > last visit record status
                   BlocBuilder<RespondentBloc, RespondentState>(
                     buildWhen: (p, c) =>
                         p.lastVisitRecordMap[respondent.id] !=
                         c.lastVisitRecordMap[respondent.id],
                     builder: (context, state) {
-                      // S_ 查址紀錄有變時
+                      // - 查址紀錄有變時
                       String lastVisitRecordStatus =
                           state.lastVisitRecordMap[respondent.id] ?? '';
 
@@ -114,7 +114,7 @@ class RespondentCard extends HookWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // H_ remain address
+                  // > remain address
                   Text(
                     respondent.remainAddress,
                     style: kCardH2TextStyle,
@@ -136,7 +136,7 @@ class RespondentCard extends HookWidget {
                     child: Column(
                       children: [
                         const SizedBox(height: kPFontSize),
-                        // H_ module buttons
+                        // > module buttons
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
@@ -174,9 +174,9 @@ class RespondentCard extends HookWidget {
                           ],
                         ),
                         const SizedBox(height: kPFontSize),
-                        // H_ housing box
+                        // > housing box
                         const HousingBox(),
-                        // H_ visit history
+                        // > visit history
                         const VisitHistory(),
                       ],
                     ),

@@ -29,13 +29,13 @@ class SimpleTableAnswerBox extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // H_ special answer
+            // > special answer
             Visibility(
               visible: isSpecialAnswer,
               maintainState: true,
               child: const SimpleTableDropdownRow(),
             ),
-            // H_ normal answer
+            // > normal answer
             Visibility(
               visible: !isSpecialAnswer,
               maintainState: true,

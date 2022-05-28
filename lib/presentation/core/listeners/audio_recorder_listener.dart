@@ -5,7 +5,7 @@ import '../../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 
-// H_ 錄音結束
+// > 錄音結束
 final audioRecorderListener =
     BlocListener<AudioRecorderBloc, AudioRecorderState>(
   listenWhen: (p, c) =>

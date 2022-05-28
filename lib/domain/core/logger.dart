@@ -5,9 +5,10 @@ import 'package:stack_trace/stack_trace.dart';
 Logger logger([String? tag, int? methodShow]) {
   bool allow = false;
 
-  // H_ always allow
+  // > always allow
   final alwaysAllowTagList = <String>[
     'Error',
+    'Warning',
     // 'Watch',
     // 'Receive',
     'Upload',
@@ -25,21 +26,28 @@ Logger logger([String? tag, int? methodShow]) {
   ];
   final alwaysAllowFilePathList = <String>[
     // 'splash/listeners',
-    // H_ respondent
+    // > sign in
+    // 'presentation/sign_in',
+    // > respondent
     // 'presentation/respondent_list',
     // 'application/respondent',
-    // H_ survey
+    // > survey
     // 'application/survey',
+    // 'application/survey/update_answer_status',
     // 'presentation/survey',
+    // 'presentation/respondent_list',
     // 'presentation/overview',
-    // H_
+    // >
     // 'presentation',
   ];
   final alwaysAllowFileNameList = <String>[
-    // 'update_answer_bloc',
+    // 'update_answer_status_event_worker',
+    // 'audio_recorder_bloc',
+    // 'upload_audio_bloc',
+    // 'device_bloc',
   ];
 
-  // H_ allow
+  // > allow
   final allowTagList = <String>[];
   final allowFileNameList = <String>[];
 
@@ -206,6 +214,9 @@ extension PrettyPrinterX on PrettyPrinter {
         break;
       case 'Success':
         tagStr = '[✔️ Success]';
+        break;
+      case 'Warning':
+        tagStr = '[⚠️ Warning]';
         break;
       case 'Error':
         tagStr = '[❌❌❌ Error]';

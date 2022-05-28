@@ -58,7 +58,7 @@ class OverviewPage extends StatelessWidget {
                   context
                       .read<NavigationBloc>()
                       .add(const NavigationEvent.loggedOut());
-                  // NOTE UpdateAnswerStatusBloc 在離開問卷時已清空，不須處理
+                  // * UpdateAnswerStatusBloc 在離開問卷時已清空，不須處理
                 }
               },
             ),

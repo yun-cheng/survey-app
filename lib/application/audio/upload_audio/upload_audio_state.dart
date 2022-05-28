@@ -6,11 +6,11 @@ class UploadAudioState with _$UploadAudioState {
 
   const factory UploadAudioState({
     required UniqueId stateId,
-    // H_ 主要資料
+    // > 主要資料
     required Map<UniqueId, Audio> audioMap,
-    // H_ 中間資料
+    // > 中間資料
     required NetworkType networkType,
-    // H_ 狀態更新進度
+    // > 狀態更新進度
     required LoadState uploadState,
     required Option<AudioFailure> audioFailure,
     required LoadState eventState,
@@ -18,11 +18,11 @@ class UploadAudioState with _$UploadAudioState {
 
   factory UploadAudioState.initial() => UploadAudioState(
         stateId: UniqueId.v1(),
-        // H_ 主要資料
+        // > 主要資料
         audioMap: const <UniqueId, Audio>{},
-        // H_ 中間資料
+        // > 中間資料
         networkType: NetworkType.empty(),
-        // H_ 狀態更新進度
+        // > 狀態更新進度
         uploadState: LoadState.initial(),
         audioFailure: none(),
         eventState: LoadState.initial(),

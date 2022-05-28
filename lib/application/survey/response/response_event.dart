@@ -2,7 +2,7 @@ part of 'response_bloc.dart';
 
 @freezed
 class ResponseEvent with _$ResponseEvent {
-  // H_ 監聽 responseMap、ReferenceList
+  // > 監聽 responseMap、ReferenceList
   const factory ResponseEvent.watchResponseMapAndReferenceListStarted({
     required String teamId,
     required Interviewer interviewer,
@@ -16,22 +16,22 @@ class ResponseEvent with _$ResponseEvent {
     Either<SurveyFailure, List<Object>> failureOrReferenceList,
   ) = _RawReferenceListReceived;
 
-  // H_ 上傳倒數計時
+  // > 上傳倒數計時
   const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
 
-  // H_ 上傳 responseMap
+  // > 上傳 responseMap
   const factory ResponseEvent.responseMapUploading() = _ResponseMapUploading;
 
   const factory ResponseEvent.responseUploaded(
     Either<SurveyFailure, String> failureOrResult,
   ) = _ResponseUploaded;
 
-  // H_ 使用者選擇問卷
+  // > 使用者選擇問卷
   const factory ResponseEvent.surveySelected({
     required Survey survey,
   }) = _SurveySelected;
 
-  // H_ 使用者選擇要開始進行的問卷模組
+  // > 使用者選擇要開始進行的問卷模組
   const factory ResponseEvent.responseStarted({
     required Respondent respondent,
     required ModuleType moduleType,
@@ -41,20 +41,20 @@ class ResponseEvent with _$ResponseEvent {
     UniqueId? responseId,
   }) = _ResponseStarted;
 
-  // H_ 作答或切換頁數時更新 response
+  // > 作答或切換頁數時更新 response
   const factory ResponseEvent.responseUpdated({
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
     required SimpleSurveyPageState surveyPageState,
   }) = _ResponseUpdated;
 
-  // H_ 使用者結束編輯這次問卷模組的回覆
+  // > 使用者結束編輯這次問卷模組的回覆
   const factory ResponseEvent.editFinished({
-    // NOTE 是否完成這份問卷
+    // * 是否完成這份問卷
     required bool responseFinished,
   }) = _EditFinished;
 
-  // H_ 使用者在閒置後，選擇繼續訪問
+  // > 使用者在閒置後，選擇繼續訪問
   const factory ResponseEvent.responseResumed(UniqueId responseId) =
       _ResponseResumed;
 

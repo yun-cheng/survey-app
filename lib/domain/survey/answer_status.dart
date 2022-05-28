@@ -26,7 +26,7 @@ class AnswerStatus with _$AnswerStatus {
         noteMap: const <String, AnswerStatusType>{},
       );
 
-  // H_ 直接改變狀態
+  // > 直接改變狀態
   AnswerStatus setAnswered() => copyWith(
         type: AnswerStatusType.answered(),
         lastChangedTimeStamp: DeviceTimeStamp.now(),
@@ -48,7 +48,7 @@ class AnswerStatus with _$AnswerStatus {
         isSpecialAnswer: isSpecialAnswer,
       );
 
-  // H_ 更新狀態
+  // > 更新狀態
   AnswerStatus updateTimeStamp() => copyWith(
         lastChangedTimeStamp: DeviceTimeStamp.now(),
       );
@@ -96,7 +96,7 @@ class AnswerStatus with _$AnswerStatus {
     );
   }
 
-  // H_
+  // >
   Warning toWarning(Question question) {
     WarningType warningType;
     if (type.isUnanswered) {
@@ -117,7 +117,7 @@ class AnswerStatus with _$AnswerStatus {
     );
   }
 
-  // H_ 取得狀態
+  // > 取得狀態
   bool get noteIsAnswered => noteMap.entries.every((e) => e.value.isCompleted);
   bool get isAnswered => type.isAnswered && noteIsAnswered;
   bool get isHidden => type.isHidden;

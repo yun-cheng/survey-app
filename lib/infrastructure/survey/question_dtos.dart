@@ -26,15 +26,15 @@ class QuestionDto with _$QuestionDto {
     required int pageNumber,
     required bool recodeNeeded,
     required int splitColumnChoiceCount,
-    // H_ choice list
+    // > choice list
     List<ChoiceDto>? initChoiceList,
     required List<ChoiceDto> choiceList,
     List<ChoiceDto>? specialAnswerList,
-    // H_ expression
+    // > expression
     required FullExpressionDto showQuestion,
     required FullExpressionDto validateAnswer,
     List<String>? childrenQIdSet,
-    // H_ table
+    // > table
     required String tableId,
     required int rowId,
   }) = _QuestionDto;
@@ -54,7 +54,7 @@ class QuestionDto with _$QuestionDto {
       pageNumber: domain.pageNumber,
       recodeNeeded: domain.recodeNeeded,
       splitColumnChoiceCount: domain.splitColumnChoiceCount,
-      // H_ choice list
+      // > choice list
       initChoiceList: domain.initChoiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .toList(),
@@ -64,11 +64,11 @@ class QuestionDto with _$QuestionDto {
       specialAnswerList: domain.specialAnswerList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .toList(),
-      // H_ expression
+      // > expression
       showQuestion: FullExpressionDto.fromDomain(domain.show),
       validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
       childrenQIdSet: domain.childrenQIdSet.toList(),
-      // H_ table
+      // > table
       tableId: domain.tableId,
       rowId: domain.rowId,
     );
@@ -88,7 +88,7 @@ class QuestionDto with _$QuestionDto {
       pageNumber: pageNumber,
       recodeNeeded: recodeNeeded,
       splitColumnChoiceCount: splitColumnChoiceCount,
-      // H_ choice list
+      // > choice list
       initChoiceList:
           (initChoiceList ?? choiceList).map((dto) => dto.toDomain()).toList(),
       choiceList: choiceList.map((dto) => dto.toDomain()).toList(),
@@ -96,11 +96,11 @@ class QuestionDto with _$QuestionDto {
       specialAnswerList: (specialAnswerList ?? choiceList)
           .map((dto) => dto.toDomain())
           .toList(),
-      // H_ expression
+      // > expression
       show: showQuestion.toDomain(),
       validateAnswer: validateAnswer.toDomain(),
       childrenQIdSet: childrenQIdSet?.toSet() ?? <String>{},
-      // H_ table
+      // > table
       tableId: tableId,
       rowId: rowId,
     );

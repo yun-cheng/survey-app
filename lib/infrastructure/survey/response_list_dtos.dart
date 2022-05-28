@@ -41,27 +41,27 @@ class ResponseDto with _$ResponseDto {
   const ResponseDto._();
 
   const factory ResponseDto({
-    // H_ 區分不同 response
+    // > 區分不同 response
     required String teamId,
     required String projectId,
     required String surveyId,
     required String moduleType,
     required String respondentId,
-    // H_ 區分 response 版本
+    // > 區分 response 版本
     required String responseId,
     required String tempResponseId,
     required String ticketId,
     required bool editFinished,
     required String interviewerId,
     required String deviceId,
-    // H_ 狀態
+    // > 狀態
     required int createdTimeStamp,
     required int sessionStartTimeStamp,
     required int sessionEndTimeStamp,
     required int lastChangedTimeStamp,
     required String responseStatus,
     required bool isDeleted,
-    // H_ 內容
+    // > 內容
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
     required SimpleSurveyPageStateDto surveyPageState,
@@ -69,20 +69,20 @@ class ResponseDto with _$ResponseDto {
 
   factory ResponseDto.fromDomain(Response domain) {
     return ResponseDto(
-      // H_ 區分不同 response
+      // > 區分不同 response
       teamId: domain.teamId,
       projectId: domain.projectId,
       surveyId: domain.surveyId,
       moduleType: domain.moduleType.value,
       respondentId: domain.respondentId,
-      // H_ 區分 response 版本
+      // > 區分 response 版本
       responseId: domain.responseId.value,
       tempResponseId: domain.tempResponseId.value,
       ticketId: domain.ticketId.value,
       editFinished: domain.editFinished,
       interviewerId: domain.interviewerId,
       deviceId: domain.deviceId.value,
-      // H_ 狀態
+      // > 狀態
       createdTimeStamp: domain.createdTimeStamp.value.microsecondsSinceEpoch,
       sessionStartTimeStamp:
           domain.sessionStartTimeStamp.value.microsecondsSinceEpoch,
@@ -92,7 +92,7 @@ class ResponseDto with _$ResponseDto {
           domain.lastChangedTimeStamp.value.microsecondsSinceEpoch,
       responseStatus: domain.responseStatus.value,
       isDeleted: domain.isDeleted,
-      // H_ 內容
+      // > 內容
       answerMap: domain.answerMap
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       answerStatusMap: domain.answerStatusMap.map(
@@ -104,27 +104,27 @@ class ResponseDto with _$ResponseDto {
 
   Response toDomain() {
     return Response(
-      // H_ 區分不同 response
+      // > 區分不同 response
       teamId: teamId,
       projectId: projectId,
       surveyId: surveyId,
       moduleType: ModuleType(moduleType),
       respondentId: respondentId,
-      // H_ 區分 response 版本
+      // > 區分 response 版本
       responseId: UniqueId(responseId),
       tempResponseId: UniqueId(tempResponseId),
       ticketId: UniqueId(ticketId),
       editFinished: editFinished,
       interviewerId: interviewerId,
       deviceId: UniqueId(deviceId),
-      // H_ 狀態
+      // > 狀態
       createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
       sessionStartTimeStamp: DeviceTimeStamp.fromInt(sessionStartTimeStamp),
       sessionEndTimeStamp: DeviceTimeStamp.fromInt(sessionEndTimeStamp),
       lastChangedTimeStamp: DeviceTimeStamp.fromInt(lastChangedTimeStamp),
       responseStatus: ResponseStatus(responseStatus),
       isDeleted: isDeleted,
-      // H_ 內容
+      // > 內容
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       answerStatusMap:
           answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),

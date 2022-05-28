@@ -4,7 +4,7 @@ import 'auth_failure.dart';
 import 'interviewer.dart';
 import 'team.dart';
 
-// NOTE 抽象定義 auth 的資料動作
+// * 抽象定義 auth 的資料動作
 abstract class IAuthFacade {
   Stream<Either<AuthFailure, List<Team>>> watchTeamList();
   Stream<Either<AuthFailure, List<Interviewer>>> watchInterviewerList({

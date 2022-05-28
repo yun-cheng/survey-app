@@ -22,7 +22,7 @@ class SpecialAnswerSwitch extends StatelessWidget {
         logger('Build').i('SpecialAnswerSwitch');
 
         return Row(
-          // NOTE 強制 rebuild 取消動畫
+          // * 強制 rebuild 取消動畫
           key: Key(UniqueId.v1().value),
           children: [
             Switch(

@@ -28,15 +28,15 @@ class Question with _$Question {
     required int pageNumber,
     required bool recodeNeeded,
     required int splitColumnChoiceCount,
-    // H_ choice list
+    // > choice list
     required List<Choice> initChoiceList,
     required List<Choice> choiceList,
     required List<Choice> specialAnswerList,
-    // H_ expression
+    // > expression
     required FullExpression show,
     required FullExpression validateAnswer,
     required Set<String> childrenQIdSet,
-    // H_ table
+    // > table
     required String tableId,
     required int rowId,
   }) = _Question;
@@ -54,15 +54,15 @@ class Question with _$Question {
         pageNumber: 0,
         recodeNeeded: false,
         splitColumnChoiceCount: 4,
-        // H_ choice list
+        // > choice list
         initChoiceList: <Choice>[],
         choiceList: <Choice>[],
         specialAnswerList: <Choice>[],
-        // H_ expression
+        // > expression
         show: FullExpression.empty(),
         validateAnswer: FullExpression.empty(),
         childrenQIdSet: <String>{},
-        // H_ table
+        // > table
         tableId: '',
         rowId: -1,
       );

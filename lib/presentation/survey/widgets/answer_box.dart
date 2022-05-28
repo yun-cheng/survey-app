@@ -23,7 +23,7 @@ class AnswerBox extends StatelessWidget {
 
     return Column(
       children: [
-        // H_ special answer
+        // > special answer
         Visibility(
           visible: isSpecialAnswer,
           maintainState: true,
@@ -31,7 +31,7 @@ class AnswerBox extends StatelessWidget {
             isSpecialAnswer: true,
           ),
         ),
-        // H_ normal answer
+        // > normal answer
         Visibility(
           visible: !isSpecialAnswer,
           maintainState: true,

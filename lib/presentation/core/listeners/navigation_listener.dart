@@ -6,7 +6,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../routes/router.gr.dart';
 
-// H_ 在 app 重啟時回復上次所在的頁面
+// > 在 app 重啟時回復上次所在的頁面
 final navigationListener = BlocListener<NavigationBloc, NavigationState>(
   listenWhen: (p, c) => p.pushPage != c.pushPage && c.pushPage,
   listener: (context, state) {

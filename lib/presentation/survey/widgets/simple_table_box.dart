@@ -28,7 +28,7 @@ class SimpleTableBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('SimpleTableBox');
 
-    // H_ scroll controllers
+    // > scroll controllers
     final controllers = useMemoized(() => LinkedScrollControllerGroup());
     final controllerMap = <String, ScrollController>{};
 
@@ -42,7 +42,7 @@ class SimpleTableBox extends HookWidget {
       return () => controllerMap.values.map((c) => c.dispose());
     }, []);
 
-    // H_ state
+    // > state
     final _context = useContext();
     final state = _context.read<UpdateAnswerStatusBloc>().state;
 
@@ -50,23 +50,23 @@ class SimpleTableBox extends HookWidget {
     final choiceList = useRef(<Choice>[]);
     final taskFinished = useState(false);
 
-    // H_ 提取資料任務
+    // > 提取資料任務
     final runTask = useMemoized(() {
       Future(() async {
-        // S_ 篩出是這個 tableId 的 questions
+        // - 篩出是這個 tableId 的 questions
         tableQuestionList.value = state.pageQIdSet
             .map((questionId) => state.questionMap[questionId]!)
             .filter((question) =>
                 question.tableId == tableId && !question.type.isTable)
             .toList();
 
-        // S_ 取出 choiceList
+        // - 取出 choiceList
         choiceList.value = tableQuestionList.value.first.choiceList;
         taskFinished.value = true;
       });
     });
 
-    // S_ 執行任務
+    // - 執行任務
     useFuture(runTask);
 
     if (!taskFinished.value) {
@@ -110,7 +110,7 @@ class SimpleTableBox extends HookWidget {
           ),
         ),
       ),
-      // NOTE 用 SliverList 在實機上會卡，所以改 Column
+      // * 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
         child: DelayedWidget(
           answerBox: true,

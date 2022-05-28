@@ -52,7 +52,7 @@ class SimpleTableChoiceItem extends StatelessWidget {
             child: InkWell(
               onTap: () => clickAction(toggle: !isSingleAnswer),
               child: Container(
-                // NOTE 強制 rebuild 取消動畫
+                // * 強制 rebuild 取消動畫
                 key: Key(UniqueId.v1().value),
                 child: isSingleAnswer
                     ? Radio(

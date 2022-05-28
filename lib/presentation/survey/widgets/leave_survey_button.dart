@@ -18,14 +18,14 @@ class LeaveSurveyButton extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-          // H_ 需要跳到某題時
+          // > 需要跳到某題時
           listenWhen: (p, c) =>
               p.scrollToQuestionIndex != c.scrollToQuestionIndex &&
               c.scrollToQuestionIndex != -99,
           listener: (context, state) async {
             logger('Listen').i('UpdateAnswerStatusBloc: scrollToQuestionIndex');
 
-            // NOTE 因為 table box 會有 sticky header，沒辦法直接 scrollToIndex，
+            // * 因為 table box 會有 sticky header，沒辦法直接 scrollToIndex，
             //  會出錯，所以就先跳到底再往回滾，
             //  實測是沒問題，但題目一多可能要調整 delay 的時間
             scrollController.jumpTo(
@@ -49,7 +49,7 @@ class LeaveSurveyButton extends StatelessWidget {
             (UpdateAnswerStatusBloc bloc) => bloc.state.showLeaveButton);
 
         return Visibility(
-          // NOTE 在中止訪問後的查址模組不讓使用者跳出
+          // * 在中止訪問後的查址模組不讓使用者跳出
           visible: showLeaveButton,
           child: IconButton(
               icon: const Icon(Icons.arrow_back),

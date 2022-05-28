@@ -4,7 +4,7 @@ class NavigationBlocWorker
     extends StorageBlocWorker<NavigationEvent, NavigationState> {
   @override
   void eventHandler(event, state) async {
-    // S_
+    // -
     state = state.sendEventInProgress(channel);
 
     event.maybeMap(
@@ -24,7 +24,7 @@ class NavigationBlocWorker
       orElse: () {},
     );
 
-    // S_ 儲存資料
+    // - 儲存資料
     state = state.sendEventSuccessAndSave(channel, localStorage);
   }
 }

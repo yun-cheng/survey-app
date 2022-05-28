@@ -22,7 +22,7 @@ class PageControlBar extends HookWidget {
   Widget build(BuildContext context) {
     Timer? timer;
 
-    // H_ 用來在鍵盤顯示時，隱藏 PageControlBar
+    // > 用來在鍵盤顯示時，隱藏 PageControlBar
     final keyboardVisibilityController = KeyboardVisibilityController();
 
     final isKeyboardVisible = useState(keyboardVisibilityController.isVisible);
@@ -63,7 +63,7 @@ class PageControlBar extends HookWidget {
       void onPressed(Direction? direction) {
         context.read<BlockGestureCubit>().block();
 
-        // NOTE timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
+        // * timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
         timer?.cancel();
         timer = Timer(
           const Duration(milliseconds: 0),
@@ -95,7 +95,7 @@ class PageControlBar extends HookWidget {
             constraints: BoxConstraints.expand(width: kCardMaxWith.maxWidth),
             child: Stack(
               children: <Widget>[
-                // H_ 往前按鈕
+                // > 往前按鈕
                 Align(
                   alignment: Alignment.centerLeft,
                   child: PageControlButton(
@@ -105,11 +105,11 @@ class PageControlBar extends HookWidget {
                     onPressed: () => onPressed(Direction.previous),
                   ),
                 ),
-                // H_ 錯誤提醒按鈕
+                // > 錯誤提醒按鈕
                 const Align(
                   child: WarningButton(),
                 ),
-                // H_ 往後按鈕
+                // > 往後按鈕
                 Align(
                   alignment: Alignment.centerRight,
                   child: PageControlButton(
@@ -118,7 +118,7 @@ class PageControlBar extends HookWidget {
                     onPressed: () => onPressed(Direction.next),
                   ),
                 ),
-                // H_ 完成按鈕
+                // > 完成按鈕
                 Align(
                   alignment: Alignment.centerRight,
                   child: Visibility(

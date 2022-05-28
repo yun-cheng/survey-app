@@ -18,7 +18,7 @@ part 'response_state_dtos.g.dart';
 class ResponseStateDto with _$ResponseStateDto {
   const ResponseStateDto._();
 
-  // NOTE fromDomain/toDomain 要產生的東西可能不同，
+  // * fromDomain/toDomain 要產生的東西可能不同，
   //  以 survey 來說，fromDomain 會產生 surveyId，toDomain 則會產生 survey
   @JsonSerializable(includeIfNull: false)
   const factory ResponseStateDto({
@@ -32,11 +32,11 @@ class ResponseStateDto with _$ResponseStateDto {
     ResponseDto? response,
     String? responseId,
     List<String>? uploadResponseIdSet,
-    // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
+    // * 因為之後會 subsetInfoMap，所以要留著，但 ignore
     @JsonKey(ignore: true) StateParameters? saveParameters,
   }) = _ResponseStateDto;
 
-  // NOTE 設定不同參數怎麼儲存/提取：
+  // * 設定不同參數怎麼儲存/提取：
   //  一般未特別定義的資料會存在 XXState(default) box 中
   //  不是 readOnly 也沒有 key 的資料才會存在獨立的 box 中
   //  若未指定 box 名稱則取 map key 來使用
@@ -58,7 +58,7 @@ class ResponseStateDto with _$ResponseStateDto {
         ),
       };
 
-  // NOTE 若有定義在 infoMap 裡面需要儲存，就必須要在這邊視情況不需儲存時 remove
+  // * 若有定義在 infoMap 裡面需要儲存，就必須要在這邊視情況不需儲存時 remove
   Map<String, DtoInfo> subsetInfoMap() {
     final infoMap = {...ResponseStateDto.infoMap()};
 
@@ -69,7 +69,7 @@ class ResponseStateDto with _$ResponseStateDto {
   }
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
-    // NOTE 先看有哪些參數需要儲存，若是 Map 則還要提取 keys
+    // * 先看有哪些參數需要儲存，若是 Map 則還要提取 keys
     return ResponseStateDto(
       surveyId: domain.saveParameters.survey ? domain.survey.id : null,
       interviewer: domain.saveParameters.interviewer
@@ -78,7 +78,7 @@ class ResponseStateDto with _$ResponseStateDto {
       respondent: domain.saveParameters.respondent
           ? RespondentDto.fromDomain(domain.respondent)
           : null,
-      // NOTE 要注意 responseMap 是用 ResponseMapDto 來處理，所以最後要加 .map
+      // * 要注意 responseMap 是用 ResponseMapDto 來處理，所以最後要加 .map
       responseMap: domain.saveParameters.responseMap
           ? ResponseMapDto.fromDomain(
               domain.saveParameters.responseMapKeys.isEmpty
@@ -107,7 +107,7 @@ class ResponseStateDto with _$ResponseStateDto {
       survey: survey?.toDomain() ?? initial.survey,
       respondent: respondent?.toDomain() ?? initial.respondent,
       interviewer: interviewer?.toDomain() ?? initial.interviewer,
-      // NOTE 要注意 responseMap 是用 ResponseMapDto 來處理，所以可以直接這樣寫
+      // * 要注意 responseMap 是用 ResponseMapDto 來處理，所以可以直接這樣寫
       responseMap: ResponseMapDto(map: responseMap).toDomain(),
       referenceList: referenceList?.map((dto) => dto.toDomain()).toList() ??
           initial.referenceList,
@@ -115,9 +115,9 @@ class ResponseStateDto with _$ResponseStateDto {
       uploadResponseIdSet:
           uploadResponseIdSet?.map((e) => UniqueId(e)).toSet() ??
               initial.uploadResponseIdSet,
-      // H_ 狀態更新進度
+      // > 狀態更新進度
       eventState: LoadState.success(),
-      // NOTE updateState 維持 initial，避免觸發 listener
+      // * updateState 維持 initial，避免觸發 listener
     );
   }
 

@@ -21,14 +21,14 @@ class QaCard extends StatelessWidget {
   final int questionIndex;
   final AutoScrollController scrollController;
 
-  // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
+  // !!! 即便沒有 field 需要 input 也該使用 key
   const QaCard({
     Key? key,
     required this.questionIndex,
     required this.scrollController,
   }) : super(key: key);
 
-  // NOTE 作答區 rebuild 共同標準：該題顯示/隱藏狀態改變
+  // * 作答區 rebuild 共同標準：該題顯示/隱藏狀態改變
   // TODO 若是遠端資料改變，則會觸發 stateRestore，則全部 rebuild
   @override
   Widget build(BuildContext context) {
@@ -80,23 +80,23 @@ class QaCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        // H_ QuestionBox
+                        // > QuestionBox
                         const QuestionBox(),
                         Row(
                           children: [
                             const SizedBox(height: 40),
-                            // H_ SpecialAnswerSwitch
+                            // > SpecialAnswerSwitch
                             if (question.hasSpecialAnswer &&
                                 !questionType.isTable &&
                                 canEdit) ...[
                               const SpecialAnswerSwitch(showText: false),
                               const SizedBox(width: 20),
                             ],
-                            // // H_ WarningBox
+                            // // > WarningBox
                             const WarningBox(),
                           ],
                         ),
-                        // H_ AnswerBox
+                        // > AnswerBox
                         if (questionType.isValid && !questionType.isTable) ...[
                           const Align(
                             alignment: Alignment.topLeft,
@@ -112,7 +112,7 @@ class QaCard extends StatelessWidget {
                 ),
               ),
             ),
-            // H_ Table
+            // > Table
             if (questionType.isSimpleTable) ...[
               SimpleTableBox(
                 tableId: question.tableId,
@@ -131,7 +131,7 @@ class QaCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // H_ RecodeBox
+                    // > RecodeBox
                     if (state.isRecodeModule && question.recodeNeeded) ...[
                       const SizedBox(height: 10),
                       const Align(
@@ -140,7 +140,7 @@ class QaCard extends StatelessWidget {
                       ),
                     ],
                     const SizedBox(height: 15),
-                    // H_ Divider
+                    // > Divider
                     const Divider(
                       thickness: 1.5,
                       height: 50.0,

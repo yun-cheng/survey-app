@@ -36,7 +36,7 @@ extension ListX<T> on List<T> {
   }
 }
 
-// H_ comparisons
+// > comparisons
 /// Creates a comparator using the function to transform value to a [Comparable] instance for comparison.
 Comparator<T> compareBy<T>(Comparable Function(T) selector) {
   int compareTo(T a, T b) => selector(a).compareTo(selector(b));

@@ -23,12 +23,12 @@ class AppListeners extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        // H_ core
+        // > core
         navigationListener,
         networkListener,
         appLifeCycleListener,
         watchFirestoreListener,
-        // H_ survey
+        // > survey
         audioRecorderListener,
         responseRestoreListener,
         surveyDialogListener,

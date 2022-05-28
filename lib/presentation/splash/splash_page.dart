@@ -10,15 +10,15 @@ class SplashPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // H_ 監聽網路狀態
-    // NOTE 放在這邊觸發，避免因 bloc 提早預備，加上 listener 還沒準備好，導致沒有監聽到變化
+    // > 監聽網路狀態
+    // * 放在這邊觸發，避免因 bloc 提早預備，加上 listener 還沒準備好，導致沒有監聽到變化
     useEffect(() {
       context.read<DeviceBloc>().add(
             const DeviceEvent.watchNetworkStarted(),
           );
     }, []);
 
-    // H_ 監聽 app lifecycle
+    // > 監聽 app lifecycle
     useOnAppLifecycleStateChange(
       (p, c) => context.read<DeviceBloc>().add(
             DeviceEvent.appLifeCycleChanged(c),

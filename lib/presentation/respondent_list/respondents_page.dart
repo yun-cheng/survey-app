@@ -20,12 +20,12 @@ class RespondentsPage extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('RespondentsPage');
 
-    // H_ tabController
+    // > tabController
     final tabController = useTabController(initialLength: 5);
 
     useEffect(() {
-      // H_ 切換分頁時
-      // NOTE 不需要特別 remove listener
+      // > 切換分頁時
+      // * 不需要特別 remove listener
       tabController.addListener(() {
         if (tabController.indexIsChanging ||
             (tabController.index != tabController.previousIndex)) {

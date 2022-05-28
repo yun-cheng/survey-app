@@ -33,18 +33,18 @@ class FullExpression with _$FullExpression {
     if (isEmpty) {
       return true;
     }
-    // NOTE 目標是將 (((A || B) && C) || D) 轉換成 true/false，
+    // * 目標是將 (((A || B) && C) || D) 轉換成 true/false，
     //  其中 A、B、C、D 都代表著類似 (Q1 != 3) 的 expression
 
     late final Map<String, bool> newExpressionMap;
 
     // H_1 各個 expression 轉成 bool
-    // S_c1 validateAnswer 使用
+    // - c1 validateAnswer 使用
     if (answer != null) {
       newExpressionMap = expressionMap.map(
         (key, value) => MapEntry(key, value.evaluate(answer: answer)),
       );
-      // S_c2 showQuestion 使用
+      // - c2 showQuestion 使用
     } else {
       newExpressionMap = expressionMap.map(
         (key, value) => MapEntry(
@@ -59,7 +59,7 @@ class FullExpression with _$FullExpression {
 
     // print(newExpressionMap);
 
-    // H_ 上面結果合併進 body
+    // > 上面結果合併進 body
     String fullExpressionBody = body;
 
     newExpressionMap.forEach((key, value) {
