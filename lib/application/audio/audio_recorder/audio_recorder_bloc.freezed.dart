@@ -309,7 +309,7 @@ class _$_RecordStopped with DiagnosticableTreeMixin implements _RecordStopped {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'AudioRecorderEvent.recordStopped'));
+        .add(DiagnosticsProperty('type', 'AudioRecorderEvent.recordStopped'));
   }
 
   @override
@@ -434,9 +434,8 @@ class _$_WatchDbStreamStarted
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'AudioRecorderEvent.watchDbStreamStarted'));
+    properties.add(
+        DiagnosticsProperty('type', 'AudioRecorderEvent.watchDbStreamStarted'));
   }
 
   @override

@@ -62,6 +62,8 @@ class WatchSurveyState with _$WatchSurveyState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() => WatchSurveyStateDto.fromDomain(this).toJson();
 }
 
 // H_ 參數狀態

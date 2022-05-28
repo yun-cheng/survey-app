@@ -52,4 +52,6 @@ class NavigationState with _$NavigationState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() => NavigationStateDto.fromDomain(this).toJson();
 }

@@ -79,6 +79,7 @@ class ComplexTableBox extends HookWidget {
               final rowQuestionCells = questionList
                   .withoutFirst()
                   .toList()
+                  // FIXME asMap entries 很慢
                   .asMap()
                   .entries
                   .map(
@@ -145,43 +146,49 @@ class ComplexTableBox extends HookWidget {
 
     return SliverStickyHeader(
       // H_ title
-      header: Container(
-        color: Theme.of(_context).scaffoldBackgroundColor,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const SizedBox(width: kFirstColumnWidth),
-            Flexible(
-              child: SingleChildScrollView(
-                key: Key(UniqueId.v1().value),
-                scrollDirection: Axis.horizontal,
-                controller: getController('_titleRow'),
-                child: Row(
-                  children: titleQuestionList.value
-                      .map(
-                        (question) => BlocProvider(
-                          create: (context) => QuestionBloc(
-                            question: question,
-                            withinCell: true,
-                            canEdit: !state.isReadOnly && !state.isRecodeModule,
+      header: DelayedWidget(
+        answerBox: true,
+        hideLoadingIndicator: true,
+        child: Container(
+          color: Theme.of(_context).scaffoldBackgroundColor,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(width: kFirstColumnWidth),
+              Flexible(
+                child: SingleChildScrollView(
+                  key: Key(UniqueId.v1().value),
+                  scrollDirection: Axis.horizontal,
+                  controller: getController('_titleRow'),
+                  child: Row(
+                    children: titleQuestionList.value
+                        .map(
+                          (question) => BlocProvider(
+                            create: (context) => QuestionBloc(
+                              question: question,
+                              withinCell: true,
+                              canEdit:
+                                  !state.isReadOnly && !state.isRecodeModule,
+                            ),
+                            child: const QuestionListeners(
+                              child: ComplexCellBox(isTitle: true),
+                            ),
                           ),
-                          child: const QuestionListeners(
-                            child: ComplexCellBox(isTitle: true),
-                          ),
-                        ),
-                      )
-                      .toList(),
+                        )
+                        .toList(),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       // H_ rows
       // NOTE 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
         child: DelayedWidget(
+          answerBox: true,
           child: Column(
             children: rowList.value,
           ),

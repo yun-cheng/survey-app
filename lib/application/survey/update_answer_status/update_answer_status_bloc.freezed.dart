@@ -1023,9 +1023,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.stateCleared'));
+    properties.add(
+        DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.stateCleared'));
   }
 
   @override
@@ -2771,9 +2770,8 @@ class _$_ContentQuestionMapUpdated
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.contentQuestionMapUpdated'));
+    properties.add(DiagnosticsProperty(
+        'type', 'UpdateAnswerStatusEvent.contentQuestionMapUpdated'));
   }
 
   @override
@@ -3066,9 +3064,8 @@ class _$_FinishedButtonPressed
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.finishedButtonPressed'));
+    properties.add(DiagnosticsProperty(
+        'type', 'UpdateAnswerStatusEvent.finishedButtonPressed'));
   }
 
   @override
@@ -3688,9 +3685,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.dialogClosed'));
+    properties.add(
+        DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.dialogClosed'));
   }
 
   @override
@@ -3982,9 +3978,8 @@ class _$_LeaveButtonPressed
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.leaveButtonPressed'));
+    properties.add(DiagnosticsProperty(
+        'type', 'UpdateAnswerStatusEvent.leaveButtonPressed'));
   }
 
   @override
@@ -4276,9 +4271,8 @@ class _$_LeaveButtonHidden
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.leaveButtonHidden'));
+    properties.add(DiagnosticsProperty(
+        'type', 'UpdateAnswerStatusEvent.leaveButtonHidden'));
   }
 
   @override
@@ -4574,9 +4568,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type',
-          'UpdateAnswerStatusEvent.switchedToSamplingWithinHouseholdModule'));
+    properties.add(DiagnosticsProperty('type',
+        'UpdateAnswerStatusEvent.switchedToSamplingWithinHouseholdModule'));
   }
 
   @override
@@ -5855,8 +5848,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.initialized'));
+    properties.add(
+        DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.initialized'));
   }
 
   @override
@@ -6134,6 +6127,7 @@ class _$UpdateAnswerStatusStateTearOff {
       required Set<String> clearAnswerQIdSet,
       required Set<String> pageQIdSet,
       required Set<String> contentQIdSet,
+      required Set<String> showQIdSet,
       required Direction direction,
       required bool finishResponse,
       required DialogType dialogType,
@@ -6174,6 +6168,7 @@ class _$UpdateAnswerStatusStateTearOff {
       clearAnswerQIdSet: clearAnswerQIdSet,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
+      showQIdSet: showQIdSet,
       direction: direction,
       finishResponse: finishResponse,
       dialogType: dialogType,
@@ -6226,6 +6221,7 @@ mixin _$UpdateAnswerStatusState {
   Set<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
   Set<String> get pageQIdSet => throw _privateConstructorUsedError;
   Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  Set<String> get showQIdSet => throw _privateConstructorUsedError;
   Direction get direction => throw _privateConstructorUsedError;
   bool get finishResponse => throw _privateConstructorUsedError;
   DialogType get dialogType => throw _privateConstructorUsedError;
@@ -6281,6 +6277,7 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       Set<String> clearAnswerQIdSet,
       Set<String> pageQIdSet,
       Set<String> contentQIdSet,
+      Set<String> showQIdSet,
       Direction direction,
       bool finishResponse,
       DialogType dialogType,
@@ -6344,6 +6341,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? clearAnswerQIdSet = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
+    Object? showQIdSet = freezed,
     Object? direction = freezed,
     Object? finishResponse = freezed,
     Object? dialogType = freezed,
@@ -6429,6 +6427,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      showQIdSet: showQIdSet == freezed
+          ? _value.showQIdSet
+          : showQIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       direction: direction == freezed
           ? _value.direction
@@ -6623,6 +6625,7 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       Set<String> clearAnswerQIdSet,
       Set<String> pageQIdSet,
       Set<String> contentQIdSet,
+      Set<String> showQIdSet,
       Direction direction,
       bool finishResponse,
       DialogType dialogType,
@@ -6699,6 +6702,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? clearAnswerQIdSet = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
+    Object? showQIdSet = freezed,
     Object? direction = freezed,
     Object? finishResponse = freezed,
     Object? dialogType = freezed,
@@ -6784,6 +6788,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      showQIdSet: showQIdSet == freezed
+          ? _value.showQIdSet
+          : showQIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       direction: direction == freezed
           ? _value.direction
@@ -6905,6 +6913,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.clearAnswerQIdSet,
       required this.pageQIdSet,
       required this.contentQIdSet,
+      required this.showQIdSet,
       required this.direction,
       required this.finishResponse,
       required this.dialogType,
@@ -6963,6 +6972,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   final Set<String> contentQIdSet;
   @override
+  final Set<String> showQIdSet;
+  @override
   final Direction direction;
   @override
   final bool finishResponse;
@@ -7013,7 +7024,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -7036,6 +7047,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('clearAnswerQIdSet', clearAnswerQIdSet))
       ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
       ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
+      ..add(DiagnosticsProperty('showQIdSet', showQIdSet))
       ..add(DiagnosticsProperty('direction', direction))
       ..add(DiagnosticsProperty('finishResponse', finishResponse))
       ..add(DiagnosticsProperty('dialogType', dialogType))
@@ -7093,6 +7105,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
                 .equals(other.pageQIdSet, pageQIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.contentQIdSet, contentQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.showQIdSet, showQIdSet) &&
             const DeepCollectionEquality().equals(other.direction, direction) &&
             const DeepCollectionEquality()
                 .equals(other.finishResponse, finishResponse) &&
@@ -7158,6 +7172,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
         const DeepCollectionEquality().hash(clearAnswerQIdSet),
         const DeepCollectionEquality().hash(pageQIdSet),
         const DeepCollectionEquality().hash(contentQIdSet),
+        const DeepCollectionEquality().hash(showQIdSet),
         const DeepCollectionEquality().hash(direction),
         const DeepCollectionEquality().hash(finishResponse),
         const DeepCollectionEquality().hash(dialogType),
@@ -7208,6 +7223,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
       required Set<String> clearAnswerQIdSet,
       required Set<String> pageQIdSet,
       required Set<String> contentQIdSet,
+      required Set<String> showQIdSet,
       required Direction direction,
       required bool finishResponse,
       required DialogType dialogType,
@@ -7265,6 +7281,8 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   Set<String> get pageQIdSet;
   @override
   Set<String> get contentQIdSet;
+  @override
+  Set<String> get showQIdSet;
   @override
   Direction get direction;
   @override
@@ -7335,6 +7353,7 @@ class _$StateParametersTearOff {
       required bool showWarning,
       required bool pageQIdSet,
       required bool contentQIdSet,
+      required bool showQIdSet,
       required bool showLeaveButton,
       required bool respondent,
       required bool surveyId,
@@ -7357,6 +7376,7 @@ class _$StateParametersTearOff {
       showWarning: showWarning,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
+      showQIdSet: showQIdSet,
       showLeaveButton: showLeaveButton,
       respondent: respondent,
       surveyId: surveyId,
@@ -7388,6 +7408,7 @@ mixin _$StateParameters {
   bool get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
   bool get pageQIdSet => throw _privateConstructorUsedError;
   bool get contentQIdSet => throw _privateConstructorUsedError;
+  bool get showQIdSet => throw _privateConstructorUsedError;
   bool get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   bool get respondent => throw _privateConstructorUsedError;
@@ -7423,6 +7444,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool showWarning,
       bool pageQIdSet,
       bool contentQIdSet,
+      bool showQIdSet,
       bool showLeaveButton,
       bool respondent,
       bool surveyId,
@@ -7457,6 +7479,7 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
+    Object? showQIdSet = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -7512,6 +7535,10 @@ class _$StateParametersCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showQIdSet: showQIdSet == freezed
+          ? _value.showQIdSet
+          : showQIdSet // ignore: cast_nullable_to_non_nullable
               as bool,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -7576,6 +7603,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool showWarning,
       bool pageQIdSet,
       bool contentQIdSet,
+      bool showQIdSet,
       bool showLeaveButton,
       bool respondent,
       bool surveyId,
@@ -7612,6 +7640,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
+    Object? showQIdSet = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -7667,6 +7696,10 @@ class __$StateParametersCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showQIdSet: showQIdSet == freezed
+          ? _value.showQIdSet
+          : showQIdSet // ignore: cast_nullable_to_non_nullable
               as bool,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -7727,6 +7760,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       required this.showWarning,
       required this.pageQIdSet,
       required this.contentQIdSet,
+      required this.showQIdSet,
       required this.showLeaveButton,
       required this.respondent,
       required this.surveyId,
@@ -7762,6 +7796,8 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   @override
   final bool contentQIdSet;
   @override
+  final bool showQIdSet;
+  @override
   final bool showLeaveButton;
   @override // H_ 同 session 不變的參考資料
   final bool respondent;
@@ -7784,7 +7820,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
+    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
   }
 
   @override
@@ -7803,6 +7839,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('showWarning', showWarning))
       ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
       ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
+      ..add(DiagnosticsProperty('showQIdSet', showQIdSet))
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('surveyId', surveyId))
@@ -7840,6 +7877,8 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
             const DeepCollectionEquality()
                 .equals(other.contentQIdSet, contentQIdSet) &&
             const DeepCollectionEquality()
+                .equals(other.showQIdSet, showQIdSet) &&
+            const DeepCollectionEquality()
                 .equals(other.showLeaveButton, showLeaveButton) &&
             const DeepCollectionEquality()
                 .equals(other.respondent, respondent) &&
@@ -7874,6 +7913,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
         const DeepCollectionEquality().hash(showWarning),
         const DeepCollectionEquality().hash(pageQIdSet),
         const DeepCollectionEquality().hash(contentQIdSet),
+        const DeepCollectionEquality().hash(showQIdSet),
         const DeepCollectionEquality().hash(showLeaveButton),
         const DeepCollectionEquality().hash(respondent),
         const DeepCollectionEquality().hash(surveyId),
@@ -7905,6 +7945,7 @@ abstract class _StateParameters extends StateParameters {
       required bool showWarning,
       required bool pageQIdSet,
       required bool contentQIdSet,
+      required bool showQIdSet,
       required bool showLeaveButton,
       required bool respondent,
       required bool surveyId,
@@ -7939,6 +7980,8 @@ abstract class _StateParameters extends StateParameters {
   bool get pageQIdSet;
   @override
   bool get contentQIdSet;
+  @override
+  bool get showQIdSet;
   @override
   bool get showLeaveButton;
   @override // H_ 同 session 不變的參考資料

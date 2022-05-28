@@ -35,6 +35,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
+      List<String>? showQIdSet,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -60,6 +61,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       showWarning: showWarning,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
+      showQIdSet: showQIdSet,
       showLeaveButton: showLeaveButton,
       respondent: respondent,
       surveyId: surveyId,
@@ -101,6 +103,7 @@ mixin _$UpdateAnswerStatusStateDto {
   bool? get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
   List<String>? get pageQIdSet => throw _privateConstructorUsedError;
   List<String>? get contentQIdSet => throw _privateConstructorUsedError;
+  List<String>? get showQIdSet => throw _privateConstructorUsedError;
   bool? get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   RespondentDto? get respondent => throw _privateConstructorUsedError;
@@ -143,6 +146,7 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
+      List<String>? showQIdSet,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -183,6 +187,7 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
+    Object? showQIdSet = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -241,6 +246,10 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      showQIdSet: showQIdSet == freezed
+          ? _value.showQIdSet
+          : showQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -340,6 +349,7 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
+      List<String>? showQIdSet,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -385,6 +395,7 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
+    Object? showQIdSet = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -443,6 +454,10 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      showQIdSet: showQIdSet == freezed
+          ? _value.showQIdSet
+          : showQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -516,6 +531,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       this.showWarning,
       this.pageQIdSet,
       this.contentQIdSet,
+      this.showQIdSet,
       this.showLeaveButton,
       this.respondent,
       this.surveyId,
@@ -557,6 +573,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   final List<String>? contentQIdSet;
   @override
+  final List<String>? showQIdSet;
+  @override
   final bool? showLeaveButton;
   @override // H_ 同 session 不變的參考資料
   final RespondentDto? respondent;
@@ -585,7 +603,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
+    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
   }
 
   @override
@@ -612,6 +630,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
                 .equals(other.pageQIdSet, pageQIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.contentQIdSet, contentQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.showQIdSet, showQIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.showLeaveButton, showLeaveButton) &&
             const DeepCollectionEquality()
@@ -653,6 +673,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
         const DeepCollectionEquality().hash(showWarning),
         const DeepCollectionEquality().hash(pageQIdSet),
         const DeepCollectionEquality().hash(contentQIdSet),
+        const DeepCollectionEquality().hash(showQIdSet),
         const DeepCollectionEquality().hash(showLeaveButton),
         const DeepCollectionEquality().hash(respondent),
         const DeepCollectionEquality().hash(surveyId),
@@ -693,6 +714,7 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
+      List<String>? showQIdSet,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -733,6 +755,8 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   List<String>? get pageQIdSet;
   @override
   List<String>? get contentQIdSet;
+  @override
+  List<String>? get showQIdSet;
   @override
   bool? get showLeaveButton;
   @override // H_ 同 session 不變的參考資料

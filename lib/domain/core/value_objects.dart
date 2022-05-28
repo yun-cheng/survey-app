@@ -67,22 +67,25 @@ class NetworkType with _$NetworkType {
   factory NetworkType.empty() => const NetworkType('');
   factory NetworkType.none() => const NetworkType('none');
   factory NetworkType.wifi() => const NetworkType('wifi');
+  factory NetworkType.ethernet() => const NetworkType('ethernet');
   factory NetworkType.mobile() => const NetworkType('mobile');
 
   factory NetworkType.fromIndex(int index) {
     switch (index) {
-      case 0:
-        return NetworkType.wifi();
       case 1:
-        return NetworkType.mobile();
+        return NetworkType.wifi();
       case 2:
+        return NetworkType.ethernet();
+      case 3:
+        return NetworkType.mobile();
+      case 4:
         return NetworkType.none();
       default:
         return NetworkType.empty();
     }
   }
 
-  bool get isConnected => ['wifi', 'mobile'].contains(value);
+  bool get isConnected => ['wifi', 'ethernet', 'mobile'].contains(value);
 }
 
 @freezed

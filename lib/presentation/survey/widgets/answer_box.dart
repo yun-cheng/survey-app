@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../core/widgets/delayed_widget.dart';
 import 'choices_box.dart';
 import 'date_time_box.dart';
 import 'dropdown_box.dart';
@@ -22,27 +21,25 @@ class AnswerBox extends StatelessWidget {
     final isSpecialAnswer =
         context.select((QuestionBloc bloc) => bloc.state.isSpecialAnswer);
 
-    return DelayedWidget(
-      child: Column(
-        children: [
-          // H_ special answer
-          Visibility(
-            visible: isSpecialAnswer,
-            maintainState: true,
-            child: const PureAnswerBox(
-              isSpecialAnswer: true,
-            ),
+    return Column(
+      children: [
+        // H_ special answer
+        Visibility(
+          visible: isSpecialAnswer,
+          maintainState: true,
+          child: const PureAnswerBox(
+            isSpecialAnswer: true,
           ),
-          // H_ normal answer
-          Visibility(
-            visible: !isSpecialAnswer,
-            maintainState: true,
-            child: const PureAnswerBox(
-              isSpecialAnswer: false,
-            ),
+        ),
+        // H_ normal answer
+        Visibility(
+          visible: !isSpecialAnswer,
+          maintainState: true,
+          child: const PureAnswerBox(
+            isSpecialAnswer: false,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

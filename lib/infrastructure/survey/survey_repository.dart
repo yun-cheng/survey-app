@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart' hide Reference;
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
@@ -46,7 +47,7 @@ class SurveyRepository implements ISurveyRepository {
         .where('interviewerList', arrayContains: interviewerId)
         .snapshots()
         .asyncMap((snapshot) async {
-      if (snapshot.metadata.isFromCache) {
+      if (!kIsWeb && snapshot.metadata.isFromCache) {
         logger('Warning').e('watchSurveyMap: isFromCache');
         return left<SurveyFailure, TRawSurveyMap>(SurveyFailure.noInternet());
       }
@@ -76,7 +77,7 @@ class SurveyRepository implements ISurveyRepository {
 
     yield* compatibilityCollection.doc(appVersion).snapshots().map(
       (doc) {
-        if (doc.metadata.isFromCache) {
+        if (!kIsWeb && doc.metadata.isFromCache) {
           logger('Warning').e('watchSurveyCompatibility: isFromCache');
           return left<SurveyFailure, List<String>>(SurveyFailure.noInternet());
         }
@@ -101,7 +102,7 @@ class SurveyRepository implements ISurveyRepository {
 
     yield* projectCollection.where('teamId', isEqualTo: teamId).snapshots().map(
       (snapshot) {
-        if (snapshot.metadata.isFromCache) {
+        if (!kIsWeb && snapshot.metadata.isFromCache) {
           logger('Warning').e('watchProjectMap: isFromCache');
           return left<SurveyFailure, Map<String, Project>>(
               SurveyFailure.noInternet());

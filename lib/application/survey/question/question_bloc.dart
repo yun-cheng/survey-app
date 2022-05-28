@@ -19,6 +19,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   final bool? isSpecialAnswer;
   final bool withinCell;
   final bool canEdit;
+  final bool shouldDelay;
 
   QuestionBloc({
     required this.question,
@@ -26,6 +27,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     this.isSpecialAnswer = false,
     this.withinCell = false,
     this.canEdit = false,
+    this.shouldDelay = true,
   }) : super(
           QuestionState.initial(
             question: question,
@@ -33,6 +35,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
             isSpecialAnswer: isSpecialAnswer ?? false,
             withinCell: withinCell,
             canEdit: canEdit,
+            shouldDelay: shouldDelay,
           ),
         ) {
     on<QuestionEvent>(_onEvent, transformer: sequential());
@@ -78,11 +81,20 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
             )
             .emit(emit);
       },
-      questionShowed: (e) async {
-        if (!state.show) {
+      qABoxShown: (e) async {
+        if (state.qABoxIsShown != e.value) {
           state
               .copyWith(
-                show: true,
+                qABoxIsShown: e.value,
+              )
+              .emit(emit);
+        }
+      },
+      answerBoxShown: (e) async {
+        if (state.answerBoxIsShown != e.value) {
+          state
+              .copyWith(
+                answerBoxIsShown: e.value,
               )
               .emit(emit);
         }

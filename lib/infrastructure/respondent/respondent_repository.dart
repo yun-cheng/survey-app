@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -26,7 +27,7 @@ class RespondentRepository implements IRespondentRepository {
         .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
         .map((snapshot) {
-      if (snapshot.metadata.isFromCache) {
+      if (!kIsWeb && snapshot.metadata.isFromCache) {
         logger('Warning').e('watchSurveyRespondentMap: isFromCache');
         return left<RespondentFailure, List<Object>>(
             RespondentFailure.noInternet());

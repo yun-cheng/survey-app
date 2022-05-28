@@ -1188,7 +1188,7 @@ class _$_UploadTimerUpdated
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.uploadTimerUpdated'));
+        .add(DiagnosticsProperty('type', 'ResponseEvent.uploadTimerUpdated'));
   }
 
   @override
@@ -1428,7 +1428,7 @@ class _$_ResponseMapUploading
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapUploading'));
+        .add(DiagnosticsProperty('type', 'ResponseEvent.responseMapUploading'));
   }
 
   @override
@@ -3745,7 +3745,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ResponseEvent.loggedOut'));
+    properties.add(DiagnosticsProperty('type', 'ResponseEvent.loggedOut'));
   }
 
   @override
@@ -3981,7 +3981,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ResponseEvent.initialized'));
+    properties.add(DiagnosticsProperty('type', 'ResponseEvent.initialized'));
   }
 
   @override

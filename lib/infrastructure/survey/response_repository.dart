@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -28,7 +29,7 @@ class ResponseRepository implements IResponseRepository {
         .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
         .map((snapshot) {
-      if (snapshot.metadata.isFromCache) {
+      if (!kIsWeb && snapshot.metadata.isFromCache) {
         logger('Warning').e('watchReferenceList: isFromCache');
         return left<SurveyFailure, List<Object>>(SurveyFailure.noInternet());
       }
@@ -55,8 +56,8 @@ class ResponseRepository implements IResponseRepository {
         .where('teamId', isEqualTo: teamId)
         .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
-        .asyncMap((snapshot) async {
-      if (snapshot.metadata.isFromCache) {
+        .map((snapshot) {
+      if (!kIsWeb && snapshot.metadata.isFromCache) {
         logger('Warning').e('watchResponseMap: isFromCache');
         return left<SurveyFailure, List<Object>>(SurveyFailure.noInternet());
       }

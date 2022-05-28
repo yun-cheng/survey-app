@@ -84,6 +84,8 @@ class RespondentState with _$RespondentState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() => RespondentStateDto.fromDomain(this).toJson();
 }
 
 @freezed

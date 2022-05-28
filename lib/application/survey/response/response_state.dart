@@ -107,6 +107,8 @@ class ResponseState with _$ResponseState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() => ResponseStateDto.fromDomain(this).toJson();
 }
 
 // H_ 參數狀態

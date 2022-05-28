@@ -31,21 +31,15 @@ class SimpleTableQARow extends StatelessWidget {
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
-          final pAnswerStatus = p.answerStatusMap[questionId];
-          final cAnswerStatus = c.answerStatusMap[questionId];
-
-          // S_ 在該題變換顯示/隱藏時才需要 rebuild
-          return cAnswerStatus != null &&
-              pAnswerStatus?.isHidden != cAnswerStatus.isHidden;
+          return p.showQIdSet.contains(questionId) !=
+              c.showQIdSet.contains(questionId);
         }
         return false;
       },
       builder: (context, state) {
         logger('Build').i('SimpleTableRow');
 
-        final isNotHidden =
-            (state.answerStatusMap[questionId] ?? AnswerStatus.empty())
-                .isNotHidden;
+        final isNotHidden = state.showQIdSet.contains(questionId);
 
         if (isNotHidden) {
           return VisibilityDetector(
@@ -54,7 +48,7 @@ class SimpleTableQARow extends StatelessWidget {
               if (info.visibleFraction > 0) {
                 context
                     .read<QuestionBloc>()
-                    .add(const QuestionEvent.questionShowed());
+                    .add(const QuestionEvent.qABoxShown(true));
               }
             },
             child: Row(

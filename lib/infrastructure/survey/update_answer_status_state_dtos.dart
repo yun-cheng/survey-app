@@ -36,6 +36,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     // H_ 中間資料
     List<String>? pageQIdSet,
     List<String>? contentQIdSet,
+    List<String>? showQIdSet,
     bool? showLeaveButton,
     // H_ 同 session 不變的參考資料
     RespondentDto? respondent,
@@ -92,6 +93,9 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       contentQIdSet: domain.saveParameters.contentQIdSet
           ? domain.contentQIdSet.toList()
           : null,
+      showQIdSet: domain.saveParameters.showQIdSet
+          ? domain.showQIdSet.toList()
+          : null,
       showLeaveButton:
           domain.saveParameters.showLeaveButton ? domain.showLeaveButton : null,
       // H_ 同 session 不變的參考資料
@@ -141,6 +145,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       // H_ 中間資料
       pageQIdSet: pageQIdSet?.toSet() ?? initial.pageQIdSet,
       contentQIdSet: contentQIdSet?.toSet() ?? initial.contentQIdSet,
+      showQIdSet: showQIdSet?.toSet() ?? initial.showQIdSet,
       showLeaveButton: showLeaveButton ?? initial.showLeaveButton,
       // H_ 同 session 不變的參考資料
       respondent: respondent?.toDomain() ?? initial.respondent,

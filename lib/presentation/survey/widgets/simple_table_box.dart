@@ -75,7 +75,8 @@ class SimpleTableBox extends HookWidget {
 
     return SliverStickyHeader(
       header: DelayedWidget(
-        noReplacement: true,
+        answerBox: true,
+        hideLoadingIndicator: true,
         child: Container(
           color: Theme.of(_context).scaffoldBackgroundColor,
           child: Row(
@@ -112,6 +113,7 @@ class SimpleTableBox extends HookWidget {
       // NOTE 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
         child: DelayedWidget(
+          answerBox: true,
           child: Column(
             children: tableQuestionList.value
                 .map(

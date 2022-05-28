@@ -50,4 +50,7 @@ class RespondentsPageState with _$RespondentsPageState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() =>
+      RespondentsPageStateDto.fromDomain(this).toJson();
 }

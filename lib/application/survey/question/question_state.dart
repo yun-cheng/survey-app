@@ -11,7 +11,8 @@ class QuestionState with _$QuestionState {
     required bool isSpecialAnswer,
     required bool withinCell,
     required bool canEdit,
-    required bool show,
+    required bool qABoxIsShown,
+    required bool answerBoxIsShown,
   }) = _QuestionState;
 
   factory QuestionState.empty() => QuestionState(
@@ -21,7 +22,8 @@ class QuestionState with _$QuestionState {
         isSpecialAnswer: false,
         withinCell: false,
         canEdit: false,
-        show: false,
+        qABoxIsShown: false,
+        answerBoxIsShown: false,
       );
 
   factory QuestionState.initial({
@@ -30,6 +32,7 @@ class QuestionState with _$QuestionState {
     required bool isSpecialAnswer,
     required bool withinCell,
     required bool canEdit,
+    required bool shouldDelay,
   }) =>
       QuestionState(
         stateId: UniqueId.v1(),
@@ -38,7 +41,8 @@ class QuestionState with _$QuestionState {
         isSpecialAnswer: isSpecialAnswer,
         withinCell: withinCell,
         canEdit: canEdit,
-        show: false,
+        qABoxIsShown: !shouldDelay,
+        answerBoxIsShown: false,
       );
 
   void emit(Emitter<QuestionState> emit) {

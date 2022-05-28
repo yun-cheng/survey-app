@@ -64,6 +64,19 @@ class QuestionListeners extends StatelessWidget {
                   .add(const QuestionEvent.clearAnswer());
             }
           },
+        ),
+        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+          listenWhen: (p, c) =>
+              p.showQIdSet.contains(questionId) !=
+              c.showQIdSet.contains(questionId),
+          listener: (context, state) {
+            context
+                .read<QuestionBloc>()
+                .add(const QuestionEvent.qABoxShown(false));
+            context
+                .read<QuestionBloc>()
+                .add(const QuestionEvent.answerBoxShown(false));
+          },
         )
       ],
       child: child,

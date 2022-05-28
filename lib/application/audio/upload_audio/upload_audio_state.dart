@@ -56,4 +56,6 @@ class UploadAudioState with _$UploadAudioState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() => UploadAudioStateDto.fromDomain(this).toJson();
 }

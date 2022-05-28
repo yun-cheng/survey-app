@@ -123,14 +123,21 @@ UpdateAnswerStatusState pageUpdated(UpdateAnswerStatusState state) {
     pageQIdSet = questionMap.keys.toSet();
   }
 
+  // - 重新篩選該頁顯示題目
+  final showQIdSet = pageQIdSet
+      .filter((q) => !(answerStatusMap[q]?.isHidden ?? false))
+      .toSet();
+
   return state.copyWith(
     page: newPage,
     newestPage: newestPage,
     pageQIdSet: pageQIdSet,
+    showQIdSet: showQIdSet,
     saveParameters: state.saveParameters.copyWith(
       page: true,
       newestPage: true,
       pageQIdSet: true,
+      showQIdSet: true,
     ),
   );
 }

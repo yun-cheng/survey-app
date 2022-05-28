@@ -66,4 +66,6 @@ class AuthState with _$AuthState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+
+  Map<String, dynamic> toMap() => AuthStateDto.fromDomain(this).toJson();
 }

@@ -347,7 +347,7 @@ class _$_AudioUploading
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.audioUploading'));
+        .add(DiagnosticsProperty('type', 'UploadAudioEvent.audioUploading'));
   }
 
   @override
@@ -831,7 +831,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'UploadAudioEvent.loggedOut'));
+    properties.add(DiagnosticsProperty('type', 'UploadAudioEvent.loggedOut'));
   }
 
   @override
@@ -967,8 +967,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.initialized'));
+    properties.add(DiagnosticsProperty('type', 'UploadAudioEvent.initialized'));
   }
 
   @override

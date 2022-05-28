@@ -9,6 +9,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../listeners/question_listeners.dart';
+import 'delayed_qa_widget.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
@@ -35,55 +36,63 @@ class SurveyBody extends StatelessWidget {
                   c.updateState == LoadState.success()) &&
               p.page != c.page),
       builder: (context, state) {
-        if (state.restoreState == LoadState.success()) {
-          logger('Build').i('SurveyBody: List of QaCard');
+        if (state.restoreState != LoadState.success()) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
 
-          // S_ 每次換頁時移至頂部
-          // FIXME https://stackoverflow.com/a/61137589
-          Future.delayed(Duration.zero, () async {
-            scrollController.jumpTo(0);
-          });
+        logger('Build').i('SurveyBody: List of QaCard');
 
-          final pageQuestionList = state.pageQIdSet
-              .map((questionId) => state.questionMap[questionId]!)
-              .filter((question) =>
-                  question.tableId == '' ||
-                  (question.tableId != '' && question.type.isTable))
-              .toList();
+        // S_ 每次換頁時移至頂部
+        // FIXME https://stackoverflow.com/a/61137589
+        Future.delayed(Duration.zero, () async {
+          scrollController.jumpTo(0);
+        });
 
-          return CustomScrollView(
-            // NOTE 避免換頁時部分 child widget 沒有 rebuild
-            key: ValueKey(state.page),
-            controller: scrollController,
-            slivers: <Widget>[
-              // NOTE 必須要加在這邊，而不是 SurveyPage，才不會在頂端佔據一段空白
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 25.0),
-              ),
-              ...pageQuestionList
-                  .mapIndexed(
-                    (index, question) => BlocProvider(
+        final pageQuestionList = state.pageQIdSet
+            .map((questionId) => state.questionMap[questionId]!)
+            .filter((question) =>
+                question.tableId == '' ||
+                (question.tableId != '' && question.type.isTable))
+            .toList();
+
+        return CustomScrollView(
+          // NOTE 避免換頁時部分 child widget 沒有 rebuild
+          key: ValueKey(state.page),
+          controller: scrollController,
+          slivers: <Widget>[
+            // NOTE 必須要加在這邊，而不是 SurveyPage，才不會在頂端佔據一段空白
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 25.0),
+            ),
+            ...pageQuestionList
+                .mapIndexed(
+                  (index, question) => [
+                    BlocProvider(
                       create: (context) => QuestionBloc(
                         question: question,
                         answer: state.answerMap[question.id],
                         isSpecialAnswer:
                             state.answerStatusMap[question.id]?.isSpecialAnswer,
                         canEdit: !state.isReadOnly && !state.isRecodeModule,
+                        shouldDelay: question.id != state.showQIdSet.first,
                       ),
                       child: QuestionListeners(
-                        child: QaCard(
-                          questionIndex: index,
-                          scrollController: scrollController,
+                        child: DelayedQaWidget(
+                          isSliver: true,
+                          child: QaCard(
+                            questionIndex: index,
+                            scrollController: scrollController,
+                          ),
                         ),
                       ),
                     ),
-                  )
-                  .toList(),
-            ],
-          );
-        }
-        return const Center(
-          child: CircularProgressIndicator(),
+                  ],
+                )
+                .expand((i) => i)
+                .toList(),
+          ],
         );
       },
     );

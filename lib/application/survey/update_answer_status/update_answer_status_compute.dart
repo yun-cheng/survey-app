@@ -28,6 +28,18 @@ UpdateAnswerStatusState answerStatusMapUpdated(
   if (!state.isRecodeModule) {
     state = chainQuestionChecked(state);
     state = showQuestionChecked(state, children: true);
+
+    // - 重新篩選該頁顯示題目
+    final showQIdSet = state.pageQIdSet
+        .filter((q) => !(state.answerStatusMap[q]?.isHidden ?? false))
+        .toSet();
+
+    state = state.copyWith(
+      showQIdSet: showQIdSet,
+      saveParameters: state.saveParameters.copyWith(
+        showQIdSet: true,
+      ),
+    );
   }
 
   return state;
