@@ -12,28 +12,7 @@ part of 'warning.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$WarningTearOff {
-  const _$WarningTearOff();
-
-  _Warning call(
-      {required String id,
-      required int serialNumber,
-      required int pageNumber,
-      required WarningType type}) {
-    return _Warning(
-      id: id,
-      serialNumber: serialNumber,
-      pageNumber: pageNumber,
-      type: type,
-    );
-  }
-}
-
-/// @nodoc
-const $Warning = _$WarningTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Warning {
@@ -99,9 +78,10 @@ class _$WarningCopyWithImpl<$Res> implements $WarningCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$WarningCopyWith<$Res> implements $WarningCopyWith<$Res> {
-  factory _$WarningCopyWith(_Warning value, $Res Function(_Warning) then) =
-      __$WarningCopyWithImpl<$Res>;
+abstract class _$$_WarningCopyWith<$Res> implements $WarningCopyWith<$Res> {
+  factory _$$_WarningCopyWith(
+          _$_Warning value, $Res Function(_$_Warning) then) =
+      __$$_WarningCopyWithImpl<$Res>;
   @override
   $Res call({String id, int serialNumber, int pageNumber, WarningType type});
 
@@ -110,13 +90,13 @@ abstract class _$WarningCopyWith<$Res> implements $WarningCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$WarningCopyWithImpl<$Res> extends _$WarningCopyWithImpl<$Res>
-    implements _$WarningCopyWith<$Res> {
-  __$WarningCopyWithImpl(_Warning _value, $Res Function(_Warning) _then)
-      : super(_value, (v) => _then(v as _Warning));
+class __$$_WarningCopyWithImpl<$Res> extends _$WarningCopyWithImpl<$Res>
+    implements _$$_WarningCopyWith<$Res> {
+  __$$_WarningCopyWithImpl(_$_Warning _value, $Res Function(_$_Warning) _then)
+      : super(_value, (v) => _then(v as _$_Warning));
 
   @override
-  _Warning get _value => super._value as _Warning;
+  _$_Warning get _value => super._value as _$_Warning;
 
   @override
   $Res call({
@@ -125,7 +105,7 @@ class __$WarningCopyWithImpl<$Res> extends _$WarningCopyWithImpl<$Res>
     Object? pageNumber = freezed,
     Object? type = freezed,
   }) {
-    return _then(_Warning(
+    return _then(_$_Warning(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -174,7 +154,7 @@ class _$_Warning extends _Warning {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Warning &&
+            other is _$_Warning &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.serialNumber, serialNumber) &&
@@ -193,28 +173,28 @@ class _$_Warning extends _Warning {
 
   @JsonKey(ignore: true)
   @override
-  _$WarningCopyWith<_Warning> get copyWith =>
-      __$WarningCopyWithImpl<_Warning>(this, _$identity);
+  _$$_WarningCopyWith<_$_Warning> get copyWith =>
+      __$$_WarningCopyWithImpl<_$_Warning>(this, _$identity);
 }
 
 abstract class _Warning extends Warning {
   const factory _Warning(
-      {required String id,
-      required int serialNumber,
-      required int pageNumber,
-      required WarningType type}) = _$_Warning;
+      {required final String id,
+      required final int serialNumber,
+      required final int pageNumber,
+      required final WarningType type}) = _$_Warning;
   const _Warning._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  int get pageNumber;
+  int get pageNumber => throw _privateConstructorUsedError;
   @override
-  WarningType get type;
+  WarningType get type => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WarningCopyWith<_Warning> get copyWith =>
+  _$$_WarningCopyWith<_$_Warning> get copyWith =>
       throw _privateConstructorUsedError;
 }

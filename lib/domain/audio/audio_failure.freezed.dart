@@ -12,21 +12,7 @@ part of 'audio_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AudioFailureTearOff {
-  const _$AudioFailureTearOff();
-
-  _AudioFailure call(String value) {
-    return _AudioFailure(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $AudioFailure = _$AudioFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AudioFailure {
@@ -67,30 +53,31 @@ class _$AudioFailureCopyWithImpl<$Res> implements $AudioFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AudioFailureCopyWith<$Res>
+abstract class _$$_AudioFailureCopyWith<$Res>
     implements $AudioFailureCopyWith<$Res> {
-  factory _$AudioFailureCopyWith(
-          _AudioFailure value, $Res Function(_AudioFailure) then) =
-      __$AudioFailureCopyWithImpl<$Res>;
+  factory _$$_AudioFailureCopyWith(
+          _$_AudioFailure value, $Res Function(_$_AudioFailure) then) =
+      __$$_AudioFailureCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$AudioFailureCopyWithImpl<$Res> extends _$AudioFailureCopyWithImpl<$Res>
-    implements _$AudioFailureCopyWith<$Res> {
-  __$AudioFailureCopyWithImpl(
-      _AudioFailure _value, $Res Function(_AudioFailure) _then)
-      : super(_value, (v) => _then(v as _AudioFailure));
+class __$$_AudioFailureCopyWithImpl<$Res>
+    extends _$AudioFailureCopyWithImpl<$Res>
+    implements _$$_AudioFailureCopyWith<$Res> {
+  __$$_AudioFailureCopyWithImpl(
+      _$_AudioFailure _value, $Res Function(_$_AudioFailure) _then)
+      : super(_value, (v) => _then(v as _$_AudioFailure));
 
   @override
-  _AudioFailure get _value => super._value as _AudioFailure;
+  _$_AudioFailure get _value => super._value as _$_AudioFailure;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_AudioFailure(
+    return _then(_$_AudioFailure(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -116,7 +103,7 @@ class _$_AudioFailure extends _AudioFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AudioFailure &&
+            other is _$_AudioFailure &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -126,18 +113,18 @@ class _$_AudioFailure extends _AudioFailure {
 
   @JsonKey(ignore: true)
   @override
-  _$AudioFailureCopyWith<_AudioFailure> get copyWith =>
-      __$AudioFailureCopyWithImpl<_AudioFailure>(this, _$identity);
+  _$$_AudioFailureCopyWith<_$_AudioFailure> get copyWith =>
+      __$$_AudioFailureCopyWithImpl<_$_AudioFailure>(this, _$identity);
 }
 
 abstract class _AudioFailure extends AudioFailure {
-  const factory _AudioFailure(String value) = _$_AudioFailure;
+  const factory _AudioFailure(final String value) = _$_AudioFailure;
   const _AudioFailure._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AudioFailureCopyWith<_AudioFailure> get copyWith =>
+  _$$_AudioFailureCopyWith<_$_AudioFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

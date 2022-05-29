@@ -12,42 +12,11 @@ part of 'answer_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AnswerDto _$AnswerDtoFromJson(Map<String, dynamic> json) {
   return _AnswerDto.fromJson(json);
 }
-
-/// @nodoc
-class _$AnswerDtoTearOff {
-  const _$AnswerDtoTearOff();
-
-  _AnswerDto call(
-      {String? type,
-      bool? withNote,
-      String? stringValue,
-      int? intValue,
-      SimpleChoiceDto? choiceValue,
-      List<SimpleChoiceDto>? choiceListValue,
-      Map<String, String>? noteMap}) {
-    return _AnswerDto(
-      type: type,
-      withNote: withNote,
-      stringValue: stringValue,
-      intValue: intValue,
-      choiceValue: choiceValue,
-      choiceListValue: choiceListValue,
-      noteMap: noteMap,
-    );
-  }
-
-  AnswerDto fromJson(Map<String, Object?> json) {
-    return AnswerDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AnswerDto = _$AnswerDtoTearOff();
 
 /// @nodoc
 mixin _$AnswerDto {
@@ -145,10 +114,10 @@ class _$AnswerDtoCopyWithImpl<$Res> implements $AnswerDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AnswerDtoCopyWith<$Res> implements $AnswerDtoCopyWith<$Res> {
-  factory _$AnswerDtoCopyWith(
-          _AnswerDto value, $Res Function(_AnswerDto) then) =
-      __$AnswerDtoCopyWithImpl<$Res>;
+abstract class _$$_AnswerDtoCopyWith<$Res> implements $AnswerDtoCopyWith<$Res> {
+  factory _$$_AnswerDtoCopyWith(
+          _$_AnswerDto value, $Res Function(_$_AnswerDto) then) =
+      __$$_AnswerDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? type,
@@ -164,13 +133,14 @@ abstract class _$AnswerDtoCopyWith<$Res> implements $AnswerDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AnswerDtoCopyWithImpl<$Res> extends _$AnswerDtoCopyWithImpl<$Res>
-    implements _$AnswerDtoCopyWith<$Res> {
-  __$AnswerDtoCopyWithImpl(_AnswerDto _value, $Res Function(_AnswerDto) _then)
-      : super(_value, (v) => _then(v as _AnswerDto));
+class __$$_AnswerDtoCopyWithImpl<$Res> extends _$AnswerDtoCopyWithImpl<$Res>
+    implements _$$_AnswerDtoCopyWith<$Res> {
+  __$$_AnswerDtoCopyWithImpl(
+      _$_AnswerDto _value, $Res Function(_$_AnswerDto) _then)
+      : super(_value, (v) => _then(v as _$_AnswerDto));
 
   @override
-  _AnswerDto get _value => super._value as _AnswerDto;
+  _$_AnswerDto get _value => super._value as _$_AnswerDto;
 
   @override
   $Res call({
@@ -182,7 +152,7 @@ class __$AnswerDtoCopyWithImpl<$Res> extends _$AnswerDtoCopyWithImpl<$Res>
     Object? choiceListValue = freezed,
     Object? noteMap = freezed,
   }) {
-    return _then(_AnswerDto(
+    return _then(_$_AnswerDto(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -204,11 +174,11 @@ class __$AnswerDtoCopyWithImpl<$Res> extends _$AnswerDtoCopyWithImpl<$Res>
           : choiceValue // ignore: cast_nullable_to_non_nullable
               as SimpleChoiceDto?,
       choiceListValue: choiceListValue == freezed
-          ? _value.choiceListValue
+          ? _value._choiceListValue
           : choiceListValue // ignore: cast_nullable_to_non_nullable
               as List<SimpleChoiceDto>?,
       noteMap: noteMap == freezed
-          ? _value.noteMap
+          ? _value._noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
               as Map<String, String>?,
     ));
@@ -224,9 +194,11 @@ class _$_AnswerDto extends _AnswerDto {
       this.stringValue,
       this.intValue,
       this.choiceValue,
-      this.choiceListValue,
-      this.noteMap})
-      : super._();
+      final List<SimpleChoiceDto>? choiceListValue,
+      final Map<String, String>? noteMap})
+      : _choiceListValue = choiceListValue,
+        _noteMap = noteMap,
+        super._();
 
   factory _$_AnswerDto.fromJson(Map<String, dynamic> json) =>
       _$$_AnswerDtoFromJson(json);
@@ -241,10 +213,23 @@ class _$_AnswerDto extends _AnswerDto {
   final int? intValue;
   @override
   final SimpleChoiceDto? choiceValue;
+  final List<SimpleChoiceDto>? _choiceListValue;
   @override
-  final List<SimpleChoiceDto>? choiceListValue;
+  List<SimpleChoiceDto>? get choiceListValue {
+    final value = _choiceListValue;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final Map<String, String>? _noteMap;
   @override
-  final Map<String, String>? noteMap;
+  Map<String, String>? get noteMap {
+    final value = _noteMap;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -255,7 +240,7 @@ class _$_AnswerDto extends _AnswerDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnswerDto &&
+            other is _$_AnswerDto &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.withNote, withNote) &&
             const DeepCollectionEquality()
@@ -264,10 +249,11 @@ class _$_AnswerDto extends _AnswerDto {
             const DeepCollectionEquality()
                 .equals(other.choiceValue, choiceValue) &&
             const DeepCollectionEquality()
-                .equals(other.choiceListValue, choiceListValue) &&
-            const DeepCollectionEquality().equals(other.noteMap, noteMap));
+                .equals(other._choiceListValue, _choiceListValue) &&
+            const DeepCollectionEquality().equals(other._noteMap, _noteMap));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -276,13 +262,13 @@ class _$_AnswerDto extends _AnswerDto {
       const DeepCollectionEquality().hash(stringValue),
       const DeepCollectionEquality().hash(intValue),
       const DeepCollectionEquality().hash(choiceValue),
-      const DeepCollectionEquality().hash(choiceListValue),
-      const DeepCollectionEquality().hash(noteMap));
+      const DeepCollectionEquality().hash(_choiceListValue),
+      const DeepCollectionEquality().hash(_noteMap));
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerDtoCopyWith<_AnswerDto> get copyWith =>
-      __$AnswerDtoCopyWithImpl<_AnswerDto>(this, _$identity);
+  _$$_AnswerDtoCopyWith<_$_AnswerDto> get copyWith =>
+      __$$_AnswerDtoCopyWithImpl<_$_AnswerDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -292,34 +278,35 @@ class _$_AnswerDto extends _AnswerDto {
 
 abstract class _AnswerDto extends AnswerDto {
   const factory _AnswerDto(
-      {String? type,
-      bool? withNote,
-      String? stringValue,
-      int? intValue,
-      SimpleChoiceDto? choiceValue,
-      List<SimpleChoiceDto>? choiceListValue,
-      Map<String, String>? noteMap}) = _$_AnswerDto;
+      {final String? type,
+      final bool? withNote,
+      final String? stringValue,
+      final int? intValue,
+      final SimpleChoiceDto? choiceValue,
+      final List<SimpleChoiceDto>? choiceListValue,
+      final Map<String, String>? noteMap}) = _$_AnswerDto;
   const _AnswerDto._() : super._();
 
   factory _AnswerDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerDto.fromJson;
 
   @override
-  String? get type;
+  String? get type => throw _privateConstructorUsedError;
   @override
-  bool? get withNote;
+  bool? get withNote => throw _privateConstructorUsedError;
   @override
-  String? get stringValue;
+  String? get stringValue => throw _privateConstructorUsedError;
   @override
-  int? get intValue;
+  int? get intValue => throw _privateConstructorUsedError;
   @override
-  SimpleChoiceDto? get choiceValue;
+  SimpleChoiceDto? get choiceValue => throw _privateConstructorUsedError;
   @override
-  List<SimpleChoiceDto>? get choiceListValue;
+  List<SimpleChoiceDto>? get choiceListValue =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, String>? get noteMap;
+  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AnswerDtoCopyWith<_AnswerDto> get copyWith =>
+  _$$_AnswerDtoCopyWith<_$_AnswerDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

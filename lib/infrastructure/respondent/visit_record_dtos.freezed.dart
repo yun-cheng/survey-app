@@ -12,38 +12,11 @@ part of 'visit_record_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VisitRecordDto _$VisitRecordDtoFromJson(Map<String, dynamic> json) {
   return _VisitRecordDto.fromJson(json);
 }
-
-/// @nodoc
-class _$VisitRecordDtoTearOff {
-  const _$VisitRecordDtoTearOff();
-
-  _VisitRecordDto call(
-      {required String respondentId,
-      required String responseId,
-      required VisitTimeDto visitTime,
-      required String status,
-      required String description}) {
-    return _VisitRecordDto(
-      respondentId: respondentId,
-      responseId: responseId,
-      visitTime: visitTime,
-      status: status,
-      description: description,
-    );
-  }
-
-  VisitRecordDto fromJson(Map<String, Object?> json) {
-    return VisitRecordDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $VisitRecordDto = _$VisitRecordDtoTearOff();
 
 /// @nodoc
 mixin _$VisitRecordDto {
@@ -124,11 +97,11 @@ class _$VisitRecordDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$VisitRecordDtoCopyWith<$Res>
+abstract class _$$_VisitRecordDtoCopyWith<$Res>
     implements $VisitRecordDtoCopyWith<$Res> {
-  factory _$VisitRecordDtoCopyWith(
-          _VisitRecordDto value, $Res Function(_VisitRecordDto) then) =
-      __$VisitRecordDtoCopyWithImpl<$Res>;
+  factory _$$_VisitRecordDtoCopyWith(
+          _$_VisitRecordDto value, $Res Function(_$_VisitRecordDto) then) =
+      __$$_VisitRecordDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String respondentId,
@@ -142,15 +115,15 @@ abstract class _$VisitRecordDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$VisitRecordDtoCopyWithImpl<$Res>
+class __$$_VisitRecordDtoCopyWithImpl<$Res>
     extends _$VisitRecordDtoCopyWithImpl<$Res>
-    implements _$VisitRecordDtoCopyWith<$Res> {
-  __$VisitRecordDtoCopyWithImpl(
-      _VisitRecordDto _value, $Res Function(_VisitRecordDto) _then)
-      : super(_value, (v) => _then(v as _VisitRecordDto));
+    implements _$$_VisitRecordDtoCopyWith<$Res> {
+  __$$_VisitRecordDtoCopyWithImpl(
+      _$_VisitRecordDto _value, $Res Function(_$_VisitRecordDto) _then)
+      : super(_value, (v) => _then(v as _$_VisitRecordDto));
 
   @override
-  _VisitRecordDto get _value => super._value as _VisitRecordDto;
+  _$_VisitRecordDto get _value => super._value as _$_VisitRecordDto;
 
   @override
   $Res call({
@@ -160,7 +133,7 @@ class __$VisitRecordDtoCopyWithImpl<$Res>
     Object? status = freezed,
     Object? description = freezed,
   }) {
-    return _then(_VisitRecordDto(
+    return _then(_$_VisitRecordDto(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -219,7 +192,7 @@ class _$_VisitRecordDto extends _VisitRecordDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VisitRecordDto &&
+            other is _$_VisitRecordDto &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality()
@@ -230,6 +203,7 @@ class _$_VisitRecordDto extends _VisitRecordDto {
                 .equals(other.description, description));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -241,8 +215,8 @@ class _$_VisitRecordDto extends _VisitRecordDto {
 
   @JsonKey(ignore: true)
   @override
-  _$VisitRecordDtoCopyWith<_VisitRecordDto> get copyWith =>
-      __$VisitRecordDtoCopyWithImpl<_VisitRecordDto>(this, _$identity);
+  _$$_VisitRecordDtoCopyWith<_$_VisitRecordDto> get copyWith =>
+      __$$_VisitRecordDtoCopyWithImpl<_$_VisitRecordDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -252,28 +226,28 @@ class _$_VisitRecordDto extends _VisitRecordDto {
 
 abstract class _VisitRecordDto extends VisitRecordDto {
   const factory _VisitRecordDto(
-      {required String respondentId,
-      required String responseId,
-      required VisitTimeDto visitTime,
-      required String status,
-      required String description}) = _$_VisitRecordDto;
+      {required final String respondentId,
+      required final String responseId,
+      required final VisitTimeDto visitTime,
+      required final String status,
+      required final String description}) = _$_VisitRecordDto;
   const _VisitRecordDto._() : super._();
 
   factory _VisitRecordDto.fromJson(Map<String, dynamic> json) =
       _$_VisitRecordDto.fromJson;
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get responseId;
+  String get responseId => throw _privateConstructorUsedError;
   @override
-  VisitTimeDto get visitTime;
+  VisitTimeDto get visitTime => throw _privateConstructorUsedError;
   @override
-  String get status;
+  String get status => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$VisitRecordDtoCopyWith<_VisitRecordDto> get copyWith =>
+  _$$_VisitRecordDtoCopyWith<_$_VisitRecordDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

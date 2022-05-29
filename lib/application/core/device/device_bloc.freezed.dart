@@ -12,31 +12,7 @@ part of 'device_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$DeviceEventTearOff {
-  const _$DeviceEventTearOff();
-
-  _WatchNetworkStarted watchNetworkStarted() {
-    return const _WatchNetworkStarted();
-  }
-
-  _NetworkChanged networkChanged(int resultIndex) {
-    return _NetworkChanged(
-      resultIndex,
-    );
-  }
-
-  _AppLifeCycleChanged appLifeCycleChanged(AppLifecycleState appLifeCycle) {
-    return _AppLifeCycleChanged(
-      appLifeCycle,
-    );
-  }
-}
-
-/// @nodoc
-const $DeviceEvent = _$DeviceEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$DeviceEvent {
@@ -104,22 +80,22 @@ class _$DeviceEventCopyWithImpl<$Res> implements $DeviceEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$WatchNetworkStartedCopyWith<$Res> {
-  factory _$WatchNetworkStartedCopyWith(_WatchNetworkStarted value,
-          $Res Function(_WatchNetworkStarted) then) =
-      __$WatchNetworkStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchNetworkStartedCopyWith<$Res> {
+  factory _$$_WatchNetworkStartedCopyWith(_$_WatchNetworkStarted value,
+          $Res Function(_$_WatchNetworkStarted) then) =
+      __$$_WatchNetworkStartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WatchNetworkStartedCopyWithImpl<$Res>
+class __$$_WatchNetworkStartedCopyWithImpl<$Res>
     extends _$DeviceEventCopyWithImpl<$Res>
-    implements _$WatchNetworkStartedCopyWith<$Res> {
-  __$WatchNetworkStartedCopyWithImpl(
-      _WatchNetworkStarted _value, $Res Function(_WatchNetworkStarted) _then)
-      : super(_value, (v) => _then(v as _WatchNetworkStarted));
+    implements _$$_WatchNetworkStartedCopyWith<$Res> {
+  __$$_WatchNetworkStartedCopyWithImpl(_$_WatchNetworkStarted _value,
+      $Res Function(_$_WatchNetworkStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchNetworkStarted));
 
   @override
-  _WatchNetworkStarted get _value => super._value as _WatchNetworkStarted;
+  _$_WatchNetworkStarted get _value => super._value as _$_WatchNetworkStarted;
 }
 
 /// @nodoc
@@ -135,7 +111,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WatchNetworkStarted);
+        (other.runtimeType == runtimeType && other is _$_WatchNetworkStarted);
   }
 
   @override
@@ -216,29 +192,29 @@ abstract class _WatchNetworkStarted implements DeviceEvent {
 }
 
 /// @nodoc
-abstract class _$NetworkChangedCopyWith<$Res> {
-  factory _$NetworkChangedCopyWith(
-          _NetworkChanged value, $Res Function(_NetworkChanged) then) =
-      __$NetworkChangedCopyWithImpl<$Res>;
+abstract class _$$_NetworkChangedCopyWith<$Res> {
+  factory _$$_NetworkChangedCopyWith(
+          _$_NetworkChanged value, $Res Function(_$_NetworkChanged) then) =
+      __$$_NetworkChangedCopyWithImpl<$Res>;
   $Res call({int resultIndex});
 }
 
 /// @nodoc
-class __$NetworkChangedCopyWithImpl<$Res>
+class __$$_NetworkChangedCopyWithImpl<$Res>
     extends _$DeviceEventCopyWithImpl<$Res>
-    implements _$NetworkChangedCopyWith<$Res> {
-  __$NetworkChangedCopyWithImpl(
-      _NetworkChanged _value, $Res Function(_NetworkChanged) _then)
-      : super(_value, (v) => _then(v as _NetworkChanged));
+    implements _$$_NetworkChangedCopyWith<$Res> {
+  __$$_NetworkChangedCopyWithImpl(
+      _$_NetworkChanged _value, $Res Function(_$_NetworkChanged) _then)
+      : super(_value, (v) => _then(v as _$_NetworkChanged));
 
   @override
-  _NetworkChanged get _value => super._value as _NetworkChanged;
+  _$_NetworkChanged get _value => super._value as _$_NetworkChanged;
 
   @override
   $Res call({
     Object? resultIndex = freezed,
   }) {
-    return _then(_NetworkChanged(
+    return _then(_$_NetworkChanged(
       resultIndex == freezed
           ? _value.resultIndex
           : resultIndex // ignore: cast_nullable_to_non_nullable
@@ -264,7 +240,7 @@ class _$_NetworkChanged implements _NetworkChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NetworkChanged &&
+            other is _$_NetworkChanged &&
             const DeepCollectionEquality()
                 .equals(other.resultIndex, resultIndex));
   }
@@ -275,8 +251,8 @@ class _$_NetworkChanged implements _NetworkChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$NetworkChangedCopyWith<_NetworkChanged> get copyWith =>
-      __$NetworkChangedCopyWithImpl<_NetworkChanged>(this, _$identity);
+  _$$_NetworkChangedCopyWith<_$_NetworkChanged> get copyWith =>
+      __$$_NetworkChangedCopyWithImpl<_$_NetworkChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -349,38 +325,38 @@ class _$_NetworkChanged implements _NetworkChanged {
 }
 
 abstract class _NetworkChanged implements DeviceEvent {
-  const factory _NetworkChanged(int resultIndex) = _$_NetworkChanged;
+  const factory _NetworkChanged(final int resultIndex) = _$_NetworkChanged;
 
-  int get resultIndex;
+  int get resultIndex => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$NetworkChangedCopyWith<_NetworkChanged> get copyWith =>
+  _$$_NetworkChangedCopyWith<_$_NetworkChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AppLifeCycleChangedCopyWith<$Res> {
-  factory _$AppLifeCycleChangedCopyWith(_AppLifeCycleChanged value,
-          $Res Function(_AppLifeCycleChanged) then) =
-      __$AppLifeCycleChangedCopyWithImpl<$Res>;
+abstract class _$$_AppLifeCycleChangedCopyWith<$Res> {
+  factory _$$_AppLifeCycleChangedCopyWith(_$_AppLifeCycleChanged value,
+          $Res Function(_$_AppLifeCycleChanged) then) =
+      __$$_AppLifeCycleChangedCopyWithImpl<$Res>;
   $Res call({AppLifecycleState appLifeCycle});
 }
 
 /// @nodoc
-class __$AppLifeCycleChangedCopyWithImpl<$Res>
+class __$$_AppLifeCycleChangedCopyWithImpl<$Res>
     extends _$DeviceEventCopyWithImpl<$Res>
-    implements _$AppLifeCycleChangedCopyWith<$Res> {
-  __$AppLifeCycleChangedCopyWithImpl(
-      _AppLifeCycleChanged _value, $Res Function(_AppLifeCycleChanged) _then)
-      : super(_value, (v) => _then(v as _AppLifeCycleChanged));
+    implements _$$_AppLifeCycleChangedCopyWith<$Res> {
+  __$$_AppLifeCycleChangedCopyWithImpl(_$_AppLifeCycleChanged _value,
+      $Res Function(_$_AppLifeCycleChanged) _then)
+      : super(_value, (v) => _then(v as _$_AppLifeCycleChanged));
 
   @override
-  _AppLifeCycleChanged get _value => super._value as _AppLifeCycleChanged;
+  _$_AppLifeCycleChanged get _value => super._value as _$_AppLifeCycleChanged;
 
   @override
   $Res call({
     Object? appLifeCycle = freezed,
   }) {
-    return _then(_AppLifeCycleChanged(
+    return _then(_$_AppLifeCycleChanged(
       appLifeCycle == freezed
           ? _value.appLifeCycle
           : appLifeCycle // ignore: cast_nullable_to_non_nullable
@@ -406,7 +382,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppLifeCycleChanged &&
+            other is _$_AppLifeCycleChanged &&
             const DeepCollectionEquality()
                 .equals(other.appLifeCycle, appLifeCycle));
   }
@@ -417,8 +393,8 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$AppLifeCycleChangedCopyWith<_AppLifeCycleChanged> get copyWith =>
-      __$AppLifeCycleChangedCopyWithImpl<_AppLifeCycleChanged>(
+  _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
+      __$$_AppLifeCycleChangedCopyWithImpl<_$_AppLifeCycleChanged>(
           this, _$identity);
 
   @override
@@ -492,30 +468,14 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
 }
 
 abstract class _AppLifeCycleChanged implements DeviceEvent {
-  const factory _AppLifeCycleChanged(AppLifecycleState appLifeCycle) =
+  const factory _AppLifeCycleChanged(final AppLifecycleState appLifeCycle) =
       _$_AppLifeCycleChanged;
 
-  AppLifecycleState get appLifeCycle;
+  AppLifecycleState get appLifeCycle => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AppLifeCycleChangedCopyWith<_AppLifeCycleChanged> get copyWith =>
+  _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DeviceStateTearOff {
-  const _$DeviceStateTearOff();
-
-  _NetworkState call(
-      {required NetworkType networkType, required bool appIsPaused}) {
-    return _NetworkState(
-      networkType: networkType,
-      appIsPaused: appIsPaused,
-    );
-  }
-}
-
-/// @nodoc
-const $DeviceState = _$DeviceStateTearOff();
 
 /// @nodoc
 mixin _$DeviceState {
@@ -571,11 +531,11 @@ class _$DeviceStateCopyWithImpl<$Res> implements $DeviceStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NetworkStateCopyWith<$Res>
+abstract class _$$_NetworkStateCopyWith<$Res>
     implements $DeviceStateCopyWith<$Res> {
-  factory _$NetworkStateCopyWith(
-          _NetworkState value, $Res Function(_NetworkState) then) =
-      __$NetworkStateCopyWithImpl<$Res>;
+  factory _$$_NetworkStateCopyWith(
+          _$_NetworkState value, $Res Function(_$_NetworkState) then) =
+      __$$_NetworkStateCopyWithImpl<$Res>;
   @override
   $Res call({NetworkType networkType, bool appIsPaused});
 
@@ -584,21 +544,22 @@ abstract class _$NetworkStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$NetworkStateCopyWithImpl<$Res> extends _$DeviceStateCopyWithImpl<$Res>
-    implements _$NetworkStateCopyWith<$Res> {
-  __$NetworkStateCopyWithImpl(
-      _NetworkState _value, $Res Function(_NetworkState) _then)
-      : super(_value, (v) => _then(v as _NetworkState));
+class __$$_NetworkStateCopyWithImpl<$Res>
+    extends _$DeviceStateCopyWithImpl<$Res>
+    implements _$$_NetworkStateCopyWith<$Res> {
+  __$$_NetworkStateCopyWithImpl(
+      _$_NetworkState _value, $Res Function(_$_NetworkState) _then)
+      : super(_value, (v) => _then(v as _$_NetworkState));
 
   @override
-  _NetworkState get _value => super._value as _NetworkState;
+  _$_NetworkState get _value => super._value as _$_NetworkState;
 
   @override
   $Res call({
     Object? networkType = freezed,
     Object? appIsPaused = freezed,
   }) {
-    return _then(_NetworkState(
+    return _then(_$_NetworkState(
       networkType: networkType == freezed
           ? _value.networkType
           : networkType // ignore: cast_nullable_to_non_nullable
@@ -631,7 +592,7 @@ class _$_NetworkState extends _NetworkState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NetworkState &&
+            other is _$_NetworkState &&
             const DeepCollectionEquality()
                 .equals(other.networkType, networkType) &&
             const DeepCollectionEquality()
@@ -646,22 +607,22 @@ class _$_NetworkState extends _NetworkState {
 
   @JsonKey(ignore: true)
   @override
-  _$NetworkStateCopyWith<_NetworkState> get copyWith =>
-      __$NetworkStateCopyWithImpl<_NetworkState>(this, _$identity);
+  _$$_NetworkStateCopyWith<_$_NetworkState> get copyWith =>
+      __$$_NetworkStateCopyWithImpl<_$_NetworkState>(this, _$identity);
 }
 
 abstract class _NetworkState extends DeviceState {
   const factory _NetworkState(
-      {required NetworkType networkType,
-      required bool appIsPaused}) = _$_NetworkState;
+      {required final NetworkType networkType,
+      required final bool appIsPaused}) = _$_NetworkState;
   const _NetworkState._() : super._();
 
   @override
-  NetworkType get networkType;
+  NetworkType get networkType => throw _privateConstructorUsedError;
   @override
-  bool get appIsPaused;
+  bool get appIsPaused => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NetworkStateCopyWith<_NetworkState> get copyWith =>
+  _$$_NetworkStateCopyWith<_$_NetworkState> get copyWith =>
       throw _privateConstructorUsedError;
 }

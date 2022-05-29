@@ -12,45 +12,7 @@ part of 'upload_audio_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UploadAudioEventTearOff {
-  const _$UploadAudioEventTearOff();
-
-  _AudioAdded audioAdded({required Audio audio}) {
-    return _AudioAdded(
-      audio: audio,
-    );
-  }
-
-  _AudioUploading audioUploading() {
-    return const _AudioUploading();
-  }
-
-  _AudioUploaded audioUploaded(Either<AudioFailure, Audio> failureOrAudio) {
-    return _AudioUploaded(
-      failureOrAudio,
-    );
-  }
-
-  _NetworkUpdated networkUpdated({required NetworkType networkType}) {
-    return _NetworkUpdated(
-      networkType: networkType,
-    );
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $UploadAudioEvent = _$UploadAudioEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UploadAudioEvent {
@@ -137,31 +99,31 @@ class _$UploadAudioEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AudioAddedCopyWith<$Res> {
-  factory _$AudioAddedCopyWith(
-          _AudioAdded value, $Res Function(_AudioAdded) then) =
-      __$AudioAddedCopyWithImpl<$Res>;
+abstract class _$$_AudioAddedCopyWith<$Res> {
+  factory _$$_AudioAddedCopyWith(
+          _$_AudioAdded value, $Res Function(_$_AudioAdded) then) =
+      __$$_AudioAddedCopyWithImpl<$Res>;
   $Res call({Audio audio});
 
   $AudioCopyWith<$Res> get audio;
 }
 
 /// @nodoc
-class __$AudioAddedCopyWithImpl<$Res>
+class __$$_AudioAddedCopyWithImpl<$Res>
     extends _$UploadAudioEventCopyWithImpl<$Res>
-    implements _$AudioAddedCopyWith<$Res> {
-  __$AudioAddedCopyWithImpl(
-      _AudioAdded _value, $Res Function(_AudioAdded) _then)
-      : super(_value, (v) => _then(v as _AudioAdded));
+    implements _$$_AudioAddedCopyWith<$Res> {
+  __$$_AudioAddedCopyWithImpl(
+      _$_AudioAdded _value, $Res Function(_$_AudioAdded) _then)
+      : super(_value, (v) => _then(v as _$_AudioAdded));
 
   @override
-  _AudioAdded get _value => super._value as _AudioAdded;
+  _$_AudioAdded get _value => super._value as _$_AudioAdded;
 
   @override
   $Res call({
     Object? audio = freezed,
   }) {
-    return _then(_AudioAdded(
+    return _then(_$_AudioAdded(
       audio: audio == freezed
           ? _value.audio
           : audio // ignore: cast_nullable_to_non_nullable
@@ -202,7 +164,7 @@ class _$_AudioAdded with DiagnosticableTreeMixin implements _AudioAdded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AudioAdded &&
+            other is _$_AudioAdded &&
             const DeepCollectionEquality().equals(other.audio, audio));
   }
 
@@ -212,8 +174,8 @@ class _$_AudioAdded with DiagnosticableTreeMixin implements _AudioAdded {
 
   @JsonKey(ignore: true)
   @override
-  _$AudioAddedCopyWith<_AudioAdded> get copyWith =>
-      __$AudioAddedCopyWithImpl<_AudioAdded>(this, _$identity);
+  _$$_AudioAddedCopyWith<_$_AudioAdded> get copyWith =>
+      __$$_AudioAddedCopyWithImpl<_$_AudioAdded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -304,31 +266,31 @@ class _$_AudioAdded with DiagnosticableTreeMixin implements _AudioAdded {
 }
 
 abstract class _AudioAdded implements UploadAudioEvent {
-  const factory _AudioAdded({required Audio audio}) = _$_AudioAdded;
+  const factory _AudioAdded({required final Audio audio}) = _$_AudioAdded;
 
-  Audio get audio;
+  Audio get audio => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AudioAddedCopyWith<_AudioAdded> get copyWith =>
+  _$$_AudioAddedCopyWith<_$_AudioAdded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AudioUploadingCopyWith<$Res> {
-  factory _$AudioUploadingCopyWith(
-          _AudioUploading value, $Res Function(_AudioUploading) then) =
-      __$AudioUploadingCopyWithImpl<$Res>;
+abstract class _$$_AudioUploadingCopyWith<$Res> {
+  factory _$$_AudioUploadingCopyWith(
+          _$_AudioUploading value, $Res Function(_$_AudioUploading) then) =
+      __$$_AudioUploadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AudioUploadingCopyWithImpl<$Res>
+class __$$_AudioUploadingCopyWithImpl<$Res>
     extends _$UploadAudioEventCopyWithImpl<$Res>
-    implements _$AudioUploadingCopyWith<$Res> {
-  __$AudioUploadingCopyWithImpl(
-      _AudioUploading _value, $Res Function(_AudioUploading) _then)
-      : super(_value, (v) => _then(v as _AudioUploading));
+    implements _$$_AudioUploadingCopyWith<$Res> {
+  __$$_AudioUploadingCopyWithImpl(
+      _$_AudioUploading _value, $Res Function(_$_AudioUploading) _then)
+      : super(_value, (v) => _then(v as _$_AudioUploading));
 
   @override
-  _AudioUploading get _value => super._value as _AudioUploading;
+  _$_AudioUploading get _value => super._value as _$_AudioUploading;
 }
 
 /// @nodoc
@@ -353,7 +315,7 @@ class _$_AudioUploading
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AudioUploading);
+        (other.runtimeType == runtimeType && other is _$_AudioUploading);
   }
 
   @override
@@ -452,29 +414,29 @@ abstract class _AudioUploading implements UploadAudioEvent {
 }
 
 /// @nodoc
-abstract class _$AudioUploadedCopyWith<$Res> {
-  factory _$AudioUploadedCopyWith(
-          _AudioUploaded value, $Res Function(_AudioUploaded) then) =
-      __$AudioUploadedCopyWithImpl<$Res>;
+abstract class _$$_AudioUploadedCopyWith<$Res> {
+  factory _$$_AudioUploadedCopyWith(
+          _$_AudioUploaded value, $Res Function(_$_AudioUploaded) then) =
+      __$$_AudioUploadedCopyWithImpl<$Res>;
   $Res call({Either<AudioFailure, Audio> failureOrAudio});
 }
 
 /// @nodoc
-class __$AudioUploadedCopyWithImpl<$Res>
+class __$$_AudioUploadedCopyWithImpl<$Res>
     extends _$UploadAudioEventCopyWithImpl<$Res>
-    implements _$AudioUploadedCopyWith<$Res> {
-  __$AudioUploadedCopyWithImpl(
-      _AudioUploaded _value, $Res Function(_AudioUploaded) _then)
-      : super(_value, (v) => _then(v as _AudioUploaded));
+    implements _$$_AudioUploadedCopyWith<$Res> {
+  __$$_AudioUploadedCopyWithImpl(
+      _$_AudioUploaded _value, $Res Function(_$_AudioUploaded) _then)
+      : super(_value, (v) => _then(v as _$_AudioUploaded));
 
   @override
-  _AudioUploaded get _value => super._value as _AudioUploaded;
+  _$_AudioUploaded get _value => super._value as _$_AudioUploaded;
 
   @override
   $Res call({
     Object? failureOrAudio = freezed,
   }) {
-    return _then(_AudioUploaded(
+    return _then(_$_AudioUploaded(
       failureOrAudio == freezed
           ? _value.failureOrAudio
           : failureOrAudio // ignore: cast_nullable_to_non_nullable
@@ -508,7 +470,7 @@ class _$_AudioUploaded with DiagnosticableTreeMixin implements _AudioUploaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AudioUploaded &&
+            other is _$_AudioUploaded &&
             const DeepCollectionEquality()
                 .equals(other.failureOrAudio, failureOrAudio));
   }
@@ -519,8 +481,8 @@ class _$_AudioUploaded with DiagnosticableTreeMixin implements _AudioUploaded {
 
   @JsonKey(ignore: true)
   @override
-  _$AudioUploadedCopyWith<_AudioUploaded> get copyWith =>
-      __$AudioUploadedCopyWithImpl<_AudioUploaded>(this, _$identity);
+  _$$_AudioUploadedCopyWith<_$_AudioUploaded> get copyWith =>
+      __$$_AudioUploadedCopyWithImpl<_$_AudioUploaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -611,41 +573,42 @@ class _$_AudioUploaded with DiagnosticableTreeMixin implements _AudioUploaded {
 }
 
 abstract class _AudioUploaded implements UploadAudioEvent {
-  const factory _AudioUploaded(Either<AudioFailure, Audio> failureOrAudio) =
-      _$_AudioUploaded;
+  const factory _AudioUploaded(
+      final Either<AudioFailure, Audio> failureOrAudio) = _$_AudioUploaded;
 
-  Either<AudioFailure, Audio> get failureOrAudio;
+  Either<AudioFailure, Audio> get failureOrAudio =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AudioUploadedCopyWith<_AudioUploaded> get copyWith =>
+  _$$_AudioUploadedCopyWith<_$_AudioUploaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$NetworkUpdatedCopyWith<$Res> {
-  factory _$NetworkUpdatedCopyWith(
-          _NetworkUpdated value, $Res Function(_NetworkUpdated) then) =
-      __$NetworkUpdatedCopyWithImpl<$Res>;
+abstract class _$$_NetworkUpdatedCopyWith<$Res> {
+  factory _$$_NetworkUpdatedCopyWith(
+          _$_NetworkUpdated value, $Res Function(_$_NetworkUpdated) then) =
+      __$$_NetworkUpdatedCopyWithImpl<$Res>;
   $Res call({NetworkType networkType});
 
   $NetworkTypeCopyWith<$Res> get networkType;
 }
 
 /// @nodoc
-class __$NetworkUpdatedCopyWithImpl<$Res>
+class __$$_NetworkUpdatedCopyWithImpl<$Res>
     extends _$UploadAudioEventCopyWithImpl<$Res>
-    implements _$NetworkUpdatedCopyWith<$Res> {
-  __$NetworkUpdatedCopyWithImpl(
-      _NetworkUpdated _value, $Res Function(_NetworkUpdated) _then)
-      : super(_value, (v) => _then(v as _NetworkUpdated));
+    implements _$$_NetworkUpdatedCopyWith<$Res> {
+  __$$_NetworkUpdatedCopyWithImpl(
+      _$_NetworkUpdated _value, $Res Function(_$_NetworkUpdated) _then)
+      : super(_value, (v) => _then(v as _$_NetworkUpdated));
 
   @override
-  _NetworkUpdated get _value => super._value as _NetworkUpdated;
+  _$_NetworkUpdated get _value => super._value as _$_NetworkUpdated;
 
   @override
   $Res call({
     Object? networkType = freezed,
   }) {
-    return _then(_NetworkUpdated(
+    return _then(_$_NetworkUpdated(
       networkType: networkType == freezed
           ? _value.networkType
           : networkType // ignore: cast_nullable_to_non_nullable
@@ -688,7 +651,7 @@ class _$_NetworkUpdated
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NetworkUpdated &&
+            other is _$_NetworkUpdated &&
             const DeepCollectionEquality()
                 .equals(other.networkType, networkType));
   }
@@ -699,8 +662,8 @@ class _$_NetworkUpdated
 
   @JsonKey(ignore: true)
   @override
-  _$NetworkUpdatedCopyWith<_NetworkUpdated> get copyWith =>
-      __$NetworkUpdatedCopyWithImpl<_NetworkUpdated>(this, _$identity);
+  _$$_NetworkUpdatedCopyWith<_$_NetworkUpdated> get copyWith =>
+      __$$_NetworkUpdatedCopyWithImpl<_$_NetworkUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -791,31 +754,32 @@ class _$_NetworkUpdated
 }
 
 abstract class _NetworkUpdated implements UploadAudioEvent {
-  const factory _NetworkUpdated({required NetworkType networkType}) =
+  const factory _NetworkUpdated({required final NetworkType networkType}) =
       _$_NetworkUpdated;
 
-  NetworkType get networkType;
+  NetworkType get networkType => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$NetworkUpdatedCopyWith<_NetworkUpdated> get copyWith =>
+  _$$_NetworkUpdatedCopyWith<_$_NetworkUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoggedOutCopyWith<$Res> {
-  factory _$LoggedOutCopyWith(
-          _LoggedOut value, $Res Function(_LoggedOut) then) =
-      __$LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LoggedOutCopyWith<$Res> {
+  factory _$$_LoggedOutCopyWith(
+          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
+      __$$_LoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoggedOutCopyWithImpl<$Res>
+class __$$_LoggedOutCopyWithImpl<$Res>
     extends _$UploadAudioEventCopyWithImpl<$Res>
-    implements _$LoggedOutCopyWith<$Res> {
-  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _LoggedOut));
+    implements _$$_LoggedOutCopyWith<$Res> {
+  __$$_LoggedOutCopyWithImpl(
+      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$_LoggedOut));
 
   @override
-  _LoggedOut get _value => super._value as _LoggedOut;
+  _$_LoggedOut get _value => super._value as _$_LoggedOut;
 }
 
 /// @nodoc
@@ -837,7 +801,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LoggedOut);
   }
 
   @override
@@ -936,22 +900,22 @@ abstract class _LoggedOut implements UploadAudioEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res>
+class __$$_InitializedCopyWithImpl<$Res>
     extends _$UploadAudioEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -973,7 +937,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -1072,37 +1036,11 @@ abstract class _Initialized implements UploadAudioEvent {
 }
 
 /// @nodoc
-class _$UploadAudioStateTearOff {
-  const _$UploadAudioStateTearOff();
-
-  _UploadAudioState call(
-      {required UniqueId stateId,
-      required Map<UniqueId, Audio> audioMap,
-      required NetworkType networkType,
-      required LoadState uploadState,
-      required Option<AudioFailure> audioFailure,
-      required LoadState eventState}) {
-    return _UploadAudioState(
-      stateId: stateId,
-      audioMap: audioMap,
-      networkType: networkType,
-      uploadState: uploadState,
-      audioFailure: audioFailure,
-      eventState: eventState,
-    );
-  }
-}
-
-/// @nodoc
-const $UploadAudioState = _$UploadAudioStateTearOff();
-
-/// @nodoc
 mixin _$UploadAudioState {
-  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
+  UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   Map<UniqueId, Audio> get audioMap =>
-      throw _privateConstructorUsedError; // H_ 中間資料
-  NetworkType get networkType =>
-      throw _privateConstructorUsedError; // H_ 狀態更新進度
+      throw _privateConstructorUsedError; // > 中間資料
+  NetworkType get networkType => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get uploadState => throw _privateConstructorUsedError;
   Option<AudioFailure> get audioFailure => throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
@@ -1207,11 +1145,11 @@ class _$UploadAudioStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UploadAudioStateCopyWith<$Res>
+abstract class _$$_UploadAudioStateCopyWith<$Res>
     implements $UploadAudioStateCopyWith<$Res> {
-  factory _$UploadAudioStateCopyWith(
-          _UploadAudioState value, $Res Function(_UploadAudioState) then) =
-      __$UploadAudioStateCopyWithImpl<$Res>;
+  factory _$$_UploadAudioStateCopyWith(
+          _$_UploadAudioState value, $Res Function(_$_UploadAudioState) then) =
+      __$$_UploadAudioStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -1232,15 +1170,15 @@ abstract class _$UploadAudioStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UploadAudioStateCopyWithImpl<$Res>
+class __$$_UploadAudioStateCopyWithImpl<$Res>
     extends _$UploadAudioStateCopyWithImpl<$Res>
-    implements _$UploadAudioStateCopyWith<$Res> {
-  __$UploadAudioStateCopyWithImpl(
-      _UploadAudioState _value, $Res Function(_UploadAudioState) _then)
-      : super(_value, (v) => _then(v as _UploadAudioState));
+    implements _$$_UploadAudioStateCopyWith<$Res> {
+  __$$_UploadAudioStateCopyWithImpl(
+      _$_UploadAudioState _value, $Res Function(_$_UploadAudioState) _then)
+      : super(_value, (v) => _then(v as _$_UploadAudioState));
 
   @override
-  _UploadAudioState get _value => super._value as _UploadAudioState;
+  _$_UploadAudioState get _value => super._value as _$_UploadAudioState;
 
   @override
   $Res call({
@@ -1251,13 +1189,13 @@ class __$UploadAudioStateCopyWithImpl<$Res>
     Object? audioFailure = freezed,
     Object? eventState = freezed,
   }) {
-    return _then(_UploadAudioState(
+    return _then(_$_UploadAudioState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       audioMap: audioMap == freezed
-          ? _value.audioMap
+          ? _value._audioMap
           : audioMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Audio>,
       networkType: networkType == freezed
@@ -1286,20 +1224,30 @@ class _$_UploadAudioState extends _UploadAudioState
     with DiagnosticableTreeMixin {
   const _$_UploadAudioState(
       {required this.stateId,
-      required this.audioMap,
+      required final Map<UniqueId, Audio> audioMap,
       required this.networkType,
       required this.uploadState,
       required this.audioFailure,
       required this.eventState})
-      : super._();
+      : _audioMap = audioMap,
+        super._();
 
   @override
   final UniqueId stateId;
-  @override // H_ 主要資料
-  final Map<UniqueId, Audio> audioMap;
-  @override // H_ 中間資料
+// > 主要資料
+  final Map<UniqueId, Audio> _audioMap;
+// > 主要資料
+  @override
+  Map<UniqueId, Audio> get audioMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_audioMap);
+  }
+
+// > 中間資料
+  @override
   final NetworkType networkType;
-  @override // H_ 狀態更新進度
+// > 狀態更新進度
+  @override
   final LoadState uploadState;
   @override
   final Option<AudioFailure> audioFailure;
@@ -1328,9 +1276,9 @@ class _$_UploadAudioState extends _UploadAudioState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UploadAudioState &&
+            other is _$_UploadAudioState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
-            const DeepCollectionEquality().equals(other.audioMap, audioMap) &&
+            const DeepCollectionEquality().equals(other._audioMap, _audioMap) &&
             const DeepCollectionEquality()
                 .equals(other.networkType, networkType) &&
             const DeepCollectionEquality()
@@ -1345,7 +1293,7 @@ class _$_UploadAudioState extends _UploadAudioState
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(stateId),
-      const DeepCollectionEquality().hash(audioMap),
+      const DeepCollectionEquality().hash(_audioMap),
       const DeepCollectionEquality().hash(networkType),
       const DeepCollectionEquality().hash(uploadState),
       const DeepCollectionEquality().hash(audioFailure),
@@ -1353,34 +1301,34 @@ class _$_UploadAudioState extends _UploadAudioState
 
   @JsonKey(ignore: true)
   @override
-  _$UploadAudioStateCopyWith<_UploadAudioState> get copyWith =>
-      __$UploadAudioStateCopyWithImpl<_UploadAudioState>(this, _$identity);
+  _$$_UploadAudioStateCopyWith<_$_UploadAudioState> get copyWith =>
+      __$$_UploadAudioStateCopyWithImpl<_$_UploadAudioState>(this, _$identity);
 }
 
 abstract class _UploadAudioState extends UploadAudioState {
   const factory _UploadAudioState(
-      {required UniqueId stateId,
-      required Map<UniqueId, Audio> audioMap,
-      required NetworkType networkType,
-      required LoadState uploadState,
-      required Option<AudioFailure> audioFailure,
-      required LoadState eventState}) = _$_UploadAudioState;
+      {required final UniqueId stateId,
+      required final Map<UniqueId, Audio> audioMap,
+      required final NetworkType networkType,
+      required final LoadState uploadState,
+      required final Option<AudioFailure> audioFailure,
+      required final LoadState eventState}) = _$_UploadAudioState;
   const _UploadAudioState._() : super._();
 
   @override
-  UniqueId get stateId;
-  @override // H_ 主要資料
-  Map<UniqueId, Audio> get audioMap;
-  @override // H_ 中間資料
-  NetworkType get networkType;
-  @override // H_ 狀態更新進度
-  LoadState get uploadState;
+  UniqueId get stateId => throw _privateConstructorUsedError;
+  @override // > 主要資料
+  Map<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;
+  @override // > 中間資料
+  NetworkType get networkType => throw _privateConstructorUsedError;
+  @override // > 狀態更新進度
+  LoadState get uploadState => throw _privateConstructorUsedError;
   @override
-  Option<AudioFailure> get audioFailure;
+  Option<AudioFailure> get audioFailure => throw _privateConstructorUsedError;
   @override
-  LoadState get eventState;
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UploadAudioStateCopyWith<_UploadAudioState> get copyWith =>
+  _$$_UploadAudioStateCopyWith<_$_UploadAudioState> get copyWith =>
       throw _privateConstructorUsedError;
 }

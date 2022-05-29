@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc_devtools/flutter_bloc_devtools.dart';
 import 'package:injectable/injectable.dart';
 
-
 import 'firebase_options.dart';
 import 'injection.dart';
 import 'presentation/core/app_widget.dart';
@@ -17,8 +16,10 @@ Future<void> main() async {
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  )
-  ;
+  );
+  // await FirebaseAppCheck.instance.activate(
+  //   webRecaptchaSiteKey: '6LdSDiogAAAAAOh0ONz5ZtYWFTPm9btwOlb9vkCl',
+  // );
   await FirebaseFirestore.instance.clearPersistence();
 
   runApp(AppWidget());

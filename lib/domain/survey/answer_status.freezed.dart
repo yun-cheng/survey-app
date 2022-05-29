@@ -12,28 +12,7 @@ part of 'answer_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AnswerStatusTearOff {
-  const _$AnswerStatusTearOff();
-
-  _AnswerStatus call(
-      {required AnswerStatusType type,
-      required bool isSpecialAnswer,
-      required DeviceTimeStamp lastChangedTimeStamp,
-      required Map<String, AnswerStatusType> noteMap}) {
-    return _AnswerStatus(
-      type: type,
-      isSpecialAnswer: isSpecialAnswer,
-      lastChangedTimeStamp: lastChangedTimeStamp,
-      noteMap: noteMap,
-    );
-  }
-}
-
-/// @nodoc
-const $AnswerStatus = _$AnswerStatusTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AnswerStatus {
@@ -115,11 +94,11 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AnswerStatusCopyWith<$Res>
+abstract class _$$_AnswerStatusCopyWith<$Res>
     implements $AnswerStatusCopyWith<$Res> {
-  factory _$AnswerStatusCopyWith(
-          _AnswerStatus value, $Res Function(_AnswerStatus) then) =
-      __$AnswerStatusCopyWithImpl<$Res>;
+  factory _$$_AnswerStatusCopyWith(
+          _$_AnswerStatus value, $Res Function(_$_AnswerStatus) then) =
+      __$$_AnswerStatusCopyWithImpl<$Res>;
   @override
   $Res call(
       {AnswerStatusType type,
@@ -134,14 +113,15 @@ abstract class _$AnswerStatusCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
-    implements _$AnswerStatusCopyWith<$Res> {
-  __$AnswerStatusCopyWithImpl(
-      _AnswerStatus _value, $Res Function(_AnswerStatus) _then)
-      : super(_value, (v) => _then(v as _AnswerStatus));
+class __$$_AnswerStatusCopyWithImpl<$Res>
+    extends _$AnswerStatusCopyWithImpl<$Res>
+    implements _$$_AnswerStatusCopyWith<$Res> {
+  __$$_AnswerStatusCopyWithImpl(
+      _$_AnswerStatus _value, $Res Function(_$_AnswerStatus) _then)
+      : super(_value, (v) => _then(v as _$_AnswerStatus));
 
   @override
-  _AnswerStatus get _value => super._value as _AnswerStatus;
+  _$_AnswerStatus get _value => super._value as _$_AnswerStatus;
 
   @override
   $Res call({
@@ -150,7 +130,7 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
     Object? lastChangedTimeStamp = freezed,
     Object? noteMap = freezed,
   }) {
-    return _then(_AnswerStatus(
+    return _then(_$_AnswerStatus(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -164,7 +144,7 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
           : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
               as DeviceTimeStamp,
       noteMap: noteMap == freezed
-          ? _value.noteMap
+          ? _value._noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusType>,
     ));
@@ -178,8 +158,9 @@ class _$_AnswerStatus extends _AnswerStatus {
       {required this.type,
       required this.isSpecialAnswer,
       required this.lastChangedTimeStamp,
-      required this.noteMap})
-      : super._();
+      required final Map<String, AnswerStatusType> noteMap})
+      : _noteMap = noteMap,
+        super._();
 
   @override
   final AnswerStatusType type;
@@ -187,8 +168,12 @@ class _$_AnswerStatus extends _AnswerStatus {
   final bool isSpecialAnswer;
   @override
   final DeviceTimeStamp lastChangedTimeStamp;
+  final Map<String, AnswerStatusType> _noteMap;
   @override
-  final Map<String, AnswerStatusType> noteMap;
+  Map<String, AnswerStatusType> get noteMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_noteMap);
+  }
 
   @override
   String toString() {
@@ -199,13 +184,13 @@ class _$_AnswerStatus extends _AnswerStatus {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnswerStatus &&
+            other is _$_AnswerStatus &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality()
                 .equals(other.isSpecialAnswer, isSpecialAnswer) &&
             const DeepCollectionEquality()
                 .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
-            const DeepCollectionEquality().equals(other.noteMap, noteMap));
+            const DeepCollectionEquality().equals(other._noteMap, _noteMap));
   }
 
   @override
@@ -214,32 +199,34 @@ class _$_AnswerStatus extends _AnswerStatus {
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(isSpecialAnswer),
       const DeepCollectionEquality().hash(lastChangedTimeStamp),
-      const DeepCollectionEquality().hash(noteMap));
+      const DeepCollectionEquality().hash(_noteMap));
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerStatusCopyWith<_AnswerStatus> get copyWith =>
-      __$AnswerStatusCopyWithImpl<_AnswerStatus>(this, _$identity);
+  _$$_AnswerStatusCopyWith<_$_AnswerStatus> get copyWith =>
+      __$$_AnswerStatusCopyWithImpl<_$_AnswerStatus>(this, _$identity);
 }
 
 abstract class _AnswerStatus extends AnswerStatus {
   const factory _AnswerStatus(
-      {required AnswerStatusType type,
-      required bool isSpecialAnswer,
-      required DeviceTimeStamp lastChangedTimeStamp,
-      required Map<String, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+      {required final AnswerStatusType type,
+      required final bool isSpecialAnswer,
+      required final DeviceTimeStamp lastChangedTimeStamp,
+      required final Map<String, AnswerStatusType> noteMap}) = _$_AnswerStatus;
   const _AnswerStatus._() : super._();
 
   @override
-  AnswerStatusType get type;
+  AnswerStatusType get type => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  DeviceTimeStamp get lastChangedTimeStamp;
+  DeviceTimeStamp get lastChangedTimeStamp =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusType> get noteMap;
+  Map<String, AnswerStatusType> get noteMap =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AnswerStatusCopyWith<_AnswerStatus> get copyWith =>
+  _$$_AnswerStatusCopyWith<_$_AnswerStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }

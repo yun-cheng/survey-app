@@ -12,22 +12,7 @@ part of 'team.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TeamTearOff {
-  const _$TeamTearOff();
-
-  _Team call({required String id, required String name}) {
-    return _Team(
-      id: id,
-      name: name,
-    );
-  }
-}
-
-/// @nodoc
-const $Team = _$TeamTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Team {
@@ -72,28 +57,28 @@ class _$TeamCopyWithImpl<$Res> implements $TeamCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TeamCopyWith<$Res> implements $TeamCopyWith<$Res> {
-  factory _$TeamCopyWith(_Team value, $Res Function(_Team) then) =
-      __$TeamCopyWithImpl<$Res>;
+abstract class _$$_TeamCopyWith<$Res> implements $TeamCopyWith<$Res> {
+  factory _$$_TeamCopyWith(_$_Team value, $Res Function(_$_Team) then) =
+      __$$_TeamCopyWithImpl<$Res>;
   @override
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class __$TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
-    implements _$TeamCopyWith<$Res> {
-  __$TeamCopyWithImpl(_Team _value, $Res Function(_Team) _then)
-      : super(_value, (v) => _then(v as _Team));
+class __$$_TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
+    implements _$$_TeamCopyWith<$Res> {
+  __$$_TeamCopyWithImpl(_$_Team _value, $Res Function(_$_Team) _then)
+      : super(_value, (v) => _then(v as _$_Team));
 
   @override
-  _Team get _value => super._value as _Team;
+  _$_Team get _value => super._value as _$_Team;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
   }) {
-    return _then(_Team(
+    return _then(_$_Team(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -125,7 +110,7 @@ class _$_Team extends _Team {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Team &&
+            other is _$_Team &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
@@ -138,19 +123,20 @@ class _$_Team extends _Team {
 
   @JsonKey(ignore: true)
   @override
-  _$TeamCopyWith<_Team> get copyWith =>
-      __$TeamCopyWithImpl<_Team>(this, _$identity);
+  _$$_TeamCopyWith<_$_Team> get copyWith =>
+      __$$_TeamCopyWithImpl<_$_Team>(this, _$identity);
 }
 
 abstract class _Team extends Team {
-  const factory _Team({required String id, required String name}) = _$_Team;
+  const factory _Team({required final String id, required final String name}) =
+      _$_Team;
   const _Team._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TeamCopyWith<_Team> get copyWith => throw _privateConstructorUsedError;
+  _$$_TeamCopyWith<_$_Team> get copyWith => throw _privateConstructorUsedError;
 }

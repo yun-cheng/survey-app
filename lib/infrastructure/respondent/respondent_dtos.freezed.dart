@@ -12,36 +12,11 @@ part of 'respondent_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RespondentDto _$RespondentDtoFromJson(Map<String, dynamic> json) {
   return _RespondentDto.fromJson(json);
 }
-
-/// @nodoc
-class _$RespondentDtoTearOff {
-  const _$RespondentDtoTearOff();
-
-  _RespondentDto call(
-      {required String respondentId,
-      required String countyTown,
-      required String village,
-      required String remainAddress}) {
-    return _RespondentDto(
-      respondentId: respondentId,
-      countyTown: countyTown,
-      village: village,
-      remainAddress: remainAddress,
-    );
-  }
-
-  RespondentDto fromJson(Map<String, Object?> json) {
-    return RespondentDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RespondentDto = _$RespondentDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentDto {
@@ -106,11 +81,11 @@ class _$RespondentDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RespondentDtoCopyWith<$Res>
+abstract class _$$_RespondentDtoCopyWith<$Res>
     implements $RespondentDtoCopyWith<$Res> {
-  factory _$RespondentDtoCopyWith(
-          _RespondentDto value, $Res Function(_RespondentDto) then) =
-      __$RespondentDtoCopyWithImpl<$Res>;
+  factory _$$_RespondentDtoCopyWith(
+          _$_RespondentDto value, $Res Function(_$_RespondentDto) then) =
+      __$$_RespondentDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String respondentId,
@@ -120,15 +95,15 @@ abstract class _$RespondentDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RespondentDtoCopyWithImpl<$Res>
+class __$$_RespondentDtoCopyWithImpl<$Res>
     extends _$RespondentDtoCopyWithImpl<$Res>
-    implements _$RespondentDtoCopyWith<$Res> {
-  __$RespondentDtoCopyWithImpl(
-      _RespondentDto _value, $Res Function(_RespondentDto) _then)
-      : super(_value, (v) => _then(v as _RespondentDto));
+    implements _$$_RespondentDtoCopyWith<$Res> {
+  __$$_RespondentDtoCopyWithImpl(
+      _$_RespondentDto _value, $Res Function(_$_RespondentDto) _then)
+      : super(_value, (v) => _then(v as _$_RespondentDto));
 
   @override
-  _RespondentDto get _value => super._value as _RespondentDto;
+  _$_RespondentDto get _value => super._value as _$_RespondentDto;
 
   @override
   $Res call({
@@ -137,7 +112,7 @@ class __$RespondentDtoCopyWithImpl<$Res>
     Object? village = freezed,
     Object? remainAddress = freezed,
   }) {
-    return _then(_RespondentDto(
+    return _then(_$_RespondentDto(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -189,7 +164,7 @@ class _$_RespondentDto extends _RespondentDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RespondentDto &&
+            other is _$_RespondentDto &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality()
@@ -199,6 +174,7 @@ class _$_RespondentDto extends _RespondentDto {
                 .equals(other.remainAddress, remainAddress));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -209,8 +185,8 @@ class _$_RespondentDto extends _RespondentDto {
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentDtoCopyWith<_RespondentDto> get copyWith =>
-      __$RespondentDtoCopyWithImpl<_RespondentDto>(this, _$identity);
+  _$$_RespondentDtoCopyWith<_$_RespondentDto> get copyWith =>
+      __$$_RespondentDtoCopyWithImpl<_$_RespondentDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -220,26 +196,26 @@ class _$_RespondentDto extends _RespondentDto {
 
 abstract class _RespondentDto extends RespondentDto {
   const factory _RespondentDto(
-      {required String respondentId,
-      required String countyTown,
-      required String village,
-      required String remainAddress}) = _$_RespondentDto;
+      {required final String respondentId,
+      required final String countyTown,
+      required final String village,
+      required final String remainAddress}) = _$_RespondentDto;
   const _RespondentDto._() : super._();
 
   factory _RespondentDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentDto.fromJson;
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get countyTown;
+  String get countyTown => throw _privateConstructorUsedError;
   @override
-  String get village;
+  String get village => throw _privateConstructorUsedError;
   @override
-  String get remainAddress;
+  String get remainAddress => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RespondentDtoCopyWith<_RespondentDto> get copyWith =>
+  _$$_RespondentDtoCopyWith<_$_RespondentDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -247,26 +223,6 @@ SurveyRespondentMapDocDto _$SurveyRespondentMapDocDtoFromJson(
     Map<String, dynamic> json) {
   return _SurveyRespondentMapDocDto.fromJson(json);
 }
-
-/// @nodoc
-class _$SurveyRespondentMapDocDtoTearOff {
-  const _$SurveyRespondentMapDocDtoTearOff();
-
-  _SurveyRespondentMapDocDto call(
-      {required String surveyId, required Map<String, RespondentDto> map}) {
-    return _SurveyRespondentMapDocDto(
-      surveyId: surveyId,
-      map: map,
-    );
-  }
-
-  SurveyRespondentMapDocDto fromJson(Map<String, Object?> json) {
-    return SurveyRespondentMapDocDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SurveyRespondentMapDocDto = _$SurveyRespondentMapDocDtoTearOff();
 
 /// @nodoc
 mixin _$SurveyRespondentMapDocDto {
@@ -315,39 +271,41 @@ class _$SurveyRespondentMapDocDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SurveyRespondentMapDocDtoCopyWith<$Res>
+abstract class _$$_SurveyRespondentMapDocDtoCopyWith<$Res>
     implements $SurveyRespondentMapDocDtoCopyWith<$Res> {
-  factory _$SurveyRespondentMapDocDtoCopyWith(_SurveyRespondentMapDocDto value,
-          $Res Function(_SurveyRespondentMapDocDto) then) =
-      __$SurveyRespondentMapDocDtoCopyWithImpl<$Res>;
+  factory _$$_SurveyRespondentMapDocDtoCopyWith(
+          _$_SurveyRespondentMapDocDto value,
+          $Res Function(_$_SurveyRespondentMapDocDto) then) =
+      __$$_SurveyRespondentMapDocDtoCopyWithImpl<$Res>;
   @override
   $Res call({String surveyId, Map<String, RespondentDto> map});
 }
 
 /// @nodoc
-class __$SurveyRespondentMapDocDtoCopyWithImpl<$Res>
+class __$$_SurveyRespondentMapDocDtoCopyWithImpl<$Res>
     extends _$SurveyRespondentMapDocDtoCopyWithImpl<$Res>
-    implements _$SurveyRespondentMapDocDtoCopyWith<$Res> {
-  __$SurveyRespondentMapDocDtoCopyWithImpl(_SurveyRespondentMapDocDto _value,
-      $Res Function(_SurveyRespondentMapDocDto) _then)
-      : super(_value, (v) => _then(v as _SurveyRespondentMapDocDto));
+    implements _$$_SurveyRespondentMapDocDtoCopyWith<$Res> {
+  __$$_SurveyRespondentMapDocDtoCopyWithImpl(
+      _$_SurveyRespondentMapDocDto _value,
+      $Res Function(_$_SurveyRespondentMapDocDto) _then)
+      : super(_value, (v) => _then(v as _$_SurveyRespondentMapDocDto));
 
   @override
-  _SurveyRespondentMapDocDto get _value =>
-      super._value as _SurveyRespondentMapDocDto;
+  _$_SurveyRespondentMapDocDto get _value =>
+      super._value as _$_SurveyRespondentMapDocDto;
 
   @override
   $Res call({
     Object? surveyId = freezed,
     Object? map = freezed,
   }) {
-    return _then(_SurveyRespondentMapDocDto(
+    return _then(_$_SurveyRespondentMapDocDto(
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
               as String,
       map: map == freezed
-          ? _value.map
+          ? _value._map
           : map // ignore: cast_nullable_to_non_nullable
               as Map<String, RespondentDto>,
     ));
@@ -358,16 +316,21 @@ class __$SurveyRespondentMapDocDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SurveyRespondentMapDocDto extends _SurveyRespondentMapDocDto {
   const _$_SurveyRespondentMapDocDto(
-      {required this.surveyId, required this.map})
-      : super._();
+      {required this.surveyId, required final Map<String, RespondentDto> map})
+      : _map = map,
+        super._();
 
   factory _$_SurveyRespondentMapDocDto.fromJson(Map<String, dynamic> json) =>
       _$$_SurveyRespondentMapDocDtoFromJson(json);
 
   @override
   final String surveyId;
+  final Map<String, RespondentDto> _map;
   @override
-  final Map<String, RespondentDto> map;
+  Map<String, RespondentDto> get map {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_map);
+  }
 
   @override
   String toString() {
@@ -378,23 +341,23 @@ class _$_SurveyRespondentMapDocDto extends _SurveyRespondentMapDocDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveyRespondentMapDocDto &&
+            other is _$_SurveyRespondentMapDocDto &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
-            const DeepCollectionEquality().equals(other.map, map));
+            const DeepCollectionEquality().equals(other._map, _map));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(surveyId),
-      const DeepCollectionEquality().hash(map));
+      const DeepCollectionEquality().hash(_map));
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyRespondentMapDocDtoCopyWith<_SurveyRespondentMapDocDto>
-      get copyWith =>
-          __$SurveyRespondentMapDocDtoCopyWithImpl<_SurveyRespondentMapDocDto>(
-              this, _$identity);
+  _$$_SurveyRespondentMapDocDtoCopyWith<_$_SurveyRespondentMapDocDto>
+      get copyWith => __$$_SurveyRespondentMapDocDtoCopyWithImpl<
+          _$_SurveyRespondentMapDocDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -404,19 +367,20 @@ class _$_SurveyRespondentMapDocDto extends _SurveyRespondentMapDocDto {
 
 abstract class _SurveyRespondentMapDocDto extends SurveyRespondentMapDocDto {
   const factory _SurveyRespondentMapDocDto(
-      {required String surveyId,
-      required Map<String, RespondentDto> map}) = _$_SurveyRespondentMapDocDto;
+          {required final String surveyId,
+          required final Map<String, RespondentDto> map}) =
+      _$_SurveyRespondentMapDocDto;
   const _SurveyRespondentMapDocDto._() : super._();
 
   factory _SurveyRespondentMapDocDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyRespondentMapDocDto.fromJson;
 
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  Map<String, RespondentDto> get map;
+  Map<String, RespondentDto> get map => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SurveyRespondentMapDocDtoCopyWith<_SurveyRespondentMapDocDto>
+  _$$_SurveyRespondentMapDocDtoCopyWith<_$_SurveyRespondentMapDocDto>
       get copyWith => throw _privateConstructorUsedError;
 }

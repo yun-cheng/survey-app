@@ -12,80 +12,27 @@ part of 'response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResponseTearOff {
-  const _$ResponseTearOff();
-
-  _Response call(
-      {required String teamId,
-      required String projectId,
-      required String surveyId,
-      required ModuleType moduleType,
-      required String respondentId,
-      required UniqueId responseId,
-      required UniqueId tempResponseId,
-      required UniqueId ticketId,
-      required bool editFinished,
-      required String interviewerId,
-      required UniqueId deviceId,
-      required DeviceTimeStamp createdTimeStamp,
-      required DeviceTimeStamp sessionStartTimeStamp,
-      required DeviceTimeStamp sessionEndTimeStamp,
-      required DeviceTimeStamp lastChangedTimeStamp,
-      required ResponseStatus responseStatus,
-      required bool isDeleted,
-      required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap,
-      required SimpleSurveyPageState surveyPageState}) {
-    return _Response(
-      teamId: teamId,
-      projectId: projectId,
-      surveyId: surveyId,
-      moduleType: moduleType,
-      respondentId: respondentId,
-      responseId: responseId,
-      tempResponseId: tempResponseId,
-      ticketId: ticketId,
-      editFinished: editFinished,
-      interviewerId: interviewerId,
-      deviceId: deviceId,
-      createdTimeStamp: createdTimeStamp,
-      sessionStartTimeStamp: sessionStartTimeStamp,
-      sessionEndTimeStamp: sessionEndTimeStamp,
-      lastChangedTimeStamp: lastChangedTimeStamp,
-      responseStatus: responseStatus,
-      isDeleted: isDeleted,
-      answerMap: answerMap,
-      answerStatusMap: answerStatusMap,
-      surveyPageState: surveyPageState,
-    );
-  }
-}
-
-/// @nodoc
-const $Response = _$ResponseTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Response {
-// H_ 區分不同 response
+// > 區分不同 response
   String get teamId => throw _privateConstructorUsedError;
   String get projectId => throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
   String get respondentId =>
-      throw _privateConstructorUsedError; // H_ 區分 response 版本
-// NOTE 每次新的 edit session 都會產生新的 responseId，
+      throw _privateConstructorUsedError; // > 區分 response 版本
+// * 每次新的 edit session 都會產生新的 responseId，
 //  因此不會發生不同設備同 responseId 的情形
   UniqueId get responseId =>
-      throw _privateConstructorUsedError; // NOTE 每次的 response update 都會產生新的 tempResponseId
+      throw _privateConstructorUsedError; // * 每次的 response update 都會產生新的 tempResponseId
 //  在 edit session 結束時會改成跟 responseId 相同
   UniqueId get tempResponseId => throw _privateConstructorUsedError;
   UniqueId get ticketId => throw _privateConstructorUsedError;
   bool get editFinished => throw _privateConstructorUsedError;
   String get interviewerId => throw _privateConstructorUsedError;
-  UniqueId get deviceId => throw _privateConstructorUsedError; // H_ 狀態
+  UniqueId get deviceId => throw _privateConstructorUsedError; // > 狀態
   DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
   DeviceTimeStamp get sessionStartTimeStamp =>
       throw _privateConstructorUsedError;
@@ -93,7 +40,7 @@ mixin _$Response {
   DeviceTimeStamp get lastChangedTimeStamp =>
       throw _privateConstructorUsedError;
   ResponseStatus get responseStatus => throw _privateConstructorUsedError;
-  bool get isDeleted => throw _privateConstructorUsedError; // H_ 內容
+  bool get isDeleted => throw _privateConstructorUsedError; // > 內容
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
@@ -340,9 +287,10 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
-  factory _$ResponseCopyWith(_Response value, $Res Function(_Response) then) =
-      __$ResponseCopyWithImpl<$Res>;
+abstract class _$$_ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
+  factory _$$_ResponseCopyWith(
+          _$_Response value, $Res Function(_$_Response) then) =
+      __$$_ResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {String teamId,
@@ -391,13 +339,14 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
-    implements _$ResponseCopyWith<$Res> {
-  __$ResponseCopyWithImpl(_Response _value, $Res Function(_Response) _then)
-      : super(_value, (v) => _then(v as _Response));
+class __$$_ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
+    implements _$$_ResponseCopyWith<$Res> {
+  __$$_ResponseCopyWithImpl(
+      _$_Response _value, $Res Function(_$_Response) _then)
+      : super(_value, (v) => _then(v as _$_Response));
 
   @override
-  _Response get _value => super._value as _Response;
+  _$_Response get _value => super._value as _$_Response;
 
   @override
   $Res call({
@@ -422,7 +371,7 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
     Object? answerStatusMap = freezed,
     Object? surveyPageState = freezed,
   }) {
-    return _then(_Response(
+    return _then(_$_Response(
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
@@ -492,11 +441,11 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
       answerMap: answerMap == freezed
-          ? _value.answerMap
+          ? _value._answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
+          ? _value._answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
@@ -528,12 +477,15 @@ class _$_Response extends _Response {
       required this.lastChangedTimeStamp,
       required this.responseStatus,
       required this.isDeleted,
-      required this.answerMap,
-      required this.answerStatusMap,
+      required final Map<String, Answer> answerMap,
+      required final Map<String, AnswerStatus> answerStatusMap,
       required this.surveyPageState})
-      : super._();
+      : _answerMap = answerMap,
+        _answerStatusMap = answerStatusMap,
+        super._();
 
-  @override // H_ 區分不同 response
+// > 區分不同 response
+  @override
   final String teamId;
   @override
   final String projectId;
@@ -543,12 +495,14 @@ class _$_Response extends _Response {
   final ModuleType moduleType;
   @override
   final String respondentId;
-  @override // H_ 區分 response 版本
-// NOTE 每次新的 edit session 都會產生新的 responseId，
+// > 區分 response 版本
+// * 每次新的 edit session 都會產生新的 responseId，
 //  因此不會發生不同設備同 responseId 的情形
+  @override
   final UniqueId responseId;
-  @override // NOTE 每次的 response update 都會產生新的 tempResponseId
+// * 每次的 response update 都會產生新的 tempResponseId
 //  在 edit session 結束時會改成跟 responseId 相同
+  @override
   final UniqueId tempResponseId;
   @override
   final UniqueId ticketId;
@@ -558,7 +512,8 @@ class _$_Response extends _Response {
   final String interviewerId;
   @override
   final UniqueId deviceId;
-  @override // H_ 狀態
+// > 狀態
+  @override
   final DeviceTimeStamp createdTimeStamp;
   @override
   final DeviceTimeStamp sessionStartTimeStamp;
@@ -570,10 +525,22 @@ class _$_Response extends _Response {
   final ResponseStatus responseStatus;
   @override
   final bool isDeleted;
-  @override // H_ 內容
-  final Map<String, Answer> answerMap;
+// > 內容
+  final Map<String, Answer> _answerMap;
+// > 內容
   @override
-  final Map<String, AnswerStatus> answerStatusMap;
+  Map<String, Answer> get answerMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerMap);
+  }
+
+  final Map<String, AnswerStatus> _answerStatusMap;
+  @override
+  Map<String, AnswerStatus> get answerStatusMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerStatusMap);
+  }
+
   @override
   final SimpleSurveyPageState surveyPageState;
 
@@ -581,7 +548,7 @@ class _$_Response extends _Response {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Response &&
+            other is _$_Response &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality().equals(other.projectId, projectId) &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
@@ -610,9 +577,10 @@ class _$_Response extends _Response {
             const DeepCollectionEquality()
                 .equals(other.responseStatus, responseStatus) &&
             const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
-            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
             const DeepCollectionEquality()
-                .equals(other.answerStatusMap, answerStatusMap) &&
+                .equals(other._answerMap, _answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other._answerStatusMap, _answerStatusMap) &&
             const DeepCollectionEquality()
                 .equals(other.surveyPageState, surveyPageState));
   }
@@ -637,86 +605,90 @@ class _$_Response extends _Response {
         const DeepCollectionEquality().hash(lastChangedTimeStamp),
         const DeepCollectionEquality().hash(responseStatus),
         const DeepCollectionEquality().hash(isDeleted),
-        const DeepCollectionEquality().hash(answerMap),
-        const DeepCollectionEquality().hash(answerStatusMap),
+        const DeepCollectionEquality().hash(_answerMap),
+        const DeepCollectionEquality().hash(_answerStatusMap),
         const DeepCollectionEquality().hash(surveyPageState)
       ]);
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseCopyWith<_Response> get copyWith =>
-      __$ResponseCopyWithImpl<_Response>(this, _$identity);
+  _$$_ResponseCopyWith<_$_Response> get copyWith =>
+      __$$_ResponseCopyWithImpl<_$_Response>(this, _$identity);
 }
 
 abstract class _Response extends Response {
   const factory _Response(
-      {required String teamId,
-      required String projectId,
-      required String surveyId,
-      required ModuleType moduleType,
-      required String respondentId,
-      required UniqueId responseId,
-      required UniqueId tempResponseId,
-      required UniqueId ticketId,
-      required bool editFinished,
-      required String interviewerId,
-      required UniqueId deviceId,
-      required DeviceTimeStamp createdTimeStamp,
-      required DeviceTimeStamp sessionStartTimeStamp,
-      required DeviceTimeStamp sessionEndTimeStamp,
-      required DeviceTimeStamp lastChangedTimeStamp,
-      required ResponseStatus responseStatus,
-      required bool isDeleted,
-      required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap,
-      required SimpleSurveyPageState surveyPageState}) = _$_Response;
+      {required final String teamId,
+      required final String projectId,
+      required final String surveyId,
+      required final ModuleType moduleType,
+      required final String respondentId,
+      required final UniqueId responseId,
+      required final UniqueId tempResponseId,
+      required final UniqueId ticketId,
+      required final bool editFinished,
+      required final String interviewerId,
+      required final UniqueId deviceId,
+      required final DeviceTimeStamp createdTimeStamp,
+      required final DeviceTimeStamp sessionStartTimeStamp,
+      required final DeviceTimeStamp sessionEndTimeStamp,
+      required final DeviceTimeStamp lastChangedTimeStamp,
+      required final ResponseStatus responseStatus,
+      required final bool isDeleted,
+      required final Map<String, Answer> answerMap,
+      required final Map<String, AnswerStatus> answerStatusMap,
+      required final SimpleSurveyPageState surveyPageState}) = _$_Response;
   const _Response._() : super._();
 
-  @override // H_ 區分不同 response
-  String get teamId;
+  @override // > 區分不同 response
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  ModuleType get moduleType;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  String get respondentId;
-  @override // H_ 區分 response 版本
-// NOTE 每次新的 edit session 都會產生新的 responseId，
+  String get respondentId => throw _privateConstructorUsedError;
+  @override // > 區分 response 版本
+// * 每次新的 edit session 都會產生新的 responseId，
 //  因此不會發生不同設備同 responseId 的情形
-  UniqueId get responseId;
-  @override // NOTE 每次的 response update 都會產生新的 tempResponseId
+  UniqueId get responseId => throw _privateConstructorUsedError;
+  @override // * 每次的 response update 都會產生新的 tempResponseId
 //  在 edit session 結束時會改成跟 responseId 相同
-  UniqueId get tempResponseId;
+  UniqueId get tempResponseId => throw _privateConstructorUsedError;
   @override
-  UniqueId get ticketId;
+  UniqueId get ticketId => throw _privateConstructorUsedError;
   @override
-  bool get editFinished;
+  bool get editFinished => throw _privateConstructorUsedError;
   @override
-  String get interviewerId;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
-  UniqueId get deviceId;
-  @override // H_ 狀態
-  DeviceTimeStamp get createdTimeStamp;
+  UniqueId get deviceId => throw _privateConstructorUsedError;
+  @override // > 狀態
+  DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
   @override
-  DeviceTimeStamp get sessionStartTimeStamp;
+  DeviceTimeStamp get sessionStartTimeStamp =>
+      throw _privateConstructorUsedError;
   @override
-  DeviceTimeStamp get sessionEndTimeStamp;
+  DeviceTimeStamp get sessionEndTimeStamp => throw _privateConstructorUsedError;
   @override
-  DeviceTimeStamp get lastChangedTimeStamp;
+  DeviceTimeStamp get lastChangedTimeStamp =>
+      throw _privateConstructorUsedError;
   @override
-  ResponseStatus get responseStatus;
+  ResponseStatus get responseStatus => throw _privateConstructorUsedError;
   @override
-  bool get isDeleted;
-  @override // H_ 內容
-  Map<String, Answer> get answerMap;
+  bool get isDeleted => throw _privateConstructorUsedError;
+  @override // > 內容
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatus> get answerStatusMap;
+  Map<String, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  SimpleSurveyPageState get surveyPageState;
+  SimpleSurveyPageState get surveyPageState =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseCopyWith<_Response> get copyWith =>
+  _$$_ResponseCopyWith<_$_Response> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,34 +12,11 @@ part of 'housing_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HousingDto _$HousingDtoFromJson(Map<String, dynamic> json) {
   return _HousingDto.fromJson(json);
 }
-
-/// @nodoc
-class _$HousingDtoTearOff {
-  const _$HousingDtoTearOff();
-
-  _HousingDto call(
-      {required String respondentId,
-      required String type,
-      required String usage}) {
-    return _HousingDto(
-      respondentId: respondentId,
-      type: type,
-      usage: usage,
-    );
-  }
-
-  HousingDto fromJson(Map<String, Object?> json) {
-    return HousingDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HousingDto = _$HousingDtoTearOff();
 
 /// @nodoc
 mixin _$HousingDto {
@@ -93,23 +70,24 @@ class _$HousingDtoCopyWithImpl<$Res> implements $HousingDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HousingDtoCopyWith<$Res> implements $HousingDtoCopyWith<$Res> {
-  factory _$HousingDtoCopyWith(
-          _HousingDto value, $Res Function(_HousingDto) then) =
-      __$HousingDtoCopyWithImpl<$Res>;
+abstract class _$$_HousingDtoCopyWith<$Res>
+    implements $HousingDtoCopyWith<$Res> {
+  factory _$$_HousingDtoCopyWith(
+          _$_HousingDto value, $Res Function(_$_HousingDto) then) =
+      __$$_HousingDtoCopyWithImpl<$Res>;
   @override
   $Res call({String respondentId, String type, String usage});
 }
 
 /// @nodoc
-class __$HousingDtoCopyWithImpl<$Res> extends _$HousingDtoCopyWithImpl<$Res>
-    implements _$HousingDtoCopyWith<$Res> {
-  __$HousingDtoCopyWithImpl(
-      _HousingDto _value, $Res Function(_HousingDto) _then)
-      : super(_value, (v) => _then(v as _HousingDto));
+class __$$_HousingDtoCopyWithImpl<$Res> extends _$HousingDtoCopyWithImpl<$Res>
+    implements _$$_HousingDtoCopyWith<$Res> {
+  __$$_HousingDtoCopyWithImpl(
+      _$_HousingDto _value, $Res Function(_$_HousingDto) _then)
+      : super(_value, (v) => _then(v as _$_HousingDto));
 
   @override
-  _HousingDto get _value => super._value as _HousingDto;
+  _$_HousingDto get _value => super._value as _$_HousingDto;
 
   @override
   $Res call({
@@ -117,7 +95,7 @@ class __$HousingDtoCopyWithImpl<$Res> extends _$HousingDtoCopyWithImpl<$Res>
     Object? type = freezed,
     Object? usage = freezed,
   }) {
-    return _then(_HousingDto(
+    return _then(_$_HousingDto(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -160,13 +138,14 @@ class _$_HousingDto extends _HousingDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HousingDto &&
+            other is _$_HousingDto &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.usage, usage));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -176,8 +155,8 @@ class _$_HousingDto extends _HousingDto {
 
   @JsonKey(ignore: true)
   @override
-  _$HousingDtoCopyWith<_HousingDto> get copyWith =>
-      __$HousingDtoCopyWithImpl<_HousingDto>(this, _$identity);
+  _$$_HousingDtoCopyWith<_$_HousingDto> get copyWith =>
+      __$$_HousingDtoCopyWithImpl<_$_HousingDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -187,22 +166,22 @@ class _$_HousingDto extends _HousingDto {
 
 abstract class _HousingDto extends HousingDto {
   const factory _HousingDto(
-      {required String respondentId,
-      required String type,
-      required String usage}) = _$_HousingDto;
+      {required final String respondentId,
+      required final String type,
+      required final String usage}) = _$_HousingDto;
   const _HousingDto._() : super._();
 
   factory _HousingDto.fromJson(Map<String, dynamic> json) =
       _$_HousingDto.fromJson;
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
-  String get usage;
+  String get usage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$HousingDtoCopyWith<_HousingDto> get copyWith =>
+  _$$_HousingDtoCopyWith<_$_HousingDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,21 +12,7 @@ part of 'value_objects.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TabTypeTearOff {
-  const _$TabTypeTearOff();
-
-  _TabType call(String value) {
-    return _TabType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $TabType = _$TabTypeTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TabType {
@@ -65,27 +51,28 @@ class _$TabTypeCopyWithImpl<$Res> implements $TabTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TabTypeCopyWith<$Res> implements $TabTypeCopyWith<$Res> {
-  factory _$TabTypeCopyWith(_TabType value, $Res Function(_TabType) then) =
-      __$TabTypeCopyWithImpl<$Res>;
+abstract class _$$_TabTypeCopyWith<$Res> implements $TabTypeCopyWith<$Res> {
+  factory _$$_TabTypeCopyWith(
+          _$_TabType value, $Res Function(_$_TabType) then) =
+      __$$_TabTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$TabTypeCopyWithImpl<$Res> extends _$TabTypeCopyWithImpl<$Res>
-    implements _$TabTypeCopyWith<$Res> {
-  __$TabTypeCopyWithImpl(_TabType _value, $Res Function(_TabType) _then)
-      : super(_value, (v) => _then(v as _TabType));
+class __$$_TabTypeCopyWithImpl<$Res> extends _$TabTypeCopyWithImpl<$Res>
+    implements _$$_TabTypeCopyWith<$Res> {
+  __$$_TabTypeCopyWithImpl(_$_TabType _value, $Res Function(_$_TabType) _then)
+      : super(_value, (v) => _then(v as _$_TabType));
 
   @override
-  _TabType get _value => super._value as _TabType;
+  _$_TabType get _value => super._value as _$_TabType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_TabType(
+    return _then(_$_TabType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -111,7 +98,7 @@ class _$_TabType extends _TabType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TabType &&
+            other is _$_TabType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -121,18 +108,18 @@ class _$_TabType extends _TabType {
 
   @JsonKey(ignore: true)
   @override
-  _$TabTypeCopyWith<_TabType> get copyWith =>
-      __$TabTypeCopyWithImpl<_TabType>(this, _$identity);
+  _$$_TabTypeCopyWith<_$_TabType> get copyWith =>
+      __$$_TabTypeCopyWithImpl<_$_TabType>(this, _$identity);
 }
 
 abstract class _TabType extends TabType {
-  const factory _TabType(String value) = _$_TabType;
+  const factory _TabType(final String value) = _$_TabType;
   const _TabType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TabTypeCopyWith<_TabType> get copyWith =>
+  _$$_TabTypeCopyWith<_$_TabType> get copyWith =>
       throw _privateConstructorUsedError;
 }

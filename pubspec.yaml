@@ -13,44 +13,45 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  # H_ essential
-  json_annotation: ^4.4.0
+  # > essential
+  json_annotation: ^4.5.0
   path_provider: ^2.0.9
-  freezed_annotation: ^1.1.0
+  freezed_annotation: ^2.0.3
   uuid: ^3.0.6
   collection: ^1.15.0
   supercharged: ^2.1.1
-  # H_ log
+  # > log
   logger: ^1.1.0
   stack_trace: ^1.10.0
   path: ^1.8.0
-  # H_ get_it
+  # > get_it
   get_it: ^7.2.0
   injectable: ^1.5.3
-  # H_ bloc
+  # > bloc
   flutter_bloc: ^8.0.1
   bloc_concurrency: ^0.2.0
   # flutter_bloc_devtools:
   #   path: ../clones/flutter_bloc_devtools
-  # H_ database
+  # > database
   hive: ^2.2.1
   hive_flutter: ^1.1.0
   # isar: ^2.5.0
   synchronized: ^3.0.0
-  # H_ firebase
+  # > firebase
   firebase_core: ^1.17.0
   cloud_firestore: ^3.1.15
   firebase_storage: ^10.2.16
-  # H_ network
+  firebase_app_check: ^0.0.6+13
+  # > network
   connectivity_plus: ^2.2.1
-  # H_ recorder
+  # > recorder
   flutter_sound: ^9.2.12
   permission_handler: ^8.3.0
-  # H_ route
+  # > route
   auto_route: ^3.2.0
-  # H_ widget/presentation
+  # > widget/presentation
   sizer: ^2.0.15
-  # NOTE 目前只定義，未使用
+  # * 目前只定義，未使用
   responsive_framework: ^0.1.9
   # flex_color_scheme: ^3.0.1
   flutter_hooks: ^0.18.3
@@ -62,7 +63,8 @@ dependencies:
   flash: ^2.0.3+2
   progress_indicators: ^1.0.0
   visibility_detector: ^0.2.2
-  # H_ others
+  google_fonts: ^3.0.1
+  # > others
   dartz: ^0.10.1
   tuple: ^2.0.0
   rxdart: ^0.27.3
@@ -73,14 +75,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
-  # H_ essential
-  json_serializable: ^6.1.4
-  freezed: ^1.1.1
-  # H_ get_it
+  # > essential
+  json_serializable: ^6.2.0
+  freezed: ^2.0.3+1
+  # > get_it
   injectable_generator: ^1.5.3
-  # H_ route
+  # > route
   auto_route_generator: ^3.2.0
-  # H_ lint
+  # > lint
   flutter_lints: ^1.0.4
 
 flutter:

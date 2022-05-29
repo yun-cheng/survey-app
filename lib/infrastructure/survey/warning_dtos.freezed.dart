@@ -12,36 +12,11 @@ part of 'warning_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 WarningDto _$WarningDtoFromJson(Map<String, dynamic> json) {
   return _WarningDto.fromJson(json);
 }
-
-/// @nodoc
-class _$WarningDtoTearOff {
-  const _$WarningDtoTearOff();
-
-  _WarningDto call(
-      {required String questionId,
-      required int serialNumber,
-      required int pageNumber,
-      required String warningType}) {
-    return _WarningDto(
-      questionId: questionId,
-      serialNumber: serialNumber,
-      pageNumber: pageNumber,
-      warningType: warningType,
-    );
-  }
-
-  WarningDto fromJson(Map<String, Object?> json) {
-    return WarningDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $WarningDto = _$WarningDtoTearOff();
 
 /// @nodoc
 mixin _$WarningDto {
@@ -105,10 +80,11 @@ class _$WarningDtoCopyWithImpl<$Res> implements $WarningDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$WarningDtoCopyWith<$Res> implements $WarningDtoCopyWith<$Res> {
-  factory _$WarningDtoCopyWith(
-          _WarningDto value, $Res Function(_WarningDto) then) =
-      __$WarningDtoCopyWithImpl<$Res>;
+abstract class _$$_WarningDtoCopyWith<$Res>
+    implements $WarningDtoCopyWith<$Res> {
+  factory _$$_WarningDtoCopyWith(
+          _$_WarningDto value, $Res Function(_$_WarningDto) then) =
+      __$$_WarningDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String questionId,
@@ -118,14 +94,14 @@ abstract class _$WarningDtoCopyWith<$Res> implements $WarningDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$WarningDtoCopyWithImpl<$Res> extends _$WarningDtoCopyWithImpl<$Res>
-    implements _$WarningDtoCopyWith<$Res> {
-  __$WarningDtoCopyWithImpl(
-      _WarningDto _value, $Res Function(_WarningDto) _then)
-      : super(_value, (v) => _then(v as _WarningDto));
+class __$$_WarningDtoCopyWithImpl<$Res> extends _$WarningDtoCopyWithImpl<$Res>
+    implements _$$_WarningDtoCopyWith<$Res> {
+  __$$_WarningDtoCopyWithImpl(
+      _$_WarningDto _value, $Res Function(_$_WarningDto) _then)
+      : super(_value, (v) => _then(v as _$_WarningDto));
 
   @override
-  _WarningDto get _value => super._value as _WarningDto;
+  _$_WarningDto get _value => super._value as _$_WarningDto;
 
   @override
   $Res call({
@@ -134,7 +110,7 @@ class __$WarningDtoCopyWithImpl<$Res> extends _$WarningDtoCopyWithImpl<$Res>
     Object? pageNumber = freezed,
     Object? warningType = freezed,
   }) {
-    return _then(_WarningDto(
+    return _then(_$_WarningDto(
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
@@ -186,7 +162,7 @@ class _$_WarningDto extends _WarningDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WarningDto &&
+            other is _$_WarningDto &&
             const DeepCollectionEquality()
                 .equals(other.questionId, questionId) &&
             const DeepCollectionEquality()
@@ -197,6 +173,7 @@ class _$_WarningDto extends _WarningDto {
                 .equals(other.warningType, warningType));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -207,8 +184,8 @@ class _$_WarningDto extends _WarningDto {
 
   @JsonKey(ignore: true)
   @override
-  _$WarningDtoCopyWith<_WarningDto> get copyWith =>
-      __$WarningDtoCopyWithImpl<_WarningDto>(this, _$identity);
+  _$$_WarningDtoCopyWith<_$_WarningDto> get copyWith =>
+      __$$_WarningDtoCopyWithImpl<_$_WarningDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -218,25 +195,25 @@ class _$_WarningDto extends _WarningDto {
 
 abstract class _WarningDto extends WarningDto {
   const factory _WarningDto(
-      {required String questionId,
-      required int serialNumber,
-      required int pageNumber,
-      required String warningType}) = _$_WarningDto;
+      {required final String questionId,
+      required final int serialNumber,
+      required final int pageNumber,
+      required final String warningType}) = _$_WarningDto;
   const _WarningDto._() : super._();
 
   factory _WarningDto.fromJson(Map<String, dynamic> json) =
       _$_WarningDto.fromJson;
 
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  int get pageNumber;
+  int get pageNumber => throw _privateConstructorUsedError;
   @override
-  String get warningType;
+  String get warningType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WarningDtoCopyWith<_WarningDto> get copyWith =>
+  _$$_WarningDtoCopyWith<_$_WarningDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

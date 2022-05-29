@@ -12,30 +12,7 @@ part of 'visit_record.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$VisitRecordTearOff {
-  const _$VisitRecordTearOff();
-
-  _VisitRecord call(
-      {required String respondentId,
-      required UniqueId responseId,
-      required VisitTime visitTime,
-      required String status,
-      required String description}) {
-    return _VisitRecord(
-      respondentId: respondentId,
-      responseId: responseId,
-      visitTime: visitTime,
-      status: status,
-      description: description,
-    );
-  }
-}
-
-/// @nodoc
-const $VisitRecord = _$VisitRecordTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$VisitRecord {
@@ -122,11 +99,11 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$VisitRecordCopyWith<$Res>
+abstract class _$$_VisitRecordCopyWith<$Res>
     implements $VisitRecordCopyWith<$Res> {
-  factory _$VisitRecordCopyWith(
-          _VisitRecord value, $Res Function(_VisitRecord) then) =
-      __$VisitRecordCopyWithImpl<$Res>;
+  factory _$$_VisitRecordCopyWith(
+          _$_VisitRecord value, $Res Function(_$_VisitRecord) then) =
+      __$$_VisitRecordCopyWithImpl<$Res>;
   @override
   $Res call(
       {String respondentId,
@@ -142,14 +119,14 @@ abstract class _$VisitRecordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
-    implements _$VisitRecordCopyWith<$Res> {
-  __$VisitRecordCopyWithImpl(
-      _VisitRecord _value, $Res Function(_VisitRecord) _then)
-      : super(_value, (v) => _then(v as _VisitRecord));
+class __$$_VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
+    implements _$$_VisitRecordCopyWith<$Res> {
+  __$$_VisitRecordCopyWithImpl(
+      _$_VisitRecord _value, $Res Function(_$_VisitRecord) _then)
+      : super(_value, (v) => _then(v as _$_VisitRecord));
 
   @override
-  _VisitRecord get _value => super._value as _VisitRecord;
+  _$_VisitRecord get _value => super._value as _$_VisitRecord;
 
   @override
   $Res call({
@@ -159,7 +136,7 @@ class __$VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
     Object? status = freezed,
     Object? description = freezed,
   }) {
-    return _then(_VisitRecord(
+    return _then(_$_VisitRecord(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -215,7 +192,7 @@ class _$_VisitRecord extends _VisitRecord {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VisitRecord &&
+            other is _$_VisitRecord &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality()
@@ -237,31 +214,31 @@ class _$_VisitRecord extends _VisitRecord {
 
   @JsonKey(ignore: true)
   @override
-  _$VisitRecordCopyWith<_VisitRecord> get copyWith =>
-      __$VisitRecordCopyWithImpl<_VisitRecord>(this, _$identity);
+  _$$_VisitRecordCopyWith<_$_VisitRecord> get copyWith =>
+      __$$_VisitRecordCopyWithImpl<_$_VisitRecord>(this, _$identity);
 }
 
 abstract class _VisitRecord extends VisitRecord {
   const factory _VisitRecord(
-      {required String respondentId,
-      required UniqueId responseId,
-      required VisitTime visitTime,
-      required String status,
-      required String description}) = _$_VisitRecord;
+      {required final String respondentId,
+      required final UniqueId responseId,
+      required final VisitTime visitTime,
+      required final String status,
+      required final String description}) = _$_VisitRecord;
   const _VisitRecord._() : super._();
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  UniqueId get responseId;
+  UniqueId get responseId => throw _privateConstructorUsedError;
   @override
-  VisitTime get visitTime;
+  VisitTime get visitTime => throw _privateConstructorUsedError;
   @override
-  String get status;
+  String get status => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$VisitRecordCopyWith<_VisitRecord> get copyWith =>
+  _$$_VisitRecordCopyWith<_$_VisitRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,30 +12,7 @@ part of 'simple_survey_page_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SimpleSurveyPageStateTearOff {
-  const _$SimpleSurveyPageStateTearOff();
-
-  _SimpleSurveyPageState call(
-      {required int page,
-      required int newestPage,
-      required bool isLastPage,
-      required Warning warning,
-      required bool showWarning}) {
-    return _SimpleSurveyPageState(
-      page: page,
-      newestPage: newestPage,
-      isLastPage: isLastPage,
-      warning: warning,
-      showWarning: showWarning,
-    );
-  }
-}
-
-/// @nodoc
-const $SimpleSurveyPageState = _$SimpleSurveyPageStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SimpleSurveyPageState {
@@ -115,11 +92,11 @@ class _$SimpleSurveyPageStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SimpleSurveyPageStateCopyWith<$Res>
+abstract class _$$_SimpleSurveyPageStateCopyWith<$Res>
     implements $SimpleSurveyPageStateCopyWith<$Res> {
-  factory _$SimpleSurveyPageStateCopyWith(_SimpleSurveyPageState value,
-          $Res Function(_SimpleSurveyPageState) then) =
-      __$SimpleSurveyPageStateCopyWithImpl<$Res>;
+  factory _$$_SimpleSurveyPageStateCopyWith(_$_SimpleSurveyPageState value,
+          $Res Function(_$_SimpleSurveyPageState) then) =
+      __$$_SimpleSurveyPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {int page,
@@ -133,15 +110,16 @@ abstract class _$SimpleSurveyPageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SimpleSurveyPageStateCopyWithImpl<$Res>
+class __$$_SimpleSurveyPageStateCopyWithImpl<$Res>
     extends _$SimpleSurveyPageStateCopyWithImpl<$Res>
-    implements _$SimpleSurveyPageStateCopyWith<$Res> {
-  __$SimpleSurveyPageStateCopyWithImpl(_SimpleSurveyPageState _value,
-      $Res Function(_SimpleSurveyPageState) _then)
-      : super(_value, (v) => _then(v as _SimpleSurveyPageState));
+    implements _$$_SimpleSurveyPageStateCopyWith<$Res> {
+  __$$_SimpleSurveyPageStateCopyWithImpl(_$_SimpleSurveyPageState _value,
+      $Res Function(_$_SimpleSurveyPageState) _then)
+      : super(_value, (v) => _then(v as _$_SimpleSurveyPageState));
 
   @override
-  _SimpleSurveyPageState get _value => super._value as _SimpleSurveyPageState;
+  _$_SimpleSurveyPageState get _value =>
+      super._value as _$_SimpleSurveyPageState;
 
   @override
   $Res call({
@@ -151,7 +129,7 @@ class __$SimpleSurveyPageStateCopyWithImpl<$Res>
     Object? warning = freezed,
     Object? showWarning = freezed,
   }) {
-    return _then(_SimpleSurveyPageState(
+    return _then(_$_SimpleSurveyPageState(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -207,7 +185,7 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SimpleSurveyPageState &&
+            other is _$_SimpleSurveyPageState &&
             const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality()
                 .equals(other.newestPage, newestPage) &&
@@ -229,32 +207,32 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
 
   @JsonKey(ignore: true)
   @override
-  _$SimpleSurveyPageStateCopyWith<_SimpleSurveyPageState> get copyWith =>
-      __$SimpleSurveyPageStateCopyWithImpl<_SimpleSurveyPageState>(
+  _$$_SimpleSurveyPageStateCopyWith<_$_SimpleSurveyPageState> get copyWith =>
+      __$$_SimpleSurveyPageStateCopyWithImpl<_$_SimpleSurveyPageState>(
           this, _$identity);
 }
 
 abstract class _SimpleSurveyPageState extends SimpleSurveyPageState {
   const factory _SimpleSurveyPageState(
-      {required int page,
-      required int newestPage,
-      required bool isLastPage,
-      required Warning warning,
-      required bool showWarning}) = _$_SimpleSurveyPageState;
+      {required final int page,
+      required final int newestPage,
+      required final bool isLastPage,
+      required final Warning warning,
+      required final bool showWarning}) = _$_SimpleSurveyPageState;
   const _SimpleSurveyPageState._() : super._();
 
   @override
-  int get page;
+  int get page => throw _privateConstructorUsedError;
   @override
-  int get newestPage;
+  int get newestPage => throw _privateConstructorUsedError;
   @override
-  bool get isLastPage;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
-  Warning get warning;
+  Warning get warning => throw _privateConstructorUsedError;
   @override
-  bool get showWarning;
+  bool get showWarning => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SimpleSurveyPageStateCopyWith<_SimpleSurveyPageState> get copyWith =>
+  _$$_SimpleSurveyPageStateCopyWith<_$_SimpleSurveyPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

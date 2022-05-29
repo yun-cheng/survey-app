@@ -12,35 +12,7 @@ part of 'audio_recorder_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AudioRecorderEventTearOff {
-  const _$AudioRecorderEventTearOff();
-
-  _RecordStarted recordStarted(UniqueId fileName) {
-    return _RecordStarted(
-      fileName,
-    );
-  }
-
-  _RecordStopped recordStopped() {
-    return const _RecordStopped();
-  }
-
-  _WatchDbStreamStarted watchDbStreamStarted() {
-    return const _WatchDbStreamStarted();
-  }
-
-  _DbUpdated dbUpdated(double db) {
-    return _DbUpdated(
-      db,
-    );
-  }
-}
-
-/// @nodoc
-const $AudioRecorderEvent = _$AudioRecorderEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AudioRecorderEvent {
@@ -114,31 +86,31 @@ class _$AudioRecorderEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RecordStartedCopyWith<$Res> {
-  factory _$RecordStartedCopyWith(
-          _RecordStarted value, $Res Function(_RecordStarted) then) =
-      __$RecordStartedCopyWithImpl<$Res>;
+abstract class _$$_RecordStartedCopyWith<$Res> {
+  factory _$$_RecordStartedCopyWith(
+          _$_RecordStarted value, $Res Function(_$_RecordStarted) then) =
+      __$$_RecordStartedCopyWithImpl<$Res>;
   $Res call({UniqueId fileName});
 
   $UniqueIdCopyWith<$Res> get fileName;
 }
 
 /// @nodoc
-class __$RecordStartedCopyWithImpl<$Res>
+class __$$_RecordStartedCopyWithImpl<$Res>
     extends _$AudioRecorderEventCopyWithImpl<$Res>
-    implements _$RecordStartedCopyWith<$Res> {
-  __$RecordStartedCopyWithImpl(
-      _RecordStarted _value, $Res Function(_RecordStarted) _then)
-      : super(_value, (v) => _then(v as _RecordStarted));
+    implements _$$_RecordStartedCopyWith<$Res> {
+  __$$_RecordStartedCopyWithImpl(
+      _$_RecordStarted _value, $Res Function(_$_RecordStarted) _then)
+      : super(_value, (v) => _then(v as _$_RecordStarted));
 
   @override
-  _RecordStarted get _value => super._value as _RecordStarted;
+  _$_RecordStarted get _value => super._value as _$_RecordStarted;
 
   @override
   $Res call({
     Object? fileName = freezed,
   }) {
-    return _then(_RecordStarted(
+    return _then(_$_RecordStarted(
       fileName == freezed
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -179,7 +151,7 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RecordStarted &&
+            other is _$_RecordStarted &&
             const DeepCollectionEquality().equals(other.fileName, fileName));
   }
 
@@ -189,8 +161,8 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
 
   @JsonKey(ignore: true)
   @override
-  _$RecordStartedCopyWith<_RecordStarted> get copyWith =>
-      __$RecordStartedCopyWithImpl<_RecordStarted>(this, _$identity);
+  _$$_RecordStartedCopyWith<_$_RecordStarted> get copyWith =>
+      __$$_RecordStartedCopyWithImpl<_$_RecordStarted>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -268,31 +240,31 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
 }
 
 abstract class _RecordStarted implements AudioRecorderEvent {
-  const factory _RecordStarted(UniqueId fileName) = _$_RecordStarted;
+  const factory _RecordStarted(final UniqueId fileName) = _$_RecordStarted;
 
-  UniqueId get fileName;
+  UniqueId get fileName => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$RecordStartedCopyWith<_RecordStarted> get copyWith =>
+  _$$_RecordStartedCopyWith<_$_RecordStarted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$RecordStoppedCopyWith<$Res> {
-  factory _$RecordStoppedCopyWith(
-          _RecordStopped value, $Res Function(_RecordStopped) then) =
-      __$RecordStoppedCopyWithImpl<$Res>;
+abstract class _$$_RecordStoppedCopyWith<$Res> {
+  factory _$$_RecordStoppedCopyWith(
+          _$_RecordStopped value, $Res Function(_$_RecordStopped) then) =
+      __$$_RecordStoppedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$RecordStoppedCopyWithImpl<$Res>
+class __$$_RecordStoppedCopyWithImpl<$Res>
     extends _$AudioRecorderEventCopyWithImpl<$Res>
-    implements _$RecordStoppedCopyWith<$Res> {
-  __$RecordStoppedCopyWithImpl(
-      _RecordStopped _value, $Res Function(_RecordStopped) _then)
-      : super(_value, (v) => _then(v as _RecordStopped));
+    implements _$$_RecordStoppedCopyWith<$Res> {
+  __$$_RecordStoppedCopyWithImpl(
+      _$_RecordStopped _value, $Res Function(_$_RecordStopped) _then)
+      : super(_value, (v) => _then(v as _$_RecordStopped));
 
   @override
-  _RecordStopped get _value => super._value as _RecordStopped;
+  _$_RecordStopped get _value => super._value as _$_RecordStopped;
 }
 
 /// @nodoc
@@ -315,7 +287,7 @@ class _$_RecordStopped with DiagnosticableTreeMixin implements _RecordStopped {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _RecordStopped);
+        (other.runtimeType == runtimeType && other is _$_RecordStopped);
   }
 
   @override
@@ -401,22 +373,22 @@ abstract class _RecordStopped implements AudioRecorderEvent {
 }
 
 /// @nodoc
-abstract class _$WatchDbStreamStartedCopyWith<$Res> {
-  factory _$WatchDbStreamStartedCopyWith(_WatchDbStreamStarted value,
-          $Res Function(_WatchDbStreamStarted) then) =
-      __$WatchDbStreamStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchDbStreamStartedCopyWith<$Res> {
+  factory _$$_WatchDbStreamStartedCopyWith(_$_WatchDbStreamStarted value,
+          $Res Function(_$_WatchDbStreamStarted) then) =
+      __$$_WatchDbStreamStartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WatchDbStreamStartedCopyWithImpl<$Res>
+class __$$_WatchDbStreamStartedCopyWithImpl<$Res>
     extends _$AudioRecorderEventCopyWithImpl<$Res>
-    implements _$WatchDbStreamStartedCopyWith<$Res> {
-  __$WatchDbStreamStartedCopyWithImpl(
-      _WatchDbStreamStarted _value, $Res Function(_WatchDbStreamStarted) _then)
-      : super(_value, (v) => _then(v as _WatchDbStreamStarted));
+    implements _$$_WatchDbStreamStartedCopyWith<$Res> {
+  __$$_WatchDbStreamStartedCopyWithImpl(_$_WatchDbStreamStarted _value,
+      $Res Function(_$_WatchDbStreamStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchDbStreamStarted));
 
   @override
-  _WatchDbStreamStarted get _value => super._value as _WatchDbStreamStarted;
+  _$_WatchDbStreamStarted get _value => super._value as _$_WatchDbStreamStarted;
 }
 
 /// @nodoc
@@ -441,7 +413,7 @@ class _$_WatchDbStreamStarted
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WatchDbStreamStarted);
+        (other.runtimeType == runtimeType && other is _$_WatchDbStreamStarted);
   }
 
   @override
@@ -527,28 +499,29 @@ abstract class _WatchDbStreamStarted implements AudioRecorderEvent {
 }
 
 /// @nodoc
-abstract class _$DbUpdatedCopyWith<$Res> {
-  factory _$DbUpdatedCopyWith(
-          _DbUpdated value, $Res Function(_DbUpdated) then) =
-      __$DbUpdatedCopyWithImpl<$Res>;
+abstract class _$$_DbUpdatedCopyWith<$Res> {
+  factory _$$_DbUpdatedCopyWith(
+          _$_DbUpdated value, $Res Function(_$_DbUpdated) then) =
+      __$$_DbUpdatedCopyWithImpl<$Res>;
   $Res call({double db});
 }
 
 /// @nodoc
-class __$DbUpdatedCopyWithImpl<$Res>
+class __$$_DbUpdatedCopyWithImpl<$Res>
     extends _$AudioRecorderEventCopyWithImpl<$Res>
-    implements _$DbUpdatedCopyWith<$Res> {
-  __$DbUpdatedCopyWithImpl(_DbUpdated _value, $Res Function(_DbUpdated) _then)
-      : super(_value, (v) => _then(v as _DbUpdated));
+    implements _$$_DbUpdatedCopyWith<$Res> {
+  __$$_DbUpdatedCopyWithImpl(
+      _$_DbUpdated _value, $Res Function(_$_DbUpdated) _then)
+      : super(_value, (v) => _then(v as _$_DbUpdated));
 
   @override
-  _DbUpdated get _value => super._value as _DbUpdated;
+  _$_DbUpdated get _value => super._value as _$_DbUpdated;
 
   @override
   $Res call({
     Object? db = freezed,
   }) {
-    return _then(_DbUpdated(
+    return _then(_$_DbUpdated(
       db == freezed
           ? _value.db
           : db // ignore: cast_nullable_to_non_nullable
@@ -582,7 +555,7 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DbUpdated &&
+            other is _$_DbUpdated &&
             const DeepCollectionEquality().equals(other.db, db));
   }
 
@@ -592,8 +565,8 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
 
   @JsonKey(ignore: true)
   @override
-  _$DbUpdatedCopyWith<_DbUpdated> get copyWith =>
-      __$DbUpdatedCopyWithImpl<_DbUpdated>(this, _$identity);
+  _$$_DbUpdatedCopyWith<_$_DbUpdated> get copyWith =>
+      __$$_DbUpdatedCopyWithImpl<_$_DbUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -671,36 +644,13 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
 }
 
 abstract class _DbUpdated implements AudioRecorderEvent {
-  const factory _DbUpdated(double db) = _$_DbUpdated;
+  const factory _DbUpdated(final double db) = _$_DbUpdated;
 
-  double get db;
+  double get db => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DbUpdatedCopyWith<_DbUpdated> get copyWith =>
+  _$$_DbUpdatedCopyWith<_$_DbUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$AudioRecorderStateTearOff {
-  const _$AudioRecorderStateTearOff();
-
-  _AudioRecorderState call(
-      {required double db,
-      required bool isRecording,
-      required Audio audio,
-      required LoadState recorderState,
-      required Option<AudioFailure> audioFailure}) {
-    return _AudioRecorderState(
-      db: db,
-      isRecording: isRecording,
-      audio: audio,
-      recorderState: recorderState,
-      audioFailure: audioFailure,
-    );
-  }
-}
-
-/// @nodoc
-const $AudioRecorderState = _$AudioRecorderStateTearOff();
 
 /// @nodoc
 mixin _$AudioRecorderState {
@@ -788,11 +738,11 @@ class _$AudioRecorderStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AudioRecorderStateCopyWith<$Res>
+abstract class _$$_AudioRecorderStateCopyWith<$Res>
     implements $AudioRecorderStateCopyWith<$Res> {
-  factory _$AudioRecorderStateCopyWith(
-          _AudioRecorderState value, $Res Function(_AudioRecorderState) then) =
-      __$AudioRecorderStateCopyWithImpl<$Res>;
+  factory _$$_AudioRecorderStateCopyWith(_$_AudioRecorderState value,
+          $Res Function(_$_AudioRecorderState) then) =
+      __$$_AudioRecorderStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {double db,
@@ -808,15 +758,15 @@ abstract class _$AudioRecorderStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AudioRecorderStateCopyWithImpl<$Res>
+class __$$_AudioRecorderStateCopyWithImpl<$Res>
     extends _$AudioRecorderStateCopyWithImpl<$Res>
-    implements _$AudioRecorderStateCopyWith<$Res> {
-  __$AudioRecorderStateCopyWithImpl(
-      _AudioRecorderState _value, $Res Function(_AudioRecorderState) _then)
-      : super(_value, (v) => _then(v as _AudioRecorderState));
+    implements _$$_AudioRecorderStateCopyWith<$Res> {
+  __$$_AudioRecorderStateCopyWithImpl(
+      _$_AudioRecorderState _value, $Res Function(_$_AudioRecorderState) _then)
+      : super(_value, (v) => _then(v as _$_AudioRecorderState));
 
   @override
-  _AudioRecorderState get _value => super._value as _AudioRecorderState;
+  _$_AudioRecorderState get _value => super._value as _$_AudioRecorderState;
 
   @override
   $Res call({
@@ -826,7 +776,7 @@ class __$AudioRecorderStateCopyWithImpl<$Res>
     Object? recorderState = freezed,
     Object? audioFailure = freezed,
   }) {
-    return _then(_AudioRecorderState(
+    return _then(_$_AudioRecorderState(
       db: db == freezed
           ? _value.db
           : db // ignore: cast_nullable_to_non_nullable
@@ -895,7 +845,7 @@ class _$_AudioRecorderState extends _AudioRecorderState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AudioRecorderState &&
+            other is _$_AudioRecorderState &&
             const DeepCollectionEquality().equals(other.db, db) &&
             const DeepCollectionEquality()
                 .equals(other.isRecording, isRecording) &&
@@ -917,31 +867,33 @@ class _$_AudioRecorderState extends _AudioRecorderState
 
   @JsonKey(ignore: true)
   @override
-  _$AudioRecorderStateCopyWith<_AudioRecorderState> get copyWith =>
-      __$AudioRecorderStateCopyWithImpl<_AudioRecorderState>(this, _$identity);
+  _$$_AudioRecorderStateCopyWith<_$_AudioRecorderState> get copyWith =>
+      __$$_AudioRecorderStateCopyWithImpl<_$_AudioRecorderState>(
+          this, _$identity);
 }
 
 abstract class _AudioRecorderState extends AudioRecorderState {
   const factory _AudioRecorderState(
-      {required double db,
-      required bool isRecording,
-      required Audio audio,
-      required LoadState recorderState,
-      required Option<AudioFailure> audioFailure}) = _$_AudioRecorderState;
+          {required final double db,
+          required final bool isRecording,
+          required final Audio audio,
+          required final LoadState recorderState,
+          required final Option<AudioFailure> audioFailure}) =
+      _$_AudioRecorderState;
   const _AudioRecorderState._() : super._();
 
   @override
-  double get db;
+  double get db => throw _privateConstructorUsedError;
   @override
-  bool get isRecording;
+  bool get isRecording => throw _privateConstructorUsedError;
   @override
-  Audio get audio;
+  Audio get audio => throw _privateConstructorUsedError;
   @override
-  LoadState get recorderState;
+  LoadState get recorderState => throw _privateConstructorUsedError;
   @override
-  Option<AudioFailure> get audioFailure;
+  Option<AudioFailure> get audioFailure => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AudioRecorderStateCopyWith<_AudioRecorderState> get copyWith =>
+  _$$_AudioRecorderStateCopyWith<_$_AudioRecorderState> get copyWith =>
       throw _privateConstructorUsedError;
 }

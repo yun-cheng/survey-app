@@ -12,26 +12,7 @@ part of 'housing.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HousingTearOff {
-  const _$HousingTearOff();
-
-  _Housing call(
-      {required String respondentId,
-      required String type,
-      required String usage}) {
-    return _Housing(
-      respondentId: respondentId,
-      type: type,
-      usage: usage,
-    );
-  }
-}
-
-/// @nodoc
-const $Housing = _$HousingTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Housing {
@@ -82,21 +63,22 @@ class _$HousingCopyWithImpl<$Res> implements $HousingCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HousingCopyWith<$Res> implements $HousingCopyWith<$Res> {
-  factory _$HousingCopyWith(_Housing value, $Res Function(_Housing) then) =
-      __$HousingCopyWithImpl<$Res>;
+abstract class _$$_HousingCopyWith<$Res> implements $HousingCopyWith<$Res> {
+  factory _$$_HousingCopyWith(
+          _$_Housing value, $Res Function(_$_Housing) then) =
+      __$$_HousingCopyWithImpl<$Res>;
   @override
   $Res call({String respondentId, String type, String usage});
 }
 
 /// @nodoc
-class __$HousingCopyWithImpl<$Res> extends _$HousingCopyWithImpl<$Res>
-    implements _$HousingCopyWith<$Res> {
-  __$HousingCopyWithImpl(_Housing _value, $Res Function(_Housing) _then)
-      : super(_value, (v) => _then(v as _Housing));
+class __$$_HousingCopyWithImpl<$Res> extends _$HousingCopyWithImpl<$Res>
+    implements _$$_HousingCopyWith<$Res> {
+  __$$_HousingCopyWithImpl(_$_Housing _value, $Res Function(_$_Housing) _then)
+      : super(_value, (v) => _then(v as _$_Housing));
 
   @override
-  _Housing get _value => super._value as _Housing;
+  _$_Housing get _value => super._value as _$_Housing;
 
   @override
   $Res call({
@@ -104,7 +86,7 @@ class __$HousingCopyWithImpl<$Res> extends _$HousingCopyWithImpl<$Res>
     Object? type = freezed,
     Object? usage = freezed,
   }) {
-    return _then(_Housing(
+    return _then(_$_Housing(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -144,7 +126,7 @@ class _$_Housing extends _Housing {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Housing &&
+            other is _$_Housing &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality().equals(other.type, type) &&
@@ -160,25 +142,25 @@ class _$_Housing extends _Housing {
 
   @JsonKey(ignore: true)
   @override
-  _$HousingCopyWith<_Housing> get copyWith =>
-      __$HousingCopyWithImpl<_Housing>(this, _$identity);
+  _$$_HousingCopyWith<_$_Housing> get copyWith =>
+      __$$_HousingCopyWithImpl<_$_Housing>(this, _$identity);
 }
 
 abstract class _Housing extends Housing {
   const factory _Housing(
-      {required String respondentId,
-      required String type,
-      required String usage}) = _$_Housing;
+      {required final String respondentId,
+      required final String type,
+      required final String usage}) = _$_Housing;
   const _Housing._() : super._();
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
-  String get usage;
+  String get usage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$HousingCopyWith<_Housing> get copyWith =>
+  _$$_HousingCopyWith<_$_Housing> get copyWith =>
       throw _privateConstructorUsedError;
 }

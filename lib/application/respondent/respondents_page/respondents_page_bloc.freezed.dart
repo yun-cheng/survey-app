@@ -12,47 +12,7 @@ part of 'respondents_page_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RespondentsPageEventTearOff {
-  const _$RespondentsPageEventTearOff();
-
-  _TabSwitched tabSwitched({required TabType tab}) {
-    return _TabSwitched(
-      tab: tab,
-    );
-  }
-
-  _GroupSelected groupSelected({required String group}) {
-    return _GroupSelected(
-      group: group,
-    );
-  }
-
-  _RespondentSelected respondentSelected({required String respondentId}) {
-    return _RespondentSelected(
-      respondentId: respondentId,
-    );
-  }
-
-  _PageScrolled pageScrolled(double scrollOffset) {
-    return _PageScrolled(
-      scrollOffset,
-    );
-  }
-
-  _StateCleared stateCleared() {
-    return const _StateCleared();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $RespondentsPageEvent = _$RespondentsPageEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RespondentsPageEvent {
@@ -138,31 +98,31 @@ class _$RespondentsPageEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$TabSwitchedCopyWith<$Res> {
-  factory _$TabSwitchedCopyWith(
-          _TabSwitched value, $Res Function(_TabSwitched) then) =
-      __$TabSwitchedCopyWithImpl<$Res>;
+abstract class _$$_TabSwitchedCopyWith<$Res> {
+  factory _$$_TabSwitchedCopyWith(
+          _$_TabSwitched value, $Res Function(_$_TabSwitched) then) =
+      __$$_TabSwitchedCopyWithImpl<$Res>;
   $Res call({TabType tab});
 
   $TabTypeCopyWith<$Res> get tab;
 }
 
 /// @nodoc
-class __$TabSwitchedCopyWithImpl<$Res>
+class __$$_TabSwitchedCopyWithImpl<$Res>
     extends _$RespondentsPageEventCopyWithImpl<$Res>
-    implements _$TabSwitchedCopyWith<$Res> {
-  __$TabSwitchedCopyWithImpl(
-      _TabSwitched _value, $Res Function(_TabSwitched) _then)
-      : super(_value, (v) => _then(v as _TabSwitched));
+    implements _$$_TabSwitchedCopyWith<$Res> {
+  __$$_TabSwitchedCopyWithImpl(
+      _$_TabSwitched _value, $Res Function(_$_TabSwitched) _then)
+      : super(_value, (v) => _then(v as _$_TabSwitched));
 
   @override
-  _TabSwitched get _value => super._value as _TabSwitched;
+  _$_TabSwitched get _value => super._value as _$_TabSwitched;
 
   @override
   $Res call({
     Object? tab = freezed,
   }) {
-    return _then(_TabSwitched(
+    return _then(_$_TabSwitched(
       tab: tab == freezed
           ? _value.tab
           : tab // ignore: cast_nullable_to_non_nullable
@@ -195,7 +155,7 @@ class _$_TabSwitched implements _TabSwitched {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TabSwitched &&
+            other is _$_TabSwitched &&
             const DeepCollectionEquality().equals(other.tab, tab));
   }
 
@@ -205,8 +165,8 @@ class _$_TabSwitched implements _TabSwitched {
 
   @JsonKey(ignore: true)
   @override
-  _$TabSwitchedCopyWith<_TabSwitched> get copyWith =>
-      __$TabSwitchedCopyWithImpl<_TabSwitched>(this, _$identity);
+  _$$_TabSwitchedCopyWith<_$_TabSwitched> get copyWith =>
+      __$$_TabSwitchedCopyWithImpl<_$_TabSwitched>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -296,38 +256,38 @@ class _$_TabSwitched implements _TabSwitched {
 }
 
 abstract class _TabSwitched implements RespondentsPageEvent {
-  const factory _TabSwitched({required TabType tab}) = _$_TabSwitched;
+  const factory _TabSwitched({required final TabType tab}) = _$_TabSwitched;
 
-  TabType get tab;
+  TabType get tab => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TabSwitchedCopyWith<_TabSwitched> get copyWith =>
+  _$$_TabSwitchedCopyWith<_$_TabSwitched> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$GroupSelectedCopyWith<$Res> {
-  factory _$GroupSelectedCopyWith(
-          _GroupSelected value, $Res Function(_GroupSelected) then) =
-      __$GroupSelectedCopyWithImpl<$Res>;
+abstract class _$$_GroupSelectedCopyWith<$Res> {
+  factory _$$_GroupSelectedCopyWith(
+          _$_GroupSelected value, $Res Function(_$_GroupSelected) then) =
+      __$$_GroupSelectedCopyWithImpl<$Res>;
   $Res call({String group});
 }
 
 /// @nodoc
-class __$GroupSelectedCopyWithImpl<$Res>
+class __$$_GroupSelectedCopyWithImpl<$Res>
     extends _$RespondentsPageEventCopyWithImpl<$Res>
-    implements _$GroupSelectedCopyWith<$Res> {
-  __$GroupSelectedCopyWithImpl(
-      _GroupSelected _value, $Res Function(_GroupSelected) _then)
-      : super(_value, (v) => _then(v as _GroupSelected));
+    implements _$$_GroupSelectedCopyWith<$Res> {
+  __$$_GroupSelectedCopyWithImpl(
+      _$_GroupSelected _value, $Res Function(_$_GroupSelected) _then)
+      : super(_value, (v) => _then(v as _$_GroupSelected));
 
   @override
-  _GroupSelected get _value => super._value as _GroupSelected;
+  _$_GroupSelected get _value => super._value as _$_GroupSelected;
 
   @override
   $Res call({
     Object? group = freezed,
   }) {
-    return _then(_GroupSelected(
+    return _then(_$_GroupSelected(
       group: group == freezed
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
@@ -353,7 +313,7 @@ class _$_GroupSelected implements _GroupSelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GroupSelected &&
+            other is _$_GroupSelected &&
             const DeepCollectionEquality().equals(other.group, group));
   }
 
@@ -363,8 +323,8 @@ class _$_GroupSelected implements _GroupSelected {
 
   @JsonKey(ignore: true)
   @override
-  _$GroupSelectedCopyWith<_GroupSelected> get copyWith =>
-      __$GroupSelectedCopyWithImpl<_GroupSelected>(this, _$identity);
+  _$$_GroupSelectedCopyWith<_$_GroupSelected> get copyWith =>
+      __$$_GroupSelectedCopyWithImpl<_$_GroupSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -454,38 +414,39 @@ class _$_GroupSelected implements _GroupSelected {
 }
 
 abstract class _GroupSelected implements RespondentsPageEvent {
-  const factory _GroupSelected({required String group}) = _$_GroupSelected;
+  const factory _GroupSelected({required final String group}) =
+      _$_GroupSelected;
 
-  String get group;
+  String get group => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$GroupSelectedCopyWith<_GroupSelected> get copyWith =>
+  _$$_GroupSelectedCopyWith<_$_GroupSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$RespondentSelectedCopyWith<$Res> {
-  factory _$RespondentSelectedCopyWith(
-          _RespondentSelected value, $Res Function(_RespondentSelected) then) =
-      __$RespondentSelectedCopyWithImpl<$Res>;
+abstract class _$$_RespondentSelectedCopyWith<$Res> {
+  factory _$$_RespondentSelectedCopyWith(_$_RespondentSelected value,
+          $Res Function(_$_RespondentSelected) then) =
+      __$$_RespondentSelectedCopyWithImpl<$Res>;
   $Res call({String respondentId});
 }
 
 /// @nodoc
-class __$RespondentSelectedCopyWithImpl<$Res>
+class __$$_RespondentSelectedCopyWithImpl<$Res>
     extends _$RespondentsPageEventCopyWithImpl<$Res>
-    implements _$RespondentSelectedCopyWith<$Res> {
-  __$RespondentSelectedCopyWithImpl(
-      _RespondentSelected _value, $Res Function(_RespondentSelected) _then)
-      : super(_value, (v) => _then(v as _RespondentSelected));
+    implements _$$_RespondentSelectedCopyWith<$Res> {
+  __$$_RespondentSelectedCopyWithImpl(
+      _$_RespondentSelected _value, $Res Function(_$_RespondentSelected) _then)
+      : super(_value, (v) => _then(v as _$_RespondentSelected));
 
   @override
-  _RespondentSelected get _value => super._value as _RespondentSelected;
+  _$_RespondentSelected get _value => super._value as _$_RespondentSelected;
 
   @override
   $Res call({
     Object? respondentId = freezed,
   }) {
-    return _then(_RespondentSelected(
+    return _then(_$_RespondentSelected(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -511,7 +472,7 @@ class _$_RespondentSelected implements _RespondentSelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RespondentSelected &&
+            other is _$_RespondentSelected &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId));
   }
@@ -522,8 +483,9 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
-      __$RespondentSelectedCopyWithImpl<_RespondentSelected>(this, _$identity);
+  _$$_RespondentSelectedCopyWith<_$_RespondentSelected> get copyWith =>
+      __$$_RespondentSelectedCopyWithImpl<_$_RespondentSelected>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -613,39 +575,39 @@ class _$_RespondentSelected implements _RespondentSelected {
 }
 
 abstract class _RespondentSelected implements RespondentsPageEvent {
-  const factory _RespondentSelected({required String respondentId}) =
+  const factory _RespondentSelected({required final String respondentId}) =
       _$_RespondentSelected;
 
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
+  _$$_RespondentSelectedCopyWith<_$_RespondentSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PageScrolledCopyWith<$Res> {
-  factory _$PageScrolledCopyWith(
-          _PageScrolled value, $Res Function(_PageScrolled) then) =
-      __$PageScrolledCopyWithImpl<$Res>;
+abstract class _$$_PageScrolledCopyWith<$Res> {
+  factory _$$_PageScrolledCopyWith(
+          _$_PageScrolled value, $Res Function(_$_PageScrolled) then) =
+      __$$_PageScrolledCopyWithImpl<$Res>;
   $Res call({double scrollOffset});
 }
 
 /// @nodoc
-class __$PageScrolledCopyWithImpl<$Res>
+class __$$_PageScrolledCopyWithImpl<$Res>
     extends _$RespondentsPageEventCopyWithImpl<$Res>
-    implements _$PageScrolledCopyWith<$Res> {
-  __$PageScrolledCopyWithImpl(
-      _PageScrolled _value, $Res Function(_PageScrolled) _then)
-      : super(_value, (v) => _then(v as _PageScrolled));
+    implements _$$_PageScrolledCopyWith<$Res> {
+  __$$_PageScrolledCopyWithImpl(
+      _$_PageScrolled _value, $Res Function(_$_PageScrolled) _then)
+      : super(_value, (v) => _then(v as _$_PageScrolled));
 
   @override
-  _PageScrolled get _value => super._value as _PageScrolled;
+  _$_PageScrolled get _value => super._value as _$_PageScrolled;
 
   @override
   $Res call({
     Object? scrollOffset = freezed,
   }) {
-    return _then(_PageScrolled(
+    return _then(_$_PageScrolled(
       scrollOffset == freezed
           ? _value.scrollOffset
           : scrollOffset // ignore: cast_nullable_to_non_nullable
@@ -671,7 +633,7 @@ class _$_PageScrolled implements _PageScrolled {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PageScrolled &&
+            other is _$_PageScrolled &&
             const DeepCollectionEquality()
                 .equals(other.scrollOffset, scrollOffset));
   }
@@ -682,8 +644,8 @@ class _$_PageScrolled implements _PageScrolled {
 
   @JsonKey(ignore: true)
   @override
-  _$PageScrolledCopyWith<_PageScrolled> get copyWith =>
-      __$PageScrolledCopyWithImpl<_PageScrolled>(this, _$identity);
+  _$$_PageScrolledCopyWith<_$_PageScrolled> get copyWith =>
+      __$$_PageScrolledCopyWithImpl<_$_PageScrolled>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -773,31 +735,31 @@ class _$_PageScrolled implements _PageScrolled {
 }
 
 abstract class _PageScrolled implements RespondentsPageEvent {
-  const factory _PageScrolled(double scrollOffset) = _$_PageScrolled;
+  const factory _PageScrolled(final double scrollOffset) = _$_PageScrolled;
 
-  double get scrollOffset;
+  double get scrollOffset => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$PageScrolledCopyWith<_PageScrolled> get copyWith =>
+  _$$_PageScrolledCopyWith<_$_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$StateClearedCopyWith<$Res> {
-  factory _$StateClearedCopyWith(
-          _StateCleared value, $Res Function(_StateCleared) then) =
-      __$StateClearedCopyWithImpl<$Res>;
+abstract class _$$_StateClearedCopyWith<$Res> {
+  factory _$$_StateClearedCopyWith(
+          _$_StateCleared value, $Res Function(_$_StateCleared) then) =
+      __$$_StateClearedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StateClearedCopyWithImpl<$Res>
+class __$$_StateClearedCopyWithImpl<$Res>
     extends _$RespondentsPageEventCopyWithImpl<$Res>
-    implements _$StateClearedCopyWith<$Res> {
-  __$StateClearedCopyWithImpl(
-      _StateCleared _value, $Res Function(_StateCleared) _then)
-      : super(_value, (v) => _then(v as _StateCleared));
+    implements _$$_StateClearedCopyWith<$Res> {
+  __$$_StateClearedCopyWithImpl(
+      _$_StateCleared _value, $Res Function(_$_StateCleared) _then)
+      : super(_value, (v) => _then(v as _$_StateCleared));
 
   @override
-  _StateCleared get _value => super._value as _StateCleared;
+  _$_StateCleared get _value => super._value as _$_StateCleared;
 }
 
 /// @nodoc
@@ -813,7 +775,7 @@ class _$_StateCleared implements _StateCleared {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _StateCleared);
+        (other.runtimeType == runtimeType && other is _$_StateCleared);
   }
 
   @override
@@ -911,22 +873,22 @@ abstract class _StateCleared implements RespondentsPageEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res>
+class __$$_InitializedCopyWithImpl<$Res>
     extends _$RespondentsPageEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -942,7 +904,7 @@ class _$_Initialized implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -1038,31 +1000,6 @@ class _$_Initialized implements _Initialized {
 abstract class _Initialized implements RespondentsPageEvent {
   const factory _Initialized() = _$_Initialized;
 }
-
-/// @nodoc
-class _$RespondentsPageStateTearOff {
-  const _$RespondentsPageStateTearOff();
-
-  _RespondentsPageState call(
-      {required UniqueId stateId,
-      required TabType currentTab,
-      required Map<TabType, double> tabScrollOffset,
-      required String selectedRespondentId,
-      required String selectedGroup,
-      required LoadState eventState}) {
-    return _RespondentsPageState(
-      stateId: stateId,
-      currentTab: currentTab,
-      tabScrollOffset: tabScrollOffset,
-      selectedRespondentId: selectedRespondentId,
-      selectedGroup: selectedGroup,
-      eventState: eventState,
-    );
-  }
-}
-
-/// @nodoc
-const $RespondentsPageState = _$RespondentsPageStateTearOff();
 
 /// @nodoc
 mixin _$RespondentsPageState {
@@ -1166,11 +1103,11 @@ class _$RespondentsPageStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RespondentsPageStateCopyWith<$Res>
+abstract class _$$_RespondentsPageStateCopyWith<$Res>
     implements $RespondentsPageStateCopyWith<$Res> {
-  factory _$RespondentsPageStateCopyWith(_RespondentsPageState value,
-          $Res Function(_RespondentsPageState) then) =
-      __$RespondentsPageStateCopyWithImpl<$Res>;
+  factory _$$_RespondentsPageStateCopyWith(_$_RespondentsPageState value,
+          $Res Function(_$_RespondentsPageState) then) =
+      __$$_RespondentsPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -1189,15 +1126,15 @@ abstract class _$RespondentsPageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RespondentsPageStateCopyWithImpl<$Res>
+class __$$_RespondentsPageStateCopyWithImpl<$Res>
     extends _$RespondentsPageStateCopyWithImpl<$Res>
-    implements _$RespondentsPageStateCopyWith<$Res> {
-  __$RespondentsPageStateCopyWithImpl(
-      _RespondentsPageState _value, $Res Function(_RespondentsPageState) _then)
-      : super(_value, (v) => _then(v as _RespondentsPageState));
+    implements _$$_RespondentsPageStateCopyWith<$Res> {
+  __$$_RespondentsPageStateCopyWithImpl(_$_RespondentsPageState _value,
+      $Res Function(_$_RespondentsPageState) _then)
+      : super(_value, (v) => _then(v as _$_RespondentsPageState));
 
   @override
-  _RespondentsPageState get _value => super._value as _RespondentsPageState;
+  _$_RespondentsPageState get _value => super._value as _$_RespondentsPageState;
 
   @override
   $Res call({
@@ -1208,7 +1145,7 @@ class __$RespondentsPageStateCopyWithImpl<$Res>
     Object? selectedGroup = freezed,
     Object? eventState = freezed,
   }) {
-    return _then(_RespondentsPageState(
+    return _then(_$_RespondentsPageState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
@@ -1218,7 +1155,7 @@ class __$RespondentsPageStateCopyWithImpl<$Res>
           : currentTab // ignore: cast_nullable_to_non_nullable
               as TabType,
       tabScrollOffset: tabScrollOffset == freezed
-          ? _value.tabScrollOffset
+          ? _value._tabScrollOffset
           : tabScrollOffset // ignore: cast_nullable_to_non_nullable
               as Map<TabType, double>,
       selectedRespondentId: selectedRespondentId == freezed
@@ -1243,18 +1180,24 @@ class _$_RespondentsPageState extends _RespondentsPageState {
   const _$_RespondentsPageState(
       {required this.stateId,
       required this.currentTab,
-      required this.tabScrollOffset,
+      required final Map<TabType, double> tabScrollOffset,
       required this.selectedRespondentId,
       required this.selectedGroup,
       required this.eventState})
-      : super._();
+      : _tabScrollOffset = tabScrollOffset,
+        super._();
 
   @override
   final UniqueId stateId;
   @override
   final TabType currentTab;
+  final Map<TabType, double> _tabScrollOffset;
   @override
-  final Map<TabType, double> tabScrollOffset;
+  Map<TabType, double> get tabScrollOffset {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_tabScrollOffset);
+  }
+
   @override
   final String selectedRespondentId;
   @override
@@ -1271,12 +1214,12 @@ class _$_RespondentsPageState extends _RespondentsPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RespondentsPageState &&
+            other is _$_RespondentsPageState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality()
                 .equals(other.currentTab, currentTab) &&
             const DeepCollectionEquality()
-                .equals(other.tabScrollOffset, tabScrollOffset) &&
+                .equals(other._tabScrollOffset, _tabScrollOffset) &&
             const DeepCollectionEquality()
                 .equals(other.selectedRespondentId, selectedRespondentId) &&
             const DeepCollectionEquality()
@@ -1290,42 +1233,43 @@ class _$_RespondentsPageState extends _RespondentsPageState {
       runtimeType,
       const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(currentTab),
-      const DeepCollectionEquality().hash(tabScrollOffset),
+      const DeepCollectionEquality().hash(_tabScrollOffset),
       const DeepCollectionEquality().hash(selectedRespondentId),
       const DeepCollectionEquality().hash(selectedGroup),
       const DeepCollectionEquality().hash(eventState));
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentsPageStateCopyWith<_RespondentsPageState> get copyWith =>
-      __$RespondentsPageStateCopyWithImpl<_RespondentsPageState>(
+  _$$_RespondentsPageStateCopyWith<_$_RespondentsPageState> get copyWith =>
+      __$$_RespondentsPageStateCopyWithImpl<_$_RespondentsPageState>(
           this, _$identity);
 }
 
 abstract class _RespondentsPageState extends RespondentsPageState {
   const factory _RespondentsPageState(
-      {required UniqueId stateId,
-      required TabType currentTab,
-      required Map<TabType, double> tabScrollOffset,
-      required String selectedRespondentId,
-      required String selectedGroup,
-      required LoadState eventState}) = _$_RespondentsPageState;
+      {required final UniqueId stateId,
+      required final TabType currentTab,
+      required final Map<TabType, double> tabScrollOffset,
+      required final String selectedRespondentId,
+      required final String selectedGroup,
+      required final LoadState eventState}) = _$_RespondentsPageState;
   const _RespondentsPageState._() : super._();
 
   @override
-  UniqueId get stateId;
+  UniqueId get stateId => throw _privateConstructorUsedError;
   @override
-  TabType get currentTab;
+  TabType get currentTab => throw _privateConstructorUsedError;
   @override
-  Map<TabType, double> get tabScrollOffset;
+  Map<TabType, double> get tabScrollOffset =>
+      throw _privateConstructorUsedError;
   @override
-  String get selectedRespondentId;
+  String get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  String get selectedGroup;
+  String get selectedGroup => throw _privateConstructorUsedError;
   @override
-  LoadState get eventState;
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RespondentsPageStateCopyWith<_RespondentsPageState> get copyWith =>
+  _$$_RespondentsPageStateCopyWith<_$_RespondentsPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

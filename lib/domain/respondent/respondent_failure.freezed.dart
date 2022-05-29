@@ -12,21 +12,7 @@ part of 'respondent_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RespondentFailureTearOff {
-  const _$RespondentFailureTearOff();
-
-  _RespondentFailure call(String value) {
-    return _RespondentFailure(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $RespondentFailure = _$RespondentFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RespondentFailure {
@@ -68,31 +54,31 @@ class _$RespondentFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RespondentFailureCopyWith<$Res>
+abstract class _$$_RespondentFailureCopyWith<$Res>
     implements $RespondentFailureCopyWith<$Res> {
-  factory _$RespondentFailureCopyWith(
-          _RespondentFailure value, $Res Function(_RespondentFailure) then) =
-      __$RespondentFailureCopyWithImpl<$Res>;
+  factory _$$_RespondentFailureCopyWith(_$_RespondentFailure value,
+          $Res Function(_$_RespondentFailure) then) =
+      __$$_RespondentFailureCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$RespondentFailureCopyWithImpl<$Res>
+class __$$_RespondentFailureCopyWithImpl<$Res>
     extends _$RespondentFailureCopyWithImpl<$Res>
-    implements _$RespondentFailureCopyWith<$Res> {
-  __$RespondentFailureCopyWithImpl(
-      _RespondentFailure _value, $Res Function(_RespondentFailure) _then)
-      : super(_value, (v) => _then(v as _RespondentFailure));
+    implements _$$_RespondentFailureCopyWith<$Res> {
+  __$$_RespondentFailureCopyWithImpl(
+      _$_RespondentFailure _value, $Res Function(_$_RespondentFailure) _then)
+      : super(_value, (v) => _then(v as _$_RespondentFailure));
 
   @override
-  _RespondentFailure get _value => super._value as _RespondentFailure;
+  _$_RespondentFailure get _value => super._value as _$_RespondentFailure;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_RespondentFailure(
+    return _then(_$_RespondentFailure(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -118,7 +104,7 @@ class _$_RespondentFailure extends _RespondentFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RespondentFailure &&
+            other is _$_RespondentFailure &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -128,18 +114,19 @@ class _$_RespondentFailure extends _RespondentFailure {
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentFailureCopyWith<_RespondentFailure> get copyWith =>
-      __$RespondentFailureCopyWithImpl<_RespondentFailure>(this, _$identity);
+  _$$_RespondentFailureCopyWith<_$_RespondentFailure> get copyWith =>
+      __$$_RespondentFailureCopyWithImpl<_$_RespondentFailure>(
+          this, _$identity);
 }
 
 abstract class _RespondentFailure extends RespondentFailure {
-  const factory _RespondentFailure(String value) = _$_RespondentFailure;
+  const factory _RespondentFailure(final String value) = _$_RespondentFailure;
   const _RespondentFailure._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RespondentFailureCopyWith<_RespondentFailure> get copyWith =>
+  _$$_RespondentFailureCopyWith<_$_RespondentFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

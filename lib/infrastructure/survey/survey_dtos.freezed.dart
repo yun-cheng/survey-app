@@ -12,44 +12,11 @@ part of 'survey_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SurveyDto _$SurveyDtoFromJson(Map<String, dynamic> json) {
   return _SurveyDto.fromJson(json);
 }
-
-/// @nodoc
-class _$SurveyDtoTearOff {
-  const _$SurveyDtoTearOff();
-
-  _SurveyDto call(
-      {required String surveyId,
-      required String surveyName,
-      required String projectId,
-      required String teamId,
-      String? version,
-      bool? isCompatible,
-      int? lastUpdatedTimeStamp,
-      Map<String, SurveyModuleDto>? module}) {
-    return _SurveyDto(
-      surveyId: surveyId,
-      surveyName: surveyName,
-      projectId: projectId,
-      teamId: teamId,
-      version: version,
-      isCompatible: isCompatible,
-      lastUpdatedTimeStamp: lastUpdatedTimeStamp,
-      module: module,
-    );
-  }
-
-  SurveyDto fromJson(Map<String, Object?> json) {
-    return SurveyDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SurveyDto = _$SurveyDtoTearOff();
 
 /// @nodoc
 mixin _$SurveyDto {
@@ -141,10 +108,10 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SurveyDtoCopyWith<$Res> implements $SurveyDtoCopyWith<$Res> {
-  factory _$SurveyDtoCopyWith(
-          _SurveyDto value, $Res Function(_SurveyDto) then) =
-      __$SurveyDtoCopyWithImpl<$Res>;
+abstract class _$$_SurveyDtoCopyWith<$Res> implements $SurveyDtoCopyWith<$Res> {
+  factory _$$_SurveyDtoCopyWith(
+          _$_SurveyDto value, $Res Function(_$_SurveyDto) then) =
+      __$$_SurveyDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String surveyId,
@@ -158,13 +125,14 @@ abstract class _$SurveyDtoCopyWith<$Res> implements $SurveyDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
-    implements _$SurveyDtoCopyWith<$Res> {
-  __$SurveyDtoCopyWithImpl(_SurveyDto _value, $Res Function(_SurveyDto) _then)
-      : super(_value, (v) => _then(v as _SurveyDto));
+class __$$_SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
+    implements _$$_SurveyDtoCopyWith<$Res> {
+  __$$_SurveyDtoCopyWithImpl(
+      _$_SurveyDto _value, $Res Function(_$_SurveyDto) _then)
+      : super(_value, (v) => _then(v as _$_SurveyDto));
 
   @override
-  _SurveyDto get _value => super._value as _SurveyDto;
+  _$_SurveyDto get _value => super._value as _$_SurveyDto;
 
   @override
   $Res call({
@@ -177,7 +145,7 @@ class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
     Object? lastUpdatedTimeStamp = freezed,
     Object? module = freezed,
   }) {
-    return _then(_SurveyDto(
+    return _then(_$_SurveyDto(
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
@@ -207,7 +175,7 @@ class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
           : lastUpdatedTimeStamp // ignore: cast_nullable_to_non_nullable
               as int?,
       module: module == freezed
-          ? _value.module
+          ? _value._module
           : module // ignore: cast_nullable_to_non_nullable
               as Map<String, SurveyModuleDto>?,
     ));
@@ -225,8 +193,9 @@ class _$_SurveyDto extends _SurveyDto {
       this.version,
       this.isCompatible,
       this.lastUpdatedTimeStamp,
-      this.module})
-      : super._();
+      final Map<String, SurveyModuleDto>? module})
+      : _module = module,
+        super._();
 
   factory _$_SurveyDto.fromJson(Map<String, dynamic> json) =>
       _$$_SurveyDtoFromJson(json);
@@ -245,8 +214,14 @@ class _$_SurveyDto extends _SurveyDto {
   final bool? isCompatible;
   @override
   final int? lastUpdatedTimeStamp;
+  final Map<String, SurveyModuleDto>? _module;
   @override
-  final Map<String, SurveyModuleDto>? module;
+  Map<String, SurveyModuleDto>? get module {
+    final value = _module;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -257,7 +232,7 @@ class _$_SurveyDto extends _SurveyDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveyDto &&
+            other is _$_SurveyDto &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
             const DeepCollectionEquality()
                 .equals(other.surveyName, surveyName) &&
@@ -268,9 +243,10 @@ class _$_SurveyDto extends _SurveyDto {
                 .equals(other.isCompatible, isCompatible) &&
             const DeepCollectionEquality()
                 .equals(other.lastUpdatedTimeStamp, lastUpdatedTimeStamp) &&
-            const DeepCollectionEquality().equals(other.module, module));
+            const DeepCollectionEquality().equals(other._module, _module));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -281,12 +257,12 @@ class _$_SurveyDto extends _SurveyDto {
       const DeepCollectionEquality().hash(version),
       const DeepCollectionEquality().hash(isCompatible),
       const DeepCollectionEquality().hash(lastUpdatedTimeStamp),
-      const DeepCollectionEquality().hash(module));
+      const DeepCollectionEquality().hash(_module));
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>
-      __$SurveyDtoCopyWithImpl<_SurveyDto>(this, _$identity);
+  _$$_SurveyDtoCopyWith<_$_SurveyDto> get copyWith =>
+      __$$_SurveyDtoCopyWithImpl<_$_SurveyDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -296,37 +272,38 @@ class _$_SurveyDto extends _SurveyDto {
 
 abstract class _SurveyDto extends SurveyDto {
   const factory _SurveyDto(
-      {required String surveyId,
-      required String surveyName,
-      required String projectId,
-      required String teamId,
-      String? version,
-      bool? isCompatible,
-      int? lastUpdatedTimeStamp,
-      Map<String, SurveyModuleDto>? module}) = _$_SurveyDto;
+      {required final String surveyId,
+      required final String surveyName,
+      required final String projectId,
+      required final String teamId,
+      final String? version,
+      final bool? isCompatible,
+      final int? lastUpdatedTimeStamp,
+      final Map<String, SurveyModuleDto>? module}) = _$_SurveyDto;
   const _SurveyDto._() : super._();
 
   factory _SurveyDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyDto.fromJson;
 
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get surveyName;
+  String get surveyName => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String? get version;
+  String? get version => throw _privateConstructorUsedError;
   @override
-  bool? get isCompatible;
+  bool? get isCompatible => throw _privateConstructorUsedError;
   @override
-  int? get lastUpdatedTimeStamp;
+  int? get lastUpdatedTimeStamp => throw _privateConstructorUsedError;
   @override
-  Map<String, SurveyModuleDto>? get module;
+  Map<String, SurveyModuleDto>? get module =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>
+  _$$_SurveyDtoCopyWith<_$_SurveyDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

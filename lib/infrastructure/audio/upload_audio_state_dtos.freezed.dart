@@ -12,29 +12,11 @@ part of 'upload_audio_state_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UploadAudioStateDto _$UploadAudioStateDtoFromJson(Map<String, dynamic> json) {
   return _UploadAudioStateDto.fromJson(json);
 }
-
-/// @nodoc
-class _$UploadAudioStateDtoTearOff {
-  const _$UploadAudioStateDtoTearOff();
-
-  _UploadAudioStateDto call({Map<String, AudioDto>? audioMap}) {
-    return _UploadAudioStateDto(
-      audioMap: audioMap,
-    );
-  }
-
-  UploadAudioStateDto fromJson(Map<String, Object?> json) {
-    return UploadAudioStateDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UploadAudioStateDto = _$UploadAudioStateDtoTearOff();
 
 /// @nodoc
 mixin _$UploadAudioStateDto {
@@ -77,33 +59,33 @@ class _$UploadAudioStateDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UploadAudioStateDtoCopyWith<$Res>
+abstract class _$$_UploadAudioStateDtoCopyWith<$Res>
     implements $UploadAudioStateDtoCopyWith<$Res> {
-  factory _$UploadAudioStateDtoCopyWith(_UploadAudioStateDto value,
-          $Res Function(_UploadAudioStateDto) then) =
-      __$UploadAudioStateDtoCopyWithImpl<$Res>;
+  factory _$$_UploadAudioStateDtoCopyWith(_$_UploadAudioStateDto value,
+          $Res Function(_$_UploadAudioStateDto) then) =
+      __$$_UploadAudioStateDtoCopyWithImpl<$Res>;
   @override
   $Res call({Map<String, AudioDto>? audioMap});
 }
 
 /// @nodoc
-class __$UploadAudioStateDtoCopyWithImpl<$Res>
+class __$$_UploadAudioStateDtoCopyWithImpl<$Res>
     extends _$UploadAudioStateDtoCopyWithImpl<$Res>
-    implements _$UploadAudioStateDtoCopyWith<$Res> {
-  __$UploadAudioStateDtoCopyWithImpl(
-      _UploadAudioStateDto _value, $Res Function(_UploadAudioStateDto) _then)
-      : super(_value, (v) => _then(v as _UploadAudioStateDto));
+    implements _$$_UploadAudioStateDtoCopyWith<$Res> {
+  __$$_UploadAudioStateDtoCopyWithImpl(_$_UploadAudioStateDto _value,
+      $Res Function(_$_UploadAudioStateDto) _then)
+      : super(_value, (v) => _then(v as _$_UploadAudioStateDto));
 
   @override
-  _UploadAudioStateDto get _value => super._value as _UploadAudioStateDto;
+  _$_UploadAudioStateDto get _value => super._value as _$_UploadAudioStateDto;
 
   @override
   $Res call({
     Object? audioMap = freezed,
   }) {
-    return _then(_UploadAudioStateDto(
+    return _then(_$_UploadAudioStateDto(
       audioMap: audioMap == freezed
-          ? _value.audioMap
+          ? _value._audioMap
           : audioMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AudioDto>?,
     ));
@@ -114,13 +96,21 @@ class __$UploadAudioStateDtoCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_UploadAudioStateDto extends _UploadAudioStateDto {
-  const _$_UploadAudioStateDto({this.audioMap}) : super._();
+  const _$_UploadAudioStateDto({final Map<String, AudioDto>? audioMap})
+      : _audioMap = audioMap,
+        super._();
 
   factory _$_UploadAudioStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_UploadAudioStateDtoFromJson(json);
 
+  final Map<String, AudioDto>? _audioMap;
   @override
-  final Map<String, AudioDto>? audioMap;
+  Map<String, AudioDto>? get audioMap {
+    final value = _audioMap;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -131,18 +121,19 @@ class _$_UploadAudioStateDto extends _UploadAudioStateDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UploadAudioStateDto &&
-            const DeepCollectionEquality().equals(other.audioMap, audioMap));
+            other is _$_UploadAudioStateDto &&
+            const DeepCollectionEquality().equals(other._audioMap, _audioMap));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(audioMap));
 
   @JsonKey(ignore: true)
   @override
-  _$UploadAudioStateDtoCopyWith<_UploadAudioStateDto> get copyWith =>
-      __$UploadAudioStateDtoCopyWithImpl<_UploadAudioStateDto>(
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_audioMap));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_UploadAudioStateDtoCopyWith<_$_UploadAudioStateDto> get copyWith =>
+      __$$_UploadAudioStateDtoCopyWithImpl<_$_UploadAudioStateDto>(
           this, _$identity);
 
   @override
@@ -152,7 +143,7 @@ class _$_UploadAudioStateDto extends _UploadAudioStateDto {
 }
 
 abstract class _UploadAudioStateDto extends UploadAudioStateDto {
-  const factory _UploadAudioStateDto({Map<String, AudioDto>? audioMap}) =
+  const factory _UploadAudioStateDto({final Map<String, AudioDto>? audioMap}) =
       _$_UploadAudioStateDto;
   const _UploadAudioStateDto._() : super._();
 
@@ -160,9 +151,9 @@ abstract class _UploadAudioStateDto extends UploadAudioStateDto {
       _$_UploadAudioStateDto.fromJson;
 
   @override
-  Map<String, AudioDto>? get audioMap;
+  Map<String, AudioDto>? get audioMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UploadAudioStateDtoCopyWith<_UploadAudioStateDto> get copyWith =>
+  _$$_UploadAudioStateDtoCopyWith<_$_UploadAudioStateDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

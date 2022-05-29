@@ -12,22 +12,7 @@ part of 'simple_choice.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SimpleChoiceTearOff {
-  const _$SimpleChoiceTearOff();
-
-  _Choice call({required String id, required String body}) {
-    return _Choice(
-      id: id,
-      body: body,
-    );
-  }
-}
-
-/// @nodoc
-const $SimpleChoice = _$SimpleChoiceTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SimpleChoice {
@@ -74,28 +59,28 @@ class _$SimpleChoiceCopyWithImpl<$Res> implements $SimpleChoiceCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ChoiceCopyWith<$Res> implements $SimpleChoiceCopyWith<$Res> {
-  factory _$ChoiceCopyWith(_Choice value, $Res Function(_Choice) then) =
-      __$ChoiceCopyWithImpl<$Res>;
+abstract class _$$_ChoiceCopyWith<$Res> implements $SimpleChoiceCopyWith<$Res> {
+  factory _$$_ChoiceCopyWith(_$_Choice value, $Res Function(_$_Choice) then) =
+      __$$_ChoiceCopyWithImpl<$Res>;
   @override
   $Res call({String id, String body});
 }
 
 /// @nodoc
-class __$ChoiceCopyWithImpl<$Res> extends _$SimpleChoiceCopyWithImpl<$Res>
-    implements _$ChoiceCopyWith<$Res> {
-  __$ChoiceCopyWithImpl(_Choice _value, $Res Function(_Choice) _then)
-      : super(_value, (v) => _then(v as _Choice));
+class __$$_ChoiceCopyWithImpl<$Res> extends _$SimpleChoiceCopyWithImpl<$Res>
+    implements _$$_ChoiceCopyWith<$Res> {
+  __$$_ChoiceCopyWithImpl(_$_Choice _value, $Res Function(_$_Choice) _then)
+      : super(_value, (v) => _then(v as _$_Choice));
 
   @override
-  _Choice get _value => super._value as _Choice;
+  _$_Choice get _value => super._value as _$_Choice;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? body = freezed,
   }) {
-    return _then(_Choice(
+    return _then(_$_Choice(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -127,7 +112,7 @@ class _$_Choice extends _Choice {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Choice &&
+            other is _$_Choice &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.body, body));
   }
@@ -140,19 +125,21 @@ class _$_Choice extends _Choice {
 
   @JsonKey(ignore: true)
   @override
-  _$ChoiceCopyWith<_Choice> get copyWith =>
-      __$ChoiceCopyWithImpl<_Choice>(this, _$identity);
+  _$$_ChoiceCopyWith<_$_Choice> get copyWith =>
+      __$$_ChoiceCopyWithImpl<_$_Choice>(this, _$identity);
 }
 
 abstract class _Choice extends SimpleChoice {
-  const factory _Choice({required String id, required String body}) = _$_Choice;
+  const factory _Choice(
+      {required final String id, required final String body}) = _$_Choice;
   const _Choice._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get body;
+  String get body => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;
+  _$$_ChoiceCopyWith<_$_Choice> get copyWith =>
+      throw _privateConstructorUsedError;
 }

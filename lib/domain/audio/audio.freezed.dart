@@ -12,22 +12,7 @@ part of 'audio.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AudioTearOff {
-  const _$AudioTearOff();
-
-  _Audio call({required UniqueId fileName, required AudioType type}) {
-    return _Audio(
-      fileName: fileName,
-      type: type,
-    );
-  }
-}
-
-/// @nodoc
-const $Audio = _$AudioTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Audio {
@@ -89,9 +74,9 @@ class _$AudioCopyWithImpl<$Res> implements $AudioCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AudioCopyWith<$Res> implements $AudioCopyWith<$Res> {
-  factory _$AudioCopyWith(_Audio value, $Res Function(_Audio) then) =
-      __$AudioCopyWithImpl<$Res>;
+abstract class _$$_AudioCopyWith<$Res> implements $AudioCopyWith<$Res> {
+  factory _$$_AudioCopyWith(_$_Audio value, $Res Function(_$_Audio) then) =
+      __$$_AudioCopyWithImpl<$Res>;
   @override
   $Res call({UniqueId fileName, AudioType type});
 
@@ -102,20 +87,20 @@ abstract class _$AudioCopyWith<$Res> implements $AudioCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AudioCopyWithImpl<$Res> extends _$AudioCopyWithImpl<$Res>
-    implements _$AudioCopyWith<$Res> {
-  __$AudioCopyWithImpl(_Audio _value, $Res Function(_Audio) _then)
-      : super(_value, (v) => _then(v as _Audio));
+class __$$_AudioCopyWithImpl<$Res> extends _$AudioCopyWithImpl<$Res>
+    implements _$$_AudioCopyWith<$Res> {
+  __$$_AudioCopyWithImpl(_$_Audio _value, $Res Function(_$_Audio) _then)
+      : super(_value, (v) => _then(v as _$_Audio));
 
   @override
-  _Audio get _value => super._value as _Audio;
+  _$_Audio get _value => super._value as _$_Audio;
 
   @override
   $Res call({
     Object? fileName = freezed,
     Object? type = freezed,
   }) {
-    return _then(_Audio(
+    return _then(_$_Audio(
       fileName: fileName == freezed
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -147,7 +132,7 @@ class _$_Audio extends _Audio {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Audio &&
+            other is _$_Audio &&
             const DeepCollectionEquality().equals(other.fileName, fileName) &&
             const DeepCollectionEquality().equals(other.type, type));
   }
@@ -160,20 +145,22 @@ class _$_Audio extends _Audio {
 
   @JsonKey(ignore: true)
   @override
-  _$AudioCopyWith<_Audio> get copyWith =>
-      __$AudioCopyWithImpl<_Audio>(this, _$identity);
+  _$$_AudioCopyWith<_$_Audio> get copyWith =>
+      __$$_AudioCopyWithImpl<_$_Audio>(this, _$identity);
 }
 
 abstract class _Audio extends Audio {
-  const factory _Audio({required UniqueId fileName, required AudioType type}) =
-      _$_Audio;
+  const factory _Audio(
+      {required final UniqueId fileName,
+      required final AudioType type}) = _$_Audio;
   const _Audio._() : super._();
 
   @override
-  UniqueId get fileName;
+  UniqueId get fileName => throw _privateConstructorUsedError;
   @override
-  AudioType get type;
+  AudioType get type => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AudioCopyWith<_Audio> get copyWith => throw _privateConstructorUsedError;
+  _$$_AudioCopyWith<_$_Audio> get copyWith =>
+      throw _privateConstructorUsedError;
 }

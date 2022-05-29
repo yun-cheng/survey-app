@@ -12,40 +12,7 @@ part of 'recover_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RecoverEventTearOff {
-  const _$RecoverEventTearOff();
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-
-  _ResponseMapUploading responseMapUploading() {
-    return const _ResponseMapUploading();
-  }
-
-  _AudioMapUploading audioMapUploading() {
-    return const _AudioMapUploading();
-  }
-
-  _ResponseUploaded responseUploaded(
-      Either<SurveyFailure, String> failureOrResult) {
-    return _ResponseUploaded(
-      failureOrResult,
-    );
-  }
-
-  _AudioUploaded audioUploaded(Either<AudioFailure, Audio> failureOrResult) {
-    return _AudioUploaded(
-      failureOrResult,
-    );
-  }
-}
-
-/// @nodoc
-const $RecoverEvent = _$RecoverEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RecoverEvent {
@@ -130,21 +97,22 @@ class _$RecoverEventCopyWithImpl<$Res> implements $RecoverEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res> extends _$RecoverEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+class __$$_InitializedCopyWithImpl<$Res>
+    extends _$RecoverEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -160,7 +128,7 @@ class _$_Initialized implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -258,22 +226,22 @@ abstract class _Initialized implements RecoverEvent {
 }
 
 /// @nodoc
-abstract class _$ResponseMapUploadingCopyWith<$Res> {
-  factory _$ResponseMapUploadingCopyWith(_ResponseMapUploading value,
-          $Res Function(_ResponseMapUploading) then) =
-      __$ResponseMapUploadingCopyWithImpl<$Res>;
+abstract class _$$_ResponseMapUploadingCopyWith<$Res> {
+  factory _$$_ResponseMapUploadingCopyWith(_$_ResponseMapUploading value,
+          $Res Function(_$_ResponseMapUploading) then) =
+      __$$_ResponseMapUploadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ResponseMapUploadingCopyWithImpl<$Res>
+class __$$_ResponseMapUploadingCopyWithImpl<$Res>
     extends _$RecoverEventCopyWithImpl<$Res>
-    implements _$ResponseMapUploadingCopyWith<$Res> {
-  __$ResponseMapUploadingCopyWithImpl(
-      _ResponseMapUploading _value, $Res Function(_ResponseMapUploading) _then)
-      : super(_value, (v) => _then(v as _ResponseMapUploading));
+    implements _$$_ResponseMapUploadingCopyWith<$Res> {
+  __$$_ResponseMapUploadingCopyWithImpl(_$_ResponseMapUploading _value,
+      $Res Function(_$_ResponseMapUploading) _then)
+      : super(_value, (v) => _then(v as _$_ResponseMapUploading));
 
   @override
-  _ResponseMapUploading get _value => super._value as _ResponseMapUploading;
+  _$_ResponseMapUploading get _value => super._value as _$_ResponseMapUploading;
 }
 
 /// @nodoc
@@ -289,7 +257,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _ResponseMapUploading);
+        (other.runtimeType == runtimeType && other is _$_ResponseMapUploading);
   }
 
   @override
@@ -387,22 +355,22 @@ abstract class _ResponseMapUploading implements RecoverEvent {
 }
 
 /// @nodoc
-abstract class _$AudioMapUploadingCopyWith<$Res> {
-  factory _$AudioMapUploadingCopyWith(
-          _AudioMapUploading value, $Res Function(_AudioMapUploading) then) =
-      __$AudioMapUploadingCopyWithImpl<$Res>;
+abstract class _$$_AudioMapUploadingCopyWith<$Res> {
+  factory _$$_AudioMapUploadingCopyWith(_$_AudioMapUploading value,
+          $Res Function(_$_AudioMapUploading) then) =
+      __$$_AudioMapUploadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AudioMapUploadingCopyWithImpl<$Res>
+class __$$_AudioMapUploadingCopyWithImpl<$Res>
     extends _$RecoverEventCopyWithImpl<$Res>
-    implements _$AudioMapUploadingCopyWith<$Res> {
-  __$AudioMapUploadingCopyWithImpl(
-      _AudioMapUploading _value, $Res Function(_AudioMapUploading) _then)
-      : super(_value, (v) => _then(v as _AudioMapUploading));
+    implements _$$_AudioMapUploadingCopyWith<$Res> {
+  __$$_AudioMapUploadingCopyWithImpl(
+      _$_AudioMapUploading _value, $Res Function(_$_AudioMapUploading) _then)
+      : super(_value, (v) => _then(v as _$_AudioMapUploading));
 
   @override
-  _AudioMapUploading get _value => super._value as _AudioMapUploading;
+  _$_AudioMapUploading get _value => super._value as _$_AudioMapUploading;
 }
 
 /// @nodoc
@@ -418,7 +386,7 @@ class _$_AudioMapUploading implements _AudioMapUploading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AudioMapUploading);
+        (other.runtimeType == runtimeType && other is _$_AudioMapUploading);
   }
 
   @override
@@ -516,29 +484,29 @@ abstract class _AudioMapUploading implements RecoverEvent {
 }
 
 /// @nodoc
-abstract class _$ResponseUploadedCopyWith<$Res> {
-  factory _$ResponseUploadedCopyWith(
-          _ResponseUploaded value, $Res Function(_ResponseUploaded) then) =
-      __$ResponseUploadedCopyWithImpl<$Res>;
+abstract class _$$_ResponseUploadedCopyWith<$Res> {
+  factory _$$_ResponseUploadedCopyWith(
+          _$_ResponseUploaded value, $Res Function(_$_ResponseUploaded) then) =
+      __$$_ResponseUploadedCopyWithImpl<$Res>;
   $Res call({Either<SurveyFailure, String> failureOrResult});
 }
 
 /// @nodoc
-class __$ResponseUploadedCopyWithImpl<$Res>
+class __$$_ResponseUploadedCopyWithImpl<$Res>
     extends _$RecoverEventCopyWithImpl<$Res>
-    implements _$ResponseUploadedCopyWith<$Res> {
-  __$ResponseUploadedCopyWithImpl(
-      _ResponseUploaded _value, $Res Function(_ResponseUploaded) _then)
-      : super(_value, (v) => _then(v as _ResponseUploaded));
+    implements _$$_ResponseUploadedCopyWith<$Res> {
+  __$$_ResponseUploadedCopyWithImpl(
+      _$_ResponseUploaded _value, $Res Function(_$_ResponseUploaded) _then)
+      : super(_value, (v) => _then(v as _$_ResponseUploaded));
 
   @override
-  _ResponseUploaded get _value => super._value as _ResponseUploaded;
+  _$_ResponseUploaded get _value => super._value as _$_ResponseUploaded;
 
   @override
   $Res call({
     Object? failureOrResult = freezed,
   }) {
-    return _then(_ResponseUploaded(
+    return _then(_$_ResponseUploaded(
       failureOrResult == freezed
           ? _value.failureOrResult
           : failureOrResult // ignore: cast_nullable_to_non_nullable
@@ -564,7 +532,7 @@ class _$_ResponseUploaded implements _ResponseUploaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseUploaded &&
+            other is _$_ResponseUploaded &&
             const DeepCollectionEquality()
                 .equals(other.failureOrResult, failureOrResult));
   }
@@ -575,8 +543,8 @@ class _$_ResponseUploaded implements _ResponseUploaded {
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseUploadedCopyWith<_ResponseUploaded> get copyWith =>
-      __$ResponseUploadedCopyWithImpl<_ResponseUploaded>(this, _$identity);
+  _$$_ResponseUploadedCopyWith<_$_ResponseUploaded> get copyWith =>
+      __$$_ResponseUploadedCopyWithImpl<_$_ResponseUploaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -667,38 +635,40 @@ class _$_ResponseUploaded implements _ResponseUploaded {
 
 abstract class _ResponseUploaded implements RecoverEvent {
   const factory _ResponseUploaded(
-      Either<SurveyFailure, String> failureOrResult) = _$_ResponseUploaded;
+          final Either<SurveyFailure, String> failureOrResult) =
+      _$_ResponseUploaded;
 
-  Either<SurveyFailure, String> get failureOrResult;
+  Either<SurveyFailure, String> get failureOrResult =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ResponseUploadedCopyWith<_ResponseUploaded> get copyWith =>
+  _$$_ResponseUploadedCopyWith<_$_ResponseUploaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AudioUploadedCopyWith<$Res> {
-  factory _$AudioUploadedCopyWith(
-          _AudioUploaded value, $Res Function(_AudioUploaded) then) =
-      __$AudioUploadedCopyWithImpl<$Res>;
+abstract class _$$_AudioUploadedCopyWith<$Res> {
+  factory _$$_AudioUploadedCopyWith(
+          _$_AudioUploaded value, $Res Function(_$_AudioUploaded) then) =
+      __$$_AudioUploadedCopyWithImpl<$Res>;
   $Res call({Either<AudioFailure, Audio> failureOrResult});
 }
 
 /// @nodoc
-class __$AudioUploadedCopyWithImpl<$Res>
+class __$$_AudioUploadedCopyWithImpl<$Res>
     extends _$RecoverEventCopyWithImpl<$Res>
-    implements _$AudioUploadedCopyWith<$Res> {
-  __$AudioUploadedCopyWithImpl(
-      _AudioUploaded _value, $Res Function(_AudioUploaded) _then)
-      : super(_value, (v) => _then(v as _AudioUploaded));
+    implements _$$_AudioUploadedCopyWith<$Res> {
+  __$$_AudioUploadedCopyWithImpl(
+      _$_AudioUploaded _value, $Res Function(_$_AudioUploaded) _then)
+      : super(_value, (v) => _then(v as _$_AudioUploaded));
 
   @override
-  _AudioUploaded get _value => super._value as _AudioUploaded;
+  _$_AudioUploaded get _value => super._value as _$_AudioUploaded;
 
   @override
   $Res call({
     Object? failureOrResult = freezed,
   }) {
-    return _then(_AudioUploaded(
+    return _then(_$_AudioUploaded(
       failureOrResult == freezed
           ? _value.failureOrResult
           : failureOrResult // ignore: cast_nullable_to_non_nullable
@@ -724,7 +694,7 @@ class _$_AudioUploaded implements _AudioUploaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AudioUploaded &&
+            other is _$_AudioUploaded &&
             const DeepCollectionEquality()
                 .equals(other.failureOrResult, failureOrResult));
   }
@@ -735,8 +705,8 @@ class _$_AudioUploaded implements _AudioUploaded {
 
   @JsonKey(ignore: true)
   @override
-  _$AudioUploadedCopyWith<_AudioUploaded> get copyWith =>
-      __$AudioUploadedCopyWithImpl<_AudioUploaded>(this, _$identity);
+  _$$_AudioUploadedCopyWith<_$_AudioUploaded> get copyWith =>
+      __$$_AudioUploadedCopyWithImpl<_$_AudioUploaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -826,45 +796,15 @@ class _$_AudioUploaded implements _AudioUploaded {
 }
 
 abstract class _AudioUploaded implements RecoverEvent {
-  const factory _AudioUploaded(Either<AudioFailure, Audio> failureOrResult) =
-      _$_AudioUploaded;
+  const factory _AudioUploaded(
+      final Either<AudioFailure, Audio> failureOrResult) = _$_AudioUploaded;
 
-  Either<AudioFailure, Audio> get failureOrResult;
+  Either<AudioFailure, Audio> get failureOrResult =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AudioUploadedCopyWith<_AudioUploaded> get copyWith =>
+  _$$_AudioUploadedCopyWith<_$_AudioUploaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$RecoverStateTearOff {
-  const _$RecoverStateTearOff();
-
-  _RecoverState call(
-      {required UniqueId stateId,
-      required Map<UniqueId, Response> responseMap,
-      required Map<String, Map<String, dynamic>> uploadResponseMap,
-      required Set<String> uploadedResponseIdSet,
-      required Set<String> uploadFailedResponseIdSet,
-      required Set<String> audioIdSet,
-      required Set<String> uploadedAudioIdSet,
-      required Set<String> uploadFailedAudioIdSet,
-      required LoadState eventState}) {
-    return _RecoverState(
-      stateId: stateId,
-      responseMap: responseMap,
-      uploadResponseMap: uploadResponseMap,
-      uploadedResponseIdSet: uploadedResponseIdSet,
-      uploadFailedResponseIdSet: uploadFailedResponseIdSet,
-      audioIdSet: audioIdSet,
-      uploadedAudioIdSet: uploadedAudioIdSet,
-      uploadFailedAudioIdSet: uploadFailedAudioIdSet,
-      eventState: eventState,
-    );
-  }
-}
-
-/// @nodoc
-const $RecoverState = _$RecoverStateTearOff();
 
 /// @nodoc
 mixin _$RecoverState {
@@ -981,11 +921,11 @@ class _$RecoverStateCopyWithImpl<$Res> implements $RecoverStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RecoverStateCopyWith<$Res>
+abstract class _$$_RecoverStateCopyWith<$Res>
     implements $RecoverStateCopyWith<$Res> {
-  factory _$RecoverStateCopyWith(
-          _RecoverState value, $Res Function(_RecoverState) then) =
-      __$RecoverStateCopyWithImpl<$Res>;
+  factory _$$_RecoverStateCopyWith(
+          _$_RecoverState value, $Res Function(_$_RecoverState) then) =
+      __$$_RecoverStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -1005,14 +945,15 @@ abstract class _$RecoverStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RecoverStateCopyWithImpl<$Res> extends _$RecoverStateCopyWithImpl<$Res>
-    implements _$RecoverStateCopyWith<$Res> {
-  __$RecoverStateCopyWithImpl(
-      _RecoverState _value, $Res Function(_RecoverState) _then)
-      : super(_value, (v) => _then(v as _RecoverState));
+class __$$_RecoverStateCopyWithImpl<$Res>
+    extends _$RecoverStateCopyWithImpl<$Res>
+    implements _$$_RecoverStateCopyWith<$Res> {
+  __$$_RecoverStateCopyWithImpl(
+      _$_RecoverState _value, $Res Function(_$_RecoverState) _then)
+      : super(_value, (v) => _then(v as _$_RecoverState));
 
   @override
-  _RecoverState get _value => super._value as _RecoverState;
+  _$_RecoverState get _value => super._value as _$_RecoverState;
 
   @override
   $Res call({
@@ -1026,37 +967,37 @@ class __$RecoverStateCopyWithImpl<$Res> extends _$RecoverStateCopyWithImpl<$Res>
     Object? uploadFailedAudioIdSet = freezed,
     Object? eventState = freezed,
   }) {
-    return _then(_RecoverState(
+    return _then(_$_RecoverState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
       uploadResponseMap: uploadResponseMap == freezed
-          ? _value.uploadResponseMap
+          ? _value._uploadResponseMap
           : uploadResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Map<String, dynamic>>,
       uploadedResponseIdSet: uploadedResponseIdSet == freezed
-          ? _value.uploadedResponseIdSet
+          ? _value._uploadedResponseIdSet
           : uploadedResponseIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       uploadFailedResponseIdSet: uploadFailedResponseIdSet == freezed
-          ? _value.uploadFailedResponseIdSet
+          ? _value._uploadFailedResponseIdSet
           : uploadFailedResponseIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       audioIdSet: audioIdSet == freezed
-          ? _value.audioIdSet
+          ? _value._audioIdSet
           : audioIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       uploadedAudioIdSet: uploadedAudioIdSet == freezed
-          ? _value.uploadedAudioIdSet
+          ? _value._uploadedAudioIdSet
           : uploadedAudioIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       uploadFailedAudioIdSet: uploadFailedAudioIdSet == freezed
-          ? _value.uploadFailedAudioIdSet
+          ? _value._uploadFailedAudioIdSet
           : uploadFailedAudioIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       eventState: eventState == freezed
@@ -1072,32 +1013,74 @@ class __$RecoverStateCopyWithImpl<$Res> extends _$RecoverStateCopyWithImpl<$Res>
 class _$_RecoverState extends _RecoverState {
   const _$_RecoverState(
       {required this.stateId,
-      required this.responseMap,
-      required this.uploadResponseMap,
-      required this.uploadedResponseIdSet,
-      required this.uploadFailedResponseIdSet,
-      required this.audioIdSet,
-      required this.uploadedAudioIdSet,
-      required this.uploadFailedAudioIdSet,
+      required final Map<UniqueId, Response> responseMap,
+      required final Map<String, Map<String, dynamic>> uploadResponseMap,
+      required final Set<String> uploadedResponseIdSet,
+      required final Set<String> uploadFailedResponseIdSet,
+      required final Set<String> audioIdSet,
+      required final Set<String> uploadedAudioIdSet,
+      required final Set<String> uploadFailedAudioIdSet,
       required this.eventState})
-      : super._();
+      : _responseMap = responseMap,
+        _uploadResponseMap = uploadResponseMap,
+        _uploadedResponseIdSet = uploadedResponseIdSet,
+        _uploadFailedResponseIdSet = uploadFailedResponseIdSet,
+        _audioIdSet = audioIdSet,
+        _uploadedAudioIdSet = uploadedAudioIdSet,
+        _uploadFailedAudioIdSet = uploadFailedAudioIdSet,
+        super._();
 
   @override
   final UniqueId stateId;
+  final Map<UniqueId, Response> _responseMap;
   @override
-  final Map<UniqueId, Response> responseMap;
+  Map<UniqueId, Response> get responseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_responseMap);
+  }
+
+  final Map<String, Map<String, dynamic>> _uploadResponseMap;
   @override
-  final Map<String, Map<String, dynamic>> uploadResponseMap;
+  Map<String, Map<String, dynamic>> get uploadResponseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_uploadResponseMap);
+  }
+
+  final Set<String> _uploadedResponseIdSet;
   @override
-  final Set<String> uploadedResponseIdSet;
+  Set<String> get uploadedResponseIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_uploadedResponseIdSet);
+  }
+
+  final Set<String> _uploadFailedResponseIdSet;
   @override
-  final Set<String> uploadFailedResponseIdSet;
+  Set<String> get uploadFailedResponseIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_uploadFailedResponseIdSet);
+  }
+
+  final Set<String> _audioIdSet;
   @override
-  final Set<String> audioIdSet;
+  Set<String> get audioIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_audioIdSet);
+  }
+
+  final Set<String> _uploadedAudioIdSet;
   @override
-  final Set<String> uploadedAudioIdSet;
+  Set<String> get uploadedAudioIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_uploadedAudioIdSet);
+  }
+
+  final Set<String> _uploadFailedAudioIdSet;
   @override
-  final Set<String> uploadFailedAudioIdSet;
+  Set<String> get uploadFailedAudioIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_uploadFailedAudioIdSet);
+  }
+
   @override
   final LoadState eventState;
 
@@ -1110,22 +1093,22 @@ class _$_RecoverState extends _RecoverState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RecoverState &&
+            other is _$_RecoverState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap) &&
+                .equals(other._responseMap, _responseMap) &&
             const DeepCollectionEquality()
-                .equals(other.uploadResponseMap, uploadResponseMap) &&
+                .equals(other._uploadResponseMap, _uploadResponseMap) &&
             const DeepCollectionEquality()
-                .equals(other.uploadedResponseIdSet, uploadedResponseIdSet) &&
+                .equals(other._uploadedResponseIdSet, _uploadedResponseIdSet) &&
             const DeepCollectionEquality().equals(
-                other.uploadFailedResponseIdSet, uploadFailedResponseIdSet) &&
+                other._uploadFailedResponseIdSet, _uploadFailedResponseIdSet) &&
             const DeepCollectionEquality()
-                .equals(other.audioIdSet, audioIdSet) &&
+                .equals(other._audioIdSet, _audioIdSet) &&
             const DeepCollectionEquality()
-                .equals(other.uploadedAudioIdSet, uploadedAudioIdSet) &&
-            const DeepCollectionEquality()
-                .equals(other.uploadFailedAudioIdSet, uploadFailedAudioIdSet) &&
+                .equals(other._uploadedAudioIdSet, _uploadedAudioIdSet) &&
+            const DeepCollectionEquality().equals(
+                other._uploadFailedAudioIdSet, _uploadFailedAudioIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.eventState, eventState));
   }
@@ -1134,54 +1117,56 @@ class _$_RecoverState extends _RecoverState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(stateId),
-      const DeepCollectionEquality().hash(responseMap),
-      const DeepCollectionEquality().hash(uploadResponseMap),
-      const DeepCollectionEquality().hash(uploadedResponseIdSet),
-      const DeepCollectionEquality().hash(uploadFailedResponseIdSet),
-      const DeepCollectionEquality().hash(audioIdSet),
-      const DeepCollectionEquality().hash(uploadedAudioIdSet),
-      const DeepCollectionEquality().hash(uploadFailedAudioIdSet),
+      const DeepCollectionEquality().hash(_responseMap),
+      const DeepCollectionEquality().hash(_uploadResponseMap),
+      const DeepCollectionEquality().hash(_uploadedResponseIdSet),
+      const DeepCollectionEquality().hash(_uploadFailedResponseIdSet),
+      const DeepCollectionEquality().hash(_audioIdSet),
+      const DeepCollectionEquality().hash(_uploadedAudioIdSet),
+      const DeepCollectionEquality().hash(_uploadFailedAudioIdSet),
       const DeepCollectionEquality().hash(eventState));
 
   @JsonKey(ignore: true)
   @override
-  _$RecoverStateCopyWith<_RecoverState> get copyWith =>
-      __$RecoverStateCopyWithImpl<_RecoverState>(this, _$identity);
+  _$$_RecoverStateCopyWith<_$_RecoverState> get copyWith =>
+      __$$_RecoverStateCopyWithImpl<_$_RecoverState>(this, _$identity);
 }
 
 abstract class _RecoverState extends RecoverState {
   const factory _RecoverState(
-      {required UniqueId stateId,
-      required Map<UniqueId, Response> responseMap,
-      required Map<String, Map<String, dynamic>> uploadResponseMap,
-      required Set<String> uploadedResponseIdSet,
-      required Set<String> uploadFailedResponseIdSet,
-      required Set<String> audioIdSet,
-      required Set<String> uploadedAudioIdSet,
-      required Set<String> uploadFailedAudioIdSet,
-      required LoadState eventState}) = _$_RecoverState;
+      {required final UniqueId stateId,
+      required final Map<UniqueId, Response> responseMap,
+      required final Map<String, Map<String, dynamic>> uploadResponseMap,
+      required final Set<String> uploadedResponseIdSet,
+      required final Set<String> uploadFailedResponseIdSet,
+      required final Set<String> audioIdSet,
+      required final Set<String> uploadedAudioIdSet,
+      required final Set<String> uploadFailedAudioIdSet,
+      required final LoadState eventState}) = _$_RecoverState;
   const _RecoverState._() : super._();
 
   @override
-  UniqueId get stateId;
+  UniqueId get stateId => throw _privateConstructorUsedError;
   @override
-  Map<UniqueId, Response> get responseMap;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @override
-  Map<String, Map<String, dynamic>> get uploadResponseMap;
+  Map<String, Map<String, dynamic>> get uploadResponseMap =>
+      throw _privateConstructorUsedError;
   @override
-  Set<String> get uploadedResponseIdSet;
+  Set<String> get uploadedResponseIdSet => throw _privateConstructorUsedError;
   @override
-  Set<String> get uploadFailedResponseIdSet;
+  Set<String> get uploadFailedResponseIdSet =>
+      throw _privateConstructorUsedError;
   @override
-  Set<String> get audioIdSet;
+  Set<String> get audioIdSet => throw _privateConstructorUsedError;
   @override
-  Set<String> get uploadedAudioIdSet;
+  Set<String> get uploadedAudioIdSet => throw _privateConstructorUsedError;
   @override
-  Set<String> get uploadFailedAudioIdSet;
+  Set<String> get uploadFailedAudioIdSet => throw _privateConstructorUsedError;
   @override
-  LoadState get eventState;
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RecoverStateCopyWith<_RecoverState> get copyWith =>
+  _$$_RecoverStateCopyWith<_$_RecoverState> get copyWith =>
       throw _privateConstructorUsedError;
 }

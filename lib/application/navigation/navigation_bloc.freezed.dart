@@ -12,33 +12,7 @@ part of 'navigation_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$NavigationEventTearOff {
-  const _$NavigationEventTearOff();
-
-  _PageChanged pageChanged({required NavigationPage page}) {
-    return _PageChanged(
-      page: page,
-    );
-  }
-
-  _PagePushed pagePushed() {
-    return const _PagePushed();
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $NavigationEvent = _$NavigationEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$NavigationEvent {
@@ -112,31 +86,31 @@ class _$NavigationEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PageChangedCopyWith<$Res> {
-  factory _$PageChangedCopyWith(
-          _PageChanged value, $Res Function(_PageChanged) then) =
-      __$PageChangedCopyWithImpl<$Res>;
+abstract class _$$_PageChangedCopyWith<$Res> {
+  factory _$$_PageChangedCopyWith(
+          _$_PageChanged value, $Res Function(_$_PageChanged) then) =
+      __$$_PageChangedCopyWithImpl<$Res>;
   $Res call({NavigationPage page});
 
   $NavigationPageCopyWith<$Res> get page;
 }
 
 /// @nodoc
-class __$PageChangedCopyWithImpl<$Res>
+class __$$_PageChangedCopyWithImpl<$Res>
     extends _$NavigationEventCopyWithImpl<$Res>
-    implements _$PageChangedCopyWith<$Res> {
-  __$PageChangedCopyWithImpl(
-      _PageChanged _value, $Res Function(_PageChanged) _then)
-      : super(_value, (v) => _then(v as _PageChanged));
+    implements _$$_PageChangedCopyWith<$Res> {
+  __$$_PageChangedCopyWithImpl(
+      _$_PageChanged _value, $Res Function(_$_PageChanged) _then)
+      : super(_value, (v) => _then(v as _$_PageChanged));
 
   @override
-  _PageChanged get _value => super._value as _PageChanged;
+  _$_PageChanged get _value => super._value as _$_PageChanged;
 
   @override
   $Res call({
     Object? page = freezed,
   }) {
-    return _then(_PageChanged(
+    return _then(_$_PageChanged(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -169,7 +143,7 @@ class _$_PageChanged implements _PageChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PageChanged &&
+            other is _$_PageChanged &&
             const DeepCollectionEquality().equals(other.page, page));
   }
 
@@ -179,8 +153,8 @@ class _$_PageChanged implements _PageChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$PageChangedCopyWith<_PageChanged> get copyWith =>
-      __$PageChangedCopyWithImpl<_PageChanged>(this, _$identity);
+  _$$_PageChangedCopyWith<_$_PageChanged> get copyWith =>
+      __$$_PageChangedCopyWithImpl<_$_PageChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -258,31 +232,32 @@ class _$_PageChanged implements _PageChanged {
 }
 
 abstract class _PageChanged implements NavigationEvent {
-  const factory _PageChanged({required NavigationPage page}) = _$_PageChanged;
+  const factory _PageChanged({required final NavigationPage page}) =
+      _$_PageChanged;
 
-  NavigationPage get page;
+  NavigationPage get page => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$PageChangedCopyWith<_PageChanged> get copyWith =>
+  _$$_PageChangedCopyWith<_$_PageChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PagePushedCopyWith<$Res> {
-  factory _$PagePushedCopyWith(
-          _PagePushed value, $Res Function(_PagePushed) then) =
-      __$PagePushedCopyWithImpl<$Res>;
+abstract class _$$_PagePushedCopyWith<$Res> {
+  factory _$$_PagePushedCopyWith(
+          _$_PagePushed value, $Res Function(_$_PagePushed) then) =
+      __$$_PagePushedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PagePushedCopyWithImpl<$Res>
+class __$$_PagePushedCopyWithImpl<$Res>
     extends _$NavigationEventCopyWithImpl<$Res>
-    implements _$PagePushedCopyWith<$Res> {
-  __$PagePushedCopyWithImpl(
-      _PagePushed _value, $Res Function(_PagePushed) _then)
-      : super(_value, (v) => _then(v as _PagePushed));
+    implements _$$_PagePushedCopyWith<$Res> {
+  __$$_PagePushedCopyWithImpl(
+      _$_PagePushed _value, $Res Function(_$_PagePushed) _then)
+      : super(_value, (v) => _then(v as _$_PagePushed));
 
   @override
-  _PagePushed get _value => super._value as _PagePushed;
+  _$_PagePushed get _value => super._value as _$_PagePushed;
 }
 
 /// @nodoc
@@ -298,7 +273,7 @@ class _$_PagePushed implements _PagePushed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _PagePushed);
+        (other.runtimeType == runtimeType && other is _$_PagePushed);
   }
 
   @override
@@ -384,20 +359,22 @@ abstract class _PagePushed implements NavigationEvent {
 }
 
 /// @nodoc
-abstract class _$LoggedOutCopyWith<$Res> {
-  factory _$LoggedOutCopyWith(
-          _LoggedOut value, $Res Function(_LoggedOut) then) =
-      __$LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LoggedOutCopyWith<$Res> {
+  factory _$$_LoggedOutCopyWith(
+          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
+      __$$_LoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoggedOutCopyWithImpl<$Res> extends _$NavigationEventCopyWithImpl<$Res>
-    implements _$LoggedOutCopyWith<$Res> {
-  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _LoggedOut));
+class __$$_LoggedOutCopyWithImpl<$Res>
+    extends _$NavigationEventCopyWithImpl<$Res>
+    implements _$$_LoggedOutCopyWith<$Res> {
+  __$$_LoggedOutCopyWithImpl(
+      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$_LoggedOut));
 
   @override
-  _LoggedOut get _value => super._value as _LoggedOut;
+  _$_LoggedOut get _value => super._value as _$_LoggedOut;
 }
 
 /// @nodoc
@@ -413,7 +390,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LoggedOut);
   }
 
   @override
@@ -499,22 +476,22 @@ abstract class _LoggedOut implements NavigationEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res>
+class __$$_InitializedCopyWithImpl<$Res>
     extends _$NavigationEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -530,7 +507,7 @@ class _$_Initialized implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -616,31 +593,10 @@ abstract class _Initialized implements NavigationEvent {
 }
 
 /// @nodoc
-class _$NavigationStateTearOff {
-  const _$NavigationStateTearOff();
-
-  _NavigationState call(
-      {required UniqueId stateId,
-      required NavigationPage page,
-      required bool pushPage,
-      required LoadState eventState}) {
-    return _NavigationState(
-      stateId: stateId,
-      page: page,
-      pushPage: pushPage,
-      eventState: eventState,
-    );
-  }
-}
-
-/// @nodoc
-const $NavigationState = _$NavigationStateTearOff();
-
-/// @nodoc
 mixin _$NavigationState {
-  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
-  NavigationPage get page => throw _privateConstructorUsedError; // H_ 中間資料
-  bool get pushPage => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
+  NavigationPage get page => throw _privateConstructorUsedError; // > 中間資料
+  bool get pushPage => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get eventState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -723,11 +679,11 @@ class _$NavigationStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$NavigationStateCopyWith<$Res>
+abstract class _$$_NavigationStateCopyWith<$Res>
     implements $NavigationStateCopyWith<$Res> {
-  factory _$NavigationStateCopyWith(
-          _NavigationState value, $Res Function(_NavigationState) then) =
-      __$NavigationStateCopyWithImpl<$Res>;
+  factory _$$_NavigationStateCopyWith(
+          _$_NavigationState value, $Res Function(_$_NavigationState) then) =
+      __$$_NavigationStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -744,15 +700,15 @@ abstract class _$NavigationStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$NavigationStateCopyWithImpl<$Res>
+class __$$_NavigationStateCopyWithImpl<$Res>
     extends _$NavigationStateCopyWithImpl<$Res>
-    implements _$NavigationStateCopyWith<$Res> {
-  __$NavigationStateCopyWithImpl(
-      _NavigationState _value, $Res Function(_NavigationState) _then)
-      : super(_value, (v) => _then(v as _NavigationState));
+    implements _$$_NavigationStateCopyWith<$Res> {
+  __$$_NavigationStateCopyWithImpl(
+      _$_NavigationState _value, $Res Function(_$_NavigationState) _then)
+      : super(_value, (v) => _then(v as _$_NavigationState));
 
   @override
-  _NavigationState get _value => super._value as _NavigationState;
+  _$_NavigationState get _value => super._value as _$_NavigationState;
 
   @override
   $Res call({
@@ -761,7 +717,7 @@ class __$NavigationStateCopyWithImpl<$Res>
     Object? pushPage = freezed,
     Object? eventState = freezed,
   }) {
-    return _then(_NavigationState(
+    return _then(_$_NavigationState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
@@ -794,11 +750,14 @@ class _$_NavigationState extends _NavigationState {
 
   @override
   final UniqueId stateId;
-  @override // H_ 主要資料
+// > 主要資料
+  @override
   final NavigationPage page;
-  @override // H_ 中間資料
+// > 中間資料
+  @override
   final bool pushPage;
-  @override // H_ 狀態更新進度
+// > 狀態更新進度
+  @override
   final LoadState eventState;
 
   @override
@@ -810,7 +769,7 @@ class _$_NavigationState extends _NavigationState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NavigationState &&
+            other is _$_NavigationState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality().equals(other.pushPage, pushPage) &&
@@ -828,28 +787,28 @@ class _$_NavigationState extends _NavigationState {
 
   @JsonKey(ignore: true)
   @override
-  _$NavigationStateCopyWith<_NavigationState> get copyWith =>
-      __$NavigationStateCopyWithImpl<_NavigationState>(this, _$identity);
+  _$$_NavigationStateCopyWith<_$_NavigationState> get copyWith =>
+      __$$_NavigationStateCopyWithImpl<_$_NavigationState>(this, _$identity);
 }
 
 abstract class _NavigationState extends NavigationState {
   const factory _NavigationState(
-      {required UniqueId stateId,
-      required NavigationPage page,
-      required bool pushPage,
-      required LoadState eventState}) = _$_NavigationState;
+      {required final UniqueId stateId,
+      required final NavigationPage page,
+      required final bool pushPage,
+      required final LoadState eventState}) = _$_NavigationState;
   const _NavigationState._() : super._();
 
   @override
-  UniqueId get stateId;
-  @override // H_ 主要資料
-  NavigationPage get page;
-  @override // H_ 中間資料
-  bool get pushPage;
-  @override // H_ 狀態更新進度
-  LoadState get eventState;
+  UniqueId get stateId => throw _privateConstructorUsedError;
+  @override // > 主要資料
+  NavigationPage get page => throw _privateConstructorUsedError;
+  @override // > 中間資料
+  bool get pushPage => throw _privateConstructorUsedError;
+  @override // > 狀態更新進度
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NavigationStateCopyWith<_NavigationState> get copyWith =>
+  _$$_NavigationStateCopyWith<_$_NavigationState> get copyWith =>
       throw _privateConstructorUsedError;
 }

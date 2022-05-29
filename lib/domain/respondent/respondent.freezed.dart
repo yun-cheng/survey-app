@@ -12,28 +12,7 @@ part of 'respondent.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RespondentTearOff {
-  const _$RespondentTearOff();
-
-  _Respondent call(
-      {required String id,
-      required String countyTown,
-      required String village,
-      required String remainAddress}) {
-    return _Respondent(
-      id: id,
-      countyTown: countyTown,
-      village: village,
-      remainAddress: remainAddress,
-    );
-  }
-}
-
-/// @nodoc
-const $Respondent = _$RespondentTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Respondent {
@@ -93,24 +72,25 @@ class _$RespondentCopyWithImpl<$Res> implements $RespondentCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RespondentCopyWith<$Res> implements $RespondentCopyWith<$Res> {
-  factory _$RespondentCopyWith(
-          _Respondent value, $Res Function(_Respondent) then) =
-      __$RespondentCopyWithImpl<$Res>;
+abstract class _$$_RespondentCopyWith<$Res>
+    implements $RespondentCopyWith<$Res> {
+  factory _$$_RespondentCopyWith(
+          _$_Respondent value, $Res Function(_$_Respondent) then) =
+      __$$_RespondentCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id, String countyTown, String village, String remainAddress});
 }
 
 /// @nodoc
-class __$RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
-    implements _$RespondentCopyWith<$Res> {
-  __$RespondentCopyWithImpl(
-      _Respondent _value, $Res Function(_Respondent) _then)
-      : super(_value, (v) => _then(v as _Respondent));
+class __$$_RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
+    implements _$$_RespondentCopyWith<$Res> {
+  __$$_RespondentCopyWithImpl(
+      _$_Respondent _value, $Res Function(_$_Respondent) _then)
+      : super(_value, (v) => _then(v as _$_Respondent));
 
   @override
-  _Respondent get _value => super._value as _Respondent;
+  _$_Respondent get _value => super._value as _$_Respondent;
 
   @override
   $Res call({
@@ -119,7 +99,7 @@ class __$RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
     Object? village = freezed,
     Object? remainAddress = freezed,
   }) {
-    return _then(_Respondent(
+    return _then(_$_Respondent(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -168,7 +148,7 @@ class _$_Respondent extends _Respondent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Respondent &&
+            other is _$_Respondent &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.countyTown, countyTown) &&
@@ -187,28 +167,28 @@ class _$_Respondent extends _Respondent {
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentCopyWith<_Respondent> get copyWith =>
-      __$RespondentCopyWithImpl<_Respondent>(this, _$identity);
+  _$$_RespondentCopyWith<_$_Respondent> get copyWith =>
+      __$$_RespondentCopyWithImpl<_$_Respondent>(this, _$identity);
 }
 
 abstract class _Respondent extends Respondent {
   const factory _Respondent(
-      {required String id,
-      required String countyTown,
-      required String village,
-      required String remainAddress}) = _$_Respondent;
+      {required final String id,
+      required final String countyTown,
+      required final String village,
+      required final String remainAddress}) = _$_Respondent;
   const _Respondent._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get countyTown;
+  String get countyTown => throw _privateConstructorUsedError;
   @override
-  String get village;
+  String get village => throw _privateConstructorUsedError;
   @override
-  String get remainAddress;
+  String get remainAddress => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RespondentCopyWith<_Respondent> get copyWith =>
+  _$$_RespondentCopyWith<_$_Respondent> get copyWith =>
       throw _privateConstructorUsedError;
 }

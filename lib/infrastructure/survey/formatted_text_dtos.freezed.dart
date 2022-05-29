@@ -12,36 +12,11 @@ part of 'formatted_text_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 FormattedTextDto _$FormattedTextDtoFromJson(Map<String, dynamic> json) {
   return _FormattedTextDto.fromJson(json);
 }
-
-/// @nodoc
-class _$FormattedTextDtoTearOff {
-  const _$FormattedTextDtoTearOff();
-
-  _FormattedTextDto call(
-      {required String type,
-      String stringBody = '',
-      ReferenceKeyDto? referenceKey,
-      AnswerDto? answer}) {
-    return _FormattedTextDto(
-      type: type,
-      stringBody: stringBody,
-      referenceKey: referenceKey,
-      answer: answer,
-    );
-  }
-
-  FormattedTextDto fromJson(Map<String, Object?> json) {
-    return FormattedTextDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FormattedTextDto = _$FormattedTextDtoTearOff();
 
 /// @nodoc
 mixin _$FormattedTextDto {
@@ -131,11 +106,11 @@ class _$FormattedTextDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$FormattedTextDtoCopyWith<$Res>
+abstract class _$$_FormattedTextDtoCopyWith<$Res>
     implements $FormattedTextDtoCopyWith<$Res> {
-  factory _$FormattedTextDtoCopyWith(
-          _FormattedTextDto value, $Res Function(_FormattedTextDto) then) =
-      __$FormattedTextDtoCopyWithImpl<$Res>;
+  factory _$$_FormattedTextDtoCopyWith(
+          _$_FormattedTextDto value, $Res Function(_$_FormattedTextDto) then) =
+      __$$_FormattedTextDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String type,
@@ -150,15 +125,15 @@ abstract class _$FormattedTextDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$FormattedTextDtoCopyWithImpl<$Res>
+class __$$_FormattedTextDtoCopyWithImpl<$Res>
     extends _$FormattedTextDtoCopyWithImpl<$Res>
-    implements _$FormattedTextDtoCopyWith<$Res> {
-  __$FormattedTextDtoCopyWithImpl(
-      _FormattedTextDto _value, $Res Function(_FormattedTextDto) _then)
-      : super(_value, (v) => _then(v as _FormattedTextDto));
+    implements _$$_FormattedTextDtoCopyWith<$Res> {
+  __$$_FormattedTextDtoCopyWithImpl(
+      _$_FormattedTextDto _value, $Res Function(_$_FormattedTextDto) _then)
+      : super(_value, (v) => _then(v as _$_FormattedTextDto));
 
   @override
-  _FormattedTextDto get _value => super._value as _FormattedTextDto;
+  _$_FormattedTextDto get _value => super._value as _$_FormattedTextDto;
 
   @override
   $Res call({
@@ -167,7 +142,7 @@ class __$FormattedTextDtoCopyWithImpl<$Res>
     Object? referenceKey = freezed,
     Object? answer = freezed,
   }) {
-    return _then(_FormattedTextDto(
+    return _then(_$_FormattedTextDto(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -203,8 +178,8 @@ class _$_FormattedTextDto extends _FormattedTextDto {
 
   @override
   final String type;
-  @JsonKey()
   @override
+  @JsonKey()
   final String stringBody;
   @override
   final ReferenceKeyDto? referenceKey;
@@ -220,7 +195,7 @@ class _$_FormattedTextDto extends _FormattedTextDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FormattedTextDto &&
+            other is _$_FormattedTextDto &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality()
                 .equals(other.stringBody, stringBody) &&
@@ -229,6 +204,7 @@ class _$_FormattedTextDto extends _FormattedTextDto {
             const DeepCollectionEquality().equals(other.answer, answer));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -239,8 +215,8 @@ class _$_FormattedTextDto extends _FormattedTextDto {
 
   @JsonKey(ignore: true)
   @override
-  _$FormattedTextDtoCopyWith<_FormattedTextDto> get copyWith =>
-      __$FormattedTextDtoCopyWithImpl<_FormattedTextDto>(this, _$identity);
+  _$$_FormattedTextDtoCopyWith<_$_FormattedTextDto> get copyWith =>
+      __$$_FormattedTextDtoCopyWithImpl<_$_FormattedTextDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -250,25 +226,25 @@ class _$_FormattedTextDto extends _FormattedTextDto {
 
 abstract class _FormattedTextDto extends FormattedTextDto {
   factory _FormattedTextDto(
-      {required String type,
-      String stringBody,
-      ReferenceKeyDto? referenceKey,
-      AnswerDto? answer}) = _$_FormattedTextDto;
+      {required final String type,
+      final String stringBody,
+      final ReferenceKeyDto? referenceKey,
+      final AnswerDto? answer}) = _$_FormattedTextDto;
   _FormattedTextDto._() : super._();
 
   factory _FormattedTextDto.fromJson(Map<String, dynamic> json) =
       _$_FormattedTextDto.fromJson;
 
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
-  String get stringBody;
+  String get stringBody => throw _privateConstructorUsedError;
   @override
-  ReferenceKeyDto? get referenceKey;
+  ReferenceKeyDto? get referenceKey => throw _privateConstructorUsedError;
   @override
-  AnswerDto? get answer;
+  AnswerDto? get answer => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FormattedTextDtoCopyWith<_FormattedTextDto> get copyWith =>
+  _$$_FormattedTextDtoCopyWith<_$_FormattedTextDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

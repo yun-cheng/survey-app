@@ -12,60 +12,7 @@ part of 'question.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$QuestionTearOff {
-  const _$QuestionTearOff();
-
-  _Question call(
-      {required String id,
-      required bool hideId,
-      required int serialNumber,
-      required List<FormattedText> body,
-      required String stringBody,
-      required String note,
-      required QuestionType type,
-      required bool hasSpecialAnswer,
-      required String upperQuestionId,
-      required int pageNumber,
-      required bool recodeNeeded,
-      required int splitColumnChoiceCount,
-      required List<Choice> initChoiceList,
-      required List<Choice> choiceList,
-      required List<Choice> specialAnswerList,
-      required FullExpression show,
-      required FullExpression validateAnswer,
-      required Set<String> childrenQIdSet,
-      required String tableId,
-      required int rowId}) {
-    return _Question(
-      id: id,
-      hideId: hideId,
-      serialNumber: serialNumber,
-      body: body,
-      stringBody: stringBody,
-      note: note,
-      type: type,
-      hasSpecialAnswer: hasSpecialAnswer,
-      upperQuestionId: upperQuestionId,
-      pageNumber: pageNumber,
-      recodeNeeded: recodeNeeded,
-      splitColumnChoiceCount: splitColumnChoiceCount,
-      initChoiceList: initChoiceList,
-      choiceList: choiceList,
-      specialAnswerList: specialAnswerList,
-      show: show,
-      validateAnswer: validateAnswer,
-      childrenQIdSet: childrenQIdSet,
-      tableId: tableId,
-      rowId: rowId,
-    );
-  }
-}
-
-/// @nodoc
-const $Question = _$QuestionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Question {
@@ -81,15 +28,15 @@ mixin _$Question {
   int get pageNumber => throw _privateConstructorUsedError;
   bool get recodeNeeded => throw _privateConstructorUsedError;
   int get splitColumnChoiceCount =>
-      throw _privateConstructorUsedError; // H_ choice list
+      throw _privateConstructorUsedError; // > choice list
   List<Choice> get initChoiceList => throw _privateConstructorUsedError;
   List<Choice> get choiceList => throw _privateConstructorUsedError;
   List<Choice> get specialAnswerList =>
-      throw _privateConstructorUsedError; // H_ expression
+      throw _privateConstructorUsedError; // > expression
   FullExpression get show => throw _privateConstructorUsedError;
   FullExpression get validateAnswer => throw _privateConstructorUsedError;
   Set<String> get childrenQIdSet =>
-      throw _privateConstructorUsedError; // H_ table
+      throw _privateConstructorUsedError; // > table
   String get tableId => throw _privateConstructorUsedError;
   int get rowId => throw _privateConstructorUsedError;
 
@@ -267,9 +214,10 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
-  factory _$QuestionCopyWith(_Question value, $Res Function(_Question) then) =
-      __$QuestionCopyWithImpl<$Res>;
+abstract class _$$_QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
+  factory _$$_QuestionCopyWith(
+          _$_Question value, $Res Function(_$_Question) then) =
+      __$$_QuestionCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id,
@@ -302,13 +250,14 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
-    implements _$QuestionCopyWith<$Res> {
-  __$QuestionCopyWithImpl(_Question _value, $Res Function(_Question) _then)
-      : super(_value, (v) => _then(v as _Question));
+class __$$_QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
+    implements _$$_QuestionCopyWith<$Res> {
+  __$$_QuestionCopyWithImpl(
+      _$_Question _value, $Res Function(_$_Question) _then)
+      : super(_value, (v) => _then(v as _$_Question));
 
   @override
-  _Question get _value => super._value as _Question;
+  _$_Question get _value => super._value as _$_Question;
 
   @override
   $Res call({
@@ -333,7 +282,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object? tableId = freezed,
     Object? rowId = freezed,
   }) {
-    return _then(_Question(
+    return _then(_$_Question(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -347,7 +296,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           : serialNumber // ignore: cast_nullable_to_non_nullable
               as int,
       body: body == freezed
-          ? _value.body
+          ? _value._body
           : body // ignore: cast_nullable_to_non_nullable
               as List<FormattedText>,
       stringBody: stringBody == freezed
@@ -383,15 +332,15 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           : splitColumnChoiceCount // ignore: cast_nullable_to_non_nullable
               as int,
       initChoiceList: initChoiceList == freezed
-          ? _value.initChoiceList
+          ? _value._initChoiceList
           : initChoiceList // ignore: cast_nullable_to_non_nullable
               as List<Choice>,
       choiceList: choiceList == freezed
-          ? _value.choiceList
+          ? _value._choiceList
           : choiceList // ignore: cast_nullable_to_non_nullable
               as List<Choice>,
       specialAnswerList: specialAnswerList == freezed
-          ? _value.specialAnswerList
+          ? _value._specialAnswerList
           : specialAnswerList // ignore: cast_nullable_to_non_nullable
               as List<Choice>,
       show: show == freezed
@@ -403,7 +352,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           : validateAnswer // ignore: cast_nullable_to_non_nullable
               as FullExpression,
       childrenQIdSet: childrenQIdSet == freezed
-          ? _value.childrenQIdSet
+          ? _value._childrenQIdSet
           : childrenQIdSet // ignore: cast_nullable_to_non_nullable
               as Set<String>,
       tableId: tableId == freezed
@@ -425,7 +374,7 @@ class _$_Question extends _Question {
       {required this.id,
       required this.hideId,
       required this.serialNumber,
-      required this.body,
+      required final List<FormattedText> body,
       required this.stringBody,
       required this.note,
       required this.type,
@@ -434,15 +383,20 @@ class _$_Question extends _Question {
       required this.pageNumber,
       required this.recodeNeeded,
       required this.splitColumnChoiceCount,
-      required this.initChoiceList,
-      required this.choiceList,
-      required this.specialAnswerList,
+      required final List<Choice> initChoiceList,
+      required final List<Choice> choiceList,
+      required final List<Choice> specialAnswerList,
       required this.show,
       required this.validateAnswer,
-      required this.childrenQIdSet,
+      required final Set<String> childrenQIdSet,
       required this.tableId,
       required this.rowId})
-      : super._();
+      : _body = body,
+        _initChoiceList = initChoiceList,
+        _choiceList = choiceList,
+        _specialAnswerList = specialAnswerList,
+        _childrenQIdSet = childrenQIdSet,
+        super._();
 
   @override
   final String id;
@@ -450,8 +404,13 @@ class _$_Question extends _Question {
   final bool hideId;
   @override
   final int serialNumber;
+  final List<FormattedText> _body;
   @override
-  final List<FormattedText> body;
+  List<FormattedText> get body {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_body);
+  }
+
   @override
   final String stringBody;
   @override
@@ -468,19 +427,43 @@ class _$_Question extends _Question {
   final bool recodeNeeded;
   @override
   final int splitColumnChoiceCount;
-  @override // H_ choice list
-  final List<Choice> initChoiceList;
+// > choice list
+  final List<Choice> _initChoiceList;
+// > choice list
   @override
-  final List<Choice> choiceList;
+  List<Choice> get initChoiceList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_initChoiceList);
+  }
+
+  final List<Choice> _choiceList;
   @override
-  final List<Choice> specialAnswerList;
-  @override // H_ expression
+  List<Choice> get choiceList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_choiceList);
+  }
+
+  final List<Choice> _specialAnswerList;
+  @override
+  List<Choice> get specialAnswerList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_specialAnswerList);
+  }
+
+// > expression
+  @override
   final FullExpression show;
   @override
   final FullExpression validateAnswer;
+  final Set<String> _childrenQIdSet;
   @override
-  final Set<String> childrenQIdSet;
-  @override // H_ table
+  Set<String> get childrenQIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_childrenQIdSet);
+  }
+
+// > table
+  @override
   final String tableId;
   @override
   final int rowId;
@@ -494,12 +477,12 @@ class _$_Question extends _Question {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Question &&
+            other is _$_Question &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.hideId, hideId) &&
             const DeepCollectionEquality()
                 .equals(other.serialNumber, serialNumber) &&
-            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality().equals(other._body, _body) &&
             const DeepCollectionEquality()
                 .equals(other.stringBody, stringBody) &&
             const DeepCollectionEquality().equals(other.note, note) &&
@@ -515,16 +498,16 @@ class _$_Question extends _Question {
             const DeepCollectionEquality()
                 .equals(other.splitColumnChoiceCount, splitColumnChoiceCount) &&
             const DeepCollectionEquality()
-                .equals(other.initChoiceList, initChoiceList) &&
+                .equals(other._initChoiceList, _initChoiceList) &&
             const DeepCollectionEquality()
-                .equals(other.choiceList, choiceList) &&
+                .equals(other._choiceList, _choiceList) &&
             const DeepCollectionEquality()
-                .equals(other.specialAnswerList, specialAnswerList) &&
+                .equals(other._specialAnswerList, _specialAnswerList) &&
             const DeepCollectionEquality().equals(other.show, show) &&
             const DeepCollectionEquality()
                 .equals(other.validateAnswer, validateAnswer) &&
             const DeepCollectionEquality()
-                .equals(other.childrenQIdSet, childrenQIdSet) &&
+                .equals(other._childrenQIdSet, _childrenQIdSet) &&
             const DeepCollectionEquality().equals(other.tableId, tableId) &&
             const DeepCollectionEquality().equals(other.rowId, rowId));
   }
@@ -535,7 +518,7 @@ class _$_Question extends _Question {
         const DeepCollectionEquality().hash(id),
         const DeepCollectionEquality().hash(hideId),
         const DeepCollectionEquality().hash(serialNumber),
-        const DeepCollectionEquality().hash(body),
+        const DeepCollectionEquality().hash(_body),
         const DeepCollectionEquality().hash(stringBody),
         const DeepCollectionEquality().hash(note),
         const DeepCollectionEquality().hash(type),
@@ -544,88 +527,88 @@ class _$_Question extends _Question {
         const DeepCollectionEquality().hash(pageNumber),
         const DeepCollectionEquality().hash(recodeNeeded),
         const DeepCollectionEquality().hash(splitColumnChoiceCount),
-        const DeepCollectionEquality().hash(initChoiceList),
-        const DeepCollectionEquality().hash(choiceList),
-        const DeepCollectionEquality().hash(specialAnswerList),
+        const DeepCollectionEquality().hash(_initChoiceList),
+        const DeepCollectionEquality().hash(_choiceList),
+        const DeepCollectionEquality().hash(_specialAnswerList),
         const DeepCollectionEquality().hash(show),
         const DeepCollectionEquality().hash(validateAnswer),
-        const DeepCollectionEquality().hash(childrenQIdSet),
+        const DeepCollectionEquality().hash(_childrenQIdSet),
         const DeepCollectionEquality().hash(tableId),
         const DeepCollectionEquality().hash(rowId)
       ]);
 
   @JsonKey(ignore: true)
   @override
-  _$QuestionCopyWith<_Question> get copyWith =>
-      __$QuestionCopyWithImpl<_Question>(this, _$identity);
+  _$$_QuestionCopyWith<_$_Question> get copyWith =>
+      __$$_QuestionCopyWithImpl<_$_Question>(this, _$identity);
 }
 
 abstract class _Question extends Question {
   const factory _Question(
-      {required String id,
-      required bool hideId,
-      required int serialNumber,
-      required List<FormattedText> body,
-      required String stringBody,
-      required String note,
-      required QuestionType type,
-      required bool hasSpecialAnswer,
-      required String upperQuestionId,
-      required int pageNumber,
-      required bool recodeNeeded,
-      required int splitColumnChoiceCount,
-      required List<Choice> initChoiceList,
-      required List<Choice> choiceList,
-      required List<Choice> specialAnswerList,
-      required FullExpression show,
-      required FullExpression validateAnswer,
-      required Set<String> childrenQIdSet,
-      required String tableId,
-      required int rowId}) = _$_Question;
+      {required final String id,
+      required final bool hideId,
+      required final int serialNumber,
+      required final List<FormattedText> body,
+      required final String stringBody,
+      required final String note,
+      required final QuestionType type,
+      required final bool hasSpecialAnswer,
+      required final String upperQuestionId,
+      required final int pageNumber,
+      required final bool recodeNeeded,
+      required final int splitColumnChoiceCount,
+      required final List<Choice> initChoiceList,
+      required final List<Choice> choiceList,
+      required final List<Choice> specialAnswerList,
+      required final FullExpression show,
+      required final FullExpression validateAnswer,
+      required final Set<String> childrenQIdSet,
+      required final String tableId,
+      required final int rowId}) = _$_Question;
   const _Question._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  bool get hideId;
+  bool get hideId => throw _privateConstructorUsedError;
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  List<FormattedText> get body;
+  List<FormattedText> get body => throw _privateConstructorUsedError;
   @override
-  String get stringBody;
+  String get stringBody => throw _privateConstructorUsedError;
   @override
-  String get note;
+  String get note => throw _privateConstructorUsedError;
   @override
-  QuestionType get type;
+  QuestionType get type => throw _privateConstructorUsedError;
   @override
-  bool get hasSpecialAnswer;
+  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  String get upperQuestionId;
+  String get upperQuestionId => throw _privateConstructorUsedError;
   @override
-  int get pageNumber;
+  int get pageNumber => throw _privateConstructorUsedError;
   @override
-  bool get recodeNeeded;
+  bool get recodeNeeded => throw _privateConstructorUsedError;
   @override
-  int get splitColumnChoiceCount;
-  @override // H_ choice list
-  List<Choice> get initChoiceList;
+  int get splitColumnChoiceCount => throw _privateConstructorUsedError;
+  @override // > choice list
+  List<Choice> get initChoiceList => throw _privateConstructorUsedError;
   @override
-  List<Choice> get choiceList;
+  List<Choice> get choiceList => throw _privateConstructorUsedError;
   @override
-  List<Choice> get specialAnswerList;
-  @override // H_ expression
-  FullExpression get show;
+  List<Choice> get specialAnswerList => throw _privateConstructorUsedError;
+  @override // > expression
+  FullExpression get show => throw _privateConstructorUsedError;
   @override
-  FullExpression get validateAnswer;
+  FullExpression get validateAnswer => throw _privateConstructorUsedError;
   @override
-  Set<String> get childrenQIdSet;
-  @override // H_ table
-  String get tableId;
+  Set<String> get childrenQIdSet => throw _privateConstructorUsedError;
+  @override // > table
+  String get tableId => throw _privateConstructorUsedError;
   @override
-  int get rowId;
+  int get rowId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$QuestionCopyWith<_Question> get copyWith =>
+  _$$_QuestionCopyWith<_$_Question> get copyWith =>
       throw _privateConstructorUsedError;
 }

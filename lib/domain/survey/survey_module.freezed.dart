@@ -12,28 +12,7 @@ part of 'survey_module.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SurveyModuleTearOff {
-  const _$SurveyModuleTearOff();
-
-  _SurveyModule call(
-      {required Map<String, Question> questionMap,
-      required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap,
-      required Map<String, Set<String>> pageQIdSetMap}) {
-    return _SurveyModule(
-      questionMap: questionMap,
-      answerMap: answerMap,
-      answerStatusMap: answerStatusMap,
-      pageQIdSetMap: pageQIdSetMap,
-    );
-  }
-}
-
-/// @nodoc
-const $SurveyModule = _$SurveyModuleTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SurveyModule {
@@ -98,11 +77,11 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SurveyModuleCopyWith<$Res>
+abstract class _$$_SurveyModuleCopyWith<$Res>
     implements $SurveyModuleCopyWith<$Res> {
-  factory _$SurveyModuleCopyWith(
-          _SurveyModule value, $Res Function(_SurveyModule) then) =
-      __$SurveyModuleCopyWithImpl<$Res>;
+  factory _$$_SurveyModuleCopyWith(
+          _$_SurveyModule value, $Res Function(_$_SurveyModule) then) =
+      __$$_SurveyModuleCopyWithImpl<$Res>;
   @override
   $Res call(
       {Map<String, Question> questionMap,
@@ -112,14 +91,15 @@ abstract class _$SurveyModuleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
-    implements _$SurveyModuleCopyWith<$Res> {
-  __$SurveyModuleCopyWithImpl(
-      _SurveyModule _value, $Res Function(_SurveyModule) _then)
-      : super(_value, (v) => _then(v as _SurveyModule));
+class __$$_SurveyModuleCopyWithImpl<$Res>
+    extends _$SurveyModuleCopyWithImpl<$Res>
+    implements _$$_SurveyModuleCopyWith<$Res> {
+  __$$_SurveyModuleCopyWithImpl(
+      _$_SurveyModule _value, $Res Function(_$_SurveyModule) _then)
+      : super(_value, (v) => _then(v as _$_SurveyModule));
 
   @override
-  _SurveyModule get _value => super._value as _SurveyModule;
+  _$_SurveyModule get _value => super._value as _$_SurveyModule;
 
   @override
   $Res call({
@@ -128,21 +108,21 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
     Object? answerStatusMap = freezed,
     Object? pageQIdSetMap = freezed,
   }) {
-    return _then(_SurveyModule(
+    return _then(_$_SurveyModule(
       questionMap: questionMap == freezed
-          ? _value.questionMap
+          ? _value._questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
       answerMap: answerMap == freezed
-          ? _value.answerMap
+          ? _value._answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
+          ? _value._answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
       pageQIdSetMap: pageQIdSetMap == freezed
-          ? _value.pageQIdSetMap
+          ? _value._pageQIdSetMap
           : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Set<String>>,
     ));
@@ -153,20 +133,43 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
 
 class _$_SurveyModule extends _SurveyModule {
   const _$_SurveyModule(
-      {required this.questionMap,
-      required this.answerMap,
-      required this.answerStatusMap,
-      required this.pageQIdSetMap})
-      : super._();
+      {required final Map<String, Question> questionMap,
+      required final Map<String, Answer> answerMap,
+      required final Map<String, AnswerStatus> answerStatusMap,
+      required final Map<String, Set<String>> pageQIdSetMap})
+      : _questionMap = questionMap,
+        _answerMap = answerMap,
+        _answerStatusMap = answerStatusMap,
+        _pageQIdSetMap = pageQIdSetMap,
+        super._();
 
+  final Map<String, Question> _questionMap;
   @override
-  final Map<String, Question> questionMap;
+  Map<String, Question> get questionMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_questionMap);
+  }
+
+  final Map<String, Answer> _answerMap;
   @override
-  final Map<String, Answer> answerMap;
+  Map<String, Answer> get answerMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerMap);
+  }
+
+  final Map<String, AnswerStatus> _answerStatusMap;
   @override
-  final Map<String, AnswerStatus> answerStatusMap;
+  Map<String, AnswerStatus> get answerStatusMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerStatusMap);
+  }
+
+  final Map<String, Set<String>> _pageQIdSetMap;
   @override
-  final Map<String, Set<String>> pageQIdSetMap;
+  Map<String, Set<String>> get pageQIdSetMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_pageQIdSetMap);
+  }
 
   @override
   String toString() {
@@ -177,48 +180,51 @@ class _$_SurveyModule extends _SurveyModule {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveyModule &&
+            other is _$_SurveyModule &&
             const DeepCollectionEquality()
-                .equals(other.questionMap, questionMap) &&
-            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+                .equals(other._questionMap, _questionMap) &&
             const DeepCollectionEquality()
-                .equals(other.answerStatusMap, answerStatusMap) &&
+                .equals(other._answerMap, _answerMap) &&
             const DeepCollectionEquality()
-                .equals(other.pageQIdSetMap, pageQIdSetMap));
+                .equals(other._answerStatusMap, _answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other._pageQIdSetMap, _pageQIdSetMap));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(questionMap),
-      const DeepCollectionEquality().hash(answerMap),
-      const DeepCollectionEquality().hash(answerStatusMap),
-      const DeepCollectionEquality().hash(pageQIdSetMap));
+      const DeepCollectionEquality().hash(_questionMap),
+      const DeepCollectionEquality().hash(_answerMap),
+      const DeepCollectionEquality().hash(_answerStatusMap),
+      const DeepCollectionEquality().hash(_pageQIdSetMap));
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyModuleCopyWith<_SurveyModule> get copyWith =>
-      __$SurveyModuleCopyWithImpl<_SurveyModule>(this, _$identity);
+  _$$_SurveyModuleCopyWith<_$_SurveyModule> get copyWith =>
+      __$$_SurveyModuleCopyWithImpl<_$_SurveyModule>(this, _$identity);
 }
 
 abstract class _SurveyModule extends SurveyModule {
   const factory _SurveyModule(
-      {required Map<String, Question> questionMap,
-      required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap,
-      required Map<String, Set<String>> pageQIdSetMap}) = _$_SurveyModule;
+      {required final Map<String, Question> questionMap,
+      required final Map<String, Answer> answerMap,
+      required final Map<String, AnswerStatus> answerStatusMap,
+      required final Map<String, Set<String>> pageQIdSetMap}) = _$_SurveyModule;
   const _SurveyModule._() : super._();
 
   @override
-  Map<String, Question> get questionMap;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
-  Map<String, Answer> get answerMap;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatus> get answerStatusMap;
+  Map<String, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, Set<String>> get pageQIdSetMap;
+  Map<String, Set<String>> get pageQIdSetMap =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SurveyModuleCopyWith<_SurveyModule> get copyWith =>
+  _$$_SurveyModuleCopyWith<_$_SurveyModule> get copyWith =>
       throw _privateConstructorUsedError;
 }

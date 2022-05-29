@@ -12,21 +12,7 @@ part of 'survey_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SurveyFailureTearOff {
-  const _$SurveyFailureTearOff();
-
-  _SurveyFailure call(String value) {
-    return _SurveyFailure(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $SurveyFailure = _$SurveyFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SurveyFailure {
@@ -68,31 +54,31 @@ class _$SurveyFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SurveyFailureCopyWith<$Res>
+abstract class _$$_SurveyFailureCopyWith<$Res>
     implements $SurveyFailureCopyWith<$Res> {
-  factory _$SurveyFailureCopyWith(
-          _SurveyFailure value, $Res Function(_SurveyFailure) then) =
-      __$SurveyFailureCopyWithImpl<$Res>;
+  factory _$$_SurveyFailureCopyWith(
+          _$_SurveyFailure value, $Res Function(_$_SurveyFailure) then) =
+      __$$_SurveyFailureCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$SurveyFailureCopyWithImpl<$Res>
+class __$$_SurveyFailureCopyWithImpl<$Res>
     extends _$SurveyFailureCopyWithImpl<$Res>
-    implements _$SurveyFailureCopyWith<$Res> {
-  __$SurveyFailureCopyWithImpl(
-      _SurveyFailure _value, $Res Function(_SurveyFailure) _then)
-      : super(_value, (v) => _then(v as _SurveyFailure));
+    implements _$$_SurveyFailureCopyWith<$Res> {
+  __$$_SurveyFailureCopyWithImpl(
+      _$_SurveyFailure _value, $Res Function(_$_SurveyFailure) _then)
+      : super(_value, (v) => _then(v as _$_SurveyFailure));
 
   @override
-  _SurveyFailure get _value => super._value as _SurveyFailure;
+  _$_SurveyFailure get _value => super._value as _$_SurveyFailure;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_SurveyFailure(
+    return _then(_$_SurveyFailure(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -118,7 +104,7 @@ class _$_SurveyFailure extends _SurveyFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveyFailure &&
+            other is _$_SurveyFailure &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -128,18 +114,18 @@ class _$_SurveyFailure extends _SurveyFailure {
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyFailureCopyWith<_SurveyFailure> get copyWith =>
-      __$SurveyFailureCopyWithImpl<_SurveyFailure>(this, _$identity);
+  _$$_SurveyFailureCopyWith<_$_SurveyFailure> get copyWith =>
+      __$$_SurveyFailureCopyWithImpl<_$_SurveyFailure>(this, _$identity);
 }
 
 abstract class _SurveyFailure extends SurveyFailure {
-  const factory _SurveyFailure(String value) = _$_SurveyFailure;
+  const factory _SurveyFailure(final String value) = _$_SurveyFailure;
   const _SurveyFailure._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SurveyFailureCopyWith<_SurveyFailure> get copyWith =>
+  _$$_SurveyFailureCopyWith<_$_SurveyFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

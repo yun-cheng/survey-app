@@ -12,37 +12,12 @@ part of 'respondents_page_state_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RespondentsPageStateDto _$RespondentsPageStateDtoFromJson(
     Map<String, dynamic> json) {
   return _RespondentsPageStateDto.fromJson(json);
 }
-
-/// @nodoc
-class _$RespondentsPageStateDtoTearOff {
-  const _$RespondentsPageStateDtoTearOff();
-
-  _RespondentsPageStateDto call(
-      {String? currentTab,
-      Map<String, double>? tabScrollOffset,
-      String? selectedRespondentId,
-      String? selectedGroup}) {
-    return _RespondentsPageStateDto(
-      currentTab: currentTab,
-      tabScrollOffset: tabScrollOffset,
-      selectedRespondentId: selectedRespondentId,
-      selectedGroup: selectedGroup,
-    );
-  }
-
-  RespondentsPageStateDto fromJson(Map<String, Object?> json) {
-    return RespondentsPageStateDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RespondentsPageStateDto = _$RespondentsPageStateDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentsPageStateDto {
@@ -108,11 +83,11 @@ class _$RespondentsPageStateDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RespondentsPageStateDtoCopyWith<$Res>
+abstract class _$$_RespondentsPageStateDtoCopyWith<$Res>
     implements $RespondentsPageStateDtoCopyWith<$Res> {
-  factory _$RespondentsPageStateDtoCopyWith(_RespondentsPageStateDto value,
-          $Res Function(_RespondentsPageStateDto) then) =
-      __$RespondentsPageStateDtoCopyWithImpl<$Res>;
+  factory _$$_RespondentsPageStateDtoCopyWith(_$_RespondentsPageStateDto value,
+          $Res Function(_$_RespondentsPageStateDto) then) =
+      __$$_RespondentsPageStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? currentTab,
@@ -122,16 +97,16 @@ abstract class _$RespondentsPageStateDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RespondentsPageStateDtoCopyWithImpl<$Res>
+class __$$_RespondentsPageStateDtoCopyWithImpl<$Res>
     extends _$RespondentsPageStateDtoCopyWithImpl<$Res>
-    implements _$RespondentsPageStateDtoCopyWith<$Res> {
-  __$RespondentsPageStateDtoCopyWithImpl(_RespondentsPageStateDto _value,
-      $Res Function(_RespondentsPageStateDto) _then)
-      : super(_value, (v) => _then(v as _RespondentsPageStateDto));
+    implements _$$_RespondentsPageStateDtoCopyWith<$Res> {
+  __$$_RespondentsPageStateDtoCopyWithImpl(_$_RespondentsPageStateDto _value,
+      $Res Function(_$_RespondentsPageStateDto) _then)
+      : super(_value, (v) => _then(v as _$_RespondentsPageStateDto));
 
   @override
-  _RespondentsPageStateDto get _value =>
-      super._value as _RespondentsPageStateDto;
+  _$_RespondentsPageStateDto get _value =>
+      super._value as _$_RespondentsPageStateDto;
 
   @override
   $Res call({
@@ -140,13 +115,13 @@ class __$RespondentsPageStateDtoCopyWithImpl<$Res>
     Object? selectedRespondentId = freezed,
     Object? selectedGroup = freezed,
   }) {
-    return _then(_RespondentsPageStateDto(
+    return _then(_$_RespondentsPageStateDto(
       currentTab: currentTab == freezed
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
               as String?,
       tabScrollOffset: tabScrollOffset == freezed
-          ? _value.tabScrollOffset
+          ? _value._tabScrollOffset
           : tabScrollOffset // ignore: cast_nullable_to_non_nullable
               as Map<String, double>?,
       selectedRespondentId: selectedRespondentId == freezed
@@ -167,18 +142,26 @@ class __$RespondentsPageStateDtoCopyWithImpl<$Res>
 class _$_RespondentsPageStateDto extends _RespondentsPageStateDto {
   const _$_RespondentsPageStateDto(
       {this.currentTab,
-      this.tabScrollOffset,
+      final Map<String, double>? tabScrollOffset,
       this.selectedRespondentId,
       this.selectedGroup})
-      : super._();
+      : _tabScrollOffset = tabScrollOffset,
+        super._();
 
   factory _$_RespondentsPageStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_RespondentsPageStateDtoFromJson(json);
 
   @override
   final String? currentTab;
+  final Map<String, double>? _tabScrollOffset;
   @override
-  final Map<String, double>? tabScrollOffset;
+  Map<String, double>? get tabScrollOffset {
+    final value = _tabScrollOffset;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final String? selectedRespondentId;
   @override
@@ -193,30 +176,32 @@ class _$_RespondentsPageStateDto extends _RespondentsPageStateDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RespondentsPageStateDto &&
+            other is _$_RespondentsPageStateDto &&
             const DeepCollectionEquality()
                 .equals(other.currentTab, currentTab) &&
             const DeepCollectionEquality()
-                .equals(other.tabScrollOffset, tabScrollOffset) &&
+                .equals(other._tabScrollOffset, _tabScrollOffset) &&
             const DeepCollectionEquality()
                 .equals(other.selectedRespondentId, selectedRespondentId) &&
             const DeepCollectionEquality()
                 .equals(other.selectedGroup, selectedGroup));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(currentTab),
-      const DeepCollectionEquality().hash(tabScrollOffset),
+      const DeepCollectionEquality().hash(_tabScrollOffset),
       const DeepCollectionEquality().hash(selectedRespondentId),
       const DeepCollectionEquality().hash(selectedGroup));
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentsPageStateDtoCopyWith<_RespondentsPageStateDto> get copyWith =>
-      __$RespondentsPageStateDtoCopyWithImpl<_RespondentsPageStateDto>(
-          this, _$identity);
+  _$$_RespondentsPageStateDtoCopyWith<_$_RespondentsPageStateDto>
+      get copyWith =>
+          __$$_RespondentsPageStateDtoCopyWithImpl<_$_RespondentsPageStateDto>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -226,25 +211,26 @@ class _$_RespondentsPageStateDto extends _RespondentsPageStateDto {
 
 abstract class _RespondentsPageStateDto extends RespondentsPageStateDto {
   const factory _RespondentsPageStateDto(
-      {String? currentTab,
-      Map<String, double>? tabScrollOffset,
-      String? selectedRespondentId,
-      String? selectedGroup}) = _$_RespondentsPageStateDto;
+      {final String? currentTab,
+      final Map<String, double>? tabScrollOffset,
+      final String? selectedRespondentId,
+      final String? selectedGroup}) = _$_RespondentsPageStateDto;
   const _RespondentsPageStateDto._() : super._();
 
   factory _RespondentsPageStateDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentsPageStateDto.fromJson;
 
   @override
-  String? get currentTab;
+  String? get currentTab => throw _privateConstructorUsedError;
   @override
-  Map<String, double>? get tabScrollOffset;
+  Map<String, double>? get tabScrollOffset =>
+      throw _privateConstructorUsedError;
   @override
-  String? get selectedRespondentId;
+  String? get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  String? get selectedGroup;
+  String? get selectedGroup => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RespondentsPageStateDtoCopyWith<_RespondentsPageStateDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_RespondentsPageStateDtoCopyWith<_$_RespondentsPageStateDto>
+      get copyWith => throw _privateConstructorUsedError;
 }

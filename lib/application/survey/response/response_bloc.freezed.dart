@@ -12,112 +12,7 @@ part of 'response_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResponseEventTearOff {
-  const _$ResponseEventTearOff();
-
-  _WatchResponseMapStarted watchResponseMapAndReferenceListStarted(
-      {required String teamId, required Interviewer interviewer}) {
-    return _WatchResponseMapStarted(
-      teamId: teamId,
-      interviewer: interviewer,
-    );
-  }
-
-  _RawResponseMapReceived rawResponseMapReceived(
-      Either<SurveyFailure, List<Object>> failureOrResponseMap) {
-    return _RawResponseMapReceived(
-      failureOrResponseMap,
-    );
-  }
-
-  _RawReferenceListReceived rawReferenceListReceived(
-      Either<SurveyFailure, List<Object>> failureOrReferenceList) {
-    return _RawReferenceListReceived(
-      failureOrReferenceList,
-    );
-  }
-
-  _UploadTimerUpdated uploadTimerUpdated() {
-    return const _UploadTimerUpdated();
-  }
-
-  _ResponseMapUploading responseMapUploading() {
-    return const _ResponseMapUploading();
-  }
-
-  _ResponseUploaded responseUploaded(
-      Either<SurveyFailure, String> failureOrResult) {
-    return _ResponseUploaded(
-      failureOrResult,
-    );
-  }
-
-  _SurveySelected surveySelected({required Survey survey}) {
-    return _SurveySelected(
-      survey: survey,
-    );
-  }
-
-  _ResponseStarted responseStarted(
-      {required Respondent respondent,
-      required ModuleType moduleType,
-      bool withResponseId = false,
-      bool breakInterview = false,
-      bool isNewResponse = false,
-      UniqueId? responseId}) {
-    return _ResponseStarted(
-      respondent: respondent,
-      moduleType: moduleType,
-      withResponseId: withResponseId,
-      breakInterview: breakInterview,
-      isNewResponse: isNewResponse,
-      responseId: responseId,
-    );
-  }
-
-  _ResponseUpdated responseUpdated(
-      {required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap,
-      required SimpleSurveyPageState surveyPageState}) {
-    return _ResponseUpdated(
-      answerMap: answerMap,
-      answerStatusMap: answerStatusMap,
-      surveyPageState: surveyPageState,
-    );
-  }
-
-  _EditFinished editFinished({required bool responseFinished}) {
-    return _EditFinished(
-      responseFinished: responseFinished,
-    );
-  }
-
-  _ResponseResumed responseResumed(UniqueId responseId) {
-    return _ResponseResumed(
-      responseId,
-    );
-  }
-
-  _NetworkUpdated networkUpdated({required NetworkType networkType}) {
-    return _NetworkUpdated(
-      networkType: networkType,
-    );
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $ResponseEvent = _$ResponseEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResponseEvent {
@@ -305,33 +200,33 @@ class _$ResponseEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WatchResponseMapStartedCopyWith<$Res> {
-  factory _$WatchResponseMapStartedCopyWith(_WatchResponseMapStarted value,
-          $Res Function(_WatchResponseMapStarted) then) =
-      __$WatchResponseMapStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchResponseMapStartedCopyWith<$Res> {
+  factory _$$_WatchResponseMapStartedCopyWith(_$_WatchResponseMapStarted value,
+          $Res Function(_$_WatchResponseMapStarted) then) =
+      __$$_WatchResponseMapStartedCopyWithImpl<$Res>;
   $Res call({String teamId, Interviewer interviewer});
 
   $InterviewerCopyWith<$Res> get interviewer;
 }
 
 /// @nodoc
-class __$WatchResponseMapStartedCopyWithImpl<$Res>
+class __$$_WatchResponseMapStartedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$WatchResponseMapStartedCopyWith<$Res> {
-  __$WatchResponseMapStartedCopyWithImpl(_WatchResponseMapStarted _value,
-      $Res Function(_WatchResponseMapStarted) _then)
-      : super(_value, (v) => _then(v as _WatchResponseMapStarted));
+    implements _$$_WatchResponseMapStartedCopyWith<$Res> {
+  __$$_WatchResponseMapStartedCopyWithImpl(_$_WatchResponseMapStarted _value,
+      $Res Function(_$_WatchResponseMapStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchResponseMapStarted));
 
   @override
-  _WatchResponseMapStarted get _value =>
-      super._value as _WatchResponseMapStarted;
+  _$_WatchResponseMapStarted get _value =>
+      super._value as _$_WatchResponseMapStarted;
 
   @override
   $Res call({
     Object? teamId = freezed,
     Object? interviewer = freezed,
   }) {
-    return _then(_WatchResponseMapStarted(
+    return _then(_$_WatchResponseMapStarted(
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
@@ -383,7 +278,7 @@ class _$_WatchResponseMapStarted
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WatchResponseMapStarted &&
+            other is _$_WatchResponseMapStarted &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality()
                 .equals(other.interviewer, interviewer));
@@ -397,9 +292,10 @@ class _$_WatchResponseMapStarted
 
   @JsonKey(ignore: true)
   @override
-  _$WatchResponseMapStartedCopyWith<_WatchResponseMapStarted> get copyWith =>
-      __$WatchResponseMapStartedCopyWithImpl<_WatchResponseMapStarted>(
-          this, _$identity);
+  _$$_WatchResponseMapStartedCopyWith<_$_WatchResponseMapStarted>
+      get copyWith =>
+          __$$_WatchResponseMapStartedCopyWithImpl<_$_WatchResponseMapStarted>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -592,40 +488,41 @@ class _$_WatchResponseMapStarted
 
 abstract class _WatchResponseMapStarted implements ResponseEvent {
   const factory _WatchResponseMapStarted(
-      {required String teamId,
-      required Interviewer interviewer}) = _$_WatchResponseMapStarted;
+      {required final String teamId,
+      required final Interviewer interviewer}) = _$_WatchResponseMapStarted;
 
-  String get teamId;
-  Interviewer get interviewer;
+  String get teamId => throw _privateConstructorUsedError;
+  Interviewer get interviewer => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WatchResponseMapStartedCopyWith<_WatchResponseMapStarted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_WatchResponseMapStartedCopyWith<_$_WatchResponseMapStarted>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$RawResponseMapReceivedCopyWith<$Res> {
-  factory _$RawResponseMapReceivedCopyWith(_RawResponseMapReceived value,
-          $Res Function(_RawResponseMapReceived) then) =
-      __$RawResponseMapReceivedCopyWithImpl<$Res>;
+abstract class _$$_RawResponseMapReceivedCopyWith<$Res> {
+  factory _$$_RawResponseMapReceivedCopyWith(_$_RawResponseMapReceived value,
+          $Res Function(_$_RawResponseMapReceived) then) =
+      __$$_RawResponseMapReceivedCopyWithImpl<$Res>;
   $Res call({Either<SurveyFailure, List<Object>> failureOrResponseMap});
 }
 
 /// @nodoc
-class __$RawResponseMapReceivedCopyWithImpl<$Res>
+class __$$_RawResponseMapReceivedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$RawResponseMapReceivedCopyWith<$Res> {
-  __$RawResponseMapReceivedCopyWithImpl(_RawResponseMapReceived _value,
-      $Res Function(_RawResponseMapReceived) _then)
-      : super(_value, (v) => _then(v as _RawResponseMapReceived));
+    implements _$$_RawResponseMapReceivedCopyWith<$Res> {
+  __$$_RawResponseMapReceivedCopyWithImpl(_$_RawResponseMapReceived _value,
+      $Res Function(_$_RawResponseMapReceived) _then)
+      : super(_value, (v) => _then(v as _$_RawResponseMapReceived));
 
   @override
-  _RawResponseMapReceived get _value => super._value as _RawResponseMapReceived;
+  _$_RawResponseMapReceived get _value =>
+      super._value as _$_RawResponseMapReceived;
 
   @override
   $Res call({
     Object? failureOrResponseMap = freezed,
   }) {
-    return _then(_RawResponseMapReceived(
+    return _then(_$_RawResponseMapReceived(
       failureOrResponseMap == freezed
           ? _value.failureOrResponseMap
           : failureOrResponseMap // ignore: cast_nullable_to_non_nullable
@@ -661,7 +558,7 @@ class _$_RawResponseMapReceived
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RawResponseMapReceived &&
+            other is _$_RawResponseMapReceived &&
             const DeepCollectionEquality()
                 .equals(other.failureOrResponseMap, failureOrResponseMap));
   }
@@ -672,8 +569,8 @@ class _$_RawResponseMapReceived
 
   @JsonKey(ignore: true)
   @override
-  _$RawResponseMapReceivedCopyWith<_RawResponseMapReceived> get copyWith =>
-      __$RawResponseMapReceivedCopyWithImpl<_RawResponseMapReceived>(
+  _$$_RawResponseMapReceivedCopyWith<_$_RawResponseMapReceived> get copyWith =>
+      __$$_RawResponseMapReceivedCopyWithImpl<_$_RawResponseMapReceived>(
           this, _$identity);
 
   @override
@@ -867,40 +764,42 @@ class _$_RawResponseMapReceived
 
 abstract class _RawResponseMapReceived implements ResponseEvent {
   const factory _RawResponseMapReceived(
-          Either<SurveyFailure, List<Object>> failureOrResponseMap) =
+          final Either<SurveyFailure, List<Object>> failureOrResponseMap) =
       _$_RawResponseMapReceived;
 
-  Either<SurveyFailure, List<Object>> get failureOrResponseMap;
+  Either<SurveyFailure, List<Object>> get failureOrResponseMap =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$RawResponseMapReceivedCopyWith<_RawResponseMapReceived> get copyWith =>
+  _$$_RawResponseMapReceivedCopyWith<_$_RawResponseMapReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$RawReferenceListReceivedCopyWith<$Res> {
-  factory _$RawReferenceListReceivedCopyWith(_RawReferenceListReceived value,
-          $Res Function(_RawReferenceListReceived) then) =
-      __$RawReferenceListReceivedCopyWithImpl<$Res>;
+abstract class _$$_RawReferenceListReceivedCopyWith<$Res> {
+  factory _$$_RawReferenceListReceivedCopyWith(
+          _$_RawReferenceListReceived value,
+          $Res Function(_$_RawReferenceListReceived) then) =
+      __$$_RawReferenceListReceivedCopyWithImpl<$Res>;
   $Res call({Either<SurveyFailure, List<Object>> failureOrReferenceList});
 }
 
 /// @nodoc
-class __$RawReferenceListReceivedCopyWithImpl<$Res>
+class __$$_RawReferenceListReceivedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$RawReferenceListReceivedCopyWith<$Res> {
-  __$RawReferenceListReceivedCopyWithImpl(_RawReferenceListReceived _value,
-      $Res Function(_RawReferenceListReceived) _then)
-      : super(_value, (v) => _then(v as _RawReferenceListReceived));
+    implements _$$_RawReferenceListReceivedCopyWith<$Res> {
+  __$$_RawReferenceListReceivedCopyWithImpl(_$_RawReferenceListReceived _value,
+      $Res Function(_$_RawReferenceListReceived) _then)
+      : super(_value, (v) => _then(v as _$_RawReferenceListReceived));
 
   @override
-  _RawReferenceListReceived get _value =>
-      super._value as _RawReferenceListReceived;
+  _$_RawReferenceListReceived get _value =>
+      super._value as _$_RawReferenceListReceived;
 
   @override
   $Res call({
     Object? failureOrReferenceList = freezed,
   }) {
-    return _then(_RawReferenceListReceived(
+    return _then(_$_RawReferenceListReceived(
       failureOrReferenceList == freezed
           ? _value.failureOrReferenceList
           : failureOrReferenceList // ignore: cast_nullable_to_non_nullable
@@ -938,7 +837,7 @@ class _$_RawReferenceListReceived
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RawReferenceListReceived &&
+            other is _$_RawReferenceListReceived &&
             const DeepCollectionEquality()
                 .equals(other.failureOrReferenceList, failureOrReferenceList));
   }
@@ -949,9 +848,9 @@ class _$_RawReferenceListReceived
 
   @JsonKey(ignore: true)
   @override
-  _$RawReferenceListReceivedCopyWith<_RawReferenceListReceived> get copyWith =>
-      __$RawReferenceListReceivedCopyWithImpl<_RawReferenceListReceived>(
-          this, _$identity);
+  _$$_RawReferenceListReceivedCopyWith<_$_RawReferenceListReceived>
+      get copyWith => __$$_RawReferenceListReceivedCopyWithImpl<
+          _$_RawReferenceListReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1144,32 +1043,33 @@ class _$_RawReferenceListReceived
 
 abstract class _RawReferenceListReceived implements ResponseEvent {
   const factory _RawReferenceListReceived(
-          Either<SurveyFailure, List<Object>> failureOrReferenceList) =
+          final Either<SurveyFailure, List<Object>> failureOrReferenceList) =
       _$_RawReferenceListReceived;
 
-  Either<SurveyFailure, List<Object>> get failureOrReferenceList;
-  @JsonKey(ignore: true)
-  _$RawReferenceListReceivedCopyWith<_RawReferenceListReceived> get copyWith =>
+  Either<SurveyFailure, List<Object>> get failureOrReferenceList =>
       throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_RawReferenceListReceivedCopyWith<_$_RawReferenceListReceived>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$UploadTimerUpdatedCopyWith<$Res> {
-  factory _$UploadTimerUpdatedCopyWith(
-          _UploadTimerUpdated value, $Res Function(_UploadTimerUpdated) then) =
-      __$UploadTimerUpdatedCopyWithImpl<$Res>;
+abstract class _$$_UploadTimerUpdatedCopyWith<$Res> {
+  factory _$$_UploadTimerUpdatedCopyWith(_$_UploadTimerUpdated value,
+          $Res Function(_$_UploadTimerUpdated) then) =
+      __$$_UploadTimerUpdatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$UploadTimerUpdatedCopyWithImpl<$Res>
+class __$$_UploadTimerUpdatedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$UploadTimerUpdatedCopyWith<$Res> {
-  __$UploadTimerUpdatedCopyWithImpl(
-      _UploadTimerUpdated _value, $Res Function(_UploadTimerUpdated) _then)
-      : super(_value, (v) => _then(v as _UploadTimerUpdated));
+    implements _$$_UploadTimerUpdatedCopyWith<$Res> {
+  __$$_UploadTimerUpdatedCopyWithImpl(
+      _$_UploadTimerUpdated _value, $Res Function(_$_UploadTimerUpdated) _then)
+      : super(_value, (v) => _then(v as _$_UploadTimerUpdated));
 
   @override
-  _UploadTimerUpdated get _value => super._value as _UploadTimerUpdated;
+  _$_UploadTimerUpdated get _value => super._value as _$_UploadTimerUpdated;
 }
 
 /// @nodoc
@@ -1194,7 +1094,7 @@ class _$_UploadTimerUpdated
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _UploadTimerUpdated);
+        (other.runtimeType == runtimeType && other is _$_UploadTimerUpdated);
   }
 
   @override
@@ -1394,22 +1294,22 @@ abstract class _UploadTimerUpdated implements ResponseEvent {
 }
 
 /// @nodoc
-abstract class _$ResponseMapUploadingCopyWith<$Res> {
-  factory _$ResponseMapUploadingCopyWith(_ResponseMapUploading value,
-          $Res Function(_ResponseMapUploading) then) =
-      __$ResponseMapUploadingCopyWithImpl<$Res>;
+abstract class _$$_ResponseMapUploadingCopyWith<$Res> {
+  factory _$$_ResponseMapUploadingCopyWith(_$_ResponseMapUploading value,
+          $Res Function(_$_ResponseMapUploading) then) =
+      __$$_ResponseMapUploadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ResponseMapUploadingCopyWithImpl<$Res>
+class __$$_ResponseMapUploadingCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseMapUploadingCopyWith<$Res> {
-  __$ResponseMapUploadingCopyWithImpl(
-      _ResponseMapUploading _value, $Res Function(_ResponseMapUploading) _then)
-      : super(_value, (v) => _then(v as _ResponseMapUploading));
+    implements _$$_ResponseMapUploadingCopyWith<$Res> {
+  __$$_ResponseMapUploadingCopyWithImpl(_$_ResponseMapUploading _value,
+      $Res Function(_$_ResponseMapUploading) _then)
+      : super(_value, (v) => _then(v as _$_ResponseMapUploading));
 
   @override
-  _ResponseMapUploading get _value => super._value as _ResponseMapUploading;
+  _$_ResponseMapUploading get _value => super._value as _$_ResponseMapUploading;
 }
 
 /// @nodoc
@@ -1434,7 +1334,7 @@ class _$_ResponseMapUploading
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _ResponseMapUploading);
+        (other.runtimeType == runtimeType && other is _$_ResponseMapUploading);
   }
 
   @override
@@ -1634,29 +1534,29 @@ abstract class _ResponseMapUploading implements ResponseEvent {
 }
 
 /// @nodoc
-abstract class _$ResponseUploadedCopyWith<$Res> {
-  factory _$ResponseUploadedCopyWith(
-          _ResponseUploaded value, $Res Function(_ResponseUploaded) then) =
-      __$ResponseUploadedCopyWithImpl<$Res>;
+abstract class _$$_ResponseUploadedCopyWith<$Res> {
+  factory _$$_ResponseUploadedCopyWith(
+          _$_ResponseUploaded value, $Res Function(_$_ResponseUploaded) then) =
+      __$$_ResponseUploadedCopyWithImpl<$Res>;
   $Res call({Either<SurveyFailure, String> failureOrResult});
 }
 
 /// @nodoc
-class __$ResponseUploadedCopyWithImpl<$Res>
+class __$$_ResponseUploadedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseUploadedCopyWith<$Res> {
-  __$ResponseUploadedCopyWithImpl(
-      _ResponseUploaded _value, $Res Function(_ResponseUploaded) _then)
-      : super(_value, (v) => _then(v as _ResponseUploaded));
+    implements _$$_ResponseUploadedCopyWith<$Res> {
+  __$$_ResponseUploadedCopyWithImpl(
+      _$_ResponseUploaded _value, $Res Function(_$_ResponseUploaded) _then)
+      : super(_value, (v) => _then(v as _$_ResponseUploaded));
 
   @override
-  _ResponseUploaded get _value => super._value as _ResponseUploaded;
+  _$_ResponseUploaded get _value => super._value as _$_ResponseUploaded;
 
   @override
   $Res call({
     Object? failureOrResult = freezed,
   }) {
-    return _then(_ResponseUploaded(
+    return _then(_$_ResponseUploaded(
       failureOrResult == freezed
           ? _value.failureOrResult
           : failureOrResult // ignore: cast_nullable_to_non_nullable
@@ -1692,7 +1592,7 @@ class _$_ResponseUploaded
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseUploaded &&
+            other is _$_ResponseUploaded &&
             const DeepCollectionEquality()
                 .equals(other.failureOrResult, failureOrResult));
   }
@@ -1703,8 +1603,8 @@ class _$_ResponseUploaded
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseUploadedCopyWith<_ResponseUploaded> get copyWith =>
-      __$ResponseUploadedCopyWithImpl<_ResponseUploaded>(this, _$identity);
+  _$$_ResponseUploadedCopyWith<_$_ResponseUploaded> get copyWith =>
+      __$$_ResponseUploadedCopyWithImpl<_$_ResponseUploaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1897,40 +1797,42 @@ class _$_ResponseUploaded
 
 abstract class _ResponseUploaded implements ResponseEvent {
   const factory _ResponseUploaded(
-      Either<SurveyFailure, String> failureOrResult) = _$_ResponseUploaded;
+          final Either<SurveyFailure, String> failureOrResult) =
+      _$_ResponseUploaded;
 
-  Either<SurveyFailure, String> get failureOrResult;
+  Either<SurveyFailure, String> get failureOrResult =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ResponseUploadedCopyWith<_ResponseUploaded> get copyWith =>
+  _$$_ResponseUploadedCopyWith<_$_ResponseUploaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SurveySelectedCopyWith<$Res> {
-  factory _$SurveySelectedCopyWith(
-          _SurveySelected value, $Res Function(_SurveySelected) then) =
-      __$SurveySelectedCopyWithImpl<$Res>;
+abstract class _$$_SurveySelectedCopyWith<$Res> {
+  factory _$$_SurveySelectedCopyWith(
+          _$_SurveySelected value, $Res Function(_$_SurveySelected) then) =
+      __$$_SurveySelectedCopyWithImpl<$Res>;
   $Res call({Survey survey});
 
   $SurveyCopyWith<$Res> get survey;
 }
 
 /// @nodoc
-class __$SurveySelectedCopyWithImpl<$Res>
+class __$$_SurveySelectedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$SurveySelectedCopyWith<$Res> {
-  __$SurveySelectedCopyWithImpl(
-      _SurveySelected _value, $Res Function(_SurveySelected) _then)
-      : super(_value, (v) => _then(v as _SurveySelected));
+    implements _$$_SurveySelectedCopyWith<$Res> {
+  __$$_SurveySelectedCopyWithImpl(
+      _$_SurveySelected _value, $Res Function(_$_SurveySelected) _then)
+      : super(_value, (v) => _then(v as _$_SurveySelected));
 
   @override
-  _SurveySelected get _value => super._value as _SurveySelected;
+  _$_SurveySelected get _value => super._value as _$_SurveySelected;
 
   @override
   $Res call({
     Object? survey = freezed,
   }) {
-    return _then(_SurveySelected(
+    return _then(_$_SurveySelected(
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -1973,7 +1875,7 @@ class _$_SurveySelected
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveySelected &&
+            other is _$_SurveySelected &&
             const DeepCollectionEquality().equals(other.survey, survey));
   }
 
@@ -1983,8 +1885,8 @@ class _$_SurveySelected
 
   @JsonKey(ignore: true)
   @override
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
-      __$SurveySelectedCopyWithImpl<_SurveySelected>(this, _$identity);
+  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
+      __$$_SurveySelectedCopyWithImpl<_$_SurveySelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2176,19 +2078,20 @@ class _$_SurveySelected
 }
 
 abstract class _SurveySelected implements ResponseEvent {
-  const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
+  const factory _SurveySelected({required final Survey survey}) =
+      _$_SurveySelected;
 
-  Survey get survey;
+  Survey get survey => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
+  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ResponseStartedCopyWith<$Res> {
-  factory _$ResponseStartedCopyWith(
-          _ResponseStarted value, $Res Function(_ResponseStarted) then) =
-      __$ResponseStartedCopyWithImpl<$Res>;
+abstract class _$$_ResponseStartedCopyWith<$Res> {
+  factory _$$_ResponseStartedCopyWith(
+          _$_ResponseStarted value, $Res Function(_$_ResponseStarted) then) =
+      __$$_ResponseStartedCopyWithImpl<$Res>;
   $Res call(
       {Respondent respondent,
       ModuleType moduleType,
@@ -2203,15 +2106,15 @@ abstract class _$ResponseStartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ResponseStartedCopyWithImpl<$Res>
+class __$$_ResponseStartedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseStartedCopyWith<$Res> {
-  __$ResponseStartedCopyWithImpl(
-      _ResponseStarted _value, $Res Function(_ResponseStarted) _then)
-      : super(_value, (v) => _then(v as _ResponseStarted));
+    implements _$$_ResponseStartedCopyWith<$Res> {
+  __$$_ResponseStartedCopyWithImpl(
+      _$_ResponseStarted _value, $Res Function(_$_ResponseStarted) _then)
+      : super(_value, (v) => _then(v as _$_ResponseStarted));
 
   @override
-  _ResponseStarted get _value => super._value as _ResponseStarted;
+  _$_ResponseStarted get _value => super._value as _$_ResponseStarted;
 
   @override
   $Res call({
@@ -2222,7 +2125,7 @@ class __$ResponseStartedCopyWithImpl<$Res>
     Object? isNewResponse = freezed,
     Object? responseId = freezed,
   }) {
-    return _then(_ResponseStarted(
+    return _then(_$_ResponseStarted(
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -2293,14 +2196,14 @@ class _$_ResponseStarted
   final Respondent respondent;
   @override
   final ModuleType moduleType;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool withResponseId;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool breakInterview;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isNewResponse;
   @override
   final UniqueId? responseId;
@@ -2327,7 +2230,7 @@ class _$_ResponseStarted
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseStarted &&
+            other is _$_ResponseStarted &&
             const DeepCollectionEquality()
                 .equals(other.respondent, respondent) &&
             const DeepCollectionEquality()
@@ -2354,8 +2257,8 @@ class _$_ResponseStarted
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseStartedCopyWith<_ResponseStarted> get copyWith =>
-      __$ResponseStartedCopyWithImpl<_ResponseStarted>(this, _$identity);
+  _$$_ResponseStartedCopyWith<_$_ResponseStarted> get copyWith =>
+      __$$_ResponseStartedCopyWithImpl<_$_ResponseStarted>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2551,29 +2454,29 @@ class _$_ResponseStarted
 
 abstract class _ResponseStarted implements ResponseEvent {
   const factory _ResponseStarted(
-      {required Respondent respondent,
-      required ModuleType moduleType,
-      bool withResponseId,
-      bool breakInterview,
-      bool isNewResponse,
-      UniqueId? responseId}) = _$_ResponseStarted;
+      {required final Respondent respondent,
+      required final ModuleType moduleType,
+      final bool withResponseId,
+      final bool breakInterview,
+      final bool isNewResponse,
+      final UniqueId? responseId}) = _$_ResponseStarted;
 
-  Respondent get respondent;
-  ModuleType get moduleType;
-  bool get withResponseId;
-  bool get breakInterview;
-  bool get isNewResponse;
-  UniqueId? get responseId;
+  Respondent get respondent => throw _privateConstructorUsedError;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
+  bool get withResponseId => throw _privateConstructorUsedError;
+  bool get breakInterview => throw _privateConstructorUsedError;
+  bool get isNewResponse => throw _privateConstructorUsedError;
+  UniqueId? get responseId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ResponseStartedCopyWith<_ResponseStarted> get copyWith =>
+  _$$_ResponseStartedCopyWith<_$_ResponseStarted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ResponseUpdatedCopyWith<$Res> {
-  factory _$ResponseUpdatedCopyWith(
-          _ResponseUpdated value, $Res Function(_ResponseUpdated) then) =
-      __$ResponseUpdatedCopyWithImpl<$Res>;
+abstract class _$$_ResponseUpdatedCopyWith<$Res> {
+  factory _$$_ResponseUpdatedCopyWith(
+          _$_ResponseUpdated value, $Res Function(_$_ResponseUpdated) then) =
+      __$$_ResponseUpdatedCopyWithImpl<$Res>;
   $Res call(
       {Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
@@ -2583,15 +2486,15 @@ abstract class _$ResponseUpdatedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ResponseUpdatedCopyWithImpl<$Res>
+class __$$_ResponseUpdatedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseUpdatedCopyWith<$Res> {
-  __$ResponseUpdatedCopyWithImpl(
-      _ResponseUpdated _value, $Res Function(_ResponseUpdated) _then)
-      : super(_value, (v) => _then(v as _ResponseUpdated));
+    implements _$$_ResponseUpdatedCopyWith<$Res> {
+  __$$_ResponseUpdatedCopyWithImpl(
+      _$_ResponseUpdated _value, $Res Function(_$_ResponseUpdated) _then)
+      : super(_value, (v) => _then(v as _$_ResponseUpdated));
 
   @override
-  _ResponseUpdated get _value => super._value as _ResponseUpdated;
+  _$_ResponseUpdated get _value => super._value as _$_ResponseUpdated;
 
   @override
   $Res call({
@@ -2599,13 +2502,13 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
     Object? answerStatusMap = freezed,
     Object? surveyPageState = freezed,
   }) {
-    return _then(_ResponseUpdated(
+    return _then(_$_ResponseUpdated(
       answerMap: answerMap == freezed
-          ? _value.answerMap
+          ? _value._answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
+          ? _value._answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
@@ -2630,14 +2533,26 @@ class _$_ResponseUpdated
     with DiagnosticableTreeMixin
     implements _ResponseUpdated {
   const _$_ResponseUpdated(
-      {required this.answerMap,
-      required this.answerStatusMap,
-      required this.surveyPageState});
+      {required final Map<String, Answer> answerMap,
+      required final Map<String, AnswerStatus> answerStatusMap,
+      required this.surveyPageState})
+      : _answerMap = answerMap,
+        _answerStatusMap = answerStatusMap;
 
+  final Map<String, Answer> _answerMap;
   @override
-  final Map<String, Answer> answerMap;
+  Map<String, Answer> get answerMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerMap);
+  }
+
+  final Map<String, AnswerStatus> _answerStatusMap;
   @override
-  final Map<String, AnswerStatus> answerStatusMap;
+  Map<String, AnswerStatus> get answerStatusMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerStatusMap);
+  }
+
   @override
   final SimpleSurveyPageState surveyPageState;
 
@@ -2660,10 +2575,11 @@ class _$_ResponseUpdated
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseUpdated &&
-            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            other is _$_ResponseUpdated &&
             const DeepCollectionEquality()
-                .equals(other.answerStatusMap, answerStatusMap) &&
+                .equals(other._answerMap, _answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other._answerStatusMap, _answerStatusMap) &&
             const DeepCollectionEquality()
                 .equals(other.surveyPageState, surveyPageState));
   }
@@ -2671,14 +2587,14 @@ class _$_ResponseUpdated
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(answerMap),
-      const DeepCollectionEquality().hash(answerStatusMap),
+      const DeepCollectionEquality().hash(_answerMap),
+      const DeepCollectionEquality().hash(_answerStatusMap),
       const DeepCollectionEquality().hash(surveyPageState));
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseUpdatedCopyWith<_ResponseUpdated> get copyWith =>
-      __$ResponseUpdatedCopyWithImpl<_ResponseUpdated>(this, _$identity);
+  _$$_ResponseUpdatedCopyWith<_$_ResponseUpdated> get copyWith =>
+      __$$_ResponseUpdatedCopyWithImpl<_$_ResponseUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2871,42 +2787,45 @@ class _$_ResponseUpdated
 
 abstract class _ResponseUpdated implements ResponseEvent {
   const factory _ResponseUpdated(
-      {required Map<String, Answer> answerMap,
-      required Map<String, AnswerStatus> answerStatusMap,
-      required SimpleSurveyPageState surveyPageState}) = _$_ResponseUpdated;
+          {required final Map<String, Answer> answerMap,
+          required final Map<String, AnswerStatus> answerStatusMap,
+          required final SimpleSurveyPageState surveyPageState}) =
+      _$_ResponseUpdated;
 
-  Map<String, Answer> get answerMap;
-  Map<String, AnswerStatus> get answerStatusMap;
-  SimpleSurveyPageState get surveyPageState;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  SimpleSurveyPageState get surveyPageState =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ResponseUpdatedCopyWith<_ResponseUpdated> get copyWith =>
+  _$$_ResponseUpdatedCopyWith<_$_ResponseUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$EditFinishedCopyWith<$Res> {
-  factory _$EditFinishedCopyWith(
-          _EditFinished value, $Res Function(_EditFinished) then) =
-      __$EditFinishedCopyWithImpl<$Res>;
+abstract class _$$_EditFinishedCopyWith<$Res> {
+  factory _$$_EditFinishedCopyWith(
+          _$_EditFinished value, $Res Function(_$_EditFinished) then) =
+      __$$_EditFinishedCopyWithImpl<$Res>;
   $Res call({bool responseFinished});
 }
 
 /// @nodoc
-class __$EditFinishedCopyWithImpl<$Res>
+class __$$_EditFinishedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$EditFinishedCopyWith<$Res> {
-  __$EditFinishedCopyWithImpl(
-      _EditFinished _value, $Res Function(_EditFinished) _then)
-      : super(_value, (v) => _then(v as _EditFinished));
+    implements _$$_EditFinishedCopyWith<$Res> {
+  __$$_EditFinishedCopyWithImpl(
+      _$_EditFinished _value, $Res Function(_$_EditFinished) _then)
+      : super(_value, (v) => _then(v as _$_EditFinished));
 
   @override
-  _EditFinished get _value => super._value as _EditFinished;
+  _$_EditFinished get _value => super._value as _$_EditFinished;
 
   @override
   $Res call({
     Object? responseFinished = freezed,
   }) {
-    return _then(_EditFinished(
+    return _then(_$_EditFinished(
       responseFinished: responseFinished == freezed
           ? _value.responseFinished
           : responseFinished // ignore: cast_nullable_to_non_nullable
@@ -2920,7 +2839,8 @@ class __$EditFinishedCopyWithImpl<$Res>
 class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   const _$_EditFinished({required this.responseFinished});
 
-  @override // NOTE 是否完成這份問卷
+// * 是否完成這份問卷
+  @override
   final bool responseFinished;
 
   @override
@@ -2940,7 +2860,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EditFinished &&
+            other is _$_EditFinished &&
             const DeepCollectionEquality()
                 .equals(other.responseFinished, responseFinished));
   }
@@ -2951,8 +2871,8 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
 
   @JsonKey(ignore: true)
   @override
-  _$EditFinishedCopyWith<_EditFinished> get copyWith =>
-      __$EditFinishedCopyWithImpl<_EditFinished>(this, _$identity);
+  _$$_EditFinishedCopyWith<_$_EditFinished> get copyWith =>
+      __$$_EditFinishedCopyWithImpl<_$_EditFinished>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3144,42 +3064,42 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
 }
 
 abstract class _EditFinished implements ResponseEvent {
-  const factory _EditFinished({required bool responseFinished}) =
+  const factory _EditFinished({required final bool responseFinished}) =
       _$_EditFinished;
 
-// NOTE 是否完成這份問卷
-  bool get responseFinished;
+// * 是否完成這份問卷
+  bool get responseFinished => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$EditFinishedCopyWith<_EditFinished> get copyWith =>
+  _$$_EditFinishedCopyWith<_$_EditFinished> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ResponseResumedCopyWith<$Res> {
-  factory _$ResponseResumedCopyWith(
-          _ResponseResumed value, $Res Function(_ResponseResumed) then) =
-      __$ResponseResumedCopyWithImpl<$Res>;
+abstract class _$$_ResponseResumedCopyWith<$Res> {
+  factory _$$_ResponseResumedCopyWith(
+          _$_ResponseResumed value, $Res Function(_$_ResponseResumed) then) =
+      __$$_ResponseResumedCopyWithImpl<$Res>;
   $Res call({UniqueId responseId});
 
   $UniqueIdCopyWith<$Res> get responseId;
 }
 
 /// @nodoc
-class __$ResponseResumedCopyWithImpl<$Res>
+class __$$_ResponseResumedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseResumedCopyWith<$Res> {
-  __$ResponseResumedCopyWithImpl(
-      _ResponseResumed _value, $Res Function(_ResponseResumed) _then)
-      : super(_value, (v) => _then(v as _ResponseResumed));
+    implements _$$_ResponseResumedCopyWith<$Res> {
+  __$$_ResponseResumedCopyWithImpl(
+      _$_ResponseResumed _value, $Res Function(_$_ResponseResumed) _then)
+      : super(_value, (v) => _then(v as _$_ResponseResumed));
 
   @override
-  _ResponseResumed get _value => super._value as _ResponseResumed;
+  _$_ResponseResumed get _value => super._value as _$_ResponseResumed;
 
   @override
   $Res call({
     Object? responseId = freezed,
   }) {
-    return _then(_ResponseResumed(
+    return _then(_$_ResponseResumed(
       responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -3222,7 +3142,7 @@ class _$_ResponseResumed
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseResumed &&
+            other is _$_ResponseResumed &&
             const DeepCollectionEquality()
                 .equals(other.responseId, responseId));
   }
@@ -3233,8 +3153,8 @@ class _$_ResponseResumed
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
-      __$ResponseResumedCopyWithImpl<_ResponseResumed>(this, _$identity);
+  _$$_ResponseResumedCopyWith<_$_ResponseResumed> get copyWith =>
+      __$$_ResponseResumedCopyWithImpl<_$_ResponseResumed>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3426,40 +3346,41 @@ class _$_ResponseResumed
 }
 
 abstract class _ResponseResumed implements ResponseEvent {
-  const factory _ResponseResumed(UniqueId responseId) = _$_ResponseResumed;
+  const factory _ResponseResumed(final UniqueId responseId) =
+      _$_ResponseResumed;
 
-  UniqueId get responseId;
+  UniqueId get responseId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
+  _$$_ResponseResumedCopyWith<_$_ResponseResumed> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$NetworkUpdatedCopyWith<$Res> {
-  factory _$NetworkUpdatedCopyWith(
-          _NetworkUpdated value, $Res Function(_NetworkUpdated) then) =
-      __$NetworkUpdatedCopyWithImpl<$Res>;
+abstract class _$$_NetworkUpdatedCopyWith<$Res> {
+  factory _$$_NetworkUpdatedCopyWith(
+          _$_NetworkUpdated value, $Res Function(_$_NetworkUpdated) then) =
+      __$$_NetworkUpdatedCopyWithImpl<$Res>;
   $Res call({NetworkType networkType});
 
   $NetworkTypeCopyWith<$Res> get networkType;
 }
 
 /// @nodoc
-class __$NetworkUpdatedCopyWithImpl<$Res>
+class __$$_NetworkUpdatedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$NetworkUpdatedCopyWith<$Res> {
-  __$NetworkUpdatedCopyWithImpl(
-      _NetworkUpdated _value, $Res Function(_NetworkUpdated) _then)
-      : super(_value, (v) => _then(v as _NetworkUpdated));
+    implements _$$_NetworkUpdatedCopyWith<$Res> {
+  __$$_NetworkUpdatedCopyWithImpl(
+      _$_NetworkUpdated _value, $Res Function(_$_NetworkUpdated) _then)
+      : super(_value, (v) => _then(v as _$_NetworkUpdated));
 
   @override
-  _NetworkUpdated get _value => super._value as _NetworkUpdated;
+  _$_NetworkUpdated get _value => super._value as _$_NetworkUpdated;
 
   @override
   $Res call({
     Object? networkType = freezed,
   }) {
-    return _then(_NetworkUpdated(
+    return _then(_$_NetworkUpdated(
       networkType: networkType == freezed
           ? _value.networkType
           : networkType // ignore: cast_nullable_to_non_nullable
@@ -3502,7 +3423,7 @@ class _$_NetworkUpdated
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NetworkUpdated &&
+            other is _$_NetworkUpdated &&
             const DeepCollectionEquality()
                 .equals(other.networkType, networkType));
   }
@@ -3513,8 +3434,8 @@ class _$_NetworkUpdated
 
   @JsonKey(ignore: true)
   @override
-  _$NetworkUpdatedCopyWith<_NetworkUpdated> get copyWith =>
-      __$NetworkUpdatedCopyWithImpl<_NetworkUpdated>(this, _$identity);
+  _$$_NetworkUpdatedCopyWith<_$_NetworkUpdated> get copyWith =>
+      __$$_NetworkUpdatedCopyWithImpl<_$_NetworkUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3706,30 +3627,31 @@ class _$_NetworkUpdated
 }
 
 abstract class _NetworkUpdated implements ResponseEvent {
-  const factory _NetworkUpdated({required NetworkType networkType}) =
+  const factory _NetworkUpdated({required final NetworkType networkType}) =
       _$_NetworkUpdated;
 
-  NetworkType get networkType;
+  NetworkType get networkType => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$NetworkUpdatedCopyWith<_NetworkUpdated> get copyWith =>
+  _$$_NetworkUpdatedCopyWith<_$_NetworkUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoggedOutCopyWith<$Res> {
-  factory _$LoggedOutCopyWith(
-          _LoggedOut value, $Res Function(_LoggedOut) then) =
-      __$LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LoggedOutCopyWith<$Res> {
+  factory _$$_LoggedOutCopyWith(
+          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
+      __$$_LoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoggedOutCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$LoggedOutCopyWith<$Res> {
-  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _LoggedOut));
+class __$$_LoggedOutCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$$_LoggedOutCopyWith<$Res> {
+  __$$_LoggedOutCopyWithImpl(
+      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$_LoggedOut));
 
   @override
-  _LoggedOut get _value => super._value as _LoggedOut;
+  _$_LoggedOut get _value => super._value as _$_LoggedOut;
 }
 
 /// @nodoc
@@ -3751,7 +3673,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LoggedOut);
   }
 
   @override
@@ -3951,21 +3873,22 @@ abstract class _LoggedOut implements ResponseEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+class __$$_InitializedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -3987,7 +3910,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -4187,76 +4110,15 @@ abstract class _Initialized implements ResponseEvent {
 }
 
 /// @nodoc
-class _$ResponseStateTearOff {
-  const _$ResponseStateTearOff();
-
-  _ResponseState call(
-      {required UniqueId stateId,
-      required Survey survey,
-      required Interviewer interviewer,
-      required Respondent respondent,
-      required Response response,
-      required Map<UniqueId, Response> responseMap,
-      required List<Reference> referenceList,
-      required ModuleType moduleType,
-      required UniqueId responseId,
-      required Response mainResponse,
-      required Map<String, Question> questionMap,
-      required Set<UniqueId> uploadResponseIdSet,
-      required Map<UniqueId, Response> downloadedResponseMap,
-      required Map<String, Map<String, dynamic>> uploadResponseMap,
-      required Map<ModuleType, Response> respondentResponseMap,
-      required DialogType dialogType,
-      required NetworkType networkType,
-      required LoadState responseMapState,
-      required SyncState syncState,
-      required Option<SurveyFailure> responseFailure,
-      required LoadState eventState,
-      required LoadState updateState,
-      required StateParameters updateParameters,
-      required StateParameters saveParameters}) {
-    return _ResponseState(
-      stateId: stateId,
-      survey: survey,
-      interviewer: interviewer,
-      respondent: respondent,
-      response: response,
-      responseMap: responseMap,
-      referenceList: referenceList,
-      moduleType: moduleType,
-      responseId: responseId,
-      mainResponse: mainResponse,
-      questionMap: questionMap,
-      uploadResponseIdSet: uploadResponseIdSet,
-      downloadedResponseMap: downloadedResponseMap,
-      uploadResponseMap: uploadResponseMap,
-      respondentResponseMap: respondentResponseMap,
-      dialogType: dialogType,
-      networkType: networkType,
-      responseMapState: responseMapState,
-      syncState: syncState,
-      responseFailure: responseFailure,
-      eventState: eventState,
-      updateState: updateState,
-      updateParameters: updateParameters,
-      saveParameters: saveParameters,
-    );
-  }
-}
-
-/// @nodoc
-const $ResponseState = _$ResponseStateTearOff();
-
-/// @nodoc
 mixin _$ResponseState {
-  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
+  UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   Survey get survey => throw _privateConstructorUsedError;
   Interviewer get interviewer => throw _privateConstructorUsedError;
   Respondent get respondent => throw _privateConstructorUsedError;
   Response get response => throw _privateConstructorUsedError;
   Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   List<Reference> get referenceList =>
-      throw _privateConstructorUsedError; // H_ 中間資料
+      throw _privateConstructorUsedError; // > 中間資料
   ModuleType get moduleType => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
   Response get mainResponse => throw _privateConstructorUsedError;
@@ -4269,14 +4131,13 @@ mixin _$ResponseState {
   Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
   DialogType get dialogType => throw _privateConstructorUsedError;
-  NetworkType get networkType =>
-      throw _privateConstructorUsedError; // H_ 狀態更新進度
+  NetworkType get networkType => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
   SyncState get syncState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get responseFailure =>
       throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
-  LoadState get updateState => throw _privateConstructorUsedError; // H_ 更新/儲存參數
+  LoadState get updateState => throw _privateConstructorUsedError; // > 更新/儲存參數
   StateParameters get updateParameters => throw _privateConstructorUsedError;
   StateParameters get saveParameters => throw _privateConstructorUsedError;
 
@@ -4584,11 +4445,11 @@ class _$ResponseStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResponseStateCopyWith<$Res>
+abstract class _$$_ResponseStateCopyWith<$Res>
     implements $ResponseStateCopyWith<$Res> {
-  factory _$ResponseStateCopyWith(
-          _ResponseState value, $Res Function(_ResponseState) then) =
-      __$ResponseStateCopyWithImpl<$Res>;
+  factory _$$_ResponseStateCopyWith(
+          _$_ResponseState value, $Res Function(_$_ResponseState) then) =
+      __$$_ResponseStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -4651,15 +4512,15 @@ abstract class _$ResponseStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResponseStateCopyWithImpl<$Res>
+class __$$_ResponseStateCopyWithImpl<$Res>
     extends _$ResponseStateCopyWithImpl<$Res>
-    implements _$ResponseStateCopyWith<$Res> {
-  __$ResponseStateCopyWithImpl(
-      _ResponseState _value, $Res Function(_ResponseState) _then)
-      : super(_value, (v) => _then(v as _ResponseState));
+    implements _$$_ResponseStateCopyWith<$Res> {
+  __$$_ResponseStateCopyWithImpl(
+      _$_ResponseState _value, $Res Function(_$_ResponseState) _then)
+      : super(_value, (v) => _then(v as _$_ResponseState));
 
   @override
-  _ResponseState get _value => super._value as _ResponseState;
+  _$_ResponseState get _value => super._value as _$_ResponseState;
 
   @override
   $Res call({
@@ -4688,7 +4549,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? updateParameters = freezed,
     Object? saveParameters = freezed,
   }) {
-    return _then(_ResponseState(
+    return _then(_$_ResponseState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
@@ -4710,11 +4571,11 @@ class __$ResponseStateCopyWithImpl<$Res>
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
       referenceList: referenceList == freezed
-          ? _value.referenceList
+          ? _value._referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
               as List<Reference>,
       moduleType: moduleType == freezed
@@ -4730,23 +4591,23 @@ class __$ResponseStateCopyWithImpl<$Res>
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as Response,
       questionMap: questionMap == freezed
-          ? _value.questionMap
+          ? _value._questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
       uploadResponseIdSet: uploadResponseIdSet == freezed
-          ? _value.uploadResponseIdSet
+          ? _value._uploadResponseIdSet
           : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
               as Set<UniqueId>,
       downloadedResponseMap: downloadedResponseMap == freezed
-          ? _value.downloadedResponseMap
+          ? _value._downloadedResponseMap
           : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
       uploadResponseMap: uploadResponseMap == freezed
-          ? _value.uploadResponseMap
+          ? _value._uploadResponseMap
           : uploadResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Map<String, dynamic>>,
       respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
+          ? _value._respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, Response>,
       dialogType: dialogType == freezed
@@ -4798,16 +4659,16 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       required this.interviewer,
       required this.respondent,
       required this.response,
-      required this.responseMap,
-      required this.referenceList,
+      required final Map<UniqueId, Response> responseMap,
+      required final List<Reference> referenceList,
       required this.moduleType,
       required this.responseId,
       required this.mainResponse,
-      required this.questionMap,
-      required this.uploadResponseIdSet,
-      required this.downloadedResponseMap,
-      required this.uploadResponseMap,
-      required this.respondentResponseMap,
+      required final Map<String, Question> questionMap,
+      required final Set<UniqueId> uploadResponseIdSet,
+      required final Map<UniqueId, Response> downloadedResponseMap,
+      required final Map<String, Map<String, dynamic>> uploadResponseMap,
+      required final Map<ModuleType, Response> respondentResponseMap,
       required this.dialogType,
       required this.networkType,
       required this.responseMapState,
@@ -4817,11 +4678,19 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       required this.updateState,
       required this.updateParameters,
       required this.saveParameters})
-      : super._();
+      : _responseMap = responseMap,
+        _referenceList = referenceList,
+        _questionMap = questionMap,
+        _uploadResponseIdSet = uploadResponseIdSet,
+        _downloadedResponseMap = downloadedResponseMap,
+        _uploadResponseMap = uploadResponseMap,
+        _respondentResponseMap = respondentResponseMap,
+        super._();
 
   @override
   final UniqueId stateId;
-  @override // H_ 主要資料
+// > 主要資料
+  @override
   final Survey survey;
   @override
   final Interviewer interviewer;
@@ -4829,31 +4698,68 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   final Respondent respondent;
   @override
   final Response response;
+  final Map<UniqueId, Response> _responseMap;
   @override
-  final Map<UniqueId, Response> responseMap;
+  Map<UniqueId, Response> get responseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_responseMap);
+  }
+
+  final List<Reference> _referenceList;
   @override
-  final List<Reference> referenceList;
-  @override // H_ 中間資料
+  List<Reference> get referenceList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_referenceList);
+  }
+
+// > 中間資料
+  @override
   final ModuleType moduleType;
   @override
   final UniqueId responseId;
   @override
   final Response mainResponse;
+  final Map<String, Question> _questionMap;
   @override
-  final Map<String, Question> questionMap;
+  Map<String, Question> get questionMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_questionMap);
+  }
+
+  final Set<UniqueId> _uploadResponseIdSet;
   @override
-  final Set<UniqueId> uploadResponseIdSet;
+  Set<UniqueId> get uploadResponseIdSet {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_uploadResponseIdSet);
+  }
+
+  final Map<UniqueId, Response> _downloadedResponseMap;
   @override
-  final Map<UniqueId, Response> downloadedResponseMap;
+  Map<UniqueId, Response> get downloadedResponseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_downloadedResponseMap);
+  }
+
+  final Map<String, Map<String, dynamic>> _uploadResponseMap;
   @override
-  final Map<String, Map<String, dynamic>> uploadResponseMap;
+  Map<String, Map<String, dynamic>> get uploadResponseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_uploadResponseMap);
+  }
+
+  final Map<ModuleType, Response> _respondentResponseMap;
   @override
-  final Map<ModuleType, Response> respondentResponseMap;
+  Map<ModuleType, Response> get respondentResponseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_respondentResponseMap);
+  }
+
   @override
   final DialogType dialogType;
   @override
   final NetworkType networkType;
-  @override // H_ 狀態更新進度
+// > 狀態更新進度
+  @override
   final LoadState responseMapState;
   @override
   final SyncState syncState;
@@ -4863,7 +4769,8 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   final LoadState eventState;
   @override
   final LoadState updateState;
-  @override // H_ 更新/儲存參數
+// > 更新/儲存參數
+  @override
   final StateParameters updateParameters;
   @override
   final StateParameters saveParameters;
@@ -4908,7 +4815,7 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseState &&
+            other is _$_ResponseState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality()
@@ -4917,9 +4824,9 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
                 .equals(other.respondent, respondent) &&
             const DeepCollectionEquality().equals(other.response, response) &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap) &&
+                .equals(other._responseMap, _responseMap) &&
             const DeepCollectionEquality()
-                .equals(other.referenceList, referenceList) &&
+                .equals(other._referenceList, _referenceList) &&
             const DeepCollectionEquality()
                 .equals(other.moduleType, moduleType) &&
             const DeepCollectionEquality()
@@ -4927,15 +4834,15 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
             const DeepCollectionEquality()
                 .equals(other.mainResponse, mainResponse) &&
             const DeepCollectionEquality()
-                .equals(other.questionMap, questionMap) &&
+                .equals(other._questionMap, _questionMap) &&
             const DeepCollectionEquality()
-                .equals(other.uploadResponseIdSet, uploadResponseIdSet) &&
+                .equals(other._uploadResponseIdSet, _uploadResponseIdSet) &&
             const DeepCollectionEquality()
-                .equals(other.downloadedResponseMap, downloadedResponseMap) &&
+                .equals(other._downloadedResponseMap, _downloadedResponseMap) &&
             const DeepCollectionEquality()
-                .equals(other.uploadResponseMap, uploadResponseMap) &&
+                .equals(other._uploadResponseMap, _uploadResponseMap) &&
             const DeepCollectionEquality()
-                .equals(other.respondentResponseMap, respondentResponseMap) &&
+                .equals(other._respondentResponseMap, _respondentResponseMap) &&
             const DeepCollectionEquality()
                 .equals(other.dialogType, dialogType) &&
             const DeepCollectionEquality()
@@ -4963,16 +4870,16 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
         const DeepCollectionEquality().hash(interviewer),
         const DeepCollectionEquality().hash(respondent),
         const DeepCollectionEquality().hash(response),
-        const DeepCollectionEquality().hash(responseMap),
-        const DeepCollectionEquality().hash(referenceList),
+        const DeepCollectionEquality().hash(_responseMap),
+        const DeepCollectionEquality().hash(_referenceList),
         const DeepCollectionEquality().hash(moduleType),
         const DeepCollectionEquality().hash(responseId),
         const DeepCollectionEquality().hash(mainResponse),
-        const DeepCollectionEquality().hash(questionMap),
-        const DeepCollectionEquality().hash(uploadResponseIdSet),
-        const DeepCollectionEquality().hash(downloadedResponseMap),
-        const DeepCollectionEquality().hash(uploadResponseMap),
-        const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(_questionMap),
+        const DeepCollectionEquality().hash(_uploadResponseIdSet),
+        const DeepCollectionEquality().hash(_downloadedResponseMap),
+        const DeepCollectionEquality().hash(_uploadResponseMap),
+        const DeepCollectionEquality().hash(_respondentResponseMap),
         const DeepCollectionEquality().hash(dialogType),
         const DeepCollectionEquality().hash(networkType),
         const DeepCollectionEquality().hash(responseMapState),
@@ -4986,140 +4893,107 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseStateCopyWith<_ResponseState> get copyWith =>
-      __$ResponseStateCopyWithImpl<_ResponseState>(this, _$identity);
+  _$$_ResponseStateCopyWith<_$_ResponseState> get copyWith =>
+      __$$_ResponseStateCopyWithImpl<_$_ResponseState>(this, _$identity);
 }
 
 abstract class _ResponseState extends ResponseState {
   const factory _ResponseState(
-      {required UniqueId stateId,
-      required Survey survey,
-      required Interviewer interviewer,
-      required Respondent respondent,
-      required Response response,
-      required Map<UniqueId, Response> responseMap,
-      required List<Reference> referenceList,
-      required ModuleType moduleType,
-      required UniqueId responseId,
-      required Response mainResponse,
-      required Map<String, Question> questionMap,
-      required Set<UniqueId> uploadResponseIdSet,
-      required Map<UniqueId, Response> downloadedResponseMap,
-      required Map<String, Map<String, dynamic>> uploadResponseMap,
-      required Map<ModuleType, Response> respondentResponseMap,
-      required DialogType dialogType,
-      required NetworkType networkType,
-      required LoadState responseMapState,
-      required SyncState syncState,
-      required Option<SurveyFailure> responseFailure,
-      required LoadState eventState,
-      required LoadState updateState,
-      required StateParameters updateParameters,
-      required StateParameters saveParameters}) = _$_ResponseState;
+      {required final UniqueId stateId,
+      required final Survey survey,
+      required final Interviewer interviewer,
+      required final Respondent respondent,
+      required final Response response,
+      required final Map<UniqueId, Response> responseMap,
+      required final List<Reference> referenceList,
+      required final ModuleType moduleType,
+      required final UniqueId responseId,
+      required final Response mainResponse,
+      required final Map<String, Question> questionMap,
+      required final Set<UniqueId> uploadResponseIdSet,
+      required final Map<UniqueId, Response> downloadedResponseMap,
+      required final Map<String, Map<String, dynamic>> uploadResponseMap,
+      required final Map<ModuleType, Response> respondentResponseMap,
+      required final DialogType dialogType,
+      required final NetworkType networkType,
+      required final LoadState responseMapState,
+      required final SyncState syncState,
+      required final Option<SurveyFailure> responseFailure,
+      required final LoadState eventState,
+      required final LoadState updateState,
+      required final StateParameters updateParameters,
+      required final StateParameters saveParameters}) = _$_ResponseState;
   const _ResponseState._() : super._();
 
   @override
-  UniqueId get stateId;
-  @override // H_ 主要資料
-  Survey get survey;
+  UniqueId get stateId => throw _privateConstructorUsedError;
+  @override // > 主要資料
+  Survey get survey => throw _privateConstructorUsedError;
   @override
-  Interviewer get interviewer;
+  Interviewer get interviewer => throw _privateConstructorUsedError;
   @override
-  Respondent get respondent;
+  Respondent get respondent => throw _privateConstructorUsedError;
   @override
-  Response get response;
+  Response get response => throw _privateConstructorUsedError;
   @override
-  Map<UniqueId, Response> get responseMap;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @override
-  List<Reference> get referenceList;
-  @override // H_ 中間資料
-  ModuleType get moduleType;
+  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  @override // > 中間資料
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  UniqueId get responseId;
+  UniqueId get responseId => throw _privateConstructorUsedError;
   @override
-  Response get mainResponse;
+  Response get mainResponse => throw _privateConstructorUsedError;
   @override
-  Map<String, Question> get questionMap;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
-  Set<UniqueId> get uploadResponseIdSet;
+  Set<UniqueId> get uploadResponseIdSet => throw _privateConstructorUsedError;
   @override
-  Map<UniqueId, Response> get downloadedResponseMap;
+  Map<UniqueId, Response> get downloadedResponseMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, Map<String, dynamic>> get uploadResponseMap;
+  Map<String, Map<String, dynamic>> get uploadResponseMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<ModuleType, Response> get respondentResponseMap;
+  Map<ModuleType, Response> get respondentResponseMap =>
+      throw _privateConstructorUsedError;
   @override
-  DialogType get dialogType;
+  DialogType get dialogType => throw _privateConstructorUsedError;
   @override
-  NetworkType get networkType;
-  @override // H_ 狀態更新進度
-  LoadState get responseMapState;
+  NetworkType get networkType => throw _privateConstructorUsedError;
+  @override // > 狀態更新進度
+  LoadState get responseMapState => throw _privateConstructorUsedError;
   @override
-  SyncState get syncState;
+  SyncState get syncState => throw _privateConstructorUsedError;
   @override
-  Option<SurveyFailure> get responseFailure;
+  Option<SurveyFailure> get responseFailure =>
+      throw _privateConstructorUsedError;
   @override
-  LoadState get eventState;
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
-  LoadState get updateState;
-  @override // H_ 更新/儲存參數
-  StateParameters get updateParameters;
+  LoadState get updateState => throw _privateConstructorUsedError;
+  @override // > 更新/儲存參數
+  StateParameters get updateParameters => throw _privateConstructorUsedError;
   @override
-  StateParameters get saveParameters;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseStateCopyWith<_ResponseState> get copyWith =>
+  _$$_ResponseStateCopyWith<_$_ResponseState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class _$StateParametersTearOff {
-  const _$StateParametersTearOff();
-
-  _StateParameters call(
-      {required bool referenceList,
-      required bool response,
-      required bool survey,
-      required bool interviewer,
-      required bool respondent,
-      required bool responseMap,
-      required Set<UniqueId> responseMapKeys,
-      required bool uploadResponseIdSet,
-      required bool visitReportsMap,
-      required bool housingMap,
-      required bool respondentResponseMap,
-      required bool tabRespondentMap}) {
-    return _StateParameters(
-      referenceList: referenceList,
-      response: response,
-      survey: survey,
-      interviewer: interviewer,
-      respondent: respondent,
-      responseMap: responseMap,
-      responseMapKeys: responseMapKeys,
-      uploadResponseIdSet: uploadResponseIdSet,
-      visitReportsMap: visitReportsMap,
-      housingMap: housingMap,
-      respondentResponseMap: respondentResponseMap,
-      tabRespondentMap: tabRespondentMap,
-    );
-  }
-}
-
-/// @nodoc
-const $StateParameters = _$StateParametersTearOff();
-
-/// @nodoc
 mixin _$StateParameters {
-// H_ 共用
+// > 共用
   bool get referenceList => throw _privateConstructorUsedError;
-  bool get response => throw _privateConstructorUsedError; // H_ 儲存
+  bool get response => throw _privateConstructorUsedError; // > 儲存
   bool get survey => throw _privateConstructorUsedError;
   bool get interviewer => throw _privateConstructorUsedError;
   bool get respondent => throw _privateConstructorUsedError;
   bool get responseMap => throw _privateConstructorUsedError;
   Set<UniqueId> get responseMapKeys => throw _privateConstructorUsedError;
-  bool get uploadResponseIdSet => throw _privateConstructorUsedError; // H_ 更新
+  bool get uploadResponseIdSet => throw _privateConstructorUsedError; // > 更新
   bool get visitReportsMap => throw _privateConstructorUsedError;
   bool get housingMap => throw _privateConstructorUsedError;
   bool get respondentResponseMap => throw _privateConstructorUsedError;
@@ -5228,11 +5102,11 @@ class _$StateParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StateParametersCopyWith<$Res>
+abstract class _$$_StateParametersCopyWith<$Res>
     implements $StateParametersCopyWith<$Res> {
-  factory _$StateParametersCopyWith(
-          _StateParameters value, $Res Function(_StateParameters) then) =
-      __$StateParametersCopyWithImpl<$Res>;
+  factory _$$_StateParametersCopyWith(
+          _$_StateParameters value, $Res Function(_$_StateParameters) then) =
+      __$$_StateParametersCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool referenceList,
@@ -5250,15 +5124,15 @@ abstract class _$StateParametersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StateParametersCopyWithImpl<$Res>
+class __$$_StateParametersCopyWithImpl<$Res>
     extends _$StateParametersCopyWithImpl<$Res>
-    implements _$StateParametersCopyWith<$Res> {
-  __$StateParametersCopyWithImpl(
-      _StateParameters _value, $Res Function(_StateParameters) _then)
-      : super(_value, (v) => _then(v as _StateParameters));
+    implements _$$_StateParametersCopyWith<$Res> {
+  __$$_StateParametersCopyWithImpl(
+      _$_StateParameters _value, $Res Function(_$_StateParameters) _then)
+      : super(_value, (v) => _then(v as _$_StateParameters));
 
   @override
-  _StateParameters get _value => super._value as _StateParameters;
+  _$_StateParameters get _value => super._value as _$_StateParameters;
 
   @override
   $Res call({
@@ -5275,7 +5149,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? respondentResponseMap = freezed,
     Object? tabRespondentMap = freezed,
   }) {
-    return _then(_StateParameters(
+    return _then(_$_StateParameters(
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
@@ -5301,7 +5175,7 @@ class __$StateParametersCopyWithImpl<$Res>
           : responseMap // ignore: cast_nullable_to_non_nullable
               as bool,
       responseMapKeys: responseMapKeys == freezed
-          ? _value.responseMapKeys
+          ? _value._responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
               as Set<UniqueId>,
       uploadResponseIdSet: uploadResponseIdSet == freezed
@@ -5338,19 +5212,22 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       required this.interviewer,
       required this.respondent,
       required this.responseMap,
-      required this.responseMapKeys,
+      required final Set<UniqueId> responseMapKeys,
       required this.uploadResponseIdSet,
       required this.visitReportsMap,
       required this.housingMap,
       required this.respondentResponseMap,
       required this.tabRespondentMap})
-      : super._();
+      : _responseMapKeys = responseMapKeys,
+        super._();
 
-  @override // H_ 共用
+// > 共用
+  @override
   final bool referenceList;
   @override
   final bool response;
-  @override // H_ 儲存
+// > 儲存
+  @override
   final bool survey;
   @override
   final bool interviewer;
@@ -5358,11 +5235,17 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   final bool respondent;
   @override
   final bool responseMap;
+  final Set<UniqueId> _responseMapKeys;
   @override
-  final Set<UniqueId> responseMapKeys;
+  Set<UniqueId> get responseMapKeys {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_responseMapKeys);
+  }
+
   @override
   final bool uploadResponseIdSet;
-  @override // H_ 更新
+// > 更新
+  @override
   final bool visitReportsMap;
   @override
   final bool housingMap;
@@ -5399,7 +5282,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StateParameters &&
+            other is _$_StateParameters &&
             const DeepCollectionEquality()
                 .equals(other.referenceList, referenceList) &&
             const DeepCollectionEquality().equals(other.response, response) &&
@@ -5411,7 +5294,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
             const DeepCollectionEquality()
                 .equals(other.responseMap, responseMap) &&
             const DeepCollectionEquality()
-                .equals(other.responseMapKeys, responseMapKeys) &&
+                .equals(other._responseMapKeys, _responseMapKeys) &&
             const DeepCollectionEquality()
                 .equals(other.uploadResponseIdSet, uploadResponseIdSet) &&
             const DeepCollectionEquality()
@@ -5433,7 +5316,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(respondent),
       const DeepCollectionEquality().hash(responseMap),
-      const DeepCollectionEquality().hash(responseMapKeys),
+      const DeepCollectionEquality().hash(_responseMapKeys),
       const DeepCollectionEquality().hash(uploadResponseIdSet),
       const DeepCollectionEquality().hash(visitReportsMap),
       const DeepCollectionEquality().hash(housingMap),
@@ -5442,52 +5325,52 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$StateParametersCopyWith<_StateParameters> get copyWith =>
-      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
+  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
+      __$$_StateParametersCopyWithImpl<_$_StateParameters>(this, _$identity);
 }
 
 abstract class _StateParameters extends StateParameters {
   const factory _StateParameters(
-      {required bool referenceList,
-      required bool response,
-      required bool survey,
-      required bool interviewer,
-      required bool respondent,
-      required bool responseMap,
-      required Set<UniqueId> responseMapKeys,
-      required bool uploadResponseIdSet,
-      required bool visitReportsMap,
-      required bool housingMap,
-      required bool respondentResponseMap,
-      required bool tabRespondentMap}) = _$_StateParameters;
+      {required final bool referenceList,
+      required final bool response,
+      required final bool survey,
+      required final bool interviewer,
+      required final bool respondent,
+      required final bool responseMap,
+      required final Set<UniqueId> responseMapKeys,
+      required final bool uploadResponseIdSet,
+      required final bool visitReportsMap,
+      required final bool housingMap,
+      required final bool respondentResponseMap,
+      required final bool tabRespondentMap}) = _$_StateParameters;
   const _StateParameters._() : super._();
 
-  @override // H_ 共用
-  bool get referenceList;
+  @override // > 共用
+  bool get referenceList => throw _privateConstructorUsedError;
   @override
-  bool get response;
-  @override // H_ 儲存
-  bool get survey;
+  bool get response => throw _privateConstructorUsedError;
+  @override // > 儲存
+  bool get survey => throw _privateConstructorUsedError;
   @override
-  bool get interviewer;
+  bool get interviewer => throw _privateConstructorUsedError;
   @override
-  bool get respondent;
+  bool get respondent => throw _privateConstructorUsedError;
   @override
-  bool get responseMap;
+  bool get responseMap => throw _privateConstructorUsedError;
   @override
-  Set<UniqueId> get responseMapKeys;
+  Set<UniqueId> get responseMapKeys => throw _privateConstructorUsedError;
   @override
-  bool get uploadResponseIdSet;
-  @override // H_ 更新
-  bool get visitReportsMap;
+  bool get uploadResponseIdSet => throw _privateConstructorUsedError;
+  @override // > 更新
+  bool get visitReportsMap => throw _privateConstructorUsedError;
   @override
-  bool get housingMap;
+  bool get housingMap => throw _privateConstructorUsedError;
   @override
-  bool get respondentResponseMap;
+  bool get respondentResponseMap => throw _privateConstructorUsedError;
   @override
-  bool get tabRespondentMap;
+  bool get tabRespondentMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

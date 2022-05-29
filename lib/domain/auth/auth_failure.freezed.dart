@@ -12,21 +12,7 @@ part of 'auth_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AuthFailureTearOff {
-  const _$AuthFailureTearOff();
-
-  _AuthFailure call(String value) {
-    return _AuthFailure(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $AuthFailure = _$AuthFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AuthFailure {
@@ -67,30 +53,30 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AuthFailureCopyWith<$Res>
+abstract class _$$_AuthFailureCopyWith<$Res>
     implements $AuthFailureCopyWith<$Res> {
-  factory _$AuthFailureCopyWith(
-          _AuthFailure value, $Res Function(_AuthFailure) then) =
-      __$AuthFailureCopyWithImpl<$Res>;
+  factory _$$_AuthFailureCopyWith(
+          _$_AuthFailure value, $Res Function(_$_AuthFailure) then) =
+      __$$_AuthFailureCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$AuthFailureCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
-    implements _$AuthFailureCopyWith<$Res> {
-  __$AuthFailureCopyWithImpl(
-      _AuthFailure _value, $Res Function(_AuthFailure) _then)
-      : super(_value, (v) => _then(v as _AuthFailure));
+class __$$_AuthFailureCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$$_AuthFailureCopyWith<$Res> {
+  __$$_AuthFailureCopyWithImpl(
+      _$_AuthFailure _value, $Res Function(_$_AuthFailure) _then)
+      : super(_value, (v) => _then(v as _$_AuthFailure));
 
   @override
-  _AuthFailure get _value => super._value as _AuthFailure;
+  _$_AuthFailure get _value => super._value as _$_AuthFailure;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_AuthFailure(
+    return _then(_$_AuthFailure(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -116,7 +102,7 @@ class _$_AuthFailure extends _AuthFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AuthFailure &&
+            other is _$_AuthFailure &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -126,18 +112,18 @@ class _$_AuthFailure extends _AuthFailure {
 
   @JsonKey(ignore: true)
   @override
-  _$AuthFailureCopyWith<_AuthFailure> get copyWith =>
-      __$AuthFailureCopyWithImpl<_AuthFailure>(this, _$identity);
+  _$$_AuthFailureCopyWith<_$_AuthFailure> get copyWith =>
+      __$$_AuthFailureCopyWithImpl<_$_AuthFailure>(this, _$identity);
 }
 
 abstract class _AuthFailure extends AuthFailure {
-  const factory _AuthFailure(String value) = _$_AuthFailure;
+  const factory _AuthFailure(final String value) = _$_AuthFailure;
   const _AuthFailure._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AuthFailureCopyWith<_AuthFailure> get copyWith =>
+  _$$_AuthFailureCopyWith<_$_AuthFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

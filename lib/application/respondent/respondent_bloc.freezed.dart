@@ -12,75 +12,7 @@ part of 'respondent_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RespondentEventTearOff {
-  const _$RespondentEventTearOff();
-
-  _WatchSurveyRespondentMapStarted watchSurveyRespondentMapStarted(
-      {required String teamId, required String interviewerId}) {
-    return _WatchSurveyRespondentMapStarted(
-      teamId: teamId,
-      interviewerId: interviewerId,
-    );
-  }
-
-  _RawSurveyRespondentMapReceived rawSurveyRespondentMapReceived(
-      Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap) {
-    return _RawSurveyRespondentMapReceived(
-      failureOrSurveyRespondentMap,
-    );
-  }
-
-  _SurveySelected surveySelected({required Survey survey}) {
-    return _SurveySelected(
-      survey: survey,
-    );
-  }
-
-  _TextSearched textSearched({required String text}) {
-    return _TextSearched(
-      text: text,
-    );
-  }
-
-  _VisitReportUpdated visitReportUpdated(
-      {required Map<UniqueId, Response> responseMap}) {
-    return _VisitReportUpdated(
-      responseMap: responseMap,
-    );
-  }
-
-  _HousingUpdated housingUpdated(
-      {required Map<UniqueId, Response> responseMap}) {
-    return _HousingUpdated(
-      responseMap: responseMap,
-    );
-  }
-
-  _TabRespondentsUpdated tabRespondentsUpdated(
-      {required Map<UniqueId, Response> responseMap}) {
-    return _TabRespondentsUpdated(
-      responseMap: responseMap,
-    );
-  }
-
-  _LeaveButtonPressed leaveButtonPressed() {
-    return const _LeaveButtonPressed();
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $RespondentEvent = _$RespondentEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RespondentEvent {
@@ -214,33 +146,33 @@ class _$RespondentEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WatchSurveyRespondentMapStartedCopyWith<$Res> {
-  factory _$WatchSurveyRespondentMapStartedCopyWith(
-          _WatchSurveyRespondentMapStarted value,
-          $Res Function(_WatchSurveyRespondentMapStarted) then) =
-      __$WatchSurveyRespondentMapStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchSurveyRespondentMapStartedCopyWith<$Res> {
+  factory _$$_WatchSurveyRespondentMapStartedCopyWith(
+          _$_WatchSurveyRespondentMapStarted value,
+          $Res Function(_$_WatchSurveyRespondentMapStarted) then) =
+      __$$_WatchSurveyRespondentMapStartedCopyWithImpl<$Res>;
   $Res call({String teamId, String interviewerId});
 }
 
 /// @nodoc
-class __$WatchSurveyRespondentMapStartedCopyWithImpl<$Res>
+class __$$_WatchSurveyRespondentMapStartedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$WatchSurveyRespondentMapStartedCopyWith<$Res> {
-  __$WatchSurveyRespondentMapStartedCopyWithImpl(
-      _WatchSurveyRespondentMapStarted _value,
-      $Res Function(_WatchSurveyRespondentMapStarted) _then)
-      : super(_value, (v) => _then(v as _WatchSurveyRespondentMapStarted));
+    implements _$$_WatchSurveyRespondentMapStartedCopyWith<$Res> {
+  __$$_WatchSurveyRespondentMapStartedCopyWithImpl(
+      _$_WatchSurveyRespondentMapStarted _value,
+      $Res Function(_$_WatchSurveyRespondentMapStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchSurveyRespondentMapStarted));
 
   @override
-  _WatchSurveyRespondentMapStarted get _value =>
-      super._value as _WatchSurveyRespondentMapStarted;
+  _$_WatchSurveyRespondentMapStarted get _value =>
+      super._value as _$_WatchSurveyRespondentMapStarted;
 
   @override
   $Res call({
     Object? teamId = freezed,
     Object? interviewerId = freezed,
   }) {
-    return _then(_WatchSurveyRespondentMapStarted(
+    return _then(_$_WatchSurveyRespondentMapStarted(
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
@@ -275,7 +207,7 @@ class _$_WatchSurveyRespondentMapStarted
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WatchSurveyRespondentMapStarted &&
+            other is _$_WatchSurveyRespondentMapStarted &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality()
                 .equals(other.interviewerId, interviewerId));
@@ -289,9 +221,10 @@ class _$_WatchSurveyRespondentMapStarted
 
   @JsonKey(ignore: true)
   @override
-  _$WatchSurveyRespondentMapStartedCopyWith<_WatchSurveyRespondentMapStarted>
-      get copyWith => __$WatchSurveyRespondentMapStartedCopyWithImpl<
-          _WatchSurveyRespondentMapStarted>(this, _$identity);
+  _$$_WatchSurveyRespondentMapStartedCopyWith<
+          _$_WatchSurveyRespondentMapStarted>
+      get copyWith => __$$_WatchSurveyRespondentMapStartedCopyWithImpl<
+          _$_WatchSurveyRespondentMapStarted>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -430,45 +363,46 @@ class _$_WatchSurveyRespondentMapStarted
 
 abstract class _WatchSurveyRespondentMapStarted extends RespondentEvent {
   const factory _WatchSurveyRespondentMapStarted(
-      {required String teamId,
-      required String interviewerId}) = _$_WatchSurveyRespondentMapStarted;
+          {required final String teamId, required final String interviewerId}) =
+      _$_WatchSurveyRespondentMapStarted;
   const _WatchSurveyRespondentMapStarted._() : super._();
 
-  String get teamId;
-  String get interviewerId;
+  String get teamId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WatchSurveyRespondentMapStartedCopyWith<_WatchSurveyRespondentMapStarted>
+  _$$_WatchSurveyRespondentMapStartedCopyWith<
+          _$_WatchSurveyRespondentMapStarted>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$RawSurveyRespondentMapReceivedCopyWith<$Res> {
-  factory _$RawSurveyRespondentMapReceivedCopyWith(
-          _RawSurveyRespondentMapReceived value,
-          $Res Function(_RawSurveyRespondentMapReceived) then) =
-      __$RawSurveyRespondentMapReceivedCopyWithImpl<$Res>;
+abstract class _$$_RawSurveyRespondentMapReceivedCopyWith<$Res> {
+  factory _$$_RawSurveyRespondentMapReceivedCopyWith(
+          _$_RawSurveyRespondentMapReceived value,
+          $Res Function(_$_RawSurveyRespondentMapReceived) then) =
+      __$$_RawSurveyRespondentMapReceivedCopyWithImpl<$Res>;
   $Res call(
       {Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap});
 }
 
 /// @nodoc
-class __$RawSurveyRespondentMapReceivedCopyWithImpl<$Res>
+class __$$_RawSurveyRespondentMapReceivedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$RawSurveyRespondentMapReceivedCopyWith<$Res> {
-  __$RawSurveyRespondentMapReceivedCopyWithImpl(
-      _RawSurveyRespondentMapReceived _value,
-      $Res Function(_RawSurveyRespondentMapReceived) _then)
-      : super(_value, (v) => _then(v as _RawSurveyRespondentMapReceived));
+    implements _$$_RawSurveyRespondentMapReceivedCopyWith<$Res> {
+  __$$_RawSurveyRespondentMapReceivedCopyWithImpl(
+      _$_RawSurveyRespondentMapReceived _value,
+      $Res Function(_$_RawSurveyRespondentMapReceived) _then)
+      : super(_value, (v) => _then(v as _$_RawSurveyRespondentMapReceived));
 
   @override
-  _RawSurveyRespondentMapReceived get _value =>
-      super._value as _RawSurveyRespondentMapReceived;
+  _$_RawSurveyRespondentMapReceived get _value =>
+      super._value as _$_RawSurveyRespondentMapReceived;
 
   @override
   $Res call({
     Object? failureOrSurveyRespondentMap = freezed,
   }) {
-    return _then(_RawSurveyRespondentMapReceived(
+    return _then(_$_RawSurveyRespondentMapReceived(
       failureOrSurveyRespondentMap == freezed
           ? _value.failureOrSurveyRespondentMap
           : failureOrSurveyRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -496,7 +430,7 @@ class _$_RawSurveyRespondentMapReceived
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RawSurveyRespondentMapReceived &&
+            other is _$_RawSurveyRespondentMapReceived &&
             const DeepCollectionEquality().equals(
                 other.failureOrSurveyRespondentMap,
                 failureOrSurveyRespondentMap));
@@ -508,9 +442,9 @@ class _$_RawSurveyRespondentMapReceived
 
   @JsonKey(ignore: true)
   @override
-  _$RawSurveyRespondentMapReceivedCopyWith<_RawSurveyRespondentMapReceived>
-      get copyWith => __$RawSurveyRespondentMapReceivedCopyWithImpl<
-          _RawSurveyRespondentMapReceived>(this, _$identity);
+  _$$_RawSurveyRespondentMapReceivedCopyWith<_$_RawSurveyRespondentMapReceived>
+      get copyWith => __$$_RawSurveyRespondentMapReceivedCopyWithImpl<
+          _$_RawSurveyRespondentMapReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -649,42 +583,43 @@ class _$_RawSurveyRespondentMapReceived
 
 abstract class _RawSurveyRespondentMapReceived extends RespondentEvent {
   const factory _RawSurveyRespondentMapReceived(
-      Either<RespondentFailure, List<Object>>
+      final Either<RespondentFailure, List<Object>>
           failureOrSurveyRespondentMap) = _$_RawSurveyRespondentMapReceived;
   const _RawSurveyRespondentMapReceived._() : super._();
 
-  Either<RespondentFailure, List<Object>> get failureOrSurveyRespondentMap;
+  Either<RespondentFailure, List<Object>> get failureOrSurveyRespondentMap =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$RawSurveyRespondentMapReceivedCopyWith<_RawSurveyRespondentMapReceived>
+  _$$_RawSurveyRespondentMapReceivedCopyWith<_$_RawSurveyRespondentMapReceived>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SurveySelectedCopyWith<$Res> {
-  factory _$SurveySelectedCopyWith(
-          _SurveySelected value, $Res Function(_SurveySelected) then) =
-      __$SurveySelectedCopyWithImpl<$Res>;
+abstract class _$$_SurveySelectedCopyWith<$Res> {
+  factory _$$_SurveySelectedCopyWith(
+          _$_SurveySelected value, $Res Function(_$_SurveySelected) then) =
+      __$$_SurveySelectedCopyWithImpl<$Res>;
   $Res call({Survey survey});
 
   $SurveyCopyWith<$Res> get survey;
 }
 
 /// @nodoc
-class __$SurveySelectedCopyWithImpl<$Res>
+class __$$_SurveySelectedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$SurveySelectedCopyWith<$Res> {
-  __$SurveySelectedCopyWithImpl(
-      _SurveySelected _value, $Res Function(_SurveySelected) _then)
-      : super(_value, (v) => _then(v as _SurveySelected));
+    implements _$$_SurveySelectedCopyWith<$Res> {
+  __$$_SurveySelectedCopyWithImpl(
+      _$_SurveySelected _value, $Res Function(_$_SurveySelected) _then)
+      : super(_value, (v) => _then(v as _$_SurveySelected));
 
   @override
-  _SurveySelected get _value => super._value as _SurveySelected;
+  _$_SurveySelected get _value => super._value as _$_SurveySelected;
 
   @override
   $Res call({
     Object? survey = freezed,
   }) {
-    return _then(_SurveySelected(
+    return _then(_$_SurveySelected(
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -717,7 +652,7 @@ class _$_SurveySelected extends _SurveySelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveySelected &&
+            other is _$_SurveySelected &&
             const DeepCollectionEquality().equals(other.survey, survey));
   }
 
@@ -727,8 +662,8 @@ class _$_SurveySelected extends _SurveySelected {
 
   @JsonKey(ignore: true)
   @override
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
-      __$SurveySelectedCopyWithImpl<_SurveySelected>(this, _$identity);
+  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
+      __$$_SurveySelectedCopyWithImpl<_$_SurveySelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -866,39 +801,40 @@ class _$_SurveySelected extends _SurveySelected {
 }
 
 abstract class _SurveySelected extends RespondentEvent {
-  const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
+  const factory _SurveySelected({required final Survey survey}) =
+      _$_SurveySelected;
   const _SurveySelected._() : super._();
 
-  Survey get survey;
+  Survey get survey => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
+  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$TextSearchedCopyWith<$Res> {
-  factory _$TextSearchedCopyWith(
-          _TextSearched value, $Res Function(_TextSearched) then) =
-      __$TextSearchedCopyWithImpl<$Res>;
+abstract class _$$_TextSearchedCopyWith<$Res> {
+  factory _$$_TextSearchedCopyWith(
+          _$_TextSearched value, $Res Function(_$_TextSearched) then) =
+      __$$_TextSearchedCopyWithImpl<$Res>;
   $Res call({String text});
 }
 
 /// @nodoc
-class __$TextSearchedCopyWithImpl<$Res>
+class __$$_TextSearchedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$TextSearchedCopyWith<$Res> {
-  __$TextSearchedCopyWithImpl(
-      _TextSearched _value, $Res Function(_TextSearched) _then)
-      : super(_value, (v) => _then(v as _TextSearched));
+    implements _$$_TextSearchedCopyWith<$Res> {
+  __$$_TextSearchedCopyWithImpl(
+      _$_TextSearched _value, $Res Function(_$_TextSearched) _then)
+      : super(_value, (v) => _then(v as _$_TextSearched));
 
   @override
-  _TextSearched get _value => super._value as _TextSearched;
+  _$_TextSearched get _value => super._value as _$_TextSearched;
 
   @override
   $Res call({
     Object? text = freezed,
   }) {
-    return _then(_TextSearched(
+    return _then(_$_TextSearched(
       text: text == freezed
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -924,7 +860,7 @@ class _$_TextSearched extends _TextSearched {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TextSearched &&
+            other is _$_TextSearched &&
             const DeepCollectionEquality().equals(other.text, text));
   }
 
@@ -934,8 +870,8 @@ class _$_TextSearched extends _TextSearched {
 
   @JsonKey(ignore: true)
   @override
-  _$TextSearchedCopyWith<_TextSearched> get copyWith =>
-      __$TextSearchedCopyWithImpl<_TextSearched>(this, _$identity);
+  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
+      __$$_TextSearchedCopyWithImpl<_$_TextSearched>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1073,41 +1009,41 @@ class _$_TextSearched extends _TextSearched {
 }
 
 abstract class _TextSearched extends RespondentEvent {
-  const factory _TextSearched({required String text}) = _$_TextSearched;
+  const factory _TextSearched({required final String text}) = _$_TextSearched;
   const _TextSearched._() : super._();
 
-  String get text;
+  String get text => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TextSearchedCopyWith<_TextSearched> get copyWith =>
+  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$VisitReportUpdatedCopyWith<$Res> {
-  factory _$VisitReportUpdatedCopyWith(
-          _VisitReportUpdated value, $Res Function(_VisitReportUpdated) then) =
-      __$VisitReportUpdatedCopyWithImpl<$Res>;
+abstract class _$$_VisitReportUpdatedCopyWith<$Res> {
+  factory _$$_VisitReportUpdatedCopyWith(_$_VisitReportUpdated value,
+          $Res Function(_$_VisitReportUpdated) then) =
+      __$$_VisitReportUpdatedCopyWithImpl<$Res>;
   $Res call({Map<UniqueId, Response> responseMap});
 }
 
 /// @nodoc
-class __$VisitReportUpdatedCopyWithImpl<$Res>
+class __$$_VisitReportUpdatedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$VisitReportUpdatedCopyWith<$Res> {
-  __$VisitReportUpdatedCopyWithImpl(
-      _VisitReportUpdated _value, $Res Function(_VisitReportUpdated) _then)
-      : super(_value, (v) => _then(v as _VisitReportUpdated));
+    implements _$$_VisitReportUpdatedCopyWith<$Res> {
+  __$$_VisitReportUpdatedCopyWithImpl(
+      _$_VisitReportUpdated _value, $Res Function(_$_VisitReportUpdated) _then)
+      : super(_value, (v) => _then(v as _$_VisitReportUpdated));
 
   @override
-  _VisitReportUpdated get _value => super._value as _VisitReportUpdated;
+  _$_VisitReportUpdated get _value => super._value as _$_VisitReportUpdated;
 
   @override
   $Res call({
     Object? responseMap = freezed,
   }) {
-    return _then(_VisitReportUpdated(
+    return _then(_$_VisitReportUpdated(
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
     ));
@@ -1117,10 +1053,17 @@ class __$VisitReportUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_VisitReportUpdated extends _VisitReportUpdated {
-  const _$_VisitReportUpdated({required this.responseMap}) : super._();
+  const _$_VisitReportUpdated(
+      {required final Map<UniqueId, Response> responseMap})
+      : _responseMap = responseMap,
+        super._();
 
+  final Map<UniqueId, Response> _responseMap;
   @override
-  final Map<UniqueId, Response> responseMap;
+  Map<UniqueId, Response> get responseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_responseMap);
+  }
 
   @override
   String toString() {
@@ -1131,19 +1074,20 @@ class _$_VisitReportUpdated extends _VisitReportUpdated {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VisitReportUpdated &&
+            other is _$_VisitReportUpdated &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap));
+                .equals(other._responseMap, _responseMap));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(responseMap));
+      runtimeType, const DeepCollectionEquality().hash(_responseMap));
 
   @JsonKey(ignore: true)
   @override
-  _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith =>
-      __$VisitReportUpdatedCopyWithImpl<_VisitReportUpdated>(this, _$identity);
+  _$$_VisitReportUpdatedCopyWith<_$_VisitReportUpdated> get copyWith =>
+      __$$_VisitReportUpdatedCopyWithImpl<_$_VisitReportUpdated>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1282,41 +1226,42 @@ class _$_VisitReportUpdated extends _VisitReportUpdated {
 
 abstract class _VisitReportUpdated extends RespondentEvent {
   const factory _VisitReportUpdated(
-      {required Map<UniqueId, Response> responseMap}) = _$_VisitReportUpdated;
+          {required final Map<UniqueId, Response> responseMap}) =
+      _$_VisitReportUpdated;
   const _VisitReportUpdated._() : super._();
 
-  Map<UniqueId, Response> get responseMap;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith =>
+  _$$_VisitReportUpdatedCopyWith<_$_VisitReportUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$HousingUpdatedCopyWith<$Res> {
-  factory _$HousingUpdatedCopyWith(
-          _HousingUpdated value, $Res Function(_HousingUpdated) then) =
-      __$HousingUpdatedCopyWithImpl<$Res>;
+abstract class _$$_HousingUpdatedCopyWith<$Res> {
+  factory _$$_HousingUpdatedCopyWith(
+          _$_HousingUpdated value, $Res Function(_$_HousingUpdated) then) =
+      __$$_HousingUpdatedCopyWithImpl<$Res>;
   $Res call({Map<UniqueId, Response> responseMap});
 }
 
 /// @nodoc
-class __$HousingUpdatedCopyWithImpl<$Res>
+class __$$_HousingUpdatedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$HousingUpdatedCopyWith<$Res> {
-  __$HousingUpdatedCopyWithImpl(
-      _HousingUpdated _value, $Res Function(_HousingUpdated) _then)
-      : super(_value, (v) => _then(v as _HousingUpdated));
+    implements _$$_HousingUpdatedCopyWith<$Res> {
+  __$$_HousingUpdatedCopyWithImpl(
+      _$_HousingUpdated _value, $Res Function(_$_HousingUpdated) _then)
+      : super(_value, (v) => _then(v as _$_HousingUpdated));
 
   @override
-  _HousingUpdated get _value => super._value as _HousingUpdated;
+  _$_HousingUpdated get _value => super._value as _$_HousingUpdated;
 
   @override
   $Res call({
     Object? responseMap = freezed,
   }) {
-    return _then(_HousingUpdated(
+    return _then(_$_HousingUpdated(
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
     ));
@@ -1326,10 +1271,16 @@ class __$HousingUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HousingUpdated extends _HousingUpdated {
-  const _$_HousingUpdated({required this.responseMap}) : super._();
+  const _$_HousingUpdated({required final Map<UniqueId, Response> responseMap})
+      : _responseMap = responseMap,
+        super._();
 
+  final Map<UniqueId, Response> _responseMap;
   @override
-  final Map<UniqueId, Response> responseMap;
+  Map<UniqueId, Response> get responseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_responseMap);
+  }
 
   @override
   String toString() {
@@ -1340,19 +1291,19 @@ class _$_HousingUpdated extends _HousingUpdated {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HousingUpdated &&
+            other is _$_HousingUpdated &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap));
+                .equals(other._responseMap, _responseMap));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(responseMap));
+      runtimeType, const DeepCollectionEquality().hash(_responseMap));
 
   @JsonKey(ignore: true)
   @override
-  _$HousingUpdatedCopyWith<_HousingUpdated> get copyWith =>
-      __$HousingUpdatedCopyWithImpl<_HousingUpdated>(this, _$identity);
+  _$$_HousingUpdatedCopyWith<_$_HousingUpdated> get copyWith =>
+      __$$_HousingUpdatedCopyWithImpl<_$_HousingUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1491,41 +1442,42 @@ class _$_HousingUpdated extends _HousingUpdated {
 
 abstract class _HousingUpdated extends RespondentEvent {
   const factory _HousingUpdated(
-      {required Map<UniqueId, Response> responseMap}) = _$_HousingUpdated;
+      {required final Map<UniqueId, Response> responseMap}) = _$_HousingUpdated;
   const _HousingUpdated._() : super._();
 
-  Map<UniqueId, Response> get responseMap;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$HousingUpdatedCopyWith<_HousingUpdated> get copyWith =>
+  _$$_HousingUpdatedCopyWith<_$_HousingUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$TabRespondentsUpdatedCopyWith<$Res> {
-  factory _$TabRespondentsUpdatedCopyWith(_TabRespondentsUpdated value,
-          $Res Function(_TabRespondentsUpdated) then) =
-      __$TabRespondentsUpdatedCopyWithImpl<$Res>;
+abstract class _$$_TabRespondentsUpdatedCopyWith<$Res> {
+  factory _$$_TabRespondentsUpdatedCopyWith(_$_TabRespondentsUpdated value,
+          $Res Function(_$_TabRespondentsUpdated) then) =
+      __$$_TabRespondentsUpdatedCopyWithImpl<$Res>;
   $Res call({Map<UniqueId, Response> responseMap});
 }
 
 /// @nodoc
-class __$TabRespondentsUpdatedCopyWithImpl<$Res>
+class __$$_TabRespondentsUpdatedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$TabRespondentsUpdatedCopyWith<$Res> {
-  __$TabRespondentsUpdatedCopyWithImpl(_TabRespondentsUpdated _value,
-      $Res Function(_TabRespondentsUpdated) _then)
-      : super(_value, (v) => _then(v as _TabRespondentsUpdated));
+    implements _$$_TabRespondentsUpdatedCopyWith<$Res> {
+  __$$_TabRespondentsUpdatedCopyWithImpl(_$_TabRespondentsUpdated _value,
+      $Res Function(_$_TabRespondentsUpdated) _then)
+      : super(_value, (v) => _then(v as _$_TabRespondentsUpdated));
 
   @override
-  _TabRespondentsUpdated get _value => super._value as _TabRespondentsUpdated;
+  _$_TabRespondentsUpdated get _value =>
+      super._value as _$_TabRespondentsUpdated;
 
   @override
   $Res call({
     Object? responseMap = freezed,
   }) {
-    return _then(_TabRespondentsUpdated(
+    return _then(_$_TabRespondentsUpdated(
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
     ));
@@ -1535,10 +1487,17 @@ class __$TabRespondentsUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TabRespondentsUpdated extends _TabRespondentsUpdated {
-  const _$_TabRespondentsUpdated({required this.responseMap}) : super._();
+  const _$_TabRespondentsUpdated(
+      {required final Map<UniqueId, Response> responseMap})
+      : _responseMap = responseMap,
+        super._();
 
+  final Map<UniqueId, Response> _responseMap;
   @override
-  final Map<UniqueId, Response> responseMap;
+  Map<UniqueId, Response> get responseMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_responseMap);
+  }
 
   @override
   String toString() {
@@ -1549,19 +1508,19 @@ class _$_TabRespondentsUpdated extends _TabRespondentsUpdated {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TabRespondentsUpdated &&
+            other is _$_TabRespondentsUpdated &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap));
+                .equals(other._responseMap, _responseMap));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(responseMap));
+      runtimeType, const DeepCollectionEquality().hash(_responseMap));
 
   @JsonKey(ignore: true)
   @override
-  _$TabRespondentsUpdatedCopyWith<_TabRespondentsUpdated> get copyWith =>
-      __$TabRespondentsUpdatedCopyWithImpl<_TabRespondentsUpdated>(
+  _$$_TabRespondentsUpdatedCopyWith<_$_TabRespondentsUpdated> get copyWith =>
+      __$$_TabRespondentsUpdatedCopyWithImpl<_$_TabRespondentsUpdated>(
           this, _$identity);
 
   @override
@@ -1701,33 +1660,33 @@ class _$_TabRespondentsUpdated extends _TabRespondentsUpdated {
 
 abstract class _TabRespondentsUpdated extends RespondentEvent {
   const factory _TabRespondentsUpdated(
-          {required Map<UniqueId, Response> responseMap}) =
+          {required final Map<UniqueId, Response> responseMap}) =
       _$_TabRespondentsUpdated;
   const _TabRespondentsUpdated._() : super._();
 
-  Map<UniqueId, Response> get responseMap;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TabRespondentsUpdatedCopyWith<_TabRespondentsUpdated> get copyWith =>
+  _$$_TabRespondentsUpdatedCopyWith<_$_TabRespondentsUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LeaveButtonPressedCopyWith<$Res> {
-  factory _$LeaveButtonPressedCopyWith(
-          _LeaveButtonPressed value, $Res Function(_LeaveButtonPressed) then) =
-      __$LeaveButtonPressedCopyWithImpl<$Res>;
+abstract class _$$_LeaveButtonPressedCopyWith<$Res> {
+  factory _$$_LeaveButtonPressedCopyWith(_$_LeaveButtonPressed value,
+          $Res Function(_$_LeaveButtonPressed) then) =
+      __$$_LeaveButtonPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LeaveButtonPressedCopyWithImpl<$Res>
+class __$$_LeaveButtonPressedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$LeaveButtonPressedCopyWith<$Res> {
-  __$LeaveButtonPressedCopyWithImpl(
-      _LeaveButtonPressed _value, $Res Function(_LeaveButtonPressed) _then)
-      : super(_value, (v) => _then(v as _LeaveButtonPressed));
+    implements _$$_LeaveButtonPressedCopyWith<$Res> {
+  __$$_LeaveButtonPressedCopyWithImpl(
+      _$_LeaveButtonPressed _value, $Res Function(_$_LeaveButtonPressed) _then)
+      : super(_value, (v) => _then(v as _$_LeaveButtonPressed));
 
   @override
-  _LeaveButtonPressed get _value => super._value as _LeaveButtonPressed;
+  _$_LeaveButtonPressed get _value => super._value as _$_LeaveButtonPressed;
 }
 
 /// @nodoc
@@ -1743,7 +1702,7 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LeaveButtonPressed);
+        (other.runtimeType == runtimeType && other is _$_LeaveButtonPressed);
   }
 
   @override
@@ -1890,20 +1849,22 @@ abstract class _LeaveButtonPressed extends RespondentEvent {
 }
 
 /// @nodoc
-abstract class _$LoggedOutCopyWith<$Res> {
-  factory _$LoggedOutCopyWith(
-          _LoggedOut value, $Res Function(_LoggedOut) then) =
-      __$LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LoggedOutCopyWith<$Res> {
+  factory _$$_LoggedOutCopyWith(
+          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
+      __$$_LoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoggedOutCopyWithImpl<$Res> extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$LoggedOutCopyWith<$Res> {
-  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _LoggedOut));
+class __$$_LoggedOutCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_LoggedOutCopyWith<$Res> {
+  __$$_LoggedOutCopyWithImpl(
+      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$_LoggedOut));
 
   @override
-  _LoggedOut get _value => super._value as _LoggedOut;
+  _$_LoggedOut get _value => super._value as _$_LoggedOut;
 }
 
 /// @nodoc
@@ -1919,7 +1880,7 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LoggedOut);
   }
 
   @override
@@ -2066,22 +2027,22 @@ abstract class _LoggedOut extends RespondentEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res>
+class __$$_InitializedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -2097,7 +2058,7 @@ class _$_Initialized extends _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -2244,60 +2205,8 @@ abstract class _Initialized extends RespondentEvent {
 }
 
 /// @nodoc
-class _$RespondentStateTearOff {
-  const _$RespondentStateTearOff();
-
-  _RespondentState call(
-      {required UniqueId stateId,
-      required Map<String, Map<String, Respondent>> surveyRespondentMap,
-      required Survey survey,
-      required Map<String, Respondent> respondentMap,
-      required Map<String, List<VisitRecord>> visitRecordsMap,
-      required Map<String, String> lastVisitRecordMap,
-      required Map<String, Housing> housingMap,
-      required List<String> groupList,
-      required Map<TabType, Map<String, List<Respondent>>>
-          tabGroupedRespondentList,
-      required Map<TabType, Map<int, String>> tabGroupMap,
-      required Map<TabType, int> tabCountMap,
-      required Map<UniqueId, Response> responseInfoMap,
-      required String searchText,
-      required Map<String, bool> searchRespondentMap,
-      required LoadState surveyRespondentMapState,
-      required Option<RespondentFailure> respondentFailure,
-      required LoadState eventState,
-      required StateParameters updateParameters,
-      required StateParameters saveParameters}) {
-    return _RespondentState(
-      stateId: stateId,
-      surveyRespondentMap: surveyRespondentMap,
-      survey: survey,
-      respondentMap: respondentMap,
-      visitRecordsMap: visitRecordsMap,
-      lastVisitRecordMap: lastVisitRecordMap,
-      housingMap: housingMap,
-      groupList: groupList,
-      tabGroupedRespondentList: tabGroupedRespondentList,
-      tabGroupMap: tabGroupMap,
-      tabCountMap: tabCountMap,
-      responseInfoMap: responseInfoMap,
-      searchText: searchText,
-      searchRespondentMap: searchRespondentMap,
-      surveyRespondentMapState: surveyRespondentMapState,
-      respondentFailure: respondentFailure,
-      eventState: eventState,
-      updateParameters: updateParameters,
-      saveParameters: saveParameters,
-    );
-  }
-}
-
-/// @nodoc
-const $RespondentState = _$RespondentStateTearOff();
-
-/// @nodoc
 mixin _$RespondentState {
-  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
+  UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   Map<String, Map<String, Respondent>> get surveyRespondentMap =>
       throw _privateConstructorUsedError;
   Survey get survey => throw _privateConstructorUsedError;
@@ -2318,12 +2227,12 @@ mixin _$RespondentState {
       throw _privateConstructorUsedError;
   String get searchText => throw _privateConstructorUsedError;
   Map<String, bool> get searchRespondentMap =>
-      throw _privateConstructorUsedError; // H_ 中間資料
-// H_ 狀態更新進度
+      throw _privateConstructorUsedError; // > 中間資料
+// > 狀態更新進度
   LoadState get surveyRespondentMapState => throw _privateConstructorUsedError;
   Option<RespondentFailure> get respondentFailure =>
       throw _privateConstructorUsedError;
-  LoadState get eventState => throw _privateConstructorUsedError; // H_ 更新/儲存參數
+  LoadState get eventState => throw _privateConstructorUsedError; // > 更新/儲存參數
   StateParameters get updateParameters => throw _privateConstructorUsedError;
   StateParameters get saveParameters => throw _privateConstructorUsedError;
 
@@ -2521,11 +2430,11 @@ class _$RespondentStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RespondentStateCopyWith<$Res>
+abstract class _$$_RespondentStateCopyWith<$Res>
     implements $RespondentStateCopyWith<$Res> {
-  factory _$RespondentStateCopyWith(
-          _RespondentState value, $Res Function(_RespondentState) then) =
-      __$RespondentStateCopyWithImpl<$Res>;
+  factory _$$_RespondentStateCopyWith(
+          _$_RespondentState value, $Res Function(_$_RespondentState) then) =
+      __$$_RespondentStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -2563,15 +2472,15 @@ abstract class _$RespondentStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RespondentStateCopyWithImpl<$Res>
+class __$$_RespondentStateCopyWithImpl<$Res>
     extends _$RespondentStateCopyWithImpl<$Res>
-    implements _$RespondentStateCopyWith<$Res> {
-  __$RespondentStateCopyWithImpl(
-      _RespondentState _value, $Res Function(_RespondentState) _then)
-      : super(_value, (v) => _then(v as _RespondentState));
+    implements _$$_RespondentStateCopyWith<$Res> {
+  __$$_RespondentStateCopyWithImpl(
+      _$_RespondentState _value, $Res Function(_$_RespondentState) _then)
+      : super(_value, (v) => _then(v as _$_RespondentState));
 
   @override
-  _RespondentState get _value => super._value as _RespondentState;
+  _$_RespondentState get _value => super._value as _$_RespondentState;
 
   @override
   $Res call({
@@ -2595,13 +2504,13 @@ class __$RespondentStateCopyWithImpl<$Res>
     Object? updateParameters = freezed,
     Object? saveParameters = freezed,
   }) {
-    return _then(_RespondentState(
+    return _then(_$_RespondentState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       surveyRespondentMap: surveyRespondentMap == freezed
-          ? _value.surveyRespondentMap
+          ? _value._surveyRespondentMap
           : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Map<String, Respondent>>,
       survey: survey == freezed
@@ -2609,39 +2518,39 @@ class __$RespondentStateCopyWithImpl<$Res>
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
       respondentMap: respondentMap == freezed
-          ? _value.respondentMap
+          ? _value._respondentMap
           : respondentMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Respondent>,
       visitRecordsMap: visitRecordsMap == freezed
-          ? _value.visitRecordsMap
+          ? _value._visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecord>>,
       lastVisitRecordMap: lastVisitRecordMap == freezed
-          ? _value.lastVisitRecordMap
+          ? _value._lastVisitRecordMap
           : lastVisitRecordMap // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
       housingMap: housingMap == freezed
-          ? _value.housingMap
+          ? _value._housingMap
           : housingMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Housing>,
       groupList: groupList == freezed
-          ? _value.groupList
+          ? _value._groupList
           : groupList // ignore: cast_nullable_to_non_nullable
               as List<String>,
       tabGroupedRespondentList: tabGroupedRespondentList == freezed
-          ? _value.tabGroupedRespondentList
+          ? _value._tabGroupedRespondentList
           : tabGroupedRespondentList // ignore: cast_nullable_to_non_nullable
               as Map<TabType, Map<String, List<Respondent>>>,
       tabGroupMap: tabGroupMap == freezed
-          ? _value.tabGroupMap
+          ? _value._tabGroupMap
           : tabGroupMap // ignore: cast_nullable_to_non_nullable
               as Map<TabType, Map<int, String>>,
       tabCountMap: tabCountMap == freezed
-          ? _value.tabCountMap
+          ? _value._tabCountMap
           : tabCountMap // ignore: cast_nullable_to_non_nullable
               as Map<TabType, int>,
       responseInfoMap: responseInfoMap == freezed
-          ? _value.responseInfoMap
+          ? _value._responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
       searchText: searchText == freezed
@@ -2649,7 +2558,7 @@ class __$RespondentStateCopyWithImpl<$Res>
           : searchText // ignore: cast_nullable_to_non_nullable
               as String,
       searchRespondentMap: searchRespondentMap == freezed
-          ? _value.searchRespondentMap
+          ? _value._searchRespondentMap
           : searchRespondentMap // ignore: cast_nullable_to_non_nullable
               as Map<String, bool>,
       surveyRespondentMapState: surveyRespondentMapState == freezed
@@ -2681,62 +2590,133 @@ class __$RespondentStateCopyWithImpl<$Res>
 class _$_RespondentState extends _RespondentState {
   const _$_RespondentState(
       {required this.stateId,
-      required this.surveyRespondentMap,
+      required final Map<String, Map<String, Respondent>> surveyRespondentMap,
       required this.survey,
-      required this.respondentMap,
-      required this.visitRecordsMap,
-      required this.lastVisitRecordMap,
-      required this.housingMap,
-      required this.groupList,
-      required this.tabGroupedRespondentList,
-      required this.tabGroupMap,
-      required this.tabCountMap,
-      required this.responseInfoMap,
+      required final Map<String, Respondent> respondentMap,
+      required final Map<String, List<VisitRecord>> visitRecordsMap,
+      required final Map<String, String> lastVisitRecordMap,
+      required final Map<String, Housing> housingMap,
+      required final List<String> groupList,
+      required final Map<TabType, Map<String, List<Respondent>>>
+          tabGroupedRespondentList,
+      required final Map<TabType, Map<int, String>> tabGroupMap,
+      required final Map<TabType, int> tabCountMap,
+      required final Map<UniqueId, Response> responseInfoMap,
       required this.searchText,
-      required this.searchRespondentMap,
+      required final Map<String, bool> searchRespondentMap,
       required this.surveyRespondentMapState,
       required this.respondentFailure,
       required this.eventState,
       required this.updateParameters,
       required this.saveParameters})
-      : super._();
+      : _surveyRespondentMap = surveyRespondentMap,
+        _respondentMap = respondentMap,
+        _visitRecordsMap = visitRecordsMap,
+        _lastVisitRecordMap = lastVisitRecordMap,
+        _housingMap = housingMap,
+        _groupList = groupList,
+        _tabGroupedRespondentList = tabGroupedRespondentList,
+        _tabGroupMap = tabGroupMap,
+        _tabCountMap = tabCountMap,
+        _responseInfoMap = responseInfoMap,
+        _searchRespondentMap = searchRespondentMap,
+        super._();
 
   @override
   final UniqueId stateId;
-  @override // H_ 主要資料
-  final Map<String, Map<String, Respondent>> surveyRespondentMap;
+// > 主要資料
+  final Map<String, Map<String, Respondent>> _surveyRespondentMap;
+// > 主要資料
+  @override
+  Map<String, Map<String, Respondent>> get surveyRespondentMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_surveyRespondentMap);
+  }
+
   @override
   final Survey survey;
+  final Map<String, Respondent> _respondentMap;
   @override
-  final Map<String, Respondent> respondentMap;
+  Map<String, Respondent> get respondentMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_respondentMap);
+  }
+
+  final Map<String, List<VisitRecord>> _visitRecordsMap;
   @override
-  final Map<String, List<VisitRecord>> visitRecordsMap;
+  Map<String, List<VisitRecord>> get visitRecordsMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_visitRecordsMap);
+  }
+
+  final Map<String, String> _lastVisitRecordMap;
   @override
-  final Map<String, String> lastVisitRecordMap;
+  Map<String, String> get lastVisitRecordMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_lastVisitRecordMap);
+  }
+
+  final Map<String, Housing> _housingMap;
   @override
-  final Map<String, Housing> housingMap;
+  Map<String, Housing> get housingMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_housingMap);
+  }
+
+  final List<String> _groupList;
   @override
-  final List<String> groupList;
+  List<String> get groupList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_groupList);
+  }
+
+  final Map<TabType, Map<String, List<Respondent>>> _tabGroupedRespondentList;
   @override
-  final Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList;
+  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_tabGroupedRespondentList);
+  }
+
+  final Map<TabType, Map<int, String>> _tabGroupMap;
   @override
-  final Map<TabType, Map<int, String>> tabGroupMap;
+  Map<TabType, Map<int, String>> get tabGroupMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_tabGroupMap);
+  }
+
+  final Map<TabType, int> _tabCountMap;
   @override
-  final Map<TabType, int> tabCountMap;
+  Map<TabType, int> get tabCountMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_tabCountMap);
+  }
+
+  final Map<UniqueId, Response> _responseInfoMap;
   @override
-  final Map<UniqueId, Response> responseInfoMap;
+  Map<UniqueId, Response> get responseInfoMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_responseInfoMap);
+  }
+
   @override
   final String searchText;
+  final Map<String, bool> _searchRespondentMap;
   @override
-  final Map<String, bool> searchRespondentMap;
-  @override // H_ 中間資料
-// H_ 狀態更新進度
+  Map<String, bool> get searchRespondentMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_searchRespondentMap);
+  }
+
+// > 中間資料
+// > 狀態更新進度
+  @override
   final LoadState surveyRespondentMapState;
   @override
   final Option<RespondentFailure> respondentFailure;
   @override
   final LoadState eventState;
-  @override // H_ 更新/儲存參數
+// > 更新/儲存參數
+  @override
   final StateParameters updateParameters;
   @override
   final StateParameters saveParameters;
@@ -2750,32 +2730,33 @@ class _$_RespondentState extends _RespondentState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RespondentState &&
+            other is _$_RespondentState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality()
-                .equals(other.surveyRespondentMap, surveyRespondentMap) &&
+                .equals(other._surveyRespondentMap, _surveyRespondentMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality()
-                .equals(other.respondentMap, respondentMap) &&
+                .equals(other._respondentMap, _respondentMap) &&
             const DeepCollectionEquality()
-                .equals(other.visitRecordsMap, visitRecordsMap) &&
+                .equals(other._visitRecordsMap, _visitRecordsMap) &&
             const DeepCollectionEquality()
-                .equals(other.lastVisitRecordMap, lastVisitRecordMap) &&
+                .equals(other._lastVisitRecordMap, _lastVisitRecordMap) &&
             const DeepCollectionEquality()
-                .equals(other.housingMap, housingMap) &&
-            const DeepCollectionEquality().equals(other.groupList, groupList) &&
+                .equals(other._housingMap, _housingMap) &&
+            const DeepCollectionEquality()
+                .equals(other._groupList, _groupList) &&
             const DeepCollectionEquality().equals(
-                other.tabGroupedRespondentList, tabGroupedRespondentList) &&
+                other._tabGroupedRespondentList, _tabGroupedRespondentList) &&
             const DeepCollectionEquality()
-                .equals(other.tabGroupMap, tabGroupMap) &&
+                .equals(other._tabGroupMap, _tabGroupMap) &&
             const DeepCollectionEquality()
-                .equals(other.tabCountMap, tabCountMap) &&
+                .equals(other._tabCountMap, _tabCountMap) &&
             const DeepCollectionEquality()
-                .equals(other.responseInfoMap, responseInfoMap) &&
+                .equals(other._responseInfoMap, _responseInfoMap) &&
             const DeepCollectionEquality()
                 .equals(other.searchText, searchText) &&
             const DeepCollectionEquality()
-                .equals(other.searchRespondentMap, searchRespondentMap) &&
+                .equals(other._searchRespondentMap, _searchRespondentMap) &&
             const DeepCollectionEquality().equals(
                 other.surveyRespondentMapState, surveyRespondentMapState) &&
             const DeepCollectionEquality()
@@ -2792,19 +2773,19 @@ class _$_RespondentState extends _RespondentState {
   int get hashCode => Object.hashAll([
         runtimeType,
         const DeepCollectionEquality().hash(stateId),
-        const DeepCollectionEquality().hash(surveyRespondentMap),
+        const DeepCollectionEquality().hash(_surveyRespondentMap),
         const DeepCollectionEquality().hash(survey),
-        const DeepCollectionEquality().hash(respondentMap),
-        const DeepCollectionEquality().hash(visitRecordsMap),
-        const DeepCollectionEquality().hash(lastVisitRecordMap),
-        const DeepCollectionEquality().hash(housingMap),
-        const DeepCollectionEquality().hash(groupList),
-        const DeepCollectionEquality().hash(tabGroupedRespondentList),
-        const DeepCollectionEquality().hash(tabGroupMap),
-        const DeepCollectionEquality().hash(tabCountMap),
-        const DeepCollectionEquality().hash(responseInfoMap),
+        const DeepCollectionEquality().hash(_respondentMap),
+        const DeepCollectionEquality().hash(_visitRecordsMap),
+        const DeepCollectionEquality().hash(_lastVisitRecordMap),
+        const DeepCollectionEquality().hash(_housingMap),
+        const DeepCollectionEquality().hash(_groupList),
+        const DeepCollectionEquality().hash(_tabGroupedRespondentList),
+        const DeepCollectionEquality().hash(_tabGroupMap),
+        const DeepCollectionEquality().hash(_tabCountMap),
+        const DeepCollectionEquality().hash(_responseInfoMap),
         const DeepCollectionEquality().hash(searchText),
-        const DeepCollectionEquality().hash(searchRespondentMap),
+        const DeepCollectionEquality().hash(_searchRespondentMap),
         const DeepCollectionEquality().hash(surveyRespondentMapState),
         const DeepCollectionEquality().hash(respondentFailure),
         const DeepCollectionEquality().hash(eventState),
@@ -2814,105 +2795,87 @@ class _$_RespondentState extends _RespondentState {
 
   @JsonKey(ignore: true)
   @override
-  _$RespondentStateCopyWith<_RespondentState> get copyWith =>
-      __$RespondentStateCopyWithImpl<_RespondentState>(this, _$identity);
+  _$$_RespondentStateCopyWith<_$_RespondentState> get copyWith =>
+      __$$_RespondentStateCopyWithImpl<_$_RespondentState>(this, _$identity);
 }
 
 abstract class _RespondentState extends RespondentState {
   const factory _RespondentState(
-      {required UniqueId stateId,
-      required Map<String, Map<String, Respondent>> surveyRespondentMap,
-      required Survey survey,
-      required Map<String, Respondent> respondentMap,
-      required Map<String, List<VisitRecord>> visitRecordsMap,
-      required Map<String, String> lastVisitRecordMap,
-      required Map<String, Housing> housingMap,
-      required List<String> groupList,
-      required Map<TabType, Map<String, List<Respondent>>>
+      {required final UniqueId stateId,
+      required final Map<String, Map<String, Respondent>> surveyRespondentMap,
+      required final Survey survey,
+      required final Map<String, Respondent> respondentMap,
+      required final Map<String, List<VisitRecord>> visitRecordsMap,
+      required final Map<String, String> lastVisitRecordMap,
+      required final Map<String, Housing> housingMap,
+      required final List<String> groupList,
+      required final Map<TabType, Map<String, List<Respondent>>>
           tabGroupedRespondentList,
-      required Map<TabType, Map<int, String>> tabGroupMap,
-      required Map<TabType, int> tabCountMap,
-      required Map<UniqueId, Response> responseInfoMap,
-      required String searchText,
-      required Map<String, bool> searchRespondentMap,
-      required LoadState surveyRespondentMapState,
-      required Option<RespondentFailure> respondentFailure,
-      required LoadState eventState,
-      required StateParameters updateParameters,
-      required StateParameters saveParameters}) = _$_RespondentState;
+      required final Map<TabType, Map<int, String>> tabGroupMap,
+      required final Map<TabType, int> tabCountMap,
+      required final Map<UniqueId, Response> responseInfoMap,
+      required final String searchText,
+      required final Map<String, bool> searchRespondentMap,
+      required final LoadState surveyRespondentMapState,
+      required final Option<RespondentFailure> respondentFailure,
+      required final LoadState eventState,
+      required final StateParameters updateParameters,
+      required final StateParameters saveParameters}) = _$_RespondentState;
   const _RespondentState._() : super._();
 
   @override
-  UniqueId get stateId;
-  @override // H_ 主要資料
-  Map<String, Map<String, Respondent>> get surveyRespondentMap;
+  UniqueId get stateId => throw _privateConstructorUsedError;
+  @override // > 主要資料
+  Map<String, Map<String, Respondent>> get surveyRespondentMap =>
+      throw _privateConstructorUsedError;
   @override
-  Survey get survey;
+  Survey get survey => throw _privateConstructorUsedError;
   @override
-  Map<String, Respondent> get respondentMap;
+  Map<String, Respondent> get respondentMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, List<VisitRecord>> get visitRecordsMap;
+  Map<String, List<VisitRecord>> get visitRecordsMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, String> get lastVisitRecordMap;
+  Map<String, String> get lastVisitRecordMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, Housing> get housingMap;
+  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
   @override
-  List<String> get groupList;
+  List<String> get groupList => throw _privateConstructorUsedError;
   @override
-  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList;
+  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList =>
+      throw _privateConstructorUsedError;
   @override
-  Map<TabType, Map<int, String>> get tabGroupMap;
+  Map<TabType, Map<int, String>> get tabGroupMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<TabType, int> get tabCountMap;
+  Map<TabType, int> get tabCountMap => throw _privateConstructorUsedError;
   @override
-  Map<UniqueId, Response> get responseInfoMap;
+  Map<UniqueId, Response> get responseInfoMap =>
+      throw _privateConstructorUsedError;
   @override
-  String get searchText;
+  String get searchText => throw _privateConstructorUsedError;
   @override
-  Map<String, bool> get searchRespondentMap;
-  @override // H_ 中間資料
-// H_ 狀態更新進度
-  LoadState get surveyRespondentMapState;
+  Map<String, bool> get searchRespondentMap =>
+      throw _privateConstructorUsedError;
+  @override // > 中間資料
+// > 狀態更新進度
+  LoadState get surveyRespondentMapState => throw _privateConstructorUsedError;
   @override
-  Option<RespondentFailure> get respondentFailure;
+  Option<RespondentFailure> get respondentFailure =>
+      throw _privateConstructorUsedError;
   @override
-  LoadState get eventState;
-  @override // H_ 更新/儲存參數
-  StateParameters get updateParameters;
+  LoadState get eventState => throw _privateConstructorUsedError;
+  @override // > 更新/儲存參數
+  StateParameters get updateParameters => throw _privateConstructorUsedError;
   @override
-  StateParameters get saveParameters;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RespondentStateCopyWith<_RespondentState> get copyWith =>
+  _$$_RespondentStateCopyWith<_$_RespondentState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$StateParametersTearOff {
-  const _$StateParametersTearOff();
-
-  _StateParameters call(
-      {required bool surveyRespondentMap,
-      required bool survey,
-      required bool respondentMap,
-      required bool visitRecordsMap,
-      required bool housingMap,
-      required bool tabRespondentMap,
-      required bool responseInfoMap}) {
-    return _StateParameters(
-      surveyRespondentMap: surveyRespondentMap,
-      survey: survey,
-      respondentMap: respondentMap,
-      visitRecordsMap: visitRecordsMap,
-      housingMap: housingMap,
-      tabRespondentMap: tabRespondentMap,
-      responseInfoMap: responseInfoMap,
-    );
-  }
-}
-
-/// @nodoc
-const $StateParameters = _$StateParametersTearOff();
 
 /// @nodoc
 mixin _$StateParameters {
@@ -2997,11 +2960,11 @@ class _$StateParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StateParametersCopyWith<$Res>
+abstract class _$$_StateParametersCopyWith<$Res>
     implements $StateParametersCopyWith<$Res> {
-  factory _$StateParametersCopyWith(
-          _StateParameters value, $Res Function(_StateParameters) then) =
-      __$StateParametersCopyWithImpl<$Res>;
+  factory _$$_StateParametersCopyWith(
+          _$_StateParameters value, $Res Function(_$_StateParameters) then) =
+      __$$_StateParametersCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool surveyRespondentMap,
@@ -3014,15 +2977,15 @@ abstract class _$StateParametersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StateParametersCopyWithImpl<$Res>
+class __$$_StateParametersCopyWithImpl<$Res>
     extends _$StateParametersCopyWithImpl<$Res>
-    implements _$StateParametersCopyWith<$Res> {
-  __$StateParametersCopyWithImpl(
-      _StateParameters _value, $Res Function(_StateParameters) _then)
-      : super(_value, (v) => _then(v as _StateParameters));
+    implements _$$_StateParametersCopyWith<$Res> {
+  __$$_StateParametersCopyWithImpl(
+      _$_StateParameters _value, $Res Function(_$_StateParameters) _then)
+      : super(_value, (v) => _then(v as _$_StateParameters));
 
   @override
-  _StateParameters get _value => super._value as _StateParameters;
+  _$_StateParameters get _value => super._value as _$_StateParameters;
 
   @override
   $Res call({
@@ -3034,7 +2997,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
   }) {
-    return _then(_StateParameters(
+    return _then(_$_StateParameters(
       surveyRespondentMap: surveyRespondentMap == freezed
           ? _value.surveyRespondentMap
           : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -3104,7 +3067,7 @@ class _$_StateParameters extends _StateParameters {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StateParameters &&
+            other is _$_StateParameters &&
             const DeepCollectionEquality()
                 .equals(other.surveyRespondentMap, surveyRespondentMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
@@ -3133,37 +3096,37 @@ class _$_StateParameters extends _StateParameters {
 
   @JsonKey(ignore: true)
   @override
-  _$StateParametersCopyWith<_StateParameters> get copyWith =>
-      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
+  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
+      __$$_StateParametersCopyWithImpl<_$_StateParameters>(this, _$identity);
 }
 
 abstract class _StateParameters extends StateParameters {
   const factory _StateParameters(
-      {required bool surveyRespondentMap,
-      required bool survey,
-      required bool respondentMap,
-      required bool visitRecordsMap,
-      required bool housingMap,
-      required bool tabRespondentMap,
-      required bool responseInfoMap}) = _$_StateParameters;
+      {required final bool surveyRespondentMap,
+      required final bool survey,
+      required final bool respondentMap,
+      required final bool visitRecordsMap,
+      required final bool housingMap,
+      required final bool tabRespondentMap,
+      required final bool responseInfoMap}) = _$_StateParameters;
   const _StateParameters._() : super._();
 
   @override
-  bool get surveyRespondentMap;
+  bool get surveyRespondentMap => throw _privateConstructorUsedError;
   @override
-  bool get survey;
+  bool get survey => throw _privateConstructorUsedError;
   @override
-  bool get respondentMap;
+  bool get respondentMap => throw _privateConstructorUsedError;
   @override
-  bool get visitRecordsMap;
+  bool get visitRecordsMap => throw _privateConstructorUsedError;
   @override
-  bool get housingMap;
+  bool get housingMap => throw _privateConstructorUsedError;
   @override
-  bool get tabRespondentMap;
+  bool get tabRespondentMap => throw _privateConstructorUsedError;
   @override
-  bool get responseInfoMap;
+  bool get responseInfoMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

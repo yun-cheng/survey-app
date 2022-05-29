@@ -12,30 +12,11 @@ part of 'audio_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AudioDto _$AudioDtoFromJson(Map<String, dynamic> json) {
   return _AudioDto.fromJson(json);
 }
-
-/// @nodoc
-class _$AudioDtoTearOff {
-  const _$AudioDtoTearOff();
-
-  _AudioDto call({required String fileName, required String type}) {
-    return _AudioDto(
-      fileName: fileName,
-      type: type,
-    );
-  }
-
-  AudioDto fromJson(Map<String, Object?> json) {
-    return AudioDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AudioDto = _$AudioDtoTearOff();
 
 /// @nodoc
 mixin _$AudioDto {
@@ -82,28 +63,30 @@ class _$AudioDtoCopyWithImpl<$Res> implements $AudioDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AudioDtoCopyWith<$Res> implements $AudioDtoCopyWith<$Res> {
-  factory _$AudioDtoCopyWith(_AudioDto value, $Res Function(_AudioDto) then) =
-      __$AudioDtoCopyWithImpl<$Res>;
+abstract class _$$_AudioDtoCopyWith<$Res> implements $AudioDtoCopyWith<$Res> {
+  factory _$$_AudioDtoCopyWith(
+          _$_AudioDto value, $Res Function(_$_AudioDto) then) =
+      __$$_AudioDtoCopyWithImpl<$Res>;
   @override
   $Res call({String fileName, String type});
 }
 
 /// @nodoc
-class __$AudioDtoCopyWithImpl<$Res> extends _$AudioDtoCopyWithImpl<$Res>
-    implements _$AudioDtoCopyWith<$Res> {
-  __$AudioDtoCopyWithImpl(_AudioDto _value, $Res Function(_AudioDto) _then)
-      : super(_value, (v) => _then(v as _AudioDto));
+class __$$_AudioDtoCopyWithImpl<$Res> extends _$AudioDtoCopyWithImpl<$Res>
+    implements _$$_AudioDtoCopyWith<$Res> {
+  __$$_AudioDtoCopyWithImpl(
+      _$_AudioDto _value, $Res Function(_$_AudioDto) _then)
+      : super(_value, (v) => _then(v as _$_AudioDto));
 
   @override
-  _AudioDto get _value => super._value as _AudioDto;
+  _$_AudioDto get _value => super._value as _$_AudioDto;
 
   @override
   $Res call({
     Object? fileName = freezed,
     Object? type = freezed,
   }) {
-    return _then(_AudioDto(
+    return _then(_$_AudioDto(
       fileName: fileName == freezed
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -138,11 +121,12 @@ class _$_AudioDto extends _AudioDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AudioDto &&
+            other is _$_AudioDto &&
             const DeepCollectionEquality().equals(other.fileName, fileName) &&
             const DeepCollectionEquality().equals(other.type, type));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -151,8 +135,8 @@ class _$_AudioDto extends _AudioDto {
 
   @JsonKey(ignore: true)
   @override
-  _$AudioDtoCopyWith<_AudioDto> get copyWith =>
-      __$AudioDtoCopyWithImpl<_AudioDto>(this, _$identity);
+  _$$_AudioDtoCopyWith<_$_AudioDto> get copyWith =>
+      __$$_AudioDtoCopyWithImpl<_$_AudioDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -161,18 +145,19 @@ class _$_AudioDto extends _AudioDto {
 }
 
 abstract class _AudioDto extends AudioDto {
-  const factory _AudioDto({required String fileName, required String type}) =
-      _$_AudioDto;
+  const factory _AudioDto(
+      {required final String fileName,
+      required final String type}) = _$_AudioDto;
   const _AudioDto._() : super._();
 
   factory _AudioDto.fromJson(Map<String, dynamic> json) = _$_AudioDto.fromJson;
 
   @override
-  String get fileName;
+  String get fileName => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AudioDtoCopyWith<_AudioDto> get copyWith =>
+  _$$_AudioDtoCopyWith<_$_AudioDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,29 +12,11 @@ part of 'navigation_state_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 NavigationStateDto _$NavigationStateDtoFromJson(Map<String, dynamic> json) {
   return _NavigationStateDto.fromJson(json);
 }
-
-/// @nodoc
-class _$NavigationStateDtoTearOff {
-  const _$NavigationStateDtoTearOff();
-
-  _NavigationStateDto call({String? page}) {
-    return _NavigationStateDto(
-      page: page,
-    );
-  }
-
-  NavigationStateDto fromJson(Map<String, Object?> json) {
-    return NavigationStateDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NavigationStateDto = _$NavigationStateDtoTearOff();
 
 /// @nodoc
 mixin _$NavigationStateDto {
@@ -77,31 +59,31 @@ class _$NavigationStateDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$NavigationStateDtoCopyWith<$Res>
+abstract class _$$_NavigationStateDtoCopyWith<$Res>
     implements $NavigationStateDtoCopyWith<$Res> {
-  factory _$NavigationStateDtoCopyWith(
-          _NavigationStateDto value, $Res Function(_NavigationStateDto) then) =
-      __$NavigationStateDtoCopyWithImpl<$Res>;
+  factory _$$_NavigationStateDtoCopyWith(_$_NavigationStateDto value,
+          $Res Function(_$_NavigationStateDto) then) =
+      __$$_NavigationStateDtoCopyWithImpl<$Res>;
   @override
   $Res call({String? page});
 }
 
 /// @nodoc
-class __$NavigationStateDtoCopyWithImpl<$Res>
+class __$$_NavigationStateDtoCopyWithImpl<$Res>
     extends _$NavigationStateDtoCopyWithImpl<$Res>
-    implements _$NavigationStateDtoCopyWith<$Res> {
-  __$NavigationStateDtoCopyWithImpl(
-      _NavigationStateDto _value, $Res Function(_NavigationStateDto) _then)
-      : super(_value, (v) => _then(v as _NavigationStateDto));
+    implements _$$_NavigationStateDtoCopyWith<$Res> {
+  __$$_NavigationStateDtoCopyWithImpl(
+      _$_NavigationStateDto _value, $Res Function(_$_NavigationStateDto) _then)
+      : super(_value, (v) => _then(v as _$_NavigationStateDto));
 
   @override
-  _NavigationStateDto get _value => super._value as _NavigationStateDto;
+  _$_NavigationStateDto get _value => super._value as _$_NavigationStateDto;
 
   @override
   $Res call({
     Object? page = freezed,
   }) {
-    return _then(_NavigationStateDto(
+    return _then(_$_NavigationStateDto(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -131,18 +113,20 @@ class _$_NavigationStateDto extends _NavigationStateDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NavigationStateDto &&
+            other is _$_NavigationStateDto &&
             const DeepCollectionEquality().equals(other.page, page));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
-  _$NavigationStateDtoCopyWith<_NavigationStateDto> get copyWith =>
-      __$NavigationStateDtoCopyWithImpl<_NavigationStateDto>(this, _$identity);
+  _$$_NavigationStateDtoCopyWith<_$_NavigationStateDto> get copyWith =>
+      __$$_NavigationStateDtoCopyWithImpl<_$_NavigationStateDto>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -151,16 +135,17 @@ class _$_NavigationStateDto extends _NavigationStateDto {
 }
 
 abstract class _NavigationStateDto extends NavigationStateDto {
-  const factory _NavigationStateDto({String? page}) = _$_NavigationStateDto;
+  const factory _NavigationStateDto({final String? page}) =
+      _$_NavigationStateDto;
   const _NavigationStateDto._() : super._();
 
   factory _NavigationStateDto.fromJson(Map<String, dynamic> json) =
       _$_NavigationStateDto.fromJson;
 
   @override
-  String? get page;
+  String? get page => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NavigationStateDtoCopyWith<_NavigationStateDto> get copyWith =>
+  _$$_NavigationStateDtoCopyWith<_$_NavigationStateDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

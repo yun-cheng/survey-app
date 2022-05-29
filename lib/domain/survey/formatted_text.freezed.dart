@@ -12,28 +12,7 @@ part of 'formatted_text.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FormattedTextTearOff {
-  const _$FormattedTextTearOff();
-
-  _FormattedText call(
-      {required FormatType type,
-      required String stringBody,
-      required ReferenceKey referenceKey,
-      required Answer answer}) {
-    return _FormattedText(
-      type: type,
-      stringBody: stringBody,
-      referenceKey: referenceKey,
-      answer: answer,
-    );
-  }
-}
-
-/// @nodoc
-const $FormattedText = _$FormattedTextTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$FormattedText {
@@ -122,11 +101,11 @@ class _$FormattedTextCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$FormattedTextCopyWith<$Res>
+abstract class _$$_FormattedTextCopyWith<$Res>
     implements $FormattedTextCopyWith<$Res> {
-  factory _$FormattedTextCopyWith(
-          _FormattedText value, $Res Function(_FormattedText) then) =
-      __$FormattedTextCopyWithImpl<$Res>;
+  factory _$$_FormattedTextCopyWith(
+          _$_FormattedText value, $Res Function(_$_FormattedText) then) =
+      __$$_FormattedTextCopyWithImpl<$Res>;
   @override
   $Res call(
       {FormatType type,
@@ -143,15 +122,15 @@ abstract class _$FormattedTextCopyWith<$Res>
 }
 
 /// @nodoc
-class __$FormattedTextCopyWithImpl<$Res>
+class __$$_FormattedTextCopyWithImpl<$Res>
     extends _$FormattedTextCopyWithImpl<$Res>
-    implements _$FormattedTextCopyWith<$Res> {
-  __$FormattedTextCopyWithImpl(
-      _FormattedText _value, $Res Function(_FormattedText) _then)
-      : super(_value, (v) => _then(v as _FormattedText));
+    implements _$$_FormattedTextCopyWith<$Res> {
+  __$$_FormattedTextCopyWithImpl(
+      _$_FormattedText _value, $Res Function(_$_FormattedText) _then)
+      : super(_value, (v) => _then(v as _$_FormattedText));
 
   @override
-  _FormattedText get _value => super._value as _FormattedText;
+  _$_FormattedText get _value => super._value as _$_FormattedText;
 
   @override
   $Res call({
@@ -160,7 +139,7 @@ class __$FormattedTextCopyWithImpl<$Res>
     Object? referenceKey = freezed,
     Object? answer = freezed,
   }) {
-    return _then(_FormattedText(
+    return _then(_$_FormattedText(
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -209,7 +188,7 @@ class _$_FormattedText extends _FormattedText {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FormattedText &&
+            other is _$_FormattedText &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality()
                 .equals(other.stringBody, stringBody) &&
@@ -228,28 +207,28 @@ class _$_FormattedText extends _FormattedText {
 
   @JsonKey(ignore: true)
   @override
-  _$FormattedTextCopyWith<_FormattedText> get copyWith =>
-      __$FormattedTextCopyWithImpl<_FormattedText>(this, _$identity);
+  _$$_FormattedTextCopyWith<_$_FormattedText> get copyWith =>
+      __$$_FormattedTextCopyWithImpl<_$_FormattedText>(this, _$identity);
 }
 
 abstract class _FormattedText extends FormattedText {
   const factory _FormattedText(
-      {required FormatType type,
-      required String stringBody,
-      required ReferenceKey referenceKey,
-      required Answer answer}) = _$_FormattedText;
+      {required final FormatType type,
+      required final String stringBody,
+      required final ReferenceKey referenceKey,
+      required final Answer answer}) = _$_FormattedText;
   const _FormattedText._() : super._();
 
   @override
-  FormatType get type;
+  FormatType get type => throw _privateConstructorUsedError;
   @override
-  String get stringBody;
+  String get stringBody => throw _privateConstructorUsedError;
   @override
-  ReferenceKey get referenceKey;
+  ReferenceKey get referenceKey => throw _privateConstructorUsedError;
   @override
-  Answer get answer;
+  Answer get answer => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FormattedTextCopyWith<_FormattedText> get copyWith =>
+  _$$_FormattedTextCopyWith<_$_FormattedText> get copyWith =>
       throw _privateConstructorUsedError;
 }

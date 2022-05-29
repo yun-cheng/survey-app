@@ -12,21 +12,7 @@ part of 'value_objects.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$FormatTypeTearOff {
-  const _$FormatTypeTearOff();
-
-  _FormatType call(String value) {
-    return _FormatType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $FormatType = _$FormatTypeTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$FormatType {
@@ -67,29 +53,30 @@ class _$FormatTypeCopyWithImpl<$Res> implements $FormatTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FormatTypeCopyWith<$Res> implements $FormatTypeCopyWith<$Res> {
-  factory _$FormatTypeCopyWith(
-          _FormatType value, $Res Function(_FormatType) then) =
-      __$FormatTypeCopyWithImpl<$Res>;
+abstract class _$$_FormatTypeCopyWith<$Res>
+    implements $FormatTypeCopyWith<$Res> {
+  factory _$$_FormatTypeCopyWith(
+          _$_FormatType value, $Res Function(_$_FormatType) then) =
+      __$$_FormatTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$FormatTypeCopyWithImpl<$Res> extends _$FormatTypeCopyWithImpl<$Res>
-    implements _$FormatTypeCopyWith<$Res> {
-  __$FormatTypeCopyWithImpl(
-      _FormatType _value, $Res Function(_FormatType) _then)
-      : super(_value, (v) => _then(v as _FormatType));
+class __$$_FormatTypeCopyWithImpl<$Res> extends _$FormatTypeCopyWithImpl<$Res>
+    implements _$$_FormatTypeCopyWith<$Res> {
+  __$$_FormatTypeCopyWithImpl(
+      _$_FormatType _value, $Res Function(_$_FormatType) _then)
+      : super(_value, (v) => _then(v as _$_FormatType));
 
   @override
-  _FormatType get _value => super._value as _FormatType;
+  _$_FormatType get _value => super._value as _$_FormatType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_FormatType(
+    return _then(_$_FormatType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -115,7 +102,7 @@ class _$_FormatType extends _FormatType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FormatType &&
+            other is _$_FormatType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -125,35 +112,21 @@ class _$_FormatType extends _FormatType {
 
   @JsonKey(ignore: true)
   @override
-  _$FormatTypeCopyWith<_FormatType> get copyWith =>
-      __$FormatTypeCopyWithImpl<_FormatType>(this, _$identity);
+  _$$_FormatTypeCopyWith<_$_FormatType> get copyWith =>
+      __$$_FormatTypeCopyWithImpl<_$_FormatType>(this, _$identity);
 }
 
 abstract class _FormatType extends FormatType {
-  const factory _FormatType(String value) = _$_FormatType;
+  const factory _FormatType(final String value) = _$_FormatType;
   const _FormatType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FormatTypeCopyWith<_FormatType> get copyWith =>
+  _$$_FormatTypeCopyWith<_$_FormatType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$QuestionTypeTearOff {
-  const _$QuestionTypeTearOff();
-
-  _QuestionType call(String value) {
-    return _QuestionType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $QuestionType = _$QuestionTypeTearOff();
 
 /// @nodoc
 mixin _$QuestionType {
@@ -194,30 +167,31 @@ class _$QuestionTypeCopyWithImpl<$Res> implements $QuestionTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$QuestionTypeCopyWith<$Res>
+abstract class _$$_QuestionTypeCopyWith<$Res>
     implements $QuestionTypeCopyWith<$Res> {
-  factory _$QuestionTypeCopyWith(
-          _QuestionType value, $Res Function(_QuestionType) then) =
-      __$QuestionTypeCopyWithImpl<$Res>;
+  factory _$$_QuestionTypeCopyWith(
+          _$_QuestionType value, $Res Function(_$_QuestionType) then) =
+      __$$_QuestionTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$QuestionTypeCopyWithImpl<$Res> extends _$QuestionTypeCopyWithImpl<$Res>
-    implements _$QuestionTypeCopyWith<$Res> {
-  __$QuestionTypeCopyWithImpl(
-      _QuestionType _value, $Res Function(_QuestionType) _then)
-      : super(_value, (v) => _then(v as _QuestionType));
+class __$$_QuestionTypeCopyWithImpl<$Res>
+    extends _$QuestionTypeCopyWithImpl<$Res>
+    implements _$$_QuestionTypeCopyWith<$Res> {
+  __$$_QuestionTypeCopyWithImpl(
+      _$_QuestionType _value, $Res Function(_$_QuestionType) _then)
+      : super(_value, (v) => _then(v as _$_QuestionType));
 
   @override
-  _QuestionType get _value => super._value as _QuestionType;
+  _$_QuestionType get _value => super._value as _$_QuestionType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_QuestionType(
+    return _then(_$_QuestionType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -243,7 +217,7 @@ class _$_QuestionType extends _QuestionType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _QuestionType &&
+            other is _$_QuestionType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -253,35 +227,21 @@ class _$_QuestionType extends _QuestionType {
 
   @JsonKey(ignore: true)
   @override
-  _$QuestionTypeCopyWith<_QuestionType> get copyWith =>
-      __$QuestionTypeCopyWithImpl<_QuestionType>(this, _$identity);
+  _$$_QuestionTypeCopyWith<_$_QuestionType> get copyWith =>
+      __$$_QuestionTypeCopyWithImpl<_$_QuestionType>(this, _$identity);
 }
 
 abstract class _QuestionType extends QuestionType {
-  const factory _QuestionType(String value) = _$_QuestionType;
+  const factory _QuestionType(final String value) = _$_QuestionType;
   const _QuestionType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$QuestionTypeCopyWith<_QuestionType> get copyWith =>
+  _$$_QuestionTypeCopyWith<_$_QuestionType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$AnswerTypeTearOff {
-  const _$AnswerTypeTearOff();
-
-  _AnswerType call(String value) {
-    return _AnswerType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $AnswerType = _$AnswerTypeTearOff();
 
 /// @nodoc
 mixin _$AnswerType {
@@ -322,29 +282,30 @@ class _$AnswerTypeCopyWithImpl<$Res> implements $AnswerTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AnswerTypeCopyWith<$Res> implements $AnswerTypeCopyWith<$Res> {
-  factory _$AnswerTypeCopyWith(
-          _AnswerType value, $Res Function(_AnswerType) then) =
-      __$AnswerTypeCopyWithImpl<$Res>;
+abstract class _$$_AnswerTypeCopyWith<$Res>
+    implements $AnswerTypeCopyWith<$Res> {
+  factory _$$_AnswerTypeCopyWith(
+          _$_AnswerType value, $Res Function(_$_AnswerType) then) =
+      __$$_AnswerTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$AnswerTypeCopyWithImpl<$Res> extends _$AnswerTypeCopyWithImpl<$Res>
-    implements _$AnswerTypeCopyWith<$Res> {
-  __$AnswerTypeCopyWithImpl(
-      _AnswerType _value, $Res Function(_AnswerType) _then)
-      : super(_value, (v) => _then(v as _AnswerType));
+class __$$_AnswerTypeCopyWithImpl<$Res> extends _$AnswerTypeCopyWithImpl<$Res>
+    implements _$$_AnswerTypeCopyWith<$Res> {
+  __$$_AnswerTypeCopyWithImpl(
+      _$_AnswerType _value, $Res Function(_$_AnswerType) _then)
+      : super(_value, (v) => _then(v as _$_AnswerType));
 
   @override
-  _AnswerType get _value => super._value as _AnswerType;
+  _$_AnswerType get _value => super._value as _$_AnswerType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_AnswerType(
+    return _then(_$_AnswerType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -370,7 +331,7 @@ class _$_AnswerType extends _AnswerType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnswerType &&
+            other is _$_AnswerType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -380,35 +341,21 @@ class _$_AnswerType extends _AnswerType {
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerTypeCopyWith<_AnswerType> get copyWith =>
-      __$AnswerTypeCopyWithImpl<_AnswerType>(this, _$identity);
+  _$$_AnswerTypeCopyWith<_$_AnswerType> get copyWith =>
+      __$$_AnswerTypeCopyWithImpl<_$_AnswerType>(this, _$identity);
 }
 
 abstract class _AnswerType extends AnswerType {
-  const factory _AnswerType(String value) = _$_AnswerType;
+  const factory _AnswerType(final String value) = _$_AnswerType;
   const _AnswerType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AnswerTypeCopyWith<_AnswerType> get copyWith =>
+  _$$_AnswerTypeCopyWith<_$_AnswerType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$AnswerStatusTypeTearOff {
-  const _$AnswerStatusTypeTearOff();
-
-  _AnswerStatusType call(String value) {
-    return _AnswerStatusType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $AnswerStatusType = _$AnswerStatusTypeTearOff();
 
 /// @nodoc
 mixin _$AnswerStatusType {
@@ -450,31 +397,31 @@ class _$AnswerStatusTypeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AnswerStatusTypeCopyWith<$Res>
+abstract class _$$_AnswerStatusTypeCopyWith<$Res>
     implements $AnswerStatusTypeCopyWith<$Res> {
-  factory _$AnswerStatusTypeCopyWith(
-          _AnswerStatusType value, $Res Function(_AnswerStatusType) then) =
-      __$AnswerStatusTypeCopyWithImpl<$Res>;
+  factory _$$_AnswerStatusTypeCopyWith(
+          _$_AnswerStatusType value, $Res Function(_$_AnswerStatusType) then) =
+      __$$_AnswerStatusTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$AnswerStatusTypeCopyWithImpl<$Res>
+class __$$_AnswerStatusTypeCopyWithImpl<$Res>
     extends _$AnswerStatusTypeCopyWithImpl<$Res>
-    implements _$AnswerStatusTypeCopyWith<$Res> {
-  __$AnswerStatusTypeCopyWithImpl(
-      _AnswerStatusType _value, $Res Function(_AnswerStatusType) _then)
-      : super(_value, (v) => _then(v as _AnswerStatusType));
+    implements _$$_AnswerStatusTypeCopyWith<$Res> {
+  __$$_AnswerStatusTypeCopyWithImpl(
+      _$_AnswerStatusType _value, $Res Function(_$_AnswerStatusType) _then)
+      : super(_value, (v) => _then(v as _$_AnswerStatusType));
 
   @override
-  _AnswerStatusType get _value => super._value as _AnswerStatusType;
+  _$_AnswerStatusType get _value => super._value as _$_AnswerStatusType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_AnswerStatusType(
+    return _then(_$_AnswerStatusType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -500,7 +447,7 @@ class _$_AnswerStatusType extends _AnswerStatusType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnswerStatusType &&
+            other is _$_AnswerStatusType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -510,35 +457,21 @@ class _$_AnswerStatusType extends _AnswerStatusType {
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerStatusTypeCopyWith<_AnswerStatusType> get copyWith =>
-      __$AnswerStatusTypeCopyWithImpl<_AnswerStatusType>(this, _$identity);
+  _$$_AnswerStatusTypeCopyWith<_$_AnswerStatusType> get copyWith =>
+      __$$_AnswerStatusTypeCopyWithImpl<_$_AnswerStatusType>(this, _$identity);
 }
 
 abstract class _AnswerStatusType extends AnswerStatusType {
-  const factory _AnswerStatusType(String value) = _$_AnswerStatusType;
+  const factory _AnswerStatusType(final String value) = _$_AnswerStatusType;
   const _AnswerStatusType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AnswerStatusTypeCopyWith<_AnswerStatusType> get copyWith =>
+  _$$_AnswerStatusTypeCopyWith<_$_AnswerStatusType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$WarningTypeTearOff {
-  const _$WarningTypeTearOff();
-
-  _WarningType call(String value) {
-    return _WarningType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $WarningType = _$WarningTypeTearOff();
 
 /// @nodoc
 mixin _$WarningType {
@@ -579,30 +512,30 @@ class _$WarningTypeCopyWithImpl<$Res> implements $WarningTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$WarningTypeCopyWith<$Res>
+abstract class _$$_WarningTypeCopyWith<$Res>
     implements $WarningTypeCopyWith<$Res> {
-  factory _$WarningTypeCopyWith(
-          _WarningType value, $Res Function(_WarningType) then) =
-      __$WarningTypeCopyWithImpl<$Res>;
+  factory _$$_WarningTypeCopyWith(
+          _$_WarningType value, $Res Function(_$_WarningType) then) =
+      __$$_WarningTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$WarningTypeCopyWithImpl<$Res> extends _$WarningTypeCopyWithImpl<$Res>
-    implements _$WarningTypeCopyWith<$Res> {
-  __$WarningTypeCopyWithImpl(
-      _WarningType _value, $Res Function(_WarningType) _then)
-      : super(_value, (v) => _then(v as _WarningType));
+class __$$_WarningTypeCopyWithImpl<$Res> extends _$WarningTypeCopyWithImpl<$Res>
+    implements _$$_WarningTypeCopyWith<$Res> {
+  __$$_WarningTypeCopyWithImpl(
+      _$_WarningType _value, $Res Function(_$_WarningType) _then)
+      : super(_value, (v) => _then(v as _$_WarningType));
 
   @override
-  _WarningType get _value => super._value as _WarningType;
+  _$_WarningType get _value => super._value as _$_WarningType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_WarningType(
+    return _then(_$_WarningType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -628,7 +561,7 @@ class _$_WarningType extends _WarningType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WarningType &&
+            other is _$_WarningType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -638,35 +571,21 @@ class _$_WarningType extends _WarningType {
 
   @JsonKey(ignore: true)
   @override
-  _$WarningTypeCopyWith<_WarningType> get copyWith =>
-      __$WarningTypeCopyWithImpl<_WarningType>(this, _$identity);
+  _$$_WarningTypeCopyWith<_$_WarningType> get copyWith =>
+      __$$_WarningTypeCopyWithImpl<_$_WarningType>(this, _$identity);
 }
 
 abstract class _WarningType extends WarningType {
-  const factory _WarningType(String value) = _$_WarningType;
+  const factory _WarningType(final String value) = _$_WarningType;
   const _WarningType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WarningTypeCopyWith<_WarningType> get copyWith =>
+  _$$_WarningTypeCopyWith<_$_WarningType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$OperatorTearOff {
-  const _$OperatorTearOff();
-
-  _Operator call(String value) {
-    return _Operator(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $Operator = _$OperatorTearOff();
 
 /// @nodoc
 mixin _$Operator {
@@ -706,27 +625,29 @@ class _$OperatorCopyWithImpl<$Res> implements $OperatorCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$OperatorCopyWith<$Res> implements $OperatorCopyWith<$Res> {
-  factory _$OperatorCopyWith(_Operator value, $Res Function(_Operator) then) =
-      __$OperatorCopyWithImpl<$Res>;
+abstract class _$$_OperatorCopyWith<$Res> implements $OperatorCopyWith<$Res> {
+  factory _$$_OperatorCopyWith(
+          _$_Operator value, $Res Function(_$_Operator) then) =
+      __$$_OperatorCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$OperatorCopyWithImpl<$Res> extends _$OperatorCopyWithImpl<$Res>
-    implements _$OperatorCopyWith<$Res> {
-  __$OperatorCopyWithImpl(_Operator _value, $Res Function(_Operator) _then)
-      : super(_value, (v) => _then(v as _Operator));
+class __$$_OperatorCopyWithImpl<$Res> extends _$OperatorCopyWithImpl<$Res>
+    implements _$$_OperatorCopyWith<$Res> {
+  __$$_OperatorCopyWithImpl(
+      _$_Operator _value, $Res Function(_$_Operator) _then)
+      : super(_value, (v) => _then(v as _$_Operator));
 
   @override
-  _Operator get _value => super._value as _Operator;
+  _$_Operator get _value => super._value as _$_Operator;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_Operator(
+    return _then(_$_Operator(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -752,7 +673,7 @@ class _$_Operator extends _Operator {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Operator &&
+            other is _$_Operator &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -762,35 +683,21 @@ class _$_Operator extends _Operator {
 
   @JsonKey(ignore: true)
   @override
-  _$OperatorCopyWith<_Operator> get copyWith =>
-      __$OperatorCopyWithImpl<_Operator>(this, _$identity);
+  _$$_OperatorCopyWith<_$_Operator> get copyWith =>
+      __$$_OperatorCopyWithImpl<_$_Operator>(this, _$identity);
 }
 
 abstract class _Operator extends Operator {
-  const factory _Operator(String value) = _$_Operator;
+  const factory _Operator(final String value) = _$_Operator;
   const _Operator._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$OperatorCopyWith<_Operator> get copyWith =>
+  _$$_OperatorCopyWith<_$_Operator> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$ModuleTypeTearOff {
-  const _$ModuleTypeTearOff();
-
-  _ModuleType call(String value) {
-    return _ModuleType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $ModuleType = _$ModuleTypeTearOff();
 
 /// @nodoc
 mixin _$ModuleType {
@@ -831,29 +738,30 @@ class _$ModuleTypeCopyWithImpl<$Res> implements $ModuleTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ModuleTypeCopyWith<$Res> implements $ModuleTypeCopyWith<$Res> {
-  factory _$ModuleTypeCopyWith(
-          _ModuleType value, $Res Function(_ModuleType) then) =
-      __$ModuleTypeCopyWithImpl<$Res>;
+abstract class _$$_ModuleTypeCopyWith<$Res>
+    implements $ModuleTypeCopyWith<$Res> {
+  factory _$$_ModuleTypeCopyWith(
+          _$_ModuleType value, $Res Function(_$_ModuleType) then) =
+      __$$_ModuleTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$ModuleTypeCopyWithImpl<$Res> extends _$ModuleTypeCopyWithImpl<$Res>
-    implements _$ModuleTypeCopyWith<$Res> {
-  __$ModuleTypeCopyWithImpl(
-      _ModuleType _value, $Res Function(_ModuleType) _then)
-      : super(_value, (v) => _then(v as _ModuleType));
+class __$$_ModuleTypeCopyWithImpl<$Res> extends _$ModuleTypeCopyWithImpl<$Res>
+    implements _$$_ModuleTypeCopyWith<$Res> {
+  __$$_ModuleTypeCopyWithImpl(
+      _$_ModuleType _value, $Res Function(_$_ModuleType) _then)
+      : super(_value, (v) => _then(v as _$_ModuleType));
 
   @override
-  _ModuleType get _value => super._value as _ModuleType;
+  _$_ModuleType get _value => super._value as _$_ModuleType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_ModuleType(
+    return _then(_$_ModuleType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -879,7 +787,7 @@ class _$_ModuleType extends _ModuleType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ModuleType &&
+            other is _$_ModuleType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -889,35 +797,21 @@ class _$_ModuleType extends _ModuleType {
 
   @JsonKey(ignore: true)
   @override
-  _$ModuleTypeCopyWith<_ModuleType> get copyWith =>
-      __$ModuleTypeCopyWithImpl<_ModuleType>(this, _$identity);
+  _$$_ModuleTypeCopyWith<_$_ModuleType> get copyWith =>
+      __$$_ModuleTypeCopyWithImpl<_$_ModuleType>(this, _$identity);
 }
 
 abstract class _ModuleType extends ModuleType {
-  const factory _ModuleType(String value) = _$_ModuleType;
+  const factory _ModuleType(final String value) = _$_ModuleType;
   const _ModuleType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ModuleTypeCopyWith<_ModuleType> get copyWith =>
+  _$$_ModuleTypeCopyWith<_$_ModuleType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$ResponseStatusTearOff {
-  const _$ResponseStatusTearOff();
-
-  _ResponseStatus call(String value) {
-    return _ResponseStatus(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $ResponseStatus = _$ResponseStatusTearOff();
 
 /// @nodoc
 mixin _$ResponseStatus {
@@ -959,31 +853,31 @@ class _$ResponseStatusCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResponseStatusCopyWith<$Res>
+abstract class _$$_ResponseStatusCopyWith<$Res>
     implements $ResponseStatusCopyWith<$Res> {
-  factory _$ResponseStatusCopyWith(
-          _ResponseStatus value, $Res Function(_ResponseStatus) then) =
-      __$ResponseStatusCopyWithImpl<$Res>;
+  factory _$$_ResponseStatusCopyWith(
+          _$_ResponseStatus value, $Res Function(_$_ResponseStatus) then) =
+      __$$_ResponseStatusCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$ResponseStatusCopyWithImpl<$Res>
+class __$$_ResponseStatusCopyWithImpl<$Res>
     extends _$ResponseStatusCopyWithImpl<$Res>
-    implements _$ResponseStatusCopyWith<$Res> {
-  __$ResponseStatusCopyWithImpl(
-      _ResponseStatus _value, $Res Function(_ResponseStatus) _then)
-      : super(_value, (v) => _then(v as _ResponseStatus));
+    implements _$$_ResponseStatusCopyWith<$Res> {
+  __$$_ResponseStatusCopyWithImpl(
+      _$_ResponseStatus _value, $Res Function(_$_ResponseStatus) _then)
+      : super(_value, (v) => _then(v as _$_ResponseStatus));
 
   @override
-  _ResponseStatus get _value => super._value as _ResponseStatus;
+  _$_ResponseStatus get _value => super._value as _$_ResponseStatus;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_ResponseStatus(
+    return _then(_$_ResponseStatus(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1009,7 +903,7 @@ class _$_ResponseStatus extends _ResponseStatus {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseStatus &&
+            other is _$_ResponseStatus &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -1019,35 +913,21 @@ class _$_ResponseStatus extends _ResponseStatus {
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseStatusCopyWith<_ResponseStatus> get copyWith =>
-      __$ResponseStatusCopyWithImpl<_ResponseStatus>(this, _$identity);
+  _$$_ResponseStatusCopyWith<_$_ResponseStatus> get copyWith =>
+      __$$_ResponseStatusCopyWithImpl<_$_ResponseStatus>(this, _$identity);
 }
 
 abstract class _ResponseStatus extends ResponseStatus {
-  const factory _ResponseStatus(String value) = _$_ResponseStatus;
+  const factory _ResponseStatus(final String value) = _$_ResponseStatus;
   const _ResponseStatus._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseStatusCopyWith<_ResponseStatus> get copyWith =>
+  _$$_ResponseStatusCopyWith<_$_ResponseStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DeviceTimeStampTearOff {
-  const _$DeviceTimeStampTearOff();
-
-  _DeviceTimeStamp call(DateTime value) {
-    return _DeviceTimeStamp(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $DeviceTimeStamp = _$DeviceTimeStampTearOff();
 
 /// @nodoc
 mixin _$DeviceTimeStamp {
@@ -1089,31 +969,31 @@ class _$DeviceTimeStampCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$DeviceTimeStampCopyWith<$Res>
+abstract class _$$_DeviceTimeStampCopyWith<$Res>
     implements $DeviceTimeStampCopyWith<$Res> {
-  factory _$DeviceTimeStampCopyWith(
-          _DeviceTimeStamp value, $Res Function(_DeviceTimeStamp) then) =
-      __$DeviceTimeStampCopyWithImpl<$Res>;
+  factory _$$_DeviceTimeStampCopyWith(
+          _$_DeviceTimeStamp value, $Res Function(_$_DeviceTimeStamp) then) =
+      __$$_DeviceTimeStampCopyWithImpl<$Res>;
   @override
   $Res call({DateTime value});
 }
 
 /// @nodoc
-class __$DeviceTimeStampCopyWithImpl<$Res>
+class __$$_DeviceTimeStampCopyWithImpl<$Res>
     extends _$DeviceTimeStampCopyWithImpl<$Res>
-    implements _$DeviceTimeStampCopyWith<$Res> {
-  __$DeviceTimeStampCopyWithImpl(
-      _DeviceTimeStamp _value, $Res Function(_DeviceTimeStamp) _then)
-      : super(_value, (v) => _then(v as _DeviceTimeStamp));
+    implements _$$_DeviceTimeStampCopyWith<$Res> {
+  __$$_DeviceTimeStampCopyWithImpl(
+      _$_DeviceTimeStamp _value, $Res Function(_$_DeviceTimeStamp) _then)
+      : super(_value, (v) => _then(v as _$_DeviceTimeStamp));
 
   @override
-  _DeviceTimeStamp get _value => super._value as _DeviceTimeStamp;
+  _$_DeviceTimeStamp get _value => super._value as _$_DeviceTimeStamp;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_DeviceTimeStamp(
+    return _then(_$_DeviceTimeStamp(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1139,7 +1019,7 @@ class _$_DeviceTimeStamp extends _DeviceTimeStamp {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DeviceTimeStamp &&
+            other is _$_DeviceTimeStamp &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -1149,35 +1029,21 @@ class _$_DeviceTimeStamp extends _DeviceTimeStamp {
 
   @JsonKey(ignore: true)
   @override
-  _$DeviceTimeStampCopyWith<_DeviceTimeStamp> get copyWith =>
-      __$DeviceTimeStampCopyWithImpl<_DeviceTimeStamp>(this, _$identity);
+  _$$_DeviceTimeStampCopyWith<_$_DeviceTimeStamp> get copyWith =>
+      __$$_DeviceTimeStampCopyWithImpl<_$_DeviceTimeStamp>(this, _$identity);
 }
 
 abstract class _DeviceTimeStamp extends DeviceTimeStamp {
-  const factory _DeviceTimeStamp(DateTime value) = _$_DeviceTimeStamp;
+  const factory _DeviceTimeStamp(final DateTime value) = _$_DeviceTimeStamp;
   const _DeviceTimeStamp._() : super._();
 
   @override
-  DateTime get value;
+  DateTime get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DeviceTimeStampCopyWith<_DeviceTimeStamp> get copyWith =>
+  _$$_DeviceTimeStampCopyWith<_$_DeviceTimeStamp> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DialogTypeTearOff {
-  const _$DialogTypeTearOff();
-
-  _DialogType call(String value) {
-    return _DialogType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $DialogType = _$DialogTypeTearOff();
 
 /// @nodoc
 mixin _$DialogType {
@@ -1218,29 +1084,30 @@ class _$DialogTypeCopyWithImpl<$Res> implements $DialogTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$DialogTypeCopyWith<$Res> implements $DialogTypeCopyWith<$Res> {
-  factory _$DialogTypeCopyWith(
-          _DialogType value, $Res Function(_DialogType) then) =
-      __$DialogTypeCopyWithImpl<$Res>;
+abstract class _$$_DialogTypeCopyWith<$Res>
+    implements $DialogTypeCopyWith<$Res> {
+  factory _$$_DialogTypeCopyWith(
+          _$_DialogType value, $Res Function(_$_DialogType) then) =
+      __$$_DialogTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$DialogTypeCopyWithImpl<$Res> extends _$DialogTypeCopyWithImpl<$Res>
-    implements _$DialogTypeCopyWith<$Res> {
-  __$DialogTypeCopyWithImpl(
-      _DialogType _value, $Res Function(_DialogType) _then)
-      : super(_value, (v) => _then(v as _DialogType));
+class __$$_DialogTypeCopyWithImpl<$Res> extends _$DialogTypeCopyWithImpl<$Res>
+    implements _$$_DialogTypeCopyWith<$Res> {
+  __$$_DialogTypeCopyWithImpl(
+      _$_DialogType _value, $Res Function(_$_DialogType) _then)
+      : super(_value, (v) => _then(v as _$_DialogType));
 
   @override
-  _DialogType get _value => super._value as _DialogType;
+  _$_DialogType get _value => super._value as _$_DialogType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_DialogType(
+    return _then(_$_DialogType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1266,7 +1133,7 @@ class _$_DialogType extends _DialogType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DialogType &&
+            other is _$_DialogType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -1276,18 +1143,18 @@ class _$_DialogType extends _DialogType {
 
   @JsonKey(ignore: true)
   @override
-  _$DialogTypeCopyWith<_DialogType> get copyWith =>
-      __$DialogTypeCopyWithImpl<_DialogType>(this, _$identity);
+  _$$_DialogTypeCopyWith<_$_DialogType> get copyWith =>
+      __$$_DialogTypeCopyWithImpl<_$_DialogType>(this, _$identity);
 }
 
 abstract class _DialogType extends DialogType {
-  const factory _DialogType(String value) = _$_DialogType;
+  const factory _DialogType(final String value) = _$_DialogType;
   const _DialogType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DialogTypeCopyWith<_DialogType> get copyWith =>
+  _$$_DialogTypeCopyWith<_$_DialogType> get copyWith =>
       throw _privateConstructorUsedError;
 }

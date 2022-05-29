@@ -12,48 +12,11 @@ part of 'choice_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ChoiceDto _$ChoiceDtoFromJson(Map<String, dynamic> json) {
   return _ChoiceDto.fromJson(json);
 }
-
-/// @nodoc
-class _$ChoiceDtoTearOff {
-  const _$ChoiceDtoTearOff();
-
-  _ChoiceDto call(
-      {required int serialNumber,
-      required String choiceId,
-      required String transformedId,
-      required String choiceBody,
-      required bool asNote,
-      required bool asSingle,
-      required bool isSpecialAnswer,
-      required String choiceGroup,
-      required bool isGroupFirst,
-      required String upperChoiceId}) {
-    return _ChoiceDto(
-      serialNumber: serialNumber,
-      choiceId: choiceId,
-      transformedId: transformedId,
-      choiceBody: choiceBody,
-      asNote: asNote,
-      asSingle: asSingle,
-      isSpecialAnswer: isSpecialAnswer,
-      choiceGroup: choiceGroup,
-      isGroupFirst: isGroupFirst,
-      upperChoiceId: upperChoiceId,
-    );
-  }
-
-  ChoiceDto fromJson(Map<String, Object?> json) {
-    return ChoiceDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ChoiceDto = _$ChoiceDtoTearOff();
 
 /// @nodoc
 mixin _$ChoiceDto {
@@ -158,10 +121,10 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ChoiceDtoCopyWith<$Res> implements $ChoiceDtoCopyWith<$Res> {
-  factory _$ChoiceDtoCopyWith(
-          _ChoiceDto value, $Res Function(_ChoiceDto) then) =
-      __$ChoiceDtoCopyWithImpl<$Res>;
+abstract class _$$_ChoiceDtoCopyWith<$Res> implements $ChoiceDtoCopyWith<$Res> {
+  factory _$$_ChoiceDtoCopyWith(
+          _$_ChoiceDto value, $Res Function(_$_ChoiceDto) then) =
+      __$$_ChoiceDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {int serialNumber,
@@ -177,13 +140,14 @@ abstract class _$ChoiceDtoCopyWith<$Res> implements $ChoiceDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
-    implements _$ChoiceDtoCopyWith<$Res> {
-  __$ChoiceDtoCopyWithImpl(_ChoiceDto _value, $Res Function(_ChoiceDto) _then)
-      : super(_value, (v) => _then(v as _ChoiceDto));
+class __$$_ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
+    implements _$$_ChoiceDtoCopyWith<$Res> {
+  __$$_ChoiceDtoCopyWithImpl(
+      _$_ChoiceDto _value, $Res Function(_$_ChoiceDto) _then)
+      : super(_value, (v) => _then(v as _$_ChoiceDto));
 
   @override
-  _ChoiceDto get _value => super._value as _ChoiceDto;
+  _$_ChoiceDto get _value => super._value as _$_ChoiceDto;
 
   @override
   $Res call({
@@ -198,7 +162,7 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
     Object? isGroupFirst = freezed,
     Object? upperChoiceId = freezed,
   }) {
-    return _then(_ChoiceDto(
+    return _then(_$_ChoiceDto(
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
@@ -292,7 +256,7 @@ class _$_ChoiceDto extends _ChoiceDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ChoiceDto &&
+            other is _$_ChoiceDto &&
             const DeepCollectionEquality()
                 .equals(other.serialNumber, serialNumber) &&
             const DeepCollectionEquality().equals(other.choiceId, choiceId) &&
@@ -312,6 +276,7 @@ class _$_ChoiceDto extends _ChoiceDto {
                 .equals(other.upperChoiceId, upperChoiceId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -328,8 +293,8 @@ class _$_ChoiceDto extends _ChoiceDto {
 
   @JsonKey(ignore: true)
   @override
-  _$ChoiceDtoCopyWith<_ChoiceDto> get copyWith =>
-      __$ChoiceDtoCopyWithImpl<_ChoiceDto>(this, _$identity);
+  _$$_ChoiceDtoCopyWith<_$_ChoiceDto> get copyWith =>
+      __$$_ChoiceDtoCopyWithImpl<_$_ChoiceDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -339,43 +304,43 @@ class _$_ChoiceDto extends _ChoiceDto {
 
 abstract class _ChoiceDto extends ChoiceDto {
   const factory _ChoiceDto(
-      {required int serialNumber,
-      required String choiceId,
-      required String transformedId,
-      required String choiceBody,
-      required bool asNote,
-      required bool asSingle,
-      required bool isSpecialAnswer,
-      required String choiceGroup,
-      required bool isGroupFirst,
-      required String upperChoiceId}) = _$_ChoiceDto;
+      {required final int serialNumber,
+      required final String choiceId,
+      required final String transformedId,
+      required final String choiceBody,
+      required final bool asNote,
+      required final bool asSingle,
+      required final bool isSpecialAnswer,
+      required final String choiceGroup,
+      required final bool isGroupFirst,
+      required final String upperChoiceId}) = _$_ChoiceDto;
   const _ChoiceDto._() : super._();
 
   factory _ChoiceDto.fromJson(Map<String, dynamic> json) =
       _$_ChoiceDto.fromJson;
 
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  String get choiceId;
+  String get choiceId => throw _privateConstructorUsedError;
   @override
-  String get transformedId;
+  String get transformedId => throw _privateConstructorUsedError;
   @override
-  String get choiceBody;
+  String get choiceBody => throw _privateConstructorUsedError;
   @override
-  bool get asNote;
+  bool get asNote => throw _privateConstructorUsedError;
   @override
-  bool get asSingle;
+  bool get asSingle => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  String get choiceGroup;
+  String get choiceGroup => throw _privateConstructorUsedError;
   @override
-  bool get isGroupFirst;
+  bool get isGroupFirst => throw _privateConstructorUsedError;
   @override
-  String get upperChoiceId;
+  String get upperChoiceId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ChoiceDtoCopyWith<_ChoiceDto> get copyWith =>
+  _$$_ChoiceDtoCopyWith<_$_ChoiceDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,5 @@
 part of 'main.dart';
 
-const notoSansTC = 'NotoSansTC';
-
 const kH1FontSize = 24.0;
 const kH2FontSize = 22.0;
 const kH3FontSize = 20.0; // 正常標題

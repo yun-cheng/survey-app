@@ -12,30 +12,11 @@ part of 'project_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ProjectDto _$ProjectDtoFromJson(Map<String, dynamic> json) {
   return _ProjectDto.fromJson(json);
 }
-
-/// @nodoc
-class _$ProjectDtoTearOff {
-  const _$ProjectDtoTearOff();
-
-  _ProjectDto call({required String projectId, required String projectName}) {
-    return _ProjectDto(
-      projectId: projectId,
-      projectName: projectName,
-    );
-  }
-
-  ProjectDto fromJson(Map<String, Object?> json) {
-    return ProjectDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ProjectDto = _$ProjectDtoTearOff();
 
 /// @nodoc
 mixin _$ProjectDto {
@@ -83,30 +64,31 @@ class _$ProjectDtoCopyWithImpl<$Res> implements $ProjectDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProjectDtoCopyWith<$Res> implements $ProjectDtoCopyWith<$Res> {
-  factory _$ProjectDtoCopyWith(
-          _ProjectDto value, $Res Function(_ProjectDto) then) =
-      __$ProjectDtoCopyWithImpl<$Res>;
+abstract class _$$_ProjectDtoCopyWith<$Res>
+    implements $ProjectDtoCopyWith<$Res> {
+  factory _$$_ProjectDtoCopyWith(
+          _$_ProjectDto value, $Res Function(_$_ProjectDto) then) =
+      __$$_ProjectDtoCopyWithImpl<$Res>;
   @override
   $Res call({String projectId, String projectName});
 }
 
 /// @nodoc
-class __$ProjectDtoCopyWithImpl<$Res> extends _$ProjectDtoCopyWithImpl<$Res>
-    implements _$ProjectDtoCopyWith<$Res> {
-  __$ProjectDtoCopyWithImpl(
-      _ProjectDto _value, $Res Function(_ProjectDto) _then)
-      : super(_value, (v) => _then(v as _ProjectDto));
+class __$$_ProjectDtoCopyWithImpl<$Res> extends _$ProjectDtoCopyWithImpl<$Res>
+    implements _$$_ProjectDtoCopyWith<$Res> {
+  __$$_ProjectDtoCopyWithImpl(
+      _$_ProjectDto _value, $Res Function(_$_ProjectDto) _then)
+      : super(_value, (v) => _then(v as _$_ProjectDto));
 
   @override
-  _ProjectDto get _value => super._value as _ProjectDto;
+  _$_ProjectDto get _value => super._value as _$_ProjectDto;
 
   @override
   $Res call({
     Object? projectId = freezed,
     Object? projectName = freezed,
   }) {
-    return _then(_ProjectDto(
+    return _then(_$_ProjectDto(
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
@@ -142,12 +124,13 @@ class _$_ProjectDto extends _ProjectDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProjectDto &&
+            other is _$_ProjectDto &&
             const DeepCollectionEquality().equals(other.projectId, projectId) &&
             const DeepCollectionEquality()
                 .equals(other.projectName, projectName));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -156,8 +139,8 @@ class _$_ProjectDto extends _ProjectDto {
 
   @JsonKey(ignore: true)
   @override
-  _$ProjectDtoCopyWith<_ProjectDto> get copyWith =>
-      __$ProjectDtoCopyWithImpl<_ProjectDto>(this, _$identity);
+  _$$_ProjectDtoCopyWith<_$_ProjectDto> get copyWith =>
+      __$$_ProjectDtoCopyWithImpl<_$_ProjectDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -167,18 +150,19 @@ class _$_ProjectDto extends _ProjectDto {
 
 abstract class _ProjectDto extends ProjectDto {
   const factory _ProjectDto(
-      {required String projectId, required String projectName}) = _$_ProjectDto;
+      {required final String projectId,
+      required final String projectName}) = _$_ProjectDto;
   const _ProjectDto._() : super._();
 
   factory _ProjectDto.fromJson(Map<String, dynamic> json) =
       _$_ProjectDto.fromJson;
 
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get projectName;
+  String get projectName => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProjectDtoCopyWith<_ProjectDto> get copyWith =>
+  _$$_ProjectDtoCopyWith<_$_ProjectDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

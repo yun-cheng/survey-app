@@ -12,49 +12,7 @@ part of 'question_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$QuestionEventTearOff {
-  const _$QuestionEventTearOff();
-
-  _ClearAnswer clearAnswer() {
-    return const _ClearAnswer();
-  }
-
-  _SetChoice setChoice(Choice choice) {
-    return _SetChoice(
-      choice,
-    );
-  }
-
-  _ToggleChoice toggleChoice(Choice choice) {
-    return _ToggleChoice(
-      choice,
-    );
-  }
-
-  _SetSpecialAnswer setSpecialAnswer(bool isSpecialAnswer) {
-    return _SetSpecialAnswer(
-      isSpecialAnswer,
-    );
-  }
-
-  _QABoxShown qABoxShown(bool value) {
-    return _QABoxShown(
-      value,
-    );
-  }
-
-  _AnswerBoxShown answerBoxShown(bool value) {
-    return _AnswerBoxShown(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $QuestionEvent = _$QuestionEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$QuestionEvent {
@@ -140,21 +98,22 @@ class _$QuestionEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ClearAnswerCopyWith<$Res> {
-  factory _$ClearAnswerCopyWith(
-          _ClearAnswer value, $Res Function(_ClearAnswer) then) =
-      __$ClearAnswerCopyWithImpl<$Res>;
+abstract class _$$_ClearAnswerCopyWith<$Res> {
+  factory _$$_ClearAnswerCopyWith(
+          _$_ClearAnswer value, $Res Function(_$_ClearAnswer) then) =
+      __$$_ClearAnswerCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ClearAnswerCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
-    implements _$ClearAnswerCopyWith<$Res> {
-  __$ClearAnswerCopyWithImpl(
-      _ClearAnswer _value, $Res Function(_ClearAnswer) _then)
-      : super(_value, (v) => _then(v as _ClearAnswer));
+class __$$_ClearAnswerCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_ClearAnswerCopyWith<$Res> {
+  __$$_ClearAnswerCopyWithImpl(
+      _$_ClearAnswer _value, $Res Function(_$_ClearAnswer) _then)
+      : super(_value, (v) => _then(v as _$_ClearAnswer));
 
   @override
-  _ClearAnswer get _value => super._value as _ClearAnswer;
+  _$_ClearAnswer get _value => super._value as _$_ClearAnswer;
 }
 
 /// @nodoc
@@ -170,7 +129,7 @@ class _$_ClearAnswer implements _ClearAnswer {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _ClearAnswer);
+        (other.runtimeType == runtimeType && other is _$_ClearAnswer);
   }
 
   @override
@@ -268,29 +227,30 @@ abstract class _ClearAnswer implements QuestionEvent {
 }
 
 /// @nodoc
-abstract class _$SetChoiceCopyWith<$Res> {
-  factory _$SetChoiceCopyWith(
-          _SetChoice value, $Res Function(_SetChoice) then) =
-      __$SetChoiceCopyWithImpl<$Res>;
+abstract class _$$_SetChoiceCopyWith<$Res> {
+  factory _$$_SetChoiceCopyWith(
+          _$_SetChoice value, $Res Function(_$_SetChoice) then) =
+      __$$_SetChoiceCopyWithImpl<$Res>;
   $Res call({Choice choice});
 
   $ChoiceCopyWith<$Res> get choice;
 }
 
 /// @nodoc
-class __$SetChoiceCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
-    implements _$SetChoiceCopyWith<$Res> {
-  __$SetChoiceCopyWithImpl(_SetChoice _value, $Res Function(_SetChoice) _then)
-      : super(_value, (v) => _then(v as _SetChoice));
+class __$$_SetChoiceCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_SetChoiceCopyWith<$Res> {
+  __$$_SetChoiceCopyWithImpl(
+      _$_SetChoice _value, $Res Function(_$_SetChoice) _then)
+      : super(_value, (v) => _then(v as _$_SetChoice));
 
   @override
-  _SetChoice get _value => super._value as _SetChoice;
+  _$_SetChoice get _value => super._value as _$_SetChoice;
 
   @override
   $Res call({
     Object? choice = freezed,
   }) {
-    return _then(_SetChoice(
+    return _then(_$_SetChoice(
       choice == freezed
           ? _value.choice
           : choice // ignore: cast_nullable_to_non_nullable
@@ -323,7 +283,7 @@ class _$_SetChoice implements _SetChoice {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SetChoice &&
+            other is _$_SetChoice &&
             const DeepCollectionEquality().equals(other.choice, choice));
   }
 
@@ -333,8 +293,8 @@ class _$_SetChoice implements _SetChoice {
 
   @JsonKey(ignore: true)
   @override
-  _$SetChoiceCopyWith<_SetChoice> get copyWith =>
-      __$SetChoiceCopyWithImpl<_SetChoice>(this, _$identity);
+  _$$_SetChoiceCopyWith<_$_SetChoice> get copyWith =>
+      __$$_SetChoiceCopyWithImpl<_$_SetChoice>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -424,40 +384,40 @@ class _$_SetChoice implements _SetChoice {
 }
 
 abstract class _SetChoice implements QuestionEvent {
-  const factory _SetChoice(Choice choice) = _$_SetChoice;
+  const factory _SetChoice(final Choice choice) = _$_SetChoice;
 
-  Choice get choice;
+  Choice get choice => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SetChoiceCopyWith<_SetChoice> get copyWith =>
+  _$$_SetChoiceCopyWith<_$_SetChoice> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ToggleChoiceCopyWith<$Res> {
-  factory _$ToggleChoiceCopyWith(
-          _ToggleChoice value, $Res Function(_ToggleChoice) then) =
-      __$ToggleChoiceCopyWithImpl<$Res>;
+abstract class _$$_ToggleChoiceCopyWith<$Res> {
+  factory _$$_ToggleChoiceCopyWith(
+          _$_ToggleChoice value, $Res Function(_$_ToggleChoice) then) =
+      __$$_ToggleChoiceCopyWithImpl<$Res>;
   $Res call({Choice choice});
 
   $ChoiceCopyWith<$Res> get choice;
 }
 
 /// @nodoc
-class __$ToggleChoiceCopyWithImpl<$Res>
+class __$$_ToggleChoiceCopyWithImpl<$Res>
     extends _$QuestionEventCopyWithImpl<$Res>
-    implements _$ToggleChoiceCopyWith<$Res> {
-  __$ToggleChoiceCopyWithImpl(
-      _ToggleChoice _value, $Res Function(_ToggleChoice) _then)
-      : super(_value, (v) => _then(v as _ToggleChoice));
+    implements _$$_ToggleChoiceCopyWith<$Res> {
+  __$$_ToggleChoiceCopyWithImpl(
+      _$_ToggleChoice _value, $Res Function(_$_ToggleChoice) _then)
+      : super(_value, (v) => _then(v as _$_ToggleChoice));
 
   @override
-  _ToggleChoice get _value => super._value as _ToggleChoice;
+  _$_ToggleChoice get _value => super._value as _$_ToggleChoice;
 
   @override
   $Res call({
     Object? choice = freezed,
   }) {
-    return _then(_ToggleChoice(
+    return _then(_$_ToggleChoice(
       choice == freezed
           ? _value.choice
           : choice // ignore: cast_nullable_to_non_nullable
@@ -490,7 +450,7 @@ class _$_ToggleChoice implements _ToggleChoice {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ToggleChoice &&
+            other is _$_ToggleChoice &&
             const DeepCollectionEquality().equals(other.choice, choice));
   }
 
@@ -500,8 +460,8 @@ class _$_ToggleChoice implements _ToggleChoice {
 
   @JsonKey(ignore: true)
   @override
-  _$ToggleChoiceCopyWith<_ToggleChoice> get copyWith =>
-      __$ToggleChoiceCopyWithImpl<_ToggleChoice>(this, _$identity);
+  _$$_ToggleChoiceCopyWith<_$_ToggleChoice> get copyWith =>
+      __$$_ToggleChoiceCopyWithImpl<_$_ToggleChoice>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -591,38 +551,38 @@ class _$_ToggleChoice implements _ToggleChoice {
 }
 
 abstract class _ToggleChoice implements QuestionEvent {
-  const factory _ToggleChoice(Choice choice) = _$_ToggleChoice;
+  const factory _ToggleChoice(final Choice choice) = _$_ToggleChoice;
 
-  Choice get choice;
+  Choice get choice => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ToggleChoiceCopyWith<_ToggleChoice> get copyWith =>
+  _$$_ToggleChoiceCopyWith<_$_ToggleChoice> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SetSpecialAnswerCopyWith<$Res> {
-  factory _$SetSpecialAnswerCopyWith(
-          _SetSpecialAnswer value, $Res Function(_SetSpecialAnswer) then) =
-      __$SetSpecialAnswerCopyWithImpl<$Res>;
+abstract class _$$_SetSpecialAnswerCopyWith<$Res> {
+  factory _$$_SetSpecialAnswerCopyWith(
+          _$_SetSpecialAnswer value, $Res Function(_$_SetSpecialAnswer) then) =
+      __$$_SetSpecialAnswerCopyWithImpl<$Res>;
   $Res call({bool isSpecialAnswer});
 }
 
 /// @nodoc
-class __$SetSpecialAnswerCopyWithImpl<$Res>
+class __$$_SetSpecialAnswerCopyWithImpl<$Res>
     extends _$QuestionEventCopyWithImpl<$Res>
-    implements _$SetSpecialAnswerCopyWith<$Res> {
-  __$SetSpecialAnswerCopyWithImpl(
-      _SetSpecialAnswer _value, $Res Function(_SetSpecialAnswer) _then)
-      : super(_value, (v) => _then(v as _SetSpecialAnswer));
+    implements _$$_SetSpecialAnswerCopyWith<$Res> {
+  __$$_SetSpecialAnswerCopyWithImpl(
+      _$_SetSpecialAnswer _value, $Res Function(_$_SetSpecialAnswer) _then)
+      : super(_value, (v) => _then(v as _$_SetSpecialAnswer));
 
   @override
-  _SetSpecialAnswer get _value => super._value as _SetSpecialAnswer;
+  _$_SetSpecialAnswer get _value => super._value as _$_SetSpecialAnswer;
 
   @override
   $Res call({
     Object? isSpecialAnswer = freezed,
   }) {
-    return _then(_SetSpecialAnswer(
+    return _then(_$_SetSpecialAnswer(
       isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -648,7 +608,7 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SetSpecialAnswer &&
+            other is _$_SetSpecialAnswer &&
             const DeepCollectionEquality()
                 .equals(other.isSpecialAnswer, isSpecialAnswer));
   }
@@ -659,8 +619,8 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
 
   @JsonKey(ignore: true)
   @override
-  _$SetSpecialAnswerCopyWith<_SetSpecialAnswer> get copyWith =>
-      __$SetSpecialAnswerCopyWithImpl<_SetSpecialAnswer>(this, _$identity);
+  _$$_SetSpecialAnswerCopyWith<_$_SetSpecialAnswer> get copyWith =>
+      __$$_SetSpecialAnswerCopyWithImpl<_$_SetSpecialAnswer>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -750,37 +710,39 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
 }
 
 abstract class _SetSpecialAnswer implements QuestionEvent {
-  const factory _SetSpecialAnswer(bool isSpecialAnswer) = _$_SetSpecialAnswer;
+  const factory _SetSpecialAnswer(final bool isSpecialAnswer) =
+      _$_SetSpecialAnswer;
 
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SetSpecialAnswerCopyWith<_SetSpecialAnswer> get copyWith =>
+  _$$_SetSpecialAnswerCopyWith<_$_SetSpecialAnswer> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$QABoxShownCopyWith<$Res> {
-  factory _$QABoxShownCopyWith(
-          _QABoxShown value, $Res Function(_QABoxShown) then) =
-      __$QABoxShownCopyWithImpl<$Res>;
+abstract class _$$_QABoxShownCopyWith<$Res> {
+  factory _$$_QABoxShownCopyWith(
+          _$_QABoxShown value, $Res Function(_$_QABoxShown) then) =
+      __$$_QABoxShownCopyWithImpl<$Res>;
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$QABoxShownCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
-    implements _$QABoxShownCopyWith<$Res> {
-  __$QABoxShownCopyWithImpl(
-      _QABoxShown _value, $Res Function(_QABoxShown) _then)
-      : super(_value, (v) => _then(v as _QABoxShown));
+class __$$_QABoxShownCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_QABoxShownCopyWith<$Res> {
+  __$$_QABoxShownCopyWithImpl(
+      _$_QABoxShown _value, $Res Function(_$_QABoxShown) _then)
+      : super(_value, (v) => _then(v as _$_QABoxShown));
 
   @override
-  _QABoxShown get _value => super._value as _QABoxShown;
+  _$_QABoxShown get _value => super._value as _$_QABoxShown;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_QABoxShown(
+    return _then(_$_QABoxShown(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -806,7 +768,7 @@ class _$_QABoxShown implements _QABoxShown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _QABoxShown &&
+            other is _$_QABoxShown &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -816,8 +778,8 @@ class _$_QABoxShown implements _QABoxShown {
 
   @JsonKey(ignore: true)
   @override
-  _$QABoxShownCopyWith<_QABoxShown> get copyWith =>
-      __$QABoxShownCopyWithImpl<_QABoxShown>(this, _$identity);
+  _$$_QABoxShownCopyWith<_$_QABoxShown> get copyWith =>
+      __$$_QABoxShownCopyWithImpl<_$_QABoxShown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -907,38 +869,38 @@ class _$_QABoxShown implements _QABoxShown {
 }
 
 abstract class _QABoxShown implements QuestionEvent {
-  const factory _QABoxShown(bool value) = _$_QABoxShown;
+  const factory _QABoxShown(final bool value) = _$_QABoxShown;
 
-  bool get value;
+  bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$QABoxShownCopyWith<_QABoxShown> get copyWith =>
+  _$$_QABoxShownCopyWith<_$_QABoxShown> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AnswerBoxShownCopyWith<$Res> {
-  factory _$AnswerBoxShownCopyWith(
-          _AnswerBoxShown value, $Res Function(_AnswerBoxShown) then) =
-      __$AnswerBoxShownCopyWithImpl<$Res>;
+abstract class _$$_AnswerBoxShownCopyWith<$Res> {
+  factory _$$_AnswerBoxShownCopyWith(
+          _$_AnswerBoxShown value, $Res Function(_$_AnswerBoxShown) then) =
+      __$$_AnswerBoxShownCopyWithImpl<$Res>;
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$AnswerBoxShownCopyWithImpl<$Res>
+class __$$_AnswerBoxShownCopyWithImpl<$Res>
     extends _$QuestionEventCopyWithImpl<$Res>
-    implements _$AnswerBoxShownCopyWith<$Res> {
-  __$AnswerBoxShownCopyWithImpl(
-      _AnswerBoxShown _value, $Res Function(_AnswerBoxShown) _then)
-      : super(_value, (v) => _then(v as _AnswerBoxShown));
+    implements _$$_AnswerBoxShownCopyWith<$Res> {
+  __$$_AnswerBoxShownCopyWithImpl(
+      _$_AnswerBoxShown _value, $Res Function(_$_AnswerBoxShown) _then)
+      : super(_value, (v) => _then(v as _$_AnswerBoxShown));
 
   @override
-  _AnswerBoxShown get _value => super._value as _AnswerBoxShown;
+  _$_AnswerBoxShown get _value => super._value as _$_AnswerBoxShown;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_AnswerBoxShown(
+    return _then(_$_AnswerBoxShown(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -964,7 +926,7 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnswerBoxShown &&
+            other is _$_AnswerBoxShown &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -974,8 +936,8 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerBoxShownCopyWith<_AnswerBoxShown> get copyWith =>
-      __$AnswerBoxShownCopyWithImpl<_AnswerBoxShown>(this, _$identity);
+  _$$_AnswerBoxShownCopyWith<_$_AnswerBoxShown> get copyWith =>
+      __$$_AnswerBoxShownCopyWithImpl<_$_AnswerBoxShown>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1065,42 +1027,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
 }
 
 abstract class _AnswerBoxShown implements QuestionEvent {
-  const factory _AnswerBoxShown(bool value) = _$_AnswerBoxShown;
+  const factory _AnswerBoxShown(final bool value) = _$_AnswerBoxShown;
 
-  bool get value;
+  bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AnswerBoxShownCopyWith<_AnswerBoxShown> get copyWith =>
+  _$$_AnswerBoxShownCopyWith<_$_AnswerBoxShown> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$QuestionStateTearOff {
-  const _$QuestionStateTearOff();
-
-  _QuestionState call(
-      {required UniqueId stateId,
-      required Question question,
-      required Answer answer,
-      required bool isSpecialAnswer,
-      required bool withinCell,
-      required bool canEdit,
-      required bool qABoxIsShown,
-      required bool answerBoxIsShown}) {
-    return _QuestionState(
-      stateId: stateId,
-      question: question,
-      answer: answer,
-      isSpecialAnswer: isSpecialAnswer,
-      withinCell: withinCell,
-      canEdit: canEdit,
-      qABoxIsShown: qABoxIsShown,
-      answerBoxIsShown: answerBoxIsShown,
-    );
-  }
-}
-
-/// @nodoc
-const $QuestionState = _$QuestionStateTearOff();
 
 /// @nodoc
 mixin _$QuestionState {
@@ -1217,11 +1150,11 @@ class _$QuestionStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$QuestionStateCopyWith<$Res>
+abstract class _$$_QuestionStateCopyWith<$Res>
     implements $QuestionStateCopyWith<$Res> {
-  factory _$QuestionStateCopyWith(
-          _QuestionState value, $Res Function(_QuestionState) then) =
-      __$QuestionStateCopyWithImpl<$Res>;
+  factory _$$_QuestionStateCopyWith(
+          _$_QuestionState value, $Res Function(_$_QuestionState) then) =
+      __$$_QuestionStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -1242,15 +1175,15 @@ abstract class _$QuestionStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$QuestionStateCopyWithImpl<$Res>
+class __$$_QuestionStateCopyWithImpl<$Res>
     extends _$QuestionStateCopyWithImpl<$Res>
-    implements _$QuestionStateCopyWith<$Res> {
-  __$QuestionStateCopyWithImpl(
-      _QuestionState _value, $Res Function(_QuestionState) _then)
-      : super(_value, (v) => _then(v as _QuestionState));
+    implements _$$_QuestionStateCopyWith<$Res> {
+  __$$_QuestionStateCopyWithImpl(
+      _$_QuestionState _value, $Res Function(_$_QuestionState) _then)
+      : super(_value, (v) => _then(v as _$_QuestionState));
 
   @override
-  _QuestionState get _value => super._value as _QuestionState;
+  _$_QuestionState get _value => super._value as _$_QuestionState;
 
   @override
   $Res call({
@@ -1263,7 +1196,7 @@ class __$QuestionStateCopyWithImpl<$Res>
     Object? qABoxIsShown = freezed,
     Object? answerBoxIsShown = freezed,
   }) {
-    return _then(_QuestionState(
+    return _then(_$_QuestionState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
@@ -1340,7 +1273,7 @@ class _$_QuestionState extends _QuestionState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _QuestionState &&
+            other is _$_QuestionState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.question, question) &&
             const DeepCollectionEquality().equals(other.answer, answer) &&
@@ -1369,40 +1302,40 @@ class _$_QuestionState extends _QuestionState {
 
   @JsonKey(ignore: true)
   @override
-  _$QuestionStateCopyWith<_QuestionState> get copyWith =>
-      __$QuestionStateCopyWithImpl<_QuestionState>(this, _$identity);
+  _$$_QuestionStateCopyWith<_$_QuestionState> get copyWith =>
+      __$$_QuestionStateCopyWithImpl<_$_QuestionState>(this, _$identity);
 }
 
 abstract class _QuestionState extends QuestionState {
   const factory _QuestionState(
-      {required UniqueId stateId,
-      required Question question,
-      required Answer answer,
-      required bool isSpecialAnswer,
-      required bool withinCell,
-      required bool canEdit,
-      required bool qABoxIsShown,
-      required bool answerBoxIsShown}) = _$_QuestionState;
+      {required final UniqueId stateId,
+      required final Question question,
+      required final Answer answer,
+      required final bool isSpecialAnswer,
+      required final bool withinCell,
+      required final bool canEdit,
+      required final bool qABoxIsShown,
+      required final bool answerBoxIsShown}) = _$_QuestionState;
   const _QuestionState._() : super._();
 
   @override
-  UniqueId get stateId;
+  UniqueId get stateId => throw _privateConstructorUsedError;
   @override
-  Question get question;
+  Question get question => throw _privateConstructorUsedError;
   @override
-  Answer get answer;
+  Answer get answer => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  bool get withinCell;
+  bool get withinCell => throw _privateConstructorUsedError;
   @override
-  bool get canEdit;
+  bool get canEdit => throw _privateConstructorUsedError;
   @override
-  bool get qABoxIsShown;
+  bool get qABoxIsShown => throw _privateConstructorUsedError;
   @override
-  bool get answerBoxIsShown;
+  bool get answerBoxIsShown => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$QuestionStateCopyWith<_QuestionState> get copyWith =>
+  _$$_QuestionStateCopyWith<_$_QuestionState> get copyWith =>
       throw _privateConstructorUsedError;
 }

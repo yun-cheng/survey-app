@@ -12,34 +12,11 @@ part of 'reference_key_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ReferenceKeyDto _$ReferenceKeyDtoFromJson(Map<String, dynamic> json) {
   return _ReferenceKeyDto.fromJson(json);
 }
-
-/// @nodoc
-class _$ReferenceKeyDtoTearOff {
-  const _$ReferenceKeyDtoTearOff();
-
-  _ReferenceKeyDto call(
-      {required String surveyId,
-      required String moduleType,
-      required String questionId}) {
-    return _ReferenceKeyDto(
-      surveyId: surveyId,
-      moduleType: moduleType,
-      questionId: questionId,
-    );
-  }
-
-  ReferenceKeyDto fromJson(Map<String, Object?> json) {
-    return ReferenceKeyDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ReferenceKeyDto = _$ReferenceKeyDtoTearOff();
 
 /// @nodoc
 mixin _$ReferenceKeyDto {
@@ -94,25 +71,25 @@ class _$ReferenceKeyDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ReferenceKeyDtoCopyWith<$Res>
+abstract class _$$_ReferenceKeyDtoCopyWith<$Res>
     implements $ReferenceKeyDtoCopyWith<$Res> {
-  factory _$ReferenceKeyDtoCopyWith(
-          _ReferenceKeyDto value, $Res Function(_ReferenceKeyDto) then) =
-      __$ReferenceKeyDtoCopyWithImpl<$Res>;
+  factory _$$_ReferenceKeyDtoCopyWith(
+          _$_ReferenceKeyDto value, $Res Function(_$_ReferenceKeyDto) then) =
+      __$$_ReferenceKeyDtoCopyWithImpl<$Res>;
   @override
   $Res call({String surveyId, String moduleType, String questionId});
 }
 
 /// @nodoc
-class __$ReferenceKeyDtoCopyWithImpl<$Res>
+class __$$_ReferenceKeyDtoCopyWithImpl<$Res>
     extends _$ReferenceKeyDtoCopyWithImpl<$Res>
-    implements _$ReferenceKeyDtoCopyWith<$Res> {
-  __$ReferenceKeyDtoCopyWithImpl(
-      _ReferenceKeyDto _value, $Res Function(_ReferenceKeyDto) _then)
-      : super(_value, (v) => _then(v as _ReferenceKeyDto));
+    implements _$$_ReferenceKeyDtoCopyWith<$Res> {
+  __$$_ReferenceKeyDtoCopyWithImpl(
+      _$_ReferenceKeyDto _value, $Res Function(_$_ReferenceKeyDto) _then)
+      : super(_value, (v) => _then(v as _$_ReferenceKeyDto));
 
   @override
-  _ReferenceKeyDto get _value => super._value as _ReferenceKeyDto;
+  _$_ReferenceKeyDto get _value => super._value as _$_ReferenceKeyDto;
 
   @override
   $Res call({
@@ -120,7 +97,7 @@ class __$ReferenceKeyDtoCopyWithImpl<$Res>
     Object? moduleType = freezed,
     Object? questionId = freezed,
   }) {
-    return _then(_ReferenceKeyDto(
+    return _then(_$_ReferenceKeyDto(
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
@@ -165,7 +142,7 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ReferenceKeyDto &&
+            other is _$_ReferenceKeyDto &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
             const DeepCollectionEquality()
                 .equals(other.moduleType, moduleType) &&
@@ -173,6 +150,7 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
                 .equals(other.questionId, questionId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -182,8 +160,8 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
 
   @JsonKey(ignore: true)
   @override
-  _$ReferenceKeyDtoCopyWith<_ReferenceKeyDto> get copyWith =>
-      __$ReferenceKeyDtoCopyWithImpl<_ReferenceKeyDto>(this, _$identity);
+  _$$_ReferenceKeyDtoCopyWith<_$_ReferenceKeyDto> get copyWith =>
+      __$$_ReferenceKeyDtoCopyWithImpl<_$_ReferenceKeyDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -193,22 +171,22 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
 
 abstract class _ReferenceKeyDto extends ReferenceKeyDto {
   const factory _ReferenceKeyDto(
-      {required String surveyId,
-      required String moduleType,
-      required String questionId}) = _$_ReferenceKeyDto;
+      {required final String surveyId,
+      required final String moduleType,
+      required final String questionId}) = _$_ReferenceKeyDto;
   const _ReferenceKeyDto._() : super._();
 
   factory _ReferenceKeyDto.fromJson(Map<String, dynamic> json) =
       _$_ReferenceKeyDto.fromJson;
 
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType;
+  String get moduleType => throw _privateConstructorUsedError;
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ReferenceKeyDtoCopyWith<_ReferenceKeyDto> get copyWith =>
+  _$$_ReferenceKeyDtoCopyWith<_$_ReferenceKeyDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

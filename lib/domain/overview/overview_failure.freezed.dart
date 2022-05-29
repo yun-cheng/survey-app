@@ -12,21 +12,7 @@ part of 'overview_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$OverviewFailureTearOff {
-  const _$OverviewFailureTearOff();
-
-  _OverviewFailure call(String value) {
-    return _OverviewFailure(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $OverviewFailure = _$OverviewFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$OverviewFailure {
@@ -68,31 +54,31 @@ class _$OverviewFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$OverviewFailureCopyWith<$Res>
+abstract class _$$_OverviewFailureCopyWith<$Res>
     implements $OverviewFailureCopyWith<$Res> {
-  factory _$OverviewFailureCopyWith(
-          _OverviewFailure value, $Res Function(_OverviewFailure) then) =
-      __$OverviewFailureCopyWithImpl<$Res>;
+  factory _$$_OverviewFailureCopyWith(
+          _$_OverviewFailure value, $Res Function(_$_OverviewFailure) then) =
+      __$$_OverviewFailureCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$OverviewFailureCopyWithImpl<$Res>
+class __$$_OverviewFailureCopyWithImpl<$Res>
     extends _$OverviewFailureCopyWithImpl<$Res>
-    implements _$OverviewFailureCopyWith<$Res> {
-  __$OverviewFailureCopyWithImpl(
-      _OverviewFailure _value, $Res Function(_OverviewFailure) _then)
-      : super(_value, (v) => _then(v as _OverviewFailure));
+    implements _$$_OverviewFailureCopyWith<$Res> {
+  __$$_OverviewFailureCopyWithImpl(
+      _$_OverviewFailure _value, $Res Function(_$_OverviewFailure) _then)
+      : super(_value, (v) => _then(v as _$_OverviewFailure));
 
   @override
-  _OverviewFailure get _value => super._value as _OverviewFailure;
+  _$_OverviewFailure get _value => super._value as _$_OverviewFailure;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_OverviewFailure(
+    return _then(_$_OverviewFailure(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -118,7 +104,7 @@ class _$_OverviewFailure extends _OverviewFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _OverviewFailure &&
+            other is _$_OverviewFailure &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -128,18 +114,18 @@ class _$_OverviewFailure extends _OverviewFailure {
 
   @JsonKey(ignore: true)
   @override
-  _$OverviewFailureCopyWith<_OverviewFailure> get copyWith =>
-      __$OverviewFailureCopyWithImpl<_OverviewFailure>(this, _$identity);
+  _$$_OverviewFailureCopyWith<_$_OverviewFailure> get copyWith =>
+      __$$_OverviewFailureCopyWithImpl<_$_OverviewFailure>(this, _$identity);
 }
 
 abstract class _OverviewFailure extends OverviewFailure {
-  const factory _OverviewFailure(String value) = _$_OverviewFailure;
+  const factory _OverviewFailure(final String value) = _$_OverviewFailure;
   const _OverviewFailure._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$OverviewFailureCopyWith<_OverviewFailure> get copyWith =>
+  _$$_OverviewFailureCopyWith<_$_OverviewFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

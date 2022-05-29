@@ -12,67 +12,7 @@ part of 'auth_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AuthEventTearOff {
-  const _$AuthEventTearOff();
-
-  _WatchTeamListStarted watchTeamListStarted() {
-    return const _WatchTeamListStarted();
-  }
-
-  _TeamListReceived teamListReceived(
-      Either<AuthFailure, List<Team>> failureOrTeamList) {
-    return _TeamListReceived(
-      failureOrTeamList,
-    );
-  }
-
-  _TeamSelected teamSelected(String teamId) {
-    return _TeamSelected(
-      teamId,
-    );
-  }
-
-  _WatchInterviewerListStarted watchInterviewerListStarted() {
-    return const _WatchInterviewerListStarted();
-  }
-
-  _InterviewerListReceived interviewerListReceived(
-      Either<AuthFailure, List<Interviewer>> failureOrInterviewerList) {
-    return _InterviewerListReceived(
-      failureOrInterviewerList,
-    );
-  }
-
-  _IdChanged idChanged(String id) {
-    return _IdChanged(
-      id,
-    );
-  }
-
-  _PasswordChanged passwordChanged(String password) {
-    return _PasswordChanged(
-      password,
-    );
-  }
-
-  _SignInPressed signInPressed() {
-    return const _SignInPressed();
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $AuthEvent = _$AuthEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AuthEvent {
@@ -193,22 +133,22 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$WatchTeamListStartedCopyWith<$Res> {
-  factory _$WatchTeamListStartedCopyWith(_WatchTeamListStarted value,
-          $Res Function(_WatchTeamListStarted) then) =
-      __$WatchTeamListStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchTeamListStartedCopyWith<$Res> {
+  factory _$$_WatchTeamListStartedCopyWith(_$_WatchTeamListStarted value,
+          $Res Function(_$_WatchTeamListStarted) then) =
+      __$$_WatchTeamListStartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WatchTeamListStartedCopyWithImpl<$Res>
+class __$$_WatchTeamListStartedCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res>
-    implements _$WatchTeamListStartedCopyWith<$Res> {
-  __$WatchTeamListStartedCopyWithImpl(
-      _WatchTeamListStarted _value, $Res Function(_WatchTeamListStarted) _then)
-      : super(_value, (v) => _then(v as _WatchTeamListStarted));
+    implements _$$_WatchTeamListStartedCopyWith<$Res> {
+  __$$_WatchTeamListStartedCopyWithImpl(_$_WatchTeamListStarted _value,
+      $Res Function(_$_WatchTeamListStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchTeamListStarted));
 
   @override
-  _WatchTeamListStarted get _value => super._value as _WatchTeamListStarted;
+  _$_WatchTeamListStarted get _value => super._value as _$_WatchTeamListStarted;
 }
 
 /// @nodoc
@@ -224,7 +164,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WatchTeamListStarted);
+        (other.runtimeType == runtimeType && other is _$_WatchTeamListStarted);
   }
 
   @override
@@ -359,29 +299,29 @@ abstract class _WatchTeamListStarted implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$TeamListReceivedCopyWith<$Res> {
-  factory _$TeamListReceivedCopyWith(
-          _TeamListReceived value, $Res Function(_TeamListReceived) then) =
-      __$TeamListReceivedCopyWithImpl<$Res>;
+abstract class _$$_TeamListReceivedCopyWith<$Res> {
+  factory _$$_TeamListReceivedCopyWith(
+          _$_TeamListReceived value, $Res Function(_$_TeamListReceived) then) =
+      __$$_TeamListReceivedCopyWithImpl<$Res>;
   $Res call({Either<AuthFailure, List<Team>> failureOrTeamList});
 }
 
 /// @nodoc
-class __$TeamListReceivedCopyWithImpl<$Res>
+class __$$_TeamListReceivedCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res>
-    implements _$TeamListReceivedCopyWith<$Res> {
-  __$TeamListReceivedCopyWithImpl(
-      _TeamListReceived _value, $Res Function(_TeamListReceived) _then)
-      : super(_value, (v) => _then(v as _TeamListReceived));
+    implements _$$_TeamListReceivedCopyWith<$Res> {
+  __$$_TeamListReceivedCopyWithImpl(
+      _$_TeamListReceived _value, $Res Function(_$_TeamListReceived) _then)
+      : super(_value, (v) => _then(v as _$_TeamListReceived));
 
   @override
-  _TeamListReceived get _value => super._value as _TeamListReceived;
+  _$_TeamListReceived get _value => super._value as _$_TeamListReceived;
 
   @override
   $Res call({
     Object? failureOrTeamList = freezed,
   }) {
-    return _then(_TeamListReceived(
+    return _then(_$_TeamListReceived(
       failureOrTeamList == freezed
           ? _value.failureOrTeamList
           : failureOrTeamList // ignore: cast_nullable_to_non_nullable
@@ -407,7 +347,7 @@ class _$_TeamListReceived implements _TeamListReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TeamListReceived &&
+            other is _$_TeamListReceived &&
             const DeepCollectionEquality()
                 .equals(other.failureOrTeamList, failureOrTeamList));
   }
@@ -418,8 +358,8 @@ class _$_TeamListReceived implements _TeamListReceived {
 
   @JsonKey(ignore: true)
   @override
-  _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith =>
-      __$TeamListReceivedCopyWithImpl<_TeamListReceived>(this, _$identity);
+  _$$_TeamListReceivedCopyWith<_$_TeamListReceived> get copyWith =>
+      __$$_TeamListReceivedCopyWithImpl<_$_TeamListReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -547,37 +487,39 @@ class _$_TeamListReceived implements _TeamListReceived {
 
 abstract class _TeamListReceived implements AuthEvent {
   const factory _TeamListReceived(
-      Either<AuthFailure, List<Team>> failureOrTeamList) = _$_TeamListReceived;
+          final Either<AuthFailure, List<Team>> failureOrTeamList) =
+      _$_TeamListReceived;
 
-  Either<AuthFailure, List<Team>> get failureOrTeamList;
+  Either<AuthFailure, List<Team>> get failureOrTeamList =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith =>
+  _$$_TeamListReceivedCopyWith<_$_TeamListReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$TeamSelectedCopyWith<$Res> {
-  factory _$TeamSelectedCopyWith(
-          _TeamSelected value, $Res Function(_TeamSelected) then) =
-      __$TeamSelectedCopyWithImpl<$Res>;
+abstract class _$$_TeamSelectedCopyWith<$Res> {
+  factory _$$_TeamSelectedCopyWith(
+          _$_TeamSelected value, $Res Function(_$_TeamSelected) then) =
+      __$$_TeamSelectedCopyWithImpl<$Res>;
   $Res call({String teamId});
 }
 
 /// @nodoc
-class __$TeamSelectedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$TeamSelectedCopyWith<$Res> {
-  __$TeamSelectedCopyWithImpl(
-      _TeamSelected _value, $Res Function(_TeamSelected) _then)
-      : super(_value, (v) => _then(v as _TeamSelected));
+class __$$_TeamSelectedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_TeamSelectedCopyWith<$Res> {
+  __$$_TeamSelectedCopyWithImpl(
+      _$_TeamSelected _value, $Res Function(_$_TeamSelected) _then)
+      : super(_value, (v) => _then(v as _$_TeamSelected));
 
   @override
-  _TeamSelected get _value => super._value as _TeamSelected;
+  _$_TeamSelected get _value => super._value as _$_TeamSelected;
 
   @override
   $Res call({
     Object? teamId = freezed,
   }) {
-    return _then(_TeamSelected(
+    return _then(_$_TeamSelected(
       teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
@@ -603,7 +545,7 @@ class _$_TeamSelected implements _TeamSelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TeamSelected &&
+            other is _$_TeamSelected &&
             const DeepCollectionEquality().equals(other.teamId, teamId));
   }
 
@@ -613,8 +555,8 @@ class _$_TeamSelected implements _TeamSelected {
 
   @JsonKey(ignore: true)
   @override
-  _$TeamSelectedCopyWith<_TeamSelected> get copyWith =>
-      __$TeamSelectedCopyWithImpl<_TeamSelected>(this, _$identity);
+  _$$_TeamSelectedCopyWith<_$_TeamSelected> get copyWith =>
+      __$$_TeamSelectedCopyWithImpl<_$_TeamSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -741,34 +683,34 @@ class _$_TeamSelected implements _TeamSelected {
 }
 
 abstract class _TeamSelected implements AuthEvent {
-  const factory _TeamSelected(String teamId) = _$_TeamSelected;
+  const factory _TeamSelected(final String teamId) = _$_TeamSelected;
 
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TeamSelectedCopyWith<_TeamSelected> get copyWith =>
+  _$$_TeamSelectedCopyWith<_$_TeamSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WatchInterviewerListStartedCopyWith<$Res> {
-  factory _$WatchInterviewerListStartedCopyWith(
-          _WatchInterviewerListStarted value,
-          $Res Function(_WatchInterviewerListStarted) then) =
-      __$WatchInterviewerListStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchInterviewerListStartedCopyWith<$Res> {
+  factory _$$_WatchInterviewerListStartedCopyWith(
+          _$_WatchInterviewerListStarted value,
+          $Res Function(_$_WatchInterviewerListStarted) then) =
+      __$$_WatchInterviewerListStartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$WatchInterviewerListStartedCopyWithImpl<$Res>
+class __$$_WatchInterviewerListStartedCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res>
-    implements _$WatchInterviewerListStartedCopyWith<$Res> {
-  __$WatchInterviewerListStartedCopyWithImpl(
-      _WatchInterviewerListStarted _value,
-      $Res Function(_WatchInterviewerListStarted) _then)
-      : super(_value, (v) => _then(v as _WatchInterviewerListStarted));
+    implements _$$_WatchInterviewerListStartedCopyWith<$Res> {
+  __$$_WatchInterviewerListStartedCopyWithImpl(
+      _$_WatchInterviewerListStarted _value,
+      $Res Function(_$_WatchInterviewerListStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchInterviewerListStarted));
 
   @override
-  _WatchInterviewerListStarted get _value =>
-      super._value as _WatchInterviewerListStarted;
+  _$_WatchInterviewerListStarted get _value =>
+      super._value as _$_WatchInterviewerListStarted;
 }
 
 /// @nodoc
@@ -785,7 +727,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WatchInterviewerListStarted);
+            other is _$_WatchInterviewerListStarted);
   }
 
   @override
@@ -920,30 +862,30 @@ abstract class _WatchInterviewerListStarted implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$InterviewerListReceivedCopyWith<$Res> {
-  factory _$InterviewerListReceivedCopyWith(_InterviewerListReceived value,
-          $Res Function(_InterviewerListReceived) then) =
-      __$InterviewerListReceivedCopyWithImpl<$Res>;
+abstract class _$$_InterviewerListReceivedCopyWith<$Res> {
+  factory _$$_InterviewerListReceivedCopyWith(_$_InterviewerListReceived value,
+          $Res Function(_$_InterviewerListReceived) then) =
+      __$$_InterviewerListReceivedCopyWithImpl<$Res>;
   $Res call({Either<AuthFailure, List<Interviewer>> failureOrInterviewerList});
 }
 
 /// @nodoc
-class __$InterviewerListReceivedCopyWithImpl<$Res>
+class __$$_InterviewerListReceivedCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res>
-    implements _$InterviewerListReceivedCopyWith<$Res> {
-  __$InterviewerListReceivedCopyWithImpl(_InterviewerListReceived _value,
-      $Res Function(_InterviewerListReceived) _then)
-      : super(_value, (v) => _then(v as _InterviewerListReceived));
+    implements _$$_InterviewerListReceivedCopyWith<$Res> {
+  __$$_InterviewerListReceivedCopyWithImpl(_$_InterviewerListReceived _value,
+      $Res Function(_$_InterviewerListReceived) _then)
+      : super(_value, (v) => _then(v as _$_InterviewerListReceived));
 
   @override
-  _InterviewerListReceived get _value =>
-      super._value as _InterviewerListReceived;
+  _$_InterviewerListReceived get _value =>
+      super._value as _$_InterviewerListReceived;
 
   @override
   $Res call({
     Object? failureOrInterviewerList = freezed,
   }) {
-    return _then(_InterviewerListReceived(
+    return _then(_$_InterviewerListReceived(
       failureOrInterviewerList == freezed
           ? _value.failureOrInterviewerList
           : failureOrInterviewerList // ignore: cast_nullable_to_non_nullable
@@ -969,7 +911,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _InterviewerListReceived &&
+            other is _$_InterviewerListReceived &&
             const DeepCollectionEquality().equals(
                 other.failureOrInterviewerList, failureOrInterviewerList));
   }
@@ -980,9 +922,10 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
 
   @JsonKey(ignore: true)
   @override
-  _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith =>
-      __$InterviewerListReceivedCopyWithImpl<_InterviewerListReceived>(
-          this, _$identity);
+  _$$_InterviewerListReceivedCopyWith<_$_InterviewerListReceived>
+      get copyWith =>
+          __$$_InterviewerListReceivedCopyWithImpl<_$_InterviewerListReceived>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1110,37 +1053,39 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
 
 abstract class _InterviewerListReceived implements AuthEvent {
   const factory _InterviewerListReceived(
-          Either<AuthFailure, List<Interviewer>> failureOrInterviewerList) =
-      _$_InterviewerListReceived;
+      final Either<AuthFailure, List<Interviewer>>
+          failureOrInterviewerList) = _$_InterviewerListReceived;
 
-  Either<AuthFailure, List<Interviewer>> get failureOrInterviewerList;
-  @JsonKey(ignore: true)
-  _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith =>
+  Either<AuthFailure, List<Interviewer>> get failureOrInterviewerList =>
       throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_InterviewerListReceivedCopyWith<_$_InterviewerListReceived>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$IdChangedCopyWith<$Res> {
-  factory _$IdChangedCopyWith(
-          _IdChanged value, $Res Function(_IdChanged) then) =
-      __$IdChangedCopyWithImpl<$Res>;
+abstract class _$$_IdChangedCopyWith<$Res> {
+  factory _$$_IdChangedCopyWith(
+          _$_IdChanged value, $Res Function(_$_IdChanged) then) =
+      __$$_IdChangedCopyWithImpl<$Res>;
   $Res call({String id});
 }
 
 /// @nodoc
-class __$IdChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$IdChangedCopyWith<$Res> {
-  __$IdChangedCopyWithImpl(_IdChanged _value, $Res Function(_IdChanged) _then)
-      : super(_value, (v) => _then(v as _IdChanged));
+class __$$_IdChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_IdChangedCopyWith<$Res> {
+  __$$_IdChangedCopyWithImpl(
+      _$_IdChanged _value, $Res Function(_$_IdChanged) _then)
+      : super(_value, (v) => _then(v as _$_IdChanged));
 
   @override
-  _IdChanged get _value => super._value as _IdChanged;
+  _$_IdChanged get _value => super._value as _$_IdChanged;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_IdChanged(
+    return _then(_$_IdChanged(
       id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1166,7 +1111,7 @@ class _$_IdChanged implements _IdChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _IdChanged &&
+            other is _$_IdChanged &&
             const DeepCollectionEquality().equals(other.id, id));
   }
 
@@ -1176,8 +1121,8 @@ class _$_IdChanged implements _IdChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$IdChangedCopyWith<_IdChanged> get copyWith =>
-      __$IdChangedCopyWithImpl<_IdChanged>(this, _$identity);
+  _$$_IdChangedCopyWith<_$_IdChanged> get copyWith =>
+      __$$_IdChangedCopyWithImpl<_$_IdChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1304,37 +1249,38 @@ class _$_IdChanged implements _IdChanged {
 }
 
 abstract class _IdChanged implements AuthEvent {
-  const factory _IdChanged(String id) = _$_IdChanged;
+  const factory _IdChanged(final String id) = _$_IdChanged;
 
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$IdChangedCopyWith<_IdChanged> get copyWith =>
+  _$$_IdChangedCopyWith<_$_IdChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PasswordChangedCopyWith<$Res> {
-  factory _$PasswordChangedCopyWith(
-          _PasswordChanged value, $Res Function(_PasswordChanged) then) =
-      __$PasswordChangedCopyWithImpl<$Res>;
+abstract class _$$_PasswordChangedCopyWith<$Res> {
+  factory _$$_PasswordChangedCopyWith(
+          _$_PasswordChanged value, $Res Function(_$_PasswordChanged) then) =
+      __$$_PasswordChangedCopyWithImpl<$Res>;
   $Res call({String password});
 }
 
 /// @nodoc
-class __$PasswordChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$PasswordChangedCopyWith<$Res> {
-  __$PasswordChangedCopyWithImpl(
-      _PasswordChanged _value, $Res Function(_PasswordChanged) _then)
-      : super(_value, (v) => _then(v as _PasswordChanged));
+class __$$_PasswordChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_PasswordChangedCopyWith<$Res> {
+  __$$_PasswordChangedCopyWithImpl(
+      _$_PasswordChanged _value, $Res Function(_$_PasswordChanged) _then)
+      : super(_value, (v) => _then(v as _$_PasswordChanged));
 
   @override
-  _PasswordChanged get _value => super._value as _PasswordChanged;
+  _$_PasswordChanged get _value => super._value as _$_PasswordChanged;
 
   @override
   $Res call({
     Object? password = freezed,
   }) {
-    return _then(_PasswordChanged(
+    return _then(_$_PasswordChanged(
       password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -1360,7 +1306,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PasswordChanged &&
+            other is _$_PasswordChanged &&
             const DeepCollectionEquality().equals(other.password, password));
   }
 
@@ -1370,8 +1316,8 @@ class _$_PasswordChanged implements _PasswordChanged {
 
   @JsonKey(ignore: true)
   @override
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
-      __$PasswordChangedCopyWithImpl<_PasswordChanged>(this, _$identity);
+  _$$_PasswordChangedCopyWith<_$_PasswordChanged> get copyWith =>
+      __$$_PasswordChangedCopyWithImpl<_$_PasswordChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1498,30 +1444,30 @@ class _$_PasswordChanged implements _PasswordChanged {
 }
 
 abstract class _PasswordChanged implements AuthEvent {
-  const factory _PasswordChanged(String password) = _$_PasswordChanged;
+  const factory _PasswordChanged(final String password) = _$_PasswordChanged;
 
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
+  _$$_PasswordChangedCopyWith<_$_PasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SignInPressedCopyWith<$Res> {
-  factory _$SignInPressedCopyWith(
-          _SignInPressed value, $Res Function(_SignInPressed) then) =
-      __$SignInPressedCopyWithImpl<$Res>;
+abstract class _$$_SignInPressedCopyWith<$Res> {
+  factory _$$_SignInPressedCopyWith(
+          _$_SignInPressed value, $Res Function(_$_SignInPressed) then) =
+      __$$_SignInPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SignInPressedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$SignInPressedCopyWith<$Res> {
-  __$SignInPressedCopyWithImpl(
-      _SignInPressed _value, $Res Function(_SignInPressed) _then)
-      : super(_value, (v) => _then(v as _SignInPressed));
+class __$$_SignInPressedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_SignInPressedCopyWith<$Res> {
+  __$$_SignInPressedCopyWithImpl(
+      _$_SignInPressed _value, $Res Function(_$_SignInPressed) _then)
+      : super(_value, (v) => _then(v as _$_SignInPressed));
 
   @override
-  _SignInPressed get _value => super._value as _SignInPressed;
+  _$_SignInPressed get _value => super._value as _$_SignInPressed;
 }
 
 /// @nodoc
@@ -1537,7 +1483,7 @@ class _$_SignInPressed implements _SignInPressed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _SignInPressed);
+        (other.runtimeType == runtimeType && other is _$_SignInPressed);
   }
 
   @override
@@ -1672,20 +1618,21 @@ abstract class _SignInPressed implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$LoggedOutCopyWith<$Res> {
-  factory _$LoggedOutCopyWith(
-          _LoggedOut value, $Res Function(_LoggedOut) then) =
-      __$LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LoggedOutCopyWith<$Res> {
+  factory _$$_LoggedOutCopyWith(
+          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
+      __$$_LoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoggedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$LoggedOutCopyWith<$Res> {
-  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _LoggedOut));
+class __$$_LoggedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_LoggedOutCopyWith<$Res> {
+  __$$_LoggedOutCopyWithImpl(
+      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$_LoggedOut));
 
   @override
-  _LoggedOut get _value => super._value as _LoggedOut;
+  _$_LoggedOut get _value => super._value as _$_LoggedOut;
 }
 
 /// @nodoc
@@ -1701,7 +1648,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LoggedOut);
   }
 
   @override
@@ -1836,21 +1783,21 @@ abstract class _LoggedOut implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+class __$$_InitializedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -1866,7 +1813,7 @@ class _$_Initialized implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -2001,50 +1948,15 @@ abstract class _Initialized implements AuthEvent {
 }
 
 /// @nodoc
-class _$AuthStateTearOff {
-  const _$AuthStateTearOff();
-
-  _AuthState call(
-      {required UniqueId stateId,
-      required List<Team> teamList,
-      required Team team,
-      required List<Interviewer> interviewerList,
-      required Interviewer interviewer,
-      required String id,
-      required String password,
-      required bool validate,
-      required LoadState signInState,
-      required Option<AuthFailure> authFailure,
-      required LoadState eventState}) {
-    return _AuthState(
-      stateId: stateId,
-      teamList: teamList,
-      team: team,
-      interviewerList: interviewerList,
-      interviewer: interviewer,
-      id: id,
-      password: password,
-      validate: validate,
-      signInState: signInState,
-      authFailure: authFailure,
-      eventState: eventState,
-    );
-  }
-}
-
-/// @nodoc
-const $AuthState = _$AuthStateTearOff();
-
-/// @nodoc
 mixin _$AuthState {
-  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
+  UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   List<Team> get teamList => throw _privateConstructorUsedError;
   Team get team => throw _privateConstructorUsedError;
   List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
-  Interviewer get interviewer => throw _privateConstructorUsedError; // H_ 中間資料
+  Interviewer get interviewer => throw _privateConstructorUsedError; // > 中間資料
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  bool get validate => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  bool get validate => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get signInState => throw _privateConstructorUsedError;
   Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
@@ -2185,10 +2097,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$AuthStateCopyWith(
-          _AuthState value, $Res Function(_AuthState) then) =
-      __$AuthStateCopyWithImpl<$Res>;
+abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory _$$_AuthStateCopyWith(
+          _$_AuthState value, $Res Function(_$_AuthState) then) =
+      __$$_AuthStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -2216,13 +2128,14 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements _$AuthStateCopyWith<$Res> {
-  __$AuthStateCopyWithImpl(_AuthState _value, $Res Function(_AuthState) _then)
-      : super(_value, (v) => _then(v as _AuthState));
+class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements _$$_AuthStateCopyWith<$Res> {
+  __$$_AuthStateCopyWithImpl(
+      _$_AuthState _value, $Res Function(_$_AuthState) _then)
+      : super(_value, (v) => _then(v as _$_AuthState));
 
   @override
-  _AuthState get _value => super._value as _AuthState;
+  _$_AuthState get _value => super._value as _$_AuthState;
 
   @override
   $Res call({
@@ -2238,13 +2151,13 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? authFailure = freezed,
     Object? eventState = freezed,
   }) {
-    return _then(_AuthState(
+    return _then(_$_AuthState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       teamList: teamList == freezed
-          ? _value.teamList
+          ? _value._teamList
           : teamList // ignore: cast_nullable_to_non_nullable
               as List<Team>,
       team: team == freezed
@@ -2252,7 +2165,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           : team // ignore: cast_nullable_to_non_nullable
               as Team,
       interviewerList: interviewerList == freezed
-          ? _value.interviewerList
+          ? _value._interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
               as List<Interviewer>,
       interviewer: interviewer == freezed
@@ -2292,9 +2205,9 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 class _$_AuthState extends _AuthState {
   const _$_AuthState(
       {required this.stateId,
-      required this.teamList,
+      required final List<Team> teamList,
       required this.team,
-      required this.interviewerList,
+      required final List<Interviewer> interviewerList,
       required this.interviewer,
       required this.id,
       required this.password,
@@ -2302,25 +2215,41 @@ class _$_AuthState extends _AuthState {
       required this.signInState,
       required this.authFailure,
       required this.eventState})
-      : super._();
+      : _teamList = teamList,
+        _interviewerList = interviewerList,
+        super._();
 
   @override
   final UniqueId stateId;
-  @override // H_ 主要資料
-  final List<Team> teamList;
+// > 主要資料
+  final List<Team> _teamList;
+// > 主要資料
+  @override
+  List<Team> get teamList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_teamList);
+  }
+
   @override
   final Team team;
+  final List<Interviewer> _interviewerList;
   @override
-  final List<Interviewer> interviewerList;
+  List<Interviewer> get interviewerList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_interviewerList);
+  }
+
   @override
   final Interviewer interviewer;
-  @override // H_ 中間資料
+// > 中間資料
+  @override
   final String id;
   @override
   final String password;
   @override
   final bool validate;
-  @override // H_ 狀態更新進度
+// > 狀態更新進度
+  @override
   final LoadState signInState;
   @override
   final Option<AuthFailure> authFailure;
@@ -2336,12 +2265,12 @@ class _$_AuthState extends _AuthState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AuthState &&
+            other is _$_AuthState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
-            const DeepCollectionEquality().equals(other.teamList, teamList) &&
+            const DeepCollectionEquality().equals(other._teamList, _teamList) &&
             const DeepCollectionEquality().equals(other.team, team) &&
             const DeepCollectionEquality()
-                .equals(other.interviewerList, interviewerList) &&
+                .equals(other._interviewerList, _interviewerList) &&
             const DeepCollectionEquality()
                 .equals(other.interviewer, interviewer) &&
             const DeepCollectionEquality().equals(other.id, id) &&
@@ -2359,9 +2288,9 @@ class _$_AuthState extends _AuthState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(stateId),
-      const DeepCollectionEquality().hash(teamList),
+      const DeepCollectionEquality().hash(_teamList),
       const DeepCollectionEquality().hash(team),
-      const DeepCollectionEquality().hash(interviewerList),
+      const DeepCollectionEquality().hash(_interviewerList),
       const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(password),
@@ -2372,49 +2301,49 @@ class _$_AuthState extends _AuthState {
 
   @JsonKey(ignore: true)
   @override
-  _$AuthStateCopyWith<_AuthState> get copyWith =>
-      __$AuthStateCopyWithImpl<_AuthState>(this, _$identity);
+  _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
+      __$$_AuthStateCopyWithImpl<_$_AuthState>(this, _$identity);
 }
 
 abstract class _AuthState extends AuthState {
   const factory _AuthState(
-      {required UniqueId stateId,
-      required List<Team> teamList,
-      required Team team,
-      required List<Interviewer> interviewerList,
-      required Interviewer interviewer,
-      required String id,
-      required String password,
-      required bool validate,
-      required LoadState signInState,
-      required Option<AuthFailure> authFailure,
-      required LoadState eventState}) = _$_AuthState;
+      {required final UniqueId stateId,
+      required final List<Team> teamList,
+      required final Team team,
+      required final List<Interviewer> interviewerList,
+      required final Interviewer interviewer,
+      required final String id,
+      required final String password,
+      required final bool validate,
+      required final LoadState signInState,
+      required final Option<AuthFailure> authFailure,
+      required final LoadState eventState}) = _$_AuthState;
   const _AuthState._() : super._();
 
   @override
-  UniqueId get stateId;
-  @override // H_ 主要資料
-  List<Team> get teamList;
+  UniqueId get stateId => throw _privateConstructorUsedError;
+  @override // > 主要資料
+  List<Team> get teamList => throw _privateConstructorUsedError;
   @override
-  Team get team;
+  Team get team => throw _privateConstructorUsedError;
   @override
-  List<Interviewer> get interviewerList;
+  List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
   @override
-  Interviewer get interviewer;
-  @override // H_ 中間資料
-  String get id;
+  Interviewer get interviewer => throw _privateConstructorUsedError;
+  @override // > 中間資料
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @override
-  bool get validate;
-  @override // H_ 狀態更新進度
-  LoadState get signInState;
+  bool get validate => throw _privateConstructorUsedError;
+  @override // > 狀態更新進度
+  LoadState get signInState => throw _privateConstructorUsedError;
   @override
-  Option<AuthFailure> get authFailure;
+  Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
   @override
-  LoadState get eventState;
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AuthStateCopyWith<_AuthState> get copyWith =>
+  _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }

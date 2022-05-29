@@ -36,7 +36,7 @@ class AppWidget extends StatelessWidget {
             },
             title: '問卷',
             debugShowCheckedModeBanner: false,
-            theme: kLightTheme,
+            theme: buildTheme(),
             localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate
             ],

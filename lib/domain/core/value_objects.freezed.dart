@@ -12,21 +12,7 @@ part of 'value_objects.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UniqueIdTearOff {
-  const _$UniqueIdTearOff();
-
-  _UniqueId call(String value) {
-    return _UniqueId(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $UniqueId = _$UniqueIdTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UniqueId {
@@ -66,27 +52,29 @@ class _$UniqueIdCopyWithImpl<$Res> implements $UniqueIdCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UniqueIdCopyWith<$Res> implements $UniqueIdCopyWith<$Res> {
-  factory _$UniqueIdCopyWith(_UniqueId value, $Res Function(_UniqueId) then) =
-      __$UniqueIdCopyWithImpl<$Res>;
+abstract class _$$_UniqueIdCopyWith<$Res> implements $UniqueIdCopyWith<$Res> {
+  factory _$$_UniqueIdCopyWith(
+          _$_UniqueId value, $Res Function(_$_UniqueId) then) =
+      __$$_UniqueIdCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$UniqueIdCopyWithImpl<$Res> extends _$UniqueIdCopyWithImpl<$Res>
-    implements _$UniqueIdCopyWith<$Res> {
-  __$UniqueIdCopyWithImpl(_UniqueId _value, $Res Function(_UniqueId) _then)
-      : super(_value, (v) => _then(v as _UniqueId));
+class __$$_UniqueIdCopyWithImpl<$Res> extends _$UniqueIdCopyWithImpl<$Res>
+    implements _$$_UniqueIdCopyWith<$Res> {
+  __$$_UniqueIdCopyWithImpl(
+      _$_UniqueId _value, $Res Function(_$_UniqueId) _then)
+      : super(_value, (v) => _then(v as _$_UniqueId));
 
   @override
-  _UniqueId get _value => super._value as _UniqueId;
+  _$_UniqueId get _value => super._value as _$_UniqueId;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_UniqueId(
+    return _then(_$_UniqueId(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -120,7 +108,7 @@ class _$_UniqueId extends _UniqueId with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UniqueId &&
+            other is _$_UniqueId &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -130,35 +118,21 @@ class _$_UniqueId extends _UniqueId with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$UniqueIdCopyWith<_UniqueId> get copyWith =>
-      __$UniqueIdCopyWithImpl<_UniqueId>(this, _$identity);
+  _$$_UniqueIdCopyWith<_$_UniqueId> get copyWith =>
+      __$$_UniqueIdCopyWithImpl<_$_UniqueId>(this, _$identity);
 }
 
 abstract class _UniqueId extends UniqueId {
-  const factory _UniqueId(String value) = _$_UniqueId;
+  const factory _UniqueId(final String value) = _$_UniqueId;
   const _UniqueId._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UniqueIdCopyWith<_UniqueId> get copyWith =>
+  _$$_UniqueIdCopyWith<_$_UniqueId> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$LoadStateTearOff {
-  const _$LoadStateTearOff();
-
-  _LoadState call(String value) {
-    return _LoadState(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $LoadState = _$LoadStateTearOff();
 
 /// @nodoc
 mixin _$LoadState {
@@ -198,28 +172,29 @@ class _$LoadStateCopyWithImpl<$Res> implements $LoadStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LoadStateCopyWith<$Res> implements $LoadStateCopyWith<$Res> {
-  factory _$LoadStateCopyWith(
-          _LoadState value, $Res Function(_LoadState) then) =
-      __$LoadStateCopyWithImpl<$Res>;
+abstract class _$$_LoadStateCopyWith<$Res> implements $LoadStateCopyWith<$Res> {
+  factory _$$_LoadStateCopyWith(
+          _$_LoadState value, $Res Function(_$_LoadState) then) =
+      __$$_LoadStateCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$LoadStateCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
-    implements _$LoadStateCopyWith<$Res> {
-  __$LoadStateCopyWithImpl(_LoadState _value, $Res Function(_LoadState) _then)
-      : super(_value, (v) => _then(v as _LoadState));
+class __$$_LoadStateCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
+    implements _$$_LoadStateCopyWith<$Res> {
+  __$$_LoadStateCopyWithImpl(
+      _$_LoadState _value, $Res Function(_$_LoadState) _then)
+      : super(_value, (v) => _then(v as _$_LoadState));
 
   @override
-  _LoadState get _value => super._value as _LoadState;
+  _$_LoadState get _value => super._value as _$_LoadState;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_LoadState(
+    return _then(_$_LoadState(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -253,7 +228,7 @@ class _$_LoadState extends _LoadState with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LoadState &&
+            other is _$_LoadState &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -263,35 +238,21 @@ class _$_LoadState extends _LoadState with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$LoadStateCopyWith<_LoadState> get copyWith =>
-      __$LoadStateCopyWithImpl<_LoadState>(this, _$identity);
+  _$$_LoadStateCopyWith<_$_LoadState> get copyWith =>
+      __$$_LoadStateCopyWithImpl<_$_LoadState>(this, _$identity);
 }
 
 abstract class _LoadState extends LoadState {
-  const factory _LoadState(String value) = _$_LoadState;
+  const factory _LoadState(final String value) = _$_LoadState;
   const _LoadState._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LoadStateCopyWith<_LoadState> get copyWith =>
+  _$$_LoadStateCopyWith<_$_LoadState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$PageStateTearOff {
-  const _$PageStateTearOff();
-
-  _PageState call(String value) {
-    return _PageState(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $PageState = _$PageStateTearOff();
 
 /// @nodoc
 mixin _$PageState {
@@ -331,28 +292,29 @@ class _$PageStateCopyWithImpl<$Res> implements $PageStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PageStateCopyWith<$Res> implements $PageStateCopyWith<$Res> {
-  factory _$PageStateCopyWith(
-          _PageState value, $Res Function(_PageState) then) =
-      __$PageStateCopyWithImpl<$Res>;
+abstract class _$$_PageStateCopyWith<$Res> implements $PageStateCopyWith<$Res> {
+  factory _$$_PageStateCopyWith(
+          _$_PageState value, $Res Function(_$_PageState) then) =
+      __$$_PageStateCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$PageStateCopyWithImpl<$Res> extends _$PageStateCopyWithImpl<$Res>
-    implements _$PageStateCopyWith<$Res> {
-  __$PageStateCopyWithImpl(_PageState _value, $Res Function(_PageState) _then)
-      : super(_value, (v) => _then(v as _PageState));
+class __$$_PageStateCopyWithImpl<$Res> extends _$PageStateCopyWithImpl<$Res>
+    implements _$$_PageStateCopyWith<$Res> {
+  __$$_PageStateCopyWithImpl(
+      _$_PageState _value, $Res Function(_$_PageState) _then)
+      : super(_value, (v) => _then(v as _$_PageState));
 
   @override
-  _PageState get _value => super._value as _PageState;
+  _$_PageState get _value => super._value as _$_PageState;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_PageState(
+    return _then(_$_PageState(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -386,7 +348,7 @@ class _$_PageState extends _PageState with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PageState &&
+            other is _$_PageState &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -396,35 +358,21 @@ class _$_PageState extends _PageState with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$PageStateCopyWith<_PageState> get copyWith =>
-      __$PageStateCopyWithImpl<_PageState>(this, _$identity);
+  _$$_PageStateCopyWith<_$_PageState> get copyWith =>
+      __$$_PageStateCopyWithImpl<_$_PageState>(this, _$identity);
 }
 
 abstract class _PageState extends PageState {
-  const factory _PageState(String value) = _$_PageState;
+  const factory _PageState(final String value) = _$_PageState;
   const _PageState._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PageStateCopyWith<_PageState> get copyWith =>
+  _$$_PageStateCopyWith<_$_PageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$NavigationPageTearOff {
-  const _$NavigationPageTearOff();
-
-  _NavigationPage call(String value) {
-    return _NavigationPage(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $NavigationPage = _$NavigationPageTearOff();
 
 /// @nodoc
 mixin _$NavigationPage {
@@ -466,31 +414,31 @@ class _$NavigationPageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$NavigationPageCopyWith<$Res>
+abstract class _$$_NavigationPageCopyWith<$Res>
     implements $NavigationPageCopyWith<$Res> {
-  factory _$NavigationPageCopyWith(
-          _NavigationPage value, $Res Function(_NavigationPage) then) =
-      __$NavigationPageCopyWithImpl<$Res>;
+  factory _$$_NavigationPageCopyWith(
+          _$_NavigationPage value, $Res Function(_$_NavigationPage) then) =
+      __$$_NavigationPageCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$NavigationPageCopyWithImpl<$Res>
+class __$$_NavigationPageCopyWithImpl<$Res>
     extends _$NavigationPageCopyWithImpl<$Res>
-    implements _$NavigationPageCopyWith<$Res> {
-  __$NavigationPageCopyWithImpl(
-      _NavigationPage _value, $Res Function(_NavigationPage) _then)
-      : super(_value, (v) => _then(v as _NavigationPage));
+    implements _$$_NavigationPageCopyWith<$Res> {
+  __$$_NavigationPageCopyWithImpl(
+      _$_NavigationPage _value, $Res Function(_$_NavigationPage) _then)
+      : super(_value, (v) => _then(v as _$_NavigationPage));
 
   @override
-  _NavigationPage get _value => super._value as _NavigationPage;
+  _$_NavigationPage get _value => super._value as _$_NavigationPage;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_NavigationPage(
+    return _then(_$_NavigationPage(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -524,7 +472,7 @@ class _$_NavigationPage extends _NavigationPage with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NavigationPage &&
+            other is _$_NavigationPage &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -534,35 +482,21 @@ class _$_NavigationPage extends _NavigationPage with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$NavigationPageCopyWith<_NavigationPage> get copyWith =>
-      __$NavigationPageCopyWithImpl<_NavigationPage>(this, _$identity);
+  _$$_NavigationPageCopyWith<_$_NavigationPage> get copyWith =>
+      __$$_NavigationPageCopyWithImpl<_$_NavigationPage>(this, _$identity);
 }
 
 abstract class _NavigationPage extends NavigationPage {
-  const factory _NavigationPage(String value) = _$_NavigationPage;
+  const factory _NavigationPage(final String value) = _$_NavigationPage;
   const _NavigationPage._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NavigationPageCopyWith<_NavigationPage> get copyWith =>
+  _$$_NavigationPageCopyWith<_$_NavigationPage> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$NetworkTypeTearOff {
-  const _$NetworkTypeTearOff();
-
-  _NetworkType call(String value) {
-    return _NetworkType(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $NetworkType = _$NetworkTypeTearOff();
 
 /// @nodoc
 mixin _$NetworkType {
@@ -603,30 +537,30 @@ class _$NetworkTypeCopyWithImpl<$Res> implements $NetworkTypeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NetworkTypeCopyWith<$Res>
+abstract class _$$_NetworkTypeCopyWith<$Res>
     implements $NetworkTypeCopyWith<$Res> {
-  factory _$NetworkTypeCopyWith(
-          _NetworkType value, $Res Function(_NetworkType) then) =
-      __$NetworkTypeCopyWithImpl<$Res>;
+  factory _$$_NetworkTypeCopyWith(
+          _$_NetworkType value, $Res Function(_$_NetworkType) then) =
+      __$$_NetworkTypeCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$NetworkTypeCopyWithImpl<$Res> extends _$NetworkTypeCopyWithImpl<$Res>
-    implements _$NetworkTypeCopyWith<$Res> {
-  __$NetworkTypeCopyWithImpl(
-      _NetworkType _value, $Res Function(_NetworkType) _then)
-      : super(_value, (v) => _then(v as _NetworkType));
+class __$$_NetworkTypeCopyWithImpl<$Res> extends _$NetworkTypeCopyWithImpl<$Res>
+    implements _$$_NetworkTypeCopyWith<$Res> {
+  __$$_NetworkTypeCopyWithImpl(
+      _$_NetworkType _value, $Res Function(_$_NetworkType) _then)
+      : super(_value, (v) => _then(v as _$_NetworkType));
 
   @override
-  _NetworkType get _value => super._value as _NetworkType;
+  _$_NetworkType get _value => super._value as _$_NetworkType;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_NetworkType(
+    return _then(_$_NetworkType(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -660,7 +594,7 @@ class _$_NetworkType extends _NetworkType with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NetworkType &&
+            other is _$_NetworkType &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -670,35 +604,21 @@ class _$_NetworkType extends _NetworkType with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$NetworkTypeCopyWith<_NetworkType> get copyWith =>
-      __$NetworkTypeCopyWithImpl<_NetworkType>(this, _$identity);
+  _$$_NetworkTypeCopyWith<_$_NetworkType> get copyWith =>
+      __$$_NetworkTypeCopyWithImpl<_$_NetworkType>(this, _$identity);
 }
 
 abstract class _NetworkType extends NetworkType {
-  const factory _NetworkType(String value) = _$_NetworkType;
+  const factory _NetworkType(final String value) = _$_NetworkType;
   const _NetworkType._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NetworkTypeCopyWith<_NetworkType> get copyWith =>
+  _$$_NetworkTypeCopyWith<_$_NetworkType> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$SyncStateTearOff {
-  const _$SyncStateTearOff();
-
-  _SyncState call(String value) {
-    return _SyncState(
-      value,
-    );
-  }
-}
-
-/// @nodoc
-const $SyncState = _$SyncStateTearOff();
 
 /// @nodoc
 mixin _$SyncState {
@@ -738,28 +658,29 @@ class _$SyncStateCopyWithImpl<$Res> implements $SyncStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SyncStateCopyWith<$Res> implements $SyncStateCopyWith<$Res> {
-  factory _$SyncStateCopyWith(
-          _SyncState value, $Res Function(_SyncState) then) =
-      __$SyncStateCopyWithImpl<$Res>;
+abstract class _$$_SyncStateCopyWith<$Res> implements $SyncStateCopyWith<$Res> {
+  factory _$$_SyncStateCopyWith(
+          _$_SyncState value, $Res Function(_$_SyncState) then) =
+      __$$_SyncStateCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$SyncStateCopyWithImpl<$Res> extends _$SyncStateCopyWithImpl<$Res>
-    implements _$SyncStateCopyWith<$Res> {
-  __$SyncStateCopyWithImpl(_SyncState _value, $Res Function(_SyncState) _then)
-      : super(_value, (v) => _then(v as _SyncState));
+class __$$_SyncStateCopyWithImpl<$Res> extends _$SyncStateCopyWithImpl<$Res>
+    implements _$$_SyncStateCopyWith<$Res> {
+  __$$_SyncStateCopyWithImpl(
+      _$_SyncState _value, $Res Function(_$_SyncState) _then)
+      : super(_value, (v) => _then(v as _$_SyncState));
 
   @override
-  _SyncState get _value => super._value as _SyncState;
+  _$_SyncState get _value => super._value as _$_SyncState;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_SyncState(
+    return _then(_$_SyncState(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -793,7 +714,7 @@ class _$_SyncState extends _SyncState with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SyncState &&
+            other is _$_SyncState &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -803,42 +724,21 @@ class _$_SyncState extends _SyncState with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$SyncStateCopyWith<_SyncState> get copyWith =>
-      __$SyncStateCopyWithImpl<_SyncState>(this, _$identity);
+  _$$_SyncStateCopyWith<_$_SyncState> get copyWith =>
+      __$$_SyncStateCopyWithImpl<_$_SyncState>(this, _$identity);
 }
 
 abstract class _SyncState extends SyncState {
-  const factory _SyncState(String value) = _$_SyncState;
+  const factory _SyncState(final String value) = _$_SyncState;
   const _SyncState._() : super._();
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SyncStateCopyWith<_SyncState> get copyWith =>
+  _$$_SyncStateCopyWith<_$_SyncState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$DtoInfoTearOff {
-  const _$DtoInfoTearOff();
-
-  _DtoInfo call(
-      {String? box,
-      String? key,
-      bool readOnly = false,
-      bool isMapEntries = false}) {
-    return _DtoInfo(
-      box: box,
-      key: key,
-      readOnly: readOnly,
-      isMapEntries: isMapEntries,
-    );
-  }
-}
-
-/// @nodoc
-const $DtoInfo = _$DtoInfoTearOff();
 
 /// @nodoc
 mixin _$DtoInfo {
@@ -895,21 +795,22 @@ class _$DtoInfoCopyWithImpl<$Res> implements $DtoInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$DtoInfoCopyWith<$Res> implements $DtoInfoCopyWith<$Res> {
-  factory _$DtoInfoCopyWith(_DtoInfo value, $Res Function(_DtoInfo) then) =
-      __$DtoInfoCopyWithImpl<$Res>;
+abstract class _$$_DtoInfoCopyWith<$Res> implements $DtoInfoCopyWith<$Res> {
+  factory _$$_DtoInfoCopyWith(
+          _$_DtoInfo value, $Res Function(_$_DtoInfo) then) =
+      __$$_DtoInfoCopyWithImpl<$Res>;
   @override
   $Res call({String? box, String? key, bool readOnly, bool isMapEntries});
 }
 
 /// @nodoc
-class __$DtoInfoCopyWithImpl<$Res> extends _$DtoInfoCopyWithImpl<$Res>
-    implements _$DtoInfoCopyWith<$Res> {
-  __$DtoInfoCopyWithImpl(_DtoInfo _value, $Res Function(_DtoInfo) _then)
-      : super(_value, (v) => _then(v as _DtoInfo));
+class __$$_DtoInfoCopyWithImpl<$Res> extends _$DtoInfoCopyWithImpl<$Res>
+    implements _$$_DtoInfoCopyWith<$Res> {
+  __$$_DtoInfoCopyWithImpl(_$_DtoInfo _value, $Res Function(_$_DtoInfo) _then)
+      : super(_value, (v) => _then(v as _$_DtoInfo));
 
   @override
-  _DtoInfo get _value => super._value as _DtoInfo;
+  _$_DtoInfo get _value => super._value as _$_DtoInfo;
 
   @override
   $Res call({
@@ -918,7 +819,7 @@ class __$DtoInfoCopyWithImpl<$Res> extends _$DtoInfoCopyWithImpl<$Res>
     Object? readOnly = freezed,
     Object? isMapEntries = freezed,
   }) {
-    return _then(_DtoInfo(
+    return _then(_$_DtoInfo(
       box: box == freezed
           ? _value.box
           : box // ignore: cast_nullable_to_non_nullable
@@ -950,11 +851,11 @@ class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
   final String? box;
   @override
   final String? key;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool readOnly;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isMapEntries;
 
   @override
@@ -977,7 +878,7 @@ class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DtoInfo &&
+            other is _$_DtoInfo &&
             const DeepCollectionEquality().equals(other.box, box) &&
             const DeepCollectionEquality().equals(other.key, key) &&
             const DeepCollectionEquality().equals(other.readOnly, readOnly) &&
@@ -995,28 +896,28 @@ class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$DtoInfoCopyWith<_DtoInfo> get copyWith =>
-      __$DtoInfoCopyWithImpl<_DtoInfo>(this, _$identity);
+  _$$_DtoInfoCopyWith<_$_DtoInfo> get copyWith =>
+      __$$_DtoInfoCopyWithImpl<_$_DtoInfo>(this, _$identity);
 }
 
 abstract class _DtoInfo extends DtoInfo {
   const factory _DtoInfo(
-      {String? box,
-      String? key,
-      bool readOnly,
-      bool isMapEntries}) = _$_DtoInfo;
+      {final String? box,
+      final String? key,
+      final bool readOnly,
+      final bool isMapEntries}) = _$_DtoInfo;
   const _DtoInfo._() : super._();
 
   @override
-  String? get box;
+  String? get box => throw _privateConstructorUsedError;
   @override
-  String? get key;
+  String? get key => throw _privateConstructorUsedError;
   @override
-  bool get readOnly;
+  bool get readOnly => throw _privateConstructorUsedError;
   @override
-  bool get isMapEntries;
+  bool get isMapEntries => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DtoInfoCopyWith<_DtoInfo> get copyWith =>
+  _$$_DtoInfoCopyWith<_$_DtoInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

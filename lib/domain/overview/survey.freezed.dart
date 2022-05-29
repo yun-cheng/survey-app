@@ -12,36 +12,7 @@ part of 'survey.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SurveyTearOff {
-  const _$SurveyTearOff();
-
-  _Survey call(
-      {required String id,
-      required String name,
-      required String teamId,
-      required String projectId,
-      required String version,
-      required bool isCompatible,
-      required DeviceTimeStamp lastUpdatedTimeStamp,
-      required Map<ModuleType, SurveyModule> module}) {
-    return _Survey(
-      id: id,
-      name: name,
-      teamId: teamId,
-      projectId: projectId,
-      version: version,
-      isCompatible: isCompatible,
-      lastUpdatedTimeStamp: lastUpdatedTimeStamp,
-      module: module,
-    );
-  }
-}
-
-/// @nodoc
-const $Survey = _$SurveyTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Survey {
@@ -141,9 +112,9 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
-  factory _$SurveyCopyWith(_Survey value, $Res Function(_Survey) then) =
-      __$SurveyCopyWithImpl<$Res>;
+abstract class _$$_SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
+  factory _$$_SurveyCopyWith(_$_Survey value, $Res Function(_$_Survey) then) =
+      __$$_SurveyCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id,
@@ -160,13 +131,13 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
-    implements _$SurveyCopyWith<$Res> {
-  __$SurveyCopyWithImpl(_Survey _value, $Res Function(_Survey) _then)
-      : super(_value, (v) => _then(v as _Survey));
+class __$$_SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
+    implements _$$_SurveyCopyWith<$Res> {
+  __$$_SurveyCopyWithImpl(_$_Survey _value, $Res Function(_$_Survey) _then)
+      : super(_value, (v) => _then(v as _$_Survey));
 
   @override
-  _Survey get _value => super._value as _Survey;
+  _$_Survey get _value => super._value as _$_Survey;
 
   @override
   $Res call({
@@ -179,7 +150,7 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
     Object? lastUpdatedTimeStamp = freezed,
     Object? module = freezed,
   }) {
-    return _then(_Survey(
+    return _then(_$_Survey(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -209,7 +180,7 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
           : lastUpdatedTimeStamp // ignore: cast_nullable_to_non_nullable
               as DeviceTimeStamp,
       module: module == freezed
-          ? _value.module
+          ? _value._module
           : module // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, SurveyModule>,
     ));
@@ -227,8 +198,9 @@ class _$_Survey extends _Survey {
       required this.version,
       required this.isCompatible,
       required this.lastUpdatedTimeStamp,
-      required this.module})
-      : super._();
+      required final Map<ModuleType, SurveyModule> module})
+      : _module = module,
+        super._();
 
   @override
   final String id;
@@ -244,14 +216,18 @@ class _$_Survey extends _Survey {
   final bool isCompatible;
   @override
   final DeviceTimeStamp lastUpdatedTimeStamp;
+  final Map<ModuleType, SurveyModule> _module;
   @override
-  final Map<ModuleType, SurveyModule> module;
+  Map<ModuleType, SurveyModule> get module {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_module);
+  }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Survey &&
+            other is _$_Survey &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
@@ -261,7 +237,7 @@ class _$_Survey extends _Survey {
                 .equals(other.isCompatible, isCompatible) &&
             const DeepCollectionEquality()
                 .equals(other.lastUpdatedTimeStamp, lastUpdatedTimeStamp) &&
-            const DeepCollectionEquality().equals(other.module, module));
+            const DeepCollectionEquality().equals(other._module, _module));
   }
 
   @override
@@ -274,43 +250,46 @@ class _$_Survey extends _Survey {
       const DeepCollectionEquality().hash(version),
       const DeepCollectionEquality().hash(isCompatible),
       const DeepCollectionEquality().hash(lastUpdatedTimeStamp),
-      const DeepCollectionEquality().hash(module));
+      const DeepCollectionEquality().hash(_module));
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyCopyWith<_Survey> get copyWith =>
-      __$SurveyCopyWithImpl<_Survey>(this, _$identity);
+  _$$_SurveyCopyWith<_$_Survey> get copyWith =>
+      __$$_SurveyCopyWithImpl<_$_Survey>(this, _$identity);
 }
 
 abstract class _Survey extends Survey {
   const factory _Survey(
-      {required String id,
-      required String name,
-      required String teamId,
-      required String projectId,
-      required String version,
-      required bool isCompatible,
-      required DeviceTimeStamp lastUpdatedTimeStamp,
-      required Map<ModuleType, SurveyModule> module}) = _$_Survey;
+      {required final String id,
+      required final String name,
+      required final String teamId,
+      required final String projectId,
+      required final String version,
+      required final bool isCompatible,
+      required final DeviceTimeStamp lastUpdatedTimeStamp,
+      required final Map<ModuleType, SurveyModule> module}) = _$_Survey;
   const _Survey._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get version;
+  String get version => throw _privateConstructorUsedError;
   @override
-  bool get isCompatible;
+  bool get isCompatible => throw _privateConstructorUsedError;
   @override
-  DeviceTimeStamp get lastUpdatedTimeStamp;
+  DeviceTimeStamp get lastUpdatedTimeStamp =>
+      throw _privateConstructorUsedError;
   @override
-  Map<ModuleType, SurveyModule> get module;
+  Map<ModuleType, SurveyModule> get module =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SurveyCopyWith<_Survey> get copyWith => throw _privateConstructorUsedError;
+  _$$_SurveyCopyWith<_$_Survey> get copyWith =>
+      throw _privateConstructorUsedError;
 }

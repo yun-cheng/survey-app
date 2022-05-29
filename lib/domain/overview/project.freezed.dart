@@ -12,22 +12,7 @@ part of 'project.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProjectTearOff {
-  const _$ProjectTearOff();
-
-  _Project call({required String id, required String name}) {
-    return _Project(
-      id: id,
-      name: name,
-    );
-  }
-}
-
-/// @nodoc
-const $Project = _$ProjectTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Project {
@@ -72,28 +57,29 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
-  factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
-      __$ProjectCopyWithImpl<$Res>;
+abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
+  factory _$$_ProjectCopyWith(
+          _$_Project value, $Res Function(_$_Project) then) =
+      __$$_ProjectCopyWithImpl<$Res>;
   @override
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
-    implements _$ProjectCopyWith<$Res> {
-  __$ProjectCopyWithImpl(_Project _value, $Res Function(_Project) _then)
-      : super(_value, (v) => _then(v as _Project));
+class __$$_ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
+    implements _$$_ProjectCopyWith<$Res> {
+  __$$_ProjectCopyWithImpl(_$_Project _value, $Res Function(_$_Project) _then)
+      : super(_value, (v) => _then(v as _$_Project));
 
   @override
-  _Project get _value => super._value as _Project;
+  _$_Project get _value => super._value as _$_Project;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
   }) {
-    return _then(_Project(
+    return _then(_$_Project(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -125,7 +111,7 @@ class _$_Project extends _Project {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Project &&
+            other is _$_Project &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
@@ -138,21 +124,21 @@ class _$_Project extends _Project {
 
   @JsonKey(ignore: true)
   @override
-  _$ProjectCopyWith<_Project> get copyWith =>
-      __$ProjectCopyWithImpl<_Project>(this, _$identity);
+  _$$_ProjectCopyWith<_$_Project> get copyWith =>
+      __$$_ProjectCopyWithImpl<_$_Project>(this, _$identity);
 }
 
 abstract class _Project extends Project {
-  const factory _Project({required String id, required String name}) =
-      _$_Project;
+  const factory _Project(
+      {required final String id, required final String name}) = _$_Project;
   const _Project._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProjectCopyWith<_Project> get copyWith =>
+  _$$_ProjectCopyWith<_$_Project> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,29 +12,11 @@ part of 'recover_state_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RecoverStateDto _$RecoverStateDtoFromJson(Map<String, dynamic> json) {
   return _RecoverStateDto.fromJson(json);
 }
-
-/// @nodoc
-class _$RecoverStateDtoTearOff {
-  const _$RecoverStateDtoTearOff();
-
-  _RecoverStateDto call({Map<String, ResponseDto>? responseMap}) {
-    return _RecoverStateDto(
-      responseMap: responseMap,
-    );
-  }
-
-  RecoverStateDto fromJson(Map<String, Object?> json) {
-    return RecoverStateDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RecoverStateDto = _$RecoverStateDtoTearOff();
 
 /// @nodoc
 mixin _$RecoverStateDto {
@@ -78,33 +60,33 @@ class _$RecoverStateDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RecoverStateDtoCopyWith<$Res>
+abstract class _$$_RecoverStateDtoCopyWith<$Res>
     implements $RecoverStateDtoCopyWith<$Res> {
-  factory _$RecoverStateDtoCopyWith(
-          _RecoverStateDto value, $Res Function(_RecoverStateDto) then) =
-      __$RecoverStateDtoCopyWithImpl<$Res>;
+  factory _$$_RecoverStateDtoCopyWith(
+          _$_RecoverStateDto value, $Res Function(_$_RecoverStateDto) then) =
+      __$$_RecoverStateDtoCopyWithImpl<$Res>;
   @override
   $Res call({Map<String, ResponseDto>? responseMap});
 }
 
 /// @nodoc
-class __$RecoverStateDtoCopyWithImpl<$Res>
+class __$$_RecoverStateDtoCopyWithImpl<$Res>
     extends _$RecoverStateDtoCopyWithImpl<$Res>
-    implements _$RecoverStateDtoCopyWith<$Res> {
-  __$RecoverStateDtoCopyWithImpl(
-      _RecoverStateDto _value, $Res Function(_RecoverStateDto) _then)
-      : super(_value, (v) => _then(v as _RecoverStateDto));
+    implements _$$_RecoverStateDtoCopyWith<$Res> {
+  __$$_RecoverStateDtoCopyWithImpl(
+      _$_RecoverStateDto _value, $Res Function(_$_RecoverStateDto) _then)
+      : super(_value, (v) => _then(v as _$_RecoverStateDto));
 
   @override
-  _RecoverStateDto get _value => super._value as _RecoverStateDto;
+  _$_RecoverStateDto get _value => super._value as _$_RecoverStateDto;
 
   @override
   $Res call({
     Object? responseMap = freezed,
   }) {
-    return _then(_RecoverStateDto(
+    return _then(_$_RecoverStateDto(
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<String, ResponseDto>?,
     ));
@@ -115,13 +97,21 @@ class __$RecoverStateDtoCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_RecoverStateDto extends _RecoverStateDto {
-  const _$_RecoverStateDto({this.responseMap}) : super._();
+  const _$_RecoverStateDto({final Map<String, ResponseDto>? responseMap})
+      : _responseMap = responseMap,
+        super._();
 
   factory _$_RecoverStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_RecoverStateDtoFromJson(json);
 
+  final Map<String, ResponseDto>? _responseMap;
   @override
-  final Map<String, ResponseDto>? responseMap;
+  Map<String, ResponseDto>? get responseMap {
+    final value = _responseMap;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -132,19 +122,20 @@ class _$_RecoverStateDto extends _RecoverStateDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RecoverStateDto &&
+            other is _$_RecoverStateDto &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap));
+                .equals(other._responseMap, _responseMap));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(responseMap));
 
   @JsonKey(ignore: true)
   @override
-  _$RecoverStateDtoCopyWith<_RecoverStateDto> get copyWith =>
-      __$RecoverStateDtoCopyWithImpl<_RecoverStateDto>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_responseMap));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RecoverStateDtoCopyWith<_$_RecoverStateDto> get copyWith =>
+      __$$_RecoverStateDtoCopyWithImpl<_$_RecoverStateDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -153,17 +144,18 @@ class _$_RecoverStateDto extends _RecoverStateDto {
 }
 
 abstract class _RecoverStateDto extends RecoverStateDto {
-  const factory _RecoverStateDto({Map<String, ResponseDto>? responseMap}) =
-      _$_RecoverStateDto;
+  const factory _RecoverStateDto(
+      {final Map<String, ResponseDto>? responseMap}) = _$_RecoverStateDto;
   const _RecoverStateDto._() : super._();
 
   factory _RecoverStateDto.fromJson(Map<String, dynamic> json) =
       _$_RecoverStateDto.fromJson;
 
   @override
-  Map<String, ResponseDto>? get responseMap;
+  Map<String, ResponseDto>? get responseMap =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RecoverStateDtoCopyWith<_RecoverStateDto> get copyWith =>
+  _$$_RecoverStateDtoCopyWith<_$_RecoverStateDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

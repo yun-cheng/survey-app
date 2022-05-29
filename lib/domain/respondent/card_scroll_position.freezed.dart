@@ -12,26 +12,7 @@ part of 'card_scroll_position.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CardScrollPositionTearOff {
-  const _$CardScrollPositionTearOff();
-
-  _CardScrollPosition call(
-      {required int firstCardIndex,
-      required double firstCardAlignment,
-      required Respondent firstRespondent}) {
-    return _CardScrollPosition(
-      firstCardIndex: firstCardIndex,
-      firstCardAlignment: firstCardAlignment,
-      firstRespondent: firstRespondent,
-    );
-  }
-}
-
-/// @nodoc
-const $CardScrollPosition = _$CardScrollPositionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CardScrollPosition {
@@ -97,11 +78,11 @@ class _$CardScrollPositionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CardScrollPositionCopyWith<$Res>
+abstract class _$$_CardScrollPositionCopyWith<$Res>
     implements $CardScrollPositionCopyWith<$Res> {
-  factory _$CardScrollPositionCopyWith(
-          _CardScrollPosition value, $Res Function(_CardScrollPosition) then) =
-      __$CardScrollPositionCopyWithImpl<$Res>;
+  factory _$$_CardScrollPositionCopyWith(_$_CardScrollPosition value,
+          $Res Function(_$_CardScrollPosition) then) =
+      __$$_CardScrollPositionCopyWithImpl<$Res>;
   @override
   $Res call(
       {int firstCardIndex,
@@ -113,15 +94,15 @@ abstract class _$CardScrollPositionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$CardScrollPositionCopyWithImpl<$Res>
+class __$$_CardScrollPositionCopyWithImpl<$Res>
     extends _$CardScrollPositionCopyWithImpl<$Res>
-    implements _$CardScrollPositionCopyWith<$Res> {
-  __$CardScrollPositionCopyWithImpl(
-      _CardScrollPosition _value, $Res Function(_CardScrollPosition) _then)
-      : super(_value, (v) => _then(v as _CardScrollPosition));
+    implements _$$_CardScrollPositionCopyWith<$Res> {
+  __$$_CardScrollPositionCopyWithImpl(
+      _$_CardScrollPosition _value, $Res Function(_$_CardScrollPosition) _then)
+      : super(_value, (v) => _then(v as _$_CardScrollPosition));
 
   @override
-  _CardScrollPosition get _value => super._value as _CardScrollPosition;
+  _$_CardScrollPosition get _value => super._value as _$_CardScrollPosition;
 
   @override
   $Res call({
@@ -129,7 +110,7 @@ class __$CardScrollPositionCopyWithImpl<$Res>
     Object? firstCardAlignment = freezed,
     Object? firstRespondent = freezed,
   }) {
-    return _then(_CardScrollPosition(
+    return _then(_$_CardScrollPosition(
       firstCardIndex: firstCardIndex == freezed
           ? _value.firstCardIndex
           : firstCardIndex // ignore: cast_nullable_to_non_nullable
@@ -171,7 +152,7 @@ class _$_CardScrollPosition extends _CardScrollPosition {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CardScrollPosition &&
+            other is _$_CardScrollPosition &&
             const DeepCollectionEquality()
                 .equals(other.firstCardIndex, firstCardIndex) &&
             const DeepCollectionEquality()
@@ -189,25 +170,26 @@ class _$_CardScrollPosition extends _CardScrollPosition {
 
   @JsonKey(ignore: true)
   @override
-  _$CardScrollPositionCopyWith<_CardScrollPosition> get copyWith =>
-      __$CardScrollPositionCopyWithImpl<_CardScrollPosition>(this, _$identity);
+  _$$_CardScrollPositionCopyWith<_$_CardScrollPosition> get copyWith =>
+      __$$_CardScrollPositionCopyWithImpl<_$_CardScrollPosition>(
+          this, _$identity);
 }
 
 abstract class _CardScrollPosition extends CardScrollPosition {
   const factory _CardScrollPosition(
-      {required int firstCardIndex,
-      required double firstCardAlignment,
-      required Respondent firstRespondent}) = _$_CardScrollPosition;
+      {required final int firstCardIndex,
+      required final double firstCardAlignment,
+      required final Respondent firstRespondent}) = _$_CardScrollPosition;
   const _CardScrollPosition._() : super._();
 
   @override
-  int get firstCardIndex;
+  int get firstCardIndex => throw _privateConstructorUsedError;
   @override
-  double get firstCardAlignment;
+  double get firstCardAlignment => throw _privateConstructorUsedError;
   @override
-  Respondent get firstRespondent;
+  Respondent get firstRespondent => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CardScrollPositionCopyWith<_CardScrollPosition> get copyWith =>
+  _$$_CardScrollPositionCopyWith<_$_CardScrollPosition> get copyWith =>
       throw _privateConstructorUsedError;
 }

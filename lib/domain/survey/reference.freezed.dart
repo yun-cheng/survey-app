@@ -12,30 +12,7 @@ part of 'reference.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ReferenceTearOff {
-  const _$ReferenceTearOff();
-
-  _Reference call(
-      {required String respondentId,
-      required String surveyId,
-      required ModuleType moduleType,
-      required String questionId,
-      required Answer answer}) {
-    return _Reference(
-      respondentId: respondentId,
-      surveyId: surveyId,
-      moduleType: moduleType,
-      questionId: questionId,
-      answer: answer,
-    );
-  }
-}
-
-/// @nodoc
-const $Reference = _$ReferenceTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Reference {
@@ -121,10 +98,10 @@ class _$ReferenceCopyWithImpl<$Res> implements $ReferenceCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ReferenceCopyWith<$Res> implements $ReferenceCopyWith<$Res> {
-  factory _$ReferenceCopyWith(
-          _Reference value, $Res Function(_Reference) then) =
-      __$ReferenceCopyWithImpl<$Res>;
+abstract class _$$_ReferenceCopyWith<$Res> implements $ReferenceCopyWith<$Res> {
+  factory _$$_ReferenceCopyWith(
+          _$_Reference value, $Res Function(_$_Reference) then) =
+      __$$_ReferenceCopyWithImpl<$Res>;
   @override
   $Res call(
       {String respondentId,
@@ -140,13 +117,14 @@ abstract class _$ReferenceCopyWith<$Res> implements $ReferenceCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ReferenceCopyWithImpl<$Res> extends _$ReferenceCopyWithImpl<$Res>
-    implements _$ReferenceCopyWith<$Res> {
-  __$ReferenceCopyWithImpl(_Reference _value, $Res Function(_Reference) _then)
-      : super(_value, (v) => _then(v as _Reference));
+class __$$_ReferenceCopyWithImpl<$Res> extends _$ReferenceCopyWithImpl<$Res>
+    implements _$$_ReferenceCopyWith<$Res> {
+  __$$_ReferenceCopyWithImpl(
+      _$_Reference _value, $Res Function(_$_Reference) _then)
+      : super(_value, (v) => _then(v as _$_Reference));
 
   @override
-  _Reference get _value => super._value as _Reference;
+  _$_Reference get _value => super._value as _$_Reference;
 
   @override
   $Res call({
@@ -156,7 +134,7 @@ class __$ReferenceCopyWithImpl<$Res> extends _$ReferenceCopyWithImpl<$Res>
     Object? questionId = freezed,
     Object? answer = freezed,
   }) {
-    return _then(_Reference(
+    return _then(_$_Reference(
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
@@ -212,7 +190,7 @@ class _$_Reference extends _Reference {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Reference &&
+            other is _$_Reference &&
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
@@ -234,31 +212,31 @@ class _$_Reference extends _Reference {
 
   @JsonKey(ignore: true)
   @override
-  _$ReferenceCopyWith<_Reference> get copyWith =>
-      __$ReferenceCopyWithImpl<_Reference>(this, _$identity);
+  _$$_ReferenceCopyWith<_$_Reference> get copyWith =>
+      __$$_ReferenceCopyWithImpl<_$_Reference>(this, _$identity);
 }
 
 abstract class _Reference extends Reference {
   const factory _Reference(
-      {required String respondentId,
-      required String surveyId,
-      required ModuleType moduleType,
-      required String questionId,
-      required Answer answer}) = _$_Reference;
+      {required final String respondentId,
+      required final String surveyId,
+      required final ModuleType moduleType,
+      required final String questionId,
+      required final Answer answer}) = _$_Reference;
   const _Reference._() : super._();
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  ModuleType get moduleType;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
-  Answer get answer;
+  Answer get answer => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ReferenceCopyWith<_Reference> get copyWith =>
+  _$$_ReferenceCopyWith<_$_Reference> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,58 +12,7 @@ part of 'watch_survey_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$WatchSurveyEventTearOff {
-  const _$WatchSurveyEventTearOff();
-
-  _WatchSurveyMapStarted watchSurveyMapStarted(
-      {required String teamId, required String interviewerId}) {
-    return _WatchSurveyMapStarted(
-      teamId: teamId,
-      interviewerId: interviewerId,
-    );
-  }
-
-  _RawSurveyMapReceived rawSurveyMapReceived(
-      Either<SurveyFailure, Map<String, Uint8List?>> failureOrSurveyMap) {
-    return _RawSurveyMapReceived(
-      failureOrSurveyMap,
-    );
-  }
-
-  _ProjectMapReceived projectMapReceived(
-      Either<SurveyFailure, Map<String, Project>> failureOrProjectMap) {
-    return _ProjectMapReceived(
-      failureOrProjectMap,
-    );
-  }
-
-  _SurveyCompatibilityReceived surveyCompatibilityReceived(
-      Either<SurveyFailure, List<String>> failureOrSurveyCompatibility) {
-    return _SurveyCompatibilityReceived(
-      failureOrSurveyCompatibility,
-    );
-  }
-
-  _SurveySelected surveySelected({required Survey survey}) {
-    return _SurveySelected(
-      survey: survey,
-    );
-  }
-
-  _LoggedOut loggedOut() {
-    return const _LoggedOut();
-  }
-
-  _Initialized initialized() {
-    return const _Initialized();
-  }
-}
-
-/// @nodoc
-const $WatchSurveyEvent = _$WatchSurveyEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$WatchSurveyEvent {
@@ -180,30 +129,31 @@ class _$WatchSurveyEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WatchSurveyMapStartedCopyWith<$Res> {
-  factory _$WatchSurveyMapStartedCopyWith(_WatchSurveyMapStarted value,
-          $Res Function(_WatchSurveyMapStarted) then) =
-      __$WatchSurveyMapStartedCopyWithImpl<$Res>;
+abstract class _$$_WatchSurveyMapStartedCopyWith<$Res> {
+  factory _$$_WatchSurveyMapStartedCopyWith(_$_WatchSurveyMapStarted value,
+          $Res Function(_$_WatchSurveyMapStarted) then) =
+      __$$_WatchSurveyMapStartedCopyWithImpl<$Res>;
   $Res call({String teamId, String interviewerId});
 }
 
 /// @nodoc
-class __$WatchSurveyMapStartedCopyWithImpl<$Res>
+class __$$_WatchSurveyMapStartedCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$WatchSurveyMapStartedCopyWith<$Res> {
-  __$WatchSurveyMapStartedCopyWithImpl(_WatchSurveyMapStarted _value,
-      $Res Function(_WatchSurveyMapStarted) _then)
-      : super(_value, (v) => _then(v as _WatchSurveyMapStarted));
+    implements _$$_WatchSurveyMapStartedCopyWith<$Res> {
+  __$$_WatchSurveyMapStartedCopyWithImpl(_$_WatchSurveyMapStarted _value,
+      $Res Function(_$_WatchSurveyMapStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchSurveyMapStarted));
 
   @override
-  _WatchSurveyMapStarted get _value => super._value as _WatchSurveyMapStarted;
+  _$_WatchSurveyMapStarted get _value =>
+      super._value as _$_WatchSurveyMapStarted;
 
   @override
   $Res call({
     Object? teamId = freezed,
     Object? interviewerId = freezed,
   }) {
-    return _then(_WatchSurveyMapStarted(
+    return _then(_$_WatchSurveyMapStarted(
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
@@ -236,7 +186,7 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WatchSurveyMapStarted &&
+            other is _$_WatchSurveyMapStarted &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality()
                 .equals(other.interviewerId, interviewerId));
@@ -250,8 +200,8 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
 
   @JsonKey(ignore: true)
   @override
-  _$WatchSurveyMapStartedCopyWith<_WatchSurveyMapStarted> get copyWith =>
-      __$WatchSurveyMapStartedCopyWithImpl<_WatchSurveyMapStarted>(
+  _$$_WatchSurveyMapStartedCopyWith<_$_WatchSurveyMapStarted> get copyWith =>
+      __$$_WatchSurveyMapStartedCopyWithImpl<_$_WatchSurveyMapStarted>(
           this, _$identity);
 
   @override
@@ -374,41 +324,41 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
 
 abstract class _WatchSurveyMapStarted implements WatchSurveyEvent {
   const factory _WatchSurveyMapStarted(
-      {required String teamId,
-      required String interviewerId}) = _$_WatchSurveyMapStarted;
+      {required final String teamId,
+      required final String interviewerId}) = _$_WatchSurveyMapStarted;
 
-  String get teamId;
-  String get interviewerId;
+  String get teamId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WatchSurveyMapStartedCopyWith<_WatchSurveyMapStarted> get copyWith =>
+  _$$_WatchSurveyMapStartedCopyWith<_$_WatchSurveyMapStarted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$RawSurveyMapReceivedCopyWith<$Res> {
-  factory _$RawSurveyMapReceivedCopyWith(_RawSurveyMapReceived value,
-          $Res Function(_RawSurveyMapReceived) then) =
-      __$RawSurveyMapReceivedCopyWithImpl<$Res>;
+abstract class _$$_RawSurveyMapReceivedCopyWith<$Res> {
+  factory _$$_RawSurveyMapReceivedCopyWith(_$_RawSurveyMapReceived value,
+          $Res Function(_$_RawSurveyMapReceived) then) =
+      __$$_RawSurveyMapReceivedCopyWithImpl<$Res>;
   $Res call(
       {Either<SurveyFailure, Map<String, Uint8List?>> failureOrSurveyMap});
 }
 
 /// @nodoc
-class __$RawSurveyMapReceivedCopyWithImpl<$Res>
+class __$$_RawSurveyMapReceivedCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$RawSurveyMapReceivedCopyWith<$Res> {
-  __$RawSurveyMapReceivedCopyWithImpl(
-      _RawSurveyMapReceived _value, $Res Function(_RawSurveyMapReceived) _then)
-      : super(_value, (v) => _then(v as _RawSurveyMapReceived));
+    implements _$$_RawSurveyMapReceivedCopyWith<$Res> {
+  __$$_RawSurveyMapReceivedCopyWithImpl(_$_RawSurveyMapReceived _value,
+      $Res Function(_$_RawSurveyMapReceived) _then)
+      : super(_value, (v) => _then(v as _$_RawSurveyMapReceived));
 
   @override
-  _RawSurveyMapReceived get _value => super._value as _RawSurveyMapReceived;
+  _$_RawSurveyMapReceived get _value => super._value as _$_RawSurveyMapReceived;
 
   @override
   $Res call({
     Object? failureOrSurveyMap = freezed,
   }) {
-    return _then(_RawSurveyMapReceived(
+    return _then(_$_RawSurveyMapReceived(
       failureOrSurveyMap == freezed
           ? _value.failureOrSurveyMap
           : failureOrSurveyMap // ignore: cast_nullable_to_non_nullable
@@ -434,7 +384,7 @@ class _$_RawSurveyMapReceived implements _RawSurveyMapReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RawSurveyMapReceived &&
+            other is _$_RawSurveyMapReceived &&
             const DeepCollectionEquality()
                 .equals(other.failureOrSurveyMap, failureOrSurveyMap));
   }
@@ -445,8 +395,8 @@ class _$_RawSurveyMapReceived implements _RawSurveyMapReceived {
 
   @JsonKey(ignore: true)
   @override
-  _$RawSurveyMapReceivedCopyWith<_RawSurveyMapReceived> get copyWith =>
-      __$RawSurveyMapReceivedCopyWithImpl<_RawSurveyMapReceived>(
+  _$$_RawSurveyMapReceivedCopyWith<_$_RawSurveyMapReceived> get copyWith =>
+      __$$_RawSurveyMapReceivedCopyWithImpl<_$_RawSurveyMapReceived>(
           this, _$identity);
 
   @override
@@ -569,39 +519,40 @@ class _$_RawSurveyMapReceived implements _RawSurveyMapReceived {
 
 abstract class _RawSurveyMapReceived implements WatchSurveyEvent {
   const factory _RawSurveyMapReceived(
-          Either<SurveyFailure, Map<String, Uint8List?>> failureOrSurveyMap) =
-      _$_RawSurveyMapReceived;
+      final Either<SurveyFailure, Map<String, Uint8List?>>
+          failureOrSurveyMap) = _$_RawSurveyMapReceived;
 
-  Either<SurveyFailure, Map<String, Uint8List?>> get failureOrSurveyMap;
+  Either<SurveyFailure, Map<String, Uint8List?>> get failureOrSurveyMap =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$RawSurveyMapReceivedCopyWith<_RawSurveyMapReceived> get copyWith =>
+  _$$_RawSurveyMapReceivedCopyWith<_$_RawSurveyMapReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ProjectMapReceivedCopyWith<$Res> {
-  factory _$ProjectMapReceivedCopyWith(
-          _ProjectMapReceived value, $Res Function(_ProjectMapReceived) then) =
-      __$ProjectMapReceivedCopyWithImpl<$Res>;
+abstract class _$$_ProjectMapReceivedCopyWith<$Res> {
+  factory _$$_ProjectMapReceivedCopyWith(_$_ProjectMapReceived value,
+          $Res Function(_$_ProjectMapReceived) then) =
+      __$$_ProjectMapReceivedCopyWithImpl<$Res>;
   $Res call({Either<SurveyFailure, Map<String, Project>> failureOrProjectMap});
 }
 
 /// @nodoc
-class __$ProjectMapReceivedCopyWithImpl<$Res>
+class __$$_ProjectMapReceivedCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$ProjectMapReceivedCopyWith<$Res> {
-  __$ProjectMapReceivedCopyWithImpl(
-      _ProjectMapReceived _value, $Res Function(_ProjectMapReceived) _then)
-      : super(_value, (v) => _then(v as _ProjectMapReceived));
+    implements _$$_ProjectMapReceivedCopyWith<$Res> {
+  __$$_ProjectMapReceivedCopyWithImpl(
+      _$_ProjectMapReceived _value, $Res Function(_$_ProjectMapReceived) _then)
+      : super(_value, (v) => _then(v as _$_ProjectMapReceived));
 
   @override
-  _ProjectMapReceived get _value => super._value as _ProjectMapReceived;
+  _$_ProjectMapReceived get _value => super._value as _$_ProjectMapReceived;
 
   @override
   $Res call({
     Object? failureOrProjectMap = freezed,
   }) {
-    return _then(_ProjectMapReceived(
+    return _then(_$_ProjectMapReceived(
       failureOrProjectMap == freezed
           ? _value.failureOrProjectMap
           : failureOrProjectMap // ignore: cast_nullable_to_non_nullable
@@ -627,7 +578,7 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProjectMapReceived &&
+            other is _$_ProjectMapReceived &&
             const DeepCollectionEquality()
                 .equals(other.failureOrProjectMap, failureOrProjectMap));
   }
@@ -638,8 +589,9 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
 
   @JsonKey(ignore: true)
   @override
-  _$ProjectMapReceivedCopyWith<_ProjectMapReceived> get copyWith =>
-      __$ProjectMapReceivedCopyWithImpl<_ProjectMapReceived>(this, _$identity);
+  _$$_ProjectMapReceivedCopyWith<_$_ProjectMapReceived> get copyWith =>
+      __$$_ProjectMapReceivedCopyWithImpl<_$_ProjectMapReceived>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -761,42 +713,43 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
 
 abstract class _ProjectMapReceived implements WatchSurveyEvent {
   const factory _ProjectMapReceived(
-          Either<SurveyFailure, Map<String, Project>> failureOrProjectMap) =
-      _$_ProjectMapReceived;
+      final Either<SurveyFailure, Map<String, Project>>
+          failureOrProjectMap) = _$_ProjectMapReceived;
 
-  Either<SurveyFailure, Map<String, Project>> get failureOrProjectMap;
+  Either<SurveyFailure, Map<String, Project>> get failureOrProjectMap =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ProjectMapReceivedCopyWith<_ProjectMapReceived> get copyWith =>
+  _$$_ProjectMapReceivedCopyWith<_$_ProjectMapReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SurveyCompatibilityReceivedCopyWith<$Res> {
-  factory _$SurveyCompatibilityReceivedCopyWith(
-          _SurveyCompatibilityReceived value,
-          $Res Function(_SurveyCompatibilityReceived) then) =
-      __$SurveyCompatibilityReceivedCopyWithImpl<$Res>;
+abstract class _$$_SurveyCompatibilityReceivedCopyWith<$Res> {
+  factory _$$_SurveyCompatibilityReceivedCopyWith(
+          _$_SurveyCompatibilityReceived value,
+          $Res Function(_$_SurveyCompatibilityReceived) then) =
+      __$$_SurveyCompatibilityReceivedCopyWithImpl<$Res>;
   $Res call({Either<SurveyFailure, List<String>> failureOrSurveyCompatibility});
 }
 
 /// @nodoc
-class __$SurveyCompatibilityReceivedCopyWithImpl<$Res>
+class __$$_SurveyCompatibilityReceivedCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$SurveyCompatibilityReceivedCopyWith<$Res> {
-  __$SurveyCompatibilityReceivedCopyWithImpl(
-      _SurveyCompatibilityReceived _value,
-      $Res Function(_SurveyCompatibilityReceived) _then)
-      : super(_value, (v) => _then(v as _SurveyCompatibilityReceived));
+    implements _$$_SurveyCompatibilityReceivedCopyWith<$Res> {
+  __$$_SurveyCompatibilityReceivedCopyWithImpl(
+      _$_SurveyCompatibilityReceived _value,
+      $Res Function(_$_SurveyCompatibilityReceived) _then)
+      : super(_value, (v) => _then(v as _$_SurveyCompatibilityReceived));
 
   @override
-  _SurveyCompatibilityReceived get _value =>
-      super._value as _SurveyCompatibilityReceived;
+  _$_SurveyCompatibilityReceived get _value =>
+      super._value as _$_SurveyCompatibilityReceived;
 
   @override
   $Res call({
     Object? failureOrSurveyCompatibility = freezed,
   }) {
-    return _then(_SurveyCompatibilityReceived(
+    return _then(_$_SurveyCompatibilityReceived(
       failureOrSurveyCompatibility == freezed
           ? _value.failureOrSurveyCompatibility
           : failureOrSurveyCompatibility // ignore: cast_nullable_to_non_nullable
@@ -822,7 +775,7 @@ class _$_SurveyCompatibilityReceived implements _SurveyCompatibilityReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveyCompatibilityReceived &&
+            other is _$_SurveyCompatibilityReceived &&
             const DeepCollectionEquality().equals(
                 other.failureOrSurveyCompatibility,
                 failureOrSurveyCompatibility));
@@ -834,9 +787,9 @@ class _$_SurveyCompatibilityReceived implements _SurveyCompatibilityReceived {
 
   @JsonKey(ignore: true)
   @override
-  _$SurveyCompatibilityReceivedCopyWith<_SurveyCompatibilityReceived>
-      get copyWith => __$SurveyCompatibilityReceivedCopyWithImpl<
-          _SurveyCompatibilityReceived>(this, _$identity);
+  _$$_SurveyCompatibilityReceivedCopyWith<_$_SurveyCompatibilityReceived>
+      get copyWith => __$$_SurveyCompatibilityReceivedCopyWithImpl<
+          _$_SurveyCompatibilityReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -958,41 +911,42 @@ class _$_SurveyCompatibilityReceived implements _SurveyCompatibilityReceived {
 
 abstract class _SurveyCompatibilityReceived implements WatchSurveyEvent {
   const factory _SurveyCompatibilityReceived(
-          Either<SurveyFailure, List<String>> failureOrSurveyCompatibility) =
-      _$_SurveyCompatibilityReceived;
+      final Either<SurveyFailure, List<String>>
+          failureOrSurveyCompatibility) = _$_SurveyCompatibilityReceived;
 
-  Either<SurveyFailure, List<String>> get failureOrSurveyCompatibility;
+  Either<SurveyFailure, List<String>> get failureOrSurveyCompatibility =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SurveyCompatibilityReceivedCopyWith<_SurveyCompatibilityReceived>
+  _$$_SurveyCompatibilityReceivedCopyWith<_$_SurveyCompatibilityReceived>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SurveySelectedCopyWith<$Res> {
-  factory _$SurveySelectedCopyWith(
-          _SurveySelected value, $Res Function(_SurveySelected) then) =
-      __$SurveySelectedCopyWithImpl<$Res>;
+abstract class _$$_SurveySelectedCopyWith<$Res> {
+  factory _$$_SurveySelectedCopyWith(
+          _$_SurveySelected value, $Res Function(_$_SurveySelected) then) =
+      __$$_SurveySelectedCopyWithImpl<$Res>;
   $Res call({Survey survey});
 
   $SurveyCopyWith<$Res> get survey;
 }
 
 /// @nodoc
-class __$SurveySelectedCopyWithImpl<$Res>
+class __$$_SurveySelectedCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$SurveySelectedCopyWith<$Res> {
-  __$SurveySelectedCopyWithImpl(
-      _SurveySelected _value, $Res Function(_SurveySelected) _then)
-      : super(_value, (v) => _then(v as _SurveySelected));
+    implements _$$_SurveySelectedCopyWith<$Res> {
+  __$$_SurveySelectedCopyWithImpl(
+      _$_SurveySelected _value, $Res Function(_$_SurveySelected) _then)
+      : super(_value, (v) => _then(v as _$_SurveySelected));
 
   @override
-  _SurveySelected get _value => super._value as _SurveySelected;
+  _$_SurveySelected get _value => super._value as _$_SurveySelected;
 
   @override
   $Res call({
     Object? survey = freezed,
   }) {
-    return _then(_SurveySelected(
+    return _then(_$_SurveySelected(
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -1025,7 +979,7 @@ class _$_SurveySelected implements _SurveySelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SurveySelected &&
+            other is _$_SurveySelected &&
             const DeepCollectionEquality().equals(other.survey, survey));
   }
 
@@ -1035,8 +989,8 @@ class _$_SurveySelected implements _SurveySelected {
 
   @JsonKey(ignore: true)
   @override
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
-      __$SurveySelectedCopyWithImpl<_SurveySelected>(this, _$identity);
+  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
+      __$$_SurveySelectedCopyWithImpl<_$_SurveySelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1157,30 +1111,32 @@ class _$_SurveySelected implements _SurveySelected {
 }
 
 abstract class _SurveySelected implements WatchSurveyEvent {
-  const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
+  const factory _SurveySelected({required final Survey survey}) =
+      _$_SurveySelected;
 
-  Survey get survey;
+  Survey get survey => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
+  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoggedOutCopyWith<$Res> {
-  factory _$LoggedOutCopyWith(
-          _LoggedOut value, $Res Function(_LoggedOut) then) =
-      __$LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_LoggedOutCopyWith<$Res> {
+  factory _$$_LoggedOutCopyWith(
+          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
+      __$$_LoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoggedOutCopyWithImpl<$Res>
+class __$$_LoggedOutCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$LoggedOutCopyWith<$Res> {
-  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _LoggedOut));
+    implements _$$_LoggedOutCopyWith<$Res> {
+  __$$_LoggedOutCopyWithImpl(
+      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$_LoggedOut));
 
   @override
-  _LoggedOut get _value => super._value as _LoggedOut;
+  _$_LoggedOut get _value => super._value as _$_LoggedOut;
 }
 
 /// @nodoc
@@ -1196,7 +1152,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoggedOut);
+        (other.runtimeType == runtimeType && other is _$_LoggedOut);
   }
 
   @override
@@ -1325,22 +1281,22 @@ abstract class _LoggedOut implements WatchSurveyEvent {
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res>
+class __$$_InitializedCopyWithImpl<$Res>
     extends _$WatchSurveyEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 }
 
 /// @nodoc
@@ -1356,7 +1312,7 @@ class _$_Initialized implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialized);
+        (other.runtimeType == runtimeType && other is _$_Initialized);
   }
 
   @override
@@ -1485,47 +1441,14 @@ abstract class _Initialized implements WatchSurveyEvent {
 }
 
 /// @nodoc
-class _$WatchSurveyStateTearOff {
-  const _$WatchSurveyStateTearOff();
-
-  _WatchSurveyState call(
-      {required UniqueId stateId,
-      required Map<String, Survey> surveyMap,
-      required Map<String, Project> projectMap,
-      required Survey survey,
-      required List<String> surveyCompatibility,
-      required String teamId,
-      required String interviewerId,
-      required LoadState eventState,
-      required LoadState surveyMapState,
-      required Option<SurveyFailure> surveyFailure}) {
-    return _WatchSurveyState(
-      stateId: stateId,
-      surveyMap: surveyMap,
-      projectMap: projectMap,
-      survey: survey,
-      surveyCompatibility: surveyCompatibility,
-      teamId: teamId,
-      interviewerId: interviewerId,
-      eventState: eventState,
-      surveyMapState: surveyMapState,
-      surveyFailure: surveyFailure,
-    );
-  }
-}
-
-/// @nodoc
-const $WatchSurveyState = _$WatchSurveyStateTearOff();
-
-/// @nodoc
 mixin _$WatchSurveyState {
-  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
+  UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   Map<String, Survey> get surveyMap => throw _privateConstructorUsedError;
   Map<String, Project> get projectMap => throw _privateConstructorUsedError;
   Survey get survey => throw _privateConstructorUsedError;
   List<String> get surveyCompatibility => throw _privateConstructorUsedError;
   String get teamId => throw _privateConstructorUsedError;
-  String get interviewerId => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  String get interviewerId => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get eventState => throw _privateConstructorUsedError;
   LoadState get surveyMapState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
@@ -1654,11 +1577,11 @@ class _$WatchSurveyStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$WatchSurveyStateCopyWith<$Res>
+abstract class _$$_WatchSurveyStateCopyWith<$Res>
     implements $WatchSurveyStateCopyWith<$Res> {
-  factory _$WatchSurveyStateCopyWith(
-          _WatchSurveyState value, $Res Function(_WatchSurveyState) then) =
-      __$WatchSurveyStateCopyWithImpl<$Res>;
+  factory _$$_WatchSurveyStateCopyWith(
+          _$_WatchSurveyState value, $Res Function(_$_WatchSurveyState) then) =
+      __$$_WatchSurveyStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {UniqueId stateId,
@@ -1683,15 +1606,15 @@ abstract class _$WatchSurveyStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$WatchSurveyStateCopyWithImpl<$Res>
+class __$$_WatchSurveyStateCopyWithImpl<$Res>
     extends _$WatchSurveyStateCopyWithImpl<$Res>
-    implements _$WatchSurveyStateCopyWith<$Res> {
-  __$WatchSurveyStateCopyWithImpl(
-      _WatchSurveyState _value, $Res Function(_WatchSurveyState) _then)
-      : super(_value, (v) => _then(v as _WatchSurveyState));
+    implements _$$_WatchSurveyStateCopyWith<$Res> {
+  __$$_WatchSurveyStateCopyWithImpl(
+      _$_WatchSurveyState _value, $Res Function(_$_WatchSurveyState) _then)
+      : super(_value, (v) => _then(v as _$_WatchSurveyState));
 
   @override
-  _WatchSurveyState get _value => super._value as _WatchSurveyState;
+  _$_WatchSurveyState get _value => super._value as _$_WatchSurveyState;
 
   @override
   $Res call({
@@ -1706,17 +1629,17 @@ class __$WatchSurveyStateCopyWithImpl<$Res>
     Object? surveyMapState = freezed,
     Object? surveyFailure = freezed,
   }) {
-    return _then(_WatchSurveyState(
+    return _then(_$_WatchSurveyState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       surveyMap: surveyMap == freezed
-          ? _value.surveyMap
+          ? _value._surveyMap
           : surveyMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Survey>,
       projectMap: projectMap == freezed
-          ? _value.projectMap
+          ? _value._projectMap
           : projectMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Project>,
       survey: survey == freezed
@@ -1724,7 +1647,7 @@ class __$WatchSurveyStateCopyWithImpl<$Res>
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
       surveyCompatibility: surveyCompatibility == freezed
-          ? _value.surveyCompatibility
+          ? _value._surveyCompatibility
           : surveyCompatibility // ignore: cast_nullable_to_non_nullable
               as List<String>,
       teamId: teamId == freezed
@@ -1756,32 +1679,53 @@ class __$WatchSurveyStateCopyWithImpl<$Res>
 class _$_WatchSurveyState extends _WatchSurveyState {
   const _$_WatchSurveyState(
       {required this.stateId,
-      required this.surveyMap,
-      required this.projectMap,
+      required final Map<String, Survey> surveyMap,
+      required final Map<String, Project> projectMap,
       required this.survey,
-      required this.surveyCompatibility,
+      required final List<String> surveyCompatibility,
       required this.teamId,
       required this.interviewerId,
       required this.eventState,
       required this.surveyMapState,
       required this.surveyFailure})
-      : super._();
+      : _surveyMap = surveyMap,
+        _projectMap = projectMap,
+        _surveyCompatibility = surveyCompatibility,
+        super._();
 
   @override
   final UniqueId stateId;
-  @override // H_ 主要資料
-  final Map<String, Survey> surveyMap;
+// > 主要資料
+  final Map<String, Survey> _surveyMap;
+// > 主要資料
   @override
-  final Map<String, Project> projectMap;
+  Map<String, Survey> get surveyMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_surveyMap);
+  }
+
+  final Map<String, Project> _projectMap;
+  @override
+  Map<String, Project> get projectMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_projectMap);
+  }
+
   @override
   final Survey survey;
+  final List<String> _surveyCompatibility;
   @override
-  final List<String> surveyCompatibility;
+  List<String> get surveyCompatibility {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_surveyCompatibility);
+  }
+
   @override
   final String teamId;
   @override
   final String interviewerId;
-  @override // H_ 狀態更新進度
+// > 狀態更新進度
+  @override
   final LoadState eventState;
   @override
   final LoadState surveyMapState;
@@ -1797,14 +1741,15 @@ class _$_WatchSurveyState extends _WatchSurveyState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WatchSurveyState &&
+            other is _$_WatchSurveyState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
-            const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
             const DeepCollectionEquality()
-                .equals(other.projectMap, projectMap) &&
+                .equals(other._surveyMap, _surveyMap) &&
+            const DeepCollectionEquality()
+                .equals(other._projectMap, _projectMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality()
-                .equals(other.surveyCompatibility, surveyCompatibility) &&
+                .equals(other._surveyCompatibility, _surveyCompatibility) &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality()
                 .equals(other.interviewerId, interviewerId) &&
@@ -1820,10 +1765,10 @@ class _$_WatchSurveyState extends _WatchSurveyState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(stateId),
-      const DeepCollectionEquality().hash(surveyMap),
-      const DeepCollectionEquality().hash(projectMap),
+      const DeepCollectionEquality().hash(_surveyMap),
+      const DeepCollectionEquality().hash(_projectMap),
       const DeepCollectionEquality().hash(survey),
-      const DeepCollectionEquality().hash(surveyCompatibility),
+      const DeepCollectionEquality().hash(_surveyCompatibility),
       const DeepCollectionEquality().hash(teamId),
       const DeepCollectionEquality().hash(interviewerId),
       const DeepCollectionEquality().hash(eventState),
@@ -1832,74 +1777,50 @@ class _$_WatchSurveyState extends _WatchSurveyState {
 
   @JsonKey(ignore: true)
   @override
-  _$WatchSurveyStateCopyWith<_WatchSurveyState> get copyWith =>
-      __$WatchSurveyStateCopyWithImpl<_WatchSurveyState>(this, _$identity);
+  _$$_WatchSurveyStateCopyWith<_$_WatchSurveyState> get copyWith =>
+      __$$_WatchSurveyStateCopyWithImpl<_$_WatchSurveyState>(this, _$identity);
 }
 
 abstract class _WatchSurveyState extends WatchSurveyState {
   const factory _WatchSurveyState(
-      {required UniqueId stateId,
-      required Map<String, Survey> surveyMap,
-      required Map<String, Project> projectMap,
-      required Survey survey,
-      required List<String> surveyCompatibility,
-      required String teamId,
-      required String interviewerId,
-      required LoadState eventState,
-      required LoadState surveyMapState,
-      required Option<SurveyFailure> surveyFailure}) = _$_WatchSurveyState;
+          {required final UniqueId stateId,
+          required final Map<String, Survey> surveyMap,
+          required final Map<String, Project> projectMap,
+          required final Survey survey,
+          required final List<String> surveyCompatibility,
+          required final String teamId,
+          required final String interviewerId,
+          required final LoadState eventState,
+          required final LoadState surveyMapState,
+          required final Option<SurveyFailure> surveyFailure}) =
+      _$_WatchSurveyState;
   const _WatchSurveyState._() : super._();
 
   @override
-  UniqueId get stateId;
-  @override // H_ 主要資料
-  Map<String, Survey> get surveyMap;
+  UniqueId get stateId => throw _privateConstructorUsedError;
+  @override // > 主要資料
+  Map<String, Survey> get surveyMap => throw _privateConstructorUsedError;
   @override
-  Map<String, Project> get projectMap;
+  Map<String, Project> get projectMap => throw _privateConstructorUsedError;
   @override
-  Survey get survey;
+  Survey get survey => throw _privateConstructorUsedError;
   @override
-  List<String> get surveyCompatibility;
+  List<String> get surveyCompatibility => throw _privateConstructorUsedError;
   @override
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get interviewerId;
-  @override // H_ 狀態更新進度
-  LoadState get eventState;
+  String get interviewerId => throw _privateConstructorUsedError;
+  @override // > 狀態更新進度
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
-  LoadState get surveyMapState;
+  LoadState get surveyMapState => throw _privateConstructorUsedError;
   @override
-  Option<SurveyFailure> get surveyFailure;
+  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WatchSurveyStateCopyWith<_WatchSurveyState> get copyWith =>
+  _$$_WatchSurveyStateCopyWith<_$_WatchSurveyState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$StateParametersTearOff {
-  const _$StateParametersTearOff();
-
-  _StateParameters call(
-      {required bool surveyMap,
-      required bool projectMap,
-      required bool survey,
-      required bool surveyCompatibility,
-      required bool teamId,
-      required bool interviewerId}) {
-    return _StateParameters(
-      surveyMap: surveyMap,
-      projectMap: projectMap,
-      survey: survey,
-      surveyCompatibility: surveyCompatibility,
-      teamId: teamId,
-      interviewerId: interviewerId,
-    );
-  }
-}
-
-/// @nodoc
-const $StateParameters = _$StateParametersTearOff();
 
 /// @nodoc
 mixin _$StateParameters {
@@ -1977,11 +1898,11 @@ class _$StateParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StateParametersCopyWith<$Res>
+abstract class _$$_StateParametersCopyWith<$Res>
     implements $StateParametersCopyWith<$Res> {
-  factory _$StateParametersCopyWith(
-          _StateParameters value, $Res Function(_StateParameters) then) =
-      __$StateParametersCopyWithImpl<$Res>;
+  factory _$$_StateParametersCopyWith(
+          _$_StateParameters value, $Res Function(_$_StateParameters) then) =
+      __$$_StateParametersCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool surveyMap,
@@ -1993,15 +1914,15 @@ abstract class _$StateParametersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StateParametersCopyWithImpl<$Res>
+class __$$_StateParametersCopyWithImpl<$Res>
     extends _$StateParametersCopyWithImpl<$Res>
-    implements _$StateParametersCopyWith<$Res> {
-  __$StateParametersCopyWithImpl(
-      _StateParameters _value, $Res Function(_StateParameters) _then)
-      : super(_value, (v) => _then(v as _StateParameters));
+    implements _$$_StateParametersCopyWith<$Res> {
+  __$$_StateParametersCopyWithImpl(
+      _$_StateParameters _value, $Res Function(_$_StateParameters) _then)
+      : super(_value, (v) => _then(v as _$_StateParameters));
 
   @override
-  _StateParameters get _value => super._value as _StateParameters;
+  _$_StateParameters get _value => super._value as _$_StateParameters;
 
   @override
   $Res call({
@@ -2012,7 +1933,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? teamId = freezed,
     Object? interviewerId = freezed,
   }) {
-    return _then(_StateParameters(
+    return _then(_$_StateParameters(
       surveyMap: surveyMap == freezed
           ? _value.surveyMap
           : surveyMap // ignore: cast_nullable_to_non_nullable
@@ -2075,7 +1996,7 @@ class _$_StateParameters extends _StateParameters {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StateParameters &&
+            other is _$_StateParameters &&
             const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
             const DeepCollectionEquality()
                 .equals(other.projectMap, projectMap) &&
@@ -2099,34 +2020,34 @@ class _$_StateParameters extends _StateParameters {
 
   @JsonKey(ignore: true)
   @override
-  _$StateParametersCopyWith<_StateParameters> get copyWith =>
-      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
+  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
+      __$$_StateParametersCopyWithImpl<_$_StateParameters>(this, _$identity);
 }
 
 abstract class _StateParameters extends StateParameters {
   const factory _StateParameters(
-      {required bool surveyMap,
-      required bool projectMap,
-      required bool survey,
-      required bool surveyCompatibility,
-      required bool teamId,
-      required bool interviewerId}) = _$_StateParameters;
+      {required final bool surveyMap,
+      required final bool projectMap,
+      required final bool survey,
+      required final bool surveyCompatibility,
+      required final bool teamId,
+      required final bool interviewerId}) = _$_StateParameters;
   const _StateParameters._() : super._();
 
   @override
-  bool get surveyMap;
+  bool get surveyMap => throw _privateConstructorUsedError;
   @override
-  bool get projectMap;
+  bool get projectMap => throw _privateConstructorUsedError;
   @override
-  bool get survey;
+  bool get survey => throw _privateConstructorUsedError;
   @override
-  bool get surveyCompatibility;
+  bool get surveyCompatibility => throw _privateConstructorUsedError;
   @override
-  bool get teamId;
+  bool get teamId => throw _privateConstructorUsedError;
   @override
-  bool get interviewerId;
+  bool get interviewerId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

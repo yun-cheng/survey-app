@@ -12,29 +12,11 @@ part of 'response_list_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ResponseMapDto _$ResponseMapDtoFromJson(Map<String, dynamic> json) {
   return _ResponseMapDto.fromJson(json);
 }
-
-/// @nodoc
-class _$ResponseMapDtoTearOff {
-  const _$ResponseMapDtoTearOff();
-
-  _ResponseMapDto call({Map<String, ResponseDto>? map}) {
-    return _ResponseMapDto(
-      map: map,
-    );
-  }
-
-  ResponseMapDto fromJson(Map<String, Object?> json) {
-    return ResponseMapDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ResponseMapDto = _$ResponseMapDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseMapDto {
@@ -77,33 +59,33 @@ class _$ResponseMapDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResponseMapDtoCopyWith<$Res>
+abstract class _$$_ResponseMapDtoCopyWith<$Res>
     implements $ResponseMapDtoCopyWith<$Res> {
-  factory _$ResponseMapDtoCopyWith(
-          _ResponseMapDto value, $Res Function(_ResponseMapDto) then) =
-      __$ResponseMapDtoCopyWithImpl<$Res>;
+  factory _$$_ResponseMapDtoCopyWith(
+          _$_ResponseMapDto value, $Res Function(_$_ResponseMapDto) then) =
+      __$$_ResponseMapDtoCopyWithImpl<$Res>;
   @override
   $Res call({Map<String, ResponseDto>? map});
 }
 
 /// @nodoc
-class __$ResponseMapDtoCopyWithImpl<$Res>
+class __$$_ResponseMapDtoCopyWithImpl<$Res>
     extends _$ResponseMapDtoCopyWithImpl<$Res>
-    implements _$ResponseMapDtoCopyWith<$Res> {
-  __$ResponseMapDtoCopyWithImpl(
-      _ResponseMapDto _value, $Res Function(_ResponseMapDto) _then)
-      : super(_value, (v) => _then(v as _ResponseMapDto));
+    implements _$$_ResponseMapDtoCopyWith<$Res> {
+  __$$_ResponseMapDtoCopyWithImpl(
+      _$_ResponseMapDto _value, $Res Function(_$_ResponseMapDto) _then)
+      : super(_value, (v) => _then(v as _$_ResponseMapDto));
 
   @override
-  _ResponseMapDto get _value => super._value as _ResponseMapDto;
+  _$_ResponseMapDto get _value => super._value as _$_ResponseMapDto;
 
   @override
   $Res call({
     Object? map = freezed,
   }) {
-    return _then(_ResponseMapDto(
+    return _then(_$_ResponseMapDto(
       map: map == freezed
-          ? _value.map
+          ? _value._map
           : map // ignore: cast_nullable_to_non_nullable
               as Map<String, ResponseDto>?,
     ));
@@ -113,13 +95,21 @@ class __$ResponseMapDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ResponseMapDto extends _ResponseMapDto {
-  const _$_ResponseMapDto({this.map}) : super._();
+  const _$_ResponseMapDto({final Map<String, ResponseDto>? map})
+      : _map = map,
+        super._();
 
   factory _$_ResponseMapDto.fromJson(Map<String, dynamic> json) =>
       _$$_ResponseMapDtoFromJson(json);
 
+  final Map<String, ResponseDto>? _map;
   @override
-  final Map<String, ResponseDto>? map;
+  Map<String, ResponseDto>? get map {
+    final value = _map;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
@@ -130,18 +120,19 @@ class _$_ResponseMapDto extends _ResponseMapDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseMapDto &&
-            const DeepCollectionEquality().equals(other.map, map));
+            other is _$_ResponseMapDto &&
+            const DeepCollectionEquality().equals(other._map, _map));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(map));
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseMapDtoCopyWith<_ResponseMapDto> get copyWith =>
-      __$ResponseMapDtoCopyWithImpl<_ResponseMapDto>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_map));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ResponseMapDtoCopyWith<_$_ResponseMapDto> get copyWith =>
+      __$$_ResponseMapDtoCopyWithImpl<_$_ResponseMapDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -150,7 +141,7 @@ class _$_ResponseMapDto extends _ResponseMapDto {
 }
 
 abstract class _ResponseMapDto extends ResponseMapDto {
-  const factory _ResponseMapDto({Map<String, ResponseDto>? map}) =
+  const factory _ResponseMapDto({final Map<String, ResponseDto>? map}) =
       _$_ResponseMapDto;
   const _ResponseMapDto._() : super._();
 
@@ -158,10 +149,10 @@ abstract class _ResponseMapDto extends ResponseMapDto {
       _$_ResponseMapDto.fromJson;
 
   @override
-  Map<String, ResponseDto>? get map;
+  Map<String, ResponseDto>? get map => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseMapDtoCopyWith<_ResponseMapDto> get copyWith =>
+  _$$_ResponseMapDtoCopyWith<_$_ResponseMapDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -170,83 +161,26 @@ ResponseDto _$ResponseDtoFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$ResponseDtoTearOff {
-  const _$ResponseDtoTearOff();
-
-  _ResponseDto call(
-      {required String teamId,
-      required String projectId,
-      required String surveyId,
-      required String moduleType,
-      required String respondentId,
-      required String responseId,
-      required String tempResponseId,
-      required String ticketId,
-      required bool editFinished,
-      required String interviewerId,
-      required String deviceId,
-      required int createdTimeStamp,
-      required int sessionStartTimeStamp,
-      required int sessionEndTimeStamp,
-      required int lastChangedTimeStamp,
-      required String responseStatus,
-      required bool isDeleted,
-      required Map<String, AnswerDto> answerMap,
-      required Map<String, AnswerStatusDto> answerStatusMap,
-      required SimpleSurveyPageStateDto surveyPageState}) {
-    return _ResponseDto(
-      teamId: teamId,
-      projectId: projectId,
-      surveyId: surveyId,
-      moduleType: moduleType,
-      respondentId: respondentId,
-      responseId: responseId,
-      tempResponseId: tempResponseId,
-      ticketId: ticketId,
-      editFinished: editFinished,
-      interviewerId: interviewerId,
-      deviceId: deviceId,
-      createdTimeStamp: createdTimeStamp,
-      sessionStartTimeStamp: sessionStartTimeStamp,
-      sessionEndTimeStamp: sessionEndTimeStamp,
-      lastChangedTimeStamp: lastChangedTimeStamp,
-      responseStatus: responseStatus,
-      isDeleted: isDeleted,
-      answerMap: answerMap,
-      answerStatusMap: answerStatusMap,
-      surveyPageState: surveyPageState,
-    );
-  }
-
-  ResponseDto fromJson(Map<String, Object?> json) {
-    return ResponseDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ResponseDto = _$ResponseDtoTearOff();
-
-/// @nodoc
 mixin _$ResponseDto {
-// H_ 區分不同 response
+// > 區分不同 response
   String get teamId => throw _privateConstructorUsedError;
   String get projectId => throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
   String get moduleType => throw _privateConstructorUsedError;
   String get respondentId =>
-      throw _privateConstructorUsedError; // H_ 區分 response 版本
+      throw _privateConstructorUsedError; // > 區分 response 版本
   String get responseId => throw _privateConstructorUsedError;
   String get tempResponseId => throw _privateConstructorUsedError;
   String get ticketId => throw _privateConstructorUsedError;
   bool get editFinished => throw _privateConstructorUsedError;
   String get interviewerId => throw _privateConstructorUsedError;
-  String get deviceId => throw _privateConstructorUsedError; // H_ 狀態
+  String get deviceId => throw _privateConstructorUsedError; // > 狀態
   int get createdTimeStamp => throw _privateConstructorUsedError;
   int get sessionStartTimeStamp => throw _privateConstructorUsedError;
   int get sessionEndTimeStamp => throw _privateConstructorUsedError;
   int get lastChangedTimeStamp => throw _privateConstructorUsedError;
   String get responseStatus => throw _privateConstructorUsedError;
-  bool get isDeleted => throw _privateConstructorUsedError; // H_ 內容
+  bool get isDeleted => throw _privateConstructorUsedError; // > 內容
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
@@ -414,11 +348,11 @@ class _$ResponseDtoCopyWithImpl<$Res> implements $ResponseDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ResponseDtoCopyWith<$Res>
+abstract class _$$_ResponseDtoCopyWith<$Res>
     implements $ResponseDtoCopyWith<$Res> {
-  factory _$ResponseDtoCopyWith(
-          _ResponseDto value, $Res Function(_ResponseDto) then) =
-      __$ResponseDtoCopyWithImpl<$Res>;
+  factory _$$_ResponseDtoCopyWith(
+          _$_ResponseDto value, $Res Function(_$_ResponseDto) then) =
+      __$$_ResponseDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String teamId,
@@ -447,14 +381,14 @@ abstract class _$ResponseDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
-    implements _$ResponseDtoCopyWith<$Res> {
-  __$ResponseDtoCopyWithImpl(
-      _ResponseDto _value, $Res Function(_ResponseDto) _then)
-      : super(_value, (v) => _then(v as _ResponseDto));
+class __$$_ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
+    implements _$$_ResponseDtoCopyWith<$Res> {
+  __$$_ResponseDtoCopyWithImpl(
+      _$_ResponseDto _value, $Res Function(_$_ResponseDto) _then)
+      : super(_value, (v) => _then(v as _$_ResponseDto));
 
   @override
-  _ResponseDto get _value => super._value as _ResponseDto;
+  _$_ResponseDto get _value => super._value as _$_ResponseDto;
 
   @override
   $Res call({
@@ -479,7 +413,7 @@ class __$ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
     Object? answerStatusMap = freezed,
     Object? surveyPageState = freezed,
   }) {
-    return _then(_ResponseDto(
+    return _then(_$_ResponseDto(
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
@@ -549,11 +483,11 @@ class __$ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
       answerMap: answerMap == freezed
-          ? _value.answerMap
+          ? _value._answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
+          ? _value._answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
       surveyPageState: surveyPageState == freezed
@@ -585,15 +519,18 @@ class _$_ResponseDto extends _ResponseDto {
       required this.lastChangedTimeStamp,
       required this.responseStatus,
       required this.isDeleted,
-      required this.answerMap,
-      required this.answerStatusMap,
+      required final Map<String, AnswerDto> answerMap,
+      required final Map<String, AnswerStatusDto> answerStatusMap,
       required this.surveyPageState})
-      : super._();
+      : _answerMap = answerMap,
+        _answerStatusMap = answerStatusMap,
+        super._();
 
   factory _$_ResponseDto.fromJson(Map<String, dynamic> json) =>
       _$$_ResponseDtoFromJson(json);
 
-  @override // H_ 區分不同 response
+// > 區分不同 response
+  @override
   final String teamId;
   @override
   final String projectId;
@@ -603,7 +540,8 @@ class _$_ResponseDto extends _ResponseDto {
   final String moduleType;
   @override
   final String respondentId;
-  @override // H_ 區分 response 版本
+// > 區分 response 版本
+  @override
   final String responseId;
   @override
   final String tempResponseId;
@@ -615,7 +553,8 @@ class _$_ResponseDto extends _ResponseDto {
   final String interviewerId;
   @override
   final String deviceId;
-  @override // H_ 狀態
+// > 狀態
+  @override
   final int createdTimeStamp;
   @override
   final int sessionStartTimeStamp;
@@ -627,10 +566,22 @@ class _$_ResponseDto extends _ResponseDto {
   final String responseStatus;
   @override
   final bool isDeleted;
-  @override // H_ 內容
-  final Map<String, AnswerDto> answerMap;
+// > 內容
+  final Map<String, AnswerDto> _answerMap;
+// > 內容
   @override
-  final Map<String, AnswerStatusDto> answerStatusMap;
+  Map<String, AnswerDto> get answerMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerMap);
+  }
+
+  final Map<String, AnswerStatusDto> _answerStatusMap;
+  @override
+  Map<String, AnswerStatusDto> get answerStatusMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_answerStatusMap);
+  }
+
   @override
   final SimpleSurveyPageStateDto surveyPageState;
 
@@ -643,7 +594,7 @@ class _$_ResponseDto extends _ResponseDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseDto &&
+            other is _$_ResponseDto &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality().equals(other.projectId, projectId) &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
@@ -672,13 +623,15 @@ class _$_ResponseDto extends _ResponseDto {
             const DeepCollectionEquality()
                 .equals(other.responseStatus, responseStatus) &&
             const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
-            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
             const DeepCollectionEquality()
-                .equals(other.answerStatusMap, answerStatusMap) &&
+                .equals(other._answerMap, _answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other._answerStatusMap, _answerStatusMap) &&
             const DeepCollectionEquality()
                 .equals(other.surveyPageState, surveyPageState));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -699,15 +652,15 @@ class _$_ResponseDto extends _ResponseDto {
         const DeepCollectionEquality().hash(lastChangedTimeStamp),
         const DeepCollectionEquality().hash(responseStatus),
         const DeepCollectionEquality().hash(isDeleted),
-        const DeepCollectionEquality().hash(answerMap),
-        const DeepCollectionEquality().hash(answerStatusMap),
+        const DeepCollectionEquality().hash(_answerMap),
+        const DeepCollectionEquality().hash(_answerStatusMap),
         const DeepCollectionEquality().hash(surveyPageState)
       ]);
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseDtoCopyWith<_ResponseDto> get copyWith =>
-      __$ResponseDtoCopyWithImpl<_ResponseDto>(this, _$identity);
+  _$$_ResponseDtoCopyWith<_$_ResponseDto> get copyWith =>
+      __$$_ResponseDtoCopyWithImpl<_$_ResponseDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -717,73 +670,76 @@ class _$_ResponseDto extends _ResponseDto {
 
 abstract class _ResponseDto extends ResponseDto {
   const factory _ResponseDto(
-      {required String teamId,
-      required String projectId,
-      required String surveyId,
-      required String moduleType,
-      required String respondentId,
-      required String responseId,
-      required String tempResponseId,
-      required String ticketId,
-      required bool editFinished,
-      required String interviewerId,
-      required String deviceId,
-      required int createdTimeStamp,
-      required int sessionStartTimeStamp,
-      required int sessionEndTimeStamp,
-      required int lastChangedTimeStamp,
-      required String responseStatus,
-      required bool isDeleted,
-      required Map<String, AnswerDto> answerMap,
-      required Map<String, AnswerStatusDto> answerStatusMap,
-      required SimpleSurveyPageStateDto surveyPageState}) = _$_ResponseDto;
+          {required final String teamId,
+          required final String projectId,
+          required final String surveyId,
+          required final String moduleType,
+          required final String respondentId,
+          required final String responseId,
+          required final String tempResponseId,
+          required final String ticketId,
+          required final bool editFinished,
+          required final String interviewerId,
+          required final String deviceId,
+          required final int createdTimeStamp,
+          required final int sessionStartTimeStamp,
+          required final int sessionEndTimeStamp,
+          required final int lastChangedTimeStamp,
+          required final String responseStatus,
+          required final bool isDeleted,
+          required final Map<String, AnswerDto> answerMap,
+          required final Map<String, AnswerStatusDto> answerStatusMap,
+          required final SimpleSurveyPageStateDto surveyPageState}) =
+      _$_ResponseDto;
   const _ResponseDto._() : super._();
 
   factory _ResponseDto.fromJson(Map<String, dynamic> json) =
       _$_ResponseDto.fromJson;
 
-  @override // H_ 區分不同 response
-  String get teamId;
+  @override // > 區分不同 response
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType;
+  String get moduleType => throw _privateConstructorUsedError;
   @override
-  String get respondentId;
-  @override // H_ 區分 response 版本
-  String get responseId;
+  String get respondentId => throw _privateConstructorUsedError;
+  @override // > 區分 response 版本
+  String get responseId => throw _privateConstructorUsedError;
   @override
-  String get tempResponseId;
+  String get tempResponseId => throw _privateConstructorUsedError;
   @override
-  String get ticketId;
+  String get ticketId => throw _privateConstructorUsedError;
   @override
-  bool get editFinished;
+  bool get editFinished => throw _privateConstructorUsedError;
   @override
-  String get interviewerId;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
-  String get deviceId;
-  @override // H_ 狀態
-  int get createdTimeStamp;
+  String get deviceId => throw _privateConstructorUsedError;
+  @override // > 狀態
+  int get createdTimeStamp => throw _privateConstructorUsedError;
   @override
-  int get sessionStartTimeStamp;
+  int get sessionStartTimeStamp => throw _privateConstructorUsedError;
   @override
-  int get sessionEndTimeStamp;
+  int get sessionEndTimeStamp => throw _privateConstructorUsedError;
   @override
-  int get lastChangedTimeStamp;
+  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
   @override
-  String get responseStatus;
+  String get responseStatus => throw _privateConstructorUsedError;
   @override
-  bool get isDeleted;
-  @override // H_ 內容
-  Map<String, AnswerDto> get answerMap;
+  bool get isDeleted => throw _privateConstructorUsedError;
+  @override // > 內容
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  SimpleSurveyPageStateDto get surveyPageState;
+  SimpleSurveyPageStateDto get surveyPageState =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseDtoCopyWith<_ResponseDto> get copyWith =>
+  _$$_ResponseDtoCopyWith<_$_ResponseDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

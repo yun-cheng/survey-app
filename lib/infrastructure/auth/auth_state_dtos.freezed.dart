@@ -12,38 +12,11 @@ part of 'auth_state_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AuthStateDto _$AuthStateDtoFromJson(Map<String, dynamic> json) {
   return _AuthStateDto.fromJson(json);
 }
-
-/// @nodoc
-class _$AuthStateDtoTearOff {
-  const _$AuthStateDtoTearOff();
-
-  _AuthStateDto call(
-      {List<TeamDto>? teamList,
-      TeamDto? team,
-      List<InterviewerDto>? interviewerList,
-      InterviewerDto? interviewer,
-      String? signInState}) {
-    return _AuthStateDto(
-      teamList: teamList,
-      team: team,
-      interviewerList: interviewerList,
-      interviewer: interviewer,
-      signInState: signInState,
-    );
-  }
-
-  AuthStateDto fromJson(Map<String, Object?> json) {
-    return AuthStateDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AuthStateDto = _$AuthStateDtoTearOff();
 
 /// @nodoc
 mixin _$AuthStateDto {
@@ -140,11 +113,11 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AuthStateDtoCopyWith<$Res>
+abstract class _$$_AuthStateDtoCopyWith<$Res>
     implements $AuthStateDtoCopyWith<$Res> {
-  factory _$AuthStateDtoCopyWith(
-          _AuthStateDto value, $Res Function(_AuthStateDto) then) =
-      __$AuthStateDtoCopyWithImpl<$Res>;
+  factory _$$_AuthStateDtoCopyWith(
+          _$_AuthStateDto value, $Res Function(_$_AuthStateDto) then) =
+      __$$_AuthStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<TeamDto>? teamList,
@@ -160,14 +133,15 @@ abstract class _$AuthStateDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
-    implements _$AuthStateDtoCopyWith<$Res> {
-  __$AuthStateDtoCopyWithImpl(
-      _AuthStateDto _value, $Res Function(_AuthStateDto) _then)
-      : super(_value, (v) => _then(v as _AuthStateDto));
+class __$$_AuthStateDtoCopyWithImpl<$Res>
+    extends _$AuthStateDtoCopyWithImpl<$Res>
+    implements _$$_AuthStateDtoCopyWith<$Res> {
+  __$$_AuthStateDtoCopyWithImpl(
+      _$_AuthStateDto _value, $Res Function(_$_AuthStateDto) _then)
+      : super(_value, (v) => _then(v as _$_AuthStateDto));
 
   @override
-  _AuthStateDto get _value => super._value as _AuthStateDto;
+  _$_AuthStateDto get _value => super._value as _$_AuthStateDto;
 
   @override
   $Res call({
@@ -177,9 +151,9 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
     Object? interviewer = freezed,
     Object? signInState = freezed,
   }) {
-    return _then(_AuthStateDto(
+    return _then(_$_AuthStateDto(
       teamList: teamList == freezed
-          ? _value.teamList
+          ? _value._teamList
           : teamList // ignore: cast_nullable_to_non_nullable
               as List<TeamDto>?,
       team: team == freezed
@@ -187,7 +161,7 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
           : team // ignore: cast_nullable_to_non_nullable
               as TeamDto?,
       interviewerList: interviewerList == freezed
-          ? _value.interviewerList
+          ? _value._interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
               as List<InterviewerDto>?,
       interviewer: interviewer == freezed
@@ -207,22 +181,38 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_AuthStateDto extends _AuthStateDto {
   const _$_AuthStateDto(
-      {this.teamList,
+      {final List<TeamDto>? teamList,
       this.team,
-      this.interviewerList,
+      final List<InterviewerDto>? interviewerList,
       this.interviewer,
       this.signInState})
-      : super._();
+      : _teamList = teamList,
+        _interviewerList = interviewerList,
+        super._();
 
   factory _$_AuthStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_AuthStateDtoFromJson(json);
 
+  final List<TeamDto>? _teamList;
   @override
-  final List<TeamDto>? teamList;
+  List<TeamDto>? get teamList {
+    final value = _teamList;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final TeamDto? team;
+  final List<InterviewerDto>? _interviewerList;
   @override
-  final List<InterviewerDto>? interviewerList;
+  List<InterviewerDto>? get interviewerList {
+    final value = _interviewerList;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final InterviewerDto? interviewer;
   @override
@@ -237,30 +227,31 @@ class _$_AuthStateDto extends _AuthStateDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AuthStateDto &&
-            const DeepCollectionEquality().equals(other.teamList, teamList) &&
+            other is _$_AuthStateDto &&
+            const DeepCollectionEquality().equals(other._teamList, _teamList) &&
             const DeepCollectionEquality().equals(other.team, team) &&
             const DeepCollectionEquality()
-                .equals(other.interviewerList, interviewerList) &&
+                .equals(other._interviewerList, _interviewerList) &&
             const DeepCollectionEquality()
                 .equals(other.interviewer, interviewer) &&
             const DeepCollectionEquality()
                 .equals(other.signInState, signInState));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(teamList),
+      const DeepCollectionEquality().hash(_teamList),
       const DeepCollectionEquality().hash(team),
-      const DeepCollectionEquality().hash(interviewerList),
+      const DeepCollectionEquality().hash(_interviewerList),
       const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(signInState));
 
   @JsonKey(ignore: true)
   @override
-  _$AuthStateDtoCopyWith<_AuthStateDto> get copyWith =>
-      __$AuthStateDtoCopyWithImpl<_AuthStateDto>(this, _$identity);
+  _$$_AuthStateDtoCopyWith<_$_AuthStateDto> get copyWith =>
+      __$$_AuthStateDtoCopyWithImpl<_$_AuthStateDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -270,28 +261,29 @@ class _$_AuthStateDto extends _AuthStateDto {
 
 abstract class _AuthStateDto extends AuthStateDto {
   const factory _AuthStateDto(
-      {List<TeamDto>? teamList,
-      TeamDto? team,
-      List<InterviewerDto>? interviewerList,
-      InterviewerDto? interviewer,
-      String? signInState}) = _$_AuthStateDto;
+      {final List<TeamDto>? teamList,
+      final TeamDto? team,
+      final List<InterviewerDto>? interviewerList,
+      final InterviewerDto? interviewer,
+      final String? signInState}) = _$_AuthStateDto;
   const _AuthStateDto._() : super._();
 
   factory _AuthStateDto.fromJson(Map<String, dynamic> json) =
       _$_AuthStateDto.fromJson;
 
   @override
-  List<TeamDto>? get teamList;
+  List<TeamDto>? get teamList => throw _privateConstructorUsedError;
   @override
-  TeamDto? get team;
+  TeamDto? get team => throw _privateConstructorUsedError;
   @override
-  List<InterviewerDto>? get interviewerList;
+  List<InterviewerDto>? get interviewerList =>
+      throw _privateConstructorUsedError;
   @override
-  InterviewerDto? get interviewer;
+  InterviewerDto? get interviewer => throw _privateConstructorUsedError;
   @override
-  String? get signInState;
+  String? get signInState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AuthStateDtoCopyWith<_AuthStateDto> get copyWith =>
+  _$$_AuthStateDtoCopyWith<_$_AuthStateDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

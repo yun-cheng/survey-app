@@ -12,50 +12,11 @@ part of 'response_state_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ResponseStateDto _$ResponseStateDtoFromJson(Map<String, dynamic> json) {
   return _ResponseStateDto.fromJson(json);
 }
-
-/// @nodoc
-class _$ResponseStateDtoTearOff {
-  const _$ResponseStateDtoTearOff();
-
-  _ResponseStateDto call(
-      {SurveyDto? survey,
-      String? surveyId,
-      InterviewerDto? interviewer,
-      RespondentDto? respondent,
-      Map<String, ResponseDto>? responseMap,
-      List<String>? responseMapKeys,
-      List<ReferenceDto>? referenceList,
-      ResponseDto? response,
-      String? responseId,
-      List<String>? uploadResponseIdSet,
-      @JsonKey(ignore: true) StateParameters? saveParameters}) {
-    return _ResponseStateDto(
-      survey: survey,
-      surveyId: surveyId,
-      interviewer: interviewer,
-      respondent: respondent,
-      responseMap: responseMap,
-      responseMapKeys: responseMapKeys,
-      referenceList: referenceList,
-      response: response,
-      responseId: responseId,
-      uploadResponseIdSet: uploadResponseIdSet,
-      saveParameters: saveParameters,
-    );
-  }
-
-  ResponseStateDto fromJson(Map<String, Object?> json) {
-    return ResponseStateDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ResponseStateDto = _$ResponseStateDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseStateDto {
@@ -70,7 +31,7 @@ mixin _$ResponseStateDto {
   ResponseDto? get response => throw _privateConstructorUsedError;
   String? get responseId => throw _privateConstructorUsedError;
   List<String>? get uploadResponseIdSet =>
-      throw _privateConstructorUsedError; // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
+      throw _privateConstructorUsedError; // * 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   StateParameters? get saveParameters => throw _privateConstructorUsedError;
 
@@ -233,11 +194,11 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResponseStateDtoCopyWith<$Res>
+abstract class _$$_ResponseStateDtoCopyWith<$Res>
     implements $ResponseStateDtoCopyWith<$Res> {
-  factory _$ResponseStateDtoCopyWith(
-          _ResponseStateDto value, $Res Function(_ResponseStateDto) then) =
-      __$ResponseStateDtoCopyWithImpl<$Res>;
+  factory _$$_ResponseStateDtoCopyWith(
+          _$_ResponseStateDto value, $Res Function(_$_ResponseStateDto) then) =
+      __$$_ResponseStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {SurveyDto? survey,
@@ -265,15 +226,15 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResponseStateDtoCopyWithImpl<$Res>
+class __$$_ResponseStateDtoCopyWithImpl<$Res>
     extends _$ResponseStateDtoCopyWithImpl<$Res>
-    implements _$ResponseStateDtoCopyWith<$Res> {
-  __$ResponseStateDtoCopyWithImpl(
-      _ResponseStateDto _value, $Res Function(_ResponseStateDto) _then)
-      : super(_value, (v) => _then(v as _ResponseStateDto));
+    implements _$$_ResponseStateDtoCopyWith<$Res> {
+  __$$_ResponseStateDtoCopyWithImpl(
+      _$_ResponseStateDto _value, $Res Function(_$_ResponseStateDto) _then)
+      : super(_value, (v) => _then(v as _$_ResponseStateDto));
 
   @override
-  _ResponseStateDto get _value => super._value as _ResponseStateDto;
+  _$_ResponseStateDto get _value => super._value as _$_ResponseStateDto;
 
   @override
   $Res call({
@@ -289,7 +250,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? uploadResponseIdSet = freezed,
     Object? saveParameters = freezed,
   }) {
-    return _then(_ResponseStateDto(
+    return _then(_$_ResponseStateDto(
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -307,15 +268,15 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           : respondent // ignore: cast_nullable_to_non_nullable
               as RespondentDto?,
       responseMap: responseMap == freezed
-          ? _value.responseMap
+          ? _value._responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
               as Map<String, ResponseDto>?,
       responseMapKeys: responseMapKeys == freezed
-          ? _value.responseMapKeys
+          ? _value._responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       referenceList: referenceList == freezed
-          ? _value.referenceList
+          ? _value._referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
               as List<ReferenceDto>?,
       response: response == freezed
@@ -327,7 +288,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           : responseId // ignore: cast_nullable_to_non_nullable
               as String?,
       uploadResponseIdSet: uploadResponseIdSet == freezed
-          ? _value.uploadResponseIdSet
+          ? _value._uploadResponseIdSet
           : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       saveParameters: saveParameters == freezed
@@ -347,14 +308,18 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       this.surveyId,
       this.interviewer,
       this.respondent,
-      this.responseMap,
-      this.responseMapKeys,
-      this.referenceList,
+      final Map<String, ResponseDto>? responseMap,
+      final List<String>? responseMapKeys,
+      final List<ReferenceDto>? referenceList,
       this.response,
       this.responseId,
-      this.uploadResponseIdSet,
+      final List<String>? uploadResponseIdSet,
       @JsonKey(ignore: true) this.saveParameters})
-      : super._();
+      : _responseMap = responseMap,
+        _responseMapKeys = responseMapKeys,
+        _referenceList = referenceList,
+        _uploadResponseIdSet = uploadResponseIdSet,
+        super._();
 
   factory _$_ResponseStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_ResponseStateDtoFromJson(json);
@@ -367,19 +332,48 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   final InterviewerDto? interviewer;
   @override
   final RespondentDto? respondent;
+  final Map<String, ResponseDto>? _responseMap;
   @override
-  final Map<String, ResponseDto>? responseMap;
+  Map<String, ResponseDto>? get responseMap {
+    final value = _responseMap;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final List<String>? _responseMapKeys;
   @override
-  final List<String>? responseMapKeys;
+  List<String>? get responseMapKeys {
+    final value = _responseMapKeys;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<ReferenceDto>? _referenceList;
   @override
-  final List<ReferenceDto>? referenceList;
+  List<ReferenceDto>? get referenceList {
+    final value = _referenceList;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final ResponseDto? response;
   @override
   final String? responseId;
+  final List<String>? _uploadResponseIdSet;
   @override
-  final List<String>? uploadResponseIdSet;
-  @override // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
+  List<String>? get uploadResponseIdSet {
+    final value = _uploadResponseIdSet;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+// * 因為之後會 subsetInfoMap，所以要留著，但 ignore
+  @override
   @JsonKey(ignore: true)
   final StateParameters? saveParameters;
 
@@ -392,7 +386,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResponseStateDto &&
+            other is _$_ResponseStateDto &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
             const DeepCollectionEquality()
@@ -400,20 +394,21 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             const DeepCollectionEquality()
                 .equals(other.respondent, respondent) &&
             const DeepCollectionEquality()
-                .equals(other.responseMap, responseMap) &&
+                .equals(other._responseMap, _responseMap) &&
             const DeepCollectionEquality()
-                .equals(other.responseMapKeys, responseMapKeys) &&
+                .equals(other._responseMapKeys, _responseMapKeys) &&
             const DeepCollectionEquality()
-                .equals(other.referenceList, referenceList) &&
+                .equals(other._referenceList, _referenceList) &&
             const DeepCollectionEquality().equals(other.response, response) &&
             const DeepCollectionEquality()
                 .equals(other.responseId, responseId) &&
             const DeepCollectionEquality()
-                .equals(other.uploadResponseIdSet, uploadResponseIdSet) &&
+                .equals(other._uploadResponseIdSet, _uploadResponseIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.saveParameters, saveParameters));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -421,18 +416,18 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(surveyId),
       const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(respondent),
-      const DeepCollectionEquality().hash(responseMap),
-      const DeepCollectionEquality().hash(responseMapKeys),
-      const DeepCollectionEquality().hash(referenceList),
+      const DeepCollectionEquality().hash(_responseMap),
+      const DeepCollectionEquality().hash(_responseMapKeys),
+      const DeepCollectionEquality().hash(_referenceList),
       const DeepCollectionEquality().hash(response),
       const DeepCollectionEquality().hash(responseId),
-      const DeepCollectionEquality().hash(uploadResponseIdSet),
+      const DeepCollectionEquality().hash(_uploadResponseIdSet),
       const DeepCollectionEquality().hash(saveParameters));
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>
-      __$ResponseStateDtoCopyWithImpl<_ResponseStateDto>(this, _$identity);
+  _$$_ResponseStateDtoCopyWith<_$_ResponseStateDto> get copyWith =>
+      __$$_ResponseStateDtoCopyWithImpl<_$_ResponseStateDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -442,17 +437,17 @@ class _$_ResponseStateDto extends _ResponseStateDto {
 
 abstract class _ResponseStateDto extends ResponseStateDto {
   const factory _ResponseStateDto(
-          {SurveyDto? survey,
-          String? surveyId,
-          InterviewerDto? interviewer,
-          RespondentDto? respondent,
-          Map<String, ResponseDto>? responseMap,
-          List<String>? responseMapKeys,
-          List<ReferenceDto>? referenceList,
-          ResponseDto? response,
-          String? responseId,
-          List<String>? uploadResponseIdSet,
-          @JsonKey(ignore: true) StateParameters? saveParameters}) =
+          {final SurveyDto? survey,
+          final String? surveyId,
+          final InterviewerDto? interviewer,
+          final RespondentDto? respondent,
+          final Map<String, ResponseDto>? responseMap,
+          final List<String>? responseMapKeys,
+          final List<ReferenceDto>? referenceList,
+          final ResponseDto? response,
+          final String? responseId,
+          final List<String>? uploadResponseIdSet,
+          @JsonKey(ignore: true) final StateParameters? saveParameters}) =
       _$_ResponseStateDto;
   const _ResponseStateDto._() : super._();
 
@@ -460,30 +455,31 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       _$_ResponseStateDto.fromJson;
 
   @override
-  SurveyDto? get survey;
+  SurveyDto? get survey => throw _privateConstructorUsedError;
   @override
-  String? get surveyId;
+  String? get surveyId => throw _privateConstructorUsedError;
   @override
-  InterviewerDto? get interviewer;
+  InterviewerDto? get interviewer => throw _privateConstructorUsedError;
   @override
-  RespondentDto? get respondent;
+  RespondentDto? get respondent => throw _privateConstructorUsedError;
   @override
-  Map<String, ResponseDto>? get responseMap;
+  Map<String, ResponseDto>? get responseMap =>
+      throw _privateConstructorUsedError;
   @override
-  List<String>? get responseMapKeys;
+  List<String>? get responseMapKeys => throw _privateConstructorUsedError;
   @override
-  List<ReferenceDto>? get referenceList;
+  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   @override
-  ResponseDto? get response;
+  ResponseDto? get response => throw _privateConstructorUsedError;
   @override
-  String? get responseId;
+  String? get responseId => throw _privateConstructorUsedError;
   @override
-  List<String>? get uploadResponseIdSet;
-  @override // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
+  List<String>? get uploadResponseIdSet => throw _privateConstructorUsedError;
+  @override // * 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
-  StateParameters? get saveParameters;
+  StateParameters? get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>
+  _$$_ResponseStateDtoCopyWith<_$_ResponseStateDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

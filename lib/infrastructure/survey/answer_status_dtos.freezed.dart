@@ -12,36 +12,11 @@ part of 'answer_status_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AnswerStatusDto _$AnswerStatusDtoFromJson(Map<String, dynamic> json) {
   return _AnswerStatusDto.fromJson(json);
 }
-
-/// @nodoc
-class _$AnswerStatusDtoTearOff {
-  const _$AnswerStatusDtoTearOff();
-
-  _AnswerStatusDto call(
-      {required String answerStatusType,
-      bool isSpecialAnswer = false,
-      int lastChangedTimeStamp = -2209017600000000,
-      Map<String, String> noteMap = const {}}) {
-    return _AnswerStatusDto(
-      answerStatusType: answerStatusType,
-      isSpecialAnswer: isSpecialAnswer,
-      lastChangedTimeStamp: lastChangedTimeStamp,
-      noteMap: noteMap,
-    );
-  }
-
-  AnswerStatusDto fromJson(Map<String, Object?> json) {
-    return AnswerStatusDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AnswerStatusDto = _$AnswerStatusDtoTearOff();
 
 /// @nodoc
 mixin _$AnswerStatusDto {
@@ -106,11 +81,11 @@ class _$AnswerStatusDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AnswerStatusDtoCopyWith<$Res>
+abstract class _$$_AnswerStatusDtoCopyWith<$Res>
     implements $AnswerStatusDtoCopyWith<$Res> {
-  factory _$AnswerStatusDtoCopyWith(
-          _AnswerStatusDto value, $Res Function(_AnswerStatusDto) then) =
-      __$AnswerStatusDtoCopyWithImpl<$Res>;
+  factory _$$_AnswerStatusDtoCopyWith(
+          _$_AnswerStatusDto value, $Res Function(_$_AnswerStatusDto) then) =
+      __$$_AnswerStatusDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String answerStatusType,
@@ -120,15 +95,15 @@ abstract class _$AnswerStatusDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AnswerStatusDtoCopyWithImpl<$Res>
+class __$$_AnswerStatusDtoCopyWithImpl<$Res>
     extends _$AnswerStatusDtoCopyWithImpl<$Res>
-    implements _$AnswerStatusDtoCopyWith<$Res> {
-  __$AnswerStatusDtoCopyWithImpl(
-      _AnswerStatusDto _value, $Res Function(_AnswerStatusDto) _then)
-      : super(_value, (v) => _then(v as _AnswerStatusDto));
+    implements _$$_AnswerStatusDtoCopyWith<$Res> {
+  __$$_AnswerStatusDtoCopyWithImpl(
+      _$_AnswerStatusDto _value, $Res Function(_$_AnswerStatusDto) _then)
+      : super(_value, (v) => _then(v as _$_AnswerStatusDto));
 
   @override
-  _AnswerStatusDto get _value => super._value as _AnswerStatusDto;
+  _$_AnswerStatusDto get _value => super._value as _$_AnswerStatusDto;
 
   @override
   $Res call({
@@ -137,7 +112,7 @@ class __$AnswerStatusDtoCopyWithImpl<$Res>
     Object? lastChangedTimeStamp = freezed,
     Object? noteMap = freezed,
   }) {
-    return _then(_AnswerStatusDto(
+    return _then(_$_AnswerStatusDto(
       answerStatusType: answerStatusType == freezed
           ? _value.answerStatusType
           : answerStatusType // ignore: cast_nullable_to_non_nullable
@@ -151,7 +126,7 @@ class __$AnswerStatusDtoCopyWithImpl<$Res>
           : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
               as int,
       noteMap: noteMap == freezed
-          ? _value.noteMap
+          ? _value._noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
     ));
@@ -165,23 +140,28 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
       {required this.answerStatusType,
       this.isSpecialAnswer = false,
       this.lastChangedTimeStamp = -2209017600000000,
-      this.noteMap = const {}})
-      : super._();
+      final Map<String, String> noteMap = const {}})
+      : _noteMap = noteMap,
+        super._();
 
   factory _$_AnswerStatusDto.fromJson(Map<String, dynamic> json) =>
       _$$_AnswerStatusDtoFromJson(json);
 
   @override
   final String answerStatusType;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isSpecialAnswer;
-  @JsonKey()
   @override
+  @JsonKey()
   final int lastChangedTimeStamp;
-  @JsonKey()
+  final Map<String, String> _noteMap;
   @override
-  final Map<String, String> noteMap;
+  @JsonKey()
+  Map<String, String> get noteMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_noteMap);
+  }
 
   @override
   String toString() {
@@ -192,28 +172,29 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AnswerStatusDto &&
+            other is _$_AnswerStatusDto &&
             const DeepCollectionEquality()
                 .equals(other.answerStatusType, answerStatusType) &&
             const DeepCollectionEquality()
                 .equals(other.isSpecialAnswer, isSpecialAnswer) &&
             const DeepCollectionEquality()
                 .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
-            const DeepCollectionEquality().equals(other.noteMap, noteMap));
+            const DeepCollectionEquality().equals(other._noteMap, _noteMap));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(answerStatusType),
       const DeepCollectionEquality().hash(isSpecialAnswer),
       const DeepCollectionEquality().hash(lastChangedTimeStamp),
-      const DeepCollectionEquality().hash(noteMap));
+      const DeepCollectionEquality().hash(_noteMap));
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerStatusDtoCopyWith<_AnswerStatusDto> get copyWith =>
-      __$AnswerStatusDtoCopyWithImpl<_AnswerStatusDto>(this, _$identity);
+  _$$_AnswerStatusDtoCopyWith<_$_AnswerStatusDto> get copyWith =>
+      __$$_AnswerStatusDtoCopyWithImpl<_$_AnswerStatusDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -223,25 +204,25 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
 
 abstract class _AnswerStatusDto extends AnswerStatusDto {
   const factory _AnswerStatusDto(
-      {required String answerStatusType,
-      bool isSpecialAnswer,
-      int lastChangedTimeStamp,
-      Map<String, String> noteMap}) = _$_AnswerStatusDto;
+      {required final String answerStatusType,
+      final bool isSpecialAnswer,
+      final int lastChangedTimeStamp,
+      final Map<String, String> noteMap}) = _$_AnswerStatusDto;
   const _AnswerStatusDto._() : super._();
 
   factory _AnswerStatusDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerStatusDto.fromJson;
 
   @override
-  String get answerStatusType;
+  String get answerStatusType => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  int get lastChangedTimeStamp;
+  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
   @override
-  Map<String, String> get noteMap;
+  Map<String, String> get noteMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AnswerStatusDtoCopyWith<_AnswerStatusDto> get copyWith =>
+  _$$_AnswerStatusDtoCopyWith<_$_AnswerStatusDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,30 +12,11 @@ part of 'simple_choice_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SimpleChoiceDto _$SimpleChoiceDtoFromJson(Map<String, dynamic> json) {
   return _SimpleChoiceDto.fromJson(json);
 }
-
-/// @nodoc
-class _$SimpleChoiceDtoTearOff {
-  const _$SimpleChoiceDtoTearOff();
-
-  _SimpleChoiceDto call({required String id, required String body}) {
-    return _SimpleChoiceDto(
-      id: id,
-      body: body,
-    );
-  }
-
-  SimpleChoiceDto fromJson(Map<String, Object?> json) {
-    return SimpleChoiceDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SimpleChoiceDto = _$SimpleChoiceDtoTearOff();
 
 /// @nodoc
 mixin _$SimpleChoiceDto {
@@ -84,32 +65,32 @@ class _$SimpleChoiceDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SimpleChoiceDtoCopyWith<$Res>
+abstract class _$$_SimpleChoiceDtoCopyWith<$Res>
     implements $SimpleChoiceDtoCopyWith<$Res> {
-  factory _$SimpleChoiceDtoCopyWith(
-          _SimpleChoiceDto value, $Res Function(_SimpleChoiceDto) then) =
-      __$SimpleChoiceDtoCopyWithImpl<$Res>;
+  factory _$$_SimpleChoiceDtoCopyWith(
+          _$_SimpleChoiceDto value, $Res Function(_$_SimpleChoiceDto) then) =
+      __$$_SimpleChoiceDtoCopyWithImpl<$Res>;
   @override
   $Res call({String id, String body});
 }
 
 /// @nodoc
-class __$SimpleChoiceDtoCopyWithImpl<$Res>
+class __$$_SimpleChoiceDtoCopyWithImpl<$Res>
     extends _$SimpleChoiceDtoCopyWithImpl<$Res>
-    implements _$SimpleChoiceDtoCopyWith<$Res> {
-  __$SimpleChoiceDtoCopyWithImpl(
-      _SimpleChoiceDto _value, $Res Function(_SimpleChoiceDto) _then)
-      : super(_value, (v) => _then(v as _SimpleChoiceDto));
+    implements _$$_SimpleChoiceDtoCopyWith<$Res> {
+  __$$_SimpleChoiceDtoCopyWithImpl(
+      _$_SimpleChoiceDto _value, $Res Function(_$_SimpleChoiceDto) _then)
+      : super(_value, (v) => _then(v as _$_SimpleChoiceDto));
 
   @override
-  _SimpleChoiceDto get _value => super._value as _SimpleChoiceDto;
+  _$_SimpleChoiceDto get _value => super._value as _$_SimpleChoiceDto;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? body = freezed,
   }) {
-    return _then(_SimpleChoiceDto(
+    return _then(_$_SimpleChoiceDto(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -144,11 +125,12 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SimpleChoiceDto &&
+            other is _$_SimpleChoiceDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.body, body));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -157,8 +139,8 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
 
   @JsonKey(ignore: true)
   @override
-  _$SimpleChoiceDtoCopyWith<_SimpleChoiceDto> get copyWith =>
-      __$SimpleChoiceDtoCopyWithImpl<_SimpleChoiceDto>(this, _$identity);
+  _$$_SimpleChoiceDtoCopyWith<_$_SimpleChoiceDto> get copyWith =>
+      __$$_SimpleChoiceDtoCopyWithImpl<_$_SimpleChoiceDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -167,19 +149,20 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
 }
 
 abstract class _SimpleChoiceDto extends SimpleChoiceDto {
-  const factory _SimpleChoiceDto({required String id, required String body}) =
-      _$_SimpleChoiceDto;
+  const factory _SimpleChoiceDto(
+      {required final String id,
+      required final String body}) = _$_SimpleChoiceDto;
   const _SimpleChoiceDto._() : super._();
 
   factory _SimpleChoiceDto.fromJson(Map<String, dynamic> json) =
       _$_SimpleChoiceDto.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get body;
+  String get body => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SimpleChoiceDtoCopyWith<_SimpleChoiceDto> get copyWith =>
+  _$$_SimpleChoiceDtoCopyWith<_$_SimpleChoiceDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

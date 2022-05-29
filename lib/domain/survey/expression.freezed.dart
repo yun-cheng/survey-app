@@ -12,26 +12,7 @@ part of 'expression.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ExpressionTearOff {
-  const _$ExpressionTearOff();
-
-  _Expression call(
-      {required String field,
-      required Operator operator,
-      required Answer comparisonValue}) {
-    return _Expression(
-      field: field,
-      operator: operator,
-      comparisonValue: comparisonValue,
-    );
-  }
-}
-
-/// @nodoc
-const $Expression = _$ExpressionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Expression {
@@ -101,10 +82,11 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ExpressionCopyWith<$Res> implements $ExpressionCopyWith<$Res> {
-  factory _$ExpressionCopyWith(
-          _Expression value, $Res Function(_Expression) then) =
-      __$ExpressionCopyWithImpl<$Res>;
+abstract class _$$_ExpressionCopyWith<$Res>
+    implements $ExpressionCopyWith<$Res> {
+  factory _$$_ExpressionCopyWith(
+          _$_Expression value, $Res Function(_$_Expression) then) =
+      __$$_ExpressionCopyWithImpl<$Res>;
   @override
   $Res call({String field, Operator operator, Answer comparisonValue});
 
@@ -115,14 +97,14 @@ abstract class _$ExpressionCopyWith<$Res> implements $ExpressionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
-    implements _$ExpressionCopyWith<$Res> {
-  __$ExpressionCopyWithImpl(
-      _Expression _value, $Res Function(_Expression) _then)
-      : super(_value, (v) => _then(v as _Expression));
+class __$$_ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
+    implements _$$_ExpressionCopyWith<$Res> {
+  __$$_ExpressionCopyWithImpl(
+      _$_Expression _value, $Res Function(_$_Expression) _then)
+      : super(_value, (v) => _then(v as _$_Expression));
 
   @override
-  _Expression get _value => super._value as _Expression;
+  _$_Expression get _value => super._value as _$_Expression;
 
   @override
   $Res call({
@@ -130,7 +112,7 @@ class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
     Object? operator = freezed,
     Object? comparisonValue = freezed,
   }) {
-    return _then(_Expression(
+    return _then(_$_Expression(
       field: field == freezed
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
@@ -172,7 +154,7 @@ class _$_Expression extends _Expression {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Expression &&
+            other is _$_Expression &&
             const DeepCollectionEquality().equals(other.field, field) &&
             const DeepCollectionEquality().equals(other.operator, operator) &&
             const DeepCollectionEquality()
@@ -188,25 +170,25 @@ class _$_Expression extends _Expression {
 
   @JsonKey(ignore: true)
   @override
-  _$ExpressionCopyWith<_Expression> get copyWith =>
-      __$ExpressionCopyWithImpl<_Expression>(this, _$identity);
+  _$$_ExpressionCopyWith<_$_Expression> get copyWith =>
+      __$$_ExpressionCopyWithImpl<_$_Expression>(this, _$identity);
 }
 
 abstract class _Expression extends Expression {
   const factory _Expression(
-      {required String field,
-      required Operator operator,
-      required Answer comparisonValue}) = _$_Expression;
+      {required final String field,
+      required final Operator operator,
+      required final Answer comparisonValue}) = _$_Expression;
   const _Expression._() : super._();
 
   @override
-  String get field;
+  String get field => throw _privateConstructorUsedError;
   @override
-  Operator get operator;
+  Operator get operator => throw _privateConstructorUsedError;
   @override
-  Answer get comparisonValue;
+  Answer get comparisonValue => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ExpressionCopyWith<_Expression> get copyWith =>
+  _$$_ExpressionCopyWith<_$_Expression> get copyWith =>
       throw _privateConstructorUsedError;
 }

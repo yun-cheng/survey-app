@@ -12,40 +12,7 @@ part of 'choice.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ChoiceTearOff {
-  const _$ChoiceTearOff();
-
-  _Choice call(
-      {required int serialNumber,
-      required String id,
-      required String transformedId,
-      required String body,
-      required bool asNote,
-      required bool asSingle,
-      required bool isSpecialAnswer,
-      required String group,
-      required bool isGroupFirst,
-      required String upperChoiceId}) {
-    return _Choice(
-      serialNumber: serialNumber,
-      id: id,
-      transformedId: transformedId,
-      body: body,
-      asNote: asNote,
-      asSingle: asSingle,
-      isSpecialAnswer: isSpecialAnswer,
-      group: group,
-      isGroupFirst: isGroupFirst,
-      upperChoiceId: upperChoiceId,
-    );
-  }
-}
-
-/// @nodoc
-const $Choice = _$ChoiceTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Choice {
@@ -148,9 +115,9 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
-  factory _$ChoiceCopyWith(_Choice value, $Res Function(_Choice) then) =
-      __$ChoiceCopyWithImpl<$Res>;
+abstract class _$$_ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
+  factory _$$_ChoiceCopyWith(_$_Choice value, $Res Function(_$_Choice) then) =
+      __$$_ChoiceCopyWithImpl<$Res>;
   @override
   $Res call(
       {int serialNumber,
@@ -166,13 +133,13 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
-    implements _$ChoiceCopyWith<$Res> {
-  __$ChoiceCopyWithImpl(_Choice _value, $Res Function(_Choice) _then)
-      : super(_value, (v) => _then(v as _Choice));
+class __$$_ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
+    implements _$$_ChoiceCopyWith<$Res> {
+  __$$_ChoiceCopyWithImpl(_$_Choice _value, $Res Function(_$_Choice) _then)
+      : super(_value, (v) => _then(v as _$_Choice));
 
   @override
-  _Choice get _value => super._value as _Choice;
+  _$_Choice get _value => super._value as _$_Choice;
 
   @override
   $Res call({
@@ -187,7 +154,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
     Object? isGroupFirst = freezed,
     Object? upperChoiceId = freezed,
   }) {
-    return _then(_Choice(
+    return _then(_$_Choice(
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
@@ -278,7 +245,7 @@ class _$_Choice extends _Choice {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Choice &&
+            other is _$_Choice &&
             const DeepCollectionEquality()
                 .equals(other.serialNumber, serialNumber) &&
             const DeepCollectionEquality().equals(other.id, id) &&
@@ -312,45 +279,46 @@ class _$_Choice extends _Choice {
 
   @JsonKey(ignore: true)
   @override
-  _$ChoiceCopyWith<_Choice> get copyWith =>
-      __$ChoiceCopyWithImpl<_Choice>(this, _$identity);
+  _$$_ChoiceCopyWith<_$_Choice> get copyWith =>
+      __$$_ChoiceCopyWithImpl<_$_Choice>(this, _$identity);
 }
 
 abstract class _Choice extends Choice {
   const factory _Choice(
-      {required int serialNumber,
-      required String id,
-      required String transformedId,
-      required String body,
-      required bool asNote,
-      required bool asSingle,
-      required bool isSpecialAnswer,
-      required String group,
-      required bool isGroupFirst,
-      required String upperChoiceId}) = _$_Choice;
+      {required final int serialNumber,
+      required final String id,
+      required final String transformedId,
+      required final String body,
+      required final bool asNote,
+      required final bool asSingle,
+      required final bool isSpecialAnswer,
+      required final String group,
+      required final bool isGroupFirst,
+      required final String upperChoiceId}) = _$_Choice;
   const _Choice._() : super._();
 
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get transformedId;
+  String get transformedId => throw _privateConstructorUsedError;
   @override
-  String get body;
+  String get body => throw _privateConstructorUsedError;
   @override
-  bool get asNote;
+  bool get asNote => throw _privateConstructorUsedError;
   @override
-  bool get asSingle;
+  bool get asSingle => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  String get group;
+  String get group => throw _privateConstructorUsedError;
   @override
-  bool get isGroupFirst;
+  bool get isGroupFirst => throw _privateConstructorUsedError;
   @override
-  String get upperChoiceId;
+  String get upperChoiceId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;
+  _$$_ChoiceCopyWith<_$_Choice> get copyWith =>
+      throw _privateConstructorUsedError;
 }

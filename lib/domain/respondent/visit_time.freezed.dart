@@ -12,22 +12,7 @@ part of 'visit_time.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$VisitTimeTearOff {
-  const _$VisitTimeTearOff();
-
-  _VisitTime call({required DateTime date, required String timeSession}) {
-    return _VisitTime(
-      date: date,
-      timeSession: timeSession,
-    );
-  }
-}
-
-/// @nodoc
-const $VisitTime = _$VisitTimeTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$VisitTime {
@@ -73,29 +58,30 @@ class _$VisitTimeCopyWithImpl<$Res> implements $VisitTimeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$VisitTimeCopyWith<$Res> implements $VisitTimeCopyWith<$Res> {
-  factory _$VisitTimeCopyWith(
-          _VisitTime value, $Res Function(_VisitTime) then) =
-      __$VisitTimeCopyWithImpl<$Res>;
+abstract class _$$_VisitTimeCopyWith<$Res> implements $VisitTimeCopyWith<$Res> {
+  factory _$$_VisitTimeCopyWith(
+          _$_VisitTime value, $Res Function(_$_VisitTime) then) =
+      __$$_VisitTimeCopyWithImpl<$Res>;
   @override
   $Res call({DateTime date, String timeSession});
 }
 
 /// @nodoc
-class __$VisitTimeCopyWithImpl<$Res> extends _$VisitTimeCopyWithImpl<$Res>
-    implements _$VisitTimeCopyWith<$Res> {
-  __$VisitTimeCopyWithImpl(_VisitTime _value, $Res Function(_VisitTime) _then)
-      : super(_value, (v) => _then(v as _VisitTime));
+class __$$_VisitTimeCopyWithImpl<$Res> extends _$VisitTimeCopyWithImpl<$Res>
+    implements _$$_VisitTimeCopyWith<$Res> {
+  __$$_VisitTimeCopyWithImpl(
+      _$_VisitTime _value, $Res Function(_$_VisitTime) _then)
+      : super(_value, (v) => _then(v as _$_VisitTime));
 
   @override
-  _VisitTime get _value => super._value as _VisitTime;
+  _$_VisitTime get _value => super._value as _$_VisitTime;
 
   @override
   $Res call({
     Object? date = freezed,
     Object? timeSession = freezed,
   }) {
-    return _then(_VisitTime(
+    return _then(_$_VisitTime(
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -128,7 +114,7 @@ class _$_VisitTime extends _VisitTime {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VisitTime &&
+            other is _$_VisitTime &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.timeSession, timeSession));
@@ -142,21 +128,22 @@ class _$_VisitTime extends _VisitTime {
 
   @JsonKey(ignore: true)
   @override
-  _$VisitTimeCopyWith<_VisitTime> get copyWith =>
-      __$VisitTimeCopyWithImpl<_VisitTime>(this, _$identity);
+  _$$_VisitTimeCopyWith<_$_VisitTime> get copyWith =>
+      __$$_VisitTimeCopyWithImpl<_$_VisitTime>(this, _$identity);
 }
 
 abstract class _VisitTime extends VisitTime {
   const factory _VisitTime(
-      {required DateTime date, required String timeSession}) = _$_VisitTime;
+      {required final DateTime date,
+      required final String timeSession}) = _$_VisitTime;
   const _VisitTime._() : super._();
 
   @override
-  DateTime get date;
+  DateTime get date => throw _privateConstructorUsedError;
   @override
-  String get timeSession;
+  String get timeSession => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$VisitTimeCopyWith<_VisitTime> get copyWith =>
+  _$$_VisitTimeCopyWith<_$_VisitTime> get copyWith =>
       throw _privateConstructorUsedError;
 }
