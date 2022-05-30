@@ -1,14 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/survey/block_gesture_cubit.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
-import '../routes/router.gr.dart';
 import 'widgets/gesture_blocker_box.dart';
 import 'widgets/leave_survey_button.dart';
 import 'widgets/loading_box.dart';
@@ -54,7 +53,7 @@ class SurveyPage extends HookWidget {
                         const UpdateAnswerStatusEvent
                             .contentQuestionMapUpdated(),
                       );
-                  context.pushRoute(const SurveyContentRoute());
+                  context.pushNamed('survey-content');
                 },
               ),
             ],

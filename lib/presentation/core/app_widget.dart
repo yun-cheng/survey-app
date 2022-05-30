@@ -3,15 +3,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
 
-import '../routes/router.gr.dart';
+import '../routes/go_router.dart';
 import 'app_providers.dart';
 import 'style/main.dart';
 
 class AppWidget extends StatelessWidget {
-  AppWidget({Key? key}) : super(key: key);
-
-  // ! 必須要放在 build 外，才不會讓 hot reload 失敗
-  final _rootRouter = RootRouter();
+  const AppWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +16,8 @@ class AppWidget extends StatelessWidget {
       child: Sizer(
         builder: (context, orientation, deviceType) {
           return MaterialApp.router(
+            routeInformationParser: goRouter.routeInformationParser,
+            routerDelegate: goRouter.routerDelegate,
             // showPerformanceOverlay: true,
             // checkerboardOffscreenLayers: true,
             builder: (context, widget) {
@@ -41,8 +40,6 @@ class AppWidget extends StatelessWidget {
               GlobalMaterialLocalizations.delegate
             ],
             supportedLocales: const [Locale('en'), Locale('zh', 'TW')],
-            routerDelegate: _rootRouter.delegate(),
-            routeInformationParser: _rootRouter.defaultRouteParser(),
           );
         },
       ),

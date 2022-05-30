@@ -1,5 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
@@ -8,7 +8,6 @@ import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../routes/router.gr.dart';
 
 // > 監聽 Firestore
 final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
@@ -18,13 +17,12 @@ final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
     if (context.read<NavigationBloc>().state.page == NavigationPage.signIn()) {
       logger('Listen').i('AuthBloc: signInState -> Push to OverviewPage');
 
-      context.pushRoute(const OverviewRoute());
-
       context.read<NavigationBloc>().add(
             NavigationEvent.pageChanged(
               page: NavigationPage.overview(),
             ),
           );
+      context.pushNamed('overview');
     }
 
     logger('Listen').i('AuthBloc: signInState -> Watch Firestore');

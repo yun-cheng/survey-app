@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
@@ -8,7 +8,6 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
-import '../../routes/router.dart';
 
 final surveyEventStateListener =
     BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
@@ -56,9 +55,7 @@ final surveyEventStateListener =
               page: NavigationPage.respondent(),
             ),
           );
-
-      // * 從目錄頁要跳兩層，所以直接用 navigate
-      context.router.navigate(RespondentsRoute());
+      Navigator.popUntil(context, ModalRoute.withName('respondents'));
     }
   },
 );

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +10,6 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
-import '../../routes/router.dart';
 
 class BreakInterviewDialog extends StatelessWidget {
   final FlashController controller;
@@ -74,9 +72,7 @@ class BreakInterviewDialog extends StatelessWidget {
                       page: NavigationPage.respondent(),
                     ),
                   );
-
-              // * 從目錄頁要跳兩層，所以直接用 navigate
-              context.router.navigate(RespondentsRoute());
+              Navigator.popUntil(context, ModalRoute.withName('respondents'));
             }
           },
         ),

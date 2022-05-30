@@ -1,5 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'widgets/survey_content_body.dart';
 
@@ -14,7 +14,7 @@ class SurveyContentPage extends StatelessWidget {
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              context.router.pop();
+              context.pop();
             }),
       ),
       body: const SafeArea(

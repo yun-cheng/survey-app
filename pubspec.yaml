@@ -14,16 +14,16 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   # > essential
+  path_provider: ^2.0.10
+  path: ^1.8.1
   json_annotation: ^4.5.0
-  path_provider: ^2.0.9
   freezed_annotation: ^2.0.3
   uuid: ^3.0.6
-  collection: ^1.15.0
+  collection: ^1.16.0
   supercharged: ^2.1.1
   # > log
   logger: ^1.1.0
   stack_trace: ^1.10.0
-  path: ^1.8.0
   # > get_it
   get_it: ^7.2.0
   injectable: ^1.5.3
@@ -36,40 +36,41 @@ dependencies:
   hive: ^2.2.1
   hive_flutter: ^1.1.0
   # isar: ^2.5.0
-  synchronized: ^3.0.0
+  synchronized: ^3.0.0+2
   # > firebase
-  firebase_core: ^1.17.0
-  cloud_firestore: ^3.1.15
-  firebase_storage: ^10.2.16
+  firebase_core: ^1.17.1
+  cloud_firestore: ^3.1.17
+  firebase_storage: ^10.2.17
   firebase_app_check: ^0.0.6+13
   # > network
-  connectivity_plus: ^2.2.1
+  connectivity_plus: ^2.3.0
   # > recorder
   flutter_sound: ^9.2.12
-  permission_handler: ^8.3.0
+  permission_handler: ^9.2.0
   # > route
-  auto_route: ^3.2.0
-  # > widget/presentation
+  go_router: ^3.1.1
+  # > frontend
   sizer: ^2.0.15
   # * 目前只定義，未使用
   responsive_framework: ^0.1.9
   # flex_color_scheme: ^3.0.1
   flutter_hooks: ^0.18.3
   flutter_keyboard_visibility: ^5.2.0
-  linked_scroll_controller: ^0.2.0
-  flutter_sticky_header: ^0.6.0
-  sliver_tools: ^0.2.5
-  scroll_to_index: ^2.1.1
   flash: ^2.0.3+2
   progress_indicators: ^1.0.0
-  visibility_detector: ^0.2.2
+  visibility_detector: ^0.3.3
   google_fonts: ^3.0.1
+  # > frontend/scroll
+  linked_scroll_controller: ^0.2.0
+  flutter_sticky_header: ^0.6.3
+  sliver_tools: ^0.2.6
+  scroll_to_index: ^2.1.1
   # > others
   dartz: ^0.10.1
   tuple: ^2.0.0
   rxdart: ^0.27.3
   expression_language: ^1.0.1
-  async_task: ^1.0.17
+  async_task: ^1.0.18
 
 dev_dependencies:
   flutter_test:
@@ -80,8 +81,6 @@ dev_dependencies:
   freezed: ^2.0.3+1
   # > get_it
   injectable_generator: ^1.5.3
-  # > route
-  auto_route_generator: ^3.2.0
   # > lint
   flutter_lints: ^1.0.4
 
