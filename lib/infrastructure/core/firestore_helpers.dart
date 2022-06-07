@@ -14,6 +14,7 @@ extension FirestoreX on FirebaseFirestore {
   CollectionReference get referenceCollection =>
       collection('interviewerReferenceList');
   CollectionReference get responseCollection => collection('surveyResponse');
+  CollectionReference get commentCollection => collection('surveyComment');
   CollectionReference get compatibilityCollection =>
       collection('surveyCompatibility');
 }
