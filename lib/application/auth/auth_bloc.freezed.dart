@@ -30,6 +30,7 @@ mixin _$AuthEvent {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +48,7 @@ mixin _$AuthEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +66,7 @@ mixin _$AuthEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) =>
@@ -81,6 +84,7 @@ mixin _$AuthEvent {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -96,6 +100,7 @@ mixin _$AuthEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -111,6 +116,7 @@ mixin _$AuthEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
@@ -185,6 +191,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return watchTeamListStarted();
@@ -205,6 +212,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return watchTeamListStarted?.call();
@@ -225,6 +233,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -248,6 +257,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return watchTeamListStarted(this);
@@ -266,6 +276,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return watchTeamListStarted?.call(this);
@@ -284,6 +295,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -376,6 +388,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return teamListReceived(failureOrTeamList);
@@ -396,6 +409,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return teamListReceived?.call(failureOrTeamList);
@@ -416,6 +430,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -439,6 +454,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return teamListReceived(this);
@@ -457,6 +473,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return teamListReceived?.call(this);
@@ -475,6 +492,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -573,6 +591,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return teamSelected(teamId);
@@ -593,6 +612,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return teamSelected?.call(teamId);
@@ -613,6 +633,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -636,6 +657,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return teamSelected(this);
@@ -654,6 +676,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return teamSelected?.call(this);
@@ -672,6 +695,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -748,6 +772,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return watchInterviewerListStarted();
@@ -768,6 +793,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return watchInterviewerListStarted?.call();
@@ -788,6 +814,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -811,6 +838,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return watchInterviewerListStarted(this);
@@ -829,6 +857,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return watchInterviewerListStarted?.call(this);
@@ -847,6 +876,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -942,6 +972,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return interviewerListReceived(failureOrInterviewerList);
@@ -962,6 +993,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return interviewerListReceived?.call(failureOrInterviewerList);
@@ -982,6 +1014,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1005,6 +1038,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return interviewerListReceived(this);
@@ -1023,6 +1057,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return interviewerListReceived?.call(this);
@@ -1041,6 +1076,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1139,6 +1175,7 @@ class _$_IdChanged implements _IdChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return idChanged(id);
@@ -1159,6 +1196,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return idChanged?.call(id);
@@ -1179,6 +1217,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1202,6 +1241,7 @@ class _$_IdChanged implements _IdChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return idChanged(this);
@@ -1220,6 +1260,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return idChanged?.call(this);
@@ -1238,6 +1279,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1334,6 +1376,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return passwordChanged(password);
@@ -1354,6 +1397,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return passwordChanged?.call(password);
@@ -1374,6 +1418,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1397,6 +1442,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return passwordChanged(this);
@@ -1415,6 +1461,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return passwordChanged?.call(this);
@@ -1433,6 +1480,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1504,6 +1552,7 @@ class _$_SignInPressed implements _SignInPressed {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return signInPressed();
@@ -1524,6 +1573,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return signInPressed?.call();
@@ -1544,6 +1594,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1567,6 +1618,7 @@ class _$_SignInPressed implements _SignInPressed {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return signInPressed(this);
@@ -1585,6 +1637,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return signInPressed?.call(this);
@@ -1603,6 +1656,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1669,6 +1723,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return loggedOut();
@@ -1689,6 +1744,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return loggedOut?.call();
@@ -1709,6 +1765,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1732,6 +1789,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return loggedOut(this);
@@ -1750,6 +1808,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return loggedOut?.call(this);
@@ -1768,6 +1827,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1780,6 +1840,215 @@ class _$_LoggedOut implements _LoggedOut {
 
 abstract class _LoggedOut implements AuthEvent {
   const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
+abstract class _$$_StateEmittedCopyWith<$Res> {
+  factory _$$_StateEmittedCopyWith(
+          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
+      __$$_StateEmittedCopyWithImpl<$Res>;
+  $Res call({AuthState state});
+
+  $AuthStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$$_StateEmittedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$$_StateEmittedCopyWith<$Res> {
+  __$$_StateEmittedCopyWithImpl(
+      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
+      : super(_value, (v) => _then(v as _$_StateEmitted));
+
+  @override
+  _$_StateEmitted get _value => super._value as _$_StateEmitted;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_$_StateEmitted(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as AuthState,
+    ));
+  }
+
+  @override
+  $AuthStateCopyWith<$Res> get state {
+    return $AuthStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_StateEmitted implements _StateEmitted {
+  const _$_StateEmitted(this.state);
+
+  @override
+  final AuthState state;
+
+  @override
+  String toString() {
+    return 'AuthEvent.stateEmitted(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_StateEmitted &&
+            const DeepCollectionEquality().equals(other.state, state));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(String teamId) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
+    required TResult Function() initialized,
+  }) {
+    return stateEmitted(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(String teamId)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
+    TResult Function()? initialized,
+  }) {
+    return stateEmitted?.call(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(String teamId)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return stateEmitted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return stateEmitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateEmitted implements AuthEvent {
+  const factory _StateEmitted(final AuthState state) = _$_StateEmitted;
+
+  AuthState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1834,6 +2103,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function(AuthState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return initialized();
@@ -1854,6 +2124,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return initialized?.call();
@@ -1874,6 +2145,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function(AuthState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1897,6 +2169,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return initialized(this);
@@ -1915,6 +2188,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return initialized?.call(this);
@@ -1933,6 +2207,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1951,12 +2226,10 @@ abstract class _Initialized implements AuthEvent {
 mixin _$AuthState {
   UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   List<Team> get teamList => throw _privateConstructorUsedError;
-  Team get team => throw _privateConstructorUsedError;
-  List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
-  Interviewer get interviewer => throw _privateConstructorUsedError; // > 中間資料
+  Team get team => throw _privateConstructorUsedError; // > 中間資料
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  bool get validate => throw _privateConstructorUsedError; // > 狀態更新進度
+  bool get validating => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get signInState => throw _privateConstructorUsedError;
   Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
@@ -1974,18 +2247,15 @@ abstract class $AuthStateCopyWith<$Res> {
       {UniqueId stateId,
       List<Team> teamList,
       Team team,
-      List<Interviewer> interviewerList,
-      Interviewer interviewer,
       String id,
       String password,
-      bool validate,
+      bool validating,
       LoadState signInState,
       Option<AuthFailure> authFailure,
       LoadState eventState});
 
   $UniqueIdCopyWith<$Res> get stateId;
   $TeamCopyWith<$Res> get team;
-  $InterviewerCopyWith<$Res> get interviewer;
   $LoadStateCopyWith<$Res> get signInState;
   $LoadStateCopyWith<$Res> get eventState;
 }
@@ -2003,11 +2273,9 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? stateId = freezed,
     Object? teamList = freezed,
     Object? team = freezed,
-    Object? interviewerList = freezed,
-    Object? interviewer = freezed,
     Object? id = freezed,
     Object? password = freezed,
-    Object? validate = freezed,
+    Object? validating = freezed,
     Object? signInState = freezed,
     Object? authFailure = freezed,
     Object? eventState = freezed,
@@ -2025,14 +2293,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
               as Team,
-      interviewerList: interviewerList == freezed
-          ? _value.interviewerList
-          : interviewerList // ignore: cast_nullable_to_non_nullable
-              as List<Interviewer>,
-      interviewer: interviewer == freezed
-          ? _value.interviewer
-          : interviewer // ignore: cast_nullable_to_non_nullable
-              as Interviewer,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2041,9 +2301,9 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      validate: validate == freezed
-          ? _value.validate
-          : validate // ignore: cast_nullable_to_non_nullable
+      validating: validating == freezed
+          ? _value.validating
+          : validating // ignore: cast_nullable_to_non_nullable
               as bool,
       signInState: signInState == freezed
           ? _value.signInState
@@ -2075,13 +2335,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   }
 
   @override
-  $InterviewerCopyWith<$Res> get interviewer {
-    return $InterviewerCopyWith<$Res>(_value.interviewer, (value) {
-      return _then(_value.copyWith(interviewer: value));
-    });
-  }
-
-  @override
   $LoadStateCopyWith<$Res> get signInState {
     return $LoadStateCopyWith<$Res>(_value.signInState, (value) {
       return _then(_value.copyWith(signInState: value));
@@ -2106,11 +2359,9 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       {UniqueId stateId,
       List<Team> teamList,
       Team team,
-      List<Interviewer> interviewerList,
-      Interviewer interviewer,
       String id,
       String password,
-      bool validate,
+      bool validating,
       LoadState signInState,
       Option<AuthFailure> authFailure,
       LoadState eventState});
@@ -2119,8 +2370,6 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   $UniqueIdCopyWith<$Res> get stateId;
   @override
   $TeamCopyWith<$Res> get team;
-  @override
-  $InterviewerCopyWith<$Res> get interviewer;
   @override
   $LoadStateCopyWith<$Res> get signInState;
   @override
@@ -2142,11 +2391,9 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? stateId = freezed,
     Object? teamList = freezed,
     Object? team = freezed,
-    Object? interviewerList = freezed,
-    Object? interviewer = freezed,
     Object? id = freezed,
     Object? password = freezed,
-    Object? validate = freezed,
+    Object? validating = freezed,
     Object? signInState = freezed,
     Object? authFailure = freezed,
     Object? eventState = freezed,
@@ -2164,14 +2411,6 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
               as Team,
-      interviewerList: interviewerList == freezed
-          ? _value._interviewerList
-          : interviewerList // ignore: cast_nullable_to_non_nullable
-              as List<Interviewer>,
-      interviewer: interviewer == freezed
-          ? _value.interviewer
-          : interviewer // ignore: cast_nullable_to_non_nullable
-              as Interviewer,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2180,9 +2419,9 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      validate: validate == freezed
-          ? _value.validate
-          : validate // ignore: cast_nullable_to_non_nullable
+      validating: validating == freezed
+          ? _value.validating
+          : validating // ignore: cast_nullable_to_non_nullable
               as bool,
       signInState: signInState == freezed
           ? _value.signInState
@@ -2207,16 +2446,13 @@ class _$_AuthState extends _AuthState {
       {required this.stateId,
       required final List<Team> teamList,
       required this.team,
-      required final List<Interviewer> interviewerList,
-      required this.interviewer,
       required this.id,
       required this.password,
-      required this.validate,
+      required this.validating,
       required this.signInState,
       required this.authFailure,
       required this.eventState})
       : _teamList = teamList,
-        _interviewerList = interviewerList,
         super._();
 
   @override
@@ -2232,22 +2468,13 @@ class _$_AuthState extends _AuthState {
 
   @override
   final Team team;
-  final List<Interviewer> _interviewerList;
-  @override
-  List<Interviewer> get interviewerList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_interviewerList);
-  }
-
-  @override
-  final Interviewer interviewer;
 // > 中間資料
   @override
   final String id;
   @override
   final String password;
   @override
-  final bool validate;
+  final bool validating;
 // > 狀態更新進度
   @override
   final LoadState signInState;
@@ -2258,7 +2485,7 @@ class _$_AuthState extends _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(stateId: $stateId, teamList: $teamList, team: $team, interviewerList: $interviewerList, interviewer: $interviewer, id: $id, password: $password, validate: $validate, signInState: $signInState, authFailure: $authFailure, eventState: $eventState)';
+    return 'AuthState(stateId: $stateId, teamList: $teamList, team: $team, id: $id, password: $password, validating: $validating, signInState: $signInState, authFailure: $authFailure, eventState: $eventState)';
   }
 
   @override
@@ -2269,13 +2496,10 @@ class _$_AuthState extends _AuthState {
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other._teamList, _teamList) &&
             const DeepCollectionEquality().equals(other.team, team) &&
-            const DeepCollectionEquality()
-                .equals(other._interviewerList, _interviewerList) &&
-            const DeepCollectionEquality()
-                .equals(other.interviewer, interviewer) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.validate, validate) &&
+            const DeepCollectionEquality()
+                .equals(other.validating, validating) &&
             const DeepCollectionEquality()
                 .equals(other.signInState, signInState) &&
             const DeepCollectionEquality()
@@ -2290,11 +2514,9 @@ class _$_AuthState extends _AuthState {
       const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(_teamList),
       const DeepCollectionEquality().hash(team),
-      const DeepCollectionEquality().hash(_interviewerList),
-      const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(validate),
+      const DeepCollectionEquality().hash(validating),
       const DeepCollectionEquality().hash(signInState),
       const DeepCollectionEquality().hash(authFailure),
       const DeepCollectionEquality().hash(eventState));
@@ -2310,11 +2532,9 @@ abstract class _AuthState extends AuthState {
       {required final UniqueId stateId,
       required final List<Team> teamList,
       required final Team team,
-      required final List<Interviewer> interviewerList,
-      required final Interviewer interviewer,
       required final String id,
       required final String password,
-      required final bool validate,
+      required final bool validating,
       required final LoadState signInState,
       required final Option<AuthFailure> authFailure,
       required final LoadState eventState}) = _$_AuthState;
@@ -2326,16 +2546,12 @@ abstract class _AuthState extends AuthState {
   List<Team> get teamList => throw _privateConstructorUsedError;
   @override
   Team get team => throw _privateConstructorUsedError;
-  @override
-  List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
-  @override
-  Interviewer get interviewer => throw _privateConstructorUsedError;
   @override // > 中間資料
   String get id => throw _privateConstructorUsedError;
   @override
   String get password => throw _privateConstructorUsedError;
   @override
-  bool get validate => throw _privateConstructorUsedError;
+  bool get validating => throw _privateConstructorUsedError;
   @override // > 狀態更新進度
   LoadState get signInState => throw _privateConstructorUsedError;
   @override

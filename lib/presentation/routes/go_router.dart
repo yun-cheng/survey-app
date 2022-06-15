@@ -4,6 +4,7 @@ import '../overview/overview_page.dart';
 import '../respondent_list/respondents_page.dart';
 import '../sign_in/sign_in_page.dart';
 import '../splash/splash_page.dart';
+import '../survey/survey_comment_page.dart';
 import '../survey/survey_content_page.dart';
 import '../survey/survey_page.dart';
 
@@ -39,6 +40,11 @@ final goRouter = GoRouter(
       path: '/survey/content',
       name: 'survey-content',
       builder: (context, state) => const SurveyContentPage(),
+    ),
+    GoRoute(
+      path: '/survey/comment',
+      name: 'survey-comment',
+      builder: (context, state) => const SurveyCommentPage(),
     ),
   ],
 );

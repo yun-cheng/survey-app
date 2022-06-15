@@ -14,12 +14,13 @@ class AccountBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(
       buildWhen: (p, c) =>
-          p.signInState != c.signInState || p.validate != c.validate,
+          p.signInState != c.signInState || p.validating != c.validating,
       builder: (context, state) {
         return TextFormField(
-          onChanged: (value) =>
-              context.read<AuthBloc>().add(AuthEvent.idChanged(value)),
-          autovalidateMode: state.validate
+          onChanged: (value) => context.read<AuthBloc>().add(
+                AuthEvent.idChanged(value),
+              ),
+          autovalidateMode: state.validating
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
           validator: (_) => signInValidator(

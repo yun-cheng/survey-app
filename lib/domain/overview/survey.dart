@@ -31,15 +31,13 @@ class Survey with _$Survey {
       version: '',
       isCompatible: false,
       lastUpdatedTimeStamp: now,
-      module: <ModuleType, SurveyModule>{},
+      module: {},
     );
   }
 
   String versionText() => isCompatible ? '$version版' : '版本不相容 ($version版)';
 
-  // * 避免 print 太多東西出來
-  @override
-  String toString() {
-    return 'Survey(id: $id, name: $name, version: $version)';
-  }
+  Survey simplify() => copyWith(
+        module: {},
+      );
 }

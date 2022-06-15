@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/overview/project.dart';
@@ -31,8 +30,4 @@ class ProjectDto with _$ProjectDto {
 
   factory ProjectDto.fromJson(Map<String, dynamic> json) =>
       _$ProjectDtoFromJson(json);
-
-  factory ProjectDto.fromFirestore(DocumentSnapshot doc) {
-    return ProjectDto.fromJson(doc.data()! as Map<String, dynamic>);
-  }
 }

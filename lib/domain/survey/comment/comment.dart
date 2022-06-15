@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../infrastructure/survey/comment/comment_dtos.dart';
 import '../../core/value_objects.dart';
 import '../value_objects.dart';
 
@@ -23,6 +24,7 @@ class Comment with _$Comment {
     required DeviceTimeStamp createdTimeStamp,
     required DeviceTimeStamp lastChangedTimeStamp,
     required bool isDeleted,
+    required bool isUploaded,
     // > 內容
     required String content,
   }) = _Comment;
@@ -40,7 +42,10 @@ class Comment with _$Comment {
       createdTimeStamp: now,
       lastChangedTimeStamp: now,
       isDeleted: false,
+      isUploaded: false,
       content: '',
     );
   }
+
+  CommentDto toDto() => CommentDto.fromDomain(this);
 }

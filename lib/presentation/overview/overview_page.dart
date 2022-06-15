@@ -9,7 +9,7 @@ import '../../application/core/device/device_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
 import '../../application/survey/response/response_bloc.dart';
-import '../../application/survey/watch_survey/watch_survey_bloc.dart';
+import '../../application/survey/survey/survey_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../version.dart';
 import 'widgets/overview_body.dart';
@@ -34,16 +34,13 @@ class OverviewPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                final networkType =
-                    context.read<DeviceBloc>().state.networkType;
+                final networkIsConnected =
+                    context.read<DeviceBloc>().state.networkIsConnected;
                 final syncState = context.read<ResponseBloc>().state.syncState;
 
-                if (syncState.isSuccess &&
-                    (networkType.isConnected || kIsWeb)) {
+                if (syncState.isSuccess && (networkIsConnected || kIsWeb)) {
                   context.pushNamed('sign-in');
-                  context
-                      .read<WatchSurveyBloc>()
-                      .add(const WatchSurveyEvent.loggedOut());
+                  context.read<SurveyBloc>().add(const SurveyEvent.loggedOut());
                   context
                       .read<RespondentBloc>()
                       .add(const RespondentEvent.loggedOut());

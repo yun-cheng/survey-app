@@ -24,34 +24,11 @@ class NavigationState with _$NavigationState {
         eventState: LoadState.initial(),
       );
 
-  NavigationState send(AsyncTaskChannel channel) {
-    channel.send(
+  void emit(Emitter<NavigationState> emit) {
+    emit(
       copyWith(
         stateId: UniqueId.v1(),
       ),
     );
-    return this;
   }
-
-  NavigationState saveState(ILocalStorage localStorage) {
-    NavigationStateDto.fromDomain(this).saveState(localStorage);
-    return this;
-  }
-
-  NavigationState sendEventInProgress(AsyncTaskChannel channel) {
-    return copyWith(
-      eventState: LoadState.inProgress(),
-    ).send(channel);
-  }
-
-  NavigationState sendEventSuccessAndSave(
-    AsyncTaskChannel channel,
-    ILocalStorage localStorage,
-  ) {
-    return copyWith(
-      eventState: LoadState.success(),
-    ).send(channel).saveState(localStorage);
-  }
-
-  Map<String, dynamic> toMap() => NavigationStateDto.fromDomain(this).toJson();
 }

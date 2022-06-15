@@ -6,7 +6,7 @@ import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/respondent/respondents_page/respondents_page_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
-import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
+import '../../../application/survey/survey/survey_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
@@ -23,8 +23,8 @@ class SurveyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WatchSurveyBloc, WatchSurveyState>(
-      buildWhen: (p, c) => p.eventState != c.eventState,
+    return BlocBuilder<SurveyBloc, SurveyState>(
+      buildWhen: (p, c) => false,
       builder: (context, state) {
         logger('Build').i('SurveyCard');
 
@@ -52,8 +52,9 @@ class SurveyCard extends StatelessWidget {
                             );
                         context.read<RespondentBloc>().add(
                             RespondentEvent.surveySelected(survey: survey));
-                        context.read<WatchSurveyBloc>().add(
-                            WatchSurveyEvent.surveySelected(survey: survey));
+                        context
+                            .read<SurveyBloc>()
+                            .add(SurveyEvent.surveySelected(survey: survey));
                         context
                             .read<ResponseBloc>()
                             .add(ResponseEvent.surveySelected(survey: survey));

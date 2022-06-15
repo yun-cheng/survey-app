@@ -19,7 +19,7 @@ mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationPage page) pageChanged,
-    required TResult Function() pagePushed,
+    required TResult Function() pageRestored,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) =>
@@ -27,7 +27,7 @@ mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) =>
@@ -35,7 +35,7 @@ mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -44,7 +44,7 @@ mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
-    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageRestored value) pageRestored,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) =>
@@ -52,7 +52,7 @@ mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) =>
@@ -60,7 +60,7 @@ mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -160,7 +160,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationPage page) pageChanged,
-    required TResult Function() pagePushed,
+    required TResult Function() pageRestored,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -171,7 +171,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -182,7 +182,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -197,7 +197,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
-    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageRestored value) pageRestored,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -208,7 +208,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -219,7 +219,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -242,38 +242,38 @@ abstract class _PageChanged implements NavigationEvent {
 }
 
 /// @nodoc
-abstract class _$$_PagePushedCopyWith<$Res> {
-  factory _$$_PagePushedCopyWith(
-          _$_PagePushed value, $Res Function(_$_PagePushed) then) =
-      __$$_PagePushedCopyWithImpl<$Res>;
+abstract class _$$_PageRestoredCopyWith<$Res> {
+  factory _$$_PageRestoredCopyWith(
+          _$_PageRestored value, $Res Function(_$_PageRestored) then) =
+      __$$_PageRestoredCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PagePushedCopyWithImpl<$Res>
+class __$$_PageRestoredCopyWithImpl<$Res>
     extends _$NavigationEventCopyWithImpl<$Res>
-    implements _$$_PagePushedCopyWith<$Res> {
-  __$$_PagePushedCopyWithImpl(
-      _$_PagePushed _value, $Res Function(_$_PagePushed) _then)
-      : super(_value, (v) => _then(v as _$_PagePushed));
+    implements _$$_PageRestoredCopyWith<$Res> {
+  __$$_PageRestoredCopyWithImpl(
+      _$_PageRestored _value, $Res Function(_$_PageRestored) _then)
+      : super(_value, (v) => _then(v as _$_PageRestored));
 
   @override
-  _$_PagePushed get _value => super._value as _$_PagePushed;
+  _$_PageRestored get _value => super._value as _$_PageRestored;
 }
 
 /// @nodoc
 
-class _$_PagePushed implements _PagePushed {
-  const _$_PagePushed();
+class _$_PageRestored implements _PageRestored {
+  const _$_PageRestored();
 
   @override
   String toString() {
-    return 'NavigationEvent.pagePushed()';
+    return 'NavigationEvent.pageRestored()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PagePushed);
+        (other.runtimeType == runtimeType && other is _$_PageRestored);
   }
 
   @override
@@ -283,35 +283,35 @@ class _$_PagePushed implements _PagePushed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationPage page) pageChanged,
-    required TResult Function() pagePushed,
+    required TResult Function() pageRestored,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return pagePushed();
+    return pageRestored();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return pagePushed?.call();
+    return pageRestored?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
-    if (pagePushed != null) {
-      return pagePushed();
+    if (pageRestored != null) {
+      return pageRestored();
     }
     return orElse();
   }
@@ -320,42 +320,42 @@ class _$_PagePushed implements _PagePushed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
-    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageRestored value) pageRestored,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
-    return pagePushed(this);
+    return pageRestored(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
-    return pagePushed?.call(this);
+    return pageRestored?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
-    if (pagePushed != null) {
-      return pagePushed(this);
+    if (pageRestored != null) {
+      return pageRestored(this);
     }
     return orElse();
   }
 }
 
-abstract class _PagePushed implements NavigationEvent {
-  const factory _PagePushed() = _$_PagePushed;
+abstract class _PageRestored implements NavigationEvent {
+  const factory _PageRestored() = _$_PageRestored;
 }
 
 /// @nodoc
@@ -400,7 +400,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationPage page) pageChanged,
-    required TResult Function() pagePushed,
+    required TResult Function() pageRestored,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -411,7 +411,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -422,7 +422,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -437,7 +437,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
-    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageRestored value) pageRestored,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -448,7 +448,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -459,7 +459,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -517,7 +517,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationPage page) pageChanged,
-    required TResult Function() pagePushed,
+    required TResult Function() pageRestored,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -528,7 +528,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -539,7 +539,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page)? pageChanged,
-    TResult Function()? pagePushed,
+    TResult Function()? pageRestored,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -554,7 +554,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
-    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageRestored value) pageRestored,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -565,7 +565,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -576,7 +576,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
-    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageRestored value)? pageRestored,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),

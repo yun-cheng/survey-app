@@ -25,6 +25,7 @@ class CommentDto with _$CommentDto {
     required int createdTimeStamp,
     required int lastChangedTimeStamp,
     required bool isDeleted,
+    required bool isUploaded,
     // > 內容
     required String content,
   }) = _CommentDto;
@@ -45,6 +46,7 @@ class CommentDto with _$CommentDto {
       lastChangedTimeStamp:
           domain.lastChangedTimeStamp.value.microsecondsSinceEpoch,
       isDeleted: domain.isDeleted,
+      isUploaded: domain.isUploaded,
       // > 內容
       content: domain.content,
     );
@@ -65,6 +67,7 @@ class CommentDto with _$CommentDto {
       createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
       lastChangedTimeStamp: DeviceTimeStamp.fromInt(lastChangedTimeStamp),
       isDeleted: isDeleted,
+      isUploaded: isUploaded,
       // > 內容
       content: content,
     );

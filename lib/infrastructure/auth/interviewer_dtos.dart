@@ -63,4 +63,7 @@ class InterviewerDto with _$InterviewerDto {
 
   factory InterviewerDto.fromJson(Map<String, dynamic> json) =>
       _$InterviewerDtoFromJson(json);
+
+  static Interviewer jsonToDomain(Map<String, dynamic> json) =>
+      InterviewerDto.fromJson(json).toDomain();
 }

@@ -18,6 +18,7 @@ _$_CommentDto _$$_CommentDtoFromJson(Map<String, dynamic> json) =>
       createdTimeStamp: json['createdTimeStamp'] as int,
       lastChangedTimeStamp: json['lastChangedTimeStamp'] as int,
       isDeleted: json['isDeleted'] as bool,
+      isUploaded: json['isUploaded'] as bool,
       content: json['content'] as String,
     );
 
@@ -33,5 +34,6 @@ Map<String, dynamic> _$$_CommentDtoToJson(_$_CommentDto instance) =>
       'createdTimeStamp': instance.createdTimeStamp,
       'lastChangedTimeStamp': instance.lastChangedTimeStamp,
       'isDeleted': instance.isDeleted,
+      'isUploaded': instance.isUploaded,
       'content': instance.content,
     };

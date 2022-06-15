@@ -55,9 +55,10 @@ class SignInForm extends StatelessWidget {
             title: '登入',
             color: Colors.lightBlueAccent[400]!,
             onPressed: () {
-              final networkType = context.read<DeviceBloc>().state.networkType;
+              final networkIsConnected =
+                  context.read<DeviceBloc>().state.networkIsConnected;
 
-              if (networkType.isConnected || kIsWeb) {
+              if (networkIsConnected || kIsWeb) {
                 context.read<AuthBloc>().add(const AuthEvent.signInPressed());
               }
             },

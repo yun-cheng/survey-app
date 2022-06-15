@@ -29,7 +29,7 @@ class TeamListDto with _$TeamListDto {
 
   factory TeamListDto.fromFirestore(QuerySnapshot snapshot) {
     final list = snapshot.docs.map((doc) => doc.data()).toList();
-    // print(list);
+
     return TeamListDto.fromJson({'list': list});
   }
 }
@@ -59,4 +59,7 @@ class TeamDto with _$TeamDto {
 
   factory TeamDto.fromJson(Map<String, dynamic> json) =>
       _$TeamDtoFromJson(json);
+
+  static Team jsonToDomain(Map<String, dynamic> json) =>
+      TeamDto.fromJson(json).toDomain();
 }

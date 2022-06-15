@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
+import '../../../application/survey/survey/survey_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/widgets/center_progress_indicator.dart';
 import 'survey_card.dart';
@@ -13,9 +13,9 @@ class OverviewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     logger('Build').i('OverviewBody');
 
-    return BlocBuilder<WatchSurveyBloc, WatchSurveyState>(
+    return BlocBuilder<SurveyBloc, SurveyState>(
       buildWhen: (p, c) =>
-          p.eventState != c.eventState && c.eventState.isSuccess,
+          p.surveyMapState != c.surveyMapState && c.surveyMapState.isSuccess,
       builder: (context, state) {
         if (state.surveyMap.isNotEmpty) {
           return ListView.builder(
@@ -25,7 +25,7 @@ class OverviewBody extends StatelessWidget {
               final survey = state.surveyMap.values.toList().elementAt(index);
 
               return SurveyCard(
-                key: ValueKey(index),
+                key: Key(survey.id),
                 index: index,
                 surveyId: survey.id,
               );

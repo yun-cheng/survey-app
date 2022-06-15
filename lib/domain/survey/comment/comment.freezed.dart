@@ -28,7 +28,8 @@ mixin _$Comment {
   DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
   DeviceTimeStamp get lastChangedTimeStamp =>
       throw _privateConstructorUsedError;
-  bool get isDeleted => throw _privateConstructorUsedError; // > 內容
+  bool get isDeleted => throw _privateConstructorUsedError;
+  bool get isUploaded => throw _privateConstructorUsedError; // > 內容
   String get content => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,6 +51,7 @@ abstract class $CommentCopyWith<$Res> {
       DeviceTimeStamp createdTimeStamp,
       DeviceTimeStamp lastChangedTimeStamp,
       bool isDeleted,
+      bool isUploaded,
       String content});
 
   $UniqueIdCopyWith<$Res> get commentId;
@@ -78,6 +80,7 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
     Object? createdTimeStamp = freezed,
     Object? lastChangedTimeStamp = freezed,
     Object? isDeleted = freezed,
+    Object? isUploaded = freezed,
     Object? content = freezed,
   }) {
     return _then(_value.copyWith(
@@ -120,6 +123,10 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
       isDeleted: isDeleted == freezed
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUploaded: isUploaded == freezed
+          ? _value.isUploaded
+          : isUploaded // ignore: cast_nullable_to_non_nullable
               as bool,
       content: content == freezed
           ? _value.content
@@ -174,6 +181,7 @@ abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
       DeviceTimeStamp createdTimeStamp,
       DeviceTimeStamp lastChangedTimeStamp,
       bool isDeleted,
+      bool isUploaded,
       String content});
 
   @override
@@ -207,6 +215,7 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
     Object? createdTimeStamp = freezed,
     Object? lastChangedTimeStamp = freezed,
     Object? isDeleted = freezed,
+    Object? isUploaded = freezed,
     Object? content = freezed,
   }) {
     return _then(_$_Comment(
@@ -250,6 +259,10 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
+      isUploaded: isUploaded == freezed
+          ? _value.isUploaded
+          : isUploaded // ignore: cast_nullable_to_non_nullable
+              as bool,
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -272,6 +285,7 @@ class _$_Comment extends _Comment {
       required this.createdTimeStamp,
       required this.lastChangedTimeStamp,
       required this.isDeleted,
+      required this.isUploaded,
       required this.content})
       : super._();
 
@@ -298,13 +312,15 @@ class _$_Comment extends _Comment {
   final DeviceTimeStamp lastChangedTimeStamp;
   @override
   final bool isDeleted;
+  @override
+  final bool isUploaded;
 // > 內容
   @override
   final String content;
 
   @override
   String toString() {
-    return 'Comment(teamId: $teamId, projectId: $projectId, surveyId: $surveyId, respondentId: $respondentId, commentId: $commentId, interviewerId: $interviewerId, deviceId: $deviceId, createdTimeStamp: $createdTimeStamp, lastChangedTimeStamp: $lastChangedTimeStamp, isDeleted: $isDeleted, content: $content)';
+    return 'Comment(teamId: $teamId, projectId: $projectId, surveyId: $surveyId, respondentId: $respondentId, commentId: $commentId, interviewerId: $interviewerId, deviceId: $deviceId, createdTimeStamp: $createdTimeStamp, lastChangedTimeStamp: $lastChangedTimeStamp, isDeleted: $isDeleted, isUploaded: $isUploaded, content: $content)';
   }
 
   @override
@@ -326,6 +342,8 @@ class _$_Comment extends _Comment {
             const DeepCollectionEquality()
                 .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
             const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
+            const DeepCollectionEquality()
+                .equals(other.isUploaded, isUploaded) &&
             const DeepCollectionEquality().equals(other.content, content));
   }
 
@@ -342,6 +360,7 @@ class _$_Comment extends _Comment {
       const DeepCollectionEquality().hash(createdTimeStamp),
       const DeepCollectionEquality().hash(lastChangedTimeStamp),
       const DeepCollectionEquality().hash(isDeleted),
+      const DeepCollectionEquality().hash(isUploaded),
       const DeepCollectionEquality().hash(content));
 
   @JsonKey(ignore: true)
@@ -362,6 +381,7 @@ abstract class _Comment extends Comment {
       required final DeviceTimeStamp createdTimeStamp,
       required final DeviceTimeStamp lastChangedTimeStamp,
       required final bool isDeleted,
+      required final bool isUploaded,
       required final String content}) = _$_Comment;
   const _Comment._() : super._();
 
@@ -386,6 +406,8 @@ abstract class _Comment extends Comment {
       throw _privateConstructorUsedError;
   @override
   bool get isDeleted => throw _privateConstructorUsedError;
+  @override
+  bool get isUploaded => throw _privateConstructorUsedError;
   @override // > 內容
   String get content => throw _privateConstructorUsedError;
   @override

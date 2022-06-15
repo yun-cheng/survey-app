@@ -24,8 +24,9 @@ class TeamBox extends StatelessWidget {
                 ),
               )
               .toList(),
-          onChanged: (String? value) =>
-              context.read<AuthBloc>().add(AuthEvent.teamSelected(value!)),
+          onChanged: (String? value) => context.read<AuthBloc>().add(
+                AuthEvent.teamSelected(value!),
+              ),
           style: kPTextStyle.copyWith(
             color: Colors.black,
           ),

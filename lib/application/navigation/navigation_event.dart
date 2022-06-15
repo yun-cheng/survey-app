@@ -5,7 +5,10 @@ class NavigationEvent with _$NavigationEvent {
   const factory NavigationEvent.pageChanged({
     required NavigationPage page,
   }) = _PageChanged;
-  const factory NavigationEvent.pagePushed() = _PagePushed;
+
+  const factory NavigationEvent.pageRestored() = _PageRestored;
+
   const factory NavigationEvent.loggedOut() = _LoggedOut;
+
   const factory NavigationEvent.initialized() = _Initialized;
 }

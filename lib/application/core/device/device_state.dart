@@ -5,13 +5,13 @@ class DeviceState with _$DeviceState {
   const DeviceState._();
 
   const factory DeviceState({
-    required NetworkType networkType,
+    required bool networkIsConnected,
     required bool appIsPaused,
     // TODO deviceId
   }) = _NetworkState;
 
-  factory DeviceState.initial() => DeviceState(
-        networkType: NetworkType.empty(),
+  factory DeviceState.initial() =>  const DeviceState(
+        networkIsConnected: false,
         appIsPaused: false,
       );
 

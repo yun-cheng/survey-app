@@ -224,6 +224,11 @@ class _$_Survey extends _Survey {
   }
 
   @override
+  String toString() {
+    return 'Survey(id: $id, name: $name, teamId: $teamId, projectId: $projectId, version: $version, isCompatible: $isCompatible, lastUpdatedTimeStamp: $lastUpdatedTimeStamp, module: $module)';
+  }
+
+  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&

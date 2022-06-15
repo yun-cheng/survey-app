@@ -19,45 +19,38 @@ mixin _$DeviceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(int resultIndex) networkChanged,
-    required TResult Function(AppLifecycleState appLifeCycle)
-        appLifeCycleChanged,
+    required TResult Function(DeviceState state) stateEmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+    TResult Function(DeviceState state)? stateEmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+    TResult Function(DeviceState state)? stateEmitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchNetworkStarted value) watchNetworkStarted,
-    required TResult Function(_NetworkChanged value) networkChanged,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_StateEmitted value) stateEmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_StateEmitted value)? stateEmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_StateEmitted value)? stateEmitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,9 +114,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(int resultIndex) networkChanged,
-    required TResult Function(AppLifecycleState appLifeCycle)
-        appLifeCycleChanged,
+    required TResult Function(DeviceState state) stateEmitted,
   }) {
     return watchNetworkStarted();
   }
@@ -132,8 +123,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+    TResult Function(DeviceState state)? stateEmitted,
   }) {
     return watchNetworkStarted?.call();
   }
@@ -142,8 +132,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+    TResult Function(DeviceState state)? stateEmitted,
     required TResult orElse(),
   }) {
     if (watchNetworkStarted != null) {
@@ -156,8 +145,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchNetworkStarted value) watchNetworkStarted,
-    required TResult Function(_NetworkChanged value) networkChanged,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_StateEmitted value) stateEmitted,
   }) {
     return watchNetworkStarted(this);
   }
@@ -166,8 +154,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_StateEmitted value)? stateEmitted,
   }) {
     return watchNetworkStarted?.call(this);
   }
@@ -176,8 +163,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_StateEmitted value)? stateEmitted,
     required TResult orElse(),
   }) {
     if (watchNetworkStarted != null) {
@@ -192,99 +178,103 @@ abstract class _WatchNetworkStarted implements DeviceEvent {
 }
 
 /// @nodoc
-abstract class _$$_NetworkChangedCopyWith<$Res> {
-  factory _$$_NetworkChangedCopyWith(
-          _$_NetworkChanged value, $Res Function(_$_NetworkChanged) then) =
-      __$$_NetworkChangedCopyWithImpl<$Res>;
-  $Res call({int resultIndex});
+abstract class _$$_StateEmittedCopyWith<$Res> {
+  factory _$$_StateEmittedCopyWith(
+          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
+      __$$_StateEmittedCopyWithImpl<$Res>;
+  $Res call({DeviceState state});
+
+  $DeviceStateCopyWith<$Res> get state;
 }
 
 /// @nodoc
-class __$$_NetworkChangedCopyWithImpl<$Res>
+class __$$_StateEmittedCopyWithImpl<$Res>
     extends _$DeviceEventCopyWithImpl<$Res>
-    implements _$$_NetworkChangedCopyWith<$Res> {
-  __$$_NetworkChangedCopyWithImpl(
-      _$_NetworkChanged _value, $Res Function(_$_NetworkChanged) _then)
-      : super(_value, (v) => _then(v as _$_NetworkChanged));
+    implements _$$_StateEmittedCopyWith<$Res> {
+  __$$_StateEmittedCopyWithImpl(
+      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
+      : super(_value, (v) => _then(v as _$_StateEmitted));
 
   @override
-  _$_NetworkChanged get _value => super._value as _$_NetworkChanged;
+  _$_StateEmitted get _value => super._value as _$_StateEmitted;
 
   @override
   $Res call({
-    Object? resultIndex = freezed,
+    Object? state = freezed,
   }) {
-    return _then(_$_NetworkChanged(
-      resultIndex == freezed
-          ? _value.resultIndex
-          : resultIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_$_StateEmitted(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as DeviceState,
     ));
+  }
+
+  @override
+  $DeviceStateCopyWith<$Res> get state {
+    return $DeviceStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_NetworkChanged implements _NetworkChanged {
-  const _$_NetworkChanged(this.resultIndex);
+class _$_StateEmitted implements _StateEmitted {
+  const _$_StateEmitted(this.state);
 
   @override
-  final int resultIndex;
+  final DeviceState state;
 
   @override
   String toString() {
-    return 'DeviceEvent.networkChanged(resultIndex: $resultIndex)';
+    return 'DeviceEvent.stateEmitted(state: $state)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NetworkChanged &&
-            const DeepCollectionEquality()
-                .equals(other.resultIndex, resultIndex));
+            other is _$_StateEmitted &&
+            const DeepCollectionEquality().equals(other.state, state));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(resultIndex));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
 
   @JsonKey(ignore: true)
   @override
-  _$$_NetworkChangedCopyWith<_$_NetworkChanged> get copyWith =>
-      __$$_NetworkChangedCopyWithImpl<_$_NetworkChanged>(this, _$identity);
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(int resultIndex) networkChanged,
-    required TResult Function(AppLifecycleState appLifeCycle)
-        appLifeCycleChanged,
+    required TResult Function(DeviceState state) stateEmitted,
   }) {
-    return networkChanged(resultIndex);
+    return stateEmitted(state);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+    TResult Function(DeviceState state)? stateEmitted,
   }) {
-    return networkChanged?.call(resultIndex);
+    return stateEmitted?.call(state);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+    TResult Function(DeviceState state)? stateEmitted,
     required TResult orElse(),
   }) {
-    if (networkChanged != null) {
-      return networkChanged(resultIndex);
+    if (stateEmitted != null) {
+      return stateEmitted(state);
     }
     return orElse();
   }
@@ -293,193 +283,46 @@ class _$_NetworkChanged implements _NetworkChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchNetworkStarted value) watchNetworkStarted,
-    required TResult Function(_NetworkChanged value) networkChanged,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_StateEmitted value) stateEmitted,
   }) {
-    return networkChanged(this);
+    return stateEmitted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_StateEmitted value)? stateEmitted,
   }) {
-    return networkChanged?.call(this);
+    return stateEmitted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_StateEmitted value)? stateEmitted,
     required TResult orElse(),
   }) {
-    if (networkChanged != null) {
-      return networkChanged(this);
+    if (stateEmitted != null) {
+      return stateEmitted(this);
     }
     return orElse();
   }
 }
 
-abstract class _NetworkChanged implements DeviceEvent {
-  const factory _NetworkChanged(final int resultIndex) = _$_NetworkChanged;
+abstract class _StateEmitted implements DeviceEvent {
+  const factory _StateEmitted(final DeviceState state) = _$_StateEmitted;
 
-  int get resultIndex => throw _privateConstructorUsedError;
+  DeviceState get state => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$_NetworkChangedCopyWith<_$_NetworkChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_AppLifeCycleChangedCopyWith<$Res> {
-  factory _$$_AppLifeCycleChangedCopyWith(_$_AppLifeCycleChanged value,
-          $Res Function(_$_AppLifeCycleChanged) then) =
-      __$$_AppLifeCycleChangedCopyWithImpl<$Res>;
-  $Res call({AppLifecycleState appLifeCycle});
-}
-
-/// @nodoc
-class __$$_AppLifeCycleChangedCopyWithImpl<$Res>
-    extends _$DeviceEventCopyWithImpl<$Res>
-    implements _$$_AppLifeCycleChangedCopyWith<$Res> {
-  __$$_AppLifeCycleChangedCopyWithImpl(_$_AppLifeCycleChanged _value,
-      $Res Function(_$_AppLifeCycleChanged) _then)
-      : super(_value, (v) => _then(v as _$_AppLifeCycleChanged));
-
-  @override
-  _$_AppLifeCycleChanged get _value => super._value as _$_AppLifeCycleChanged;
-
-  @override
-  $Res call({
-    Object? appLifeCycle = freezed,
-  }) {
-    return _then(_$_AppLifeCycleChanged(
-      appLifeCycle == freezed
-          ? _value.appLifeCycle
-          : appLifeCycle // ignore: cast_nullable_to_non_nullable
-              as AppLifecycleState,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
-  const _$_AppLifeCycleChanged(this.appLifeCycle);
-
-  @override
-  final AppLifecycleState appLifeCycle;
-
-  @override
-  String toString() {
-    return 'DeviceEvent.appLifeCycleChanged(appLifeCycle: $appLifeCycle)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AppLifeCycleChanged &&
-            const DeepCollectionEquality()
-                .equals(other.appLifeCycle, appLifeCycle));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(appLifeCycle));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
-      __$$_AppLifeCycleChangedCopyWithImpl<_$_AppLifeCycleChanged>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchNetworkStarted,
-    required TResult Function(int resultIndex) networkChanged,
-    required TResult Function(AppLifecycleState appLifeCycle)
-        appLifeCycleChanged,
-  }) {
-    return appLifeCycleChanged(appLifeCycle);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
-  }) {
-    return appLifeCycleChanged?.call(appLifeCycle);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchNetworkStarted,
-    TResult Function(int resultIndex)? networkChanged,
-    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
-    required TResult orElse(),
-  }) {
-    if (appLifeCycleChanged != null) {
-      return appLifeCycleChanged(appLifeCycle);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchNetworkStarted value) watchNetworkStarted,
-    required TResult Function(_NetworkChanged value) networkChanged,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-  }) {
-    return appLifeCycleChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-  }) {
-    return appLifeCycleChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
-    TResult Function(_NetworkChanged value)? networkChanged,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    required TResult orElse(),
-  }) {
-    if (appLifeCycleChanged != null) {
-      return appLifeCycleChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AppLifeCycleChanged implements DeviceEvent {
-  const factory _AppLifeCycleChanged(final AppLifecycleState appLifeCycle) =
-      _$_AppLifeCycleChanged;
-
-  AppLifecycleState get appLifeCycle => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$DeviceState {
-  NetworkType get networkType => throw _privateConstructorUsedError;
+  bool get networkIsConnected => throw _privateConstructorUsedError;
   bool get appIsPaused => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -492,9 +335,7 @@ abstract class $DeviceStateCopyWith<$Res> {
   factory $DeviceStateCopyWith(
           DeviceState value, $Res Function(DeviceState) then) =
       _$DeviceStateCopyWithImpl<$Res>;
-  $Res call({NetworkType networkType, bool appIsPaused});
-
-  $NetworkTypeCopyWith<$Res> get networkType;
+  $Res call({bool networkIsConnected, bool appIsPaused});
 }
 
 /// @nodoc
@@ -507,26 +348,19 @@ class _$DeviceStateCopyWithImpl<$Res> implements $DeviceStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? networkType = freezed,
+    Object? networkIsConnected = freezed,
     Object? appIsPaused = freezed,
   }) {
     return _then(_value.copyWith(
-      networkType: networkType == freezed
-          ? _value.networkType
-          : networkType // ignore: cast_nullable_to_non_nullable
-              as NetworkType,
+      networkIsConnected: networkIsConnected == freezed
+          ? _value.networkIsConnected
+          : networkIsConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
       appIsPaused: appIsPaused == freezed
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  }
-
-  @override
-  $NetworkTypeCopyWith<$Res> get networkType {
-    return $NetworkTypeCopyWith<$Res>(_value.networkType, (value) {
-      return _then(_value.copyWith(networkType: value));
-    });
   }
 }
 
@@ -537,10 +371,7 @@ abstract class _$$_NetworkStateCopyWith<$Res>
           _$_NetworkState value, $Res Function(_$_NetworkState) then) =
       __$$_NetworkStateCopyWithImpl<$Res>;
   @override
-  $Res call({NetworkType networkType, bool appIsPaused});
-
-  @override
-  $NetworkTypeCopyWith<$Res> get networkType;
+  $Res call({bool networkIsConnected, bool appIsPaused});
 }
 
 /// @nodoc
@@ -556,14 +387,14 @@ class __$$_NetworkStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? networkType = freezed,
+    Object? networkIsConnected = freezed,
     Object? appIsPaused = freezed,
   }) {
     return _then(_$_NetworkState(
-      networkType: networkType == freezed
-          ? _value.networkType
-          : networkType // ignore: cast_nullable_to_non_nullable
-              as NetworkType,
+      networkIsConnected: networkIsConnected == freezed
+          ? _value.networkIsConnected
+          : networkIsConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
       appIsPaused: appIsPaused == freezed
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
@@ -575,17 +406,18 @@ class __$$_NetworkStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NetworkState extends _NetworkState {
-  const _$_NetworkState({required this.networkType, required this.appIsPaused})
+  const _$_NetworkState(
+      {required this.networkIsConnected, required this.appIsPaused})
       : super._();
 
   @override
-  final NetworkType networkType;
+  final bool networkIsConnected;
   @override
   final bool appIsPaused;
 
   @override
   String toString() {
-    return 'DeviceState(networkType: $networkType, appIsPaused: $appIsPaused)';
+    return 'DeviceState(networkIsConnected: $networkIsConnected, appIsPaused: $appIsPaused)';
   }
 
   @override
@@ -594,7 +426,7 @@ class _$_NetworkState extends _NetworkState {
         (other.runtimeType == runtimeType &&
             other is _$_NetworkState &&
             const DeepCollectionEquality()
-                .equals(other.networkType, networkType) &&
+                .equals(other.networkIsConnected, networkIsConnected) &&
             const DeepCollectionEquality()
                 .equals(other.appIsPaused, appIsPaused));
   }
@@ -602,7 +434,7 @@ class _$_NetworkState extends _NetworkState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(networkType),
+      const DeepCollectionEquality().hash(networkIsConnected),
       const DeepCollectionEquality().hash(appIsPaused));
 
   @JsonKey(ignore: true)
@@ -613,12 +445,12 @@ class _$_NetworkState extends _NetworkState {
 
 abstract class _NetworkState extends DeviceState {
   const factory _NetworkState(
-      {required final NetworkType networkType,
+      {required final bool networkIsConnected,
       required final bool appIsPaused}) = _$_NetworkState;
   const _NetworkState._() : super._();
 
   @override
-  NetworkType get networkType => throw _privateConstructorUsedError;
+  bool get networkIsConnected => throw _privateConstructorUsedError;
   @override
   bool get appIsPaused => throw _privateConstructorUsedError;
   @override

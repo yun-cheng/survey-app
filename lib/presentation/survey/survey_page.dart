@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/survey/block_gesture_cubit.dart';
+import '../../application/survey/comment/comment_bloc.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
@@ -46,6 +47,12 @@ class SurveyPage extends HookWidget {
               const LoadingBox(),
               const SizedBox(width: 10),
               const ReAnswerButton(),
+              IconButton(
+                icon: const Icon(Icons.chat_bubble_outline),
+                onPressed: () {
+                  context.pushNamed('survey-comment');
+                },
+              ),
               IconButton(
                 icon: const Icon(Icons.format_list_bulleted),
                 onPressed: () {

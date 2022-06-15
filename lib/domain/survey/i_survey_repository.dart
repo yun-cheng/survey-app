@@ -1,18 +1,28 @@
-import 'package:dartz/dartz.dart';
+import 'dart:async';
 
-import '../overview/project.dart';
+import '../overview/typedefs.dart';
 import 'survey_failure.dart';
 import 'typedefs.dart';
 
 abstract class ISurveyRepository {
-  Stream<Either<SurveyFailure, TRawSurveyMap>> watchSurveyMap({
+  Stream<SurveyMap> get surveyMapStream;
+  Stream<SurveyFailure> get failureStream;
+  FutureOr<ProjectMap> get projectMap;
+
+  Future<void> initialize();
+
+  // > local required
+  Future<void> getLocalRequired();
+
+  // > remote
+
+  Future<void> watchRemoteSurveyMap({
     required String teamId,
     required String interviewerId,
   });
 
-  Stream<Either<SurveyFailure, List<String>>> watchSurveyCompatibility();
-
-  Stream<Either<SurveyFailure, Map<String, Project>>> watchProjectMap({
+  Future<void> watchRemoteProjectMap({
     required String teamId,
   });
+  // > operations
 }

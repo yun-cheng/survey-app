@@ -1,128 +1,216 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart' hide Reference;
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:supercharged_dart/supercharged_dart.dart';
+import 'package:supercharged/supercharged.dart';
 
+import '../../domain/auth/i_auth_repository.dart';
+import '../../domain/core/i_common_repository.dart';
 import '../../domain/core/logger.dart';
-import '../../domain/overview/project.dart';
+import '../../domain/overview/survey.dart';
+import '../../domain/overview/typedefs.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/typedefs.dart';
-import '../../version.dart';
+import '../core/extensions.dart';
 import '../core/firestore_helpers.dart';
-import '../overview/project_dtos.dart';
+import '../core/isolate_local_storage.dart';
+import '../overview/project_map_dtos.dart';
+import 'survey_dtos.dart';
+import 'survey_map_dtos.dart';
 
 @LazySingleton(as: ISurveyRepository)
 class SurveyRepository implements ISurveyRepository {
   final FirebaseFirestore _firestore;
   final FirebaseStorage _storage;
+  final IAuthRepository _authRepo;
+  final ICommonRepository _commonRepo;
+  final _localStorage = IsolateLocalStorage();
+
+  final _projectMapStream = BehaviorSubject<ProjectMap>();
+  final _surveyMapStream = BehaviorSubject<SurveyMap>();
+  final _simpleSurveyMapStream = BehaviorSubject<SurveyMap>();
+  final _failureStream = BehaviorSubject.seeded(SurveyFailure.empty());
+
+  @override
+  Stream<SurveyMap> get surveyMapStream => _simpleSurveyMapStream;
+  @override
+  Stream<SurveyFailure> get failureStream => _failureStream;
+  @override
+  FutureOr<ProjectMap> get projectMap async =>
+      _projectMapStream.valueOrNull ?? await _projectMapStream.last;
+
+  StreamSubscription? _projectMapSubscription;
+  StreamSubscription? _rawSurveySubscription;
 
   SurveyRepository(
     this._firestore,
     this._storage,
+    this._authRepo,
+    this._commonRepo,
   );
 
-  Future<Uint8List?> downloadRawSurveyData({
-    required String surveyId,
-  }) async {
-    final surveyRef = _storage.surveyRef.child('$surveyId/$surveyId.json');
+  @override
+  Future<void> initialize() async {
+    await _localStorage.initialize();
+    await getLocalRequired();
+    simplifySurveyMap();
 
-    return await surveyRef.getData().timeout(const Duration(minutes: 1));
+    _authRepo.watchIsSignedIn().listen((isSignedIn) {
+      if (!isSignedIn) return;
+
+      final teamId = _authRepo.teamId!;
+      final interviewerId = _authRepo.interviewerId!;
+
+      watchRemoteProjectMap(teamId: teamId);
+      watchRemoteSurveyMap(teamId: teamId, interviewerId: interviewerId);
+    });
   }
 
+  // > local required
   @override
-  Stream<Either<SurveyFailure, TRawSurveyMap>> watchSurveyMap({
+  Future<void> getLocalRequired() async {
+    final projectMap = await _localStorage.read<ProjectMap>(
+      box: 'projectMap',
+      allKeys: true,
+      toDomain: ProjectMapDto.jsonToDomain,
+    );
+    if (projectMap != null) {
+      _projectMapStream.add(projectMap);
+    }
+
+    final surveyMap = await _localStorage.read<SurveyMap>(
+      box: 'surveyMap',
+      allKeys: true,
+      toDomain: SurveyMapDto.jsonToDomain,
+    );
+    if (surveyMap != null) {
+      _surveyMapStream.add(surveyMap);
+    }
+  }
+
+  void simplifySurveyMap() {
+    _surveyMapStream.forEach((surveyMap) {
+      _simpleSurveyMapStream.add(
+        surveyMap.mapValues((e) => e.simplify()),
+      );
+    });
+  }
+
+  // > watch remote
+  @override
+  Future<void> watchRemoteSurveyMap({
     required String teamId,
     required String interviewerId,
-  }) async* {
+  }) async {
     final surveyCollection = _firestore.surveyCollection;
 
-    yield* surveyCollection
+    await _rawSurveySubscription?.cancel();
+    _rawSurveySubscription = surveyCollection
         .where('teamId', isEqualTo: teamId)
         .where('interviewerList', arrayContains: interviewerId)
         .snapshots()
-        .asyncMap((snapshot) async {
-      if (!kIsWeb && snapshot.metadata.isFromCache) {
-        logger('Warning').e('watchSurveyMap: isFromCache');
-        return left<SurveyFailure, TRawSurveyMap>(SurveyFailure.noInternet());
-      }
-      // * Future.wait 會等裡面的東西都齊全
-      final list = await Future.wait(snapshot.docs.map((doc) async {
-        final surveyId = (doc.data()! as Map)['surveyId'] as String;
+        .listen(
+      (snapshot) async {
+        // * Future.wait 會等裡面的東西都齊全
+        final list = await Future.wait(snapshot.docs.map((doc) async {
+          final surveyId = doc.id;
+          final surveyRef =
+              _storage.surveyRef.child('$surveyId/$surveyId.json');
 
-        final data = await downloadRawSurveyData(surveyId: surveyId);
+          final data =
+              await surveyRef.getData().timeout(const Duration(minutes: 1));
 
-        return MapEntry(surveyId, data);
-      }));
+          return MapEntry(surveyId, data);
+        }));
 
-      return right<SurveyFailure, TRawSurveyMap>(list.toMap());
-    }).onErrorReturnWith((e, stackTrace) {
-      if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(SurveyFailure.insufficientPermission());
-      } else {
-        return left(SurveyFailure.unexpected());
-      }
-    });
-  }
+        final compatibility = await _commonRepo.compatibility;
+        final surveyMap = await compute(
+          rawSurveyMapToDomain,
+          [list.toMap(), compatibility],
+        );
 
-  @override
-  Stream<Either<SurveyFailure, List<String>>>
-      watchSurveyCompatibility() async* {
-    final compatibilityCollection = _firestore.compatibilityCollection;
+        _surveyMapStream.add(surveyMap);
 
-    yield* compatibilityCollection.doc(appVersion).snapshots().map(
-      (doc) {
-        if (!kIsWeb && doc.metadata.isFromCache) {
-          logger('Warning').e('watchSurveyCompatibility: isFromCache');
-          return left<SurveyFailure, List<String>>(SurveyFailure.noInternet());
-        }
-        final result = List<String>.from((doc.data()! as Map)['list'] ?? []);
-
-        return right<SurveyFailure, List<String>>(result);
-      },
-    ).onErrorReturnWith((e, stackTrace) {
-      if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(SurveyFailure.insufficientPermission());
-      } else {
-        return left(SurveyFailure.unexpected());
-      }
-    });
-  }
-
-  @override
-  Stream<Either<SurveyFailure, Map<String, Project>>> watchProjectMap({
-    required String teamId,
-  }) async* {
-    final projectCollection = _firestore.projectCollection;
-
-    yield* projectCollection.where('teamId', isEqualTo: teamId).snapshots().map(
-      (snapshot) {
-        if (!kIsWeb && snapshot.metadata.isFromCache) {
-          logger('Warning').e('watchProjectMap: isFromCache');
-          return left<SurveyFailure, Map<String, Project>>(
-              SurveyFailure.noInternet());
-        }
-
-        return right<SurveyFailure, Map<String, Project>>(
-          Map.fromEntries(
-            snapshot.docs.map(
-              (doc) =>
-                  MapEntry(doc.id, ProjectDto.fromFirestore(doc).toDomain()),
-            ),
-          ),
+        await _localStorage.write(
+          box: 'surveyMap',
+          data: surveyMap,
+          isMapEntries: true,
+          toJson: SurveyMapDto.domainToJson,
         );
       },
-    ).onErrorReturnWith((e, stackTrace) {
-      if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(SurveyFailure.insufficientPermission());
-      } else {
-        return left(SurveyFailure.unexpected());
-      }
-    });
+      onError: commonOnError,
+    );
   }
+
+  @override
+  Future<void> watchRemoteProjectMap({
+    required String teamId,
+  }) async {
+    final projectCollection = _firestore.projectCollection;
+
+    await _projectMapSubscription?.cancel();
+    _projectMapSubscription =
+        projectCollection.where('teamId', isEqualTo: teamId).snapshots().listen(
+      (snapshot) async {
+        final dto = ProjectMapDto.fromFirestore(snapshot);
+        _projectMapStream.add(dto.toDomain());
+
+        await _localStorage.write(
+          box: 'projectMap',
+          data: dto,
+          isMapEntries: true,
+          toJson: (ProjectMapDto e) => e.dtoToJson(),
+        );
+      },
+      onError: commonOnError,
+    );
+  }
+
+  void commonOnError(e, stackTrace) {
+    if (e is FirebaseException && e.code == 'permission-denied') {
+      _failureStream.add(SurveyFailure.insufficientPermission());
+    } else {
+      _failureStream.add(SurveyFailure.unexpected());
+    }
+  }
+}
+
+// > raw survey
+SurveyMap rawSurveyMapToDomain(
+  List list,
+) {
+  return (list[0] as Map<String, Uint8List?>)
+      .values
+      .map((e) => rawSurveyToDomain(
+            e,
+            compatibility: list[1] as List<String>,
+          ))
+      .toList()
+      .sortedByMultiX((survey) => [survey.projectId, survey.name])
+      .map((survey) => MapEntry(survey.id, survey))
+      .toMap();
+}
+
+Survey rawSurveyToDomain(
+  Uint8List? data, {
+  required List<String> compatibility,
+}) {
+  final jsonStr = data != null ? String.fromCharCodes(data) : '';
+  final result = json.decode(jsonStr) as Map<String, dynamic>;
+
+  final isCompatible = compatibility.contains(result['version'] ?? '');
+
+  if (!isCompatible) {
+    result.remove('module');
+  }
+
+  return SurveyDto.fromJson(result).toDomain(
+    versionIsCompatible: isCompatible,
+  );
 }

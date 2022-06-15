@@ -1,37 +1,28 @@
 import 'dart:async';
 
-import 'package:async_task/async_task.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
-import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/auth/auth_failure.dart';
-import '../../domain/auth/i_auth_facade.dart';
+import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
-import '../../domain/core/i_local_storage.dart';
+import '../../domain/auth/typedefs.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
-import '../../infrastructure/auth/auth_state_dtos.dart';
-import '../../infrastructure/core/storage_bloc_worker.dart';
-import '../../infrastructure/core/isolate_storage_bloc.dart';
-import '../../infrastructure/core/bloc_async_task.dart';
 
 part 'auth_bloc.freezed.dart';
-part 'auth_bloc_worker.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-class AuthBloc extends IsolateStorageBloc<AuthEvent, AuthState> {
-  final IAuthFacade _authFacade;
-  StreamSubscription<Either<AuthFailure, List<Team>>>? _teamListSubscription;
-  StreamSubscription<Either<AuthFailure, List<Interviewer>>>?
-      _interviewerListSubscription;
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  final IAuthRepository repo;
+  StreamSubscription<TeamList>? _subscription;
 
   AuthBloc(
-    this._authFacade,
+    this.repo,
   ) : super(AuthState.initial()) {
     on<AuthEvent>(_onEvent, transformer: sequential());
     add(const AuthEvent.initialized());
@@ -44,51 +35,95 @@ class AuthBloc extends IsolateStorageBloc<AuthEvent, AuthState> {
   ) async {
     await event.maybeMap(
       initialized: (e) async {
-        await initialize(
-          boxName: 'AuthState',
-          stateFromStorage: stateFromStorage,
-          taskTypeRegister: _taskTypeRegister,
-          blocWorker: AuthBlocWorker(),
-          emit: emit,
-        );
+        await repo.initialize();
       },
       watchTeamListStarted: (e) async {
-        await execute(event, emit);
-
-        await _teamListSubscription?.cancel();
-        _teamListSubscription = _authFacade.watchTeamList().listen(
-              (failureOrTeamList) =>
-                  add(AuthEvent.teamListReceived(failureOrTeamList)),
-            );
+        await _subscription?.cancel();
+        _subscription = repo.watchTeamList().listen(_onTeamList);
       },
-      watchInterviewerListStarted: (e) async {
-        await execute(event, emit);
+      teamSelected: (e) async {
+        logger('User Event').i('AuthEvent: teamSelected');
 
-        await _interviewerListSubscription?.cancel();
-        _interviewerListSubscription = _authFacade
-            .watchInterviewerList(teamId: state.team.id)
-            .listen(
-              (failureOrInterviewerList) => add(
-                  AuthEvent.interviewerListReceived(failureOrInterviewerList)),
-            );
+        final selectedTeam =
+            state.teamList.firstWhere((team) => team.id == e.teamId);
+
+        state
+            .copyWith(
+              team: selectedTeam,
+            )
+            .emit(emit);
+
+        repo.selectTeam(selectedTeam);
+      },
+      idChanged: (e) async {
+        state
+            .copyWith(
+              id: e.id,
+              signInState: LoadState.initial(),
+              authFailure: none(),
+            )
+            .emit(emit);
+      },
+      passwordChanged: (e) async {
+        state
+            .copyWith(
+              password: e.password,
+              signInState: LoadState.initial(),
+              authFailure: none(),
+            )
+            .emit(emit);
+      },
+      signInPressed: (e) async {
+        logger('User Event').i('AuthEvent: signInPressed');
+
+        state
+            .copyWith(
+              signInState: LoadState.inProgress(),
+              authFailure: none(),
+              validating: true,
+            )
+            .emit(emit);
+
+        if (state.id != '' && state.password != '') {
+          final result = repo.signIn(id: state.id, password: state.password);
+
+          state
+              .copyWith(
+                signInState: result ? LoadState.success() : LoadState.failure(),
+                authFailure: result
+                    ? none()
+                    : some(AuthFailure.invalidIdAndPasswordCombination()),
+              )
+              .emit(emit);
+        }
       },
       loggedOut: (e) async {
-        await execute(event, emit);
+        AuthState.initial()
+            .copyWith(
+              teamList: state.teamList,
+            )
+            .emit(emit);
+        // repo.logout();
       },
-      orElse: () async {
-        await execute(event, emit);
+      stateEmitted: (e) {
+        e.state.emit(emit);
       },
+      orElse: () async {},
+    );
+  }
+
+  void _onTeamList(TeamList teamList) {
+    add(
+      AuthEvent.stateEmitted(
+        state.copyWith(teamList: teamList),
+      ),
     );
   }
 
   @override
-  bool executionFinished(AuthState newState) =>
-      newState.eventState == LoadState.success();
-
-  @override
   Future<void> close() {
-    _teamListSubscription?.cancel();
-    _interviewerListSubscription?.cancel();
+    _subscription?.cancel();
+
     return super.close();
   }
 }
