@@ -48,13 +48,14 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
         await _subscription?.cancel();
         _subscription = repo.surveyMapStream.listen(_onSurveyMap);
       },
-      surveySelected: (e) {
-        logger('User Event').i('WatchSurveyEvent: surveySelected');
+      surveySelected: (e) async {
+        logger('User Event').i('SurveyEvent: surveySelected');
+
+        repo.selectSurvey(e.survey.id);
 
         state
             .copyWith(
               survey: e.survey,
-              surveyFailure: none(),
             )
             .emit(emit);
       },

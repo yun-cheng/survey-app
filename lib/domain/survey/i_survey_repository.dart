@@ -15,7 +15,6 @@ abstract class ISurveyRepository {
   Future<void> getLocalRequired();
 
   // > remote
-
   Future<void> watchRemoteSurveyMap({
     required String teamId,
     required String interviewerId,
@@ -24,5 +23,7 @@ abstract class ISurveyRepository {
   Future<void> watchRemoteProjectMap({
     required String teamId,
   });
+
   // > operations
+  Future<void> selectSurvey(String surveyId);
 }

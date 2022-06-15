@@ -39,7 +39,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       },
       watchTeamListStarted: (e) async {
         await _subscription?.cancel();
-        _subscription = repo.watchTeamList().listen(_onTeamList);
+        _subscription = repo.teamListStream.listen(_onTeamList);
       },
       teamSelected: (e) async {
         logger('User Event').i('AuthEvent: teamSelected');

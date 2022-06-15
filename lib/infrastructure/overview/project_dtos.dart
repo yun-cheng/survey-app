@@ -30,4 +30,10 @@ class ProjectDto with _$ProjectDto {
 
   factory ProjectDto.fromJson(Map<String, dynamic> json) =>
       _$ProjectDtoFromJson(json);
+
+  static Map<String, dynamic> domainToJson(Project domain) =>
+      ProjectDto.fromDomain(domain).toJson();
+
+  static Project jsonToDomain(Map<String, dynamic> json) =>
+      ProjectDto.fromJson(json).toDomain();
 }

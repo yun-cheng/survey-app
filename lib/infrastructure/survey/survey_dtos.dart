@@ -57,4 +57,10 @@ class SurveyDto with _$SurveyDto {
 
   factory SurveyDto.fromJson(Map<String, dynamic> json) =>
       _$SurveyDtoFromJson(json);
+
+  static Map<String, dynamic> domainToJson(Survey domain) =>
+      SurveyDto.fromDomain(domain).toJson();
+
+  static Survey jsonToDomain(Map<String, dynamic> json) =>
+      SurveyDto.fromJson(json).toDomain();
 }

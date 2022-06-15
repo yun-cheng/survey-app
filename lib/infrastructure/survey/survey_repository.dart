@@ -11,7 +11,7 @@ import 'package:supercharged/supercharged.dart';
 
 import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
-import '../../domain/core/logger.dart';
+import '../../domain/overview/project.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/overview/typedefs.dart';
 import '../../domain/survey/i_survey_repository.dart';
@@ -20,6 +20,7 @@ import '../../domain/survey/typedefs.dart';
 import '../core/extensions.dart';
 import '../core/firestore_helpers.dart';
 import '../core/isolate_local_storage.dart';
+import '../overview/project_dtos.dart';
 import '../overview/project_map_dtos.dart';
 import 'survey_dtos.dart';
 import 'survey_map_dtos.dart';
@@ -35,6 +36,8 @@ class SurveyRepository implements ISurveyRepository {
   final _projectMapStream = BehaviorSubject<ProjectMap>();
   final _surveyMapStream = BehaviorSubject<SurveyMap>();
   final _simpleSurveyMapStream = BehaviorSubject<SurveyMap>();
+  final _surveyStream = BehaviorSubject<Survey>();
+  final _projectStream = BehaviorSubject<Project>();
   final _failureStream = BehaviorSubject.seeded(SurveyFailure.empty());
 
   @override
@@ -61,20 +64,36 @@ class SurveyRepository implements ISurveyRepository {
     await getLocalRequired();
     simplifySurveyMap();
 
-    _authRepo.watchIsSignedIn().listen((isSignedIn) {
+    _authRepo.isSignedInStream.listen((isSignedIn) async {
       if (!isSignedIn) return;
 
-      final teamId = _authRepo.teamId!;
-      final interviewerId = _authRepo.interviewerId!;
+      final team = await _authRepo.team;
+      final interviewer = await _authRepo.interviewer;
 
-      watchRemoteProjectMap(teamId: teamId);
-      watchRemoteSurveyMap(teamId: teamId, interviewerId: interviewerId);
+      watchRemoteProjectMap(teamId: team.id);
+      watchRemoteSurveyMap(teamId: team.id, interviewerId: interviewer.id);
     });
   }
 
   // > local required
   @override
   Future<void> getLocalRequired() async {
+    final survey = await _commonRepo.read<Survey>(
+      key: 'survey',
+      toDomain: SurveyDto.jsonToDomain,
+    );
+    if (survey != null) {
+      _surveyStream.add(survey);
+    }
+
+    final project = await _commonRepo.read<Project>(
+      key: 'project',
+      toDomain: ProjectDto.jsonToDomain,
+    );
+    if (project != null) {
+      _projectStream.add(project);
+    }
+
     final projectMap = await _localStorage.read<ProjectMap>(
       box: 'projectMap',
       allKeys: true,
@@ -172,6 +191,27 @@ class SurveyRepository implements ISurveyRepository {
     );
   }
 
+  // > operations
+  @override
+  Future<void> selectSurvey(String surveyId) async {
+    final survey = _surveyMapStream.value[surveyId]!;
+    _surveyStream.add(survey);
+    final project = _projectMapStream.value[survey.projectId]!;
+    _projectStream.add(project);
+
+    _commonRepo.write(
+      key: 'survey',
+      data: survey,
+      toJson: SurveyDto.domainToJson,
+    );
+    _commonRepo.write(
+      key: 'project',
+      data: project,
+      toJson: ProjectDto.domainToJson,
+    );
+  }
+
+  // > common
   void commonOnError(e, stackTrace) {
     if (e is FirebaseException && e.code == 'permission-denied') {
       _failureStream.add(SurveyFailure.insufficientPermission());

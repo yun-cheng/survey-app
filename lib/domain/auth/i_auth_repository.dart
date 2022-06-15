@@ -1,9 +1,14 @@
+import 'dart:async';
+
+import 'interviewer.dart';
 import 'team.dart';
 import 'typedefs.dart';
 
 abstract class IAuthRepository {
-  String? get teamId;
-  String? get interviewerId;
+  Stream<TeamList> get teamListStream;
+  Stream<bool> get isSignedInStream;
+  FutureOr<Team> get team;
+  FutureOr<Interviewer> get interviewer;
 
   Future<void> initialize();
 
@@ -16,12 +21,6 @@ abstract class IAuthRepository {
   Future<void> watchRemoteInterviewerList();
 
   // > operations
-  Stream<TeamList> watchTeamList();
-
-  Stream<Team> watchTeam();
-
-  Stream<bool> watchIsSignedIn();
-
   void selectTeam(Team selectedTeam);
 
   bool signIn({

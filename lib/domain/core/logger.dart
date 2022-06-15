@@ -33,6 +33,7 @@ Logger logger([String? tag, int? methodShow]) {
     // 'application/respondent',
     // > survey
     // 'application/survey',
+    // 'application/survey/comment',
     // 'application/survey/update_answer_status',
     // 'presentation/survey',
     // 'presentation/respondent_list',

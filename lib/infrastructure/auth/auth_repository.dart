@@ -22,19 +22,23 @@ class AuthRepository implements IAuthRepository {
   final _localStorage = IsolateLocalStorage();
   final ICommonRepository _commonRepo;
 
-  final isSignedInStream = BehaviorSubject<bool>();
-  final teamListStream = BehaviorSubject<TeamList>();
-  final failureStream = BehaviorSubject.seeded(AuthFailure.empty());
-  final teamStream = BehaviorSubject<Team>();
-  Team? get team => teamStream.valueOrNull;
+  final _isSignedInStream = BehaviorSubject<bool>();
+  final _teamListStream = BehaviorSubject<TeamList>();
+  final _teamStream = BehaviorSubject<Team>();
+  final _interviewerStream = BehaviorSubject<Interviewer>();
+  final _failureStream = BehaviorSubject.seeded(AuthFailure.empty());
   InterviewerList? interviewerList;
-  final interviewerStream = BehaviorSubject<Interviewer>();
-  Interviewer? get interviewer => interviewerStream.valueOrNull;
 
   @override
-  String? get teamId => team?.id;
+  Stream<TeamList> get teamListStream => _teamListStream;
   @override
-  String? get interviewerId => interviewer?.id;
+  Stream<bool> get isSignedInStream => _isSignedInStream;
+  @override
+  FutureOr<Team> get team async =>
+      _teamStream.valueOrNull ?? await _teamStream.last;
+  @override
+  FutureOr<Interviewer> get interviewer async =>
+      _interviewerStream.valueOrNull ?? await _interviewerStream.last;
 
   StreamSubscription? _teamListSubscription;
   StreamSubscription? _interviewerListSubscription;
@@ -54,26 +58,26 @@ class AuthRepository implements IAuthRepository {
   // > local required
   @override
   Future<void> getLocalRequired() async {
-    final team = await _commonRepo.read(
+    final team = await _commonRepo.read<Team>(
       key: 'team',
       toDomain: TeamDto.jsonToDomain,
     );
     if (team != null) {
-      teamStream.add(team);
+      _teamStream.add(team);
     }
 
-    final interviewer = await _commonRepo.read(
+    final interviewer = await _commonRepo.read<Interviewer>(
       key: 'interviewer',
       toDomain: InterviewerDto.jsonToDomain,
     );
     if (interviewer != null) {
-      interviewerStream.add(interviewer);
+      _interviewerStream.add(interviewer);
     }
 
-    final isSignedIn = await _commonRepo.read(
+    final isSignedIn = await _commonRepo.read<bool>(
       key: 'isSignedIn',
     );
-    isSignedInStream.add(isSignedIn ?? false);
+    _isSignedInStream.add(isSignedIn ?? false);
   }
 
   // > remote
@@ -85,7 +89,7 @@ class AuthRepository implements IAuthRepository {
     _teamListSubscription = teamCollection.snapshots().listen(
       (snapshot) async {
         final dto = TeamListDto.fromFirestore(snapshot);
-        teamListStream.add(dto.toDomain());
+        _teamListStream.add(dto.toDomain());
 
         await _localStorage.write(
           box: 'teamList',
@@ -95,9 +99,9 @@ class AuthRepository implements IAuthRepository {
       },
       onError: (e, stackTrace) {
         if (e is FirebaseException && e.code == 'permission-denied') {
-          failureStream.add(AuthFailure.insufficientPermission());
+          _failureStream.add(AuthFailure.insufficientPermission());
         } else {
-          failureStream.add(AuthFailure.unexpected());
+          _failureStream.add(AuthFailure.unexpected());
         }
       },
     );
@@ -108,16 +112,17 @@ class AuthRepository implements IAuthRepository {
     final interviewerListCollection = _firestore.interviewerListCollection;
 
     await _interviewerListSubscription?.cancel();
+    final teamId = (await team).id;
     _interviewerListSubscription =
-        interviewerListCollection.doc(teamId!).snapshots().listen(
+        interviewerListCollection.doc(teamId).snapshots().listen(
       (snapshot) async {
         interviewerList = InterviewerListDto.fromFirestore(snapshot).toDomain();
       },
       onError: (e, stackTrace) {
         if (e is FirebaseException && e.code == 'permission-denied') {
-          failureStream.add(AuthFailure.insufficientPermission());
+          _failureStream.add(AuthFailure.insufficientPermission());
         } else {
-          failureStream.add(AuthFailure.unexpected());
+          _failureStream.add(AuthFailure.unexpected());
         }
       },
     );
@@ -125,19 +130,10 @@ class AuthRepository implements IAuthRepository {
 
   // > operations
   @override
-  BehaviorSubject<TeamList> watchTeamList() => teamListStream;
-
-  @override
-  BehaviorSubject<Team> watchTeam() => teamStream;
-
-  @override
-  BehaviorSubject<bool> watchIsSignedIn() => isSignedInStream;
-
-  @override
   void selectTeam(
     Team selectedTeam,
   ) {
-    teamStream.add(selectedTeam);
+    _teamStream.add(selectedTeam);
 
     watchRemoteInterviewerList();
   }
@@ -151,10 +147,10 @@ class AuthRepository implements IAuthRepository {
         interviewer.id == id && interviewer.password == password);
 
     if (matchInterviewer == null) {
-      failureStream.add(AuthFailure.invalidIdAndPasswordCombination());
+      _failureStream.add(AuthFailure.invalidIdAndPasswordCombination());
     } else {
-      interviewerStream.add(matchInterviewer);
-      isSignedInStream.add(true);
+      _interviewerStream.add(matchInterviewer);
+      _isSignedInStream.add(true);
 
       _commonRepo.write(
         key: 'team',
