@@ -9,11 +9,13 @@ class VisitTime with _$VisitTime {
   const VisitTime._();
 
   const factory VisitTime({
+    required bool exactTime,
     required DateTime date,
     required String timeSession,
   }) = _VisitTime;
 
   factory VisitTime.empty() => VisitTime(
+        exactTime: false,
         date: DateTime.now(),
         timeSession: '',
       );
@@ -51,6 +53,7 @@ class VisitTime with _$VisitTime {
       default:
         timeSessionString = '';
     }
-    return '${date.toMD()}$timeSessionString';
+    final timeStr = exactTime ? date.toTimeString(false) : '';
+    return '${date.toMD()}$timeSessionString$timeStr';
   }
 }

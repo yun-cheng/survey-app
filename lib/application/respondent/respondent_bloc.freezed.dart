@@ -18,110 +18,86 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RespondentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
@@ -146,154 +122,94 @@ class _$RespondentEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_WatchSurveyRespondentMapStartedCopyWith<$Res> {
-  factory _$$_WatchSurveyRespondentMapStartedCopyWith(
-          _$_WatchSurveyRespondentMapStarted value,
-          $Res Function(_$_WatchSurveyRespondentMapStarted) then) =
-      __$$_WatchSurveyRespondentMapStartedCopyWithImpl<$Res>;
-  $Res call({String teamId, String interviewerId});
+abstract class _$$_WatchReposStartedCopyWith<$Res> {
+  factory _$$_WatchReposStartedCopyWith(_$_WatchReposStarted value,
+          $Res Function(_$_WatchReposStarted) then) =
+      __$$_WatchReposStartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchSurveyRespondentMapStartedCopyWithImpl<$Res>
+class __$$_WatchReposStartedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_WatchSurveyRespondentMapStartedCopyWith<$Res> {
-  __$$_WatchSurveyRespondentMapStartedCopyWithImpl(
-      _$_WatchSurveyRespondentMapStarted _value,
-      $Res Function(_$_WatchSurveyRespondentMapStarted) _then)
-      : super(_value, (v) => _then(v as _$_WatchSurveyRespondentMapStarted));
+    implements _$$_WatchReposStartedCopyWith<$Res> {
+  __$$_WatchReposStartedCopyWithImpl(
+      _$_WatchReposStarted _value, $Res Function(_$_WatchReposStarted) _then)
+      : super(_value, (v) => _then(v as _$_WatchReposStarted));
 
   @override
-  _$_WatchSurveyRespondentMapStarted get _value =>
-      super._value as _$_WatchSurveyRespondentMapStarted;
-
-  @override
-  $Res call({
-    Object? teamId = freezed,
-    Object? interviewerId = freezed,
-  }) {
-    return _then(_$_WatchSurveyRespondentMapStarted(
-      teamId: teamId == freezed
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
-      interviewerId: interviewerId == freezed
-          ? _value.interviewerId
-          : interviewerId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  _$_WatchReposStarted get _value => super._value as _$_WatchReposStarted;
 }
 
 /// @nodoc
 
-class _$_WatchSurveyRespondentMapStarted
-    extends _WatchSurveyRespondentMapStarted {
-  const _$_WatchSurveyRespondentMapStarted(
-      {required this.teamId, required this.interviewerId})
-      : super._();
-
-  @override
-  final String teamId;
-  @override
-  final String interviewerId;
+class _$_WatchReposStarted extends _WatchReposStarted {
+  const _$_WatchReposStarted() : super._();
 
   @override
   String toString() {
-    return 'RespondentEvent.watchSurveyRespondentMapStarted(teamId: $teamId, interviewerId: $interviewerId)';
+    return 'RespondentEvent.watchReposStarted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_WatchSurveyRespondentMapStarted &&
-            const DeepCollectionEquality().equals(other.teamId, teamId) &&
-            const DeepCollectionEquality()
-                .equals(other.interviewerId, interviewerId));
+        (other.runtimeType == runtimeType && other is _$_WatchReposStarted);
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(teamId),
-      const DeepCollectionEquality().hash(interviewerId));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_WatchSurveyRespondentMapStartedCopyWith<
-          _$_WatchSurveyRespondentMapStarted>
-      get copyWith => __$$_WatchSurveyRespondentMapStartedCopyWithImpl<
-          _$_WatchSurveyRespondentMapStarted>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) {
-    return watchSurveyRespondentMapStarted(teamId, interviewerId);
+    return watchReposStarted();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
-    return watchSurveyRespondentMapStarted?.call(teamId, interviewerId);
+    return watchReposStarted?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
-    if (watchSurveyRespondentMapStarted != null) {
-      return watchSurveyRespondentMapStarted(teamId, interviewerId);
+    if (watchReposStarted != null) {
+      return watchReposStarted();
     }
     return orElse();
   }
@@ -301,438 +217,186 @@ class _$_WatchSurveyRespondentMapStarted
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
-    return watchSurveyRespondentMapStarted(this);
+    return watchReposStarted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
-    return watchSurveyRespondentMapStarted?.call(this);
+    return watchReposStarted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
-    if (watchSurveyRespondentMapStarted != null) {
-      return watchSurveyRespondentMapStarted(this);
+    if (watchReposStarted != null) {
+      return watchReposStarted(this);
     }
     return orElse();
   }
 }
 
-abstract class _WatchSurveyRespondentMapStarted extends RespondentEvent {
-  const factory _WatchSurveyRespondentMapStarted(
-          {required final String teamId, required final String interviewerId}) =
-      _$_WatchSurveyRespondentMapStarted;
-  const _WatchSurveyRespondentMapStarted._() : super._();
-
-  String get teamId => throw _privateConstructorUsedError;
-  String get interviewerId => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_WatchSurveyRespondentMapStartedCopyWith<
-          _$_WatchSurveyRespondentMapStarted>
-      get copyWith => throw _privateConstructorUsedError;
+abstract class _WatchReposStarted extends RespondentEvent {
+  const factory _WatchReposStarted() = _$_WatchReposStarted;
+  const _WatchReposStarted._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_RawSurveyRespondentMapReceivedCopyWith<$Res> {
-  factory _$$_RawSurveyRespondentMapReceivedCopyWith(
-          _$_RawSurveyRespondentMapReceived value,
-          $Res Function(_$_RawSurveyRespondentMapReceived) then) =
-      __$$_RawSurveyRespondentMapReceivedCopyWithImpl<$Res>;
-  $Res call(
-      {Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap});
+abstract class _$$_TabSwitchedCopyWith<$Res> {
+  factory _$$_TabSwitchedCopyWith(
+          _$_TabSwitched value, $Res Function(_$_TabSwitched) then) =
+      __$$_TabSwitchedCopyWithImpl<$Res>;
+  $Res call({TabType tab});
+
+  $TabTypeCopyWith<$Res> get tab;
 }
 
 /// @nodoc
-class __$$_RawSurveyRespondentMapReceivedCopyWithImpl<$Res>
+class __$$_TabSwitchedCopyWithImpl<$Res>
     extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_RawSurveyRespondentMapReceivedCopyWith<$Res> {
-  __$$_RawSurveyRespondentMapReceivedCopyWithImpl(
-      _$_RawSurveyRespondentMapReceived _value,
-      $Res Function(_$_RawSurveyRespondentMapReceived) _then)
-      : super(_value, (v) => _then(v as _$_RawSurveyRespondentMapReceived));
+    implements _$$_TabSwitchedCopyWith<$Res> {
+  __$$_TabSwitchedCopyWithImpl(
+      _$_TabSwitched _value, $Res Function(_$_TabSwitched) _then)
+      : super(_value, (v) => _then(v as _$_TabSwitched));
 
   @override
-  _$_RawSurveyRespondentMapReceived get _value =>
-      super._value as _$_RawSurveyRespondentMapReceived;
+  _$_TabSwitched get _value => super._value as _$_TabSwitched;
 
   @override
   $Res call({
-    Object? failureOrSurveyRespondentMap = freezed,
+    Object? tab = freezed,
   }) {
-    return _then(_$_RawSurveyRespondentMapReceived(
-      failureOrSurveyRespondentMap == freezed
-          ? _value.failureOrSurveyRespondentMap
-          : failureOrSurveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Either<RespondentFailure, List<Object>>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_RawSurveyRespondentMapReceived
-    extends _RawSurveyRespondentMapReceived {
-  const _$_RawSurveyRespondentMapReceived(this.failureOrSurveyRespondentMap)
-      : super._();
-
-  @override
-  final Either<RespondentFailure, List<Object>> failureOrSurveyRespondentMap;
-
-  @override
-  String toString() {
-    return 'RespondentEvent.rawSurveyRespondentMapReceived(failureOrSurveyRespondentMap: $failureOrSurveyRespondentMap)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_RawSurveyRespondentMapReceived &&
-            const DeepCollectionEquality().equals(
-                other.failureOrSurveyRespondentMap,
-                failureOrSurveyRespondentMap));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(failureOrSurveyRespondentMap));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_RawSurveyRespondentMapReceivedCopyWith<_$_RawSurveyRespondentMapReceived>
-      get copyWith => __$$_RawSurveyRespondentMapReceivedCopyWithImpl<
-          _$_RawSurveyRespondentMapReceived>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function() initialized,
-  }) {
-    return rawSurveyRespondentMapReceived(failureOrSurveyRespondentMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-  }) {
-    return rawSurveyRespondentMapReceived?.call(failureOrSurveyRespondentMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (rawSurveyRespondentMapReceived != null) {
-      return rawSurveyRespondentMapReceived(failureOrSurveyRespondentMap);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return rawSurveyRespondentMapReceived(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return rawSurveyRespondentMapReceived?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (rawSurveyRespondentMapReceived != null) {
-      return rawSurveyRespondentMapReceived(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RawSurveyRespondentMapReceived extends RespondentEvent {
-  const factory _RawSurveyRespondentMapReceived(
-      final Either<RespondentFailure, List<Object>>
-          failureOrSurveyRespondentMap) = _$_RawSurveyRespondentMapReceived;
-  const _RawSurveyRespondentMapReceived._() : super._();
-
-  Either<RespondentFailure, List<Object>> get failureOrSurveyRespondentMap =>
-      throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_RawSurveyRespondentMapReceivedCopyWith<_$_RawSurveyRespondentMapReceived>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_SurveySelectedCopyWith<$Res> {
-  factory _$$_SurveySelectedCopyWith(
-          _$_SurveySelected value, $Res Function(_$_SurveySelected) then) =
-      __$$_SurveySelectedCopyWithImpl<$Res>;
-  $Res call({Survey survey});
-
-  $SurveyCopyWith<$Res> get survey;
-}
-
-/// @nodoc
-class __$$_SurveySelectedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_SurveySelectedCopyWith<$Res> {
-  __$$_SurveySelectedCopyWithImpl(
-      _$_SurveySelected _value, $Res Function(_$_SurveySelected) _then)
-      : super(_value, (v) => _then(v as _$_SurveySelected));
-
-  @override
-  _$_SurveySelected get _value => super._value as _$_SurveySelected;
-
-  @override
-  $Res call({
-    Object? survey = freezed,
-  }) {
-    return _then(_$_SurveySelected(
-      survey: survey == freezed
-          ? _value.survey
-          : survey // ignore: cast_nullable_to_non_nullable
-              as Survey,
+    return _then(_$_TabSwitched(
+      tab: tab == freezed
+          ? _value.tab
+          : tab // ignore: cast_nullable_to_non_nullable
+              as TabType,
     ));
   }
 
   @override
-  $SurveyCopyWith<$Res> get survey {
-    return $SurveyCopyWith<$Res>(_value.survey, (value) {
-      return _then(_value.copyWith(survey: value));
+  $TabTypeCopyWith<$Res> get tab {
+    return $TabTypeCopyWith<$Res>(_value.tab, (value) {
+      return _then(_value.copyWith(tab: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$_SurveySelected extends _SurveySelected {
-  const _$_SurveySelected({required this.survey}) : super._();
+class _$_TabSwitched extends _TabSwitched {
+  const _$_TabSwitched({required this.tab}) : super._();
 
   @override
-  final Survey survey;
+  final TabType tab;
 
   @override
   String toString() {
-    return 'RespondentEvent.surveySelected(survey: $survey)';
+    return 'RespondentEvent.tabSwitched(tab: $tab)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SurveySelected &&
-            const DeepCollectionEquality().equals(other.survey, survey));
+            other is _$_TabSwitched &&
+            const DeepCollectionEquality().equals(other.tab, tab));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(survey));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tab));
 
   @JsonKey(ignore: true)
   @override
-  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
-      __$$_SurveySelectedCopyWithImpl<_$_SurveySelected>(this, _$identity);
+  _$$_TabSwitchedCopyWith<_$_TabSwitched> get copyWith =>
+      __$$_TabSwitchedCopyWithImpl<_$_TabSwitched>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) {
-    return surveySelected(survey);
+    return tabSwitched(tab);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
-    return surveySelected?.call(survey);
+    return tabSwitched?.call(tab);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
-    if (surveySelected != null) {
-      return surveySelected(survey);
+    if (tabSwitched != null) {
+      return tabSwitched(tab);
     }
     return orElse();
   }
@@ -740,74 +404,629 @@ class _$_SurveySelected extends _SurveySelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
-    return surveySelected(this);
+    return tabSwitched(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
-    return surveySelected?.call(this);
+    return tabSwitched?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
-    if (surveySelected != null) {
-      return surveySelected(this);
+    if (tabSwitched != null) {
+      return tabSwitched(this);
     }
     return orElse();
   }
 }
 
-abstract class _SurveySelected extends RespondentEvent {
-  const factory _SurveySelected({required final Survey survey}) =
-      _$_SurveySelected;
-  const _SurveySelected._() : super._();
+abstract class _TabSwitched extends RespondentEvent {
+  const factory _TabSwitched({required final TabType tab}) = _$_TabSwitched;
+  const _TabSwitched._() : super._();
 
-  Survey get survey => throw _privateConstructorUsedError;
+  TabType get tab => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
+  _$$_TabSwitchedCopyWith<_$_TabSwitched> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GroupSelectedCopyWith<$Res> {
+  factory _$$_GroupSelectedCopyWith(
+          _$_GroupSelected value, $Res Function(_$_GroupSelected) then) =
+      __$$_GroupSelectedCopyWithImpl<$Res>;
+  $Res call({String group});
+}
+
+/// @nodoc
+class __$$_GroupSelectedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_GroupSelectedCopyWith<$Res> {
+  __$$_GroupSelectedCopyWithImpl(
+      _$_GroupSelected _value, $Res Function(_$_GroupSelected) _then)
+      : super(_value, (v) => _then(v as _$_GroupSelected));
+
+  @override
+  _$_GroupSelected get _value => super._value as _$_GroupSelected;
+
+  @override
+  $Res call({
+    Object? group = freezed,
+  }) {
+    return _then(_$_GroupSelected(
+      group: group == freezed
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GroupSelected extends _GroupSelected {
+  const _$_GroupSelected({required this.group}) : super._();
+
+  @override
+  final String group;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.groupSelected(group: $group)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GroupSelected &&
+            const DeepCollectionEquality().equals(other.group, group));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(group));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_GroupSelectedCopyWith<_$_GroupSelected> get copyWith =>
+      __$$_GroupSelectedCopyWithImpl<_$_GroupSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
+    required TResult Function(String text) textSearched,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() initialized,
+  }) {
+    return groupSelected(group);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+  }) {
+    return groupSelected?.call(group);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (groupSelected != null) {
+      return groupSelected(group);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return groupSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return groupSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (groupSelected != null) {
+      return groupSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GroupSelected extends RespondentEvent {
+  const factory _GroupSelected({required final String group}) =
+      _$_GroupSelected;
+  const _GroupSelected._() : super._();
+
+  String get group => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_GroupSelectedCopyWith<_$_GroupSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RespondentSelectedCopyWith<$Res> {
+  factory _$$_RespondentSelectedCopyWith(_$_RespondentSelected value,
+          $Res Function(_$_RespondentSelected) then) =
+      __$$_RespondentSelectedCopyWithImpl<$Res>;
+  $Res call({Respondent respondent});
+
+  $RespondentCopyWith<$Res> get respondent;
+}
+
+/// @nodoc
+class __$$_RespondentSelectedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_RespondentSelectedCopyWith<$Res> {
+  __$$_RespondentSelectedCopyWithImpl(
+      _$_RespondentSelected _value, $Res Function(_$_RespondentSelected) _then)
+      : super(_value, (v) => _then(v as _$_RespondentSelected));
+
+  @override
+  _$_RespondentSelected get _value => super._value as _$_RespondentSelected;
+
+  @override
+  $Res call({
+    Object? respondent = freezed,
+  }) {
+    return _then(_$_RespondentSelected(
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
+    ));
+  }
+
+  @override
+  $RespondentCopyWith<$Res> get respondent {
+    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
+      return _then(_value.copyWith(respondent: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_RespondentSelected extends _RespondentSelected {
+  const _$_RespondentSelected({required this.respondent}) : super._();
+
+  @override
+  final Respondent respondent;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.respondentSelected(respondent: $respondent)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RespondentSelected &&
+            const DeepCollectionEquality()
+                .equals(other.respondent, respondent));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(respondent));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RespondentSelectedCopyWith<_$_RespondentSelected> get copyWith =>
+      __$$_RespondentSelectedCopyWithImpl<_$_RespondentSelected>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
+    required TResult Function(String text) textSearched,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() initialized,
+  }) {
+    return respondentSelected(respondent);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+  }) {
+    return respondentSelected?.call(respondent);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (respondentSelected != null) {
+      return respondentSelected(respondent);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return respondentSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return respondentSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (respondentSelected != null) {
+      return respondentSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RespondentSelected extends RespondentEvent {
+  const factory _RespondentSelected({required final Respondent respondent}) =
+      _$_RespondentSelected;
+  const _RespondentSelected._() : super._();
+
+  Respondent get respondent => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_RespondentSelectedCopyWith<_$_RespondentSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PageScrolledCopyWith<$Res> {
+  factory _$$_PageScrolledCopyWith(
+          _$_PageScrolled value, $Res Function(_$_PageScrolled) then) =
+      __$$_PageScrolledCopyWithImpl<$Res>;
+  $Res call({double scrollOffset});
+}
+
+/// @nodoc
+class __$$_PageScrolledCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_PageScrolledCopyWith<$Res> {
+  __$$_PageScrolledCopyWithImpl(
+      _$_PageScrolled _value, $Res Function(_$_PageScrolled) _then)
+      : super(_value, (v) => _then(v as _$_PageScrolled));
+
+  @override
+  _$_PageScrolled get _value => super._value as _$_PageScrolled;
+
+  @override
+  $Res call({
+    Object? scrollOffset = freezed,
+  }) {
+    return _then(_$_PageScrolled(
+      scrollOffset == freezed
+          ? _value.scrollOffset
+          : scrollOffset // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PageScrolled extends _PageScrolled {
+  const _$_PageScrolled(this.scrollOffset) : super._();
+
+  @override
+  final double scrollOffset;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.pageScrolled(scrollOffset: $scrollOffset)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PageScrolled &&
+            const DeepCollectionEquality()
+                .equals(other.scrollOffset, scrollOffset));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(scrollOffset));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PageScrolledCopyWith<_$_PageScrolled> get copyWith =>
+      __$$_PageScrolledCopyWithImpl<_$_PageScrolled>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
+    required TResult Function(String text) textSearched,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() initialized,
+  }) {
+    return pageScrolled(scrollOffset);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+  }) {
+    return pageScrolled?.call(scrollOffset);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (pageScrolled != null) {
+      return pageScrolled(scrollOffset);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return pageScrolled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return pageScrolled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (pageScrolled != null) {
+      return pageScrolled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PageScrolled extends RespondentEvent {
+  const factory _PageScrolled(final double scrollOffset) = _$_PageScrolled;
+  const _PageScrolled._() : super._();
+
+  double get scrollOffset => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_PageScrolledCopyWith<_$_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -876,22 +1095,15 @@ class _$_TextSearched extends _TextSearched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return textSearched(text);
@@ -900,20 +1112,15 @@ class _$_TextSearched extends _TextSearched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return textSearched?.call(text);
@@ -922,20 +1129,15 @@ class _$_TextSearched extends _TextSearched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -948,18 +1150,15 @@ class _$_TextSearched extends _TextSearched {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return textSearched(this);
@@ -968,17 +1167,15 @@ class _$_TextSearched extends _TextSearched {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return textSearched?.call(this);
@@ -987,17 +1184,15 @@ class _$_TextSearched extends _TextSearched {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1015,658 +1210,6 @@ abstract class _TextSearched extends RespondentEvent {
   String get text => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_VisitReportUpdatedCopyWith<$Res> {
-  factory _$$_VisitReportUpdatedCopyWith(_$_VisitReportUpdated value,
-          $Res Function(_$_VisitReportUpdated) then) =
-      __$$_VisitReportUpdatedCopyWithImpl<$Res>;
-  $Res call({Map<UniqueId, Response> responseMap});
-}
-
-/// @nodoc
-class __$$_VisitReportUpdatedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_VisitReportUpdatedCopyWith<$Res> {
-  __$$_VisitReportUpdatedCopyWithImpl(
-      _$_VisitReportUpdated _value, $Res Function(_$_VisitReportUpdated) _then)
-      : super(_value, (v) => _then(v as _$_VisitReportUpdated));
-
-  @override
-  _$_VisitReportUpdated get _value => super._value as _$_VisitReportUpdated;
-
-  @override
-  $Res call({
-    Object? responseMap = freezed,
-  }) {
-    return _then(_$_VisitReportUpdated(
-      responseMap: responseMap == freezed
-          ? _value._responseMap
-          : responseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_VisitReportUpdated extends _VisitReportUpdated {
-  const _$_VisitReportUpdated(
-      {required final Map<UniqueId, Response> responseMap})
-      : _responseMap = responseMap,
-        super._();
-
-  final Map<UniqueId, Response> _responseMap;
-  @override
-  Map<UniqueId, Response> get responseMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_responseMap);
-  }
-
-  @override
-  String toString() {
-    return 'RespondentEvent.visitReportUpdated(responseMap: $responseMap)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_VisitReportUpdated &&
-            const DeepCollectionEquality()
-                .equals(other._responseMap, _responseMap));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_responseMap));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_VisitReportUpdatedCopyWith<_$_VisitReportUpdated> get copyWith =>
-      __$$_VisitReportUpdatedCopyWithImpl<_$_VisitReportUpdated>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function() initialized,
-  }) {
-    return visitReportUpdated(responseMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-  }) {
-    return visitReportUpdated?.call(responseMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (visitReportUpdated != null) {
-      return visitReportUpdated(responseMap);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return visitReportUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return visitReportUpdated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (visitReportUpdated != null) {
-      return visitReportUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _VisitReportUpdated extends RespondentEvent {
-  const factory _VisitReportUpdated(
-          {required final Map<UniqueId, Response> responseMap}) =
-      _$_VisitReportUpdated;
-  const _VisitReportUpdated._() : super._();
-
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_VisitReportUpdatedCopyWith<_$_VisitReportUpdated> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_HousingUpdatedCopyWith<$Res> {
-  factory _$$_HousingUpdatedCopyWith(
-          _$_HousingUpdated value, $Res Function(_$_HousingUpdated) then) =
-      __$$_HousingUpdatedCopyWithImpl<$Res>;
-  $Res call({Map<UniqueId, Response> responseMap});
-}
-
-/// @nodoc
-class __$$_HousingUpdatedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_HousingUpdatedCopyWith<$Res> {
-  __$$_HousingUpdatedCopyWithImpl(
-      _$_HousingUpdated _value, $Res Function(_$_HousingUpdated) _then)
-      : super(_value, (v) => _then(v as _$_HousingUpdated));
-
-  @override
-  _$_HousingUpdated get _value => super._value as _$_HousingUpdated;
-
-  @override
-  $Res call({
-    Object? responseMap = freezed,
-  }) {
-    return _then(_$_HousingUpdated(
-      responseMap: responseMap == freezed
-          ? _value._responseMap
-          : responseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_HousingUpdated extends _HousingUpdated {
-  const _$_HousingUpdated({required final Map<UniqueId, Response> responseMap})
-      : _responseMap = responseMap,
-        super._();
-
-  final Map<UniqueId, Response> _responseMap;
-  @override
-  Map<UniqueId, Response> get responseMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_responseMap);
-  }
-
-  @override
-  String toString() {
-    return 'RespondentEvent.housingUpdated(responseMap: $responseMap)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_HousingUpdated &&
-            const DeepCollectionEquality()
-                .equals(other._responseMap, _responseMap));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_responseMap));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_HousingUpdatedCopyWith<_$_HousingUpdated> get copyWith =>
-      __$$_HousingUpdatedCopyWithImpl<_$_HousingUpdated>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function() initialized,
-  }) {
-    return housingUpdated(responseMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-  }) {
-    return housingUpdated?.call(responseMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (housingUpdated != null) {
-      return housingUpdated(responseMap);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return housingUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return housingUpdated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (housingUpdated != null) {
-      return housingUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _HousingUpdated extends RespondentEvent {
-  const factory _HousingUpdated(
-      {required final Map<UniqueId, Response> responseMap}) = _$_HousingUpdated;
-  const _HousingUpdated._() : super._();
-
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_HousingUpdatedCopyWith<_$_HousingUpdated> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_TabRespondentsUpdatedCopyWith<$Res> {
-  factory _$$_TabRespondentsUpdatedCopyWith(_$_TabRespondentsUpdated value,
-          $Res Function(_$_TabRespondentsUpdated) then) =
-      __$$_TabRespondentsUpdatedCopyWithImpl<$Res>;
-  $Res call({Map<UniqueId, Response> responseMap});
-}
-
-/// @nodoc
-class __$$_TabRespondentsUpdatedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_TabRespondentsUpdatedCopyWith<$Res> {
-  __$$_TabRespondentsUpdatedCopyWithImpl(_$_TabRespondentsUpdated _value,
-      $Res Function(_$_TabRespondentsUpdated) _then)
-      : super(_value, (v) => _then(v as _$_TabRespondentsUpdated));
-
-  @override
-  _$_TabRespondentsUpdated get _value =>
-      super._value as _$_TabRespondentsUpdated;
-
-  @override
-  $Res call({
-    Object? responseMap = freezed,
-  }) {
-    return _then(_$_TabRespondentsUpdated(
-      responseMap: responseMap == freezed
-          ? _value._responseMap
-          : responseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TabRespondentsUpdated extends _TabRespondentsUpdated {
-  const _$_TabRespondentsUpdated(
-      {required final Map<UniqueId, Response> responseMap})
-      : _responseMap = responseMap,
-        super._();
-
-  final Map<UniqueId, Response> _responseMap;
-  @override
-  Map<UniqueId, Response> get responseMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_responseMap);
-  }
-
-  @override
-  String toString() {
-    return 'RespondentEvent.tabRespondentsUpdated(responseMap: $responseMap)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TabRespondentsUpdated &&
-            const DeepCollectionEquality()
-                .equals(other._responseMap, _responseMap));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_responseMap));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_TabRespondentsUpdatedCopyWith<_$_TabRespondentsUpdated> get copyWith =>
-      __$$_TabRespondentsUpdatedCopyWithImpl<_$_TabRespondentsUpdated>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function() initialized,
-  }) {
-    return tabRespondentsUpdated(responseMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-  }) {
-    return tabRespondentsUpdated?.call(responseMap);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (tabRespondentsUpdated != null) {
-      return tabRespondentsUpdated(responseMap);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return tabRespondentsUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return tabRespondentsUpdated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (tabRespondentsUpdated != null) {
-      return tabRespondentsUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TabRespondentsUpdated extends RespondentEvent {
-  const factory _TabRespondentsUpdated(
-          {required final Map<UniqueId, Response> responseMap}) =
-      _$_TabRespondentsUpdated;
-  const _TabRespondentsUpdated._() : super._();
-
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_TabRespondentsUpdatedCopyWith<_$_TabRespondentsUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1711,22 +1254,15 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return leaveButtonPressed();
@@ -1735,20 +1271,15 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return leaveButtonPressed?.call();
@@ -1757,20 +1288,15 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1783,18 +1309,15 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return leaveButtonPressed(this);
@@ -1803,17 +1326,15 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return leaveButtonPressed?.call(this);
@@ -1822,17 +1343,15 @@ class _$_LeaveButtonPressed extends _LeaveButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1889,22 +1408,15 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return loggedOut();
@@ -1913,20 +1425,15 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return loggedOut?.call();
@@ -1935,20 +1442,15 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1961,18 +1463,15 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return loggedOut(this);
@@ -1981,17 +1480,15 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return loggedOut?.call(this);
@@ -2000,17 +1497,15 @@ class _$_LoggedOut extends _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -2024,6 +1519,198 @@ class _$_LoggedOut extends _LoggedOut {
 abstract class _LoggedOut extends RespondentEvent {
   const factory _LoggedOut() = _$_LoggedOut;
   const _LoggedOut._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_StateEmittedCopyWith<$Res> {
+  factory _$$_StateEmittedCopyWith(
+          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
+      __$$_StateEmittedCopyWithImpl<$Res>;
+  $Res call({RespondentState state});
+
+  $RespondentStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$$_StateEmittedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_StateEmittedCopyWith<$Res> {
+  __$$_StateEmittedCopyWithImpl(
+      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
+      : super(_value, (v) => _then(v as _$_StateEmitted));
+
+  @override
+  _$_StateEmitted get _value => super._value as _$_StateEmitted;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_$_StateEmitted(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as RespondentState,
+    ));
+  }
+
+  @override
+  $RespondentStateCopyWith<$Res> get state {
+    return $RespondentStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_StateEmitted extends _StateEmitted {
+  const _$_StateEmitted(this.state) : super._();
+
+  @override
+  final RespondentState state;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.stateEmitted(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_StateEmitted &&
+            const DeepCollectionEquality().equals(other.state, state));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
+    required TResult Function(String text) textSearched,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() initialized,
+  }) {
+    return stateEmitted(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+  }) {
+    return stateEmitted?.call(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
+    TResult Function(String text)? textSearched,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return stateEmitted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return stateEmitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateEmitted extends RespondentEvent {
+  const factory _StateEmitted(final RespondentState state) = _$_StateEmitted;
+  const _StateEmitted._() : super._();
+
+  RespondentState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2067,22 +1754,15 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        visitReportUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        housingUpdated,
-    required TResult Function(Map<UniqueId, Response> responseMap)
-        tabRespondentsUpdated,
     required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() initialized,
   }) {
     return initialized();
@@ -2091,20 +1771,15 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
     return initialized?.call();
@@ -2113,20 +1788,15 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(
-            Either<RespondentFailure, List<Object>>
-                failureOrSurveyRespondentMap)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
-    TResult Function(Map<UniqueId, Response> responseMap)?
-        tabRespondentsUpdated,
     TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -2139,18 +1809,15 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyRespondentMapStarted value)
-        watchSurveyRespondentMapStarted,
-    required TResult Function(_RawSurveyRespondentMapReceived value)
-        rawSurveyRespondentMapReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_HousingUpdated value) housingUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
   }) {
     return initialized(this);
@@ -2159,17 +1826,15 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
   }) {
     return initialized?.call(this);
@@ -2178,17 +1843,15 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyRespondentMapStarted value)?
-        watchSurveyRespondentMapStarted,
-    TResult Function(_RawSurveyRespondentMapReceived value)?
-        rawSurveyRespondentMapReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_HousingUpdated value)? housingUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -2207,34 +1870,33 @@ abstract class _Initialized extends RespondentEvent {
 /// @nodoc
 mixin _$RespondentState {
   UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
-  Map<String, Map<String, Respondent>> get surveyRespondentMap =>
-      throw _privateConstructorUsedError;
-  Survey get survey => throw _privateConstructorUsedError;
-  Map<String, Respondent> get respondentMap =>
-      throw _privateConstructorUsedError;
-  Map<String, List<VisitRecord>> get visitRecordsMap =>
-      throw _privateConstructorUsedError;
-  Map<String, String> get lastVisitRecordMap =>
-      throw _privateConstructorUsedError;
-  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
+  Respondent get respondent => throw _privateConstructorUsedError;
+  TabType get currentTab => throw _privateConstructorUsedError;
+  String get selectedGroup => throw _privateConstructorUsedError;
+  String get searchText => throw _privateConstructorUsedError;
+  Map<TabType, double> get tabScrollOffset =>
+      throw _privateConstructorUsedError; // > 中間資料
   List<String> get groupList => throw _privateConstructorUsedError;
+  Map<String, bool> get subsetRespondentMap =>
+      throw _privateConstructorUsedError;
+  Map<String, Housing> get housingMap =>
+      throw _privateConstructorUsedError; // >> visitRecord
+// ? VisitRecords or VisitReports
+  Map<String, List<VisitRecord>> get visitRecordLMap =>
+      throw _privateConstructorUsedError;
+  Map<String, String> get visitRecordMap =>
+      throw _privateConstructorUsedError; // >> tab
   Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList =>
       throw _privateConstructorUsedError;
-  Map<TabType, Map<int, String>> get tabGroupMap =>
-      throw _privateConstructorUsedError;
-  Map<TabType, int> get tabCountMap => throw _privateConstructorUsedError;
-  Map<UniqueId, Response> get responseInfoMap =>
-      throw _privateConstructorUsedError;
-  String get searchText => throw _privateConstructorUsedError;
-  Map<String, bool> get searchRespondentMap =>
-      throw _privateConstructorUsedError; // > 中間資料
-// > 狀態更新進度
-  LoadState get surveyRespondentMapState => throw _privateConstructorUsedError;
+  Map<TabType, int> get tabCountMap =>
+      throw _privateConstructorUsedError; // > 狀態更新進度
   Option<RespondentFailure> get respondentFailure =>
-      throw _privateConstructorUsedError;
-  LoadState get eventState => throw _privateConstructorUsedError; // > 更新/儲存參數
-  StateParameters get updateParameters => throw _privateConstructorUsedError;
-  StateParameters get saveParameters => throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // > 是否更新參數
+  bool get updateRespondents => throw _privateConstructorUsedError;
+  bool get updateTab => throw _privateConstructorUsedError;
+  bool get updateVisitRecord => throw _privateConstructorUsedError;
+  bool get updateHousing => throw _privateConstructorUsedError;
+  bool get updateSubset => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RespondentStateCopyWith<RespondentState> get copyWith =>
@@ -2248,31 +1910,28 @@ abstract class $RespondentStateCopyWith<$Res> {
       _$RespondentStateCopyWithImpl<$Res>;
   $Res call(
       {UniqueId stateId,
-      Map<String, Map<String, Respondent>> surveyRespondentMap,
-      Survey survey,
-      Map<String, Respondent> respondentMap,
-      Map<String, List<VisitRecord>> visitRecordsMap,
-      Map<String, String> lastVisitRecordMap,
-      Map<String, Housing> housingMap,
-      List<String> groupList,
-      Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
-      Map<TabType, Map<int, String>> tabGroupMap,
-      Map<TabType, int> tabCountMap,
-      Map<UniqueId, Response> responseInfoMap,
+      Respondent respondent,
+      TabType currentTab,
+      String selectedGroup,
       String searchText,
-      Map<String, bool> searchRespondentMap,
-      LoadState surveyRespondentMapState,
+      Map<TabType, double> tabScrollOffset,
+      List<String> groupList,
+      Map<String, bool> subsetRespondentMap,
+      Map<String, Housing> housingMap,
+      Map<String, List<VisitRecord>> visitRecordLMap,
+      Map<String, String> visitRecordMap,
+      Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
+      Map<TabType, int> tabCountMap,
       Option<RespondentFailure> respondentFailure,
-      LoadState eventState,
-      StateParameters updateParameters,
-      StateParameters saveParameters});
+      bool updateRespondents,
+      bool updateTab,
+      bool updateVisitRecord,
+      bool updateHousing,
+      bool updateSubset});
 
   $UniqueIdCopyWith<$Res> get stateId;
-  $SurveyCopyWith<$Res> get survey;
-  $LoadStateCopyWith<$Res> get surveyRespondentMapState;
-  $LoadStateCopyWith<$Res> get eventState;
-  $StateParametersCopyWith<$Res> get updateParameters;
-  $StateParametersCopyWith<$Res> get saveParameters;
+  $RespondentCopyWith<$Res> get respondent;
+  $TabTypeCopyWith<$Res> get currentTab;
 }
 
 /// @nodoc
@@ -2287,102 +1946,102 @@ class _$RespondentStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stateId = freezed,
-    Object? surveyRespondentMap = freezed,
-    Object? survey = freezed,
-    Object? respondentMap = freezed,
-    Object? visitRecordsMap = freezed,
-    Object? lastVisitRecordMap = freezed,
-    Object? housingMap = freezed,
-    Object? groupList = freezed,
-    Object? tabGroupedRespondentList = freezed,
-    Object? tabGroupMap = freezed,
-    Object? tabCountMap = freezed,
-    Object? responseInfoMap = freezed,
+    Object? respondent = freezed,
+    Object? currentTab = freezed,
+    Object? selectedGroup = freezed,
     Object? searchText = freezed,
-    Object? searchRespondentMap = freezed,
-    Object? surveyRespondentMapState = freezed,
+    Object? tabScrollOffset = freezed,
+    Object? groupList = freezed,
+    Object? subsetRespondentMap = freezed,
+    Object? housingMap = freezed,
+    Object? visitRecordLMap = freezed,
+    Object? visitRecordMap = freezed,
+    Object? tabGroupedRespondentList = freezed,
+    Object? tabCountMap = freezed,
     Object? respondentFailure = freezed,
-    Object? eventState = freezed,
-    Object? updateParameters = freezed,
-    Object? saveParameters = freezed,
+    Object? updateRespondents = freezed,
+    Object? updateTab = freezed,
+    Object? updateVisitRecord = freezed,
+    Object? updateHousing = freezed,
+    Object? updateSubset = freezed,
   }) {
     return _then(_value.copyWith(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      surveyRespondentMap: surveyRespondentMap == freezed
-          ? _value.surveyRespondentMap
-          : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Map<String, Respondent>>,
-      survey: survey == freezed
-          ? _value.survey
-          : survey // ignore: cast_nullable_to_non_nullable
-              as Survey,
-      respondentMap: respondentMap == freezed
-          ? _value.respondentMap
-          : respondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Respondent>,
-      visitRecordsMap: visitRecordsMap == freezed
-          ? _value.visitRecordsMap
-          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<VisitRecord>>,
-      lastVisitRecordMap: lastVisitRecordMap == freezed
-          ? _value.lastVisitRecordMap
-          : lastVisitRecordMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      housingMap: housingMap == freezed
-          ? _value.housingMap
-          : housingMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Housing>,
-      groupList: groupList == freezed
-          ? _value.groupList
-          : groupList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      tabGroupedRespondentList: tabGroupedRespondentList == freezed
-          ? _value.tabGroupedRespondentList
-          : tabGroupedRespondentList // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, Map<String, List<Respondent>>>,
-      tabGroupMap: tabGroupMap == freezed
-          ? _value.tabGroupMap
-          : tabGroupMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, Map<int, String>>,
-      tabCountMap: tabCountMap == freezed
-          ? _value.tabCountMap
-          : tabCountMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, int>,
-      responseInfoMap: responseInfoMap == freezed
-          ? _value.responseInfoMap
-          : responseInfoMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
+      currentTab: currentTab == freezed
+          ? _value.currentTab
+          : currentTab // ignore: cast_nullable_to_non_nullable
+              as TabType,
+      selectedGroup: selectedGroup == freezed
+          ? _value.selectedGroup
+          : selectedGroup // ignore: cast_nullable_to_non_nullable
+              as String,
       searchText: searchText == freezed
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
               as String,
-      searchRespondentMap: searchRespondentMap == freezed
-          ? _value.searchRespondentMap
-          : searchRespondentMap // ignore: cast_nullable_to_non_nullable
+      tabScrollOffset: tabScrollOffset == freezed
+          ? _value.tabScrollOffset
+          : tabScrollOffset // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, double>,
+      groupList: groupList == freezed
+          ? _value.groupList
+          : groupList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      subsetRespondentMap: subsetRespondentMap == freezed
+          ? _value.subsetRespondentMap
+          : subsetRespondentMap // ignore: cast_nullable_to_non_nullable
               as Map<String, bool>,
-      surveyRespondentMapState: surveyRespondentMapState == freezed
-          ? _value.surveyRespondentMapState
-          : surveyRespondentMapState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Housing>,
+      visitRecordLMap: visitRecordLMap == freezed
+          ? _value.visitRecordLMap
+          : visitRecordLMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<VisitRecord>>,
+      visitRecordMap: visitRecordMap == freezed
+          ? _value.visitRecordMap
+          : visitRecordMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      tabGroupedRespondentList: tabGroupedRespondentList == freezed
+          ? _value.tabGroupedRespondentList
+          : tabGroupedRespondentList // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, Map<String, List<Respondent>>>,
+      tabCountMap: tabCountMap == freezed
+          ? _value.tabCountMap
+          : tabCountMap // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, int>,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure // ignore: cast_nullable_to_non_nullable
               as Option<RespondentFailure>,
-      eventState: eventState == freezed
-          ? _value.eventState
-          : eventState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      updateParameters: updateParameters == freezed
-          ? _value.updateParameters
-          : updateParameters // ignore: cast_nullable_to_non_nullable
-              as StateParameters,
-      saveParameters: saveParameters == freezed
-          ? _value.saveParameters
-          : saveParameters // ignore: cast_nullable_to_non_nullable
-              as StateParameters,
+      updateRespondents: updateRespondents == freezed
+          ? _value.updateRespondents
+          : updateRespondents // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateTab: updateTab == freezed
+          ? _value.updateTab
+          : updateTab // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateVisitRecord: updateVisitRecord == freezed
+          ? _value.updateVisitRecord
+          : updateVisitRecord // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateHousing: updateHousing == freezed
+          ? _value.updateHousing
+          : updateHousing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateSubset: updateSubset == freezed
+          ? _value.updateSubset
+          : updateSubset // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -2394,37 +2053,16 @@ class _$RespondentStateCopyWithImpl<$Res>
   }
 
   @override
-  $SurveyCopyWith<$Res> get survey {
-    return $SurveyCopyWith<$Res>(_value.survey, (value) {
-      return _then(_value.copyWith(survey: value));
+  $RespondentCopyWith<$Res> get respondent {
+    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
+      return _then(_value.copyWith(respondent: value));
     });
   }
 
   @override
-  $LoadStateCopyWith<$Res> get surveyRespondentMapState {
-    return $LoadStateCopyWith<$Res>(_value.surveyRespondentMapState, (value) {
-      return _then(_value.copyWith(surveyRespondentMapState: value));
-    });
-  }
-
-  @override
-  $LoadStateCopyWith<$Res> get eventState {
-    return $LoadStateCopyWith<$Res>(_value.eventState, (value) {
-      return _then(_value.copyWith(eventState: value));
-    });
-  }
-
-  @override
-  $StateParametersCopyWith<$Res> get updateParameters {
-    return $StateParametersCopyWith<$Res>(_value.updateParameters, (value) {
-      return _then(_value.copyWith(updateParameters: value));
-    });
-  }
-
-  @override
-  $StateParametersCopyWith<$Res> get saveParameters {
-    return $StateParametersCopyWith<$Res>(_value.saveParameters, (value) {
-      return _then(_value.copyWith(saveParameters: value));
+  $TabTypeCopyWith<$Res> get currentTab {
+    return $TabTypeCopyWith<$Res>(_value.currentTab, (value) {
+      return _then(_value.copyWith(currentTab: value));
     });
   }
 }
@@ -2438,37 +2076,31 @@ abstract class _$$_RespondentStateCopyWith<$Res>
   @override
   $Res call(
       {UniqueId stateId,
-      Map<String, Map<String, Respondent>> surveyRespondentMap,
-      Survey survey,
-      Map<String, Respondent> respondentMap,
-      Map<String, List<VisitRecord>> visitRecordsMap,
-      Map<String, String> lastVisitRecordMap,
-      Map<String, Housing> housingMap,
-      List<String> groupList,
-      Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
-      Map<TabType, Map<int, String>> tabGroupMap,
-      Map<TabType, int> tabCountMap,
-      Map<UniqueId, Response> responseInfoMap,
+      Respondent respondent,
+      TabType currentTab,
+      String selectedGroup,
       String searchText,
-      Map<String, bool> searchRespondentMap,
-      LoadState surveyRespondentMapState,
+      Map<TabType, double> tabScrollOffset,
+      List<String> groupList,
+      Map<String, bool> subsetRespondentMap,
+      Map<String, Housing> housingMap,
+      Map<String, List<VisitRecord>> visitRecordLMap,
+      Map<String, String> visitRecordMap,
+      Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
+      Map<TabType, int> tabCountMap,
       Option<RespondentFailure> respondentFailure,
-      LoadState eventState,
-      StateParameters updateParameters,
-      StateParameters saveParameters});
+      bool updateRespondents,
+      bool updateTab,
+      bool updateVisitRecord,
+      bool updateHousing,
+      bool updateSubset});
 
   @override
   $UniqueIdCopyWith<$Res> get stateId;
   @override
-  $SurveyCopyWith<$Res> get survey;
+  $RespondentCopyWith<$Res> get respondent;
   @override
-  $LoadStateCopyWith<$Res> get surveyRespondentMapState;
-  @override
-  $LoadStateCopyWith<$Res> get eventState;
-  @override
-  $StateParametersCopyWith<$Res> get updateParameters;
-  @override
-  $StateParametersCopyWith<$Res> get saveParameters;
+  $TabTypeCopyWith<$Res> get currentTab;
 }
 
 /// @nodoc
@@ -2485,102 +2117,102 @@ class __$$_RespondentStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stateId = freezed,
-    Object? surveyRespondentMap = freezed,
-    Object? survey = freezed,
-    Object? respondentMap = freezed,
-    Object? visitRecordsMap = freezed,
-    Object? lastVisitRecordMap = freezed,
-    Object? housingMap = freezed,
-    Object? groupList = freezed,
-    Object? tabGroupedRespondentList = freezed,
-    Object? tabGroupMap = freezed,
-    Object? tabCountMap = freezed,
-    Object? responseInfoMap = freezed,
+    Object? respondent = freezed,
+    Object? currentTab = freezed,
+    Object? selectedGroup = freezed,
     Object? searchText = freezed,
-    Object? searchRespondentMap = freezed,
-    Object? surveyRespondentMapState = freezed,
+    Object? tabScrollOffset = freezed,
+    Object? groupList = freezed,
+    Object? subsetRespondentMap = freezed,
+    Object? housingMap = freezed,
+    Object? visitRecordLMap = freezed,
+    Object? visitRecordMap = freezed,
+    Object? tabGroupedRespondentList = freezed,
+    Object? tabCountMap = freezed,
     Object? respondentFailure = freezed,
-    Object? eventState = freezed,
-    Object? updateParameters = freezed,
-    Object? saveParameters = freezed,
+    Object? updateRespondents = freezed,
+    Object? updateTab = freezed,
+    Object? updateVisitRecord = freezed,
+    Object? updateHousing = freezed,
+    Object? updateSubset = freezed,
   }) {
     return _then(_$_RespondentState(
       stateId: stateId == freezed
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      surveyRespondentMap: surveyRespondentMap == freezed
-          ? _value._surveyRespondentMap
-          : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Map<String, Respondent>>,
-      survey: survey == freezed
-          ? _value.survey
-          : survey // ignore: cast_nullable_to_non_nullable
-              as Survey,
-      respondentMap: respondentMap == freezed
-          ? _value._respondentMap
-          : respondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Respondent>,
-      visitRecordsMap: visitRecordsMap == freezed
-          ? _value._visitRecordsMap
-          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<VisitRecord>>,
-      lastVisitRecordMap: lastVisitRecordMap == freezed
-          ? _value._lastVisitRecordMap
-          : lastVisitRecordMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      housingMap: housingMap == freezed
-          ? _value._housingMap
-          : housingMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Housing>,
-      groupList: groupList == freezed
-          ? _value._groupList
-          : groupList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      tabGroupedRespondentList: tabGroupedRespondentList == freezed
-          ? _value._tabGroupedRespondentList
-          : tabGroupedRespondentList // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, Map<String, List<Respondent>>>,
-      tabGroupMap: tabGroupMap == freezed
-          ? _value._tabGroupMap
-          : tabGroupMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, Map<int, String>>,
-      tabCountMap: tabCountMap == freezed
-          ? _value._tabCountMap
-          : tabCountMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, int>,
-      responseInfoMap: responseInfoMap == freezed
-          ? _value._responseInfoMap
-          : responseInfoMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
+      currentTab: currentTab == freezed
+          ? _value.currentTab
+          : currentTab // ignore: cast_nullable_to_non_nullable
+              as TabType,
+      selectedGroup: selectedGroup == freezed
+          ? _value.selectedGroup
+          : selectedGroup // ignore: cast_nullable_to_non_nullable
+              as String,
       searchText: searchText == freezed
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
               as String,
-      searchRespondentMap: searchRespondentMap == freezed
-          ? _value._searchRespondentMap
-          : searchRespondentMap // ignore: cast_nullable_to_non_nullable
+      tabScrollOffset: tabScrollOffset == freezed
+          ? _value._tabScrollOffset
+          : tabScrollOffset // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, double>,
+      groupList: groupList == freezed
+          ? _value._groupList
+          : groupList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      subsetRespondentMap: subsetRespondentMap == freezed
+          ? _value._subsetRespondentMap
+          : subsetRespondentMap // ignore: cast_nullable_to_non_nullable
               as Map<String, bool>,
-      surveyRespondentMapState: surveyRespondentMapState == freezed
-          ? _value.surveyRespondentMapState
-          : surveyRespondentMapState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
+      housingMap: housingMap == freezed
+          ? _value._housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Housing>,
+      visitRecordLMap: visitRecordLMap == freezed
+          ? _value._visitRecordLMap
+          : visitRecordLMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<VisitRecord>>,
+      visitRecordMap: visitRecordMap == freezed
+          ? _value._visitRecordMap
+          : visitRecordMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      tabGroupedRespondentList: tabGroupedRespondentList == freezed
+          ? _value._tabGroupedRespondentList
+          : tabGroupedRespondentList // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, Map<String, List<Respondent>>>,
+      tabCountMap: tabCountMap == freezed
+          ? _value._tabCountMap
+          : tabCountMap // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, int>,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure // ignore: cast_nullable_to_non_nullable
               as Option<RespondentFailure>,
-      eventState: eventState == freezed
-          ? _value.eventState
-          : eventState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      updateParameters: updateParameters == freezed
-          ? _value.updateParameters
-          : updateParameters // ignore: cast_nullable_to_non_nullable
-              as StateParameters,
-      saveParameters: saveParameters == freezed
-          ? _value.saveParameters
-          : saveParameters // ignore: cast_nullable_to_non_nullable
-              as StateParameters,
+      updateRespondents: updateRespondents == freezed
+          ? _value.updateRespondents
+          : updateRespondents // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateTab: updateTab == freezed
+          ? _value.updateTab
+          : updateTab // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateVisitRecord: updateVisitRecord == freezed
+          ? _value.updateVisitRecord
+          : updateVisitRecord // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateHousing: updateHousing == freezed
+          ? _value.updateHousing
+          : updateHousing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateSubset: updateSubset == freezed
+          ? _value.updateSubset
+          : updateSubset // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2590,70 +2222,67 @@ class __$$_RespondentStateCopyWithImpl<$Res>
 class _$_RespondentState extends _RespondentState {
   const _$_RespondentState(
       {required this.stateId,
-      required final Map<String, Map<String, Respondent>> surveyRespondentMap,
-      required this.survey,
-      required final Map<String, Respondent> respondentMap,
-      required final Map<String, List<VisitRecord>> visitRecordsMap,
-      required final Map<String, String> lastVisitRecordMap,
-      required final Map<String, Housing> housingMap,
+      required this.respondent,
+      required this.currentTab,
+      required this.selectedGroup,
+      required this.searchText,
+      required final Map<TabType, double> tabScrollOffset,
       required final List<String> groupList,
+      required final Map<String, bool> subsetRespondentMap,
+      required final Map<String, Housing> housingMap,
+      required final Map<String, List<VisitRecord>> visitRecordLMap,
+      required final Map<String, String> visitRecordMap,
       required final Map<TabType, Map<String, List<Respondent>>>
           tabGroupedRespondentList,
-      required final Map<TabType, Map<int, String>> tabGroupMap,
       required final Map<TabType, int> tabCountMap,
-      required final Map<UniqueId, Response> responseInfoMap,
-      required this.searchText,
-      required final Map<String, bool> searchRespondentMap,
-      required this.surveyRespondentMapState,
       required this.respondentFailure,
-      required this.eventState,
-      required this.updateParameters,
-      required this.saveParameters})
-      : _surveyRespondentMap = surveyRespondentMap,
-        _respondentMap = respondentMap,
-        _visitRecordsMap = visitRecordsMap,
-        _lastVisitRecordMap = lastVisitRecordMap,
-        _housingMap = housingMap,
+      required this.updateRespondents,
+      required this.updateTab,
+      required this.updateVisitRecord,
+      required this.updateHousing,
+      required this.updateSubset})
+      : _tabScrollOffset = tabScrollOffset,
         _groupList = groupList,
+        _subsetRespondentMap = subsetRespondentMap,
+        _housingMap = housingMap,
+        _visitRecordLMap = visitRecordLMap,
+        _visitRecordMap = visitRecordMap,
         _tabGroupedRespondentList = tabGroupedRespondentList,
-        _tabGroupMap = tabGroupMap,
         _tabCountMap = tabCountMap,
-        _responseInfoMap = responseInfoMap,
-        _searchRespondentMap = searchRespondentMap,
         super._();
 
   @override
   final UniqueId stateId;
 // > 主要資料
-  final Map<String, Map<String, Respondent>> _surveyRespondentMap;
-// > 主要資料
   @override
-  Map<String, Map<String, Respondent>> get surveyRespondentMap {
+  final Respondent respondent;
+  @override
+  final TabType currentTab;
+  @override
+  final String selectedGroup;
+  @override
+  final String searchText;
+  final Map<TabType, double> _tabScrollOffset;
+  @override
+  Map<TabType, double> get tabScrollOffset {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_surveyRespondentMap);
+    return EqualUnmodifiableMapView(_tabScrollOffset);
   }
 
+// > 中間資料
+  final List<String> _groupList;
+// > 中間資料
   @override
-  final Survey survey;
-  final Map<String, Respondent> _respondentMap;
-  @override
-  Map<String, Respondent> get respondentMap {
+  List<String> get groupList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_respondentMap);
+    return EqualUnmodifiableListView(_groupList);
   }
 
-  final Map<String, List<VisitRecord>> _visitRecordsMap;
+  final Map<String, bool> _subsetRespondentMap;
   @override
-  Map<String, List<VisitRecord>> get visitRecordsMap {
+  Map<String, bool> get subsetRespondentMap {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_visitRecordsMap);
-  }
-
-  final Map<String, String> _lastVisitRecordMap;
-  @override
-  Map<String, String> get lastVisitRecordMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_lastVisitRecordMap);
+    return EqualUnmodifiableMapView(_subsetRespondentMap);
   }
 
   final Map<String, Housing> _housingMap;
@@ -2663,25 +2292,31 @@ class _$_RespondentState extends _RespondentState {
     return EqualUnmodifiableMapView(_housingMap);
   }
 
-  final List<String> _groupList;
+// >> visitRecord
+// ? VisitRecords or VisitReports
+  final Map<String, List<VisitRecord>> _visitRecordLMap;
+// >> visitRecord
+// ? VisitRecords or VisitReports
   @override
-  List<String> get groupList {
+  Map<String, List<VisitRecord>> get visitRecordLMap {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_groupList);
+    return EqualUnmodifiableMapView(_visitRecordLMap);
   }
 
+  final Map<String, String> _visitRecordMap;
+  @override
+  Map<String, String> get visitRecordMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_visitRecordMap);
+  }
+
+// >> tab
   final Map<TabType, Map<String, List<Respondent>>> _tabGroupedRespondentList;
+// >> tab
   @override
   Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_tabGroupedRespondentList);
-  }
-
-  final Map<TabType, Map<int, String>> _tabGroupMap;
-  @override
-  Map<TabType, Map<int, String>> get tabGroupMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_tabGroupMap);
   }
 
   final Map<TabType, int> _tabCountMap;
@@ -2691,39 +2326,24 @@ class _$_RespondentState extends _RespondentState {
     return EqualUnmodifiableMapView(_tabCountMap);
   }
 
-  final Map<UniqueId, Response> _responseInfoMap;
-  @override
-  Map<UniqueId, Response> get responseInfoMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_responseInfoMap);
-  }
-
-  @override
-  final String searchText;
-  final Map<String, bool> _searchRespondentMap;
-  @override
-  Map<String, bool> get searchRespondentMap {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_searchRespondentMap);
-  }
-
-// > 中間資料
 // > 狀態更新進度
   @override
-  final LoadState surveyRespondentMapState;
-  @override
   final Option<RespondentFailure> respondentFailure;
+// > 是否更新參數
   @override
-  final LoadState eventState;
-// > 更新/儲存參數
+  final bool updateRespondents;
   @override
-  final StateParameters updateParameters;
+  final bool updateTab;
   @override
-  final StateParameters saveParameters;
+  final bool updateVisitRecord;
+  @override
+  final bool updateHousing;
+  @override
+  final bool updateSubset;
 
   @override
   String toString() {
-    return 'RespondentState(stateId: $stateId, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, visitRecordsMap: $visitRecordsMap, lastVisitRecordMap: $lastVisitRecordMap, housingMap: $housingMap, groupList: $groupList, tabGroupedRespondentList: $tabGroupedRespondentList, tabGroupMap: $tabGroupMap, tabCountMap: $tabCountMap, responseInfoMap: $responseInfoMap, searchText: $searchText, searchRespondentMap: $searchRespondentMap, surveyRespondentMapState: $surveyRespondentMapState, respondentFailure: $respondentFailure, eventState: $eventState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'RespondentState(stateId: $stateId, respondent: $respondent, currentTab: $currentTab, selectedGroup: $selectedGroup, searchText: $searchText, tabScrollOffset: $tabScrollOffset, groupList: $groupList, subsetRespondentMap: $subsetRespondentMap, housingMap: $housingMap, visitRecordLMap: $visitRecordLMap, visitRecordMap: $visitRecordMap, tabGroupedRespondentList: $tabGroupedRespondentList, tabCountMap: $tabCountMap, respondentFailure: $respondentFailure, updateRespondents: $updateRespondents, updateTab: $updateTab, updateVisitRecord: $updateVisitRecord, updateHousing: $updateHousing, updateSubset: $updateSubset)';
   }
 
   @override
@@ -2733,64 +2353,64 @@ class _$_RespondentState extends _RespondentState {
             other is _$_RespondentState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality()
-                .equals(other._surveyRespondentMap, _surveyRespondentMap) &&
-            const DeepCollectionEquality().equals(other.survey, survey) &&
+                .equals(other.respondent, respondent) &&
             const DeepCollectionEquality()
-                .equals(other._respondentMap, _respondentMap) &&
+                .equals(other.currentTab, currentTab) &&
             const DeepCollectionEquality()
-                .equals(other._visitRecordsMap, _visitRecordsMap) &&
-            const DeepCollectionEquality()
-                .equals(other._lastVisitRecordMap, _lastVisitRecordMap) &&
-            const DeepCollectionEquality()
-                .equals(other._housingMap, _housingMap) &&
-            const DeepCollectionEquality()
-                .equals(other._groupList, _groupList) &&
-            const DeepCollectionEquality().equals(
-                other._tabGroupedRespondentList, _tabGroupedRespondentList) &&
-            const DeepCollectionEquality()
-                .equals(other._tabGroupMap, _tabGroupMap) &&
-            const DeepCollectionEquality()
-                .equals(other._tabCountMap, _tabCountMap) &&
-            const DeepCollectionEquality()
-                .equals(other._responseInfoMap, _responseInfoMap) &&
+                .equals(other.selectedGroup, selectedGroup) &&
             const DeepCollectionEquality()
                 .equals(other.searchText, searchText) &&
             const DeepCollectionEquality()
-                .equals(other._searchRespondentMap, _searchRespondentMap) &&
+                .equals(other._tabScrollOffset, _tabScrollOffset) &&
+            const DeepCollectionEquality()
+                .equals(other._groupList, _groupList) &&
+            const DeepCollectionEquality()
+                .equals(other._subsetRespondentMap, _subsetRespondentMap) &&
+            const DeepCollectionEquality()
+                .equals(other._housingMap, _housingMap) &&
+            const DeepCollectionEquality()
+                .equals(other._visitRecordLMap, _visitRecordLMap) &&
+            const DeepCollectionEquality()
+                .equals(other._visitRecordMap, _visitRecordMap) &&
             const DeepCollectionEquality().equals(
-                other.surveyRespondentMapState, surveyRespondentMapState) &&
+                other._tabGroupedRespondentList, _tabGroupedRespondentList) &&
+            const DeepCollectionEquality()
+                .equals(other._tabCountMap, _tabCountMap) &&
             const DeepCollectionEquality()
                 .equals(other.respondentFailure, respondentFailure) &&
             const DeepCollectionEquality()
-                .equals(other.eventState, eventState) &&
+                .equals(other.updateRespondents, updateRespondents) &&
+            const DeepCollectionEquality().equals(other.updateTab, updateTab) &&
             const DeepCollectionEquality()
-                .equals(other.updateParameters, updateParameters) &&
+                .equals(other.updateVisitRecord, updateVisitRecord) &&
             const DeepCollectionEquality()
-                .equals(other.saveParameters, saveParameters));
+                .equals(other.updateHousing, updateHousing) &&
+            const DeepCollectionEquality()
+                .equals(other.updateSubset, updateSubset));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
         const DeepCollectionEquality().hash(stateId),
-        const DeepCollectionEquality().hash(_surveyRespondentMap),
-        const DeepCollectionEquality().hash(survey),
-        const DeepCollectionEquality().hash(_respondentMap),
-        const DeepCollectionEquality().hash(_visitRecordsMap),
-        const DeepCollectionEquality().hash(_lastVisitRecordMap),
-        const DeepCollectionEquality().hash(_housingMap),
-        const DeepCollectionEquality().hash(_groupList),
-        const DeepCollectionEquality().hash(_tabGroupedRespondentList),
-        const DeepCollectionEquality().hash(_tabGroupMap),
-        const DeepCollectionEquality().hash(_tabCountMap),
-        const DeepCollectionEquality().hash(_responseInfoMap),
+        const DeepCollectionEquality().hash(respondent),
+        const DeepCollectionEquality().hash(currentTab),
+        const DeepCollectionEquality().hash(selectedGroup),
         const DeepCollectionEquality().hash(searchText),
-        const DeepCollectionEquality().hash(_searchRespondentMap),
-        const DeepCollectionEquality().hash(surveyRespondentMapState),
+        const DeepCollectionEquality().hash(_tabScrollOffset),
+        const DeepCollectionEquality().hash(_groupList),
+        const DeepCollectionEquality().hash(_subsetRespondentMap),
+        const DeepCollectionEquality().hash(_housingMap),
+        const DeepCollectionEquality().hash(_visitRecordLMap),
+        const DeepCollectionEquality().hash(_visitRecordMap),
+        const DeepCollectionEquality().hash(_tabGroupedRespondentList),
+        const DeepCollectionEquality().hash(_tabCountMap),
         const DeepCollectionEquality().hash(respondentFailure),
-        const DeepCollectionEquality().hash(eventState),
-        const DeepCollectionEquality().hash(updateParameters),
-        const DeepCollectionEquality().hash(saveParameters)
+        const DeepCollectionEquality().hash(updateRespondents),
+        const DeepCollectionEquality().hash(updateTab),
+        const DeepCollectionEquality().hash(updateVisitRecord),
+        const DeepCollectionEquality().hash(updateHousing),
+        const DeepCollectionEquality().hash(updateSubset)
       ]);
 
   @JsonKey(ignore: true)
@@ -2802,331 +2422,73 @@ class _$_RespondentState extends _RespondentState {
 abstract class _RespondentState extends RespondentState {
   const factory _RespondentState(
       {required final UniqueId stateId,
-      required final Map<String, Map<String, Respondent>> surveyRespondentMap,
-      required final Survey survey,
-      required final Map<String, Respondent> respondentMap,
-      required final Map<String, List<VisitRecord>> visitRecordsMap,
-      required final Map<String, String> lastVisitRecordMap,
-      required final Map<String, Housing> housingMap,
+      required final Respondent respondent,
+      required final TabType currentTab,
+      required final String selectedGroup,
+      required final String searchText,
+      required final Map<TabType, double> tabScrollOffset,
       required final List<String> groupList,
+      required final Map<String, bool> subsetRespondentMap,
+      required final Map<String, Housing> housingMap,
+      required final Map<String, List<VisitRecord>> visitRecordLMap,
+      required final Map<String, String> visitRecordMap,
       required final Map<TabType, Map<String, List<Respondent>>>
           tabGroupedRespondentList,
-      required final Map<TabType, Map<int, String>> tabGroupMap,
       required final Map<TabType, int> tabCountMap,
-      required final Map<UniqueId, Response> responseInfoMap,
-      required final String searchText,
-      required final Map<String, bool> searchRespondentMap,
-      required final LoadState surveyRespondentMapState,
       required final Option<RespondentFailure> respondentFailure,
-      required final LoadState eventState,
-      required final StateParameters updateParameters,
-      required final StateParameters saveParameters}) = _$_RespondentState;
+      required final bool updateRespondents,
+      required final bool updateTab,
+      required final bool updateVisitRecord,
+      required final bool updateHousing,
+      required final bool updateSubset}) = _$_RespondentState;
   const _RespondentState._() : super._();
 
   @override
   UniqueId get stateId => throw _privateConstructorUsedError;
   @override // > 主要資料
-  Map<String, Map<String, Respondent>> get surveyRespondentMap =>
-      throw _privateConstructorUsedError;
+  Respondent get respondent => throw _privateConstructorUsedError;
   @override
-  Survey get survey => throw _privateConstructorUsedError;
+  TabType get currentTab => throw _privateConstructorUsedError;
   @override
-  Map<String, Respondent> get respondentMap =>
-      throw _privateConstructorUsedError;
-  @override
-  Map<String, List<VisitRecord>> get visitRecordsMap =>
-      throw _privateConstructorUsedError;
-  @override
-  Map<String, String> get lastVisitRecordMap =>
-      throw _privateConstructorUsedError;
-  @override
-  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
-  @override
-  List<String> get groupList => throw _privateConstructorUsedError;
-  @override
-  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList =>
-      throw _privateConstructorUsedError;
-  @override
-  Map<TabType, Map<int, String>> get tabGroupMap =>
-      throw _privateConstructorUsedError;
-  @override
-  Map<TabType, int> get tabCountMap => throw _privateConstructorUsedError;
-  @override
-  Map<UniqueId, Response> get responseInfoMap =>
-      throw _privateConstructorUsedError;
+  String get selectedGroup => throw _privateConstructorUsedError;
   @override
   String get searchText => throw _privateConstructorUsedError;
   @override
-  Map<String, bool> get searchRespondentMap =>
+  Map<TabType, double> get tabScrollOffset =>
       throw _privateConstructorUsedError;
   @override // > 中間資料
-// > 狀態更新進度
-  LoadState get surveyRespondentMapState => throw _privateConstructorUsedError;
+  List<String> get groupList => throw _privateConstructorUsedError;
   @override
-  Option<RespondentFailure> get respondentFailure =>
+  Map<String, bool> get subsetRespondentMap =>
       throw _privateConstructorUsedError;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
-  @override // > 更新/儲存參數
-  StateParameters get updateParameters => throw _privateConstructorUsedError;
+  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
+  @override // >> visitRecord
+// ? VisitRecords or VisitReports
+  Map<String, List<VisitRecord>> get visitRecordLMap =>
+      throw _privateConstructorUsedError;
   @override
-  StateParameters get saveParameters => throw _privateConstructorUsedError;
+  Map<String, String> get visitRecordMap => throw _privateConstructorUsedError;
+  @override // >> tab
+  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList =>
+      throw _privateConstructorUsedError;
+  @override
+  Map<TabType, int> get tabCountMap => throw _privateConstructorUsedError;
+  @override // > 狀態更新進度
+  Option<RespondentFailure> get respondentFailure =>
+      throw _privateConstructorUsedError;
+  @override // > 是否更新參數
+  bool get updateRespondents => throw _privateConstructorUsedError;
+  @override
+  bool get updateTab => throw _privateConstructorUsedError;
+  @override
+  bool get updateVisitRecord => throw _privateConstructorUsedError;
+  @override
+  bool get updateHousing => throw _privateConstructorUsedError;
+  @override
+  bool get updateSubset => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_RespondentStateCopyWith<_$_RespondentState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$StateParameters {
-  bool get surveyRespondentMap => throw _privateConstructorUsedError;
-  bool get survey => throw _privateConstructorUsedError;
-  bool get respondentMap => throw _privateConstructorUsedError;
-  bool get visitRecordsMap => throw _privateConstructorUsedError;
-  bool get housingMap => throw _privateConstructorUsedError;
-  bool get tabRespondentMap => throw _privateConstructorUsedError;
-  bool get responseInfoMap => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $StateParametersCopyWith<StateParameters> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StateParametersCopyWith<$Res> {
-  factory $StateParametersCopyWith(
-          StateParameters value, $Res Function(StateParameters) then) =
-      _$StateParametersCopyWithImpl<$Res>;
-  $Res call(
-      {bool surveyRespondentMap,
-      bool survey,
-      bool respondentMap,
-      bool visitRecordsMap,
-      bool housingMap,
-      bool tabRespondentMap,
-      bool responseInfoMap});
-}
-
-/// @nodoc
-class _$StateParametersCopyWithImpl<$Res>
-    implements $StateParametersCopyWith<$Res> {
-  _$StateParametersCopyWithImpl(this._value, this._then);
-
-  final StateParameters _value;
-  // ignore: unused_field
-  final $Res Function(StateParameters) _then;
-
-  @override
-  $Res call({
-    Object? surveyRespondentMap = freezed,
-    Object? survey = freezed,
-    Object? respondentMap = freezed,
-    Object? visitRecordsMap = freezed,
-    Object? housingMap = freezed,
-    Object? tabRespondentMap = freezed,
-    Object? responseInfoMap = freezed,
-  }) {
-    return _then(_value.copyWith(
-      surveyRespondentMap: surveyRespondentMap == freezed
-          ? _value.surveyRespondentMap
-          : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      survey: survey == freezed
-          ? _value.survey
-          : survey // ignore: cast_nullable_to_non_nullable
-              as bool,
-      respondentMap: respondentMap == freezed
-          ? _value.respondentMap
-          : respondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      visitRecordsMap: visitRecordsMap == freezed
-          ? _value.visitRecordsMap
-          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      housingMap: housingMap == freezed
-          ? _value.housingMap
-          : housingMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      tabRespondentMap: tabRespondentMap == freezed
-          ? _value.tabRespondentMap
-          : tabRespondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      responseInfoMap: responseInfoMap == freezed
-          ? _value.responseInfoMap
-          : responseInfoMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$$_StateParametersCopyWith<$Res>
-    implements $StateParametersCopyWith<$Res> {
-  factory _$$_StateParametersCopyWith(
-          _$_StateParameters value, $Res Function(_$_StateParameters) then) =
-      __$$_StateParametersCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {bool surveyRespondentMap,
-      bool survey,
-      bool respondentMap,
-      bool visitRecordsMap,
-      bool housingMap,
-      bool tabRespondentMap,
-      bool responseInfoMap});
-}
-
-/// @nodoc
-class __$$_StateParametersCopyWithImpl<$Res>
-    extends _$StateParametersCopyWithImpl<$Res>
-    implements _$$_StateParametersCopyWith<$Res> {
-  __$$_StateParametersCopyWithImpl(
-      _$_StateParameters _value, $Res Function(_$_StateParameters) _then)
-      : super(_value, (v) => _then(v as _$_StateParameters));
-
-  @override
-  _$_StateParameters get _value => super._value as _$_StateParameters;
-
-  @override
-  $Res call({
-    Object? surveyRespondentMap = freezed,
-    Object? survey = freezed,
-    Object? respondentMap = freezed,
-    Object? visitRecordsMap = freezed,
-    Object? housingMap = freezed,
-    Object? tabRespondentMap = freezed,
-    Object? responseInfoMap = freezed,
-  }) {
-    return _then(_$_StateParameters(
-      surveyRespondentMap: surveyRespondentMap == freezed
-          ? _value.surveyRespondentMap
-          : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      survey: survey == freezed
-          ? _value.survey
-          : survey // ignore: cast_nullable_to_non_nullable
-              as bool,
-      respondentMap: respondentMap == freezed
-          ? _value.respondentMap
-          : respondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      visitRecordsMap: visitRecordsMap == freezed
-          ? _value.visitRecordsMap
-          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      housingMap: housingMap == freezed
-          ? _value.housingMap
-          : housingMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      tabRespondentMap: tabRespondentMap == freezed
-          ? _value.tabRespondentMap
-          : tabRespondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      responseInfoMap: responseInfoMap == freezed
-          ? _value.responseInfoMap
-          : responseInfoMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_StateParameters extends _StateParameters {
-  const _$_StateParameters(
-      {required this.surveyRespondentMap,
-      required this.survey,
-      required this.respondentMap,
-      required this.visitRecordsMap,
-      required this.housingMap,
-      required this.tabRespondentMap,
-      required this.responseInfoMap})
-      : super._();
-
-  @override
-  final bool surveyRespondentMap;
-  @override
-  final bool survey;
-  @override
-  final bool respondentMap;
-  @override
-  final bool visitRecordsMap;
-  @override
-  final bool housingMap;
-  @override
-  final bool tabRespondentMap;
-  @override
-  final bool responseInfoMap;
-
-  @override
-  String toString() {
-    return 'StateParameters(surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, visitRecordsMap: $visitRecordsMap, housingMap: $housingMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_StateParameters &&
-            const DeepCollectionEquality()
-                .equals(other.surveyRespondentMap, surveyRespondentMap) &&
-            const DeepCollectionEquality().equals(other.survey, survey) &&
-            const DeepCollectionEquality()
-                .equals(other.respondentMap, respondentMap) &&
-            const DeepCollectionEquality()
-                .equals(other.visitRecordsMap, visitRecordsMap) &&
-            const DeepCollectionEquality()
-                .equals(other.housingMap, housingMap) &&
-            const DeepCollectionEquality()
-                .equals(other.tabRespondentMap, tabRespondentMap) &&
-            const DeepCollectionEquality()
-                .equals(other.responseInfoMap, responseInfoMap));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(surveyRespondentMap),
-      const DeepCollectionEquality().hash(survey),
-      const DeepCollectionEquality().hash(respondentMap),
-      const DeepCollectionEquality().hash(visitRecordsMap),
-      const DeepCollectionEquality().hash(housingMap),
-      const DeepCollectionEquality().hash(tabRespondentMap),
-      const DeepCollectionEquality().hash(responseInfoMap));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
-      __$$_StateParametersCopyWithImpl<_$_StateParameters>(this, _$identity);
-}
-
-abstract class _StateParameters extends StateParameters {
-  const factory _StateParameters(
-      {required final bool surveyRespondentMap,
-      required final bool survey,
-      required final bool respondentMap,
-      required final bool visitRecordsMap,
-      required final bool housingMap,
-      required final bool tabRespondentMap,
-      required final bool responseInfoMap}) = _$_StateParameters;
-  const _StateParameters._() : super._();
-
-  @override
-  bool get surveyRespondentMap => throw _privateConstructorUsedError;
-  @override
-  bool get survey => throw _privateConstructorUsedError;
-  @override
-  bool get respondentMap => throw _privateConstructorUsedError;
-  @override
-  bool get visitRecordsMap => throw _privateConstructorUsedError;
-  @override
-  bool get housingMap => throw _privateConstructorUsedError;
-  @override
-  bool get tabRespondentMap => throw _privateConstructorUsedError;
-  @override
-  bool get responseInfoMap => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$$_StateParametersCopyWith<_$_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

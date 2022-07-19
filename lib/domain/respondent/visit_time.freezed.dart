@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$VisitTime {
+  bool get exactTime => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   String get timeSession => throw _privateConstructorUsedError;
 
@@ -28,7 +29,7 @@ mixin _$VisitTime {
 abstract class $VisitTimeCopyWith<$Res> {
   factory $VisitTimeCopyWith(VisitTime value, $Res Function(VisitTime) then) =
       _$VisitTimeCopyWithImpl<$Res>;
-  $Res call({DateTime date, String timeSession});
+  $Res call({bool exactTime, DateTime date, String timeSession});
 }
 
 /// @nodoc
@@ -41,10 +42,15 @@ class _$VisitTimeCopyWithImpl<$Res> implements $VisitTimeCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? exactTime = freezed,
     Object? date = freezed,
     Object? timeSession = freezed,
   }) {
     return _then(_value.copyWith(
+      exactTime: exactTime == freezed
+          ? _value.exactTime
+          : exactTime // ignore: cast_nullable_to_non_nullable
+              as bool,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -63,7 +69,7 @@ abstract class _$$_VisitTimeCopyWith<$Res> implements $VisitTimeCopyWith<$Res> {
           _$_VisitTime value, $Res Function(_$_VisitTime) then) =
       __$$_VisitTimeCopyWithImpl<$Res>;
   @override
-  $Res call({DateTime date, String timeSession});
+  $Res call({bool exactTime, DateTime date, String timeSession});
 }
 
 /// @nodoc
@@ -78,10 +84,15 @@ class __$$_VisitTimeCopyWithImpl<$Res> extends _$VisitTimeCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? exactTime = freezed,
     Object? date = freezed,
     Object? timeSession = freezed,
   }) {
     return _then(_$_VisitTime(
+      exactTime: exactTime == freezed
+          ? _value.exactTime
+          : exactTime // ignore: cast_nullable_to_non_nullable
+              as bool,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -97,9 +108,12 @@ class __$$_VisitTimeCopyWithImpl<$Res> extends _$VisitTimeCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_VisitTime extends _VisitTime {
-  const _$_VisitTime({required this.date, required this.timeSession})
+  const _$_VisitTime(
+      {required this.exactTime, required this.date, required this.timeSession})
       : super._();
 
+  @override
+  final bool exactTime;
   @override
   final DateTime date;
   @override
@@ -107,7 +121,7 @@ class _$_VisitTime extends _VisitTime {
 
   @override
   String toString() {
-    return 'VisitTime(date: $date, timeSession: $timeSession)';
+    return 'VisitTime(exactTime: $exactTime, date: $date, timeSession: $timeSession)';
   }
 
   @override
@@ -115,6 +129,7 @@ class _$_VisitTime extends _VisitTime {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_VisitTime &&
+            const DeepCollectionEquality().equals(other.exactTime, exactTime) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.timeSession, timeSession));
@@ -123,6 +138,7 @@ class _$_VisitTime extends _VisitTime {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(exactTime),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(timeSession));
 
@@ -134,10 +150,13 @@ class _$_VisitTime extends _VisitTime {
 
 abstract class _VisitTime extends VisitTime {
   const factory _VisitTime(
-      {required final DateTime date,
+      {required final bool exactTime,
+      required final DateTime date,
       required final String timeSession}) = _$_VisitTime;
   const _VisitTime._() : super._();
 
+  @override
+  bool get exactTime => throw _privateConstructorUsedError;
   @override
   DateTime get date => throw _privateConstructorUsedError;
   @override

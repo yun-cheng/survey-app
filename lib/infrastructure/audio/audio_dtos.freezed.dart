@@ -20,8 +20,12 @@ AudioDto _$AudioDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AudioDto {
-  String get fileName => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
+  String get responseId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get moduleType => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
+  String get dateTime => throw _privateConstructorUsedError;
+  String get fileType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +37,13 @@ mixin _$AudioDto {
 abstract class $AudioDtoCopyWith<$Res> {
   factory $AudioDtoCopyWith(AudioDto value, $Res Function(AudioDto) then) =
       _$AudioDtoCopyWithImpl<$Res>;
-  $Res call({String fileName, String type});
+  $Res call(
+      {String responseId,
+      String surveyId,
+      String moduleType,
+      String respondentId,
+      String dateTime,
+      String fileType});
 }
 
 /// @nodoc
@@ -46,17 +56,37 @@ class _$AudioDtoCopyWithImpl<$Res> implements $AudioDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? type = freezed,
+    Object? responseId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? respondentId = freezed,
+    Object? dateTime = freezed,
+    Object? fileType = freezed,
   }) {
     return _then(_value.copyWith(
-      fileName: fileName == freezed
-          ? _value.fileName
-          : fileName // ignore: cast_nullable_to_non_nullable
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      respondentId: respondentId == freezed
+          ? _value.respondentId
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateTime: dateTime == freezed
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileType: fileType == freezed
+          ? _value.fileType
+          : fileType // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -68,7 +98,13 @@ abstract class _$$_AudioDtoCopyWith<$Res> implements $AudioDtoCopyWith<$Res> {
           _$_AudioDto value, $Res Function(_$_AudioDto) then) =
       __$$_AudioDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String fileName, String type});
+  $Res call(
+      {String responseId,
+      String surveyId,
+      String moduleType,
+      String respondentId,
+      String dateTime,
+      String fileType});
 }
 
 /// @nodoc
@@ -83,17 +119,37 @@ class __$$_AudioDtoCopyWithImpl<$Res> extends _$AudioDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? type = freezed,
+    Object? responseId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? respondentId = freezed,
+    Object? dateTime = freezed,
+    Object? fileType = freezed,
   }) {
     return _then(_$_AudioDto(
-      fileName: fileName == freezed
-          ? _value.fileName
-          : fileName // ignore: cast_nullable_to_non_nullable
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      respondentId: respondentId == freezed
+          ? _value.respondentId
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateTime: dateTime == freezed
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileType: fileType == freezed
+          ? _value.fileType
+          : fileType // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -102,19 +158,34 @@ class __$$_AudioDtoCopyWithImpl<$Res> extends _$AudioDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AudioDto extends _AudioDto {
-  const _$_AudioDto({required this.fileName, required this.type}) : super._();
+  const _$_AudioDto(
+      {required this.responseId,
+      required this.surveyId,
+      required this.moduleType,
+      required this.respondentId,
+      required this.dateTime,
+      required this.fileType})
+      : super._();
 
   factory _$_AudioDto.fromJson(Map<String, dynamic> json) =>
       _$$_AudioDtoFromJson(json);
 
   @override
-  final String fileName;
+  final String responseId;
   @override
-  final String type;
+  final String surveyId;
+  @override
+  final String moduleType;
+  @override
+  final String respondentId;
+  @override
+  final String dateTime;
+  @override
+  final String fileType;
 
   @override
   String toString() {
-    return 'AudioDto(fileName: $fileName, type: $type)';
+    return 'AudioDto(responseId: $responseId, surveyId: $surveyId, moduleType: $moduleType, respondentId: $respondentId, dateTime: $dateTime, fileType: $fileType)';
   }
 
   @override
@@ -122,16 +193,27 @@ class _$_AudioDto extends _AudioDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AudioDto &&
-            const DeepCollectionEquality().equals(other.fileName, fileName) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            const DeepCollectionEquality()
+                .equals(other.responseId, responseId) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId) &&
+            const DeepCollectionEquality().equals(other.dateTime, dateTime) &&
+            const DeepCollectionEquality().equals(other.fileType, fileType));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(fileName),
-      const DeepCollectionEquality().hash(type));
+      const DeepCollectionEquality().hash(responseId),
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(moduleType),
+      const DeepCollectionEquality().hash(respondentId),
+      const DeepCollectionEquality().hash(dateTime),
+      const DeepCollectionEquality().hash(fileType));
 
   @JsonKey(ignore: true)
   @override
@@ -146,16 +228,28 @@ class _$_AudioDto extends _AudioDto {
 
 abstract class _AudioDto extends AudioDto {
   const factory _AudioDto(
-      {required final String fileName,
-      required final String type}) = _$_AudioDto;
+      {required final String responseId,
+      required final String surveyId,
+      required final String moduleType,
+      required final String respondentId,
+      required final String dateTime,
+      required final String fileType}) = _$_AudioDto;
   const _AudioDto._() : super._();
 
   factory _AudioDto.fromJson(Map<String, dynamic> json) = _$_AudioDto.fromJson;
 
   @override
-  String get fileName => throw _privateConstructorUsedError;
+  String get responseId => throw _privateConstructorUsedError;
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  @override
+  String get moduleType => throw _privateConstructorUsedError;
+  @override
+  String get respondentId => throw _privateConstructorUsedError;
+  @override
+  String get dateTime => throw _privateConstructorUsedError;
+  @override
+  String get fileType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AudioDtoCopyWith<_$_AudioDto> get copyWith =>

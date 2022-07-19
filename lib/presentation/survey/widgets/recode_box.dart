@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../core/style/main.dart';
@@ -24,14 +24,12 @@ class RecodeBox extends HookWidget {
 
     Timer? timer;
 
-    final canEdit = !context.read<UpdateAnswerStatusBloc>().state.isReadOnly;
-    final note = (context
-                    .read<UpdateAnswerStatusBloc>()
-                    .state
-                    .recodeAnswerMap[questionId] ??
-                Answer.empty())
-            .value as String? ??
-        '';
+    final canEdit = !context.read<AnswerBloc>().state.isReadOnly;
+    final note =
+        (context.read<AnswerBloc>().state.recodeAnswerMap[questionId] ??
+                    Answer.empty())
+                .value as String? ??
+            '';
     final controller = useTextEditingController(text: note);
 
     return Container(
@@ -59,8 +57,8 @@ class RecodeBox extends HookWidget {
           timer?.cancel();
           timer = Timer(
             const Duration(milliseconds: 0),
-            () => context.read<UpdateAnswerStatusBloc>().add(
-                  UpdateAnswerStatusEvent.answerUpdated(
+            () => context.read<AnswerBloc>().add(
+                  AnswerEvent.answerUpdated(
                     questionId: questionId,
                     answerValue: value,
                     isRecode: true,

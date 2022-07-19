@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
 
@@ -10,12 +10,10 @@ class ReAnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       buildWhen: (p, c) =>
           p.isReadOnly != c.isReadOnly ||
-          p.moduleType != c.moduleType ||
-          p.updateParameters.respondentResponseMap !=
-              c.updateParameters.respondentResponseMap,
+          p.moduleType != c.moduleType,
       builder: (context, state) {
         bool closeReAnswer = false;
         if (state.moduleType.isSamplingWithinHousehold) {
@@ -37,8 +35,8 @@ class ReAnswerButton extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: OutlinedButton(
               onPressed: () {
-                context.read<UpdateAnswerStatusBloc>().add(
-                      UpdateAnswerStatusEvent.dialogShowed(
+                context.read<AnswerBloc>().add(
+                      AnswerEvent.dialogShowed(
                         type: DialogType.reAnswer(),
                       ),
                     );

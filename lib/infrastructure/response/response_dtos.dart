@@ -1,0 +1,114 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../domain/core/value_objects.dart';
+import '../../domain/survey/response.dart';
+import '../../domain/survey/value_objects.dart';
+import '../survey/answer_dtos.dart';
+import '../survey/answer_status_dtos.dart';
+import '../survey/simple_survey_page_state_dtos.dart';
+
+part 'response_dtos.freezed.dart';
+part 'response_dtos.g.dart';
+
+@freezed
+class ResponseDto with _$ResponseDto {
+  const ResponseDto._();
+
+  const factory ResponseDto({
+    // > 區分不同 response
+    required String teamId,
+    required String projectId,
+    required String surveyId,
+    required String moduleType,
+    required String respondentId,
+    // > 區分 response 版本
+    required String responseId,
+    required String tempResponseId,
+    required String ticketId,
+    required bool editFinished,
+    required String interviewerId,
+    required String deviceId,
+    // > 狀態
+    required int createdTimeStamp,
+    required int sessionStartTimeStamp,
+    required int sessionEndTimeStamp,
+    required int lastChangedTimeStamp,
+    required String responseStatus,
+    required bool isDeleted,
+    // > 內容
+    required Map<String, AnswerDto> answerMap,
+    required Map<String, AnswerStatusDto> answerStatusMap,
+    required SimpleSurveyPageStateDto surveyPageState,
+  }) = _ResponseDto;
+
+  factory ResponseDto.fromDomain(Response domain) {
+    return ResponseDto(
+      // > 區分不同 response
+      teamId: domain.teamId,
+      projectId: domain.projectId,
+      surveyId: domain.surveyId,
+      moduleType: domain.moduleType.value,
+      respondentId: domain.respondentId,
+      // > 區分 response 版本
+      responseId: domain.responseId.value,
+      tempResponseId: domain.tempResponseId.value,
+      ticketId: domain.ticketId.value,
+      editFinished: domain.editFinished,
+      interviewerId: domain.interviewerId,
+      deviceId: domain.deviceId.value,
+      // > 狀態
+      createdTimeStamp: domain.createdTimeStamp.value.microsecondsSinceEpoch,
+      sessionStartTimeStamp:
+          domain.sessionStartTimeStamp.value.microsecondsSinceEpoch,
+      sessionEndTimeStamp:
+          domain.sessionEndTimeStamp.value.microsecondsSinceEpoch,
+      lastChangedTimeStamp:
+          domain.lastChangedTimeStamp.value.microsecondsSinceEpoch,
+      responseStatus: domain.responseStatus.value,
+      isDeleted: domain.isDeleted,
+      // > 內容
+      answerMap: domain.answerMap
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      answerStatusMap: domain.answerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
+      surveyPageState:
+          SimpleSurveyPageStateDto.fromDomain(domain.surveyPageState),
+    );
+  }
+
+  Response toDomain() {
+    return Response(
+      // > 區分不同 response
+      teamId: teamId,
+      projectId: projectId,
+      surveyId: surveyId,
+      moduleType: ModuleType(moduleType),
+      respondentId: respondentId,
+      // > 區分 response 版本
+      responseId: UniqueId(responseId),
+      tempResponseId: UniqueId(tempResponseId),
+      ticketId: UniqueId(ticketId),
+      editFinished: editFinished,
+      interviewerId: interviewerId,
+      deviceId: UniqueId(deviceId),
+      // > 狀態
+      createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
+      sessionStartTimeStamp: DeviceTimeStamp.fromInt(sessionStartTimeStamp),
+      sessionEndTimeStamp: DeviceTimeStamp.fromInt(sessionEndTimeStamp),
+      lastChangedTimeStamp: DeviceTimeStamp.fromInt(lastChangedTimeStamp),
+      responseStatus: ResponseStatus(responseStatus),
+      isDeleted: isDeleted,
+      // > 內容
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerStatusMap:
+          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
+      surveyPageState: surveyPageState.toDomain(),
+    );
+  }
+
+  factory ResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$ResponseDtoFromJson(json);
+
+  static Map<String, dynamic> domainToJson(Response domain) =>
+      ResponseDto.fromDomain(domain).toJson();
+}

@@ -1,15 +1,14 @@
 import 'dart:async';
 
-import 'package:async_task/async_task.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:collection/collection.dart';
-import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:dartz/dartz.dart' hide Tuple2, Tuple3, Tuple4;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:supercharged_dart/supercharged_dart.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:supercharged/supercharged.dart';
 import 'package:tuple/tuple.dart';
 
-import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/overview/survey.dart';
@@ -21,79 +20,172 @@ import '../../domain/respondent/typedefs.dart';
 import '../../domain/respondent/value_objects.dart';
 import '../../domain/respondent/visit_record.dart';
 import '../../domain/respondent/visit_time.dart';
+import '../../domain/response/i_response_repository.dart';
+import '../../domain/response/typedefs.dart';
 import '../../domain/survey/answer.dart';
 import '../../domain/survey/choice.dart';
-import '../../domain/survey/response.dart';
-import '../../domain/survey/typedefs.dart';
+import '../../domain/survey/i_survey_repository.dart';
+import '../../domain/survey/question.dart';
 import '../../domain/survey/value_objects.dart';
-import '../../infrastructure/core/bloc_async_task.dart';
-import '../../infrastructure/core/dto_helpers.dart';
 import '../../infrastructure/core/extensions.dart';
-import '../../infrastructure/core/isolate_storage_bloc.dart';
-import '../../infrastructure/core/storage_bloc_worker.dart';
-import '../../infrastructure/respondent/respondent_dtos.dart';
-import '../../infrastructure/respondent/respondent_state_dtos.dart';
+import '../../infrastructure/core/isolate_worker.dart';
 
+part 'helpers/helpers.dart';
+part 'helpers/update_housing_map.dart';
+part 'helpers/update_tab_data.dart';
+part 'helpers/update_visit_record_data.dart';
 part 'respondent_bloc.freezed.dart';
-part 'respondent_bloc_worker.dart';
-part 'respondent_compute.dart';
 part 'respondent_event.dart';
 part 'respondent_state.dart';
 
-class RespondentBloc
-    extends IsolateStorageBloc<RespondentEvent, RespondentState> {
-  final IRespondentRepository _respondentRepository;
-  StreamSubscription<Either<RespondentFailure, List<Object>>>? _subscription;
+class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
+  final ISurveyRepository _surveyRepo;
+  final IRespondentRepository _respondentRepo;
+  final IResponseRepository _responseRepo;
+  final IsolateWorker _isolateWorker;
+
+  CombineLatestStream<
+      dynamic,
+      Tuple4<Survey, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
+          RespondentState>>? _stream;
+  StreamSubscription? _subscription;
 
   RespondentBloc(
-    this._respondentRepository,
+    this._surveyRepo,
+    this._respondentRepo,
+    this._responseRepo,
+    this._isolateWorker,
   ) : super(RespondentState.initial()) {
     on<RespondentEvent>(_onEvent, transformer: sequential());
     add(const RespondentEvent.initialized());
+    add(const RespondentEvent.watchReposStarted());
   }
 
   FutureOr<void> _onEvent(
     RespondentEvent event,
     Emitter<RespondentState> emit,
   ) async {
-    await event.maybeMap(
-      initialized: (e) async {
-        await initialize(
-          boxName: 'RespondentState',
-          stateFromStorage: stateFromStorage,
-          taskTypeRegister: _taskTypeRegister,
-          blocWorker: RespondentBlocWorker(),
-          emit: emit,
-        );
-      },
-      watchSurveyRespondentMapStarted: (e) async {
-        await execute(event, emit);
+    state.clearUpdate().emit(emit);
 
+    await event.map(
+      initialized: (e) async {
+        await _surveyRepo.ready;
+        await _respondentRepo.ready;
+        await _responseRepo.ready;
+        await _isolateWorker.ready;
+      },
+      watchReposStarted: (e) async {
         await _subscription?.cancel();
-        _subscription = _respondentRepository
-            .watchSurveyRespondentMap(
-              teamId: e.teamId,
-              interviewerId: e.interviewerId,
+        _stream = CombineLatestStream.combine3(
+          _surveyRepo.surveyStream,
+          _respondentRepo.respondentMapStream,
+          _responseRepo.responseMapStream,
+          (
+            Survey survey,
+            RespondentMap respondentMap,
+            Tuple2<ResponseMap, UniqueId?> responseMap,
+          ) =>
+              Tuple4(survey, respondentMap, responseMap, state),
+        );
+        _subscription = _stream!.listen(_onReposData);
+      },
+      // > 使用者搜尋文字
+      textSearched: (e) async {
+        logger('Event').i('RespondentEvent: textSearched');
+
+        final subsetRespondentMap = await _isolateWorker.compute(
+          subsetRespondents,
+          Tuple4(
+            state.selectedGroup,
+            e.text,
+            _respondentRepo.respondentMap,
+            state.visitRecordMap,
+          ),
+        );
+
+        state
+            .copyWith(
+              searchText: e.text,
+              subsetRespondentMap: subsetRespondentMap,
+              updateSubset: true,
             )
-            .listen(
-              (failureOrSurveyRespondentMap) => add(
-                  RespondentEvent.rawSurveyRespondentMapReceived(
-                      failureOrSurveyRespondentMap)),
-            );
+            .emit(emit);
+      },
+      // > 切換地區
+      groupSelected: (e) async {
+        final subsetRespondentMap = await _isolateWorker.compute(
+          subsetRespondents,
+          Tuple4(
+            e.group,
+            state.searchText,
+            _respondentRepo.respondentMap,
+            state.visitRecordMap,
+          ),
+        );
+
+        state
+            .copyWith(
+              selectedGroup: e.group,
+              subsetRespondentMap: subsetRespondentMap,
+              updateSubset: true,
+            )
+            .emit(emit);
+      },
+      // > 切換分頁
+      tabSwitched: (e) {
+        state
+            .copyWith(
+              currentTab: e.tab,
+            )
+            .emit(emit);
+      },
+
+      // > 選擇受訪者
+      respondentSelected: (e) {
+        state
+            .copyWith(
+              respondent: e.respondent,
+            )
+            .emit(emit);
+
+        _respondentRepo.selectRespondent(e.respondent);
+      },
+      pageScrolled: (e) {
+        final tabScrollOffset = {...state.tabScrollOffset};
+        tabScrollOffset[state.currentTab] = e.scrollOffset;
+        state
+            .copyWith(
+              tabScrollOffset: tabScrollOffset,
+            )
+            .emit(emit);
+      },
+      // > 離開頁面時
+      leaveButtonPressed: (e) {
+        RespondentState.initial().emit(emit);
+      },
+      stateEmitted: (e) {
+        e.state.emit(emit);
       },
       loggedOut: (e) async {
         _subscription?.cancel();
-        await execute(event, emit);
-      },
-      orElse: () async {
-        await execute(event, emit);
+        RespondentState.initial().emit(emit);
       },
     );
   }
 
-  @override
-  bool executionFinished(RespondentState newState) =>
-      newState.eventState == LoadState.success();
+  // TODO 進入頁面時要先清空所有
+
+  Future<void> _onReposData(
+    Tuple4<Survey, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
+            RespondentState>
+        tuple,
+  ) async {
+    (await _isolateWorker.compute(
+      updateRespondentState,
+      tuple,
+    ))
+        .addEmit(add);
+  }
 
   @override
   Future<void> close() {

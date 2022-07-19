@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/respondent/respondent.dart';
-import '../core/extensions.dart';
 
 part 'respondent_dtos.freezed.dart';
 part 'respondent_dtos.g.dart';
@@ -37,21 +36,10 @@ class RespondentDto with _$RespondentDto {
 
   factory RespondentDto.fromJson(Map<String, dynamic> json) =>
       _$RespondentDtoFromJson(json);
-}
 
-@freezed
-class SurveyRespondentMapDocDto with _$SurveyRespondentMapDocDto {
-  const SurveyRespondentMapDocDto._();
+  static Map<String, dynamic> domainToJson(Respondent domain) =>
+      RespondentDto.fromDomain(domain).toJson();
 
-  const factory SurveyRespondentMapDocDto({
-    required String surveyId,
-    required Map<String, RespondentDto> map,
-  }) = _SurveyRespondentMapDocDto;
-
-  MapEntry<String, Map<String, Respondent>> toDomain() {
-    return MapEntry(surveyId, map.mapValues((e) => e.toDomain()));
-  }
-
-  factory SurveyRespondentMapDocDto.fromJson(Map<String, dynamic> json) =>
-      _$SurveyRespondentMapDocDtoFromJson(json);
+  static Respondent jsonToDomain(Map<String, dynamic> json) =>
+      RespondentDto.fromJson(json).toDomain();
 }

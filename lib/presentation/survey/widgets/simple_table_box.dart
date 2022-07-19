@@ -6,7 +6,7 @@ import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/choice.dart';
@@ -44,7 +44,7 @@ class SimpleTableBox extends HookWidget {
 
     // > state
     final _context = useContext();
-    final state = _context.read<UpdateAnswerStatusBloc>().state;
+    final state = _context.read<AnswerBloc>().state;
 
     final tableQuestionList = useRef(<Question>[]);
     final choiceList = useRef(<Choice>[]);
@@ -129,6 +129,7 @@ class SimpleTableBox extends HookWidget {
                     child: QuestionListeners(
                       child: SimpleTableQARow(
                         // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                        // TODO 使用正確的 key (如 question.id) 也許能解決
                         key: Key(UniqueId.v1().value),
                         scrollController: getController(question.id),
                       ),

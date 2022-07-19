@@ -55,10 +55,7 @@ class BadgedTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
-        buildWhen: (p, c) =>
-            p.updateParameters.tabRespondentMap !=
-                c.updateParameters.tabRespondentMap &&
-            c.updateParameters.tabRespondentMap,
+        buildWhen: (p, c) => c.updateTab,
         builder: (context, state) {
           logger('Build').i('BadgedTabBar');
 

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 
 class LoadingBox extends StatelessWidget {
@@ -14,7 +13,7 @@ class LoadingBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       buildWhen: (p, c) {
         return p.eventState != c.eventState;
       },
@@ -22,7 +21,7 @@ class LoadingBox extends StatelessWidget {
         logger('Build').i('LoadingBox');
 
         return Visibility(
-          visible: state.eventState != LoadState.success(),
+          visible: !state.eventState.isSuccess,
           child: Row(
             children: [
               const Center(

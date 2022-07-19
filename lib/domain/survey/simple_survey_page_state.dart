@@ -23,4 +23,11 @@ class SimpleSurveyPageState with _$SimpleSurveyPageState {
         warning: Warning.empty(),
         showWarning: false,
       );
+
+  SimpleSurveyPageState reset() => copyWith(
+        page: 0,
+        isLastPage: false,
+        warning: Warning.empty(),
+        showWarning: false,
+      );
 }

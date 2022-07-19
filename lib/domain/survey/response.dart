@@ -86,7 +86,7 @@ class Response with _$Response {
   }
 
   // > 簡化
-  Response onlyInfo() {
+  Response simplify() {
     return copyWith(
       answerMap:
           moduleType.shouldKeepInfo ? answerMap : const <String, Answer>{},

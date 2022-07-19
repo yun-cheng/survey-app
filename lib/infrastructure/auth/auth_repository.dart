@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_repository.dart';
@@ -11,6 +12,7 @@ import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
 import '../../domain/auth/typedefs.dart';
 import '../../domain/core/i_common_repository.dart';
+import '../../domain/core/logger.dart';
 import '../core/firestore_helpers.dart';
 import '../core/isolate_local_storage.dart';
 import 'interviewer_dtos.dart';
@@ -18,69 +20,102 @@ import 'team_list_dtos.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
+  final IsolateLocalStorage _localStorage;
   final FirebaseFirestore _firestore;
-  final _localStorage = IsolateLocalStorage();
   final ICommonRepository _commonRepo;
+
+  final _completer = Completer();
+  @override
+  Future<void> get ready =>
+      _completer.isCompleted ? Future.value() : _completer.future;
+
+  Team? _team;
+  Interviewer? _interviewer;
+  InterviewerList _interviewerList = [];
 
   final _isSignedInStream = BehaviorSubject<bool>();
   final _teamListStream = BehaviorSubject<TeamList>();
-  final _teamStream = BehaviorSubject<Team>();
-  final _interviewerStream = BehaviorSubject<Interviewer>();
   final _failureStream = BehaviorSubject.seeded(AuthFailure.empty());
-  InterviewerList? interviewerList;
+
+  StreamSubscription? _teamListSubscription;
+  StreamSubscription? _interviewerListSubscription;
+
+  @override
+  Team? get team => _team;
+  @override
+  Interviewer? get interviewer => _interviewer;
 
   @override
   Stream<TeamList> get teamListStream => _teamListStream;
   @override
   Stream<bool> get isSignedInStream => _isSignedInStream;
   @override
-  FutureOr<Team> get team async =>
-      _teamStream.valueOrNull ?? await _teamStream.last;
-  @override
-  FutureOr<Interviewer> get interviewer async =>
-      _interviewerStream.valueOrNull ?? await _interviewerStream.last;
-
-  StreamSubscription? _teamListSubscription;
-  StreamSubscription? _interviewerListSubscription;
+  CombineLatestStream<dynamic, Tuple2<bool, bool>>
+      get watchSignInAndNetworkStream => CombineLatestStream.combine2(
+            _isSignedInStream,
+            _commonRepo.networkIsConnectedStream,
+            (
+              bool isSignedIn,
+              bool networkIsConnected,
+            ) =>
+                Tuple2(
+              isSignedIn,
+              networkIsConnected,
+            ),
+          );
 
   AuthRepository(
+    this._localStorage,
     this._firestore,
     this._commonRepo,
-  );
-
-  @override
-  Future<void> initialize() async {
-    await _localStorage.initialize();
-    await getLocalRequired();
-    watchRemoteTeamList();
+  ) {
+    initialize();
   }
 
-  // > local required
-  @override
-  Future<void> getLocalRequired() async {
-    final team = await _commonRepo.read<Team>(
+  Future<void> initialize() async {
+    await _localStorage.ready;
+    await _commonRepo.ready;
+
+    await loadLocalData();
+    startListener();
+
+    _completer.complete();
+  }
+
+  Future<void> loadLocalData() async {
+    _team = await _localStorage.read(
+      box: 'common',
       key: 'team',
       toDomain: TeamDto.jsonToDomain,
     );
-    if (team != null) {
-      _teamStream.add(team);
-    }
 
-    final interviewer = await _commonRepo.read<Interviewer>(
+    _interviewer = await _localStorage.read(
+      box: 'common',
       key: 'interviewer',
       toDomain: InterviewerDto.jsonToDomain,
     );
-    if (interviewer != null) {
-      _interviewerStream.add(interviewer);
-    }
 
-    final isSignedIn = await _commonRepo.read<bool>(
+    final isSignedIn = await _localStorage.read(
+      box: 'common',
       key: 'isSignedIn',
     );
     _isSignedInStream.add(isSignedIn ?? false);
   }
 
-  // > remote
+  Future<void> startListener() async {
+    _commonRepo.networkIsConnectedStream.listen((networkIsConnected) {
+      if (!networkIsConnected) {
+        _teamListSubscription?.cancel();
+        _interviewerListSubscription?.cancel();
+
+        return;
+      }
+
+      watchRemoteTeamList();
+      watchRemoteInterviewerList();
+    });
+  }
+
   @override
   Future<void> watchRemoteTeamList() async {
     final teamCollection = _firestore.teamCollection;
@@ -92,17 +127,14 @@ class AuthRepository implements IAuthRepository {
         _teamListStream.add(dto.toDomain());
 
         await _localStorage.write(
-          box: 'teamList',
+          box: 'common',
+          key: 'teamList',
           data: dto,
           toJson: (TeamListDto e) => e.toJson(),
         );
       },
       onError: (e, stackTrace) {
-        if (e is FirebaseException && e.code == 'permission-denied') {
-          _failureStream.add(AuthFailure.insufficientPermission());
-        } else {
-          _failureStream.add(AuthFailure.unexpected());
-        }
+        commonOnError('watchRemoteTeamList', e, stackTrace);
       },
     );
   }
@@ -112,65 +144,74 @@ class AuthRepository implements IAuthRepository {
     final interviewerListCollection = _firestore.interviewerListCollection;
 
     await _interviewerListSubscription?.cancel();
-    final teamId = (await team).id;
+    if (team == null) return;
+
+    final teamId = team!.id;
     _interviewerListSubscription =
         interviewerListCollection.doc(teamId).snapshots().listen(
       (snapshot) async {
-        interviewerList = InterviewerListDto.fromFirestore(snapshot).toDomain();
+        _interviewerList =
+            InterviewerListDto.fromFirestore(snapshot).toDomain();
       },
       onError: (e, stackTrace) {
-        if (e is FirebaseException && e.code == 'permission-denied') {
-          _failureStream.add(AuthFailure.insufficientPermission());
-        } else {
-          _failureStream.add(AuthFailure.unexpected());
-        }
+        commonOnError('watchRemoteInterviewerList', e, stackTrace);
       },
     );
   }
 
-  // > operations
   @override
-  void selectTeam(
-    Team selectedTeam,
-  ) {
-    _teamStream.add(selectedTeam);
+  void selectTeam(Team team) {
+    _team = team;
 
     watchRemoteInterviewerList();
   }
 
   @override
-  bool signIn({
+  Future<bool> signIn({
     required String id,
     required String password,
-  }) {
-    final matchInterviewer = interviewerList?.firstWhereOrNull((interviewer) =>
+  }) async {
+    _interviewer = _interviewerList.firstWhereOrNull((interviewer) =>
         interviewer.id == id && interviewer.password == password);
 
-    if (matchInterviewer == null) {
+    if (_interviewer == null) {
       _failureStream.add(AuthFailure.invalidIdAndPasswordCombination());
     } else {
-      _interviewerStream.add(matchInterviewer);
       _isSignedInStream.add(true);
 
-      _commonRepo.write(
+      _localStorage.write(
+        box: 'common',
         key: 'team',
         data: team,
         toJson: (Team e) => TeamDto.fromDomain(e).toJson(),
       );
-      _commonRepo.write(
+      _localStorage.write(
+        box: 'common',
         key: 'interviewer',
         data: interviewer,
         toJson: (Interviewer e) => InterviewerDto.fromDomain(e).toJson(),
       );
-      _commonRepo.write(
+      _localStorage.write(
+        box: 'common',
         key: 'isSignedIn',
         data: true,
       );
     }
 
-    return matchInterviewer != null;
+    return _isSignedInStream.value;
   }
 
   @override
-  void signOut() {}
+  Future<void> signOut() async {}
+
+  void commonOnError(String name, e, stackTrace) {
+    logger('Error').e('$name Error!');
+    logger('Error').e(e);
+
+    if (e is FirebaseException && e.code == 'permission-denied') {
+      _failureStream.add(AuthFailure.insufficientPermission());
+    } else {
+      _failureStream.add(AuthFailure.unexpected());
+    }
+  }
 }

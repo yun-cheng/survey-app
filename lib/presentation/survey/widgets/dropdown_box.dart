@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/choice.dart';
 import '../../core/style/main.dart';
 import 'note_box.dart';
@@ -23,29 +22,9 @@ class DropdownBox extends StatelessWidget {
     final questionId = context.read<QuestionBloc>().state.question.id;
     final canEdit = context.read<QuestionBloc>().state.canEdit;
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      buildWhen: (p, c) {
-        if (p.updateState != c.updateState &&
-            c.updateState == LoadState.success()) {
-          if (c.answerStatusMap[questionId] == null) {
-            return false;
-          }
-
-          // - 若 question 前或後不存在，交由上層 widget 處理
-          if (!p.pageQIdSet.contains(questionId) ||
-              !c.pageQIdSet.contains(questionId)) {
-            return false;
-          }
-
-          // - 該題選項有變更時，需要 rebuild
-          return !isSpecialChoice &&
-              !const DeepCollectionEquality().equals(
-                p.questionMap[questionId]!.choiceList,
-                c.questionMap[questionId]!.choiceList,
-              );
-        }
-        return false;
-      },
+    return BlocBuilder<AnswerBloc, AnswerState>(
+      buildWhen: (p, c) =>
+          c.pageQuestionIsUpdated && c.choiceListChanged(p, questionId),
       builder: (context, _state) {
         final question = _state.questionMap[questionId];
         final choiceList = (isSpecialChoice

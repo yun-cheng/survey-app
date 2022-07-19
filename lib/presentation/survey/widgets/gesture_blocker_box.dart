@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/block_gesture_cubit.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 
 class GestureBlockerBox extends StatelessWidget {
@@ -12,7 +12,7 @@ class GestureBlockerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocListener<AnswerBloc, AnswerState>(
       listenWhen: (p, c) => p.blockGesture != c.blockGesture,
       listener: (context, state) async {
         if (state.blockGesture) {

@@ -157,12 +157,17 @@ class ModuleType with _$ModuleType {
   factory ModuleType.interviewReport() => const ModuleType('interviewReport');
   factory ModuleType.recode() => const ModuleType('recode');
 
-  bool get isMain => value == 'main';
-  bool get isSamplingWithinHousehold => value == 'samplingWithinHousehold';
-  bool get isHousingType => value == 'housingType';
-  bool get isInterviewReport => value == 'interviewReport';
-  bool get isRecode => value == 'recode';
-  bool get needUpdateTab => value != 'visitReport';
+  bool get isMain => this == ModuleType.main();
+  bool get isVisitReport => this == ModuleType.visitReport();
+  bool get isHousingType => this == ModuleType.housingType();
+  bool get isSamplingWithinHousehold =>
+      this == ModuleType.samplingWithinHousehold();
+  bool get isInterviewReport => this == ModuleType.interviewReport();
+  bool get isRecode => this == ModuleType.recode();
+
+  bool get isMainOrVisitReport => isMain || isVisitReport;
+
+  bool get needUpdateTab => !isVisitReport;
   bool get shouldRecord => ['samplingWithinHousehold', 'main'].contains(value);
   bool get ableToReAnswer =>
       ['samplingWithinHousehold', 'housingType'].contains(value);
@@ -173,7 +178,7 @@ class ModuleType with _$ModuleType {
       case 'samplingWithinHousehold':
         return '戶中抽樣';
       case 'main':
-        return '開始訪問';
+        return '主問卷';
       case 'visitReport':
         return '查址';
       case 'housingType':
@@ -182,6 +187,17 @@ class ModuleType with _$ModuleType {
         return '訪問紀錄';
       case 'recode':
         return '預過錄';
+      default:
+        return '';
+    }
+  }
+
+  String toAudioString() {
+    switch (value) {
+      case 'samplingWithinHousehold':
+        return 'sampling';
+      case 'main':
+        return 'main';
       default:
         return '';
     }
@@ -217,7 +233,7 @@ class ResponseStatus with _$ResponseStatus {
   factory ResponseStatus.answering() => const ResponseStatus('answering');
   factory ResponseStatus.finished() => const ResponseStatus('finished');
 
-  bool get isFinished => value == 'finished';
+  bool get isFinished => this == ResponseStatus.finished();
 }
 
 @freezed
@@ -240,8 +256,17 @@ class DeviceTimeStamp with _$DeviceTimeStamp {
         DateTime.fromMicrosecondsSinceEpoch(time),
       );
   int toInt() => value.microsecondsSinceEpoch;
-  String toReadableString() =>
-      '${value.year}-${value.month.toString().padLeft(2, '0')}-${value.day.toString().padLeft(2, '0')} ${value.hour.toString().padLeft(2, '0')}:${value.minute.toString().padLeft(2, '0')}';
+
+  String get yearStr => value.year.toString();
+  String get yearStr2 => yearStr.substring(2);
+  String get monthStr => value.month.toString().padLeft(2, '0');
+  String get dayStr => value.day.toString().padLeft(2, '0');
+  String get hourStr => value.hour.toString().padLeft(2, '0');
+  String get minuteStr => value.minute.toString().padLeft(2, '0');
+  String get secondStr => value.second.toString().padLeft(2, '0');
+  String toReadableString() => '$yearStr-$monthStr-$dayStr $hourStr:$minuteStr';
+  String toFileNameString() =>
+      '$yearStr-$monthStr-${dayStr}_$hourStr.$minuteStr.$secondStr';
 }
 
 enum SurveyPageUpdateType {

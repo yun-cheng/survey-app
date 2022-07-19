@@ -36,26 +36,20 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   ) async {
     await event.map(
       initialized: (e) async {
-        await repo.initialize();
+        await repo.ready;
       },
       watchSurveyMapStarted: (e) async {
-        final projectMap = await repo.projectMap;
-        state
-            .copyWith(
-              projectMap: projectMap,
-            )
-            .emit(emit);
         await _subscription?.cancel();
-        _subscription = repo.surveyMapStream.listen(_onSurveyMap);
+        _subscription = repo.simpleSurveyMapStream.listen(_onSurveyMap);
       },
       surveySelected: (e) async {
         logger('User Event').i('SurveyEvent: surveySelected');
 
-        repo.selectSurvey(e.survey.id);
+        repo.selectSurvey(e.surveyId);
 
         state
             .copyWith(
-              survey: e.survey,
+              survey: repo.simpleSurvey!,
             )
             .emit(emit);
       },
@@ -77,6 +71,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     state
         .copyWith(
           surveyMap: surveyMap,
+          projectMap: repo.projectMap,
           surveyMapState: LoadState.success(),
         )
         .addEmit(add);

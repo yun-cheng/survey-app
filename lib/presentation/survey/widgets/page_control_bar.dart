@@ -5,10 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/block_gesture_cubit.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
 import 'page_control_button.dart';
@@ -36,116 +35,104 @@ class PageControlBar extends HookWidget {
       return () => stream.cancel();
     }, []);
 
-    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-        buildWhen: (p, c) {
-      if (p.restoreState != c.restoreState) {
-        return true;
-      }
-      if (c.restoreState == LoadState.success() &&
-          p.updateState != c.updateState &&
-          c.updateState == LoadState.success()) {
-        return p.page != c.page ||
-            p.isLastPage != c.isLastPage ||
-            p.warning.isEmpty != c.warning.isEmpty ||
-            p.showWarning != c.showWarning;
-      }
-      return false;
-    });
+    final state = useBloc<AnswerBloc, AnswerState>(
+      buildWhen: (p, c) => c.controlBarChanged(p),
+    );
 
-    if (state.restoreState == LoadState.success()) {
-      logger('Build').i('PageControlBar');
+    if (!state.restoreState.isSuccess) {
+      return const SizedBox();
+    }
 
-      final loadSuccess = state.updateState == LoadState.success();
-      final isLastPage = state.isLastPage;
-      final hasWarning = state.showWarning && !state.warning.isEmpty;
-      final canFinish = isLastPage && !hasWarning && !state.isReadOnly;
+    logger('Build').i('PageControlBar');
 
-      void onPressed(Direction? direction) {
-        context.read<BlockGestureCubit>().block();
+    final isLastPage = state.isLastPage;
+    final hasWarning = state.showWarning && !state.warning.isEmpty;
+    final canFinish = isLastPage && !hasWarning && !state.isReadOnly;
 
-        // * timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
-        timer?.cancel();
-        timer = Timer(
-          const Duration(milliseconds: 0),
-          () {
-            if (direction != null) {
-              context.read<UpdateAnswerStatusBloc>().add(
-                    UpdateAnswerStatusEvent.pageNavigatedTo(
-                      direction: direction,
-                    ),
-                  );
-            } else {
-              context.read<UpdateAnswerStatusBloc>().add(
-                    const UpdateAnswerStatusEvent.finishedButtonPressed(),
-                  );
-            }
-          },
-        );
-      }
+    void onPressed(Direction? direction) {
+      context.read<BlockGestureCubit>().block();
 
-      return Visibility(
-        visible: !isKeyboardVisible.value && loadSuccess,
-        maintainState: true,
+      // * timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
+      timer?.cancel();
+      timer = Timer(
+        const Duration(milliseconds: 0),
+        () {
+          if (direction != null) {
+            context.read<AnswerBloc>().add(
+                  AnswerEvent.pageNavigatedTo(
+                    direction: direction,
+                  ),
+                );
+          } else {
+            context.read<AnswerBloc>().add(
+                  const AnswerEvent.finishedButtonPressed(),
+                );
+          }
+        },
+      );
+    }
+
+    return Visibility(
+      visible: !isKeyboardVisible.value,
+      maintainState: true,
+      child: Container(
+        color: Theme.of(context).appBarTheme.backgroundColor,
+        height: 70.0,
+        alignment: Alignment.center,
         child: Container(
-          color: Theme.of(context).appBarTheme.backgroundColor,
-          height: 70.0,
-          alignment: Alignment.center,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            constraints: BoxConstraints.expand(width: kCardMaxWith.maxWidth),
-            child: Stack(
-              children: <Widget>[
-                // > 往前按鈕
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: PageControlButton(
-                    Icons.arrow_back_ios_sharp,
-                    visible: state.page != 0,
-                    maintainSize: true,
-                    onPressed: () => onPressed(Direction.previous),
-                  ),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          constraints: BoxConstraints.expand(width: kCardMaxWidth.maxWidth),
+          child: Stack(
+            children: <Widget>[
+              // > 往前按鈕
+              Align(
+                alignment: Alignment.centerLeft,
+                child: PageControlButton(
+                  Icons.arrow_back_ios_sharp,
+                  visible: state.page != 0,
+                  maintainSize: true,
+                  onPressed: () => onPressed(Direction.previous),
                 ),
-                // > 錯誤提醒按鈕
-                const Align(
-                  child: WarningButton(),
+              ),
+              // > 錯誤提醒按鈕
+              const Align(
+                child: WarningButton(),
+              ),
+              // > 往後按鈕
+              Align(
+                alignment: Alignment.centerRight,
+                child: PageControlButton(
+                  Icons.arrow_forward_ios_sharp,
+                  visible: !isLastPage,
+                  onPressed: () => onPressed(Direction.next),
                 ),
-                // > 往後按鈕
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: PageControlButton(
-                    Icons.arrow_forward_ios_sharp,
-                    visible: !isLastPage,
-                    onPressed: () => onPressed(Direction.next),
-                  ),
-                ),
-                // > 完成按鈕
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Visibility(
-                    visible: canFinish && loadSuccess,
-                    maintainState: true,
-                    child: SizedBox(
-                      height: kPageControlButtonHeight,
-                      width: 140.0,
-                      child: TextButton(
-                        style: kWarningButtonStyle,
-                        onPressed: () => onPressed(null),
-                        child: Text(
-                          '完成',
-                          style: kH3TextStyle.copyWith(
-                            color: kCardTextColor,
-                          ),
+              ),
+              // > 完成按鈕
+              Align(
+                alignment: Alignment.centerRight,
+                child: Visibility(
+                  visible: canFinish,
+                  maintainState: true,
+                  child: SizedBox(
+                    height: kPageControlButtonHeight,
+                    width: 140.0,
+                    child: TextButton(
+                      style: kWarningButtonStyle,
+                      onPressed: () => onPressed(null),
+                      child: Text(
+                        '完成',
+                        style: kH3TextStyle.copyWith(
+                          color: kCardTextColor,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      );
-    }
-    return const SizedBox();
+      ),
+    );
   }
 }

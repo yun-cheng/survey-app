@@ -89,6 +89,7 @@ class Question with _$Question {
           ),
         )
         .toList();
+
     return copyWith(
       body: newBody,
       stringBody: newBody

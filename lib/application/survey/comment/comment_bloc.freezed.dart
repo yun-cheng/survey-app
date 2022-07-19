@@ -18,77 +18,63 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CommentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
+    required TResult Function() stateCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
+    required TResult Function(_CommentLoaded value) commentLoaded,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,140 +97,82 @@ class _$CommentEventCopyWithImpl<$Res> implements $CommentEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_WatchCommentDBStartedCopyWith<$Res> {
-  factory _$$_WatchCommentDBStartedCopyWith(_$_WatchCommentDBStarted value,
-          $Res Function(_$_WatchCommentDBStarted) then) =
-      __$$_WatchCommentDBStartedCopyWithImpl<$Res>;
-  $Res call({String teamId, Interviewer interviewer});
-
-  $InterviewerCopyWith<$Res> get interviewer;
+abstract class _$$_CommentLoadedCopyWith<$Res> {
+  factory _$$_CommentLoadedCopyWith(
+          _$_CommentLoaded value, $Res Function(_$_CommentLoaded) then) =
+      __$$_CommentLoadedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchCommentDBStartedCopyWithImpl<$Res>
+class __$$_CommentLoadedCopyWithImpl<$Res>
     extends _$CommentEventCopyWithImpl<$Res>
-    implements _$$_WatchCommentDBStartedCopyWith<$Res> {
-  __$$_WatchCommentDBStartedCopyWithImpl(_$_WatchCommentDBStarted _value,
-      $Res Function(_$_WatchCommentDBStarted) _then)
-      : super(_value, (v) => _then(v as _$_WatchCommentDBStarted));
+    implements _$$_CommentLoadedCopyWith<$Res> {
+  __$$_CommentLoadedCopyWithImpl(
+      _$_CommentLoaded _value, $Res Function(_$_CommentLoaded) _then)
+      : super(_value, (v) => _then(v as _$_CommentLoaded));
 
   @override
-  _$_WatchCommentDBStarted get _value =>
-      super._value as _$_WatchCommentDBStarted;
-
-  @override
-  $Res call({
-    Object? teamId = freezed,
-    Object? interviewer = freezed,
-  }) {
-    return _then(_$_WatchCommentDBStarted(
-      teamId: teamId == freezed
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
-      interviewer: interviewer == freezed
-          ? _value.interviewer
-          : interviewer // ignore: cast_nullable_to_non_nullable
-              as Interviewer,
-    ));
-  }
-
-  @override
-  $InterviewerCopyWith<$Res> get interviewer {
-    return $InterviewerCopyWith<$Res>(_value.interviewer, (value) {
-      return _then(_value.copyWith(interviewer: value));
-    });
-  }
+  _$_CommentLoaded get _value => super._value as _$_CommentLoaded;
 }
 
 /// @nodoc
 
-class _$_WatchCommentDBStarted extends _WatchCommentDBStarted {
-  const _$_WatchCommentDBStarted(
-      {required this.teamId, required this.interviewer})
-      : super._();
-
-  @override
-  final String teamId;
-  @override
-  final Interviewer interviewer;
+class _$_CommentLoaded extends _CommentLoaded {
+  const _$_CommentLoaded() : super._();
 
   @override
   String toString() {
-    return 'CommentEvent.watchCommentDBStarted(teamId: $teamId, interviewer: $interviewer)';
+    return 'CommentEvent.commentLoaded()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_WatchCommentDBStarted &&
-            const DeepCollectionEquality().equals(other.teamId, teamId) &&
-            const DeepCollectionEquality()
-                .equals(other.interviewer, interviewer));
+        (other.runtimeType == runtimeType && other is _$_CommentLoaded);
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(teamId),
-      const DeepCollectionEquality().hash(interviewer));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_WatchCommentDBStartedCopyWith<_$_WatchCommentDBStarted> get copyWith =>
-      __$$_WatchCommentDBStartedCopyWithImpl<_$_WatchCommentDBStarted>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
+    required TResult Function() stateCleared,
   }) {
-    return watchCommentDBStarted(teamId, interviewer);
+    return commentLoaded();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
   }) {
-    return watchCommentDBStarted?.call(teamId, interviewer);
+    return commentLoaded?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
-    if (watchCommentDBStarted != null) {
-      return watchCommentDBStarted(teamId, interviewer);
+    if (commentLoaded != null) {
+      return commentLoaded();
     }
     return orElse();
   }
@@ -252,240 +180,50 @@ class _$_WatchCommentDBStarted extends _WatchCommentDBStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
+    required TResult Function(_CommentLoaded value) commentLoaded,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    return watchCommentDBStarted(this);
+    return commentLoaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
   }) {
-    return watchCommentDBStarted?.call(this);
+    return commentLoaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
-    if (watchCommentDBStarted != null) {
-      return watchCommentDBStarted(this);
+    if (commentLoaded != null) {
+      return commentLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class _WatchCommentDBStarted extends CommentEvent {
-  const factory _WatchCommentDBStarted(
-      {required final String teamId,
-      required final Interviewer interviewer}) = _$_WatchCommentDBStarted;
-  const _WatchCommentDBStarted._() : super._();
-
-  String get teamId => throw _privateConstructorUsedError;
-  Interviewer get interviewer => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_WatchCommentDBStartedCopyWith<_$_WatchCommentDBStarted> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_CommentDataReceivedCopyWith<$Res> {
-  factory _$$_CommentDataReceivedCopyWith(_$_CommentDataReceived value,
-          $Res Function(_$_CommentDataReceived) then) =
-      __$$_CommentDataReceivedCopyWithImpl<$Res>;
-  $Res call({Either<String, List<Object>> failureOrData});
-}
-
-/// @nodoc
-class __$$_CommentDataReceivedCopyWithImpl<$Res>
-    extends _$CommentEventCopyWithImpl<$Res>
-    implements _$$_CommentDataReceivedCopyWith<$Res> {
-  __$$_CommentDataReceivedCopyWithImpl(_$_CommentDataReceived _value,
-      $Res Function(_$_CommentDataReceived) _then)
-      : super(_value, (v) => _then(v as _$_CommentDataReceived));
-
-  @override
-  _$_CommentDataReceived get _value => super._value as _$_CommentDataReceived;
-
-  @override
-  $Res call({
-    Object? failureOrData = freezed,
-  }) {
-    return _then(_$_CommentDataReceived(
-      failureOrData == freezed
-          ? _value.failureOrData
-          : failureOrData // ignore: cast_nullable_to_non_nullable
-              as Either<String, List<Object>>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_CommentDataReceived extends _CommentDataReceived {
-  const _$_CommentDataReceived(this.failureOrData) : super._();
-
-  @override
-  final Either<String, List<Object>> failureOrData;
-
-  @override
-  String toString() {
-    return 'CommentEvent.commentDataReceived(failureOrData: $failureOrData)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_CommentDataReceived &&
-            const DeepCollectionEquality()
-                .equals(other.failureOrData, failureOrData));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(failureOrData));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_CommentDataReceivedCopyWith<_$_CommentDataReceived> get copyWith =>
-      __$$_CommentDataReceivedCopyWithImpl<_$_CommentDataReceived>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
-    required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
-    required TResult Function(CommentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return commentDataReceived(failureOrData);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
-    TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
-    TResult Function(CommentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return commentDataReceived?.call(failureOrData);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
-    TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
-    TResult Function(CommentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (commentDataReceived != null) {
-      return commentDataReceived(failureOrData);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
-    required TResult Function(_CommentUpdated value) commentUpdated,
-    required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return commentDataReceived(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
-    TResult Function(_CommentUpdated value)? commentUpdated,
-    TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return commentDataReceived?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
-    TResult Function(_CommentUpdated value)? commentUpdated,
-    TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (commentDataReceived != null) {
-      return commentDataReceived(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CommentDataReceived extends CommentEvent {
-  const factory _CommentDataReceived(
-          final Either<String, List<Object>> failureOrData) =
-      _$_CommentDataReceived;
-  const _CommentDataReceived._() : super._();
-
-  Either<String, List<Object>> get failureOrData =>
-      throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_CommentDataReceivedCopyWith<_$_CommentDataReceived> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _CommentLoaded extends CommentEvent {
+  const factory _CommentLoaded() = _$_CommentLoaded;
+  const _CommentLoaded._() : super._();
 }
 
 /// @nodoc
@@ -493,7 +231,7 @@ abstract class _$$_CommentUpdatedCopyWith<$Res> {
   factory _$$_CommentUpdatedCopyWith(
           _$_CommentUpdated value, $Res Function(_$_CommentUpdated) then) =
       __$$_CommentUpdatedCopyWithImpl<$Res>;
-  $Res call({String comment});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -509,12 +247,12 @@ class __$$_CommentUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? comment = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_CommentUpdated(
-      comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -523,14 +261,14 @@ class __$$_CommentUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CommentUpdated extends _CommentUpdated {
-  const _$_CommentUpdated(this.comment) : super._();
+  const _$_CommentUpdated(this.message) : super._();
 
   @override
-  final String comment;
+  final String message;
 
   @override
   String toString() {
-    return 'CommentEvent.commentUpdated(comment: $comment)';
+    return 'CommentEvent.commentUpdated(message: $message)';
   }
 
   @override
@@ -538,12 +276,12 @@ class _$_CommentUpdated extends _CommentUpdated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CommentUpdated &&
-            const DeepCollectionEquality().equals(other.comment, comment));
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(comment));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -553,52 +291,42 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
+    required TResult Function() stateCleared,
   }) {
-    return commentUpdated(comment);
+    return commentUpdated(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
   }) {
-    return commentUpdated?.call(comment);
+    return commentUpdated?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (commentUpdated != null) {
-      return commentUpdated(comment);
+      return commentUpdated(message);
     }
     return orElse();
   }
@@ -606,14 +334,12 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
+    required TResult Function(_CommentLoaded value) commentLoaded,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return commentUpdated(this);
   }
@@ -621,13 +347,12 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
   }) {
     return commentUpdated?.call(this);
   }
@@ -635,13 +360,12 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (commentUpdated != null) {
@@ -652,10 +376,10 @@ class _$_CommentUpdated extends _CommentUpdated {
 }
 
 abstract class _CommentUpdated extends CommentEvent {
-  const factory _CommentUpdated(final String comment) = _$_CommentUpdated;
+  const factory _CommentUpdated(final String message) = _$_CommentUpdated;
   const _CommentUpdated._() : super._();
 
-  String get comment => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_CommentUpdatedCopyWith<_$_CommentUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -702,16 +426,12 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
+    required TResult Function() stateCleared,
   }) {
     return commentAdded();
   }
@@ -719,15 +439,12 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
   }) {
     return commentAdded?.call();
   }
@@ -735,15 +452,12 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (commentAdded != null) {
@@ -755,14 +469,12 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
+    required TResult Function(_CommentLoaded value) commentLoaded,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return commentAdded(this);
   }
@@ -770,13 +482,12 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
   }) {
     return commentAdded?.call(this);
   }
@@ -784,13 +495,12 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (commentAdded != null) {
@@ -803,196 +513,6 @@ class _$_CommentAdded extends _CommentAdded {
 abstract class _CommentAdded extends CommentEvent {
   const factory _CommentAdded() = _$_CommentAdded;
   const _CommentAdded._() : super._();
-}
-
-/// @nodoc
-abstract class _$$_CommentListFilteredCopyWith<$Res> {
-  factory _$$_CommentListFilteredCopyWith(_$_CommentListFiltered value,
-          $Res Function(_$_CommentListFiltered) then) =
-      __$$_CommentListFilteredCopyWithImpl<$Res>;
-  $Res call({String surveyId, String respondentId});
-}
-
-/// @nodoc
-class __$$_CommentListFilteredCopyWithImpl<$Res>
-    extends _$CommentEventCopyWithImpl<$Res>
-    implements _$$_CommentListFilteredCopyWith<$Res> {
-  __$$_CommentListFilteredCopyWithImpl(_$_CommentListFiltered _value,
-      $Res Function(_$_CommentListFiltered) _then)
-      : super(_value, (v) => _then(v as _$_CommentListFiltered));
-
-  @override
-  _$_CommentListFiltered get _value => super._value as _$_CommentListFiltered;
-
-  @override
-  $Res call({
-    Object? surveyId = freezed,
-    Object? respondentId = freezed,
-  }) {
-    return _then(_$_CommentListFiltered(
-      surveyId: surveyId == freezed
-          ? _value.surveyId
-          : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      respondentId: respondentId == freezed
-          ? _value.respondentId
-          : respondentId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_CommentListFiltered extends _CommentListFiltered {
-  const _$_CommentListFiltered(
-      {required this.surveyId, required this.respondentId})
-      : super._();
-
-  @override
-  final String surveyId;
-  @override
-  final String respondentId;
-
-  @override
-  String toString() {
-    return 'CommentEvent.commentListFiltered(surveyId: $surveyId, respondentId: $respondentId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_CommentListFiltered &&
-            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
-            const DeepCollectionEquality()
-                .equals(other.respondentId, respondentId));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(surveyId),
-      const DeepCollectionEquality().hash(respondentId));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_CommentListFilteredCopyWith<_$_CommentListFiltered> get copyWith =>
-      __$$_CommentListFilteredCopyWithImpl<_$_CommentListFiltered>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
-    required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
-    required TResult Function(CommentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return commentListFiltered(surveyId, respondentId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
-    TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
-    TResult Function(CommentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return commentListFiltered?.call(surveyId, respondentId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
-    TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
-    TResult Function(CommentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (commentListFiltered != null) {
-      return commentListFiltered(surveyId, respondentId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
-    required TResult Function(_CommentUpdated value) commentUpdated,
-    required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return commentListFiltered(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
-    TResult Function(_CommentUpdated value)? commentUpdated,
-    TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return commentListFiltered?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
-    TResult Function(_CommentUpdated value)? commentUpdated,
-    TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (commentListFiltered != null) {
-      return commentListFiltered(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CommentListFiltered extends CommentEvent {
-  const factory _CommentListFiltered(
-      {required final String surveyId,
-      required final String respondentId}) = _$_CommentListFiltered;
-  const _CommentListFiltered._() : super._();
-
-  String get surveyId => throw _privateConstructorUsedError;
-  String get respondentId => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_CommentListFilteredCopyWith<_$_CommentListFiltered> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1069,16 +589,12 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
+    required TResult Function() stateCleared,
   }) {
     return stateEmitted(state);
   }
@@ -1086,15 +602,12 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
   }) {
     return stateEmitted?.call(state);
   }
@@ -1102,15 +615,12 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (stateEmitted != null) {
@@ -1122,14 +632,12 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
+    required TResult Function(_CommentLoaded value) commentLoaded,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return stateEmitted(this);
   }
@@ -1137,13 +645,12 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
   }) {
     return stateEmitted?.call(this);
   }
@@ -1151,13 +658,12 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (stateEmitted != null) {
@@ -1218,16 +724,12 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchCommentDBStarted,
-    required TResult Function(Either<String, List<Object>> failureOrData)
-        commentDataReceived,
-    required TResult Function(String comment) commentUpdated,
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
-    required TResult Function(String surveyId, String respondentId)
-        commentListFiltered,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
+    required TResult Function() stateCleared,
   }) {
     return initialized();
   }
@@ -1235,15 +737,12 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
   }) {
     return initialized?.call();
   }
@@ -1251,15 +750,12 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchCommentDBStarted,
-    TResult Function(Either<String, List<Object>> failureOrData)?
-        commentDataReceived,
-    TResult Function(String comment)? commentUpdated,
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
-    TResult Function(String surveyId, String respondentId)? commentListFiltered,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -1271,14 +767,12 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_WatchCommentDBStarted value)
-        watchCommentDBStarted,
-    required TResult Function(_CommentDataReceived value) commentDataReceived,
+    required TResult Function(_CommentLoaded value) commentLoaded,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
-    required TResult Function(_CommentListFiltered value) commentListFiltered,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return initialized(this);
   }
@@ -1286,13 +780,12 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
   }) {
     return initialized?.call(this);
   }
@@ -1300,13 +793,12 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchCommentDBStarted value)? watchCommentDBStarted,
-    TResult Function(_CommentDataReceived value)? commentDataReceived,
+    TResult Function(_CommentLoaded value)? commentLoaded,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
-    TResult Function(_CommentListFiltered value)? commentListFiltered,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -1322,12 +814,140 @@ abstract class _Initialized extends CommentEvent {
 }
 
 /// @nodoc
+abstract class _$$_StateClearedCopyWith<$Res> {
+  factory _$$_StateClearedCopyWith(
+          _$_StateCleared value, $Res Function(_$_StateCleared) then) =
+      __$$_StateClearedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_StateClearedCopyWithImpl<$Res>
+    extends _$CommentEventCopyWithImpl<$Res>
+    implements _$$_StateClearedCopyWith<$Res> {
+  __$$_StateClearedCopyWithImpl(
+      _$_StateCleared _value, $Res Function(_$_StateCleared) _then)
+      : super(_value, (v) => _then(v as _$_StateCleared));
+
+  @override
+  _$_StateCleared get _value => super._value as _$_StateCleared;
+}
+
+/// @nodoc
+
+class _$_StateCleared extends _StateCleared {
+  const _$_StateCleared() : super._();
+
+  @override
+  String toString() {
+    return 'CommentEvent.stateCleared()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_StateCleared);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() commentLoaded,
+    required TResult Function(String message) commentUpdated,
+    required TResult Function() commentAdded,
+    required TResult Function(CommentState state) stateEmitted,
+    required TResult Function() initialized,
+    required TResult Function() stateCleared,
+  }) {
+    return stateCleared();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
+    TResult Function()? commentAdded,
+    TResult Function(CommentState state)? stateEmitted,
+    TResult Function()? initialized,
+    TResult Function()? stateCleared,
+  }) {
+    return stateCleared?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? commentLoaded,
+    TResult Function(String message)? commentUpdated,
+    TResult Function()? commentAdded,
+    TResult Function(CommentState state)? stateEmitted,
+    TResult Function()? initialized,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
+  }) {
+    if (stateCleared != null) {
+      return stateCleared();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentUpdated value) commentUpdated,
+    required TResult Function(_CommentAdded value) commentAdded,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateCleared value) stateCleared,
+  }) {
+    return stateCleared(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentUpdated value)? commentUpdated,
+    TResult Function(_CommentAdded value)? commentAdded,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
+  }) {
+    return stateCleared?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentUpdated value)? commentUpdated,
+    TResult Function(_CommentAdded value)? commentAdded,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
+  }) {
+    if (stateCleared != null) {
+      return stateCleared(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateCleared extends CommentEvent {
+  const factory _StateCleared() = _$_StateCleared;
+  const _StateCleared._() : super._();
+}
+
+/// @nodoc
 mixin _$CommentState {
   UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
-  String get comment => throw _privateConstructorUsedError;
-  List<Comment> get commentList =>
-      throw _privateConstructorUsedError; // > 狀態更新進度
-  LoadState get dataState => throw _privateConstructorUsedError;
+  ResponseComments get responseComments => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError; // > 狀態更新進度
   LoadState get eventState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1342,13 +962,12 @@ abstract class $CommentStateCopyWith<$Res> {
       _$CommentStateCopyWithImpl<$Res>;
   $Res call(
       {UniqueId stateId,
-      String comment,
-      List<Comment> commentList,
-      LoadState dataState,
+      ResponseComments responseComments,
+      String message,
       LoadState eventState});
 
   $UniqueIdCopyWith<$Res> get stateId;
-  $LoadStateCopyWith<$Res> get dataState;
+  $ResponseCommentsCopyWith<$Res> get responseComments;
   $LoadStateCopyWith<$Res> get eventState;
 }
 
@@ -1363,9 +982,8 @@ class _$CommentStateCopyWithImpl<$Res> implements $CommentStateCopyWith<$Res> {
   @override
   $Res call({
     Object? stateId = freezed,
-    Object? comment = freezed,
-    Object? commentList = freezed,
-    Object? dataState = freezed,
+    Object? responseComments = freezed,
+    Object? message = freezed,
     Object? eventState = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1373,18 +991,14 @@ class _$CommentStateCopyWithImpl<$Res> implements $CommentStateCopyWith<$Res> {
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      comment: comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
+      responseComments: responseComments == freezed
+          ? _value.responseComments
+          : responseComments // ignore: cast_nullable_to_non_nullable
+              as ResponseComments,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      commentList: commentList == freezed
-          ? _value.commentList
-          : commentList // ignore: cast_nullable_to_non_nullable
-              as List<Comment>,
-      dataState: dataState == freezed
-          ? _value.dataState
-          : dataState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       eventState: eventState == freezed
           ? _value.eventState
           : eventState // ignore: cast_nullable_to_non_nullable
@@ -1400,9 +1014,9 @@ class _$CommentStateCopyWithImpl<$Res> implements $CommentStateCopyWith<$Res> {
   }
 
   @override
-  $LoadStateCopyWith<$Res> get dataState {
-    return $LoadStateCopyWith<$Res>(_value.dataState, (value) {
-      return _then(_value.copyWith(dataState: value));
+  $ResponseCommentsCopyWith<$Res> get responseComments {
+    return $ResponseCommentsCopyWith<$Res>(_value.responseComments, (value) {
+      return _then(_value.copyWith(responseComments: value));
     });
   }
 
@@ -1423,15 +1037,14 @@ abstract class _$$_CommentStateCopyWith<$Res>
   @override
   $Res call(
       {UniqueId stateId,
-      String comment,
-      List<Comment> commentList,
-      LoadState dataState,
+      ResponseComments responseComments,
+      String message,
       LoadState eventState});
 
   @override
   $UniqueIdCopyWith<$Res> get stateId;
   @override
-  $LoadStateCopyWith<$Res> get dataState;
+  $ResponseCommentsCopyWith<$Res> get responseComments;
   @override
   $LoadStateCopyWith<$Res> get eventState;
 }
@@ -1450,9 +1063,8 @@ class __$$_CommentStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stateId = freezed,
-    Object? comment = freezed,
-    Object? commentList = freezed,
-    Object? dataState = freezed,
+    Object? responseComments = freezed,
+    Object? message = freezed,
     Object? eventState = freezed,
   }) {
     return _then(_$_CommentState(
@@ -1460,18 +1072,14 @@ class __$$_CommentStateCopyWithImpl<$Res>
           ? _value.stateId
           : stateId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      comment: comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
+      responseComments: responseComments == freezed
+          ? _value.responseComments
+          : responseComments // ignore: cast_nullable_to_non_nullable
+              as ResponseComments,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      commentList: commentList == freezed
-          ? _value._commentList
-          : commentList // ignore: cast_nullable_to_non_nullable
-              as List<Comment>,
-      dataState: dataState == freezed
-          ? _value.dataState
-          : dataState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       eventState: eventState == freezed
           ? _value.eventState
           : eventState // ignore: cast_nullable_to_non_nullable
@@ -1485,34 +1093,25 @@ class __$$_CommentStateCopyWithImpl<$Res>
 class _$_CommentState extends _CommentState {
   const _$_CommentState(
       {required this.stateId,
-      required this.comment,
-      required final List<Comment> commentList,
-      required this.dataState,
+      required this.responseComments,
+      required this.message,
       required this.eventState})
-      : _commentList = commentList,
-        super._();
+      : super._();
 
   @override
   final UniqueId stateId;
 // > 主要資料
   @override
-  final String comment;
-  final List<Comment> _commentList;
+  final ResponseComments responseComments;
   @override
-  List<Comment> get commentList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_commentList);
-  }
-
+  final String message;
 // > 狀態更新進度
-  @override
-  final LoadState dataState;
   @override
   final LoadState eventState;
 
   @override
   String toString() {
-    return 'CommentState(stateId: $stateId, comment: $comment, commentList: $commentList, dataState: $dataState, eventState: $eventState)';
+    return 'CommentState(stateId: $stateId, responseComments: $responseComments, message: $message, eventState: $eventState)';
   }
 
   @override
@@ -1521,10 +1120,9 @@ class _$_CommentState extends _CommentState {
         (other.runtimeType == runtimeType &&
             other is _$_CommentState &&
             const DeepCollectionEquality().equals(other.stateId, stateId) &&
-            const DeepCollectionEquality().equals(other.comment, comment) &&
             const DeepCollectionEquality()
-                .equals(other._commentList, _commentList) &&
-            const DeepCollectionEquality().equals(other.dataState, dataState) &&
+                .equals(other.responseComments, responseComments) &&
+            const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.eventState, eventState));
   }
@@ -1533,9 +1131,8 @@ class _$_CommentState extends _CommentState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(stateId),
-      const DeepCollectionEquality().hash(comment),
-      const DeepCollectionEquality().hash(_commentList),
-      const DeepCollectionEquality().hash(dataState),
+      const DeepCollectionEquality().hash(responseComments),
+      const DeepCollectionEquality().hash(message),
       const DeepCollectionEquality().hash(eventState));
 
   @JsonKey(ignore: true)
@@ -1547,21 +1144,18 @@ class _$_CommentState extends _CommentState {
 abstract class _CommentState extends CommentState {
   const factory _CommentState(
       {required final UniqueId stateId,
-      required final String comment,
-      required final List<Comment> commentList,
-      required final LoadState dataState,
+      required final ResponseComments responseComments,
+      required final String message,
       required final LoadState eventState}) = _$_CommentState;
   const _CommentState._() : super._();
 
   @override
   UniqueId get stateId => throw _privateConstructorUsedError;
   @override // > 主要資料
-  String get comment => throw _privateConstructorUsedError;
+  ResponseComments get responseComments => throw _privateConstructorUsedError;
   @override
-  List<Comment> get commentList => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   @override // > 狀態更新進度
-  LoadState get dataState => throw _privateConstructorUsedError;
-  @override
   LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

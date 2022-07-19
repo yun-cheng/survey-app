@@ -1,57 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/respondent/respondent/respondent_cubit.dart';
 import '../../../application/respondent/respondent_bloc.dart';
-import '../../../application/respondent/respondents_page/respondents_page_bloc.dart';
-import '../../../domain/respondent/respondent.dart';
+import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
 import 'respondent_card.dart';
 
 class RespondentItem extends StatelessWidget {
-  final int index;
-  final Respondent respondent;
-
   const RespondentItem({
     Key? key,
-    required this.index,
-    required this.respondent,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // logger('Build').i('RespondentItem');
+    final respondent = context.read<RespondentCubit>().state;
 
-    final searchVisible = context
-            .read<RespondentBloc>()
-            .state
-            .searchRespondentMap[respondent.id] ??
-        true;
+    return BlocBuilder<RespondentBloc, RespondentState>(
+      buildWhen: (p, c) => c.updateSubset && c.subsetChanged(p, respondent.id),
+      builder: (context, state) {
+        logger('Build').i('RespondentItem: ${respondent.id}');
 
-    final selectedGroup =
-        context.read<RespondentsPageBloc>().state.selectedGroup;
-    final groupVisible =
-        [respondent.countyTown, '所有訪區'].contains(selectedGroup);
+        final visible = state.subsetRespondentMap[respondent.id] ?? true;
 
-    final visible = searchVisible && groupVisible;
+        if (!visible) {
+          return const SizedBox();
+        }
 
-    return Container(
-      alignment: Alignment.topCenter,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: ConstrainedBox(
-        constraints: kCardMaxWith,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (index == 0 && groupVisible) ...[
-              const SizedBox(height: 10),
-            ],
-            if (visible) ...[
-              const RespondentCard(),
-              const SizedBox(height: 10),
-            ],
-          ],
-        ),
-      ),
+        return Container(
+          alignment: Alignment.topCenter,
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+          child: ConstrainedBox(
+            constraints: kCardMaxWidth,
+            child: const RespondentCard(),
+          ),
+        );
+      },
     );
   }
 }

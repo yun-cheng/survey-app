@@ -1,180 +1,231 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/audio/audio.dart';
-import '../../domain/audio/audio_failure.dart';
 import '../../domain/audio/i_audio_repository.dart';
+import '../../domain/audio/typedefs.dart';
+import '../../domain/auth/i_auth_repository.dart';
+import '../../domain/core/i_common_repository.dart';
 import '../../domain/core/logger.dart';
-import '../../domain/core/value_objects.dart';
+import '../../injection.dart';
 import '../core/firestore_helpers.dart';
+import '../core/isolate_local_storage.dart';
 import '../core/path_provider.dart';
+import '../core/upload_set.dart';
+import 'audio_dtos.dart';
+import 'audio_map_dtos.dart';
 
 @LazySingleton(as: IAudioRepository)
 class AudioRepository implements IAudioRepository {
+  final IsolateLocalStorage _localStorage;
+  final FirebaseStorage _storage;
+  final ICommonRepository _commonRepo;
+  final IAuthRepository _authRepo;
+
+  final _completer = Completer();
+  @override
+  Future<void> get ready =>
+      _completer.isCompleted ? Future.value() : _completer.future;
+
+  final _uploadSet = UploadSet(
+    'audioUploadSet',
+    getIt<IsolateLocalStorage>(),
+  );
+
   final appDirPath = PathProvider.appDirPath;
   final tempDirPath = PathProvider.tempDirPath;
-  final FirebaseStorage _storage;
-
-  AudioRepository(this._storage);
+  AudioMap _audioMap = {};
+  bool _isUploading = false;
 
   @override
-  Stream<Either<AudioFailure, Audio>> downloadAudio({
-    required Audio audio,
-  }) {
-    // TODO: implement downloadAudio
-    throw UnimplementedError();
+  Set<String> get uploadSet => _uploadSet.value;
+
+  @override
+  Stream<Set<String>> get uploadSetStream => _uploadSet.stream;
+
+  AudioRepository(
+    this._localStorage,
+    this._storage,
+    this._commonRepo,
+    this._authRepo,
+  ) {
+    initialize();
   }
 
-  @override
-  Stream<Either<AudioFailure, Audio>> uploadAudioMap({
-    required Map<UniqueId, Audio> audioMap,
-  }) async* {
-    final audioPath = '$appDirPath/audio/';
+  Future<void> initialize() async {
+    await _localStorage.ready;
+    await _commonRepo.ready;
 
-    if (!await Directory(audioPath).exists()) {
-      await Directory(audioPath).create();
-    }
+    await loadLocalData();
+    startListener();
 
-    for (final audio in audioMap.values) {
-      final moveResult = await moveAudio(audio: audio);
-    }
+    _completer.complete();
+  }
 
-    for (final audio in audioMap.values) {
-      final result = await uploadAudio(audio: audio);
-      // - 失敗且 timeout 則停止
-      if (result.isLeft()) {
-        if (result.swap().getOrElse(() => AudioFailure.empty()).isTimeout) {
-          break;
+  Future<void> loadLocalData() async {
+    _audioMap = await _localStorage.read<AudioMap>(
+          box: 'audioMap',
+          allKeys: true,
+          toDomain: AudioMapDto.jsonToDomain,
+        ) ??
+        {};
+  }
+
+  Future<void> startListener() async {
+    _authRepo.watchSignInAndNetworkStream.listen((tuple) {
+      final isSignedIn = tuple.item1;
+      final networkIsConnected = tuple.item2;
+
+      if (!isSignedIn || !networkIsConnected) {
+        if (!isSignedIn) {
+          // TODO 登出清空 local storage
+
         }
-      }
-      // - 無論成功失敗都丟出 result
-      yield result;
-    }
-  }
 
-  Future<Either<AudioFailure, Unit>> moveAudio({
-    required Audio audio,
-  }) async {
-    try {
-      final fromFilePath = '$tempDirPath/${audio.toFileNameString()}';
-      final toDirPath = '$appDirPath/audio/';
-      final toFilePath = '$toDirPath${audio.toFileNameString()}';
-
-      // - 如果檔案不在 appDirPath
-      if (!await File(toFilePath).exists() && !kIsWeb) {
-        await File(fromFilePath).rename(toFilePath);
+        return;
       }
 
-      return right(unit);
-    } catch (e) {
-      logger('Error').e('MoveAudio Error!');
-      return left(AudioFailure.unexpected());
-    }
+      // - 登入且有網路時
+      uploadAudioMap();
+    });
   }
 
   @override
-  Future<Either<AudioFailure, Audio>> uploadAudio({
-    required Audio audio,
-  }) async {
-    try {
-      if (audio.fileName.isEmpty) {
-        return left(AudioFailure.unexpected());
-      }
+  Future<void> uploadAudioMap() async {
+    if (_isUploading || uploadSet.isEmpty || !_commonRepo.networkIsConnected) {
+      return;
+    }
 
-      final audioRef = _storage.audioRef;
+    _isUploading = true;
 
-      final filePath = '$appDirPath/audio/${audio.toFileNameString()}';
+    final audioRef = _storage.audioRef;
+
+    while (uploadSet.isNotEmpty) {
+      final responseId = uploadSet.first;
+      final audio = _audioMap[responseId]!;
+
+      final filePath = '$appDirPath/audio/${audio.surveyId}/${audio.fileName}';
 
       // - 檢查是否已上傳
-      final result = await audioRef
-          .child(audio.fileName.value)
-          .list(const ListOptions(maxResults: 1))
-          .timeout(const Duration(seconds: 30));
+      ListResult result;
 
+      try {
+        result = await audioRef
+            .child(audio.storageDirPath)
+            .list(const ListOptions(maxResults: 1))
+            .timeout(const Duration(seconds: 30));
+      } catch (e, stackTrace) {
+        _isUploading = false;
+        _uploadSet.write();
+        commonOnError('uploadAudioMap', e, stackTrace);
+        break;
+      }
+
+      // - 若未上傳
       if (result.items.isEmpty) {
         final metadata = SettableMetadata(
           contentType: 'audio/m4a',
         );
 
-        final task = audioRef
-            .child(audio.toStoragePath())
-            .putFile(File(filePath), metadata)
-            .timeout(const Duration(minutes: 3));
-
-        await task;
-      }
-
-      return right(audio);
-    } catch (e) {
-      logger('Error').e('UploadAudio Error!');
-      if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(AudioFailure.insufficientPermission());
-      } else if (e is TimeoutException) {
-        return left(AudioFailure.timeout());
-      } else {
-        return left(AudioFailure.unexpected());
-      }
-    }
-  }
-
-  @override
-  Future<Either<AudioFailure, Map<UniqueId, Audio>>>
-      getAudioMapFromDir() async {
-    try {
-      final audioPath = '$appDirPath/audio/';
-
-      if (!await Directory(audioPath).exists()) {
-        await Directory(audioPath).create();
-      }
-
-      final audioMap = <UniqueId, Audio>{};
-
-      Directory(tempDirPath).listSync().forEach((f) async {
-        final fullPath = f.path;
-        final fileName = RegExp(r'[^/]+(?=\.m4a$)').stringMatch(fullPath) ?? '';
-
-        if (fileName.isNotEmpty) {
-          final toFilePath = '$audioPath$fileName.m4a';
-
-          await File(fullPath).rename(toFilePath);
+        try {
+          final task = await audioRef
+              .child(audio.storageFilePath)
+              .putFile(File(filePath), metadata)
+              .timeout(const Duration(minutes: 3));
+        } catch (e, stackTrace) {
+          _isUploading = false;
+          _uploadSet.write();
+          commonOnError('uploadAudioMap', e, stackTrace);
+          break;
         }
-      });
+      }
 
-      Directory(audioPath).listSync().forEach((f) async {
-        final fullPath = f.path;
-        final fileName = RegExp(r'[^/]+(?=\.m4a$)').stringMatch(fullPath) ?? '';
-
-        final uniqueId = UniqueId(fileName);
-
-        audioMap[uniqueId] = Audio.m4a().copyWith(fileName: uniqueId);
-      });
-
-      return right(audioMap);
-    } catch (e) {
-      logger('Error').e('getAudioMapFromDir Error!');
-      return left(AudioFailure.unexpected());
+      _uploadSet.remove(responseId);
     }
+    _isUploading = false;
+    _uploadSet.write();
   }
 
   @override
-  Future<Either<AudioFailure, Unit>> clearLocalAudioDirectory() async {
+  Future<void> addAudio(
+    Audio audio,
+  ) async {
+    _audioMap[audio.responseId] = audio;
+    await writeAudio(audio);
+    _uploadSet.add(audio.responseId);
+    uploadAudioMap();
+  }
+
+  Future<void> writeAudio(Audio audio) async {
+    await _localStorage.write(
+      box: 'audioMap',
+      data: audio,
+      key: audio.responseId,
+      toJson: AudioDto.domainToJson,
+    );
+  }
+
+  void commonOnError(String name, e, stackTrace) {
+    logger('Error').e('$name Error!');
+    logger('Error').e(e);
+
+    if (e is FirebaseException && e.code == 'permission-denied') {
+    } else if (e is TimeoutException) {}
+  }
+
+  @override
+  Future<void> clearLocalAudioDirectory() async {
     try {
-      final audioPath = '$appDirPath/audio/';
-      final audioPathExist = await Directory(audioPath).exists();
+      final audioDirPath = '$appDirPath/audio/';
 
-      if (audioPathExist) {
-        await Directory(audioPath).delete(recursive: true);
+      if (await Directory(audioDirPath).exists()) {
+        await Directory(audioDirPath).delete(recursive: true);
       }
-
-      return right(unit);
-    } catch (e) {
-      logger('Error').e('ClearLocalAudioDirectory Error!');
-      return left(AudioFailure.unexpected());
+    } catch (e, stackTrace) {
+      commonOnError('clearLocalAudioDirectory', e, stackTrace);
     }
   }
+
+  // @override
+  // Future<Either<AudioFailure, Map<UniqueId, Audio>>>
+  //     getAudioMapFromDir() async {
+  //   try {
+  //     final audioPath = '$appDirPath/audio/';
+
+  //     if (!await Directory(audioPath).exists()) {
+  //       await Directory(audioPath).create();
+  //     }
+
+  //     final audioMap = <UniqueId, Audio>{};
+
+  //     Directory(tempDirPath).listSync().forEach((f) async {
+  //       final fullPath = f.path;
+  //       final fileName = RegExp(r'[^/]+(?=\.m4a$)').stringMatch(fullPath) ?? '';
+
+  //       if (fileName.isNotEmpty) {
+  //         final toFilePath = '$audioPath$fileName.m4a';
+
+  //         await File(fullPath).rename(toFilePath);
+  //       }
+  //     });
+
+  //     Directory(audioPath).listSync().forEach((f) async {
+  //       final fullPath = f.path;
+  //       final fileName = RegExp(r'[^/]+(?=\.m4a$)').stringMatch(fullPath) ?? '';
+
+  //       final uniqueId = UniqueId(fileName);
+
+  //       audioMap[uniqueId] = Audio.m4a().copyWith(fileName: uniqueId);
+  //     });
+
+  //     return right(audioMap);
+  //   } catch (e) {
+  //     logger('Error').e('getAudioMapFromDir Error!');
+  //     return left(AudioFailure.unexpected());
+  //   }
+  // }
+
 }

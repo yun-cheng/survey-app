@@ -58,7 +58,7 @@ class SignInForm extends StatelessWidget {
               final networkIsConnected =
                   context.read<DeviceBloc>().state.networkIsConnected;
 
-              if (networkIsConnected || kIsWeb) {
+              if (networkIsConnected) {
                 context.read<AuthBloc>().add(const AuthEvent.signInPressed());
               }
             },

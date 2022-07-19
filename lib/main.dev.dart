@@ -8,6 +8,7 @@ import 'firebase_options.dart';
 import 'injection.dart';
 import 'presentation/core/app_widget.dart';
 
+// ! 記得同步更新 main.dart
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

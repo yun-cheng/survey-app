@@ -1,32 +1,33 @@
 import 'dart:async';
 
+import 'package:rxdart/rxdart.dart';
+import 'package:tuple/tuple.dart';
+
 import 'interviewer.dart';
 import 'team.dart';
 import 'typedefs.dart';
 
 abstract class IAuthRepository {
+  Future<void> get ready;
+
+  Team? get team;
+  Interviewer? get interviewer;
+
   Stream<TeamList> get teamListStream;
   Stream<bool> get isSignedInStream;
-  FutureOr<Team> get team;
-  FutureOr<Interviewer> get interviewer;
+  CombineLatestStream<dynamic, Tuple2<bool, bool>>
+      get watchSignInAndNetworkStream;
 
-  Future<void> initialize();
-
-  // > local required
-  Future<void> getLocalRequired();
-
-  // > remote
   Future<void> watchRemoteTeamList();
 
   Future<void> watchRemoteInterviewerList();
 
-  // > operations
   void selectTeam(Team selectedTeam);
 
-  bool signIn({
+  Future<bool> signIn({
     required String id,
     required String password,
   });
 
-  void signOut();
+  Future<void> signOut();
 }

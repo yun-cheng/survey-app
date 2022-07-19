@@ -9,7 +9,7 @@ import '../../../domain/core/value_objects.dart';
 // > 監聽 Firestore
 final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
   listenWhen: (p, c) =>
-      p.signInState != c.signInState && c.signInState == LoadState.success(),
+      p.signInState != c.signInState && c.signInState.isSuccess,
   listener: (context, state) {
     if (context.read<NavigationBloc>().state.page == NavigationPage.signIn()) {
       logger('Listen').i('AuthBloc: signInState -> Push to OverviewPage');
@@ -21,19 +21,5 @@ final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
           );
       context.pushNamed('overview');
     }
-
-    logger('Listen').i('AuthBloc: signInState -> Watch Firestore');
-    // context.read<RespondentBloc>().add(
-    //       RespondentEvent.watchSurveyRespondentMapStarted(
-    //         teamId: state.team.id,
-    //         interviewerId: state.interviewer.id,
-    //       ),
-    //     );
-    // context.read<ResponseBloc>().add(
-    //       ResponseEvent.watchResponseMapAndReferenceListStarted(
-    //         teamId: state.team.id,
-    //         interviewer: state.interviewer,
-    //       ),
-    //     );
   },
 );

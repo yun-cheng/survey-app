@@ -16,21 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Comment {
-// > 區分不同 comment
-  String get teamId => throw _privateConstructorUsedError;
-  String get projectId => throw _privateConstructorUsedError;
-  String get surveyId => throw _privateConstructorUsedError;
-  String get respondentId =>
-      throw _privateConstructorUsedError; // > 區分 comment 版本
-  UniqueId get commentId => throw _privateConstructorUsedError;
+  String get commentId => throw _privateConstructorUsedError;
   String get interviewerId => throw _privateConstructorUsedError;
   UniqueId get deviceId => throw _privateConstructorUsedError; // > 狀態
   DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
   DeviceTimeStamp get lastChangedTimeStamp =>
-      throw _privateConstructorUsedError;
-  bool get isDeleted => throw _privateConstructorUsedError;
-  bool get isUploaded => throw _privateConstructorUsedError; // > 內容
-  String get content => throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // > 內容
+  String get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CommentCopyWith<Comment> get copyWith => throw _privateConstructorUsedError;
@@ -41,20 +33,13 @@ abstract class $CommentCopyWith<$Res> {
   factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
       _$CommentCopyWithImpl<$Res>;
   $Res call(
-      {String teamId,
-      String projectId,
-      String surveyId,
-      String respondentId,
-      UniqueId commentId,
+      {String commentId,
       String interviewerId,
       UniqueId deviceId,
       DeviceTimeStamp createdTimeStamp,
       DeviceTimeStamp lastChangedTimeStamp,
-      bool isDeleted,
-      bool isUploaded,
-      String content});
+      String message});
 
-  $UniqueIdCopyWith<$Res> get commentId;
   $UniqueIdCopyWith<$Res> get deviceId;
   $DeviceTimeStampCopyWith<$Res> get createdTimeStamp;
   $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp;
@@ -70,40 +55,18 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? teamId = freezed,
-    Object? projectId = freezed,
-    Object? surveyId = freezed,
-    Object? respondentId = freezed,
     Object? commentId = freezed,
     Object? interviewerId = freezed,
     Object? deviceId = freezed,
     Object? createdTimeStamp = freezed,
     Object? lastChangedTimeStamp = freezed,
-    Object? isDeleted = freezed,
-    Object? isUploaded = freezed,
-    Object? content = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      teamId: teamId == freezed
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
-      projectId: projectId == freezed
-          ? _value.projectId
-          : projectId // ignore: cast_nullable_to_non_nullable
-              as String,
-      surveyId: surveyId == freezed
-          ? _value.surveyId
-          : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      respondentId: respondentId == freezed
-          ? _value.respondentId
-          : respondentId // ignore: cast_nullable_to_non_nullable
-              as String,
       commentId: commentId == freezed
           ? _value.commentId
           : commentId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
@@ -120,26 +83,11 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
           ? _value.lastChangedTimeStamp
           : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
               as DeviceTimeStamp,
-      isDeleted: isDeleted == freezed
-          ? _value.isDeleted
-          : isDeleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUploaded: isUploaded == freezed
-          ? _value.isUploaded
-          : isUploaded // ignore: cast_nullable_to_non_nullable
-              as bool,
-      content: content == freezed
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  }
-
-  @override
-  $UniqueIdCopyWith<$Res> get commentId {
-    return $UniqueIdCopyWith<$Res>(_value.commentId, (value) {
-      return _then(_value.copyWith(commentId: value));
-    });
   }
 
   @override
@@ -171,21 +119,13 @@ abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
       __$$_CommentCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String teamId,
-      String projectId,
-      String surveyId,
-      String respondentId,
-      UniqueId commentId,
+      {String commentId,
       String interviewerId,
       UniqueId deviceId,
       DeviceTimeStamp createdTimeStamp,
       DeviceTimeStamp lastChangedTimeStamp,
-      bool isDeleted,
-      bool isUploaded,
-      String content});
+      String message});
 
-  @override
-  $UniqueIdCopyWith<$Res> get commentId;
   @override
   $UniqueIdCopyWith<$Res> get deviceId;
   @override
@@ -205,40 +145,18 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? teamId = freezed,
-    Object? projectId = freezed,
-    Object? surveyId = freezed,
-    Object? respondentId = freezed,
     Object? commentId = freezed,
     Object? interviewerId = freezed,
     Object? deviceId = freezed,
     Object? createdTimeStamp = freezed,
     Object? lastChangedTimeStamp = freezed,
-    Object? isDeleted = freezed,
-    Object? isUploaded = freezed,
-    Object? content = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_Comment(
-      teamId: teamId == freezed
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
-      projectId: projectId == freezed
-          ? _value.projectId
-          : projectId // ignore: cast_nullable_to_non_nullable
-              as String,
-      surveyId: surveyId == freezed
-          ? _value.surveyId
-          : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      respondentId: respondentId == freezed
-          ? _value.respondentId
-          : respondentId // ignore: cast_nullable_to_non_nullable
-              as String,
       commentId: commentId == freezed
           ? _value.commentId
           : commentId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
@@ -255,17 +173,9 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
           ? _value.lastChangedTimeStamp
           : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
               as DeviceTimeStamp,
-      isDeleted: isDeleted == freezed
-          ? _value.isDeleted
-          : isDeleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUploaded: isUploaded == freezed
-          ? _value.isUploaded
-          : isUploaded // ignore: cast_nullable_to_non_nullable
-              as bool,
-      content: content == freezed
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -275,32 +185,16 @@ class __$$_CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
 
 class _$_Comment extends _Comment {
   const _$_Comment(
-      {required this.teamId,
-      required this.projectId,
-      required this.surveyId,
-      required this.respondentId,
-      required this.commentId,
+      {required this.commentId,
       required this.interviewerId,
       required this.deviceId,
       required this.createdTimeStamp,
       required this.lastChangedTimeStamp,
-      required this.isDeleted,
-      required this.isUploaded,
-      required this.content})
+      required this.message})
       : super._();
 
-// > 區分不同 comment
   @override
-  final String teamId;
-  @override
-  final String projectId;
-  @override
-  final String surveyId;
-  @override
-  final String respondentId;
-// > 區分 comment 版本
-  @override
-  final UniqueId commentId;
+  final String commentId;
   @override
   final String interviewerId;
   @override
@@ -310,17 +204,13 @@ class _$_Comment extends _Comment {
   final DeviceTimeStamp createdTimeStamp;
   @override
   final DeviceTimeStamp lastChangedTimeStamp;
-  @override
-  final bool isDeleted;
-  @override
-  final bool isUploaded;
 // > 內容
   @override
-  final String content;
+  final String message;
 
   @override
   String toString() {
-    return 'Comment(teamId: $teamId, projectId: $projectId, surveyId: $surveyId, respondentId: $respondentId, commentId: $commentId, interviewerId: $interviewerId, deviceId: $deviceId, createdTimeStamp: $createdTimeStamp, lastChangedTimeStamp: $lastChangedTimeStamp, isDeleted: $isDeleted, isUploaded: $isUploaded, content: $content)';
+    return 'Comment(commentId: $commentId, interviewerId: $interviewerId, deviceId: $deviceId, createdTimeStamp: $createdTimeStamp, lastChangedTimeStamp: $lastChangedTimeStamp, message: $message)';
   }
 
   @override
@@ -328,11 +218,6 @@ class _$_Comment extends _Comment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Comment &&
-            const DeepCollectionEquality().equals(other.teamId, teamId) &&
-            const DeepCollectionEquality().equals(other.projectId, projectId) &&
-            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
-            const DeepCollectionEquality()
-                .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality().equals(other.commentId, commentId) &&
             const DeepCollectionEquality()
                 .equals(other.interviewerId, interviewerId) &&
@@ -341,27 +226,18 @@ class _$_Comment extends _Comment {
                 .equals(other.createdTimeStamp, createdTimeStamp) &&
             const DeepCollectionEquality()
                 .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
-            const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
-            const DeepCollectionEquality()
-                .equals(other.isUploaded, isUploaded) &&
-            const DeepCollectionEquality().equals(other.content, content));
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(teamId),
-      const DeepCollectionEquality().hash(projectId),
-      const DeepCollectionEquality().hash(surveyId),
-      const DeepCollectionEquality().hash(respondentId),
       const DeepCollectionEquality().hash(commentId),
       const DeepCollectionEquality().hash(interviewerId),
       const DeepCollectionEquality().hash(deviceId),
       const DeepCollectionEquality().hash(createdTimeStamp),
       const DeepCollectionEquality().hash(lastChangedTimeStamp),
-      const DeepCollectionEquality().hash(isDeleted),
-      const DeepCollectionEquality().hash(isUploaded),
-      const DeepCollectionEquality().hash(content));
+      const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -371,30 +247,16 @@ class _$_Comment extends _Comment {
 
 abstract class _Comment extends Comment {
   const factory _Comment(
-      {required final String teamId,
-      required final String projectId,
-      required final String surveyId,
-      required final String respondentId,
-      required final UniqueId commentId,
+      {required final String commentId,
       required final String interviewerId,
       required final UniqueId deviceId,
       required final DeviceTimeStamp createdTimeStamp,
       required final DeviceTimeStamp lastChangedTimeStamp,
-      required final bool isDeleted,
-      required final bool isUploaded,
-      required final String content}) = _$_Comment;
+      required final String message}) = _$_Comment;
   const _Comment._() : super._();
 
-  @override // > 區分不同 comment
-  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get projectId => throw _privateConstructorUsedError;
-  @override
-  String get surveyId => throw _privateConstructorUsedError;
-  @override
-  String get respondentId => throw _privateConstructorUsedError;
-  @override // > 區分 comment 版本
-  UniqueId get commentId => throw _privateConstructorUsedError;
+  String get commentId => throw _privateConstructorUsedError;
   @override
   String get interviewerId => throw _privateConstructorUsedError;
   @override
@@ -404,12 +266,8 @@ abstract class _Comment extends Comment {
   @override
   DeviceTimeStamp get lastChangedTimeStamp =>
       throw _privateConstructorUsedError;
-  @override
-  bool get isDeleted => throw _privateConstructorUsedError;
-  @override
-  bool get isUploaded => throw _privateConstructorUsedError;
   @override // > 內容
-  String get content => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_CommentCopyWith<_$_Comment> get copyWith =>

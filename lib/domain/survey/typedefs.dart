@@ -1,15 +1,9 @@
-import 'dart:typed_data';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../core/value_objects.dart';
 import '../overview/survey.dart';
-import 'response.dart';
+import 'answer.dart';
+import 'answer_status.dart';
 
 typedef SurveyMap = Map<String, Survey>;
-typedef ResponseMap = Map<UniqueId, Response>;
-typedef TRawSurveyMap = Map<String, Uint8List?>;
-typedef TRawResponseMap = List<QueryDocumentSnapshot<Object?>>;
-typedef TRawReferenceList = Map<String, Map<String, dynamic>>;
+typedef AnswerMap = Map<String, Answer>;
+typedef AnswerStatusMap = Map<String, AnswerStatus>;
 
 class TypeDefSurvey {}

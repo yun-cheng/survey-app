@@ -5,7 +5,7 @@ import 'package:sliver_tools/sliver_tools.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/delayed_widget.dart';
@@ -37,7 +37,7 @@ class QaCard extends StatelessWidget {
     final questionType = question.type;
     final canEdit = context.read<QuestionBloc>().state.canEdit;
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       buildWhen: (p, c) =>
           p.showQIdSet.contains(questionId) !=
           c.showQIdSet.contains(questionId),
@@ -76,7 +76,7 @@ class QaCard extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     width: double.infinity,
-                    constraints: kCardMaxWith,
+                    constraints: kCardMaxWidth,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -127,7 +127,7 @@ class QaCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 width: double.infinity,
-                constraints: kCardMaxWith,
+                constraints: kCardMaxWidth,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [

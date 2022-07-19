@@ -1,20 +1,21 @@
 import 'dart:async';
 
+import '../overview/survey.dart';
 import '../overview/typedefs.dart';
 import 'survey_failure.dart';
 import 'typedefs.dart';
 
 abstract class ISurveyRepository {
-  Stream<SurveyMap> get surveyMapStream;
+  Future<void> get ready;
+
+  ProjectMap get projectMap;
+  Survey? get survey;
+  Survey? get simpleSurvey;
+
+  Stream<Survey> get surveyStream;
+  Stream<SurveyMap> get simpleSurveyMapStream;
   Stream<SurveyFailure> get failureStream;
-  FutureOr<ProjectMap> get projectMap;
 
-  Future<void> initialize();
-
-  // > local required
-  Future<void> getLocalRequired();
-
-  // > remote
   Future<void> watchRemoteSurveyMap({
     required String teamId,
     required String interviewerId,
@@ -24,6 +25,7 @@ abstract class ISurveyRepository {
     required String teamId,
   });
 
-  // > operations
   Future<void> selectSurvey(String surveyId);
+
+  Future<void> signOut();
 }

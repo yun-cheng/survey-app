@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../application/respondent/tab/tab_cubit.dart';
 import '../../domain/core/logger.dart';
@@ -10,7 +9,7 @@ import '../core/widgets/automatic_keep_alive_widget.dart';
 import 'respondents_tab_body.dart';
 import 'widgets/top_bar.dart';
 
-class RespondentsBody extends HookWidget {
+class RespondentsBody extends StatelessWidget {
   final TabController tabController;
 
   const RespondentsBody({
@@ -21,6 +20,7 @@ class RespondentsBody extends HookWidget {
   @override
   Widget build(BuildContext context) {
     logger('Build').i('RespondentsBody');
+    // * 不會 rebuild
 
     return Column(
       children: [

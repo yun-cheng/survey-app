@@ -1,14 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../application/auth/auth_bloc.dart';
 import '../../application/core/device/device_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
-import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/survey/survey_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../version.dart';
@@ -34,23 +31,15 @@ class OverviewPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                final networkIsConnected =
-                    context.read<DeviceBloc>().state.networkIsConnected;
-                final syncState = context.read<ResponseBloc>().state.syncState;
+                final syncState = context.read<DeviceBloc>().state.syncState;
 
-                if (syncState.isSuccess && (networkIsConnected || kIsWeb)) {
+                if (syncState.isSuccess) {
                   context.pushNamed('sign-in');
                   context.read<SurveyBloc>().add(const SurveyEvent.loggedOut());
                   context
                       .read<RespondentBloc>()
                       .add(const RespondentEvent.loggedOut());
-                  context
-                      .read<ResponseBloc>()
-                      .add(const ResponseEvent.loggedOut());
                   context.read<AuthBloc>().add(const AuthEvent.loggedOut());
-                  context
-                      .read<UploadAudioBloc>()
-                      .add(const UploadAudioEvent.loggedOut());
                   context
                       .read<NavigationBloc>()
                       .add(const NavigationEvent.loggedOut());

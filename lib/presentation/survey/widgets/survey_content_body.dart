@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/automatic_keep_alive_widget.dart';
 
@@ -14,15 +13,12 @@ class SurveyContentBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       // * 回復 response 或該頁題目有變更時才需要 rebuild
-      buildWhen: (p, c) =>
-          (p.restoreState != c.restoreState &&
-              c.restoreState == LoadState.success()) ||
-          !const DeepCollectionEquality().equals(
-            p.contentQIdSet,
-            c.contentQIdSet,
-          ),
+      buildWhen: (p, c) => !const DeepCollectionEquality().equals(
+        p.contentQIdSet,
+        c.contentQIdSet,
+      ),
       builder: (context, state) {
         logger('Build').i('SurveyContentBody');
 
@@ -68,7 +64,7 @@ class SurveyContentBody extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topCenter,
                 child: ConstrainedBox(
-                  constraints: kCardMaxWith,
+                  constraints: kCardMaxWidth,
                   child: Card(
                     child: ListTile(
                       leading: leadingIcon,
@@ -80,8 +76,8 @@ class SurveyContentBody extends StatelessWidget {
                         softWrap: false,
                       ),
                       onTap: () {
-                        context.read<UpdateAnswerStatusBloc>().add(
-                              UpdateAnswerStatusEvent.navigatedToQuestionId(
+                        context.read<AnswerBloc>().add(
+                              AnswerEvent.navigatedToQuestionId(
                                 page: page,
                                 questionId: questionId,
                               ),

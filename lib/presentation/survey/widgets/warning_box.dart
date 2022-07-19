@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 
 class WarningBox extends StatelessWidget {
@@ -18,14 +17,8 @@ class WarningBox extends StatelessWidget {
     final questionId = question.id;
     final withinCell = context.read<QuestionBloc>().state.withinCell;
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      buildWhen: (p, c) =>
-          (p.updateState != c.updateState &&
-              c.updateState == LoadState.success()) &&
-          (p.answerStatusMap[questionId] != c.answerStatusMap[questionId] ||
-              p.recodeAnswerStatusMap[questionId] !=
-                  c.recodeAnswerStatusMap[questionId] ||
-              p.showWarning != c.showWarning),
+    return BlocBuilder<AnswerBloc, AnswerState>(
+      buildWhen: (p, c) => c.warningChanged(p, questionId),
       builder: (context, state) {
         logger('Build').i('WarningBox');
 

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'listeners/audio_recorder_listener.dart';
 import 'listeners/navigation_listener.dart';
-import 'listeners/response_restore_listener.dart';
 import 'listeners/survey_dialog_listener.dart';
 import 'listeners/survey_event_state_listener.dart';
-import 'listeners/survey_restart_state_listener.dart';
 import 'listeners/watch_firestore_listener.dart';
 
 class AppListeners extends StatelessWidget {
@@ -21,15 +18,10 @@ class AppListeners extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        // > core
         navigationListener,
         watchFirestoreListener,
-        // > survey
-        audioRecorderListener,
-        responseRestoreListener,
+        leaveSurveyListener,
         surveyDialogListener,
-        surveyEventStateListener,
-        surveyRestartStateListener,
       ],
       child: child,
     );

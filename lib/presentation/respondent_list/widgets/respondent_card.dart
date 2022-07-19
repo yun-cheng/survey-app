@@ -4,16 +4,13 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/respondent/respondent/respondent_cubit.dart';
 import '../../../application/respondent/respondent_bloc.dart';
-import '../../../application/respondent/respondents_page/respondents_page_bloc.dart';
 import '../../../application/respondent/tab/tab_cubit.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/survey/value_objects.dart';
+import '../../../domain/respondent/respondent.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/w_ink_well.dart';
-import 'housing_box.dart';
-import 'module_button.dart';
-import 'visit_history.dart';
+import 'respondent_card_expanded_area.dart';
 
 class RespondentCard extends HookWidget {
   const RespondentCard({
@@ -27,9 +24,10 @@ class RespondentCard extends HookWidget {
     final tabType = context.read<TabCubit>().state;
     final respondent = context.read<RespondentCubit>().state;
     final isSelected = useState(
-        context.read<RespondentsPageBloc>().state.selectedRespondentId ==
-            respondent.id);
+      context.read<RespondentBloc>().state.respondent.id == respondent.id,
+    );
 
+    // > animation
     final controller = useAnimationController(
       duration: const Duration(milliseconds: 250),
       initialValue: isSelected.value ? 1 : 0,
@@ -45,13 +43,13 @@ class RespondentCard extends HookWidget {
       curve: Curves.easeInToLinear,
     );
 
-    useBlocListener<RespondentsPageBloc, RespondentsPageState>(
+    useBlocListener<RespondentBloc, RespondentState>(
       listenWhen: (p, c) =>
-          // - 改變前後跟此卡片有關
-          p.selectedRespondentId == respondent.id ||
-          c.selectedRespondentId == respondent.id,
+          // * 改變前後跟此卡片有關
+          p.isCurrentRespondent(respondent.id) ||
+          c.isCurrentRespondent(respondent.id),
       listener: (context, state) {
-        if (state.selectedRespondentId == respondent.id) {
+        if (state.isCurrentRespondent(respondent.id)) {
           isSelected.value = true;
           controller.forward();
         } else {
@@ -68,9 +66,10 @@ class RespondentCard extends HookWidget {
       ),
       child: WInkWell(
         onTap: () {
-          context.read<RespondentsPageBloc>().add(
-                RespondentsPageEvent.respondentSelected(
-                  respondentId: respondent.id,
+          context.read<RespondentBloc>().add(
+                RespondentEvent.respondentSelected(
+                  respondent:
+                      isSelected.value ? Respondent.empty() : respondent,
                 ),
               );
         },
@@ -90,21 +89,16 @@ class RespondentCard extends HookWidget {
                     respondent.id,
                     style: kCardH4TextStyle,
                   ),
-                  // > last visit record status
+                  // > 最後一筆查址紀錄
                   BlocBuilder<RespondentBloc, RespondentState>(
                     buildWhen: (p, c) =>
-                        p.lastVisitRecordMap[respondent.id] !=
-                        c.lastVisitRecordMap[respondent.id],
+                        c.lastVisitRecordChanged(p, respondent.id),
                     builder: (context, state) {
-                      // - 查址紀錄有變時
-                      String lastVisitRecordStatus =
-                          state.lastVisitRecordMap[respondent.id] ?? '';
-
-                      lastVisitRecordStatus =
-                          tabType.index > 0 ? '完訪 100' : lastVisitRecordStatus;
+                      String status = state.visitRecordMap[respondent.id] ?? '';
+                      status = tabType.index > 0 ? '完訪 100' : status;
 
                       return Text(
-                        lastVisitRecordStatus,
+                        status,
                         style: kCardH4TextStyle,
                       );
                     },
@@ -114,7 +108,7 @@ class RespondentCard extends HookWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // > remain address
+                  // > 地址
                   Text(
                     respondent.remainAddress,
                     style: kCardH2TextStyle,
@@ -124,63 +118,15 @@ class RespondentCard extends HookWidget {
                   ),
                 ],
               ),
+              // > 展開部分
               SizeTransition(
                 axisAlignment: 1,
                 sizeFactor: sizeAnimation,
                 child: FadeTransition(
                   opacity: opacityAnimation,
-                  child: Visibility(
-                    visible: isSelected.value,
-                    maintainState: true,
-                    // TODO 抽出 widget
-                    child: Column(
-                      children: [
-                        const SizedBox(height: kPFontSize),
-                        // > module buttons
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            Wrap(
-                              alignment: WrapAlignment.start,
-                              spacing: kPFontSize,
-                              runSpacing: kPFontSize,
-                              children: <Widget>[
-                                ModuleButton(
-                                  ModuleType.samplingWithinHousehold(),
-                                ),
-                                ModuleButton(
-                                  ModuleType.main(),
-                                ),
-                                if (tabType.isStart) ...[
-                                  ModuleButton(
-                                    ModuleType.visitReport(),
-                                  ),
-                                ],
-                                ModuleButton(
-                                  ModuleType.housingType(),
-                                ),
-                                if (tabType.index >= 2) ...[
-                                  ModuleButton(
-                                    ModuleType.interviewReport(),
-                                  ),
-                                ],
-                                if (tabType.index >= 3) ...[
-                                  ModuleButton(
-                                    ModuleType.recode(),
-                                  ),
-                                ],
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: kPFontSize),
-                        // > housing box
-                        const HousingBox(),
-                        // > visit history
-                        const VisitHistory(),
-                      ],
-                    ),
-                  ),
+                  child: isSelected.value
+                      ? const RespondentCardExpandedArea()
+                      : const SizedBox(),
                 ),
               ),
             ],

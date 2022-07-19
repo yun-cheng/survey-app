@@ -6,13 +6,12 @@ class DeviceState with _$DeviceState {
 
   const factory DeviceState({
     required bool networkIsConnected,
-    required bool appIsPaused,
-    // TODO deviceId
-  }) = _NetworkState;
+    required SyncState syncState,
+  }) = _DeviceState;
 
-  factory DeviceState.initial() =>  const DeviceState(
+  factory DeviceState.initial() => DeviceState(
         networkIsConnected: false,
-        appIsPaused: false,
+        syncState: SyncState.inProgress(),
       );
 
   void emit(Emitter<DeviceState> emit) {

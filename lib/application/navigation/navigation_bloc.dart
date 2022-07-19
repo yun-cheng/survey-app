@@ -29,15 +29,14 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
   ) async {
     await event.maybeMap(
       initialized: (e) async {
-        await repo.initialize();
+        await repo.ready;
       },
       // > app 啟動時，回復上次的 route
       pageRestored: (e) async {
-        final page = repo.restorePage();
         state
             .copyWith(
               pushPage: true,
-              page: page,
+              page: repo.page,
             )
             .emit(emit);
       },

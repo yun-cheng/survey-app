@@ -56,6 +56,11 @@ class NavigationPage with _$NavigationPage {
   factory NavigationPage.overview() => const NavigationPage('overview');
   factory NavigationPage.respondent() => const NavigationPage('respondent');
   factory NavigationPage.survey() => const NavigationPage('survey');
+
+  bool get isSignIn => this == NavigationPage.signIn();
+  bool get isOverview => this == NavigationPage.overview();
+  bool get isRespondent => this == NavigationPage.respondent();
+  bool get isSurvey => this == NavigationPage.survey();
 }
 
 @freezed
@@ -96,8 +101,10 @@ class SyncState with _$SyncState {
 
   factory SyncState.empty() => const SyncState('');
   factory SyncState.inProgress() => const SyncState('inProgress');
-  factory SyncState.failure() => const SyncState('failure');
   factory SyncState.success() => const SyncState('success');
+  factory SyncState.networkUnavailable() =>
+      const SyncState('networkUnavailable');
+  factory SyncState.failure() => const SyncState('failure');
 
   bool get isSuccess => value == 'success';
 
@@ -105,24 +112,14 @@ class SyncState with _$SyncState {
     switch (value) {
       case 'inProgress':
         return '資料同步中';
-      case 'failure':
-        return '資料同步失敗';
       case 'success':
         return '資料已同步';
+      case 'networkUnavailable':
+        return '未連接網路';
+      case 'failure':
+        return '資料同步失敗';
       default:
         return '資料同步中';
     }
   }
-}
-
-@freezed
-class DtoInfo with _$DtoInfo {
-  const DtoInfo._();
-
-  const factory DtoInfo({
-    String? box,
-    String? key,
-    @Default(false) bool readOnly,
-    @Default(false) bool isMapEntries,
-  }) = _DtoInfo;
 }

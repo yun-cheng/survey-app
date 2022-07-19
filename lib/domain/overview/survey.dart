@@ -35,7 +35,7 @@ class Survey with _$Survey {
     );
   }
 
-  String versionText() => isCompatible ? '$version版' : '版本不相容 ($version版)';
+  String get versionText => isCompatible ? '$version版' : '版本不相容 ($version版)';
 
   Survey simplify() => copyWith(
         module: {},

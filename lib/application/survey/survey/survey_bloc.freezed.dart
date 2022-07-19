@@ -19,7 +19,7 @@ mixin _$SurveyEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchSurveyMapStarted,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String surveyId) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() initialized,
@@ -28,7 +28,7 @@ mixin _$SurveyEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -37,7 +37,7 @@ mixin _$SurveyEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -134,7 +134,7 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchSurveyMapStarted,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String surveyId) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() initialized,
@@ -146,7 +146,7 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -158,7 +158,7 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -221,9 +221,7 @@ abstract class _$$_SurveySelectedCopyWith<$Res> {
   factory _$$_SurveySelectedCopyWith(
           _$_SurveySelected value, $Res Function(_$_SurveySelected) then) =
       __$$_SurveySelectedCopyWithImpl<$Res>;
-  $Res call({Survey survey});
-
-  $SurveyCopyWith<$Res> get survey;
+  $Res call({String surveyId});
 }
 
 /// @nodoc
@@ -239,35 +237,28 @@ class __$$_SurveySelectedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? survey = freezed,
+    Object? surveyId = freezed,
   }) {
     return _then(_$_SurveySelected(
-      survey: survey == freezed
-          ? _value.survey
-          : survey // ignore: cast_nullable_to_non_nullable
-              as Survey,
+      surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  $SurveyCopyWith<$Res> get survey {
-    return $SurveyCopyWith<$Res>(_value.survey, (value) {
-      return _then(_value.copyWith(survey: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_SurveySelected implements _SurveySelected {
-  const _$_SurveySelected({required this.survey});
+  const _$_SurveySelected(this.surveyId);
 
   @override
-  final Survey survey;
+  final String surveyId;
 
   @override
   String toString() {
-    return 'SurveyEvent.surveySelected(survey: $survey)';
+    return 'SurveyEvent.surveySelected(surveyId: $surveyId)';
   }
 
   @override
@@ -275,12 +266,12 @@ class _$_SurveySelected implements _SurveySelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SurveySelected &&
-            const DeepCollectionEquality().equals(other.survey, survey));
+            const DeepCollectionEquality().equals(other.surveyId, surveyId));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(survey));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(surveyId));
 
   @JsonKey(ignore: true)
   @override
@@ -291,38 +282,38 @@ class _$_SurveySelected implements _SurveySelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchSurveyMapStarted,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String surveyId) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() initialized,
   }) {
-    return surveySelected(survey);
+    return surveySelected(surveyId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
   }) {
-    return surveySelected?.call(survey);
+    return surveySelected?.call(surveyId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
-      return surveySelected(survey);
+      return surveySelected(surveyId);
     }
     return orElse();
   }
@@ -370,10 +361,9 @@ class _$_SurveySelected implements _SurveySelected {
 }
 
 abstract class _SurveySelected implements SurveyEvent {
-  const factory _SurveySelected({required final Survey survey}) =
-      _$_SurveySelected;
+  const factory _SurveySelected(final String surveyId) = _$_SurveySelected;
 
-  Survey get survey => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -420,7 +410,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchSurveyMapStarted,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String surveyId) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() initialized,
@@ -432,7 +422,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -444,7 +434,7 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -577,7 +567,7 @@ class _$_StateEmitted implements _StateEmitted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchSurveyMapStarted,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String surveyId) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() initialized,
@@ -589,7 +579,7 @@ class _$_StateEmitted implements _StateEmitted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -601,7 +591,7 @@ class _$_StateEmitted implements _StateEmitted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -705,7 +695,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchSurveyMapStarted,
-    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String surveyId) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() initialized,
@@ -717,7 +707,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,
@@ -729,7 +719,7 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchSurveyMapStarted,
-    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String surveyId)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? initialized,

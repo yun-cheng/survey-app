@@ -1,36 +1,23 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../application/survey/comment/comment_bloc.dart';
-import 'typedefs.dart';
+import 'response_comments.dart';
 
 abstract class ICommentRepository {
-  Future<void> initialize();
+  Future<void> get ready;
 
-  // > local required
-  Future<void> getLocalRequired();
+  ResponseComments? get responseComments;
+  Set<String> get uploadSet;
 
-  // > local state
-  Future<CommentState> getLocalState();
+  Stream<Set<String>> get uploadSetStream;
 
-  Future<void> saveLocalState(CommentState state);
-
-  // > local comments
-  Future<void> getLocalComments();
-
-  Future<void> updateLocalComments();
-
-  // > remote
-  Stream<Either<String, String>> watchRemoteComments();
-
-  void updateRemoteComments();
-
-  // > operations
-  void addComment(
-    String content,
-  );
-
-  Stream<CommentList> filterComments({
-    required String surveyId,
-    required String respondentId,
+  Future<void> watchRemoteResponseCommentsMap({
+    required String teamId,
+    required String interviewerId,
   });
+
+  Future<void> uploadResponseCommentsMap();
+
+  Future<ResponseComments> loadResponseComments();
+
+  Future<ResponseComments> addComment(String message);
+
+  Future<void> updateResponseComments(ResponseComments responseComments);
 }

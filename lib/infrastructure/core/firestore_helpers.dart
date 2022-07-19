@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 extension FirestoreX on FirebaseFirestore {
+  String get newId => collection('teams').doc().id;
   CollectionReference get teamCollection => collection('team');
   CollectionReference get projectCollection => collection('project');
   CollectionReference get interviewerListCollection =>
@@ -14,7 +15,7 @@ extension FirestoreX on FirebaseFirestore {
   CollectionReference get referenceCollection =>
       collection('interviewerReferenceList');
   CollectionReference get responseCollection => collection('surveyResponse');
-  CollectionReference get commentCollection => collection('surveyComment');
+  CollectionReference get commentCollection => collection('responseComments');
   CollectionReference get compatibilityCollection =>
       collection('surveyCompatibility');
 }

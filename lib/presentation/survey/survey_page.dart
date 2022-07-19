@@ -4,9 +4,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
+import '../../application/survey/answer/answer_bloc.dart';
 import '../../application/survey/block_gesture_cubit.dart';
 import '../../application/survey/comment/comment_bloc.dart';
-import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import 'widgets/gesture_blocker_box.dart';
@@ -47,18 +47,32 @@ class SurveyPage extends HookWidget {
               const LoadingBox(),
               const SizedBox(width: 10),
               const ReAnswerButton(),
-              IconButton(
-                icon: const Icon(Icons.chat_bubble_outline),
-                onPressed: () {
-                  context.pushNamed('survey-comment');
+              BlocBuilder<AnswerBloc, AnswerState>(
+                buildWhen: (p, c) => c.restoreStateChanged(p),
+                builder: (context, state) {
+                  final showComments =
+                      state.isReadOnly && state.moduleType.isMain;
+
+                  if (!showComments) {
+                    return const SizedBox();
+                  }
+
+                  return IconButton(
+                    icon: const Icon(Icons.chat_bubble_outline),
+                    onPressed: () {
+                      context.read<CommentBloc>().add(
+                            const CommentEvent.commentLoaded(),
+                          );
+                      context.pushNamed('survey-comments');
+                    },
+                  );
                 },
               ),
               IconButton(
                 icon: const Icon(Icons.format_list_bulleted),
                 onPressed: () {
-                  context.read<UpdateAnswerStatusBloc>().add(
-                        const UpdateAnswerStatusEvent
-                            .contentQuestionMapUpdated(),
+                  context.read<AnswerBloc>().add(
+                        const AnswerEvent.contentQuestionMapUpdated(),
                       );
                   context.pushNamed('survey-content');
                 },

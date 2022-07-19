@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/respondent/respondent_bloc.dart';
+import '../../../application/survey/survey/survey_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
 import 'group_dropdown.dart';
@@ -22,7 +22,7 @@ class TopBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<RespondentBloc, RespondentState>(
+          BlocBuilder<SurveyBloc, SurveyState>(
             buildWhen: (p, c) => p.survey.name != c.survey.name,
             builder: (context, state) {
               return Text(

@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../../domain/survey/answer_status.dart';
 import '../../core/style/main.dart';
 import 'question_box.dart';
 import 'simple_table_answer_box.dart';
@@ -27,15 +26,9 @@ class SimpleTableQARow extends StatelessWidget {
     final questionId = question.id;
     final canEdit = context.read<QuestionBloc>().state.canEdit;
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      buildWhen: (p, c) {
-        if (p.updateState != c.updateState &&
-            c.updateState == LoadState.success()) {
-          return p.showQIdSet.contains(questionId) !=
-              c.showQIdSet.contains(questionId);
-        }
-        return false;
-      },
+    return BlocBuilder<AnswerBloc, AnswerState>(
+      buildWhen: (p, c) =>
+          c.answerStatusIsUpdated && c.qIdChanged(p, questionId),
       builder: (context, state) {
         logger('Build').i('SimpleTableRow');
 

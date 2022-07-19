@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/block_gesture_cubit.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 
 class WarningButton extends StatelessWidget {
@@ -14,10 +13,9 @@ class WarningButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       buildWhen: (p, c) =>
-          (p.updateState != c.updateState &&
-              c.updateState == LoadState.success()) &&
+          (c.eventStateSuccess(p)) &&
           (p.warning != c.warning || p.showWarning != c.showWarning),
       builder: (context, state) {
         logger('Build').i('WarningButton');
@@ -37,8 +35,8 @@ class WarningButton extends StatelessWidget {
               style: kWarningButtonStyle,
               onPressed: () {
                 context.read<BlockGestureCubit>().block();
-                context.read<UpdateAnswerStatusBloc>().add(
-                      UpdateAnswerStatusEvent.jumpedToWarningQuestion(
+                context.read<AnswerBloc>().add(
+                      AnswerEvent.jumpedToWarningQuestion(
                         questionId: warning.id,
                       ),
                     );

@@ -1,5 +1,3 @@
-import '../../core/value_objects.dart';
-import 'comment.dart';
+import 'response_comments.dart';
 
-typedef CommentMap = Map<UniqueId, Comment>;
-typedef CommentList = List<Comment>;
+typedef ResponseCommentsMap = Map<String, ResponseComments>;

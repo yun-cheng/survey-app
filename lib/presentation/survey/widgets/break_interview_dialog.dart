@@ -2,13 +2,8 @@ import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
-import '../../../application/navigation/navigation_bloc.dart';
-import '../../../application/survey/response/response_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
 
 class BreakInterviewDialog extends StatelessWidget {
@@ -36,44 +31,12 @@ class BreakInterviewDialog extends StatelessWidget {
           ),
           onPressed: () async {
             controller.dismiss();
-            context.read<UpdateAnswerStatusBloc>().add(
-                  const UpdateAnswerStatusEvent.dialogClosed(),
+            context.read<AnswerBloc>().add(
+                  const AnswerEvent.responseEnded(
+                    confirmEnding: true,
+                  ),
                 );
 
-            final moduleType =
-                context.read<UpdateAnswerStatusBloc>().state.moduleType;
-
-            context
-                .read<AudioRecorderBloc>()
-                .add(const AudioRecorderEvent.recordStopped());
-            context.read<ResponseBloc>().add(
-                  const ResponseEvent.editFinished(responseFinished: false),
-                );
-            context.read<UpdateAnswerStatusBloc>().add(
-                  const UpdateAnswerStatusEvent.stateCleared(),
-                );
-
-            // - 進入中止訪問後的查址模組
-            if (moduleType.isMain) {
-              context.read<UpdateAnswerStatusBloc>().add(
-                    const UpdateAnswerStatusEvent.leaveButtonHidden(),
-                  );
-              final respondent = context.read<ResponseBloc>().state.respondent;
-              context.read<ResponseBloc>().add(
-                    ResponseEvent.responseStarted(
-                      respondent: respondent,
-                      moduleType: ModuleType.visitReport(),
-                      breakInterview: true,
-                    ),
-                  );
-            } else {
-              context.read<NavigationBloc>().add(
-                    NavigationEvent.pageChanged(
-                      page: NavigationPage.respondent(),
-                    ),
-                  );
-              Navigator.popUntil(context, ModalRoute.withName('respondents'));
-            }
           },
         ),
         TextButton(
@@ -83,19 +46,9 @@ class BreakInterviewDialog extends StatelessWidget {
           ),
           onPressed: () {
             controller.dismiss();
-            context.read<UpdateAnswerStatusBloc>().add(
-                  const UpdateAnswerStatusEvent.dialogClosed(),
+            context.read<AnswerBloc>().add(
+                  const AnswerEvent.responseResumed(),
                 );
-
-            // - 開新的 response，並開始錄音
-            final fileName = UniqueId.v1();
-            context.read<ResponseBloc>().add(
-                  ResponseEvent.responseResumed(fileName),
-                );
-
-            context
-                .read<AudioRecorderBloc>()
-                .add(AudioRecorderEvent.recordStarted(fileName));
           },
         ),
       ],

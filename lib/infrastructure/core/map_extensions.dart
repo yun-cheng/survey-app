@@ -9,8 +9,16 @@ extension MapX<K, V> on Map<K, V> {
     return map((key, value) => MapEntry(key, convert(value)));
   }
 
+  List<R> mapEntries<R>(R Function(K, V) convert) {
+    return entries.map((e) => convert(e.key, e.value)).toList();
+  }
+
   void updateValues(V Function(V) update) {
     updateAll((key, value) => update(value));
+  }
+
+  Map<K, V> subsetKeys(Iterable<K> keys) {
+    return keys.map((k) => MapEntry(k, this[k]!)).toMap();
   }
 
   Map<K, V> filterByKeys(bool Function(K) test) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
 import 'answer_box.dart';
@@ -28,7 +28,7 @@ class ComplexCellBox extends StatelessWidget {
     final questionId = question.id;
     final canEdit = context.read<QuestionBloc>().state.canEdit;
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       // - 在該題顯示/隱藏狀態改變時
       // - 在該 column 顯示/隱藏狀態改變時
       buildWhen: (p, c) =>

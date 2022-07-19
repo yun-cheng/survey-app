@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
-import '../../application/respondent/respondents_page/respondents_page_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
@@ -19,6 +18,7 @@ class RespondentsPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     logger('Build').i('RespondentsPage');
+    // * 不會 rebuild
 
     // > tabController
     final tabController = useTabController(initialLength: 5);
@@ -29,8 +29,8 @@ class RespondentsPage extends HookWidget {
       tabController.addListener(() {
         if (tabController.indexIsChanging ||
             (tabController.index != tabController.previousIndex)) {
-          context.read<RespondentsPageBloc>().add(
-                RespondentsPageEvent.tabSwitched(
+          context.read<RespondentBloc>().add(
+                RespondentEvent.tabSwitched(
                   tab: TabType.values.elementAt(tabController.index),
                 ),
               );
@@ -46,9 +46,6 @@ class RespondentsPage extends HookWidget {
             onPressed: () {
               context.read<RespondentBloc>().add(
                     const RespondentEvent.leaveButtonPressed(),
-                  );
-              context.read<RespondentsPageBloc>().add(
-                    const RespondentsPageEvent.stateCleared(),
                   );
               context.read<NavigationBloc>().add(
                     NavigationEvent.pageChanged(

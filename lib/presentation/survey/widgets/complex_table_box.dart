@@ -6,7 +6,7 @@ import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/question.dart';
@@ -45,7 +45,7 @@ class ComplexTableBox extends HookWidget {
 
     // > state
     final _context = useContext();
-    final state = _context.read<UpdateAnswerStatusBloc>().state;
+    final state = _context.read<AnswerBloc>().state;
 
     final titleQuestionList = useRef(<Question>[]);
     final rowQuestionMap = useRef(<int, List<Question>>{});

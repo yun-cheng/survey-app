@@ -14,7 +14,7 @@ class SplashPage extends HookWidget {
     final repo = getIt<ICommonRepository>();
 
     useOnAppLifecycleStateChange(
-      (p, c) => repo.updateAppLifeCycle(c),
+      (p, c) => repo.onAppLifeCycleChanged(c),
     );
 
     return const AppListeners(

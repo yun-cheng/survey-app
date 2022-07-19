@@ -2,29 +2,70 @@ import 'dart:async';
 
 import 'package:async_task/async_task.dart';
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:tuple/tuple.dart';
 
-import '../../domain/core/logger.dart';
 import 'json_converter.dart';
 
+@singleton
 class IsolateLocalStorage {
   AsyncExecutor? executor;
-  AsyncTaskChannel? channel;
+  final channelList = <AsyncTaskChannel>[];
+  final boxChannel = {
+    'common': 0,
+    'surveyRespondentMap': 0,
+    'referenceList': 0,
+    'projectMap': 0,
+    'surveyMap': 0,
+    'responseMap': 1,
+    'responseUploadSet': 1,
+    'audioMap': 2,
+    'audioUploadSet': 2,
+    'responseCommentsMap': 2,
+    'responseCommentsUploadSet': 2,
+  };
+
+  final _completer = Completer();
+  Future<void> get ready =>
+      _completer.isCompleted ? Future.value() : _completer.future;
+
+  IsolateLocalStorage() {
+    initialize();
+  }
 
   Future<void> initialize() async {
+    // > external storage
+    final storagePermission = await Permission.storage.isGranted;
+    if (!storagePermission) {
+      await Permission.storage.request();
+    }
+
+    const instance = 3;
     executor = AsyncExecutor(
       name: 'IsolateLocalStorage',
-      // sequential: true,
-      parallelism: 1,
+      parallelism: instance,
       taskTypeRegister: _taskTypeRegister,
     );
-    final asyncTask = LocalStorageTask();
-    executor!.execute(asyncTask);
-    // * 用來傳資訊進 isolate
-    channel = await asyncTask.channel();
+
     final appDirPath =
         await getApplicationDocumentsDirectory().then((dir) => dir.path);
-    channel!.send(appDirPath);
+    final extDirPath =
+        await getExternalStorageDirectory().then((dir) => dir?.path ?? '');
+
+    int i = 0;
+    while (i < instance) {
+      final asyncTask = LocalStorageTask();
+      executor!.execute(asyncTask);
+      // * 用來傳資訊進 isolate
+      final channel = await asyncTask.channel();
+      channel!.send(Tuple2(appDirPath, extDirPath));
+      channelList.add(channel);
+      i++;
+    }
+
+    _completer.complete();
   }
 
   Future<T?> read<T>({
@@ -34,7 +75,8 @@ class IsolateLocalStorage {
     bool allKeys = false,
     Function? toDomain,
   }) async {
-    return channel!.sendAndWaitResponse(
+    final channel = channelList[boxChannel[box]!];
+    return channel.sendAndWaitResponse(
       ReadLocalStorage(
         box: box,
         key: key,
@@ -48,15 +90,18 @@ class IsolateLocalStorage {
   Future<String> write({
     required String box,
     String? key,
+    List<String>? keys,
     bool isMapEntries = false,
     dynamic data,
     Function? toJson,
     bool clear = false,
   }) async {
-    return channel!.sendAndWaitResponse(
+    final channel = channelList[boxChannel[box]!];
+    return channel.sendAndWaitResponse(
       WriteLocalStorage(
         box: box,
         key: key,
+        keys: keys,
         isMapEntries: isMapEntries,
         data: data,
         toJson: toJson,
@@ -67,7 +112,9 @@ class IsolateLocalStorage {
 
   void close() {
     executor?.close();
-    channel?.close();
+    for (final channel in channelList) {
+      channel.close();
+    }
   }
 }
 
@@ -92,6 +139,7 @@ class ReadLocalStorage {
 class WriteLocalStorage {
   final String box;
   final String? key;
+  final List<String>? keys;
   final bool isMapEntries;
   final dynamic data;
   final Function? toJson;
@@ -100,6 +148,7 @@ class WriteLocalStorage {
   WriteLocalStorage({
     required this.box,
     this.key,
+    this.keys,
     this.isMapEntries = false,
     this.data,
     this.toJson,
@@ -111,6 +160,14 @@ class WriteLocalStorage {
 class LocalStorageTask extends AsyncTask<Map, void> {
   final jsonConverter = MyJsonConverter();
   final boxMap = <String, LazyBox>{};
+  final backupBoxes = [
+    'responseMap',
+    'responseUploadSet',
+    'audioMap',
+    'audioUploadSet',
+    'responseCommentsMap',
+    'responseCommentsUploadSet',
+  ];
 
   @override
   AsyncTask<Map, void> instantiate(
@@ -129,9 +186,11 @@ class LocalStorageTask extends AsyncTask<Map, void> {
   FutureOr<void> run() async {
     final channel = channelResolved()!;
 
-    final path = await channel.waitMessage();
+    final tuple = await channel.waitMessage() as Tuple2<String, String>;
+    final appDirPath = tuple.item1;
+    final extDirPath = tuple.item2;
 
-    Hive.init(path);
+    Hive.init(appDirPath);
 
     Future<LazyBox> openBox(
       String box,
@@ -139,6 +198,16 @@ class LocalStorageTask extends AsyncTask<Map, void> {
       if (!boxMap.keys.contains(box)) {
         final lazyBox = await Hive.openLazyBox(box);
         boxMap[box] = lazyBox;
+
+        // - 備份
+        if (backupBoxes.contains(box)) {
+          final backupName = 'backup' + box;
+          final backupBox = await Hive.openLazyBox(
+            backupName,
+            path: extDirPath,
+          );
+          boxMap[backupName] = backupBox;
+        }
       }
       return boxMap[box]!;
     }
@@ -202,6 +271,18 @@ class LocalStorageTask extends AsyncTask<Map, void> {
         } else if (msg.data != null) {
           lazyBox.putAll(data);
         }
+
+        // - 備份
+        if (backupBoxes.contains(msg.box)) {
+          final backupBox = boxMap['backup' + msg.box]!;
+
+          if (!msg.isMapEntries) {
+            backupBox.put(msg.key ?? 'state', data);
+          } else if (msg.data != null) {
+            backupBox.putAll(data);
+          }
+        }
+
         channel.send('done');
       }
     }

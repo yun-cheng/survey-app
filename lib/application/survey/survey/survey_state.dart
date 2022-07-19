@@ -45,4 +45,13 @@ class SurveyState with _$SurveyState {
       ),
     );
   }
+
+  bool surveyCardInfoChanged(SurveyState previousState, String surveyId) {
+    final survey = surveyMap[surveyId]!;
+    final pSurvey = previousState.surveyMap[surveyId]!;
+    final project = projectMap[survey.projectId];
+    final pProject = previousState.projectMap[survey.projectId];
+
+    return pProject?.name != project?.name || pSurvey != survey;
+  }
 }

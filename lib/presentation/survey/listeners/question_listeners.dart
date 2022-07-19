@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
-import '../../../domain/core/value_objects.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 
 class QuestionListeners extends StatelessWidget {
   final Widget child;
@@ -26,8 +25,8 @@ class QuestionListeners extends StatelessWidget {
             // !!! 不需事先與 bloc 的 answer 比對，
             //  因短時間快速切換 answer 可能不是比對到真正最新的 answer，而造成錯誤！
             if (state.answer.isNotEmpty) {
-              context.read<UpdateAnswerStatusBloc>().add(
-                    UpdateAnswerStatusEvent.answerUpdated(
+              context.read<AnswerBloc>().add(
+                    AnswerEvent.answerUpdated(
                       questionId: questionId,
                       answerValue: null,
                       answer: state.answer,
@@ -40,8 +39,8 @@ class QuestionListeners extends StatelessWidget {
         BlocListener<QuestionBloc, QuestionState>(
           listenWhen: (p, c) => p.isSpecialAnswer != c.isSpecialAnswer,
           listener: (context, state) {
-            context.read<UpdateAnswerStatusBloc>().add(
-                  UpdateAnswerStatusEvent.answerUpdated(
+            context.read<AnswerBloc>().add(
+                  AnswerEvent.answerUpdated(
                     questionId: questionId,
                     answerValue: null,
                     setIsSpecialAnswer: state.isSpecialAnswer,
@@ -51,10 +50,9 @@ class QuestionListeners extends StatelessWidget {
         ),
         // > 該題作答清空時，更新 local answer
         // FIXME 在快速切換答案後，切換特殊作答並答題，顯示的作答會因這邊被清空，但資料沒問題
-        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+        BlocListener<AnswerBloc, AnswerState>(
           listenWhen: (p, c) =>
-              p.updateState != c.updateState &&
-              c.updateState == LoadState.success() &&
+              c.answerIsUpdated &&
               c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]!.isEmpty,
           listener: (context, state) {
@@ -65,7 +63,7 @@ class QuestionListeners extends StatelessWidget {
             }
           },
         ),
-        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+        BlocListener<AnswerBloc, AnswerState>(
           listenWhen: (p, c) =>
               p.showQIdSet.contains(questionId) !=
               c.showQIdSet.contains(questionId),

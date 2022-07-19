@@ -4,41 +4,23 @@ import 'dart:ui';
 import 'value_objects.dart';
 
 abstract class ICommonRepository {
-  FutureOr<UniqueId> get deviceId;
-  FutureOr<bool> get networkIsConnected;
+  Future<void> get ready;
+
+  UniqueId get deviceId;
+  bool get networkIsConnected;
+  List<String> get compatibility;
+  NavigationPage get page;
+
   Stream<bool> get networkIsConnectedStream;
   Stream<bool> get appIsPausedStream;
-  FutureOr<List<String>> get compatibility;
 
-  Future<void> initialize();
+  Future<void> watchNetwork();
 
-  // > local required
-  Future<void> getLocalRequired();
-
-  // > watch
   Future<void> watchRemoteCompatibility();
 
-  // > operations
+  void onAppLifeCycleChanged(AppLifecycleState state);
+
   void updatePage(NavigationPage page);
 
-  NavigationPage restorePage();
-
-  void updateAppLifeCycle(AppLifecycleState state);
-
   void signOut();
-
-  Future<T?> read<T>({
-    String? key,
-    List<String>? keys,
-    bool allKeys = false,
-    Function? toDomain,
-  });
-
-  Future<String> write<T>({
-    String? key,
-    bool isMapEntries = false,
-    dynamic data,
-    Function? toJson,
-    bool clear = false,
-  });
 }

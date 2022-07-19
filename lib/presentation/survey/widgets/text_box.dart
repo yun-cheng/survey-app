@@ -5,10 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
@@ -30,15 +29,10 @@ class TextBox extends HookWidget {
     Timer? timer;
     late final TextEditingController controller;
 
-    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    final state = useBloc<AnswerBloc, AnswerState>(
       buildWhen: (p, c) {
-        if (p.updateState != c.updateState &&
-            c.updateState == LoadState.success()) {
-          // - 該題作答清空時，更新 answer
-          if (c.updatedQIdSet.contains(questionId) &&
-              c.answerMap[questionId]! == Answer.empty()) {
-            controller.clear();
-          }
+        if (c.answerCleared(questionId)) {
+          controller.clear();
         }
         return false;
       },
@@ -86,8 +80,8 @@ class TextBox extends HookWidget {
           timer?.cancel();
           timer = Timer(
             const Duration(milliseconds: 0),
-            () => context.read<UpdateAnswerStatusBloc>().add(
-                  UpdateAnswerStatusEvent.answerUpdated(
+            () => context.read<AnswerBloc>().add(
+                  AnswerEvent.answerUpdated(
                     questionId: questionId,
                     answerValue: value,
                   ),

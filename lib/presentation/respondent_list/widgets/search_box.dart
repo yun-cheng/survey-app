@@ -1,10 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
+import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
 
 class SearchBox extends HookWidget {
@@ -12,9 +11,9 @@ class SearchBox extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController(text: '');
+    logger('Build').i('SearchBox');
 
-    Timer? timer;
+    final controller = useTextEditingController(text: '');
 
     return SizedBox(
       width: kAnswerElementWidth,
@@ -22,7 +21,6 @@ class SearchBox extends HookWidget {
         controller: controller,
         style: kPTextStyle,
         decoration: InputDecoration(
-          // isDense: true,
           isCollapsed: true,
           filled: true,
           fillColor: kAnswerBackgroundColor,
@@ -41,17 +39,12 @@ class SearchBox extends HookWidget {
           ),
         ),
         onChanged: (value) {
-          timer?.cancel();
-          timer = Timer(
-            const Duration(milliseconds: 500),
-            () => context.read<RespondentBloc>().add(
-                  RespondentEvent.textSearched(
-                    text: value,
-                  ),
+          context.read<RespondentBloc>().add(
+                RespondentEvent.textSearched(
+                  text: value,
                 ),
-          );
+              );
         },
-        // validator: (_) {},
       ),
     );
   }

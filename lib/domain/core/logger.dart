@@ -13,11 +13,12 @@ Logger logger([String? tag, int? methodShow]) {
     // 'Receive',
     'Upload',
     'Test',
+    'Value',
+    'Status',
     'Debug',
     // 'Event',
-    'User Event',
+    // 'User Event',
     // 'State',
-    // 'InProgress',
     'Success',
     'Task',
     // 'Listen',
@@ -34,11 +35,9 @@ Logger logger([String? tag, int? methodShow]) {
     // > survey
     // 'application/survey',
     // 'application/survey/comment',
-    // 'application/survey/update_answer_status',
     // 'presentation/survey',
-    // 'presentation/respondent_list',
-    // 'presentation/overview',
     // >
+    // 'presentation/overview',
     // 'presentation',
   ];
   final alwaysAllowFileNameList = <String>[
@@ -198,20 +197,20 @@ extension PrettyPrinterX on PrettyPrinter {
       case 'Watch':
         tagStr = '[👀 Watch]';
         break;
-      case 'Receive':
-        tagStr = '[📧 Receive]';
-        break;
       case 'Upload':
         tagStr = '[🎈 Upload]';
         break;
       case 'Test':
         tagStr = '[🧪 Test]';
         break;
+      case 'Value':
+        tagStr = '[📝 Value]';
+        break;
+      case 'Status':
+        tagStr = '[🔔 Status]';
+        break;
       case 'Event':
         tagStr = '[⚡ Event]';
-        break;
-      case 'InProgress':
-        tagStr = '[⌛ InProgress]';
         break;
       case 'Success':
         tagStr = '[✔️ Success]';

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../core/widgets/delayed_widget.dart';
 
 class DelayedQaWidget extends StatelessWidget {
@@ -19,8 +19,8 @@ class DelayedQaWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final questionId = context.read<QuestionBloc>().state.question.id;
-    final visible = context.select((UpdateAnswerStatusBloc bloc) =>
-        bloc.state.showQIdSet.contains(questionId));
+    final visible = context.select(
+        (AnswerBloc bloc) => bloc.state.showQIdSet.contains(questionId));
 
     void onVisibilityChanged(VisibilityInfo info) {
       if (visible && info.visibleFraction > 0) {

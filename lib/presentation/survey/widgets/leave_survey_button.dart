@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 
 class LeaveSurveyButton extends StatelessWidget {
@@ -17,11 +17,10 @@ class LeaveSurveyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+        BlocListener<AnswerBloc, AnswerState>(
           // > 需要跳到某題時
           listenWhen: (p, c) =>
-              p.scrollToQuestionIndex != c.scrollToQuestionIndex &&
-              c.scrollToQuestionIndex != -99,
+              c.eventStateSuccess(p) && c.scrollToQuestionIndex != -99,
           listener: (context, state) async {
             logger('Listen').i('UpdateAnswerStatusBloc: scrollToQuestionIndex');
 
@@ -42,24 +41,26 @@ class LeaveSurveyButton extends StatelessWidget {
           },
         ),
       ],
-      child: Builder(builder: (context) {
-        logger('Build').i('LeaveSurveyButton');
+      child: Builder(
+        builder: (context) {
+          logger('Build').i('LeaveSurveyButton');
 
-        final showLeaveButton = context.select(
-            (UpdateAnswerStatusBloc bloc) => bloc.state.showLeaveButton);
+          final showLeaveButton =
+              context.select((AnswerBloc bloc) => bloc.state.showLeaveButton);
 
-        return Visibility(
-          // * 在中止訪問後的查址模組不讓使用者跳出
-          visible: showLeaveButton,
-          child: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                context.read<UpdateAnswerStatusBloc>().add(
-                      const UpdateAnswerStatusEvent.leaveButtonPressed(),
-                    );
-              }),
-        );
-      }),
+          return Visibility(
+            // * 在中止訪問後的查址模組不讓使用者跳出
+            visible: showLeaveButton,
+            child: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  context.read<AnswerBloc>().add(
+                        const AnswerEvent.responseEnded(),
+                      );
+                }),
+          );
+        },
+      ),
     );
   }
 }

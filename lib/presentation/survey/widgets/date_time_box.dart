@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../core/style/main.dart';
@@ -30,21 +29,17 @@ class DateTimeBox extends StatelessWidget {
         newAnswer = dateTime.toDateTimeString();
       }
 
-      context.read<UpdateAnswerStatusBloc>().add(
-            UpdateAnswerStatusEvent.answerUpdated(
+      context.read<AnswerBloc>().add(
+            AnswerEvent.answerUpdated(
               questionId: questionId,
               answerValue: newAnswer,
             ),
           );
     }
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
       buildWhen: (p, c) =>
-          (p.updateState != c.updateState &&
-              c.updateState == LoadState.success()) &&
-          ((c.updatedQIdSet.contains(questionId) &&
-                  p.answerMap[questionId] != c.answerMap[questionId]) ||
-              p.isReadOnly != c.isReadOnly),
+          c.answerChanged(p, questionId) || p.isReadOnly != c.isReadOnly,
       builder: (context, state) {
         logger('Build').i('DateTimeBox');
 

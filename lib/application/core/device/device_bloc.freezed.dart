@@ -323,7 +323,7 @@ abstract class _StateEmitted implements DeviceEvent {
 /// @nodoc
 mixin _$DeviceState {
   bool get networkIsConnected => throw _privateConstructorUsedError;
-  bool get appIsPaused => throw _privateConstructorUsedError;
+  SyncState get syncState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DeviceStateCopyWith<DeviceState> get copyWith =>
@@ -335,7 +335,9 @@ abstract class $DeviceStateCopyWith<$Res> {
   factory $DeviceStateCopyWith(
           DeviceState value, $Res Function(DeviceState) then) =
       _$DeviceStateCopyWithImpl<$Res>;
-  $Res call({bool networkIsConnected, bool appIsPaused});
+  $Res call({bool networkIsConnected, SyncState syncState});
+
+  $SyncStateCopyWith<$Res> get syncState;
 }
 
 /// @nodoc
@@ -349,112 +351,120 @@ class _$DeviceStateCopyWithImpl<$Res> implements $DeviceStateCopyWith<$Res> {
   @override
   $Res call({
     Object? networkIsConnected = freezed,
-    Object? appIsPaused = freezed,
+    Object? syncState = freezed,
   }) {
     return _then(_value.copyWith(
       networkIsConnected: networkIsConnected == freezed
           ? _value.networkIsConnected
           : networkIsConnected // ignore: cast_nullable_to_non_nullable
               as bool,
-      appIsPaused: appIsPaused == freezed
-          ? _value.appIsPaused
-          : appIsPaused // ignore: cast_nullable_to_non_nullable
-              as bool,
+      syncState: syncState == freezed
+          ? _value.syncState
+          : syncState // ignore: cast_nullable_to_non_nullable
+              as SyncState,
     ));
+  }
+
+  @override
+  $SyncStateCopyWith<$Res> get syncState {
+    return $SyncStateCopyWith<$Res>(_value.syncState, (value) {
+      return _then(_value.copyWith(syncState: value));
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$_NetworkStateCopyWith<$Res>
+abstract class _$$_DeviceStateCopyWith<$Res>
     implements $DeviceStateCopyWith<$Res> {
-  factory _$$_NetworkStateCopyWith(
-          _$_NetworkState value, $Res Function(_$_NetworkState) then) =
-      __$$_NetworkStateCopyWithImpl<$Res>;
+  factory _$$_DeviceStateCopyWith(
+          _$_DeviceState value, $Res Function(_$_DeviceState) then) =
+      __$$_DeviceStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool networkIsConnected, bool appIsPaused});
+  $Res call({bool networkIsConnected, SyncState syncState});
+
+  @override
+  $SyncStateCopyWith<$Res> get syncState;
 }
 
 /// @nodoc
-class __$$_NetworkStateCopyWithImpl<$Res>
-    extends _$DeviceStateCopyWithImpl<$Res>
-    implements _$$_NetworkStateCopyWith<$Res> {
-  __$$_NetworkStateCopyWithImpl(
-      _$_NetworkState _value, $Res Function(_$_NetworkState) _then)
-      : super(_value, (v) => _then(v as _$_NetworkState));
+class __$$_DeviceStateCopyWithImpl<$Res> extends _$DeviceStateCopyWithImpl<$Res>
+    implements _$$_DeviceStateCopyWith<$Res> {
+  __$$_DeviceStateCopyWithImpl(
+      _$_DeviceState _value, $Res Function(_$_DeviceState) _then)
+      : super(_value, (v) => _then(v as _$_DeviceState));
 
   @override
-  _$_NetworkState get _value => super._value as _$_NetworkState;
+  _$_DeviceState get _value => super._value as _$_DeviceState;
 
   @override
   $Res call({
     Object? networkIsConnected = freezed,
-    Object? appIsPaused = freezed,
+    Object? syncState = freezed,
   }) {
-    return _then(_$_NetworkState(
+    return _then(_$_DeviceState(
       networkIsConnected: networkIsConnected == freezed
           ? _value.networkIsConnected
           : networkIsConnected // ignore: cast_nullable_to_non_nullable
               as bool,
-      appIsPaused: appIsPaused == freezed
-          ? _value.appIsPaused
-          : appIsPaused // ignore: cast_nullable_to_non_nullable
-              as bool,
+      syncState: syncState == freezed
+          ? _value.syncState
+          : syncState // ignore: cast_nullable_to_non_nullable
+              as SyncState,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_NetworkState extends _NetworkState {
-  const _$_NetworkState(
-      {required this.networkIsConnected, required this.appIsPaused})
+class _$_DeviceState extends _DeviceState {
+  const _$_DeviceState(
+      {required this.networkIsConnected, required this.syncState})
       : super._();
 
   @override
   final bool networkIsConnected;
   @override
-  final bool appIsPaused;
+  final SyncState syncState;
 
   @override
   String toString() {
-    return 'DeviceState(networkIsConnected: $networkIsConnected, appIsPaused: $appIsPaused)';
+    return 'DeviceState(networkIsConnected: $networkIsConnected, syncState: $syncState)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NetworkState &&
+            other is _$_DeviceState &&
             const DeepCollectionEquality()
                 .equals(other.networkIsConnected, networkIsConnected) &&
-            const DeepCollectionEquality()
-                .equals(other.appIsPaused, appIsPaused));
+            const DeepCollectionEquality().equals(other.syncState, syncState));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(networkIsConnected),
-      const DeepCollectionEquality().hash(appIsPaused));
+      const DeepCollectionEquality().hash(syncState));
 
   @JsonKey(ignore: true)
   @override
-  _$$_NetworkStateCopyWith<_$_NetworkState> get copyWith =>
-      __$$_NetworkStateCopyWithImpl<_$_NetworkState>(this, _$identity);
+  _$$_DeviceStateCopyWith<_$_DeviceState> get copyWith =>
+      __$$_DeviceStateCopyWithImpl<_$_DeviceState>(this, _$identity);
 }
 
-abstract class _NetworkState extends DeviceState {
-  const factory _NetworkState(
+abstract class _DeviceState extends DeviceState {
+  const factory _DeviceState(
       {required final bool networkIsConnected,
-      required final bool appIsPaused}) = _$_NetworkState;
-  const _NetworkState._() : super._();
+      required final SyncState syncState}) = _$_DeviceState;
+  const _DeviceState._() : super._();
 
   @override
   bool get networkIsConnected => throw _privateConstructorUsedError;
   @override
-  bool get appIsPaused => throw _privateConstructorUsedError;
+  SyncState get syncState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_NetworkStateCopyWith<_$_NetworkState> get copyWith =>
+  _$$_DeviceStateCopyWith<_$_DeviceState> get copyWith =>
       throw _privateConstructorUsedError;
 }

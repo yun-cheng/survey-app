@@ -1,16 +1,15 @@
-import 'package:dartz/dartz.dart';
-
-import '../audio.dart';
+import '../../survey/response.dart';
 import '../audio_failure.dart';
 
 abstract class IAudioRecorder {
-  Future<Either<AudioFailure, Unit>> checkPermission();
+  Stream<AudioFailure> get failureStream;
+  Stream<double> get dbStream;
 
-  Future<Either<AudioFailure, Unit>> startRecording({
-    required Audio audio,
-  });
+  Future<bool> checkPermission();
 
-  Future<Either<AudioFailure, Unit>> stopRecording();
+  Future<void> startRecording(
+    Response response,
+  );
 
-  Either<AudioFailure, Stream<double>?> dbStream();
+  Future<void> stopRecording();
 }

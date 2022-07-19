@@ -16,8 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Audio {
-  UniqueId get fileName => throw _privateConstructorUsedError;
-  AudioType get type => throw _privateConstructorUsedError;
+  String get responseId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get moduleType => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
+  String get dateTime => throw _privateConstructorUsedError;
+  String get fileType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AudioCopyWith<Audio> get copyWith => throw _privateConstructorUsedError;
@@ -27,10 +31,13 @@ mixin _$Audio {
 abstract class $AudioCopyWith<$Res> {
   factory $AudioCopyWith(Audio value, $Res Function(Audio) then) =
       _$AudioCopyWithImpl<$Res>;
-  $Res call({UniqueId fileName, AudioType type});
-
-  $UniqueIdCopyWith<$Res> get fileName;
-  $AudioTypeCopyWith<$Res> get type;
+  $Res call(
+      {String responseId,
+      String surveyId,
+      String moduleType,
+      String respondentId,
+      String dateTime,
+      String fileType});
 }
 
 /// @nodoc
@@ -43,33 +50,39 @@ class _$AudioCopyWithImpl<$Res> implements $AudioCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? type = freezed,
+    Object? responseId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? respondentId = freezed,
+    Object? dateTime = freezed,
+    Object? fileType = freezed,
   }) {
     return _then(_value.copyWith(
-      fileName: fileName == freezed
-          ? _value.fileName
-          : fileName // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as AudioType,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      respondentId: respondentId == freezed
+          ? _value.respondentId
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateTime: dateTime == freezed
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileType: fileType == freezed
+          ? _value.fileType
+          : fileType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  $UniqueIdCopyWith<$Res> get fileName {
-    return $UniqueIdCopyWith<$Res>(_value.fileName, (value) {
-      return _then(_value.copyWith(fileName: value));
-    });
-  }
-
-  @override
-  $AudioTypeCopyWith<$Res> get type {
-    return $AudioTypeCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value));
-    });
   }
 }
 
@@ -78,12 +91,13 @@ abstract class _$$_AudioCopyWith<$Res> implements $AudioCopyWith<$Res> {
   factory _$$_AudioCopyWith(_$_Audio value, $Res Function(_$_Audio) then) =
       __$$_AudioCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId fileName, AudioType type});
-
-  @override
-  $UniqueIdCopyWith<$Res> get fileName;
-  @override
-  $AudioTypeCopyWith<$Res> get type;
+  $Res call(
+      {String responseId,
+      String surveyId,
+      String moduleType,
+      String respondentId,
+      String dateTime,
+      String fileType});
 }
 
 /// @nodoc
@@ -97,35 +111,83 @@ class __$$_AudioCopyWithImpl<$Res> extends _$AudioCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? type = freezed,
+    Object? responseId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? respondentId = freezed,
+    Object? dateTime = freezed,
+    Object? fileType = freezed,
   }) {
     return _then(_$_Audio(
-      fileName: fileName == freezed
-          ? _value.fileName
-          : fileName // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as AudioType,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      respondentId: respondentId == freezed
+          ? _value.respondentId
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateTime: dateTime == freezed
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileType: fileType == freezed
+          ? _value.fileType
+          : fileType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Audio extends _Audio {
-  const _$_Audio({required this.fileName, required this.type}) : super._();
+class _$_Audio extends _Audio with DiagnosticableTreeMixin {
+  const _$_Audio(
+      {required this.responseId,
+      required this.surveyId,
+      required this.moduleType,
+      required this.respondentId,
+      required this.dateTime,
+      required this.fileType})
+      : super._();
 
   @override
-  final UniqueId fileName;
+  final String responseId;
   @override
-  final AudioType type;
+  final String surveyId;
+  @override
+  final String moduleType;
+  @override
+  final String respondentId;
+  @override
+  final String dateTime;
+  @override
+  final String fileType;
 
   @override
-  String toString() {
-    return 'Audio(fileName: $fileName, type: $type)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Audio(responseId: $responseId, surveyId: $surveyId, moduleType: $moduleType, respondentId: $respondentId, dateTime: $dateTime, fileType: $fileType)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Audio'))
+      ..add(DiagnosticsProperty('responseId', responseId))
+      ..add(DiagnosticsProperty('surveyId', surveyId))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('respondentId', respondentId))
+      ..add(DiagnosticsProperty('dateTime', dateTime))
+      ..add(DiagnosticsProperty('fileType', fileType));
   }
 
   @override
@@ -133,15 +195,26 @@ class _$_Audio extends _Audio {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Audio &&
-            const DeepCollectionEquality().equals(other.fileName, fileName) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            const DeepCollectionEquality()
+                .equals(other.responseId, responseId) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId) &&
+            const DeepCollectionEquality().equals(other.dateTime, dateTime) &&
+            const DeepCollectionEquality().equals(other.fileType, fileType));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(fileName),
-      const DeepCollectionEquality().hash(type));
+      const DeepCollectionEquality().hash(responseId),
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(moduleType),
+      const DeepCollectionEquality().hash(respondentId),
+      const DeepCollectionEquality().hash(dateTime),
+      const DeepCollectionEquality().hash(fileType));
 
   @JsonKey(ignore: true)
   @override
@@ -151,14 +224,26 @@ class _$_Audio extends _Audio {
 
 abstract class _Audio extends Audio {
   const factory _Audio(
-      {required final UniqueId fileName,
-      required final AudioType type}) = _$_Audio;
+      {required final String responseId,
+      required final String surveyId,
+      required final String moduleType,
+      required final String respondentId,
+      required final String dateTime,
+      required final String fileType}) = _$_Audio;
   const _Audio._() : super._();
 
   @override
-  UniqueId get fileName => throw _privateConstructorUsedError;
+  String get responseId => throw _privateConstructorUsedError;
   @override
-  AudioType get type => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  @override
+  String get moduleType => throw _privateConstructorUsedError;
+  @override
+  String get respondentId => throw _privateConstructorUsedError;
+  @override
+  String get dateTime => throw _privateConstructorUsedError;
+  @override
+  String get fileType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AudioCopyWith<_$_Audio> get copyWith =>

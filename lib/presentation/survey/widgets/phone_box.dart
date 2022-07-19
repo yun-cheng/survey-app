@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 
 class PhoneBox extends StatelessWidget {
@@ -16,15 +15,10 @@ class PhoneBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final question = context.read<QuestionBloc>().state.question;
     final questionId = question.id;
-    final questionType = question.type;
 
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    return BlocBuilder<AnswerBloc, AnswerState>(
         buildWhen: (p, c) =>
-            (p.updateState != c.updateState &&
-                c.updateState == LoadState.success()) &&
-            ((c.updatedQIdSet.contains(questionId) &&
-                    p.answerMap[questionId] != c.answerMap[questionId]) ||
-                p.isReadOnly != c.isReadOnly),
+            c.answerChanged(p, questionId) || p.isReadOnly != c.isReadOnly,
         builder: (context, state) {
           logger('Build').i('PhoneBox');
 
@@ -42,8 +36,8 @@ class PhoneBox extends StatelessWidget {
               decoration: const InputDecoration(),
               keyboardType: TextInputType.phone,
               onChanged: (value) {
-                context.read<UpdateAnswerStatusBloc>().add(
-                      UpdateAnswerStatusEvent.answerUpdated(
+                context.read<AnswerBloc>().add(
+                      AnswerEvent.answerUpdated(
                         questionId: questionId,
                         answerValue: value,
                       ),

@@ -35,8 +35,13 @@ extension DateTimeExtension on DateTime {
     return '$year-${month.pad0()}-${day.pad0()}';
   }
 
-  String toTimeString() {
-    return '${hour.pad0()}:${minute.pad0()}';
+  String toTimeString([bool h24 = true]) {
+    int h = hour;
+    if (!h24) {
+      h = hour % 12;
+      if (h == 0) h = 12;
+    }
+    return '${h.pad0()}:${minute.pad0()}';
   }
 
   String toDateTimeString() {

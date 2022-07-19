@@ -4,13 +4,13 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart' hide Reference;
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:supercharged/supercharged.dart';
 
 import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
+import '../../domain/core/logger.dart';
 import '../../domain/overview/project.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/overview/typedefs.dart';
@@ -20,65 +20,80 @@ import '../../domain/survey/typedefs.dart';
 import '../core/extensions.dart';
 import '../core/firestore_helpers.dart';
 import '../core/isolate_local_storage.dart';
+import '../core/isolate_worker.dart';
 import '../overview/project_dtos.dart';
 import '../overview/project_map_dtos.dart';
 import 'survey_dtos.dart';
 import 'survey_map_dtos.dart';
 
+part 'survey_repo_helpers.dart';
+
 @LazySingleton(as: ISurveyRepository)
 class SurveyRepository implements ISurveyRepository {
+  final IsolateLocalStorage _localStorage;
+  final IsolateWorker _isolateWorker;
   final FirebaseFirestore _firestore;
   final FirebaseStorage _storage;
-  final IAuthRepository _authRepo;
   final ICommonRepository _commonRepo;
-  final _localStorage = IsolateLocalStorage();
+  final IAuthRepository _authRepo;
 
-  final _projectMapStream = BehaviorSubject<ProjectMap>();
-  final _surveyMapStream = BehaviorSubject<SurveyMap>();
-  final _simpleSurveyMapStream = BehaviorSubject<SurveyMap>();
+  final _completer = Completer();
+  @override
+  Future<void> get ready =>
+      _completer.isCompleted ? Future.value() : _completer.future;
+
+  SurveyMap _surveyMap = {};
+  SurveyMap get _simpleSurveyMap => _surveyMap.mapValues((e) => e.simplify());
+  Project? _project;
+  ProjectMap _projectMap = {};
+
   final _surveyStream = BehaviorSubject<Survey>();
-  final _projectStream = BehaviorSubject<Project>();
+  final _simpleSurveyMapStream = BehaviorSubject<SurveyMap>();
   final _failureStream = BehaviorSubject.seeded(SurveyFailure.empty());
-
-  @override
-  Stream<SurveyMap> get surveyMapStream => _simpleSurveyMapStream;
-  @override
-  Stream<SurveyFailure> get failureStream => _failureStream;
-  @override
-  FutureOr<ProjectMap> get projectMap async =>
-      _projectMapStream.valueOrNull ?? await _projectMapStream.last;
 
   StreamSubscription? _projectMapSubscription;
   StreamSubscription? _rawSurveySubscription;
 
+  @override
+  Survey? get survey => _surveyStream.valueOrNull;
+  @override
+  Survey? get simpleSurvey => survey?.simplify();
+  @override
+  ProjectMap get projectMap => _projectMap;
+
+  @override
+  BehaviorSubject<Survey> get surveyStream => _surveyStream;
+  @override
+  Stream<SurveyMap> get simpleSurveyMapStream => _simpleSurveyMapStream;
+  @override
+  Stream<SurveyFailure> get failureStream => _failureStream;
+
   SurveyRepository(
+    this._localStorage,
+    this._isolateWorker,
     this._firestore,
     this._storage,
-    this._authRepo,
     this._commonRepo,
-  );
-
-  @override
-  Future<void> initialize() async {
-    await _localStorage.initialize();
-    await getLocalRequired();
-    simplifySurveyMap();
-
-    _authRepo.isSignedInStream.listen((isSignedIn) async {
-      if (!isSignedIn) return;
-
-      final team = await _authRepo.team;
-      final interviewer = await _authRepo.interviewer;
-
-      watchRemoteProjectMap(teamId: team.id);
-      watchRemoteSurveyMap(teamId: team.id, interviewerId: interviewer.id);
-    });
+    this._authRepo,
+  ) {
+    initialize();
   }
 
-  // > local required
-  @override
-  Future<void> getLocalRequired() async {
-    final survey = await _commonRepo.read<Survey>(
+  Future<void> initialize() async {
+    await _localStorage.ready;
+    await _commonRepo.ready;
+    await _authRepo.ready;
+    await _isolateWorker.ready;
+
+    await loadLocalData();
+    startListener();
+
+    _completer.complete();
+  }
+
+  Future<void> loadLocalData() async {
+    final survey = await _localStorage.read(
+      box: 'common',
       key: 'survey',
       toDomain: SurveyDto.jsonToDomain,
     );
@@ -86,42 +101,54 @@ class SurveyRepository implements ISurveyRepository {
       _surveyStream.add(survey);
     }
 
-    final project = await _commonRepo.read<Project>(
+    _project = await _localStorage.read(
+      box: 'common',
       key: 'project',
       toDomain: ProjectDto.jsonToDomain,
     );
-    if (project != null) {
-      _projectStream.add(project);
-    }
 
-    final projectMap = await _localStorage.read<ProjectMap>(
-      box: 'projectMap',
-      allKeys: true,
-      toDomain: ProjectMapDto.jsonToDomain,
-    );
-    if (projectMap != null) {
-      _projectMapStream.add(projectMap);
-    }
+    _projectMap = await _localStorage.read(
+          box: 'projectMap',
+          allKeys: true,
+          toDomain: ProjectMapDto.jsonToDomain,
+        ) ??
+        {};
 
-    final surveyMap = await _localStorage.read<SurveyMap>(
-      box: 'surveyMap',
-      allKeys: true,
-      toDomain: SurveyMapDto.jsonToDomain,
-    );
-    if (surveyMap != null) {
-      _surveyMapStream.add(surveyMap);
-    }
+    _surveyMap = await _localStorage.read<SurveyMap>(
+          box: 'surveyMap',
+          allKeys: true,
+          toDomain: SurveyMapDto.jsonToDomain,
+        ) ??
+        {};
+    _simpleSurveyMapStream.add(_simpleSurveyMap);
   }
 
-  void simplifySurveyMap() {
-    _surveyMapStream.forEach((surveyMap) {
-      _simpleSurveyMapStream.add(
-        surveyMap.mapValues((e) => e.simplify()),
-      );
+  Future<void> startListener() async {
+    _authRepo.watchSignInAndNetworkStream.listen((tuple) {
+      final isSignedIn = tuple.item1;
+      final networkIsConnected = tuple.item2;
+
+      if (!isSignedIn || !networkIsConnected) {
+        _projectMapSubscription?.cancel();
+        _rawSurveySubscription?.cancel();
+
+        if (!isSignedIn) {
+          // TODO 登出清空 local storage
+
+        }
+
+        return;
+      }
+
+      // - 登入且有網路時
+      final team = _authRepo.team!;
+      final interviewer = _authRepo.interviewer!;
+
+      watchRemoteSurveyMap(teamId: team.id, interviewerId: interviewer.id);
+      watchRemoteProjectMap(teamId: team.id);
     });
   }
 
-  // > watch remote
   @override
   Future<void> watchRemoteSurveyMap({
     required String teamId,
@@ -136,34 +163,42 @@ class SurveyRepository implements ISurveyRepository {
         .snapshots()
         .listen(
       (snapshot) async {
+        final dataMap = <String, Uint8List?>{};
+
         // * Future.wait 會等裡面的東西都齊全
-        final list = await Future.wait(snapshot.docs.map((doc) async {
-          final surveyId = doc.id;
-          final surveyRef =
-              _storage.surveyRef.child('$surveyId/$surveyId.json');
+        await Future.wait(
+          snapshot.docs.map((doc) async {
+            final surveyId = doc.id;
+            final surveyRef =
+                _storage.surveyRef.child('$surveyId/$surveyId.json');
 
-          final data =
-              await surveyRef.getData().timeout(const Duration(minutes: 1));
+            final data = await surveyRef
+                .getData()
+                .timeout(const Duration(minutes: 1))
+                .onError((e, stackTrace) {
+              commonOnError('watchRemoteSurveyMap', e, stackTrace);
+              return;
+            });
 
-          return MapEntry(surveyId, data);
-        }));
-
-        final compatibility = await _commonRepo.compatibility;
-        final surveyMap = await compute(
-          rawSurveyMapToDomain,
-          [list.toMap(), compatibility],
+            dataMap[surveyId] = data;
+          }),
         );
 
-        _surveyMapStream.add(surveyMap);
+        if (dataMap.isEmpty || dataMap.values.any((e) => e == null)) return;
+
+        _surveyMap = await _isolateWorker.compute(
+          rawSurveyMapToDomain,
+          [dataMap, _commonRepo.compatibility],
+        );
+        _simpleSurveyMapStream.add(_simpleSurveyMap);
 
         await _localStorage.write(
           box: 'surveyMap',
-          data: surveyMap,
+          data: _surveyMap,
           isMapEntries: true,
           toJson: SurveyMapDto.domainToJson,
         );
       },
-      onError: commonOnError,
     );
   }
 
@@ -178,7 +213,7 @@ class SurveyRepository implements ISurveyRepository {
         projectCollection.where('teamId', isEqualTo: teamId).snapshots().listen(
       (snapshot) async {
         final dto = ProjectMapDto.fromFirestore(snapshot);
-        _projectMapStream.add(dto.toDomain());
+        _projectMap = dto.toDomain();
 
         await _localStorage.write(
           box: 'projectMap',
@@ -187,70 +222,43 @@ class SurveyRepository implements ISurveyRepository {
           toJson: (ProjectMapDto e) => e.dtoToJson(),
         );
       },
-      onError: commonOnError,
+      onError: (e, stackTrace) =>
+          commonOnError('watchRemoteProjectMap', e, stackTrace),
     );
   }
 
-  // > operations
   @override
   Future<void> selectSurvey(String surveyId) async {
-    final survey = _surveyMapStream.value[surveyId]!;
+    final survey = _surveyMap[surveyId]!;
     _surveyStream.add(survey);
-    final project = _projectMapStream.value[survey.projectId]!;
-    _projectStream.add(project);
+    _project = _projectMap[survey.projectId]!;
 
-    _commonRepo.write(
+    _localStorage.write(
+      box: 'common',
       key: 'survey',
       data: survey,
       toJson: SurveyDto.domainToJson,
     );
-    _commonRepo.write(
+    _localStorage.write(
+      box: 'common',
       key: 'project',
-      data: project,
+      data: _project,
       toJson: ProjectDto.domainToJson,
     );
   }
 
-  // > common
-  void commonOnError(e, stackTrace) {
+  // TODO
+  @override
+  Future<void> signOut() async {}
+
+  void commonOnError(String name, e, stackTrace) {
+    logger('Error').e('$name Error!');
+    logger('Error').e(e);
+
     if (e is FirebaseException && e.code == 'permission-denied') {
       _failureStream.add(SurveyFailure.insufficientPermission());
     } else {
       _failureStream.add(SurveyFailure.unexpected());
     }
   }
-}
-
-// > raw survey
-SurveyMap rawSurveyMapToDomain(
-  List list,
-) {
-  return (list[0] as Map<String, Uint8List?>)
-      .values
-      .map((e) => rawSurveyToDomain(
-            e,
-            compatibility: list[1] as List<String>,
-          ))
-      .toList()
-      .sortedByMultiX((survey) => [survey.projectId, survey.name])
-      .map((survey) => MapEntry(survey.id, survey))
-      .toMap();
-}
-
-Survey rawSurveyToDomain(
-  Uint8List? data, {
-  required List<String> compatibility,
-}) {
-  final jsonStr = data != null ? String.fromCharCodes(data) : '';
-  final result = json.decode(jsonStr) as Map<String, dynamic>;
-
-  final isCompatible = compatibility.contains(result['version'] ?? '');
-
-  if (!isCompatible) {
-    result.remove('module');
-  }
-
-  return SurveyDto.fromJson(result).toDomain(
-    versionIsCompatible: isCompatible,
-  );
 }

@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/audio/audio_recorder/audio_recorder_bloc.dart';
-import '../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../application/auth/auth_bloc.dart';
 import '../../application/core/device/device_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
-import '../../application/respondent/respondents_page/respondents_page_bloc.dart';
+import '../../application/survey/answer/answer_bloc.dart';
 import '../../application/survey/comment/comment_bloc.dart';
-import '../../application/survey/response/response_bloc.dart';
-import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../application/survey/survey/survey_bloc.dart';
 import '../../domain/audio/audio_recorder/i_audio_recorder.dart';
 import '../../domain/audio/i_audio_repository.dart';
 import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
+import '../../domain/response/i_response_repository.dart';
 import '../../domain/survey/comment/i_comment_repository.dart';
-import '../../domain/survey/i_response_repository.dart';
 import '../../domain/survey/i_survey_repository.dart';
+import '../../infrastructure/core/isolate_worker.dart';
 import '../../injection.dart';
 
 class AppProviders extends StatelessWidget {
@@ -47,6 +44,8 @@ class AppProviders extends StatelessWidget {
         BlocProvider(
           create: (_) => DeviceBloc(
             getIt<ICommonRepository>(),
+            getIt<IResponseRepository>(),
+            getIt<IAudioRepository>(),
           ),
           lazy: false,
         ),
@@ -64,33 +63,22 @@ class AppProviders extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => RespondentBloc(
+            getIt<ISurveyRepository>(),
             getIt<IRespondentRepository>(),
-          ),
-          lazy: false,
-        ),
-        BlocProvider(
-          create: (_) => RespondentsPageBloc(),
-          lazy: false,
-        ),
-        BlocProvider(
-          create: (_) => ResponseBloc(
             getIt<IResponseRepository>(),
+            getIt<IsolateWorker>(),
           ),
           lazy: false,
         ),
         BlocProvider(
-          create: (_) => UpdateAnswerStatusBloc(),
-          lazy: false,
-        ),
-        BlocProvider(
-          create: (_) => AudioRecorderBloc(
+          create: (_) => AnswerBloc(
+            getIt<ICommonRepository>(),
+            getIt<IAuthRepository>(),
+            getIt<ISurveyRepository>(),
+            getIt<IRespondentRepository>(),
+            getIt<IResponseRepository>(),
+            getIt<IsolateWorker>(),
             getIt<IAudioRecorder>(),
-          ),
-          lazy: false,
-        ),
-        BlocProvider(
-          create: (_) => UploadAudioBloc(
-            getIt<IAudioRepository>(),
           ),
           lazy: false,
         ),

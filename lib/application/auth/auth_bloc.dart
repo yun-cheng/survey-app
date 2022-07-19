@@ -35,7 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     await event.maybeMap(
       initialized: (e) async {
-        await repo.initialize();
+        await repo.ready;
       },
       watchTeamListStarted: (e) async {
         await _subscription?.cancel();
@@ -85,7 +85,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             .emit(emit);
 
         if (state.id != '' && state.password != '') {
-          final result = repo.signIn(id: state.id, password: state.password);
+          final result =
+              await repo.signIn(id: state.id, password: state.password);
 
           state
               .copyWith(

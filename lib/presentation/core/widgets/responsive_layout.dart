@@ -8,7 +8,7 @@ class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout({
     Key? key,
     required this.child,
-    this.constraints = kCardMaxWith,
+    this.constraints = kCardMaxWidth,
   }) : super(key: key);
 
   @override

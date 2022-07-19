@@ -7,12 +7,20 @@ part of 'audio_dtos.dart';
 // **************************************************************************
 
 _$_AudioDto _$$_AudioDtoFromJson(Map<String, dynamic> json) => _$_AudioDto(
-      fileName: json['fileName'] as String,
-      type: json['type'] as String,
+      responseId: json['responseId'] as String,
+      surveyId: json['surveyId'] as String,
+      moduleType: json['moduleType'] as String,
+      respondentId: json['respondentId'] as String,
+      dateTime: json['dateTime'] as String,
+      fileType: json['fileType'] as String,
     );
 
 Map<String, dynamic> _$$_AudioDtoToJson(_$_AudioDto instance) =>
     <String, dynamic>{
-      'fileName': instance.fileName,
-      'type': instance.type,
+      'responseId': instance.responseId,
+      'surveyId': instance.surveyId,
+      'moduleType': instance.moduleType,
+      'respondentId': instance.respondentId,
+      'dateTime': instance.dateTime,
+      'fileType': instance.fileType,
     };

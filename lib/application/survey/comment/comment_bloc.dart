@@ -1,27 +1,23 @@
 import 'dart:async';
 
 import 'package:bloc_concurrency/bloc_concurrency.dart';
-import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/auth/interviewer.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../../domain/survey/comment/comment.dart';
 import '../../../domain/survey/comment/i_comment_repository.dart';
-import '../../../domain/survey/comment/typedefs.dart';
+import '../../../domain/survey/comment/response_comments.dart';
 
 part 'comment_bloc.freezed.dart';
 part 'comment_event.dart';
 part 'comment_state.dart';
 
 class CommentBloc extends Bloc<CommentEvent, CommentState> {
-  final ICommentRepository repo;
-  StreamSubscription? _subscription;
+  final ICommentRepository _commentRepo;
 
   CommentBloc(
-    this.repo,
+    this._commentRepo,
   ) : super(CommentState.initial()) {
     on<CommentEvent>(_onEvent, transformer: sequential());
     add(const CommentEvent.initialized());
@@ -31,52 +27,59 @@ class CommentBloc extends Bloc<CommentEvent, CommentState> {
     CommentEvent event,
     Emitter<CommentState> emit,
   ) async {
-    await event.maybeMap(
+    state
+        .copyWith(
+          eventState: LoadState.inProgress(),
+        )
+        .emit(emit);
+
+    await event.map(
       initialized: (e) async {
-        await repo.initialize();
-        (await repo.getLocalState()).emit(emit);
+        await _commentRepo.ready;
       },
-      commentListFiltered: (e) async {
-        await _subscription?.cancel();
-        _subscription = repo
-            .filterComments(
-              surveyId: e.surveyId,
-              respondentId: e.respondentId,
+      commentLoaded: (e) async {
+        logger('Event').i('CommentEvent: commentLoaded');
+        final responseComments = await _commentRepo.loadResponseComments();
+        state
+            .copyWith(
+              responseComments: responseComments,
             )
-            .listen(_onCommentList);
+            .eventSuccess(emit);
       },
       commentUpdated: (e) async {
         logger('Event').i('CommentEvent: commentUpdated');
 
         state
             .copyWith(
-              comment: e.comment,
+              message: e.message,
             )
-            .emit(emit);
+            .eventSuccess(emit);
       },
       commentAdded: (e) async {
+        if (state.message.isEmpty) return;
+
         logger('User Event').i('CommentEvent: commentAdded');
-        repo.addComment(state.comment);
+        final responseComments = await _commentRepo.addComment(state.message);
+        state
+            .copyWith(
+              responseComments: responseComments,
+              message: '',
+            )
+            .eventSuccess(emit);
       },
       stateEmitted: (e) {
         e.state.emit(emit);
       },
-      orElse: () async {},
-    );
-  }
+      stateCleared: (e) {
+        logger('Event').i('CommentEvent: stateCleared');
 
-  void _onCommentList(CommentList commentList) {
-    add(
-      CommentEvent.stateEmitted(
-        state.copyWith(commentList: commentList),
-      ),
+        CommentState.initial().eventSuccess(emit);
+      },
     );
   }
 
   @override
   Future<void> close() {
-    _subscription?.cancel();
-
     return super.close();
   }
 }

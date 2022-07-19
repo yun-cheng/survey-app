@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../../application/survey/comment/comment_bloc.dart';
+import '../../../../infrastructure/core/use_bloc.dart';
 import '../../../core/style/main.dart';
 
 class CommentBox extends HookWidget {
@@ -12,8 +13,14 @@ class CommentBox extends HookWidget {
   Widget build(BuildContext context) {
     final controller = useTextEditingController(text: '');
 
+    useBlocListener<CommentBloc, CommentState>(
+        listenWhen: (p, c) => c.message == '',
+        listener: (context, state) {
+          controller.clear();
+        });
+
     return SizedBox(
-      width: kAnswerElementWidth,
+      width: 500,
       child: TextField(
         controller: controller,
         style: kPTextStyle,

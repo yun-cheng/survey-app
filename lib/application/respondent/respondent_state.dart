@@ -7,118 +7,99 @@ class RespondentState with _$RespondentState {
   const factory RespondentState({
     required UniqueId stateId,
     // > 主要資料
-    required SurveyRespondentMap surveyRespondentMap,
-    required Survey survey,
-    required Map<String, Respondent> respondentMap,
-    required VisitRecordsMap visitRecordsMap,
-    required Map<String, String> lastVisitRecordMap,
-    required Map<String, Housing> housingMap,
-    required List<String> groupList,
-    required TabGroupedRespondentList tabGroupedRespondentList,
-    required Map<TabType, Map<int, String>> tabGroupMap,
-    required Map<TabType, int> tabCountMap,
-    required ResponseMap responseInfoMap,
+    required Respondent respondent,
+    required TabType currentTab,
+    required String selectedGroup,
     required String searchText,
-    required Map<String, bool> searchRespondentMap,
+    required Map<TabType, double> tabScrollOffset,
     // > 中間資料
+    required List<String> groupList,
+    required Map<String, bool> subsetRespondentMap,
+    required Map<String, Housing> housingMap,
+    // >> visitRecord
+    // ? VisitRecords or VisitReports
+    required VisitRecordLMap visitRecordLMap,
+    required Map<String, String> visitRecordMap,
+    // >> tab
+    required TabGroupedRespondentList tabGroupedRespondentList,
+    required TabCountMap tabCountMap,
     // > 狀態更新進度
-    required LoadState surveyRespondentMapState,
     required Option<RespondentFailure> respondentFailure,
-    required LoadState eventState,
-    // > 更新/儲存參數
-    required StateParameters updateParameters,
-    required StateParameters saveParameters,
+    // > 是否更新參數
+    required bool updateRespondents,
+    required bool updateTab,
+    required bool updateVisitRecord,
+    required bool updateHousing,
+    required bool updateSubset,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
         stateId: UniqueId.v1(),
         // > 主要資料
-        survey: Survey.empty(),
-        surveyRespondentMap: const {},
-        respondentMap: const {},
-        visitRecordsMap: const {},
-        lastVisitRecordMap: const {},
-        housingMap: const {},
-        groupList: const [],
-        tabGroupedRespondentList: const {},
-        tabGroupMap: const {},
-        tabCountMap: const {},
-        responseInfoMap: const {},
+        respondent: Respondent.empty(),
+        currentTab: TabType.start,
+        selectedGroup: '所有訪區',
         searchText: '',
-        searchRespondentMap: const {},
+        tabScrollOffset: TabType.values.asSameValueMap(0.0),
         // > 中間資料
+        groupList: const [],
+        subsetRespondentMap: const {},
+        housingMap: const {},
+        // >> visitRecord
+        visitRecordLMap: const {},
+        visitRecordMap: const {},
+        // >> tab
+        tabGroupedRespondentList: const {},
+        tabCountMap: const {},
         // > 狀態更新進度
-        surveyRespondentMapState: LoadState.initial(),
         respondentFailure: none(),
-        eventState: LoadState.initial(),
-        // > 更新/儲存參數
-        updateParameters: StateParameters.initial(),
-        saveParameters: StateParameters.initial(),
+        // > 是否更新參數
+        updateRespondents: false,
+        updateTab: false,
+        updateVisitRecord: false,
+        updateHousing: false,
+        updateSubset: false,
       );
 
-  RespondentState send(AsyncTaskChannel channel) {
-    channel.send(
+  void emit(Emitter<RespondentState> emit) {
+    emit(
       copyWith(
         stateId: UniqueId.v1(),
       ),
     );
-    return this;
   }
 
-  RespondentState saveState(ILocalStorage localStorage) {
-    RespondentStateDto.fromDomain(this).saveState(localStorage);
-    return this;
-  }
-
-  RespondentState sendEventInProgress(AsyncTaskChannel channel) {
-    return copyWith(
-      eventState: LoadState.inProgress(),
-    ).send(channel);
-  }
-
-  RespondentState sendEventSuccessAndSave(
-    AsyncTaskChannel channel,
-    ILocalStorage localStorage,
-  ) {
-    return copyWith(
-      eventState: LoadState.success(),
-    ).send(channel).saveState(localStorage);
-  }
-
-  Map<String, dynamic> toMap() => RespondentStateDto.fromDomain(this).toJson();
-}
-
-@freezed
-class StateParameters with _$StateParameters {
-  const StateParameters._();
-
-  const factory StateParameters({
-    required bool surveyRespondentMap,
-    required bool survey,
-    required bool respondentMap,
-    required bool visitRecordsMap,
-    required bool housingMap,
-    required bool tabRespondentMap,
-    required bool responseInfoMap,
-  }) = _StateParameters;
-
-  factory StateParameters.initial() => const StateParameters(
-        surveyRespondentMap: false,
-        survey: false,
-        respondentMap: false,
-        visitRecordsMap: false,
-        housingMap: false,
-        tabRespondentMap: false,
-        responseInfoMap: false,
+  RespondentState clearUpdate() => copyWith(
+        updateRespondents: false,
+        updateTab: false,
+        updateVisitRecord: false,
+        updateHousing: false,
+        updateSubset: false,
       );
 
-  factory StateParameters.clear() => const StateParameters(
-        surveyRespondentMap: true,
-        survey: true,
-        respondentMap: true,
-        visitRecordsMap: true,
-        housingMap: true,
-        tabRespondentMap: true,
-        responseInfoMap: true,
-      );
+  void addEmit(void Function(RespondentEvent) add) {
+    add(
+      RespondentEvent.stateEmitted(
+        copyWith(
+          stateId: UniqueId.v1(),
+        ),
+      ),
+    );
+  }
+
+  bool isCurrentRespondent(String respondentId) =>
+      respondent.id == respondentId;
+
+  bool selectedGroupChanged(RespondentState previousState) =>
+      previousState.selectedGroup != selectedGroup;
+
+  bool subsetChanged(RespondentState previousState, String respondentId) =>
+      previousState.subsetRespondentMap[respondentId] !=
+      subsetRespondentMap[respondentId];
+
+  bool lastVisitRecordChanged(
+          RespondentState previousState, String respondentId) =>
+      updateVisitRecord &&
+      previousState.visitRecordMap[respondentId] !=
+          visitRecordMap[respondentId];
 }

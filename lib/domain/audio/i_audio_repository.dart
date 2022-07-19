@@ -1,23 +1,15 @@
-import 'package:dartz/dartz.dart';
-
-import '../../domain/core/value_objects.dart';
 import 'audio.dart';
-import 'audio_failure.dart';
 
 abstract class IAudioRepository {
-  Stream<Either<AudioFailure, Audio>> downloadAudio({
-    required Audio audio,
-  });
+  Future<void> get ready;
 
-  Stream<Either<AudioFailure, Audio>> uploadAudioMap({
-    required Map<UniqueId, Audio> audioMap,
-  });
+  Set<String> get uploadSet;
 
-  Future<Either<AudioFailure, Audio>> uploadAudio({
-    required Audio audio,
-  });
+  Stream<Set<String>> get uploadSetStream;
 
-  Future<Either<AudioFailure, Map<UniqueId, Audio>>> getAudioMapFromDir();
+  Future<void> uploadAudioMap();
 
-  Future<Either<AudioFailure, Unit>> clearLocalAudioDirectory();
+  Future<void> addAudio(Audio audio);
+
+  Future<void> clearLocalAudioDirectory();
 }

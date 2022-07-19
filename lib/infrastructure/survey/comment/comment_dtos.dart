@@ -12,64 +12,40 @@ class CommentDto with _$CommentDto {
   const CommentDto._();
 
   const factory CommentDto({
-    // > 區分不同 comment
-    required String teamId,
-    required String projectId,
-    required String surveyId,
-    required String respondentId,
-    // > 區分 comment 版本
     required String commentId,
     required String interviewerId,
     required String deviceId,
     // > 狀態
     required int createdTimeStamp,
     required int lastChangedTimeStamp,
-    required bool isDeleted,
-    required bool isUploaded,
     // > 內容
-    required String content,
+    required String message,
   }) = _CommentDto;
 
   factory CommentDto.fromDomain(Comment domain) {
     return CommentDto(
-      // > 區分不同 comment
-      teamId: domain.teamId,
-      projectId: domain.projectId,
-      surveyId: domain.surveyId,
-      respondentId: domain.respondentId,
-      // > 區分 comment 版本
-      commentId: domain.commentId.value,
+      commentId: domain.commentId,
       interviewerId: domain.interviewerId,
       deviceId: domain.deviceId.value,
       // > 狀態
       createdTimeStamp: domain.createdTimeStamp.value.microsecondsSinceEpoch,
       lastChangedTimeStamp:
           domain.lastChangedTimeStamp.value.microsecondsSinceEpoch,
-      isDeleted: domain.isDeleted,
-      isUploaded: domain.isUploaded,
       // > 內容
-      content: domain.content,
+      message: domain.message,
     );
   }
 
   Comment toDomain() {
     return Comment(
-      // > 區分不同 comment
-      teamId: teamId,
-      projectId: projectId,
-      surveyId: surveyId,
-      respondentId: respondentId,
-      // > 區分 comment 版本
-      commentId: UniqueId(commentId),
+      commentId: commentId,
       interviewerId: interviewerId,
       deviceId: UniqueId(deviceId),
       // > 狀態
       createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
       lastChangedTimeStamp: DeviceTimeStamp.fromInt(lastChangedTimeStamp),
-      isDeleted: isDeleted,
-      isUploaded: isUploaded,
       // > 內容
-      content: content,
+      message: message,
     );
   }
 
