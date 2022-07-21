@@ -51,7 +51,7 @@ class SurveyContentBody extends StatelessWidget {
               );
             }
 
-            final contentText = question.toPlainTextBody(withId: true);
+            final contentText = question.plainTextBody;
 
             int page;
             if (!state.isRecodeModule) {

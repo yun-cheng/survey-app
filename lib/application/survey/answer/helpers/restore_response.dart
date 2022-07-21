@@ -2,7 +2,8 @@ part of '../answer_bloc.dart';
 
 // > 從 responseMap 回復要進行的 response
 Tuple2<AnswerState, Response> restoreResponse(
-  Tuple8<ResponseMap?, UniqueId?, bool, bool, String, Survey, Response, AnswerState>
+  Tuple8<ResponseMap?, UniqueId?, bool, bool, String, Survey, Response,
+          AnswerState>
       tuple,
 ) {
   final responseMap = tuple.value1 ?? {};
@@ -100,7 +101,7 @@ Tuple2<AnswerState, Response> restoreResponse(
   }
 
   // - 3 無論是否是新的 response，只要不是已完成，都要產生新的 responseId、tempResponseId
-  if (response.responseStatus != ResponseStatus.finished()) {
+  if (!response.responseStatus.isFinished) {
     final now = DeviceTimeStamp.now();
     response = response.copyWith(
       responseId: newResponse.responseId,
@@ -118,7 +119,7 @@ Tuple2<AnswerState, Response> restoreResponse(
     mainResponse = responseMap.values
         .where(
           (r) =>
-              r.responseStatus == ResponseStatus.finished() &&
+              r.responseStatus.isFinished &&
               r.respondentId == state.respondentId &&
               r.surveyId == survey.id &&
               r.moduleType.isMain,

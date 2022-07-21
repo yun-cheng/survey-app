@@ -26,16 +26,25 @@ RespondentState updateRespondentState(
   }
 
   // - tab
-  if (response == null || response.moduleType.needUpdateTab) {
+  if (response == null || !response.moduleType.isVisitReport) {
     final tabRespondentMap = updateTabRespondentMap(
       surveyId: survey.id,
-      fullRespondentMap: respondentMap,
+      respondentMap: respondentMap,
       responseMap: responseMap,
     );
 
     state = updateTabData(
       tabRespondentMap: tabRespondentMap,
       state: state,
+    );
+
+    final respondentProgressMap = updateRespondentProgressMap(
+      surveyId: survey.id,
+      responseMap: responseMap,
+    );
+
+    state = state.copyWith(
+      respondentProgressMap: respondentProgressMap,
     );
   }
 

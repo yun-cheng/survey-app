@@ -167,7 +167,6 @@ class ModuleType with _$ModuleType {
 
   bool get isMainOrVisitReport => isMain || isVisitReport;
 
-  bool get needUpdateTab => !isVisitReport;
   bool get shouldRecord => ['samplingWithinHousehold', 'main'].contains(value);
   bool get ableToReAnswer =>
       ['samplingWithinHousehold', 'housingType'].contains(value);
@@ -229,11 +228,13 @@ class ResponseStatus with _$ResponseStatus {
 
   const factory ResponseStatus(String value) = _ResponseStatus;
 
-  factory ResponseStatus.empty() => const ResponseStatus('');
-  factory ResponseStatus.answering() => const ResponseStatus('answering');
-  factory ResponseStatus.finished() => const ResponseStatus('finished');
+  static const unstarted = ResponseStatus('unstarted');
+  static const answering = ResponseStatus('answering');
+  static const finished = ResponseStatus('finished');
 
-  bool get isFinished => this == ResponseStatus.finished();
+  bool get hasStarted => this != ResponseStatus.unstarted;
+  bool get isFinished => this == ResponseStatus.finished;
+  bool get isAnswering => this == ResponseStatus.answering;
 }
 
 @freezed

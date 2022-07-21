@@ -44,6 +44,7 @@ mixin _$AnswerEvent {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) =>
@@ -75,6 +76,7 @@ mixin _$AnswerEvent {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) =>
@@ -106,6 +108,7 @@ mixin _$AnswerEvent {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -129,6 +132,7 @@ mixin _$AnswerEvent {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) =>
@@ -148,6 +152,7 @@ mixin _$AnswerEvent {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) =>
@@ -167,6 +172,7 @@ mixin _$AnswerEvent {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -268,9 +274,7 @@ class __$$_ResponseStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseStarted
-    with DiagnosticableTreeMixin
-    implements _ResponseStarted {
+class _$_ResponseStarted implements _ResponseStarted {
   const _$_ResponseStarted(
       {this.moduleType,
       this.responseId,
@@ -289,19 +293,8 @@ class _$_ResponseStarted
   final bool createNewResponse;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.responseStarted(moduleType: $moduleType, responseId: $responseId, breakInterview: $breakInterview, createNewResponse: $createNewResponse)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.responseStarted'))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('responseId', responseId))
-      ..add(DiagnosticsProperty('breakInterview', breakInterview))
-      ..add(DiagnosticsProperty('createNewResponse', createNewResponse));
   }
 
   @override
@@ -361,6 +354,7 @@ class _$_ResponseStarted
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -396,6 +390,7 @@ class _$_ResponseStarted
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -431,6 +426,7 @@ class _$_ResponseStarted
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -461,6 +457,7 @@ class _$_ResponseStarted
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -483,6 +480,7 @@ class _$_ResponseStarted
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -505,6 +503,7 @@ class _$_ResponseStarted
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -553,20 +552,12 @@ class __$$_ResponseResumedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseResumed
-    with DiagnosticableTreeMixin
-    implements _ResponseResumed {
+class _$_ResponseResumed implements _ResponseResumed {
   const _$_ResponseResumed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.responseResumed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AnswerEvent.responseResumed'));
   }
 
   @override
@@ -607,6 +598,7 @@ class _$_ResponseResumed
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -641,6 +633,7 @@ class _$_ResponseResumed
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -675,6 +668,7 @@ class _$_ResponseResumed
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -704,6 +698,7 @@ class _$_ResponseResumed
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -726,6 +721,7 @@ class _$_ResponseResumed
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -748,6 +744,7 @@ class _$_ResponseResumed
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -813,7 +810,7 @@ class __$$_ResponseEndedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
+class _$_ResponseEnded implements _ResponseEnded {
   const _$_ResponseEnded(
       {this.markFinished = false,
       this.clearState = true,
@@ -835,19 +832,8 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
   final bool confirmEnding;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.responseEnded(markFinished: $markFinished, clearState: $clearState, reAnswer: $reAnswer, confirmEnding: $confirmEnding)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.responseEnded'))
-      ..add(DiagnosticsProperty('markFinished', markFinished))
-      ..add(DiagnosticsProperty('clearState', clearState))
-      ..add(DiagnosticsProperty('reAnswer', reAnswer))
-      ..add(DiagnosticsProperty('confirmEnding', confirmEnding));
   }
 
   @override
@@ -906,6 +892,7 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -940,6 +927,7 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -975,6 +963,7 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1004,6 +993,7 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1026,6 +1016,7 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1048,6 +1039,7 @@ class _$_ResponseEnded with DiagnosticableTreeMixin implements _ResponseEnded {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1097,18 +1089,12 @@ class __$$_StateClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
+class _$_StateCleared implements _StateCleared {
   const _$_StateCleared();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.stateCleared()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AnswerEvent.stateCleared'));
   }
 
   @override
@@ -1149,6 +1135,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -1183,6 +1170,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -1217,6 +1205,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1246,6 +1235,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1268,6 +1258,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1290,6 +1281,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1395,7 +1387,7 @@ class __$$_AnswerUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
+class _$_AnswerUpdated implements _AnswerUpdated {
   _$_AnswerUpdated(
       {required this.questionId,
       required this.answerValue,
@@ -1427,23 +1419,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   final bool? setIsSpecialAnswer;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, answer: $answer, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf, isRecode: $isRecode, setIsSpecialAnswer: $setIsSpecialAnswer)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.answerUpdated'))
-      ..add(DiagnosticsProperty('questionId', questionId))
-      ..add(DiagnosticsProperty('answerValue', answerValue))
-      ..add(DiagnosticsProperty('answer', answer))
-      ..add(DiagnosticsProperty('isSpecialAnswer', isSpecialAnswer))
-      ..add(DiagnosticsProperty('isNote', isNote))
-      ..add(DiagnosticsProperty('noteOf', noteOf))
-      ..add(DiagnosticsProperty('isRecode', isRecode))
-      ..add(DiagnosticsProperty('setIsSpecialAnswer', setIsSpecialAnswer));
   }
 
   @override
@@ -1511,6 +1488,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -1546,6 +1524,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -1581,6 +1560,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1611,6 +1591,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1633,6 +1614,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1655,6 +1637,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1729,9 +1712,7 @@ class __$$_PageNavigatedToCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PageNavigatedTo
-    with DiagnosticableTreeMixin
-    implements _PageNavigatedTo {
+class _$_PageNavigatedTo implements _PageNavigatedTo {
   const _$_PageNavigatedTo({this.direction = Direction.current, this.page});
 
   @override
@@ -1741,17 +1722,8 @@ class _$_PageNavigatedTo
   final int? page;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.pageNavigatedTo(direction: $direction, page: $page)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.pageNavigatedTo'))
-      ..add(DiagnosticsProperty('direction', direction))
-      ..add(DiagnosticsProperty('page', page));
   }
 
   @override
@@ -1803,6 +1775,7 @@ class _$_PageNavigatedTo
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -1837,6 +1810,7 @@ class _$_PageNavigatedTo
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -1871,6 +1845,7 @@ class _$_PageNavigatedTo
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1900,6 +1875,7 @@ class _$_PageNavigatedTo
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1922,6 +1898,7 @@ class _$_PageNavigatedTo
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1944,6 +1921,7 @@ class _$_PageNavigatedTo
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2005,9 +1983,7 @@ class __$$_ScrolledToQuestionIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScrolledToQuestionId
-    with DiagnosticableTreeMixin
-    implements _ScrolledToQuestionId {
+class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   const _$_ScrolledToQuestionId({required this.page, required this.questionId});
 
   @override
@@ -2016,17 +1992,8 @@ class _$_ScrolledToQuestionId
   final String questionId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.navigatedToQuestionId(page: $page, questionId: $questionId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.navigatedToQuestionId'))
-      ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('questionId', questionId));
   }
 
   @override
@@ -2080,6 +2047,7 @@ class _$_ScrolledToQuestionId
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -2114,6 +2082,7 @@ class _$_ScrolledToQuestionId
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -2148,6 +2117,7 @@ class _$_ScrolledToQuestionId
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2177,6 +2147,7 @@ class _$_ScrolledToQuestionId
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2199,6 +2170,7 @@ class _$_ScrolledToQuestionId
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2221,6 +2193,7 @@ class _$_ScrolledToQuestionId
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2279,25 +2252,15 @@ class __$$_JumpedToWarningQuestionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_JumpedToWarningQuestion
-    with DiagnosticableTreeMixin
-    implements _JumpedToWarningQuestion {
+class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   const _$_JumpedToWarningQuestion({required this.questionId});
 
   @override
   final String questionId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.jumpedToWarningQuestion(questionId: $questionId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.jumpedToWarningQuestion'))
-      ..add(DiagnosticsProperty('questionId', questionId));
   }
 
   @override
@@ -2349,6 +2312,7 @@ class _$_JumpedToWarningQuestion
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -2383,6 +2347,7 @@ class _$_JumpedToWarningQuestion
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -2417,6 +2382,7 @@ class _$_JumpedToWarningQuestion
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2446,6 +2412,7 @@ class _$_JumpedToWarningQuestion
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2468,6 +2435,7 @@ class _$_JumpedToWarningQuestion
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2490,6 +2458,7 @@ class _$_JumpedToWarningQuestion
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2535,21 +2504,12 @@ class __$$_ContentQuestionMapUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ContentQuestionMapUpdated
-    with DiagnosticableTreeMixin
-    implements _ContentQuestionMapUpdated {
+class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   const _$_ContentQuestionMapUpdated();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.contentQuestionMapUpdated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'AnswerEvent.contentQuestionMapUpdated'));
   }
 
   @override
@@ -2591,6 +2551,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -2625,6 +2586,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -2659,6 +2621,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2688,6 +2651,7 @@ class _$_ContentQuestionMapUpdated
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2710,6 +2674,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2732,6 +2697,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2769,21 +2735,12 @@ class __$$_FinishedButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FinishedButtonPressed
-    with DiagnosticableTreeMixin
-    implements _FinishedButtonPressed {
+class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   const _$_FinishedButtonPressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.finishedButtonPressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'AnswerEvent.finishedButtonPressed'));
   }
 
   @override
@@ -2824,6 +2781,7 @@ class _$_FinishedButtonPressed
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -2858,6 +2816,7 @@ class _$_FinishedButtonPressed
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -2892,6 +2851,7 @@ class _$_FinishedButtonPressed
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2921,6 +2881,7 @@ class _$_FinishedButtonPressed
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2943,6 +2904,7 @@ class _$_FinishedButtonPressed
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2965,6 +2927,7 @@ class _$_FinishedButtonPressed
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3023,23 +2986,15 @@ class __$$_DialogShowedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
+class _$_DialogShowed implements _DialogShowed {
   const _$_DialogShowed({required this.type});
 
   @override
   final DialogType type;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.dialogShowed(type: $type)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.dialogShowed'))
-      ..add(DiagnosticsProperty('type', type));
   }
 
   @override
@@ -3088,6 +3043,7 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -3122,6 +3078,7 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -3156,6 +3113,7 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3185,6 +3143,7 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3207,6 +3166,7 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3229,6 +3189,7 @@ class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3271,18 +3232,12 @@ class __$$_DialogClosedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
+class _$_DialogClosed implements _DialogClosed {
   const _$_DialogClosed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.dialogClosed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AnswerEvent.dialogClosed'));
   }
 
   @override
@@ -3323,6 +3278,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -3357,6 +3313,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -3391,6 +3348,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3420,6 +3378,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3442,6 +3401,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3464,6 +3424,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3477,6 +3438,264 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
 
 abstract class _DialogClosed implements AnswerEvent {
   const factory _DialogClosed() = _$_DialogClosed;
+}
+
+/// @nodoc
+abstract class _$$_TextSearchedCopyWith<$Res> {
+  factory _$$_TextSearchedCopyWith(
+          _$_TextSearched value, $Res Function(_$_TextSearched) then) =
+      __$$_TextSearchedCopyWithImpl<$Res>;
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$_TextSearchedCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$$_TextSearchedCopyWith<$Res> {
+  __$$_TextSearchedCopyWithImpl(
+      _$_TextSearched _value, $Res Function(_$_TextSearched) _then)
+      : super(_value, (v) => _then(v as _$_TextSearched));
+
+  @override
+  _$_TextSearched get _value => super._value as _$_TextSearched;
+
+  @override
+  $Res call({
+    Object? text = freezed,
+  }) {
+    return _then(_$_TextSearched(
+      text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TextSearched implements _TextSearched {
+  const _$_TextSearched(this.text);
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'AnswerEvent.textSearched(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TextSearched &&
+            const DeepCollectionEquality().equals(other.text, text));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(text));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
+      __$$_TextSearchedCopyWithImpl<_$_TextSearched>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ModuleType? moduleType, UniqueId? responseId,
+            bool breakInterview, bool createNewResponse)
+        responseStarted,
+    required TResult Function() responseResumed,
+    required TResult Function(bool markFinished, bool clearState, bool reAnswer,
+            bool confirmEnding)
+        responseEnded,
+    required TResult Function() stateCleared,
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            Answer? answer,
+            bool isSpecialAnswer,
+            bool isNote,
+            String? noteOf,
+            bool isRecode,
+            bool? setIsSpecialAnswer)
+        answerUpdated,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
+    required TResult Function(String questionId) jumpedToWarningQuestion,
+    required TResult Function() contentQuestionMapUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
+    required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() initialized,
+  }) {
+    return textSearched(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ModuleType? moduleType, UniqueId? responseId,
+            bool breakInterview, bool createNewResponse)?
+        responseStarted,
+    TResult Function()? responseResumed,
+    TResult Function(bool markFinished, bool clearState, bool reAnswer,
+            bool confirmEnding)?
+        responseEnded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            Answer? answer,
+            bool isSpecialAnswer,
+            bool isNote,
+            String? noteOf,
+            bool isRecode,
+            bool? setIsSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function(String questionId)? jumpedToWarningQuestion,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
+    TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? initialized,
+  }) {
+    return textSearched?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ModuleType? moduleType, UniqueId? responseId,
+            bool breakInterview, bool createNewResponse)?
+        responseStarted,
+    TResult Function()? responseResumed,
+    TResult Function(bool markFinished, bool clearState, bool reAnswer,
+            bool confirmEnding)?
+        responseEnded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            Answer? answer,
+            bool isSpecialAnswer,
+            bool isNote,
+            String? noteOf,
+            bool isRecode,
+            bool? setIsSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function(String questionId)? jumpedToWarningQuestion,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
+    TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (textSearched != null) {
+      return textSearched(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_ResponseEnded value) responseEnded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
+    required TResult Function(_JumpedToWarningQuestion value)
+        jumpedToWarningQuestion,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return textSearched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_ResponseEnded value)? responseEnded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return textSearched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_ResponseEnded value)? responseEnded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (textSearched != null) {
+      return textSearched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TextSearched implements AnswerEvent {
+  const factory _TextSearched(final String text) = _$_TextSearched;
+
+  String get text => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3513,25 +3732,15 @@ class __$$_AppLifeCycleChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppLifeCycleChanged
-    with DiagnosticableTreeMixin
-    implements _AppLifeCycleChanged {
+class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   const _$_AppLifeCycleChanged({required this.isPaused});
 
   @override
   final bool isPaused;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.appLifeCycleChanged(isPaused: $isPaused)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerEvent.appLifeCycleChanged'))
-      ..add(DiagnosticsProperty('isPaused', isPaused));
   }
 
   @override
@@ -3581,6 +3790,7 @@ class _$_AppLifeCycleChanged
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -3615,6 +3825,7 @@ class _$_AppLifeCycleChanged
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -3649,6 +3860,7 @@ class _$_AppLifeCycleChanged
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3678,6 +3890,7 @@ class _$_AppLifeCycleChanged
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3700,6 +3913,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3722,6 +3936,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3763,18 +3978,12 @@ class __$$_InitializedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
+class _$_Initialized implements _Initialized {
   const _$_Initialized();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AnswerEvent.initialized()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AnswerEvent.initialized'));
   }
 
   @override
@@ -3815,6 +4024,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function() finishedButtonPressed,
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
@@ -3849,6 +4059,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
@@ -3883,6 +4094,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function()? finishedButtonPressed,
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3912,6 +4124,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
         finishedButtonPressed,
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3934,6 +4147,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3956,6 +4170,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3998,6 +4213,7 @@ mixin _$AnswerState {
   bool get showLeaveButton => throw _privateConstructorUsedError;
   bool get leavePage => throw _privateConstructorUsedError;
   bool get appIsPaused => throw _privateConstructorUsedError;
+  String get searchText => throw _privateConstructorUsedError;
   int get scrollToQuestionIndex => throw _privateConstructorUsedError;
   bool get blockGesture => throw _privateConstructorUsedError;
   bool get restartState =>
@@ -4054,6 +4270,7 @@ abstract class $AnswerStateCopyWith<$Res> {
       bool showLeaveButton,
       bool leavePage,
       bool appIsPaused,
+      String searchText,
       int scrollToQuestionIndex,
       bool blockGesture,
       bool restartState,
@@ -4112,6 +4329,7 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     Object? showLeaveButton = freezed,
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
+    Object? searchText = freezed,
     Object? scrollToQuestionIndex = freezed,
     Object? blockGesture = freezed,
     Object? restartState = freezed,
@@ -4216,6 +4434,10 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
               as bool,
+      searchText: searchText == freezed
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
       scrollToQuestionIndex: scrollToQuestionIndex == freezed
           ? _value.scrollToQuestionIndex
           : scrollToQuestionIndex // ignore: cast_nullable_to_non_nullable
@@ -4363,6 +4585,7 @@ abstract class _$$_UpdateAnswerStatusStateCopyWith<$Res>
       bool showLeaveButton,
       bool leavePage,
       bool appIsPaused,
+      String searchText,
       int scrollToQuestionIndex,
       bool blockGesture,
       bool restartState,
@@ -4431,6 +4654,7 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? showLeaveButton = freezed,
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
+    Object? searchText = freezed,
     Object? scrollToQuestionIndex = freezed,
     Object? blockGesture = freezed,
     Object? restartState = freezed,
@@ -4535,6 +4759,10 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
               as bool,
+      searchText: searchText == freezed
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
       scrollToQuestionIndex: scrollToQuestionIndex == freezed
           ? _value.scrollToQuestionIndex
           : scrollToQuestionIndex // ignore: cast_nullable_to_non_nullable
@@ -4613,8 +4841,7 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
-    with DiagnosticableTreeMixin {
+class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
   const _$_UpdateAnswerStatusState(
       {required this.stateId,
       required final Map<String, Answer> answerMap,
@@ -4637,6 +4864,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.showLeaveButton,
       required this.leavePage,
       required this.appIsPaused,
+      required this.searchText,
       required this.scrollToQuestionIndex,
       required this.blockGesture,
       required this.restartState,
@@ -4764,6 +4992,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   final bool appIsPaused;
   @override
+  final String searchText;
+  @override
   final int scrollToQuestionIndex;
   @override
   final bool blockGesture;
@@ -4831,55 +5061,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   final bool pageQuestionIsUpdated;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AnswerState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, surveyId: $surveyId, respondentId: $respondentId, referenceList: $referenceList, restoreState: $restoreState, eventState: $eventState, answerIsUpdated: $answerIsUpdated, answerStatusIsUpdated: $answerStatusIsUpdated, pageQuestionIsUpdated: $pageQuestionIsUpdated)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AnswerState'))
-      ..add(DiagnosticsProperty('stateId', stateId))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
-      ..add(DiagnosticsProperty('recodeAnswerMap', recodeAnswerMap))
-      ..add(DiagnosticsProperty('recodeAnswerStatusMap', recodeAnswerStatusMap))
-      ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('newestPage', newestPage))
-      ..add(DiagnosticsProperty('isLastPage', isLastPage))
-      ..add(DiagnosticsProperty('warning', warning))
-      ..add(DiagnosticsProperty('showWarning', showWarning))
-      ..add(DiagnosticsProperty('questionId', questionId))
-      ..add(DiagnosticsProperty('updatedQIdSet', updatedQIdSet))
-      ..add(DiagnosticsProperty('clearAnswerQIdSet', clearAnswerQIdSet))
-      ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
-      ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
-      ..add(DiagnosticsProperty('showQIdSet', showQIdSet))
-      ..add(DiagnosticsProperty('direction', direction))
-      ..add(DiagnosticsProperty('dialogType', dialogType))
-      ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
-      ..add(DiagnosticsProperty('leavePage', leavePage))
-      ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
-      ..add(DiagnosticsProperty('scrollToQuestionIndex', scrollToQuestionIndex))
-      ..add(DiagnosticsProperty('blockGesture', blockGesture))
-      ..add(DiagnosticsProperty('restartState', restartState))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
-      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
-      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
-      ..add(DiagnosticsProperty('pageQIdSetMap', pageQIdSetMap))
-      ..add(DiagnosticsProperty('questionMap', questionMap))
-      ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap))
-      ..add(DiagnosticsProperty('surveyId', surveyId))
-      ..add(DiagnosticsProperty('respondentId', respondentId))
-      ..add(DiagnosticsProperty('referenceList', referenceList))
-      ..add(DiagnosticsProperty('restoreState', restoreState))
-      ..add(DiagnosticsProperty('eventState', eventState))
-      ..add(DiagnosticsProperty('answerIsUpdated', answerIsUpdated))
-      ..add(DiagnosticsProperty('answerStatusIsUpdated', answerStatusIsUpdated))
-      ..add(
-          DiagnosticsProperty('pageQuestionIsUpdated', pageQuestionIsUpdated));
+  String toString() {
+    return 'AnswerState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, searchText: $searchText, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, surveyId: $surveyId, respondentId: $respondentId, referenceList: $referenceList, restoreState: $restoreState, eventState: $eventState, answerIsUpdated: $answerIsUpdated, answerStatusIsUpdated: $answerStatusIsUpdated, pageQuestionIsUpdated: $pageQuestionIsUpdated)';
   }
 
   @override
@@ -4924,6 +5107,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             const DeepCollectionEquality().equals(other.leavePage, leavePage) &&
             const DeepCollectionEquality()
                 .equals(other.appIsPaused, appIsPaused) &&
+            const DeepCollectionEquality()
+                .equals(other.searchText, searchText) &&
             const DeepCollectionEquality()
                 .equals(other.scrollToQuestionIndex, scrollToQuestionIndex) &&
             const DeepCollectionEquality()
@@ -4985,6 +5170,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
         const DeepCollectionEquality().hash(showLeaveButton),
         const DeepCollectionEquality().hash(leavePage),
         const DeepCollectionEquality().hash(appIsPaused),
+        const DeepCollectionEquality().hash(searchText),
         const DeepCollectionEquality().hash(scrollToQuestionIndex),
         const DeepCollectionEquality().hash(blockGesture),
         const DeepCollectionEquality().hash(restartState),
@@ -5036,6 +5222,7 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
       required final bool showLeaveButton,
       required final bool leavePage,
       required final bool appIsPaused,
+      required final String searchText,
       required final int scrollToQuestionIndex,
       required final bool blockGesture,
       required final bool restartState,
@@ -5101,6 +5288,8 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
   bool get leavePage => throw _privateConstructorUsedError;
   @override
   bool get appIsPaused => throw _privateConstructorUsedError;
+  @override
+  String get searchText => throw _privateConstructorUsedError;
   @override
   int get scrollToQuestionIndex => throw _privateConstructorUsedError;
   @override

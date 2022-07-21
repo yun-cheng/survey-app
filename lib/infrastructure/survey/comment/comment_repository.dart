@@ -148,6 +148,7 @@ class CommentRepository implements ICommentRepository {
         await _localStorage.write(
           box: 'responseCommentsMap',
           data: _responseCommentsMap,
+          isMapEntries: true,
           toJson: ResponseCommentsMapDto.domainToJson,
         );
       },

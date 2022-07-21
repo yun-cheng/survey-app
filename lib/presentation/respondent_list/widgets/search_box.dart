@@ -17,16 +17,18 @@ class SearchBox extends HookWidget {
 
     return SizedBox(
       width: kAnswerElementWidth,
+      height: 40,
       child: TextField(
         controller: controller,
         style: kPTextStyle,
+        textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           isCollapsed: true,
           filled: true,
           fillColor: kAnswerBackgroundColor,
           border: InputBorder.none,
           prefixIcon: const Icon(Icons.search),
-          suffix: IconButton(
+          suffixIcon: IconButton(
             icon: const Icon(Icons.close),
             onPressed: () {
               controller.text = '';

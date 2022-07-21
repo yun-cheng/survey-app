@@ -4,12 +4,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/respondent/respondent/respondent_cubit.dart';
 import '../../../application/respondent/respondent_bloc.dart';
-import '../../../application/respondent/tab/tab_cubit.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/w_ink_well.dart';
+import 'respondent_card_chip_area.dart';
 import 'respondent_card_expanded_area.dart';
 
 class RespondentCard extends HookWidget {
@@ -21,7 +21,6 @@ class RespondentCard extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('RespondentCard');
 
-    final tabType = context.read<TabCubit>().state;
     final respondent = context.read<RespondentCubit>().state;
     final isSelected = useState(
       context.read<RespondentBloc>().state.respondent.id == respondent.id,
@@ -89,20 +88,7 @@ class RespondentCard extends HookWidget {
                     respondent.id,
                     style: kCardH4TextStyle,
                   ),
-                  // > 最後一筆查址紀錄
-                  BlocBuilder<RespondentBloc, RespondentState>(
-                    buildWhen: (p, c) =>
-                        c.lastVisitRecordChanged(p, respondent.id),
-                    builder: (context, state) {
-                      String status = state.visitRecordMap[respondent.id] ?? '';
-                      status = tabType.index > 0 ? '完訪 100' : status;
-
-                      return Text(
-                        status,
-                        style: kCardH4TextStyle,
-                      );
-                    },
-                  ),
+                  const RespondentCardChipArea(),
                 ],
               ),
               Row(

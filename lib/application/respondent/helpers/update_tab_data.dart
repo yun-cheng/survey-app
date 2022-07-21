@@ -2,90 +2,51 @@ part of '../respondent_bloc.dart';
 
 TabRespondentMap updateTabRespondentMap({
   required String surveyId,
-  required RespondentMap fullRespondentMap,
+  required RespondentMap respondentMap,
   required ResponseMap responseMap,
 }) {
-  final TabRespondentMap tabRespondentMap = {};
-
-  Tuple2<ResponseList, ResponseList> pResponseList;
-  Tuple2<RespondentMap, RespondentMap> pRespondentMap;
-  RespondentMap respondentMap;
-  ResponseList finishedResponseList;
-
-  // - 1-1 先篩出除了查址外已完成的 responses
-  respondentMap = {...fullRespondentMap};
-
-  finishedResponseList = responseMap.values
+  // - 篩出除了查址外已完成的 responses
+  final moduleMap = responseMap.values
       .where(
         (r) =>
             r.surveyId == surveyId &&
             r.responseStatus.isFinished &&
-            r.moduleType != ModuleType.visitReport(),
+            !r.moduleType.isVisitReport,
       )
-      .toList();
+      .map((r) => Tuple2(r.moduleType, r.respondentId))
+      .groupFoldBy((e) => e.item1,
+          (Set<String>? previous, e) => (previous ?? {})..add(e.item2));
 
-  // * 從最後一個分頁開始篩
-  // - 1-2 篩出預過錄已完成，代表全部都已完成
-  pResponseList = finishedResponseList.partition((r) => r.moduleType.isRecode);
+  final Map<TabType, Set<String>> tabRespondentSet = {};
 
-  pRespondentMap = respondentMap.partitionByValues(
-      (r) => pResponseList.item1.any((s) => s.respondentId == r.id));
+  // -
+  tabRespondentSet[TabType.finished] = moduleMap[ModuleType.recode()] ?? {};
 
-  tabRespondentMap[TabType.finished] = pRespondentMap.item1;
+  // -
+  tabRespondentSet[TabType.recode] = moduleMap[ModuleType.interviewReport()]
+          ?.difference(moduleMap[ModuleType.recode()] ?? {}) ??
+      {};
 
-  // - 2-1 篩剩餘的往下繼續篩
-  respondentMap = pRespondentMap.item2;
-  finishedResponseList = pResponseList.item2;
+  // -
+  tabRespondentSet[TabType.interviewReport] = moduleMap[ModuleType.main()]
+          ?.intersection(moduleMap[ModuleType.housingType()] ?? {})
+          .difference(moduleMap[ModuleType.interviewReport()] ?? {}) ??
+      {};
 
-  // - 2-2 篩出訪問紀錄已完成，代表進到預過錄分頁
-  pResponseList =
-      finishedResponseList.partition((r) => r.moduleType.isInterviewReport);
+  // -
+  tabRespondentSet[TabType.housingType] = moduleMap[ModuleType.main()]
+          ?.difference(moduleMap[ModuleType.housingType()] ?? {}) ??
+      {};
 
-  pRespondentMap = respondentMap.partitionByValues(
-      (r) => pResponseList.item1.any((s) => s.respondentId == r.id));
+  // -
+  tabRespondentSet[TabType.start] = respondentMap.keys
+      .toSet()
+      .difference(moduleMap[ModuleType.interviewReport()] ?? {})
+      .difference(tabRespondentSet[TabType.housingType]!);
 
-  tabRespondentMap[TabType.recode] = pRespondentMap.item1;
-
-  // - 3-1
-  respondentMap = pRespondentMap.item2;
-  finishedResponseList = pResponseList.item2;
-
-  // - 3-2 篩出主問卷、住屋都已完成，代表進到訪問紀錄分頁
-  pResponseList = finishedResponseList
-      .partition((r) => !r.moduleType.isSamplingWithinHousehold);
-
-  pRespondentMap = respondentMap.partitionByValues(
-    (r) => pResponseList.item1
-        // - 篩出是當前 respondent 的 responses
-        .where((s) => s.respondentId == r.id)
-        // - 轉換成當前 respondent 的 moduleTypes
-        .map((s) => s.moduleType)
-        // - 判斷主問卷、住屋是否都已完成
-        .containsAll([ModuleType.main(), ModuleType.housingType()]),
+  return tabRespondentSet.mapValues(
+    (e) => e.map((r) => MapEntry(r, respondentMap[r]!)).toMap(),
   );
-
-  tabRespondentMap[TabType.interviewReport] = pRespondentMap.item1;
-
-  // - 4-1
-  respondentMap = pRespondentMap.item2;
-  finishedResponseList = pResponseList.item1;
-
-  // - 4-2 篩出主問卷已完成，代表進到住屋分頁
-  pResponseList = finishedResponseList.partition((r) => r.moduleType.isMain);
-
-  pRespondentMap = respondentMap.partitionByValues(
-    (r) => pResponseList.item1
-        .where((s) => s.respondentId == r.id)
-        .map((s) => s.moduleType)
-        .contains(ModuleType.main()),
-  );
-
-  tabRespondentMap[TabType.housingType] = pRespondentMap.item1;
-
-  // - 5 剩下的就在訪問分頁
-  tabRespondentMap[TabType.start] = pRespondentMap.item2;
-
-  return tabRespondentMap;
 }
 
 RespondentState updateTabData({
@@ -123,5 +84,26 @@ RespondentState updateTabData({
     tabCountMap: tabCountMap,
     tabGroupedRespondentList: list,
     updateTab: true,
+  );
+}
+
+RespondentProgressMap updateRespondentProgressMap({
+  required String surveyId,
+  required ResponseMap responseMap,
+}) {
+  return responseMap.values
+      .where(
+        (r) => r.surveyId == surveyId && !r.moduleType.isVisitReport,
+      )
+      .map((r) => Tuple3(r.respondentId, r.moduleType, r.responseStatus))
+      .groupFoldBy(
+    (e) => e.item1,
+    (Map<ModuleType, ResponseStatus>? previous, e) {
+      final map = {...previous ?? {}};
+      if (map[e.item2] == null || !map[e.item2]!.isFinished) {
+        map[e.item2] = e.item3;
+      }
+      return map;
+    },
   );
 }

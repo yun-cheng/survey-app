@@ -1876,10 +1876,12 @@ mixin _$RespondentState {
   String get searchText => throw _privateConstructorUsedError;
   Map<TabType, double> get tabScrollOffset =>
       throw _privateConstructorUsedError; // > 中間資料
-  List<String> get groupList => throw _privateConstructorUsedError;
+  List<String> get groupList =>
+      throw _privateConstructorUsedError; // FIXME 改 Set<String>?
   Map<String, bool> get subsetRespondentMap =>
       throw _privateConstructorUsedError;
-  Map<String, Housing> get housingMap =>
+  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
+  Map<String, Map<ModuleType, ResponseStatus>> get respondentProgressMap =>
       throw _privateConstructorUsedError; // >> visitRecord
 // ? VisitRecords or VisitReports
   Map<String, List<VisitRecord>> get visitRecordLMap =>
@@ -1918,6 +1920,7 @@ abstract class $RespondentStateCopyWith<$Res> {
       List<String> groupList,
       Map<String, bool> subsetRespondentMap,
       Map<String, Housing> housingMap,
+      Map<String, Map<ModuleType, ResponseStatus>> respondentProgressMap,
       Map<String, List<VisitRecord>> visitRecordLMap,
       Map<String, String> visitRecordMap,
       Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
@@ -1954,6 +1957,7 @@ class _$RespondentStateCopyWithImpl<$Res>
     Object? groupList = freezed,
     Object? subsetRespondentMap = freezed,
     Object? housingMap = freezed,
+    Object? respondentProgressMap = freezed,
     Object? visitRecordLMap = freezed,
     Object? visitRecordMap = freezed,
     Object? tabGroupedRespondentList = freezed,
@@ -2002,6 +2006,10 @@ class _$RespondentStateCopyWithImpl<$Res>
           ? _value.housingMap
           : housingMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Housing>,
+      respondentProgressMap: respondentProgressMap == freezed
+          ? _value.respondentProgressMap
+          : respondentProgressMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<ModuleType, ResponseStatus>>,
       visitRecordLMap: visitRecordLMap == freezed
           ? _value.visitRecordLMap
           : visitRecordLMap // ignore: cast_nullable_to_non_nullable
@@ -2084,6 +2092,7 @@ abstract class _$$_RespondentStateCopyWith<$Res>
       List<String> groupList,
       Map<String, bool> subsetRespondentMap,
       Map<String, Housing> housingMap,
+      Map<String, Map<ModuleType, ResponseStatus>> respondentProgressMap,
       Map<String, List<VisitRecord>> visitRecordLMap,
       Map<String, String> visitRecordMap,
       Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
@@ -2125,6 +2134,7 @@ class __$$_RespondentStateCopyWithImpl<$Res>
     Object? groupList = freezed,
     Object? subsetRespondentMap = freezed,
     Object? housingMap = freezed,
+    Object? respondentProgressMap = freezed,
     Object? visitRecordLMap = freezed,
     Object? visitRecordMap = freezed,
     Object? tabGroupedRespondentList = freezed,
@@ -2173,6 +2183,10 @@ class __$$_RespondentStateCopyWithImpl<$Res>
           ? _value._housingMap
           : housingMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Housing>,
+      respondentProgressMap: respondentProgressMap == freezed
+          ? _value._respondentProgressMap
+          : respondentProgressMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<ModuleType, ResponseStatus>>,
       visitRecordLMap: visitRecordLMap == freezed
           ? _value._visitRecordLMap
           : visitRecordLMap // ignore: cast_nullable_to_non_nullable
@@ -2230,6 +2244,8 @@ class _$_RespondentState extends _RespondentState {
       required final List<String> groupList,
       required final Map<String, bool> subsetRespondentMap,
       required final Map<String, Housing> housingMap,
+      required final Map<String, Map<ModuleType, ResponseStatus>>
+          respondentProgressMap,
       required final Map<String, List<VisitRecord>> visitRecordLMap,
       required final Map<String, String> visitRecordMap,
       required final Map<TabType, Map<String, List<Respondent>>>
@@ -2245,6 +2261,7 @@ class _$_RespondentState extends _RespondentState {
         _groupList = groupList,
         _subsetRespondentMap = subsetRespondentMap,
         _housingMap = housingMap,
+        _respondentProgressMap = respondentProgressMap,
         _visitRecordLMap = visitRecordLMap,
         _visitRecordMap = visitRecordMap,
         _tabGroupedRespondentList = tabGroupedRespondentList,
@@ -2278,7 +2295,9 @@ class _$_RespondentState extends _RespondentState {
     return EqualUnmodifiableListView(_groupList);
   }
 
+// FIXME 改 Set<String>?
   final Map<String, bool> _subsetRespondentMap;
+// FIXME 改 Set<String>?
   @override
   Map<String, bool> get subsetRespondentMap {
     // ignore: implicit_dynamic_type
@@ -2290,6 +2309,13 @@ class _$_RespondentState extends _RespondentState {
   Map<String, Housing> get housingMap {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_housingMap);
+  }
+
+  final Map<String, Map<ModuleType, ResponseStatus>> _respondentProgressMap;
+  @override
+  Map<String, Map<ModuleType, ResponseStatus>> get respondentProgressMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_respondentProgressMap);
   }
 
 // >> visitRecord
@@ -2343,7 +2369,7 @@ class _$_RespondentState extends _RespondentState {
 
   @override
   String toString() {
-    return 'RespondentState(stateId: $stateId, respondent: $respondent, currentTab: $currentTab, selectedGroup: $selectedGroup, searchText: $searchText, tabScrollOffset: $tabScrollOffset, groupList: $groupList, subsetRespondentMap: $subsetRespondentMap, housingMap: $housingMap, visitRecordLMap: $visitRecordLMap, visitRecordMap: $visitRecordMap, tabGroupedRespondentList: $tabGroupedRespondentList, tabCountMap: $tabCountMap, respondentFailure: $respondentFailure, updateRespondents: $updateRespondents, updateTab: $updateTab, updateVisitRecord: $updateVisitRecord, updateHousing: $updateHousing, updateSubset: $updateSubset)';
+    return 'RespondentState(stateId: $stateId, respondent: $respondent, currentTab: $currentTab, selectedGroup: $selectedGroup, searchText: $searchText, tabScrollOffset: $tabScrollOffset, groupList: $groupList, subsetRespondentMap: $subsetRespondentMap, housingMap: $housingMap, respondentProgressMap: $respondentProgressMap, visitRecordLMap: $visitRecordLMap, visitRecordMap: $visitRecordMap, tabGroupedRespondentList: $tabGroupedRespondentList, tabCountMap: $tabCountMap, respondentFailure: $respondentFailure, updateRespondents: $updateRespondents, updateTab: $updateTab, updateVisitRecord: $updateVisitRecord, updateHousing: $updateHousing, updateSubset: $updateSubset)';
   }
 
   @override
@@ -2368,6 +2394,8 @@ class _$_RespondentState extends _RespondentState {
                 .equals(other._subsetRespondentMap, _subsetRespondentMap) &&
             const DeepCollectionEquality()
                 .equals(other._housingMap, _housingMap) &&
+            const DeepCollectionEquality()
+                .equals(other._respondentProgressMap, _respondentProgressMap) &&
             const DeepCollectionEquality()
                 .equals(other._visitRecordLMap, _visitRecordLMap) &&
             const DeepCollectionEquality()
@@ -2401,6 +2429,7 @@ class _$_RespondentState extends _RespondentState {
         const DeepCollectionEquality().hash(_groupList),
         const DeepCollectionEquality().hash(_subsetRespondentMap),
         const DeepCollectionEquality().hash(_housingMap),
+        const DeepCollectionEquality().hash(_respondentProgressMap),
         const DeepCollectionEquality().hash(_visitRecordLMap),
         const DeepCollectionEquality().hash(_visitRecordMap),
         const DeepCollectionEquality().hash(_tabGroupedRespondentList),
@@ -2430,6 +2459,8 @@ abstract class _RespondentState extends RespondentState {
       required final List<String> groupList,
       required final Map<String, bool> subsetRespondentMap,
       required final Map<String, Housing> housingMap,
+      required final Map<String, Map<ModuleType, ResponseStatus>>
+          respondentProgressMap,
       required final Map<String, List<VisitRecord>> visitRecordLMap,
       required final Map<String, String> visitRecordMap,
       required final Map<TabType, Map<String, List<Respondent>>>
@@ -2458,11 +2489,14 @@ abstract class _RespondentState extends RespondentState {
       throw _privateConstructorUsedError;
   @override // > 中間資料
   List<String> get groupList => throw _privateConstructorUsedError;
-  @override
+  @override // FIXME 改 Set<String>?
   Map<String, bool> get subsetRespondentMap =>
       throw _privateConstructorUsedError;
   @override
   Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
+  @override
+  Map<String, Map<ModuleType, ResponseStatus>> get respondentProgressMap =>
+      throw _privateConstructorUsedError;
   @override // >> visitRecord
 // ? VisitRecords or VisitReports
   Map<String, List<VisitRecord>> get visitRecordLMap =>

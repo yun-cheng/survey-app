@@ -67,6 +67,9 @@ class AnswerEvent with _$AnswerEvent {
   // > 關閉 dialog
   const factory AnswerEvent.dialogClosed() = _DialogClosed;
 
+  // > 搜尋題目
+  const factory AnswerEvent.textSearched(String text) = _TextSearched;
+
   // > lifeCycle 變更時
   const factory AnswerEvent.appLifeCycleChanged({
     required bool isPaused,

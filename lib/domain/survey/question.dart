@@ -100,12 +100,7 @@ class Question with _$Question {
     );
   }
 
-  String toPlainTextBody({
-    required bool withId,
-  }) {
-    final idText = withId ? '$id. ' : '';
-    return idText + stringBody;
-  }
+  String get plainTextBody => '$id. $stringBody';
 
   List<TextSpan> toTextSpanList() => body.map((e) => e.toTextSpan()).toList();
 }

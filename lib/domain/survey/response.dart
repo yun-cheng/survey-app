@@ -61,7 +61,7 @@ class Response with _$Response {
       sessionStartTimeStamp: now,
       sessionEndTimeStamp: now,
       lastChangedTimeStamp: now,
-      responseStatus: ResponseStatus.answering(),
+      responseStatus: ResponseStatus.answering,
       isDeleted: false,
       answerMap: const <String, Answer>{},
       answerStatusMap: const <String, AnswerStatus>{},

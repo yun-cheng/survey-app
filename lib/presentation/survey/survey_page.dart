@@ -14,6 +14,7 @@ import 'widgets/leave_survey_button.dart';
 import 'widgets/loading_box.dart';
 import 'widgets/page_control_bar.dart';
 import 'widgets/re_answer_button.dart';
+import 'widgets/search_question_box.dart';
 import 'widgets/survey_app_bar_title.dart';
 import 'widgets/survey_body.dart';
 
@@ -47,6 +48,7 @@ class SurveyPage extends HookWidget {
               const LoadingBox(),
               const SizedBox(width: 10),
               const ReAnswerButton(),
+              const SearchQuestionBox(),
               BlocBuilder<AnswerBloc, AnswerState>(
                 buildWhen: (p, c) => c.restoreStateChanged(p),
                 builder: (context, state) {

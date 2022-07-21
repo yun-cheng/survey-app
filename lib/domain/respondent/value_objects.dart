@@ -8,12 +8,12 @@ class TabType with _$TabType {
 
   const factory TabType(String value) = _TabType;
 
-  static const TabType empty = TabType('');
-  static const TabType start = TabType('start');
-  static const TabType housingType = TabType('housingType');
-  static const TabType interviewReport = TabType('interviewReport');
-  static const TabType recode = TabType('recode');
-  static const TabType finished = TabType('finished');
+  static const empty = TabType('');
+  static const start = TabType('start');
+  static const housingType = TabType('housingType');
+  static const interviewReport = TabType('interviewReport');
+  static const recode = TabType('recode');
+  static const finished = TabType('finished');
 
   static Set<TabType> values = {
     TabType.start,

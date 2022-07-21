@@ -116,3 +116,32 @@ AnswerState updateContentQuestionMap(AnswerState state) {
     questionMap: questionMap,
   );
 }
+
+// > 搜尋題目
+AnswerState searchText(AnswerState state) {
+  logger('Compute').i('searchText');
+
+  final questionMap =
+      state.isRecodeModule ? state.recodeQuestionMap : state.questionMap;
+  final answerStatusMap = state.isRecodeModule
+      ? state.recodeAnswerStatusMap
+      : state.answerStatusMap;
+
+  late final Set<String> showQIdSet;
+
+  if (state.searchText == '') {
+    showQIdSet = state.pageQIdSet
+        .filter((qId) => !(answerStatusMap[qId]?.isHidden ?? false))
+        .toSet();
+  } else {
+    showQIdSet = state.pageQIdSet
+        .filter((qId) =>
+            !(answerStatusMap[qId]?.isHidden ?? false) &&
+            questionMap[qId]!.plainTextBody.contains(state.searchText))
+        .toSet();
+  }
+
+  return state.copyWith(
+    showQIdSet: showQIdSet,
+  );
+}

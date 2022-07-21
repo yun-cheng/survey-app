@@ -377,12 +377,12 @@ class ResponseRepository implements IResponseRepository {
       editFinished: true,
       sessionEndTimeStamp: now,
       lastChangedTimeStamp: now,
-      responseStatus: ResponseStatus.answering(),
+      responseStatus: ResponseStatus.answering,
     );
 
     if (markFinished) {
       response = response.copyWith(
-        responseStatus: ResponseStatus.finished(),
+        responseStatus: ResponseStatus.finished,
         surveyPageState: response.surveyPageState.reset(),
       );
     }

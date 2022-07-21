@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:supercharged/supercharged.dart';
@@ -380,6 +379,21 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
               )
               .eventSuccess(emit);
         }
+      },
+      // >
+      textSearched: (e) async {
+        logger('Event').i('AnswerEvent: textSearched');
+
+        blockGesture(true);
+
+        final newState = await _isolateWorker.compute(
+          searchText,
+          state.copyWith(
+            searchText: e.text,
+          ),
+        );
+
+        newState.eventSuccess(emit);
       },
       // >
       stateCleared: (e) {

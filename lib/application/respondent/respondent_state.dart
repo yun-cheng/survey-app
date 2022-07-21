@@ -14,8 +14,10 @@ class RespondentState with _$RespondentState {
     required Map<TabType, double> tabScrollOffset,
     // > 中間資料
     required List<String> groupList,
+    // FIXME 改 Set<String>?
     required Map<String, bool> subsetRespondentMap,
     required Map<String, Housing> housingMap,
+    required RespondentProgressMap respondentProgressMap,
     // >> visitRecord
     // ? VisitRecords or VisitReports
     required VisitRecordLMap visitRecordLMap,
@@ -45,6 +47,7 @@ class RespondentState with _$RespondentState {
         groupList: const [],
         subsetRespondentMap: const {},
         housingMap: const {},
+        respondentProgressMap: const {},
         // >> visitRecord
         visitRecordLMap: const {},
         visitRecordMap: const {},

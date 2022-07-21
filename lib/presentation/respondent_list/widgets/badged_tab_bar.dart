@@ -22,6 +22,7 @@ class BadgedTabBar extends StatelessWidget {
     } else if (count > 99) {
       width = 38.0;
     }
+
     return Container(
       alignment: Alignment.center,
       width: width,
@@ -61,7 +62,10 @@ class BadgedTabBar extends StatelessWidget {
 
           return TabBar(
             controller: tabController,
-            labelStyle: kH3TextStyle,
+            labelStyle: kH2TextStyle,
+            unselectedLabelStyle: kH3TextStyle,
+            indicatorColor: Colors.deepPurple,
+            indicatorWeight: 3,
             isScrollable: screenWidth < 600.0,
             tabs: <Widget>[
               tabTitle('訪問', state.tabCountMap[TabType.start] ?? 0),
