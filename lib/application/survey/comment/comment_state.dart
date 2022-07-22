@@ -9,7 +9,8 @@ class CommentState with _$CommentState {
     // > 主要資料
     required ResponseComments responseComments,
     required String message,
-    // > 狀態更新進度
+    // > 狀態
+    required bool showComments,
     required LoadState eventState,
   }) = _CommentState;
 
@@ -18,7 +19,8 @@ class CommentState with _$CommentState {
         // > 主要資料
         responseComments: ResponseComments.empty(),
         message: '',
-        // > 狀態更新進度
+        // > 狀態
+        showComments: false,
         eventState: LoadState.initial(),
       );
 
@@ -36,7 +38,14 @@ class CommentState with _$CommentState {
     ).emit(emit);
   }
 
-  bool commentMapChanged(CommentState previousState) =>
+  bool commentsBodyChanged(CommentState previousState) =>
+      showComments != previousState.showComments;
+
+  bool scrollToBottom(CommentState previousState) =>
+      previousState.responseComments.commentMap.length <
+      responseComments.commentMap.length;
+
+  bool commentListChanged(CommentState previousState) =>
       previousState.responseComments.commentMap.length !=
       responseComments.commentMap.length;
 }

@@ -46,3 +46,8 @@ const kRoundedButtonTextStyle = TextStyle(
   fontSize: kH3FontSize,
   color: Colors.white,
 );
+
+final kCommentTimeStyle = TextStyle(
+  fontSize: kPFontSize,
+  color: Colors.grey[800],
+);

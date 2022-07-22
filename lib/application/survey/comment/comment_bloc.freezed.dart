@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CommentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
@@ -28,7 +28,7 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -38,7 +38,7 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -49,7 +49,7 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
@@ -59,7 +59,7 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -69,7 +69,7 @@ mixin _$CommentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -97,38 +97,38 @@ class _$CommentEventCopyWithImpl<$Res> implements $CommentEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_CommentLoadedCopyWith<$Res> {
-  factory _$$_CommentLoadedCopyWith(
-          _$_CommentLoaded value, $Res Function(_$_CommentLoaded) then) =
-      __$$_CommentLoadedCopyWithImpl<$Res>;
+abstract class _$$_CommentsBodyToggledCopyWith<$Res> {
+  factory _$$_CommentsBodyToggledCopyWith(_$_CommentsBodyToggled value,
+          $Res Function(_$_CommentsBodyToggled) then) =
+      __$$_CommentsBodyToggledCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CommentLoadedCopyWithImpl<$Res>
+class __$$_CommentsBodyToggledCopyWithImpl<$Res>
     extends _$CommentEventCopyWithImpl<$Res>
-    implements _$$_CommentLoadedCopyWith<$Res> {
-  __$$_CommentLoadedCopyWithImpl(
-      _$_CommentLoaded _value, $Res Function(_$_CommentLoaded) _then)
-      : super(_value, (v) => _then(v as _$_CommentLoaded));
+    implements _$$_CommentsBodyToggledCopyWith<$Res> {
+  __$$_CommentsBodyToggledCopyWithImpl(_$_CommentsBodyToggled _value,
+      $Res Function(_$_CommentsBodyToggled) _then)
+      : super(_value, (v) => _then(v as _$_CommentsBodyToggled));
 
   @override
-  _$_CommentLoaded get _value => super._value as _$_CommentLoaded;
+  _$_CommentsBodyToggled get _value => super._value as _$_CommentsBodyToggled;
 }
 
 /// @nodoc
 
-class _$_CommentLoaded extends _CommentLoaded {
-  const _$_CommentLoaded() : super._();
+class _$_CommentsBodyToggled extends _CommentsBodyToggled {
+  const _$_CommentsBodyToggled() : super._();
 
   @override
   String toString() {
-    return 'CommentEvent.commentLoaded()';
+    return 'CommentEvent.commentsBodyToggled()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CommentLoaded);
+        (other.runtimeType == runtimeType && other is _$_CommentsBodyToggled);
   }
 
   @override
@@ -137,33 +137,33 @@ class _$_CommentLoaded extends _CommentLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
     required TResult Function() initialized,
     required TResult Function() stateCleared,
   }) {
-    return commentLoaded();
+    return commentsBodyToggled();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
     TResult Function()? initialized,
     TResult Function()? stateCleared,
   }) {
-    return commentLoaded?.call();
+    return commentsBodyToggled?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -171,8 +171,8 @@ class _$_CommentLoaded extends _CommentLoaded {
     TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
-    if (commentLoaded != null) {
-      return commentLoaded();
+    if (commentsBodyToggled != null) {
+      return commentsBodyToggled();
     }
     return orElse();
   }
@@ -180,33 +180,33 @@ class _$_CommentLoaded extends _CommentLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
-    return commentLoaded(this);
+    return commentsBodyToggled(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_Initialized value)? initialized,
     TResult Function(_StateCleared value)? stateCleared,
   }) {
-    return commentLoaded?.call(this);
+    return commentsBodyToggled?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -214,16 +214,16 @@ class _$_CommentLoaded extends _CommentLoaded {
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
-    if (commentLoaded != null) {
-      return commentLoaded(this);
+    if (commentsBodyToggled != null) {
+      return commentsBodyToggled(this);
     }
     return orElse();
   }
 }
 
-abstract class _CommentLoaded extends CommentEvent {
-  const factory _CommentLoaded() = _$_CommentLoaded;
-  const _CommentLoaded._() : super._();
+abstract class _CommentsBodyToggled extends CommentEvent {
+  const factory _CommentsBodyToggled() = _$_CommentsBodyToggled;
+  const _CommentsBodyToggled._() : super._();
 }
 
 /// @nodoc
@@ -291,7 +291,7 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
@@ -304,7 +304,7 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -317,7 +317,7 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -334,7 +334,7 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
@@ -347,7 +347,7 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -360,7 +360,7 @@ class _$_CommentUpdated extends _CommentUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -426,7 +426,7 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
@@ -439,7 +439,7 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -452,7 +452,7 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -469,7 +469,7 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
@@ -482,7 +482,7 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -495,7 +495,7 @@ class _$_CommentAdded extends _CommentAdded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -589,7 +589,7 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
@@ -602,7 +602,7 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -615,7 +615,7 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -632,7 +632,7 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
@@ -645,7 +645,7 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -658,7 +658,7 @@ class _$_StateEmitted extends _StateEmitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -724,7 +724,7 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
@@ -737,7 +737,7 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -750,7 +750,7 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -767,7 +767,7 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
@@ -780,7 +780,7 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -793,7 +793,7 @@ class _$_Initialized extends _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -854,7 +854,7 @@ class _$_StateCleared extends _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() commentLoaded,
+    required TResult Function() commentsBodyToggled,
     required TResult Function(String message) commentUpdated,
     required TResult Function() commentAdded,
     required TResult Function(CommentState state) stateEmitted,
@@ -867,7 +867,7 @@ class _$_StateCleared extends _StateCleared {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -880,7 +880,7 @@ class _$_StateCleared extends _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? commentLoaded,
+    TResult Function()? commentsBodyToggled,
     TResult Function(String message)? commentUpdated,
     TResult Function()? commentAdded,
     TResult Function(CommentState state)? stateEmitted,
@@ -897,7 +897,7 @@ class _$_StateCleared extends _StateCleared {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentLoaded value) commentLoaded,
+    required TResult Function(_CommentsBodyToggled value) commentsBodyToggled,
     required TResult Function(_CommentUpdated value) commentUpdated,
     required TResult Function(_CommentAdded value) commentAdded,
     required TResult Function(_StateEmitted value) stateEmitted,
@@ -910,7 +910,7 @@ class _$_StateCleared extends _StateCleared {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -923,7 +923,7 @@ class _$_StateCleared extends _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentLoaded value)? commentLoaded,
+    TResult Function(_CommentsBodyToggled value)? commentsBodyToggled,
     TResult Function(_CommentUpdated value)? commentUpdated,
     TResult Function(_CommentAdded value)? commentAdded,
     TResult Function(_StateEmitted value)? stateEmitted,
@@ -947,7 +947,8 @@ abstract class _StateCleared extends CommentEvent {
 mixin _$CommentState {
   UniqueId get stateId => throw _privateConstructorUsedError; // > 主要資料
   ResponseComments get responseComments => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError; // > 狀態更新進度
+  String get message => throw _privateConstructorUsedError; // > 狀態
+  bool get showComments => throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -964,6 +965,7 @@ abstract class $CommentStateCopyWith<$Res> {
       {UniqueId stateId,
       ResponseComments responseComments,
       String message,
+      bool showComments,
       LoadState eventState});
 
   $UniqueIdCopyWith<$Res> get stateId;
@@ -984,6 +986,7 @@ class _$CommentStateCopyWithImpl<$Res> implements $CommentStateCopyWith<$Res> {
     Object? stateId = freezed,
     Object? responseComments = freezed,
     Object? message = freezed,
+    Object? showComments = freezed,
     Object? eventState = freezed,
   }) {
     return _then(_value.copyWith(
@@ -999,6 +1002,10 @@ class _$CommentStateCopyWithImpl<$Res> implements $CommentStateCopyWith<$Res> {
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      showComments: showComments == freezed
+          ? _value.showComments
+          : showComments // ignore: cast_nullable_to_non_nullable
+              as bool,
       eventState: eventState == freezed
           ? _value.eventState
           : eventState // ignore: cast_nullable_to_non_nullable
@@ -1039,6 +1046,7 @@ abstract class _$$_CommentStateCopyWith<$Res>
       {UniqueId stateId,
       ResponseComments responseComments,
       String message,
+      bool showComments,
       LoadState eventState});
 
   @override
@@ -1065,6 +1073,7 @@ class __$$_CommentStateCopyWithImpl<$Res>
     Object? stateId = freezed,
     Object? responseComments = freezed,
     Object? message = freezed,
+    Object? showComments = freezed,
     Object? eventState = freezed,
   }) {
     return _then(_$_CommentState(
@@ -1080,6 +1089,10 @@ class __$$_CommentStateCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      showComments: showComments == freezed
+          ? _value.showComments
+          : showComments // ignore: cast_nullable_to_non_nullable
+              as bool,
       eventState: eventState == freezed
           ? _value.eventState
           : eventState // ignore: cast_nullable_to_non_nullable
@@ -1095,6 +1108,7 @@ class _$_CommentState extends _CommentState {
       {required this.stateId,
       required this.responseComments,
       required this.message,
+      required this.showComments,
       required this.eventState})
       : super._();
 
@@ -1105,13 +1119,15 @@ class _$_CommentState extends _CommentState {
   final ResponseComments responseComments;
   @override
   final String message;
-// > 狀態更新進度
+// > 狀態
+  @override
+  final bool showComments;
   @override
   final LoadState eventState;
 
   @override
   String toString() {
-    return 'CommentState(stateId: $stateId, responseComments: $responseComments, message: $message, eventState: $eventState)';
+    return 'CommentState(stateId: $stateId, responseComments: $responseComments, message: $message, showComments: $showComments, eventState: $eventState)';
   }
 
   @override
@@ -1124,6 +1140,8 @@ class _$_CommentState extends _CommentState {
                 .equals(other.responseComments, responseComments) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
+                .equals(other.showComments, showComments) &&
+            const DeepCollectionEquality()
                 .equals(other.eventState, eventState));
   }
 
@@ -1133,6 +1151,7 @@ class _$_CommentState extends _CommentState {
       const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(responseComments),
       const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(showComments),
       const DeepCollectionEquality().hash(eventState));
 
   @JsonKey(ignore: true)
@@ -1146,6 +1165,7 @@ abstract class _CommentState extends CommentState {
       {required final UniqueId stateId,
       required final ResponseComments responseComments,
       required final String message,
+      required final bool showComments,
       required final LoadState eventState}) = _$_CommentState;
   const _CommentState._() : super._();
 
@@ -1155,7 +1175,9 @@ abstract class _CommentState extends CommentState {
   ResponseComments get responseComments => throw _privateConstructorUsedError;
   @override
   String get message => throw _privateConstructorUsedError;
-  @override // > 狀態更新進度
+  @override // > 狀態
+  bool get showComments => throw _privateConstructorUsedError;
+  @override
   LoadState get eventState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

@@ -37,8 +37,21 @@ class CommentBloc extends Bloc<CommentEvent, CommentState> {
       initialized: (e) async {
         await _commentRepo.ready;
       },
-      commentLoaded: (e) async {
-        logger('Event').i('CommentEvent: commentLoaded');
+      commentsBodyToggled: (e) async {
+        logger('Event').i('CommentEvent: commentsBodyToggled');
+        if (state.showComments) {
+          state
+              .copyWith(
+                showComments: false,
+              )
+              .eventSuccess(emit);
+          return;
+        }
+        state
+            .copyWith(
+              showComments: true,
+            )
+            .emit(emit);
         final responseComments = await _commentRepo.loadResponseComments();
         state
             .copyWith(

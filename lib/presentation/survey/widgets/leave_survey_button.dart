@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/comment/comment_bloc.dart';
 import '../../../domain/core/logger.dart';
 
 class LeaveSurveyButton extends StatelessWidget {
@@ -56,6 +57,9 @@ class LeaveSurveyButton extends StatelessWidget {
                 onPressed: () {
                   context.read<AnswerBloc>().add(
                         const AnswerEvent.responseEnded(),
+                      );
+                  context.read<CommentBloc>().add(
+                        const CommentEvent.stateCleared(),
                       );
                 }),
           );

@@ -265,6 +265,7 @@ class DeviceTimeStamp with _$DeviceTimeStamp {
   String get hourStr => value.hour.toString().padLeft(2, '0');
   String get minuteStr => value.minute.toString().padLeft(2, '0');
   String get secondStr => value.second.toString().padLeft(2, '0');
+  String get commentTimeStamp => '$monthStr月$dayStr日 $hourStr:$minuteStr';
   String toReadableString() => '$yearStr-$monthStr-$dayStr $hourStr:$minuteStr';
   String toFileNameString() =>
       '$yearStr-$monthStr-${dayStr}_$hourStr.$minuteStr.$secondStr';

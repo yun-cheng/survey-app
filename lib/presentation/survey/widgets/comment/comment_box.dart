@@ -24,9 +24,9 @@ class CommentBox extends HookWidget {
       child: TextField(
         controller: controller,
         style: kPTextStyle,
+        minLines: 1,
+        maxLines: 3,
         decoration: InputDecoration(
-          // isDense: true,
-          isCollapsed: true,
           filled: true,
           fillColor: kAnswerBackgroundColor,
           border: InputBorder.none,

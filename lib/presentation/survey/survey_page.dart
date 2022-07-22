@@ -9,6 +9,7 @@ import '../../application/survey/block_gesture_cubit.dart';
 import '../../application/survey/comment/comment_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
+import 'widgets/comment/survey_comments_body.dart';
 import 'widgets/gesture_blocker_box.dart';
 import 'widgets/leave_survey_button.dart';
 import 'widgets/loading_box.dart';
@@ -63,9 +64,9 @@ class SurveyPage extends HookWidget {
                     icon: const Icon(Icons.chat_bubble_outline),
                     onPressed: () {
                       context.read<CommentBloc>().add(
-                            const CommentEvent.commentLoaded(),
+                            const CommentEvent.commentsBodyToggled(),
                           );
-                      context.pushNamed('survey-comments');
+                      // context.pushNamed('survey-comments');
                     },
                   );
                 },
@@ -86,12 +87,21 @@ class SurveyPage extends HookWidget {
               create: (context) => BlockGestureCubit(),
               child: Stack(
                 children: [
-                  Column(
+                  Row(
                     children: [
                       Expanded(
-                        child: SurveyBody(scrollController: scrollController),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: SurveyBody(
+                                scrollController: scrollController,
+                              ),
+                            ),
+                            const PageControlBar(),
+                          ],
+                        ),
                       ),
-                      const PageControlBar(),
+                      const SurveyCommentsBody(),
                     ],
                   ),
                   const GestureBlockerBox(),

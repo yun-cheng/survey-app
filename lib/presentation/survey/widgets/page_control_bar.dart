@@ -39,7 +39,7 @@ class PageControlBar extends HookWidget {
       buildWhen: (p, c) => c.controlBarChanged(p),
     );
 
-    if (!state.restoreState.isSuccess) {
+    if (!state.restoreState.isSuccess || state.isReadOnly) {
       return const SizedBox();
     }
 

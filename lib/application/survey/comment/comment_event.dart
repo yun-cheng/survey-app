@@ -4,7 +4,7 @@ part of 'comment_bloc.dart';
 class CommentEvent with _$CommentEvent {
   const CommentEvent._();
 
-  const factory CommentEvent.commentLoaded() = _CommentLoaded;
+  const factory CommentEvent.commentsBodyToggled() = _CommentsBodyToggled;
 
   const factory CommentEvent.commentUpdated(
     String message,
