@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../listeners/question_listeners.dart';
+import '../../../domain/survey/answer/i_answer_repository.dart';
+import '../../../injection.dart';
 import 'delayed_qa_widget.dart';
 import 'qa_card.dart';
 
@@ -67,6 +68,7 @@ class SurveyBody extends StatelessWidget {
                   (index, question) => [
                     BlocProvider(
                       create: (context) => QuestionBloc(
+                        getIt<IAnswerRepository>(),
                         question: question,
                         answer: state.answerMap[question.id],
                         isSpecialAnswer:
@@ -74,13 +76,11 @@ class SurveyBody extends StatelessWidget {
                         canEdit: !state.isReadOnly && !state.isRecodeModule,
                         shouldDelay: question.id != state.showQIdSet.first,
                       ),
-                      child: QuestionListeners(
-                        child: DelayedQaWidget(
-                          isSliver: true,
-                          child: QaCard(
-                            questionIndex: index,
-                            scrollController: scrollController,
-                          ),
+                      child: DelayedQaWidget(
+                        isSliver: true,
+                        child: QaCard(
+                          questionIndex: index,
+                          scrollController: scrollController,
                         ),
                       ),
                     ),

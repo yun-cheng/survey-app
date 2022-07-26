@@ -23,10 +23,11 @@ class AudioRecorder implements IAudioRecorder {
     logLevel: Level.warning,
   );
 
-  final _appDirPath = PathProvider.appDirPath;
-  final _tempDirPath = PathProvider.tempDirPath;
+  final _appDirPath = MyPathProvider.appDirPath;
+  final _tempDirPath = MyPathProvider.tempDirPath;
   String get _audioDirPath => '$_appDirPath/audio/';
-  final _backupPath = '/storage/emulated/0/Download/survey_backup/audio/';
+  final _backupDirPath = MyPathProvider.backupDirPath;
+  String get _backupPath => '$_backupDirPath/audio/';
 
   Audio? _audio;
 

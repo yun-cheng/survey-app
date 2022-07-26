@@ -1,12 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
-import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../domain/core/logger.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
@@ -19,8 +16,6 @@ class PageControlBar extends HookWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Timer? timer;
-
     // > 用來在鍵盤顯示時，隱藏 PageControlBar
     final keyboardVisibilityController = KeyboardVisibilityController();
 
@@ -50,26 +45,17 @@ class PageControlBar extends HookWidget {
     final canFinish = isLastPage && !hasWarning && !state.isReadOnly;
 
     void onPressed(Direction? direction) {
-      context.read<BlockGestureCubit>().block();
-
-      // * timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
-      timer?.cancel();
-      timer = Timer(
-        const Duration(milliseconds: 0),
-        () {
-          if (direction != null) {
-            context.read<AnswerBloc>().add(
-                  AnswerEvent.pageNavigatedTo(
-                    direction: direction,
-                  ),
-                );
-          } else {
-            context.read<AnswerBloc>().add(
-                  const AnswerEvent.finishedButtonPressed(),
-                );
-          }
-        },
-      );
+      if (direction != null) {
+        context.read<AnswerBloc>().add(
+              AnswerEvent.pageNavigatedTo(
+                direction: direction,
+              ),
+            );
+      } else {
+        context.read<AnswerBloc>().add(
+              const AnswerEvent.finishedButtonPressed(),
+            );
+      }
     }
 
     return Visibility(

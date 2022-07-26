@@ -1,15 +1,12 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/answer/answer_bloc.dart';
-import '../../../domain/core/logger.dart';
-import '../../../domain/survey/answer.dart';
-import '../../core/style/main.dart';
+import '../../../../application/survey/question/question_bloc.dart';
+import '../../../../domain/core/logger.dart';
+import '../../../../infrastructure/core/use_bloc.dart';
+import '../../../core/style/main.dart';
 
 class RecodeBox extends HookWidget {
   const RecodeBox({
@@ -20,17 +17,21 @@ class RecodeBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('RecodeBox');
 
-    final questionId = context.read<QuestionBloc>().state.question.id;
+    late final TextEditingController controller;
 
-    Timer? timer;
+    final state = useBloc<QuestionBloc, QuestionState>(
+      buildWhen: (p, c) {
+        if (c.answerIsCleared) {
+          controller.clear();
+        }
+        return false;
+      },
+    );
 
-    final canEdit = !context.read<AnswerBloc>().state.isReadOnly;
-    final note =
-        (context.read<AnswerBloc>().state.recodeAnswerMap[questionId] ??
-                    Answer.empty())
-                .value as String? ??
-            '';
-    final controller = useTextEditingController(text: note);
+    final canEdit = state.canEdit;
+    final note = state.answer.stringTypeValue;
+
+    controller = useTextEditingController(text: note);
 
     return Container(
       width: kAnswerElementWidth,
@@ -53,19 +54,9 @@ class RecodeBox extends HookWidget {
         inputFormatters: <TextInputFormatter>[
           FilteringTextInputFormatter.digitsOnly,
         ],
-        onChanged: (value) {
-          timer?.cancel();
-          timer = Timer(
-            const Duration(milliseconds: 0),
-            () => context.read<AnswerBloc>().add(
-                  AnswerEvent.answerUpdated(
-                    questionId: questionId,
-                    answerValue: value,
-                    isRecode: true,
-                  ),
-                ),
-          );
-        },
+        onChanged: (value) => context.read<QuestionBloc>().add(
+              QuestionEvent.setRecodeValue(value),
+            ),
       ),
     );
   }

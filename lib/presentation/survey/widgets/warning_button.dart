@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
@@ -34,7 +33,6 @@ class WarningButton extends StatelessWidget {
             child: TextButton(
               style: kWarningButtonStyle,
               onPressed: () {
-                context.read<BlockGestureCubit>().block();
                 context.read<AnswerBloc>().add(
                       AnswerEvent.jumpedToWarningQuestion(
                         questionId: warning.id,

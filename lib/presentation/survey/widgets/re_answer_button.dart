@@ -12,8 +12,7 @@ class ReAnswerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AnswerBloc, AnswerState>(
       buildWhen: (p, c) =>
-          p.isReadOnly != c.isReadOnly ||
-          p.moduleType != c.moduleType,
+          p.isReadOnly != c.isReadOnly || p.moduleType != c.moduleType,
       builder: (context, state) {
         bool closeReAnswer = false;
         if (state.moduleType.isSamplingWithinHousehold) {
@@ -36,7 +35,7 @@ class ReAnswerButton extends StatelessWidget {
             child: OutlinedButton(
               onPressed: () {
                 context.read<AnswerBloc>().add(
-                      AnswerEvent.dialogShowed(
+                      const AnswerEvent.dialogShowed(
                         type: DialogType.reAnswer(),
                       ),
                     );

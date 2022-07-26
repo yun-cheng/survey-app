@@ -1,13 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../application/survey/answer/answer_bloc.dart';
-import '../../../domain/core/logger.dart';
-import '../../../domain/survey/choice.dart';
-import '../../core/style/main.dart';
+import '../../../../application/survey/question/question_bloc.dart';
+import '../../../../domain/core/logger.dart';
+import '../../../../domain/survey/choice.dart';
+import '../../../core/style/main.dart';
 
 class NoteBox extends HookWidget {
   final String questionId;
@@ -26,8 +24,6 @@ class NoteBox extends HookWidget {
   @override
   Widget build(BuildContext context) {
     logger('Build').i('NoteBox');
-
-    Timer? timer;
 
     final controller = useTextEditingController(text: note);
 
@@ -50,20 +46,9 @@ class NoteBox extends HookWidget {
         ),
         maxLines: null,
         keyboardType: TextInputType.multiline,
-        onChanged: (value) {
-          timer?.cancel();
-          timer = Timer(
-            const Duration(milliseconds: 0),
-            () => context.read<AnswerBloc>().add(
-                  AnswerEvent.answerUpdated(
-                    questionId: questionId,
-                    answerValue: value,
-                    isNote: true,
-                    noteOf: choice.id,
-                  ),
-                ),
-          );
-        },
+        onChanged: (value) => context.read<QuestionBloc>().add(
+              QuestionEvent.setNote(value, noteOf: choice.id),
+            ),
       ),
     );
   }

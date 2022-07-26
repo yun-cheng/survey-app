@@ -9,7 +9,7 @@ class AnswerState with _$AnswerState {
     //  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
     required UniqueId stateId,
     // > 主要資料
-    required Map<String, Answer> answerMap,
+    required AnswerMap answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
     required Map<String, Answer> recodeAnswerMap,
     required Map<String, AnswerStatus> recodeAnswerStatusMap,
@@ -20,7 +20,6 @@ class AnswerState with _$AnswerState {
     required bool showWarning,
     // > 中間資料
     required String questionId,
-    required Set<String> updatedQIdSet,
     required Set<String> clearAnswerQIdSet,
     required Set<String> pageQIdSet,
     required Set<String> contentQIdSet,
@@ -69,13 +68,12 @@ class AnswerState with _$AnswerState {
         showWarning: false,
         // > 中間資料
         questionId: '',
-        updatedQIdSet: const {},
         clearAnswerQIdSet: const {},
         pageQIdSet: const {},
         contentQIdSet: const {},
         showQIdSet: const {},
         direction: Direction.current,
-        dialogType: DialogType.none(),
+        dialogType: const DialogType.none(),
         showLeaveButton: true,
         leavePage: false,
         appIsPaused: false,
@@ -107,7 +105,7 @@ class AnswerState with _$AnswerState {
   AnswerState clearState() => copyWith(
         blockGesture: false,
         scrollToQuestionIndex: -99,
-        updatedQIdSet: const {},
+        clearAnswerQIdSet: const {},
         answerIsUpdated: false,
         answerStatusIsUpdated: false,
         pageQuestionIsUpdated: false,
@@ -155,7 +153,7 @@ class AnswerState with _$AnswerState {
     emit(
       copyWith(
         stateId: UniqueId.v1(),
-        updatedQIdSet: const {},
+        clearAnswerQIdSet: const {},
         answerIsUpdated: false,
         answerStatusIsUpdated: false,
         pageQuestionIsUpdated: true,
@@ -190,16 +188,6 @@ class AnswerState with _$AnswerState {
   bool questionBodyChanged(AnswerState previousState, String questionId) =>
       previousState.questionMap[questionId]!.stringBody !=
       questionMap[questionId]!.stringBody;
-
-  bool answerCleared(String questionId) =>
-      answerIsUpdated &&
-      updatedQIdSet.contains(questionId) &&
-      answerMap[questionId]! == Answer.empty();
-
-  bool answerChanged(AnswerState previousState, String questionId) =>
-      answerIsUpdated &&
-      updatedQIdSet.contains(questionId) &&
-      previousState.answerMap[questionId] != answerMap[questionId];
 
   bool warningChanged(AnswerState previousState, String questionId) {
     final previousAnswerStatus = (isRecodeModule

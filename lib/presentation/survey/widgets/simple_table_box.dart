@@ -5,15 +5,16 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
+import '../../../domain/survey/answer/i_answer_repository.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/question.dart';
+import '../../../injection.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/delayed_widget.dart';
-import '../listeners/question_listeners.dart';
 import 'simple_table_qa_row.dart';
 
 class SimpleTableBox extends HookWidget {
@@ -119,20 +120,20 @@ class SimpleTableBox extends HookWidget {
                 .map(
                   (question) => BlocProvider(
                     create: (context) => QuestionBloc(
+                      getIt<IAnswerRepository>(),
                       question: question,
                       answer: state.answerMap[question.id],
                       isSpecialAnswer:
                           state.answerStatusMap[question.id]?.isSpecialAnswer,
                       withinCell: true,
-                      canEdit: !state.isReadOnly && !state.isRecodeModule,
+                      canEdit: !state.isReadOnly,
+                      isRecodeModule: state.isRecodeModule,
                     ),
-                    child: QuestionListeners(
-                      child: SimpleTableQARow(
-                        // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                        // TODO 使用正確的 key (如 question.id) 也許能解決
-                        key: Key(UniqueId.v1().value),
-                        scrollController: getController(question.id),
-                      ),
+                    child: SimpleTableQARow(
+                      // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                      // TODO 使用正確的 key (如 question.id) 也許能解決
+                      key: Key(UniqueId.v1().value),
+                      scrollController: getController(question.id),
                     ),
                   ),
                 )

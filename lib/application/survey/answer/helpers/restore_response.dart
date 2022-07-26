@@ -170,8 +170,8 @@ Tuple2<AnswerState, Response> restoreResponse(
     moduleType: moduleType,
     pageQIdSetMap: module.pageQIdSetMap,
     dialogType: switchToSampling
-        ? DialogType.switchToSamplingWithinHouseholdModule()
-        : DialogType.none(),
+        ? const DialogType.switchToSamplingWithinHouseholdModule()
+        : const DialogType.none(),
     showLeaveButton: !breakInterview,
     isRecodeModule: isRecodeModule,
     isReadOnly: response.responseStatus.isFinished,

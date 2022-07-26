@@ -9,11 +9,11 @@ AnswerState updateAnswerStatusMap(
   final e = tuple.value1;
   AnswerState state = tuple.value2;
 
-  if (e.setIsSpecialAnswer != null) {
+  if (e.isSpecialAnswer != null) {
     final answerStatusMap = {...state.answerStatusMap};
 
     answerStatusMap[e.questionId] =
-        answerStatusMap[e.questionId]!.setSpecialAnswer(e.setIsSpecialAnswer!);
+        answerStatusMap[e.questionId]!.setSpecialAnswer(e.isSpecialAnswer!);
 
     state = state.copyWith(
       answerStatusMap: answerStatusMap,
@@ -149,6 +149,10 @@ AnswerState showQuestionChecked(
   bool children = false,
 }) {
   logger('Compute').i('childrenShowQuestionChecked');
+
+  if (state.isRecodeModule) {
+    return showQuestionCheckedRecodeJob(state);
+  }
 
   final answerStatusMap = {...state.answerStatusMap};
   final clearAnswerQIdSet = {...state.clearAnswerQIdSet};

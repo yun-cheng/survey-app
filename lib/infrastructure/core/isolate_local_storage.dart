@@ -51,8 +51,7 @@ class IsolateLocalStorage {
 
     final appDirPath =
         await getApplicationDocumentsDirectory().then((dir) => dir.path);
-    final extDirPath =
-        await getExternalStorageDirectory().then((dir) => dir?.path ?? '');
+    const backupDirPath = 'sdcard/Download/survey_backup/';
 
     int i = 0;
     while (i < instance) {
@@ -60,7 +59,7 @@ class IsolateLocalStorage {
       executor!.execute(asyncTask);
       // * 用來傳資訊進 isolate
       final channel = await asyncTask.channel();
-      channel!.send(Tuple2(appDirPath, extDirPath));
+      channel!.send(Tuple2(appDirPath, backupDirPath));
       channelList.add(channel);
       i++;
     }
@@ -188,7 +187,7 @@ class LocalStorageTask extends AsyncTask<Map, void> {
 
     final tuple = await channel.waitMessage() as Tuple2<String, String>;
     final appDirPath = tuple.item1;
-    final extDirPath = tuple.item2;
+    final backupDirPath = tuple.item2;
 
     Hive.init(appDirPath);
 
@@ -204,7 +203,7 @@ class LocalStorageTask extends AsyncTask<Map, void> {
           final backupName = 'backup' + box;
           final backupBox = await Hive.openLazyBox(
             backupName,
-            path: extDirPath,
+            path: backupDirPath,
           );
           boxMap[backupName] = backupBox;
         }

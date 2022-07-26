@@ -22,8 +22,13 @@ mixin _$QuestionEvent {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,8 +37,13 @@ mixin _$QuestionEvent {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,8 +52,13 @@ mixin _$QuestionEvent {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,8 +68,13 @@ mixin _$QuestionEvent {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +83,13 @@ mixin _$QuestionEvent {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,8 +98,13 @@ mixin _$QuestionEvent {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,8 +148,8 @@ class __$$_ClearAnswerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ClearAnswer implements _ClearAnswer {
-  const _$_ClearAnswer();
+class _$_ClearAnswer extends _ClearAnswer {
+  const _$_ClearAnswer() : super._();
 
   @override
   String toString() {
@@ -142,8 +172,13 @@ class _$_ClearAnswer implements _ClearAnswer {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) {
     return clearAnswer();
   }
@@ -155,8 +190,13 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) {
     return clearAnswer?.call();
   }
@@ -168,8 +208,13 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (clearAnswer != null) {
@@ -185,8 +230,13 @@ class _$_ClearAnswer implements _ClearAnswer {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return clearAnswer(this);
   }
@@ -198,8 +248,13 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return clearAnswer?.call(this);
   }
@@ -211,8 +266,13 @@ class _$_ClearAnswer implements _ClearAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (clearAnswer != null) {
@@ -222,8 +282,9 @@ class _$_ClearAnswer implements _ClearAnswer {
   }
 }
 
-abstract class _ClearAnswer implements QuestionEvent {
+abstract class _ClearAnswer extends QuestionEvent {
   const factory _ClearAnswer() = _$_ClearAnswer;
+  const _ClearAnswer._() : super._();
 }
 
 /// @nodoc
@@ -268,8 +329,8 @@ class __$$_SetChoiceCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetChoice implements _SetChoice {
-  const _$_SetChoice(this.choice);
+class _$_SetChoice extends _SetChoice {
+  const _$_SetChoice(this.choice) : super._();
 
   @override
   final Choice choice;
@@ -303,8 +364,13 @@ class _$_SetChoice implements _SetChoice {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) {
     return setChoice(choice);
   }
@@ -316,8 +382,13 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) {
     return setChoice?.call(choice);
   }
@@ -329,8 +400,13 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (setChoice != null) {
@@ -346,8 +422,13 @@ class _$_SetChoice implements _SetChoice {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return setChoice(this);
   }
@@ -359,8 +440,13 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return setChoice?.call(this);
   }
@@ -372,8 +458,13 @@ class _$_SetChoice implements _SetChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (setChoice != null) {
@@ -383,8 +474,9 @@ class _$_SetChoice implements _SetChoice {
   }
 }
 
-abstract class _SetChoice implements QuestionEvent {
+abstract class _SetChoice extends QuestionEvent {
   const factory _SetChoice(final Choice choice) = _$_SetChoice;
+  const _SetChoice._() : super._();
 
   Choice get choice => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -435,8 +527,8 @@ class __$$_ToggleChoiceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ToggleChoice implements _ToggleChoice {
-  const _$_ToggleChoice(this.choice);
+class _$_ToggleChoice extends _ToggleChoice {
+  const _$_ToggleChoice(this.choice) : super._();
 
   @override
   final Choice choice;
@@ -470,8 +562,13 @@ class _$_ToggleChoice implements _ToggleChoice {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) {
     return toggleChoice(choice);
   }
@@ -483,8 +580,13 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) {
     return toggleChoice?.call(choice);
   }
@@ -496,8 +598,13 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (toggleChoice != null) {
@@ -513,8 +620,13 @@ class _$_ToggleChoice implements _ToggleChoice {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return toggleChoice(this);
   }
@@ -526,8 +638,13 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return toggleChoice?.call(this);
   }
@@ -539,8 +656,13 @@ class _$_ToggleChoice implements _ToggleChoice {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (toggleChoice != null) {
@@ -550,8 +672,9 @@ class _$_ToggleChoice implements _ToggleChoice {
   }
 }
 
-abstract class _ToggleChoice implements QuestionEvent {
+abstract class _ToggleChoice extends QuestionEvent {
   const factory _ToggleChoice(final Choice choice) = _$_ToggleChoice;
+  const _ToggleChoice._() : super._();
 
   Choice get choice => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -593,8 +716,8 @@ class __$$_SetSpecialAnswerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SetSpecialAnswer implements _SetSpecialAnswer {
-  const _$_SetSpecialAnswer(this.isSpecialAnswer);
+class _$_SetSpecialAnswer extends _SetSpecialAnswer {
+  const _$_SetSpecialAnswer(this.isSpecialAnswer) : super._();
 
   @override
   final bool isSpecialAnswer;
@@ -629,8 +752,13 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) {
     return setSpecialAnswer(isSpecialAnswer);
   }
@@ -642,8 +770,13 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) {
     return setSpecialAnswer?.call(isSpecialAnswer);
   }
@@ -655,8 +788,13 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (setSpecialAnswer != null) {
@@ -672,8 +810,13 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return setSpecialAnswer(this);
   }
@@ -685,8 +828,13 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return setSpecialAnswer?.call(this);
   }
@@ -698,8 +846,13 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (setSpecialAnswer != null) {
@@ -709,13 +862,779 @@ class _$_SetSpecialAnswer implements _SetSpecialAnswer {
   }
 }
 
-abstract class _SetSpecialAnswer implements QuestionEvent {
+abstract class _SetSpecialAnswer extends QuestionEvent {
   const factory _SetSpecialAnswer(final bool isSpecialAnswer) =
       _$_SetSpecialAnswer;
+  const _SetSpecialAnswer._() : super._();
 
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_SetSpecialAnswerCopyWith<_$_SetSpecialAnswer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetNoteCopyWith<$Res> {
+  factory _$$_SetNoteCopyWith(
+          _$_SetNote value, $Res Function(_$_SetNote) then) =
+      __$$_SetNoteCopyWithImpl<$Res>;
+  $Res call({String note, String noteOf});
+}
+
+/// @nodoc
+class __$$_SetNoteCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_SetNoteCopyWith<$Res> {
+  __$$_SetNoteCopyWithImpl(_$_SetNote _value, $Res Function(_$_SetNote) _then)
+      : super(_value, (v) => _then(v as _$_SetNote));
+
+  @override
+  _$_SetNote get _value => super._value as _$_SetNote;
+
+  @override
+  $Res call({
+    Object? note = freezed,
+    Object? noteOf = freezed,
+  }) {
+    return _then(_$_SetNote(
+      note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String,
+      noteOf: noteOf == freezed
+          ? _value.noteOf
+          : noteOf // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetNote extends _SetNote {
+  const _$_SetNote(this.note, {required this.noteOf}) : super._();
+
+  @override
+  final String note;
+  @override
+  final String noteOf;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.setNote(note: $note, noteOf: $noteOf)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetNote &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.noteOf, noteOf));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(noteOf));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetNoteCopyWith<_$_SetNote> get copyWith =>
+      __$$_SetNoteCopyWithImpl<_$_SetNote>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
+    required TResult Function(bool value) qABoxShown,
+    required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
+  }) {
+    return setNote(note, noteOf);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+  }) {
+    return setNote?.call(note, noteOf);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (setNote != null) {
+      return setNote(note, noteOf);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
+    required TResult Function(_QABoxShown value) qABoxShown,
+    required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return setNote(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return setNote?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (setNote != null) {
+      return setNote(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetNote extends QuestionEvent {
+  const factory _SetNote(final String note, {required final String noteOf}) =
+      _$_SetNote;
+  const _SetNote._() : super._();
+
+  String get note => throw _privateConstructorUsedError;
+  String get noteOf => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_SetNoteCopyWith<_$_SetNote> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetValueCopyWith<$Res> {
+  factory _$$_SetValueCopyWith(
+          _$_SetValue value, $Res Function(_$_SetValue) then) =
+      __$$_SetValueCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$_SetValueCopyWithImpl<$Res> extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_SetValueCopyWith<$Res> {
+  __$$_SetValueCopyWithImpl(
+      _$_SetValue _value, $Res Function(_$_SetValue) _then)
+      : super(_value, (v) => _then(v as _$_SetValue));
+
+  @override
+  _$_SetValue get _value => super._value as _$_SetValue;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$_SetValue(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetValue extends _SetValue {
+  const _$_SetValue(this.value) : super._();
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.setValue(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetValue &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetValueCopyWith<_$_SetValue> get copyWith =>
+      __$$_SetValueCopyWithImpl<_$_SetValue>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
+    required TResult Function(bool value) qABoxShown,
+    required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
+  }) {
+    return setValue(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+  }) {
+    return setValue?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (setValue != null) {
+      return setValue(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
+    required TResult Function(_QABoxShown value) qABoxShown,
+    required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return setValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return setValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (setValue != null) {
+      return setValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetValue extends QuestionEvent {
+  const factory _SetValue(final String value) = _$_SetValue;
+  const _SetValue._() : super._();
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_SetValueCopyWith<_$_SetValue> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetDateTimeCopyWith<$Res> {
+  factory _$$_SetDateTimeCopyWith(
+          _$_SetDateTime value, $Res Function(_$_SetDateTime) then) =
+      __$$_SetDateTimeCopyWithImpl<$Res>;
+  $Res call({DateTime dateTime});
+}
+
+/// @nodoc
+class __$$_SetDateTimeCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_SetDateTimeCopyWith<$Res> {
+  __$$_SetDateTimeCopyWithImpl(
+      _$_SetDateTime _value, $Res Function(_$_SetDateTime) _then)
+      : super(_value, (v) => _then(v as _$_SetDateTime));
+
+  @override
+  _$_SetDateTime get _value => super._value as _$_SetDateTime;
+
+  @override
+  $Res call({
+    Object? dateTime = freezed,
+  }) {
+    return _then(_$_SetDateTime(
+      dateTime == freezed
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetDateTime extends _SetDateTime {
+  const _$_SetDateTime(this.dateTime) : super._();
+
+  @override
+  final DateTime dateTime;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.setDateTime(dateTime: $dateTime)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetDateTime &&
+            const DeepCollectionEquality().equals(other.dateTime, dateTime));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(dateTime));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetDateTimeCopyWith<_$_SetDateTime> get copyWith =>
+      __$$_SetDateTimeCopyWithImpl<_$_SetDateTime>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
+    required TResult Function(bool value) qABoxShown,
+    required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
+  }) {
+    return setDateTime(dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+  }) {
+    return setDateTime?.call(dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (setDateTime != null) {
+      return setDateTime(dateTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
+    required TResult Function(_QABoxShown value) qABoxShown,
+    required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return setDateTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return setDateTime?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (setDateTime != null) {
+      return setDateTime(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetDateTime extends QuestionEvent {
+  const factory _SetDateTime(final DateTime dateTime) = _$_SetDateTime;
+  const _SetDateTime._() : super._();
+
+  DateTime get dateTime => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_SetDateTimeCopyWith<_$_SetDateTime> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetRecodeValueCopyWith<$Res> {
+  factory _$$_SetRecodeValueCopyWith(
+          _$_SetRecodeValue value, $Res Function(_$_SetRecodeValue) then) =
+      __$$_SetRecodeValueCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$_SetRecodeValueCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_SetRecodeValueCopyWith<$Res> {
+  __$$_SetRecodeValueCopyWithImpl(
+      _$_SetRecodeValue _value, $Res Function(_$_SetRecodeValue) _then)
+      : super(_value, (v) => _then(v as _$_SetRecodeValue));
+
+  @override
+  _$_SetRecodeValue get _value => super._value as _$_SetRecodeValue;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$_SetRecodeValue(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetRecodeValue extends _SetRecodeValue {
+  const _$_SetRecodeValue(this.value) : super._();
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.setRecodeValue(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetRecodeValue &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetRecodeValueCopyWith<_$_SetRecodeValue> get copyWith =>
+      __$$_SetRecodeValueCopyWithImpl<_$_SetRecodeValue>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
+    required TResult Function(bool value) qABoxShown,
+    required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
+  }) {
+    return setRecodeValue(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+  }) {
+    return setRecodeValue?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (setRecodeValue != null) {
+      return setRecodeValue(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
+    required TResult Function(_QABoxShown value) qABoxShown,
+    required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return setRecodeValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return setRecodeValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (setRecodeValue != null) {
+      return setRecodeValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetRecodeValue extends QuestionEvent {
+  const factory _SetRecodeValue(final String value) = _$_SetRecodeValue;
+  const _SetRecodeValue._() : super._();
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_SetRecodeValueCopyWith<_$_SetRecodeValue> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -753,8 +1672,8 @@ class __$$_QABoxShownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QABoxShown implements _QABoxShown {
-  const _$_QABoxShown(this.value);
+class _$_QABoxShown extends _QABoxShown {
+  const _$_QABoxShown(this.value) : super._();
 
   @override
   final bool value;
@@ -788,8 +1707,13 @@ class _$_QABoxShown implements _QABoxShown {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) {
     return qABoxShown(value);
   }
@@ -801,8 +1725,13 @@ class _$_QABoxShown implements _QABoxShown {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) {
     return qABoxShown?.call(value);
   }
@@ -814,8 +1743,13 @@ class _$_QABoxShown implements _QABoxShown {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (qABoxShown != null) {
@@ -831,8 +1765,13 @@ class _$_QABoxShown implements _QABoxShown {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return qABoxShown(this);
   }
@@ -844,8 +1783,13 @@ class _$_QABoxShown implements _QABoxShown {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return qABoxShown?.call(this);
   }
@@ -857,8 +1801,13 @@ class _$_QABoxShown implements _QABoxShown {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (qABoxShown != null) {
@@ -868,8 +1817,9 @@ class _$_QABoxShown implements _QABoxShown {
   }
 }
 
-abstract class _QABoxShown implements QuestionEvent {
+abstract class _QABoxShown extends QuestionEvent {
   const factory _QABoxShown(final bool value) = _$_QABoxShown;
+  const _QABoxShown._() : super._();
 
   bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -911,8 +1861,8 @@ class __$$_AnswerBoxShownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerBoxShown implements _AnswerBoxShown {
-  const _$_AnswerBoxShown(this.value);
+class _$_AnswerBoxShown extends _AnswerBoxShown {
+  const _$_AnswerBoxShown(this.value) : super._();
 
   @override
   final bool value;
@@ -946,8 +1896,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
     required TResult Function(Choice choice) setChoice,
     required TResult Function(Choice choice) toggleChoice,
     required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
   }) {
     return answerBoxShown(value);
   }
@@ -959,8 +1914,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
   }) {
     return answerBoxShown?.call(value);
   }
@@ -972,8 +1932,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
     TResult Function(Choice choice)? setChoice,
     TResult Function(Choice choice)? toggleChoice,
     TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (answerBoxShown != null) {
@@ -989,8 +1954,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
     required TResult Function(_SetChoice value) setChoice,
     required TResult Function(_ToggleChoice value) toggleChoice,
     required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return answerBoxShown(this);
   }
@@ -1002,8 +1972,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return answerBoxShown?.call(this);
   }
@@ -1015,8 +1990,13 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
     TResult Function(_SetChoice value)? setChoice,
     TResult Function(_ToggleChoice value)? toggleChoice,
     TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (answerBoxShown != null) {
@@ -1026,13 +2006,174 @@ class _$_AnswerBoxShown implements _AnswerBoxShown {
   }
 }
 
-abstract class _AnswerBoxShown implements QuestionEvent {
+abstract class _AnswerBoxShown extends QuestionEvent {
   const factory _AnswerBoxShown(final bool value) = _$_AnswerBoxShown;
+  const _AnswerBoxShown._() : super._();
 
   bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_AnswerBoxShownCopyWith<_$_AnswerBoxShown> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitializedCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
+
+  @override
+  _$_Initialized get _value => super._value as _$_Initialized;
+}
+
+/// @nodoc
+
+class _$_Initialized extends _Initialized {
+  const _$_Initialized() : super._();
+
+  @override
+  String toString() {
+    return 'QuestionEvent.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
+    required TResult Function(bool value) qABoxShown,
+    required TResult Function(bool value) answerBoxShown,
+    required TResult Function() initialized,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
+    required TResult Function(_QABoxShown value) qABoxShown,
+    required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized extends QuestionEvent {
+  const factory _Initialized() = _$_Initialized;
+  const _Initialized._() : super._();
 }
 
 /// @nodoc
@@ -1043,8 +2184,10 @@ mixin _$QuestionState {
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   bool get withinCell => throw _privateConstructorUsedError;
   bool get canEdit => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   bool get qABoxIsShown => throw _privateConstructorUsedError;
   bool get answerBoxIsShown => throw _privateConstructorUsedError;
+  bool get answerIsCleared => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionStateCopyWith<QuestionState> get copyWith =>
@@ -1063,8 +2206,10 @@ abstract class $QuestionStateCopyWith<$Res> {
       bool isSpecialAnswer,
       bool withinCell,
       bool canEdit,
+      bool isRecodeModule,
       bool qABoxIsShown,
-      bool answerBoxIsShown});
+      bool answerBoxIsShown,
+      bool answerIsCleared});
 
   $UniqueIdCopyWith<$Res> get stateId;
   $QuestionCopyWith<$Res> get question;
@@ -1088,8 +2233,10 @@ class _$QuestionStateCopyWithImpl<$Res>
     Object? isSpecialAnswer = freezed,
     Object? withinCell = freezed,
     Object? canEdit = freezed,
+    Object? isRecodeModule = freezed,
     Object? qABoxIsShown = freezed,
     Object? answerBoxIsShown = freezed,
+    Object? answerIsCleared = freezed,
   }) {
     return _then(_value.copyWith(
       stateId: stateId == freezed
@@ -1116,6 +2263,10 @@ class _$QuestionStateCopyWithImpl<$Res>
           ? _value.canEdit
           : canEdit // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       qABoxIsShown: qABoxIsShown == freezed
           ? _value.qABoxIsShown
           : qABoxIsShown // ignore: cast_nullable_to_non_nullable
@@ -1123,6 +2274,10 @@ class _$QuestionStateCopyWithImpl<$Res>
       answerBoxIsShown: answerBoxIsShown == freezed
           ? _value.answerBoxIsShown
           : answerBoxIsShown // ignore: cast_nullable_to_non_nullable
+              as bool,
+      answerIsCleared: answerIsCleared == freezed
+          ? _value.answerIsCleared
+          : answerIsCleared // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -1163,8 +2318,10 @@ abstract class _$$_QuestionStateCopyWith<$Res>
       bool isSpecialAnswer,
       bool withinCell,
       bool canEdit,
+      bool isRecodeModule,
       bool qABoxIsShown,
-      bool answerBoxIsShown});
+      bool answerBoxIsShown,
+      bool answerIsCleared});
 
   @override
   $UniqueIdCopyWith<$Res> get stateId;
@@ -1193,8 +2350,10 @@ class __$$_QuestionStateCopyWithImpl<$Res>
     Object? isSpecialAnswer = freezed,
     Object? withinCell = freezed,
     Object? canEdit = freezed,
+    Object? isRecodeModule = freezed,
     Object? qABoxIsShown = freezed,
     Object? answerBoxIsShown = freezed,
+    Object? answerIsCleared = freezed,
   }) {
     return _then(_$_QuestionState(
       stateId: stateId == freezed
@@ -1221,6 +2380,10 @@ class __$$_QuestionStateCopyWithImpl<$Res>
           ? _value.canEdit
           : canEdit // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       qABoxIsShown: qABoxIsShown == freezed
           ? _value.qABoxIsShown
           : qABoxIsShown // ignore: cast_nullable_to_non_nullable
@@ -1228,6 +2391,10 @@ class __$$_QuestionStateCopyWithImpl<$Res>
       answerBoxIsShown: answerBoxIsShown == freezed
           ? _value.answerBoxIsShown
           : answerBoxIsShown // ignore: cast_nullable_to_non_nullable
+              as bool,
+      answerIsCleared: answerIsCleared == freezed
+          ? _value.answerIsCleared
+          : answerIsCleared // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -1243,8 +2410,10 @@ class _$_QuestionState extends _QuestionState {
       required this.isSpecialAnswer,
       required this.withinCell,
       required this.canEdit,
+      required this.isRecodeModule,
       required this.qABoxIsShown,
-      required this.answerBoxIsShown})
+      required this.answerBoxIsShown,
+      required this.answerIsCleared})
       : super._();
 
   @override
@@ -1260,13 +2429,17 @@ class _$_QuestionState extends _QuestionState {
   @override
   final bool canEdit;
   @override
+  final bool isRecodeModule;
+  @override
   final bool qABoxIsShown;
   @override
   final bool answerBoxIsShown;
+  @override
+  final bool answerIsCleared;
 
   @override
   String toString() {
-    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, withinCell: $withinCell, canEdit: $canEdit, qABoxIsShown: $qABoxIsShown, answerBoxIsShown: $answerBoxIsShown)';
+    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, withinCell: $withinCell, canEdit: $canEdit, isRecodeModule: $isRecodeModule, qABoxIsShown: $qABoxIsShown, answerBoxIsShown: $answerBoxIsShown, answerIsCleared: $answerIsCleared)';
   }
 
   @override
@@ -1283,9 +2456,13 @@ class _$_QuestionState extends _QuestionState {
                 .equals(other.withinCell, withinCell) &&
             const DeepCollectionEquality().equals(other.canEdit, canEdit) &&
             const DeepCollectionEquality()
+                .equals(other.isRecodeModule, isRecodeModule) &&
+            const DeepCollectionEquality()
                 .equals(other.qABoxIsShown, qABoxIsShown) &&
             const DeepCollectionEquality()
-                .equals(other.answerBoxIsShown, answerBoxIsShown));
+                .equals(other.answerBoxIsShown, answerBoxIsShown) &&
+            const DeepCollectionEquality()
+                .equals(other.answerIsCleared, answerIsCleared));
   }
 
   @override
@@ -1297,8 +2474,10 @@ class _$_QuestionState extends _QuestionState {
       const DeepCollectionEquality().hash(isSpecialAnswer),
       const DeepCollectionEquality().hash(withinCell),
       const DeepCollectionEquality().hash(canEdit),
+      const DeepCollectionEquality().hash(isRecodeModule),
       const DeepCollectionEquality().hash(qABoxIsShown),
-      const DeepCollectionEquality().hash(answerBoxIsShown));
+      const DeepCollectionEquality().hash(answerBoxIsShown),
+      const DeepCollectionEquality().hash(answerIsCleared));
 
   @JsonKey(ignore: true)
   @override
@@ -1314,8 +2493,10 @@ abstract class _QuestionState extends QuestionState {
       required final bool isSpecialAnswer,
       required final bool withinCell,
       required final bool canEdit,
+      required final bool isRecodeModule,
       required final bool qABoxIsShown,
-      required final bool answerBoxIsShown}) = _$_QuestionState;
+      required final bool answerBoxIsShown,
+      required final bool answerIsCleared}) = _$_QuestionState;
   const _QuestionState._() : super._();
 
   @override
@@ -1331,9 +2512,13 @@ abstract class _QuestionState extends QuestionState {
   @override
   bool get canEdit => throw _privateConstructorUsedError;
   @override
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  @override
   bool get qABoxIsShown => throw _privateConstructorUsedError;
   @override
   bool get answerBoxIsShown => throw _privateConstructorUsedError;
+  @override
+  bool get answerIsCleared => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionStateCopyWith<_$_QuestionState> get copyWith =>

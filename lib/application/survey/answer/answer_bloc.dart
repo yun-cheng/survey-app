@@ -17,12 +17,14 @@ import '../../../domain/respondent/i_respondent_repository.dart';
 import '../../../domain/response/i_response_repository.dart';
 import '../../../domain/response/typedefs.dart';
 import '../../../domain/survey/answer.dart';
+import '../../../domain/survey/answer/i_answer_repository.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/i_survey_repository.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/reference.dart';
 import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
+import '../../../domain/survey/typedefs.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
 import '../../../infrastructure/core/extensions.dart';
@@ -43,8 +45,11 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
   final ISurveyRepository _surveyRepo;
   final IRespondentRepository _respondentRepo;
   final IResponseRepository _responseRepo;
+  final IAnswerRepository _answerRepo;
   final IsolateWorker _isolateWorker;
   final IAudioRecorder _recorder;
+
+  StreamSubscription? _subscription;
 
   AnswerBloc(
     this._commonRepo,
@@ -52,6 +57,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
     this._surveyRepo,
     this._respondentRepo,
     this._responseRepo,
+    this._answerRepo,
     this._isolateWorker,
     this._recorder,
   ) : super(AnswerState.initial()) {
@@ -128,13 +134,19 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
           ),
         );
 
-        result.value1
+        final newState = result.value1;
+        final response = result.value2;
+
+        _answerRepo.updateAnswerMap(response.answerMap);
+        _subscription?.cancel();
+        _subscription = _answerRepo.answerMapStream.listen(_onAnswerMap);
+
+        newState
             .copyWith(
               restoreState: LoadState.success(),
             )
             .eventSuccess(emit);
 
-        final response = result.value2;
         saveResponse(response);
         if (state.moduleType.shouldRecord && !state.isReadOnly) {
           _recorder.startRecording(response);
@@ -146,7 +158,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
 
         state
             .copyWith(
-              dialogType: DialogType.none(),
+              dialogType: const DialogType.none(),
             )
             .eventSuccess(emit);
 
@@ -157,6 +169,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
       },
       // >
       responseEnded: (e) async {
+        blockGesture(true);
         final moduleType = state.moduleType;
         final toVisitReport =
             state.moduleType.isMain && !state.isReadOnly && !e.markFinished;
@@ -171,7 +184,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         if (toVisitReport && !e.confirmEnding) {
           state
               .copyWith(
-                dialogType: DialogType.breakInterview(),
+                dialogType: const DialogType.breakInterview(),
               )
               .eventSuccess(emit);
         } else if (toVisitReport) {
@@ -202,10 +215,6 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
       // ! 只有這個 event emit 多次 state
       // * warning 最後更新，可以綁 eventSuccess
       answerUpdated: (e) async {
-        if (state.isReadOnly || (state.isRecodeModule && !e.isRecode)) {
-          return;
-        }
-
         logger('User Event').i('AnswerEvent: answerUpdated');
 
         // - 單純更新 answerMap
@@ -218,14 +227,11 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         // - 更新 answerStatus
         (await _isolateWorker.compute(
           updateAnswerStatusMap,
-          tuple2(
-            e,
-            state.copyWith(
-              updatedQIdSet: const {},
-            ),
-          ),
+          tuple2(e, state),
         ))
             .updateAnswerStatus(emit);
+
+        _answerRepo.clearAnswers(state.clearAnswerQIdSet);
 
         // - 更新 page question
         if (!state.isRecodeModule) {
@@ -316,7 +322,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         DialogType dialogType = state.dialogType;
 
         if (e.isPaused && state.moduleType.shouldRecord && !state.isReadOnly) {
-          dialogType = DialogType.breakInterview();
+          dialogType = const DialogType.breakInterview();
         }
 
         state
@@ -332,32 +338,30 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
 
         state
             .copyWith(
-              dialogType: DialogType.none(),
+              dialogType: const DialogType.none(),
             )
             .eventSuccess(emit);
       },
       // > 使用者點擊完成問卷
       finishedButtonPressed: (e) {
         logger('User Event').i('AnswerEvent: finishedButtonPressed');
-        // TODO blockGesture?
 
         final markFinished = state.warning.isEmpty;
 
         state
             .copyWith(
               showWarning: !markFinished,
-              leavePage: markFinished,
             )
             .eventSuccess(emit);
 
         saveResponse();
 
         if (markFinished) {
-          add(
-            const AnswerEvent.responseEnded(
-              markFinished: true,
-            ),
-          );
+          state
+              .copyWith(
+                dialogType: const DialogType.confirmFinished(),
+              )
+              .eventSuccess(emit);
         }
       },
       // > 顯示 dialog
@@ -366,7 +370,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
 
         state
             .copyWith(
-              dialogType: DialogType.none(),
+              dialogType: const DialogType.none(),
             )
             .emit(emit);
 
@@ -401,6 +405,24 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
 
         AnswerState.initial().eventSuccess(emit);
       },
+    );
+  }
+
+  Future<void> _onAnswerMap(
+    Tuple3<AnswerMap, String?, bool?> tuple,
+  ) async {
+    final answerMap = tuple.value1;
+    final questionId = tuple.value2;
+    final isSpecialAnswer = tuple.value3;
+
+    if (questionId == null || state.isReadOnly) return;
+
+    add(
+      AnswerEvent.answerUpdated(
+        questionId: questionId,
+        answer: answerMap[questionId]!,
+        isSpecialAnswer: isSpecialAnswer,
+      ),
     );
   }
 

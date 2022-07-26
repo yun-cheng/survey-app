@@ -1047,10 +1047,65 @@ abstract class _DeviceTimeStamp extends DeviceTimeStamp {
 
 /// @nodoc
 mixin _$DialogType {
-  String get value => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $DialogTypeCopyWith<DialogType> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() breakInterview,
+    required TResult Function() reAnswer,
+    required TResult Function() confirmFinished,
+    required TResult Function() switchToSamplingWithinHouseholdModule,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DialogTypeNone value) none,
+    required TResult Function(DialogTypeBreakInterview value) breakInterview,
+    required TResult Function(DialogTypeReAnswer value) reAnswer,
+    required TResult Function(DialogTypeConfirmFinished value) confirmFinished,
+    required TResult Function(
+            DialogTypeSwitchToSamplingWithinHouseholdModule value)
+        switchToSamplingWithinHouseholdModule,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -1059,7 +1114,6 @@ abstract class $DialogTypeCopyWith<$Res> {
   factory $DialogTypeCopyWith(
           DialogType value, $Res Function(DialogType) then) =
       _$DialogTypeCopyWithImpl<$Res>;
-  $Res call({String value});
 }
 
 /// @nodoc
@@ -1069,92 +1123,662 @@ class _$DialogTypeCopyWithImpl<$Res> implements $DialogTypeCopyWith<$Res> {
   final DialogType _value;
   // ignore: unused_field
   final $Res Function(DialogType) _then;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_value.copyWith(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$_DialogTypeCopyWith<$Res>
-    implements $DialogTypeCopyWith<$Res> {
-  factory _$$_DialogTypeCopyWith(
-          _$_DialogType value, $Res Function(_$_DialogType) then) =
-      __$$_DialogTypeCopyWithImpl<$Res>;
-  @override
-  $Res call({String value});
+abstract class _$$DialogTypeNoneCopyWith<$Res> {
+  factory _$$DialogTypeNoneCopyWith(
+          _$DialogTypeNone value, $Res Function(_$DialogTypeNone) then) =
+      __$$DialogTypeNoneCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_DialogTypeCopyWithImpl<$Res> extends _$DialogTypeCopyWithImpl<$Res>
-    implements _$$_DialogTypeCopyWith<$Res> {
-  __$$_DialogTypeCopyWithImpl(
-      _$_DialogType _value, $Res Function(_$_DialogType) _then)
-      : super(_value, (v) => _then(v as _$_DialogType));
+class __$$DialogTypeNoneCopyWithImpl<$Res>
+    extends _$DialogTypeCopyWithImpl<$Res>
+    implements _$$DialogTypeNoneCopyWith<$Res> {
+  __$$DialogTypeNoneCopyWithImpl(
+      _$DialogTypeNone _value, $Res Function(_$DialogTypeNone) _then)
+      : super(_value, (v) => _then(v as _$DialogTypeNone));
 
   @override
-  _$_DialogType get _value => super._value as _$_DialogType;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_$_DialogType(
-      value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  _$DialogTypeNone get _value => super._value as _$DialogTypeNone;
 }
 
 /// @nodoc
 
-class _$_DialogType extends _DialogType {
-  const _$_DialogType(this.value) : super._();
-
-  @override
-  final String value;
+class _$DialogTypeNone extends DialogTypeNone {
+  const _$DialogTypeNone() : super._();
 
   @override
   String toString() {
-    return 'DialogType(value: $value)';
+    return 'DialogType.none()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DialogTypeNone);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() breakInterview,
+    required TResult Function() reAnswer,
+    required TResult Function() confirmFinished,
+    required TResult Function() switchToSamplingWithinHouseholdModule,
+  }) {
+    return none();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+  }) {
+    return none?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DialogTypeNone value) none,
+    required TResult Function(DialogTypeBreakInterview value) breakInterview,
+    required TResult Function(DialogTypeReAnswer value) reAnswer,
+    required TResult Function(DialogTypeConfirmFinished value) confirmFinished,
+    required TResult Function(
+            DialogTypeSwitchToSamplingWithinHouseholdModule value)
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return none(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return none?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DialogTypeNone extends DialogType {
+  const factory DialogTypeNone() = _$DialogTypeNone;
+  const DialogTypeNone._() : super._();
+}
+
+/// @nodoc
+abstract class _$$DialogTypeBreakInterviewCopyWith<$Res> {
+  factory _$$DialogTypeBreakInterviewCopyWith(_$DialogTypeBreakInterview value,
+          $Res Function(_$DialogTypeBreakInterview) then) =
+      __$$DialogTypeBreakInterviewCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DialogTypeBreakInterviewCopyWithImpl<$Res>
+    extends _$DialogTypeCopyWithImpl<$Res>
+    implements _$$DialogTypeBreakInterviewCopyWith<$Res> {
+  __$$DialogTypeBreakInterviewCopyWithImpl(_$DialogTypeBreakInterview _value,
+      $Res Function(_$DialogTypeBreakInterview) _then)
+      : super(_value, (v) => _then(v as _$DialogTypeBreakInterview));
+
+  @override
+  _$DialogTypeBreakInterview get _value =>
+      super._value as _$DialogTypeBreakInterview;
+}
+
+/// @nodoc
+
+class _$DialogTypeBreakInterview extends DialogTypeBreakInterview {
+  const _$DialogTypeBreakInterview() : super._();
+
+  @override
+  String toString() {
+    return 'DialogType.breakInterview()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DialogType &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$DialogTypeBreakInterview);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => runtimeType.hashCode;
 
-  @JsonKey(ignore: true)
   @override
-  _$$_DialogTypeCopyWith<_$_DialogType> get copyWith =>
-      __$$_DialogTypeCopyWithImpl<_$_DialogType>(this, _$identity);
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() breakInterview,
+    required TResult Function() reAnswer,
+    required TResult Function() confirmFinished,
+    required TResult Function() switchToSamplingWithinHouseholdModule,
+  }) {
+    return breakInterview();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+  }) {
+    return breakInterview?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (breakInterview != null) {
+      return breakInterview();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DialogTypeNone value) none,
+    required TResult Function(DialogTypeBreakInterview value) breakInterview,
+    required TResult Function(DialogTypeReAnswer value) reAnswer,
+    required TResult Function(DialogTypeConfirmFinished value) confirmFinished,
+    required TResult Function(
+            DialogTypeSwitchToSamplingWithinHouseholdModule value)
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return breakInterview(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return breakInterview?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (breakInterview != null) {
+      return breakInterview(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _DialogType extends DialogType {
-  const factory _DialogType(final String value) = _$_DialogType;
-  const _DialogType._() : super._();
+abstract class DialogTypeBreakInterview extends DialogType {
+  const factory DialogTypeBreakInterview() = _$DialogTypeBreakInterview;
+  const DialogTypeBreakInterview._() : super._();
+}
+
+/// @nodoc
+abstract class _$$DialogTypeReAnswerCopyWith<$Res> {
+  factory _$$DialogTypeReAnswerCopyWith(_$DialogTypeReAnswer value,
+          $Res Function(_$DialogTypeReAnswer) then) =
+      __$$DialogTypeReAnswerCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DialogTypeReAnswerCopyWithImpl<$Res>
+    extends _$DialogTypeCopyWithImpl<$Res>
+    implements _$$DialogTypeReAnswerCopyWith<$Res> {
+  __$$DialogTypeReAnswerCopyWithImpl(
+      _$DialogTypeReAnswer _value, $Res Function(_$DialogTypeReAnswer) _then)
+      : super(_value, (v) => _then(v as _$DialogTypeReAnswer));
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  _$DialogTypeReAnswer get _value => super._value as _$DialogTypeReAnswer;
+}
+
+/// @nodoc
+
+class _$DialogTypeReAnswer extends DialogTypeReAnswer {
+  const _$DialogTypeReAnswer() : super._();
+
   @override
-  @JsonKey(ignore: true)
-  _$$_DialogTypeCopyWith<_$_DialogType> get copyWith =>
-      throw _privateConstructorUsedError;
+  String toString() {
+    return 'DialogType.reAnswer()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DialogTypeReAnswer);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() breakInterview,
+    required TResult Function() reAnswer,
+    required TResult Function() confirmFinished,
+    required TResult Function() switchToSamplingWithinHouseholdModule,
+  }) {
+    return reAnswer();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+  }) {
+    return reAnswer?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (reAnswer != null) {
+      return reAnswer();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DialogTypeNone value) none,
+    required TResult Function(DialogTypeBreakInterview value) breakInterview,
+    required TResult Function(DialogTypeReAnswer value) reAnswer,
+    required TResult Function(DialogTypeConfirmFinished value) confirmFinished,
+    required TResult Function(
+            DialogTypeSwitchToSamplingWithinHouseholdModule value)
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return reAnswer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return reAnswer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (reAnswer != null) {
+      return reAnswer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DialogTypeReAnswer extends DialogType {
+  const factory DialogTypeReAnswer() = _$DialogTypeReAnswer;
+  const DialogTypeReAnswer._() : super._();
+}
+
+/// @nodoc
+abstract class _$$DialogTypeConfirmFinishedCopyWith<$Res> {
+  factory _$$DialogTypeConfirmFinishedCopyWith(
+          _$DialogTypeConfirmFinished value,
+          $Res Function(_$DialogTypeConfirmFinished) then) =
+      __$$DialogTypeConfirmFinishedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DialogTypeConfirmFinishedCopyWithImpl<$Res>
+    extends _$DialogTypeCopyWithImpl<$Res>
+    implements _$$DialogTypeConfirmFinishedCopyWith<$Res> {
+  __$$DialogTypeConfirmFinishedCopyWithImpl(_$DialogTypeConfirmFinished _value,
+      $Res Function(_$DialogTypeConfirmFinished) _then)
+      : super(_value, (v) => _then(v as _$DialogTypeConfirmFinished));
+
+  @override
+  _$DialogTypeConfirmFinished get _value =>
+      super._value as _$DialogTypeConfirmFinished;
+}
+
+/// @nodoc
+
+class _$DialogTypeConfirmFinished extends DialogTypeConfirmFinished {
+  const _$DialogTypeConfirmFinished() : super._();
+
+  @override
+  String toString() {
+    return 'DialogType.confirmFinished()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DialogTypeConfirmFinished);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() breakInterview,
+    required TResult Function() reAnswer,
+    required TResult Function() confirmFinished,
+    required TResult Function() switchToSamplingWithinHouseholdModule,
+  }) {
+    return confirmFinished();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+  }) {
+    return confirmFinished?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (confirmFinished != null) {
+      return confirmFinished();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DialogTypeNone value) none,
+    required TResult Function(DialogTypeBreakInterview value) breakInterview,
+    required TResult Function(DialogTypeReAnswer value) reAnswer,
+    required TResult Function(DialogTypeConfirmFinished value) confirmFinished,
+    required TResult Function(
+            DialogTypeSwitchToSamplingWithinHouseholdModule value)
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return confirmFinished(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return confirmFinished?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (confirmFinished != null) {
+      return confirmFinished(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DialogTypeConfirmFinished extends DialogType {
+  const factory DialogTypeConfirmFinished() = _$DialogTypeConfirmFinished;
+  const DialogTypeConfirmFinished._() : super._();
+}
+
+/// @nodoc
+abstract class _$$DialogTypeSwitchToSamplingWithinHouseholdModuleCopyWith<
+    $Res> {
+  factory _$$DialogTypeSwitchToSamplingWithinHouseholdModuleCopyWith(
+          _$DialogTypeSwitchToSamplingWithinHouseholdModule value,
+          $Res Function(_$DialogTypeSwitchToSamplingWithinHouseholdModule)
+              then) =
+      __$$DialogTypeSwitchToSamplingWithinHouseholdModuleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DialogTypeSwitchToSamplingWithinHouseholdModuleCopyWithImpl<$Res>
+    extends _$DialogTypeCopyWithImpl<$Res>
+    implements
+        _$$DialogTypeSwitchToSamplingWithinHouseholdModuleCopyWith<$Res> {
+  __$$DialogTypeSwitchToSamplingWithinHouseholdModuleCopyWithImpl(
+      _$DialogTypeSwitchToSamplingWithinHouseholdModule _value,
+      $Res Function(_$DialogTypeSwitchToSamplingWithinHouseholdModule) _then)
+      : super(
+            _value,
+            (v) =>
+                _then(v as _$DialogTypeSwitchToSamplingWithinHouseholdModule));
+
+  @override
+  _$DialogTypeSwitchToSamplingWithinHouseholdModule get _value =>
+      super._value as _$DialogTypeSwitchToSamplingWithinHouseholdModule;
+}
+
+/// @nodoc
+
+class _$DialogTypeSwitchToSamplingWithinHouseholdModule
+    extends DialogTypeSwitchToSamplingWithinHouseholdModule {
+  const _$DialogTypeSwitchToSamplingWithinHouseholdModule() : super._();
+
+  @override
+  String toString() {
+    return 'DialogType.switchToSamplingWithinHouseholdModule()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DialogTypeSwitchToSamplingWithinHouseholdModule);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() none,
+    required TResult Function() breakInterview,
+    required TResult Function() reAnswer,
+    required TResult Function() confirmFinished,
+    required TResult Function() switchToSamplingWithinHouseholdModule,
+  }) {
+    return switchToSamplingWithinHouseholdModule();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+  }) {
+    return switchToSamplingWithinHouseholdModule?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? none,
+    TResult Function()? breakInterview,
+    TResult Function()? reAnswer,
+    TResult Function()? confirmFinished,
+    TResult Function()? switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (switchToSamplingWithinHouseholdModule != null) {
+      return switchToSamplingWithinHouseholdModule();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DialogTypeNone value) none,
+    required TResult Function(DialogTypeBreakInterview value) breakInterview,
+    required TResult Function(DialogTypeReAnswer value) reAnswer,
+    required TResult Function(DialogTypeConfirmFinished value) confirmFinished,
+    required TResult Function(
+            DialogTypeSwitchToSamplingWithinHouseholdModule value)
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return switchToSamplingWithinHouseholdModule(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+  }) {
+    return switchToSamplingWithinHouseholdModule?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DialogTypeNone value)? none,
+    TResult Function(DialogTypeBreakInterview value)? breakInterview,
+    TResult Function(DialogTypeReAnswer value)? reAnswer,
+    TResult Function(DialogTypeConfirmFinished value)? confirmFinished,
+    TResult Function(DialogTypeSwitchToSamplingWithinHouseholdModule value)?
+        switchToSamplingWithinHouseholdModule,
+    required TResult orElse(),
+  }) {
+    if (switchToSamplingWithinHouseholdModule != null) {
+      return switchToSamplingWithinHouseholdModule(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DialogTypeSwitchToSamplingWithinHouseholdModule
+    extends DialogType {
+  const factory DialogTypeSwitchToSamplingWithinHouseholdModule() =
+      _$DialogTypeSwitchToSamplingWithinHouseholdModule;
+  const DialogTypeSwitchToSamplingWithinHouseholdModule._() : super._();
 }

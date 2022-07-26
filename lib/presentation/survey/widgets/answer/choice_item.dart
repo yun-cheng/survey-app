@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
-import '../../../domain/core/logger.dart';
-import '../../../domain/survey/choice.dart';
-import '../../core/style/main.dart';
+import '../../../../application/survey/question/question_bloc.dart';
+import '../../../../domain/core/logger.dart';
+import '../../../../domain/survey/choice.dart';
+import '../../../core/style/main.dart';
 import 'note_box.dart';
 
 class ChoiceItem extends StatelessWidget {
@@ -17,12 +17,12 @@ class ChoiceItem extends StatelessWidget {
     required this.isSpecialChoice,
   }) : super(key: key);
 
+  get kPTextStyle => null;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<QuestionBloc, QuestionState>(
-      buildWhen: (p, c) =>
-          p.answer.contains(choice.simple()) ||
-          c.answer.contains(choice.simple()),
+      buildWhen: (p, c) => c.choiceItemChanged(p, choice.simple()),
       builder: (context, state) {
         logger('Build').i('ChoiceItem');
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
-import 'answer_box.dart';
+import 'answer/answer_box.dart';
 import 'question_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';

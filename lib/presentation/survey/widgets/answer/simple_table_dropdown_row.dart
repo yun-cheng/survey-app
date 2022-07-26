@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/survey/question/question_bloc.dart';
 import '../../../../domain/core/logger.dart';
 import '../../../core/style/main.dart';
-import '../answer_box.dart';
+import 'answer_box.dart';
 
 class SimpleTableDropdownRow extends StatelessWidget {
   const SimpleTableDropdownRow({Key? key}) : super(key: key);

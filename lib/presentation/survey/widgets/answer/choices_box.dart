@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/answer/answer_bloc.dart';
-import '../../../domain/core/logger.dart';
-import 'answer/choices_column.dart';
+import '../../../../application/survey/answer/answer_bloc.dart';
+import '../../../../application/survey/question/question_bloc.dart';
+import '../../../../domain/core/logger.dart';
+import 'choices_column.dart';
+
+
 
 class ChoicesBox extends StatelessWidget {
   final bool isSpecialChoice;

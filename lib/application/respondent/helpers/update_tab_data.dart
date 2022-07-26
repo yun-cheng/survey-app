@@ -42,10 +42,13 @@ TabRespondentMap updateTabRespondentMap({
   tabRespondentSet[TabType.start] = respondentMap.keys
       .toSet()
       .difference(moduleMap[ModuleType.interviewReport()] ?? {})
+      .difference(moduleMap[ModuleType.main()] ?? {})
       .difference(tabRespondentSet[TabType.housingType]!);
 
   return tabRespondentSet.mapValues(
-    (e) => e.map((r) => MapEntry(r, respondentMap[r]!)).toMap(),
+    (e) => respondentMap.isEmpty
+        ? {}
+        : e.map((r) => MapEntry(r, respondentMap[r]!)).toMap(),
   );
 }
 

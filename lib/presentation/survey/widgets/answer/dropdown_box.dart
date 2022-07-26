@@ -2,11 +2,11 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
-import '../../../application/survey/answer/answer_bloc.dart';
-import '../../../domain/core/logger.dart';
-import '../../../domain/survey/choice.dart';
-import '../../core/style/main.dart';
+import '../../../../application/survey/answer/answer_bloc.dart';
+import '../../../../application/survey/question/question_bloc.dart';
+import '../../../../domain/core/logger.dart';
+import '../../../../domain/survey/choice.dart';
+import '../../../core/style/main.dart';
 import 'note_box.dart';
 
 class DropdownBox extends StatelessWidget {
@@ -121,6 +121,7 @@ class DropdownBox extends StatelessWidget {
                   ),
                 ),
                 if (selectedChoice.asNote) ...[
+                  const SizedBox(height: 20),
                   NoteBox(
                     questionId: questionId,
                     choice: selectedChoice,

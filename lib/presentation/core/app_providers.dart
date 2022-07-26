@@ -14,6 +14,7 @@ import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/response/i_response_repository.dart';
+import '../../domain/survey/answer/i_answer_repository.dart';
 import '../../domain/survey/comment/i_comment_repository.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../infrastructure/core/isolate_worker.dart';
@@ -77,6 +78,7 @@ class AppProviders extends StatelessWidget {
             getIt<ISurveyRepository>(),
             getIt<IRespondentRepository>(),
             getIt<IResponseRepository>(),
+            getIt<IAnswerRepository>(),
             getIt<IsolateWorker>(),
             getIt<IAudioRecorder>(),
           ),

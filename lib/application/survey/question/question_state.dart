@@ -11,8 +11,10 @@ class QuestionState with _$QuestionState {
     required bool isSpecialAnswer,
     required bool withinCell,
     required bool canEdit,
+    required bool isRecodeModule,
     required bool qABoxIsShown,
     required bool answerBoxIsShown,
+    required bool answerIsCleared,
   }) = _QuestionState;
 
   factory QuestionState.empty() => QuestionState(
@@ -22,8 +24,10 @@ class QuestionState with _$QuestionState {
         isSpecialAnswer: false,
         withinCell: false,
         canEdit: false,
+        isRecodeModule: false,
         qABoxIsShown: false,
         answerBoxIsShown: false,
+        answerIsCleared: false,
       );
 
   factory QuestionState.initial({
@@ -32,6 +36,7 @@ class QuestionState with _$QuestionState {
     required bool isSpecialAnswer,
     required bool withinCell,
     required bool canEdit,
+    required bool isRecodeModule,
     required bool shouldDelay,
   }) =>
       QuestionState(
@@ -41,8 +46,10 @@ class QuestionState with _$QuestionState {
         isSpecialAnswer: isSpecialAnswer,
         withinCell: withinCell,
         canEdit: canEdit,
+        isRecodeModule: isRecodeModule,
         qABoxIsShown: !shouldDelay,
         answerBoxIsShown: false,
+        answerIsCleared: false,
       );
 
   void emit(Emitter<QuestionState> emit) {
@@ -52,4 +59,9 @@ class QuestionState with _$QuestionState {
       ),
     );
   }
+
+  bool choiceItemChanged(QuestionState p, SimpleChoice choice) =>
+      p.answer.contains(choice) != answer.contains(choice);
+
+  bool answerChanged(QuestionState p) => p.answer != answer;
 }

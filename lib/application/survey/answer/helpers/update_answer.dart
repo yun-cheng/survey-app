@@ -9,34 +9,16 @@ AnswerState updateAnswer(
   final e = tuple.value1;
   final state = tuple.value2;
 
-  final question = state.questionMap[e.questionId]!;
   final answerMap = {
     ...state.isRecodeModule ? state.recodeAnswerMap : state.answerMap
   };
 
-  late final Answer newAnswer;
-  if (e.answer != null) {
-    newAnswer = e.answer!;
-  } else {
-    final oldAnswer = answerMap[e.questionId] ?? Answer.empty();
-
-    if (e.setIsSpecialAnswer != null) {
-      newAnswer = Answer.empty();
-    } else if (e.isNote) {
-      newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
-    } else if ((!question.type.isChoice & !e.isSpecialAnswer) || e.isRecode) {
-      newAnswer = oldAnswer.setString(e.answerValue);
-    } else {
-      newAnswer = oldAnswer;
-    }
-  }
-  answerMap[e.questionId] = newAnswer;
+  answerMap[e.questionId] = e.answer;
 
   return state.copyWith(
     answerMap: state.isRecodeModule ? state.answerMap : answerMap,
     recodeAnswerMap: state.isRecodeModule ? answerMap : state.recodeAnswerMap,
     questionId: e.questionId,
-    updatedQIdSet: {e.questionId},
   );
 }
 
@@ -55,8 +37,6 @@ AnswerState clearAnswerQIdList(
 
     return state.copyWith(
       answerMap: answerMap,
-      clearAnswerQIdSet: const {},
-      updatedQIdSet: state.clearAnswerQIdSet,
     );
   }
 

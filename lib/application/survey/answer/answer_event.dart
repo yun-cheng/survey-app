@@ -28,13 +28,8 @@ class AnswerEvent with _$AnswerEvent {
   // > 該題作答更新
   factory AnswerEvent.answerUpdated({
     required String questionId,
-    required dynamic answerValue,
-    Answer? answer,
-    @Default(false) bool isSpecialAnswer,
-    @Default(false) bool isNote,
-    String? noteOf,
-    @Default(false) bool isRecode,
-    bool? setIsSpecialAnswer,
+    required Answer answer,
+    bool? isSpecialAnswer,
   }) = _AnswerUpdated;
 
   // > 切換頁面

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../survey/widgets/break_interview_dialog.dart';
+import '../../survey/widgets/confirm_finished_dialog.dart';
 import '../../survey/widgets/re_answer_dialog.dart';
 import '../../survey/widgets/switch_module_dialog.dart';
 import '../style/main.dart';
@@ -26,14 +27,20 @@ final surveyDialogListener = BlocListener<AnswerBloc, AnswerState>(
           margin: const EdgeInsets.symmetric(horizontal: 40.0),
           child: ConstrainedBox(
             constraints: kDialogMaxWith,
-            child: state.dialogType.isBreakInterview
-                // > 訪問暫停
-                ? BreakInterviewDialog(controller: controller)
-                : state.dialogType.isSwitchToSamplingWithinHouseholdModule
-                    // > 切換至戶抽模組
-                    ? SwitchModuleDialog(controller: controller)
-                    // > 重新作答
-                    : ReAnswerDialog(controller: controller),
+            child: state.dialogType.maybeWhen(
+              // > 訪問暫停
+              breakInterview: () =>
+                  BreakInterviewDialog(controller: controller),
+              // > 切換至戶抽模組
+              switchToSamplingWithinHouseholdModule: () =>
+                  SwitchModuleDialog(controller: controller),
+              // > 重新作答
+              reAnswer: () => ReAnswerDialog(controller: controller),
+              // > 完成訪問
+              confirmFinished: () =>
+                  ConfirmFinishedDialog(controller: controller),
+              orElse: () => const SizedBox(),
+            ),
           ),
         );
       },

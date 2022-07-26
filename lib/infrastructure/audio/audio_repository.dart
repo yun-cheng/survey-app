@@ -35,8 +35,8 @@ class AudioRepository implements IAudioRepository {
     getIt<IsolateLocalStorage>(),
   );
 
-  final appDirPath = PathProvider.appDirPath;
-  final tempDirPath = PathProvider.tempDirPath;
+  final appDirPath = MyPathProvider.appDirPath;
+  final tempDirPath = MyPathProvider.tempDirPath;
   AudioMap _audioMap = {};
   bool _isUploading = false;
 

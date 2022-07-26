@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../domain/survey/choice.dart';
 import '../../../core/style/main.dart';
 import '../../../core/widgets/automatic_keep_alive_widget.dart';
-import '../choice_item.dart';
+import 'choice_item.dart';
 
 class ChoicesColumn extends StatelessWidget {
   final List<Choice> choiceList;

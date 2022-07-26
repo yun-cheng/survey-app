@@ -27,14 +27,7 @@ mixin _$AnswerEvent {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -59,15 +52,7 @@ mixin _$AnswerEvent {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -91,15 +76,7 @@ mixin _$AnswerEvent {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -337,14 +314,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -373,15 +343,7 @@ class _$_ResponseStarted implements _ResponseStarted {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -409,15 +371,7 @@ class _$_ResponseStarted implements _ResponseStarted {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -581,14 +535,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -616,15 +563,7 @@ class _$_ResponseResumed implements _ResponseResumed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -651,15 +590,7 @@ class _$_ResponseResumed implements _ResponseResumed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -875,14 +806,7 @@ class _$_ResponseEnded implements _ResponseEnded {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -910,15 +834,7 @@ class _$_ResponseEnded implements _ResponseEnded {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -946,15 +862,7 @@ class _$_ResponseEnded implements _ResponseEnded {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -1118,14 +1026,7 @@ class _$_StateCleared implements _StateCleared {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -1153,15 +1054,7 @@ class _$_StateCleared implements _StateCleared {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -1188,15 +1081,7 @@ class _$_StateCleared implements _StateCleared {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -1302,17 +1187,9 @@ abstract class _$$_AnswerUpdatedCopyWith<$Res> {
   factory _$$_AnswerUpdatedCopyWith(
           _$_AnswerUpdated value, $Res Function(_$_AnswerUpdated) then) =
       __$$_AnswerUpdatedCopyWithImpl<$Res>;
-  $Res call(
-      {String questionId,
-      dynamic answerValue,
-      Answer? answer,
-      bool isSpecialAnswer,
-      bool isNote,
-      String? noteOf,
-      bool isRecode,
-      bool? setIsSpecialAnswer});
+  $Res call({String questionId, Answer answer, bool? isSpecialAnswer});
 
-  $AnswerCopyWith<$Res>? get answer;
+  $AnswerCopyWith<$Res> get answer;
 }
 
 /// @nodoc
@@ -1329,57 +1206,28 @@ class __$$_AnswerUpdatedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? questionId = freezed,
-    Object? answerValue = freezed,
     Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
-    Object? isNote = freezed,
-    Object? noteOf = freezed,
-    Object? isRecode = freezed,
-    Object? setIsSpecialAnswer = freezed,
   }) {
     return _then(_$_AnswerUpdated(
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
-      answerValue: answerValue == freezed
-          ? _value.answerValue
-          : answerValue // ignore: cast_nullable_to_non_nullable
-              as dynamic,
       answer: answer == freezed
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
-              as Answer?,
+              as Answer,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isNote: isNote == freezed
-          ? _value.isNote
-          : isNote // ignore: cast_nullable_to_non_nullable
-              as bool,
-      noteOf: noteOf == freezed
-          ? _value.noteOf
-          : noteOf // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isRecode: isRecode == freezed
-          ? _value.isRecode
-          : isRecode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      setIsSpecialAnswer: setIsSpecialAnswer == freezed
-          ? _value.setIsSpecialAnswer
-          : setIsSpecialAnswer // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
 
   @override
-  $AnswerCopyWith<$Res>? get answer {
-    if (_value.answer == null) {
-      return null;
-    }
-
-    return $AnswerCopyWith<$Res>(_value.answer!, (value) {
+  $AnswerCopyWith<$Res> get answer {
+    return $AnswerCopyWith<$Res>(_value.answer, (value) {
       return _then(_value.copyWith(answer: value));
     });
   }
@@ -1389,38 +1237,18 @@ class __$$_AnswerUpdatedCopyWithImpl<$Res>
 
 class _$_AnswerUpdated implements _AnswerUpdated {
   _$_AnswerUpdated(
-      {required this.questionId,
-      required this.answerValue,
-      this.answer,
-      this.isSpecialAnswer = false,
-      this.isNote = false,
-      this.noteOf,
-      this.isRecode = false,
-      this.setIsSpecialAnswer});
+      {required this.questionId, required this.answer, this.isSpecialAnswer});
 
   @override
   final String questionId;
   @override
-  final dynamic answerValue;
+  final Answer answer;
   @override
-  final Answer? answer;
-  @override
-  @JsonKey()
-  final bool isSpecialAnswer;
-  @override
-  @JsonKey()
-  final bool isNote;
-  @override
-  final String? noteOf;
-  @override
-  @JsonKey()
-  final bool isRecode;
-  @override
-  final bool? setIsSpecialAnswer;
+  final bool? isSpecialAnswer;
 
   @override
   String toString() {
-    return 'AnswerEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, answer: $answer, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf, isRecode: $isRecode, setIsSpecialAnswer: $setIsSpecialAnswer)';
+    return 'AnswerEvent.answerUpdated(questionId: $questionId, answer: $answer, isSpecialAnswer: $isSpecialAnswer)';
   }
 
   @override
@@ -1430,29 +1258,17 @@ class _$_AnswerUpdated implements _AnswerUpdated {
             other is _$_AnswerUpdated &&
             const DeepCollectionEquality()
                 .equals(other.questionId, questionId) &&
-            const DeepCollectionEquality()
-                .equals(other.answerValue, answerValue) &&
             const DeepCollectionEquality().equals(other.answer, answer) &&
             const DeepCollectionEquality()
-                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
-            const DeepCollectionEquality().equals(other.isNote, isNote) &&
-            const DeepCollectionEquality().equals(other.noteOf, noteOf) &&
-            const DeepCollectionEquality().equals(other.isRecode, isRecode) &&
-            const DeepCollectionEquality()
-                .equals(other.setIsSpecialAnswer, setIsSpecialAnswer));
+                .equals(other.isSpecialAnswer, isSpecialAnswer));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(questionId),
-      const DeepCollectionEquality().hash(answerValue),
       const DeepCollectionEquality().hash(answer),
-      const DeepCollectionEquality().hash(isSpecialAnswer),
-      const DeepCollectionEquality().hash(isNote),
-      const DeepCollectionEquality().hash(noteOf),
-      const DeepCollectionEquality().hash(isRecode),
-      const DeepCollectionEquality().hash(setIsSpecialAnswer));
+      const DeepCollectionEquality().hash(isSpecialAnswer));
 
   @JsonKey(ignore: true)
   @override
@@ -1471,14 +1287,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -1492,8 +1301,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() initialized,
   }) {
-    return answerUpdated(questionId, answerValue, answer, isSpecialAnswer,
-        isNote, noteOf, isRecode, setIsSpecialAnswer);
+    return answerUpdated(questionId, answer, isSpecialAnswer);
   }
 
   @override
@@ -1507,15 +1315,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -1528,8 +1328,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? initialized,
   }) {
-    return answerUpdated?.call(questionId, answerValue, answer, isSpecialAnswer,
-        isNote, noteOf, isRecode, setIsSpecialAnswer);
+    return answerUpdated?.call(questionId, answer, isSpecialAnswer);
   }
 
   @override
@@ -1543,15 +1342,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -1566,8 +1357,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
-      return answerUpdated(questionId, answerValue, answer, isSpecialAnswer,
-          isNote, noteOf, isRecode, setIsSpecialAnswer);
+      return answerUpdated(questionId, answer, isSpecialAnswer);
     }
     return orElse();
   }
@@ -1652,22 +1442,12 @@ class _$_AnswerUpdated implements _AnswerUpdated {
 abstract class _AnswerUpdated implements AnswerEvent {
   factory _AnswerUpdated(
       {required final String questionId,
-      required final dynamic answerValue,
-      final Answer? answer,
-      final bool isSpecialAnswer,
-      final bool isNote,
-      final String? noteOf,
-      final bool isRecode,
-      final bool? setIsSpecialAnswer}) = _$_AnswerUpdated;
+      required final Answer answer,
+      final bool? isSpecialAnswer}) = _$_AnswerUpdated;
 
   String get questionId => throw _privateConstructorUsedError;
-  dynamic get answerValue => throw _privateConstructorUsedError;
-  Answer? get answer => throw _privateConstructorUsedError;
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
-  bool get isNote => throw _privateConstructorUsedError;
-  String? get noteOf => throw _privateConstructorUsedError;
-  bool get isRecode => throw _privateConstructorUsedError;
-  bool? get setIsSpecialAnswer => throw _privateConstructorUsedError;
+  Answer get answer => throw _privateConstructorUsedError;
+  bool? get isSpecialAnswer => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_AnswerUpdatedCopyWith<_$_AnswerUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1758,14 +1538,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -1793,15 +1566,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -1828,15 +1593,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2030,14 +1787,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -2065,15 +1815,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2100,15 +1842,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2295,14 +2029,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -2330,15 +2057,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2365,15 +2084,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2534,14 +2245,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -2569,15 +2273,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2604,15 +2300,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2764,14 +2452,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -2799,15 +2480,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -2834,15 +2507,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3026,14 +2691,7 @@ class _$_DialogShowed implements _DialogShowed {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -3061,15 +2719,7 @@ class _$_DialogShowed implements _DialogShowed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3096,15 +2746,7 @@ class _$_DialogShowed implements _DialogShowed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3261,14 +2903,7 @@ class _$_DialogClosed implements _DialogClosed {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -3296,15 +2931,7 @@ class _$_DialogClosed implements _DialogClosed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3331,15 +2958,7 @@ class _$_DialogClosed implements _DialogClosed {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3514,14 +3133,7 @@ class _$_TextSearched implements _TextSearched {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -3549,15 +3161,7 @@ class _$_TextSearched implements _TextSearched {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3584,15 +3188,7 @@ class _$_TextSearched implements _TextSearched {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3773,14 +3369,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -3808,15 +3397,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -3843,15 +3424,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -4007,14 +3580,7 @@ class _$_Initialized implements _Initialized {
         responseEnded,
     required TResult Function() stateCleared,
     required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)
+            String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function(int page, String questionId)
@@ -4042,15 +3608,7 @@ class _$_Initialized implements _Initialized {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -4077,15 +3635,7 @@ class _$_Initialized implements _Initialized {
             bool confirmEnding)?
         responseEnded,
     TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            Answer? answer,
-            bool isSpecialAnswer,
-            bool isNote,
-            String? noteOf,
-            bool isRecode,
-            bool? setIsSpecialAnswer)?
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function(int page, String questionId)? navigatedToQuestionId,
@@ -4203,7 +3753,6 @@ mixin _$AnswerState {
   Warning get warning => throw _privateConstructorUsedError;
   bool get showWarning => throw _privateConstructorUsedError; // > 中間資料
   String get questionId => throw _privateConstructorUsedError;
-  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
   Set<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
   Set<String> get pageQIdSet => throw _privateConstructorUsedError;
   Set<String> get contentQIdSet => throw _privateConstructorUsedError;
@@ -4260,7 +3809,6 @@ abstract class $AnswerStateCopyWith<$Res> {
       Warning warning,
       bool showWarning,
       String questionId,
-      Set<String> updatedQIdSet,
       Set<String> clearAnswerQIdSet,
       Set<String> pageQIdSet,
       Set<String> contentQIdSet,
@@ -4319,7 +3867,6 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     Object? warning = freezed,
     Object? showWarning = freezed,
     Object? questionId = freezed,
-    Object? updatedQIdSet = freezed,
     Object? clearAnswerQIdSet = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
@@ -4394,10 +3941,6 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedQIdSet: updatedQIdSet == freezed
-          ? _value.updatedQIdSet
-          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
-              as Set<String>,
       clearAnswerQIdSet: clearAnswerQIdSet == freezed
           ? _value.clearAnswerQIdSet
           : clearAnswerQIdSet // ignore: cast_nullable_to_non_nullable
@@ -4575,7 +4118,6 @@ abstract class _$$_UpdateAnswerStatusStateCopyWith<$Res>
       Warning warning,
       bool showWarning,
       String questionId,
-      Set<String> updatedQIdSet,
       Set<String> clearAnswerQIdSet,
       Set<String> pageQIdSet,
       Set<String> contentQIdSet,
@@ -4644,7 +4186,6 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? warning = freezed,
     Object? showWarning = freezed,
     Object? questionId = freezed,
-    Object? updatedQIdSet = freezed,
     Object? clearAnswerQIdSet = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
@@ -4719,10 +4260,6 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
-      updatedQIdSet: updatedQIdSet == freezed
-          ? _value._updatedQIdSet
-          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
-              as Set<String>,
       clearAnswerQIdSet: clearAnswerQIdSet == freezed
           ? _value._clearAnswerQIdSet
           : clearAnswerQIdSet // ignore: cast_nullable_to_non_nullable
@@ -4854,7 +4391,6 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
       required this.warning,
       required this.showWarning,
       required this.questionId,
-      required final Set<String> updatedQIdSet,
       required final Set<String> clearAnswerQIdSet,
       required final Set<String> pageQIdSet,
       required final Set<String> contentQIdSet,
@@ -4887,7 +4423,6 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
         _answerStatusMap = answerStatusMap,
         _recodeAnswerMap = recodeAnswerMap,
         _recodeAnswerStatusMap = recodeAnswerStatusMap,
-        _updatedQIdSet = updatedQIdSet,
         _clearAnswerQIdSet = clearAnswerQIdSet,
         _pageQIdSet = pageQIdSet,
         _contentQIdSet = contentQIdSet,
@@ -4946,13 +4481,6 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
 // > 中間資料
   @override
   final String questionId;
-  final Set<String> _updatedQIdSet;
-  @override
-  Set<String> get updatedQIdSet {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableSetView(_updatedQIdSet);
-  }
-
   final Set<String> _clearAnswerQIdSet;
   @override
   Set<String> get clearAnswerQIdSet {
@@ -5062,7 +4590,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
 
   @override
   String toString() {
-    return 'AnswerState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, searchText: $searchText, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, surveyId: $surveyId, respondentId: $respondentId, referenceList: $referenceList, restoreState: $restoreState, eventState: $eventState, answerIsUpdated: $answerIsUpdated, answerStatusIsUpdated: $answerStatusIsUpdated, pageQuestionIsUpdated: $pageQuestionIsUpdated)';
+    return 'AnswerState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, searchText: $searchText, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, surveyId: $surveyId, respondentId: $respondentId, referenceList: $referenceList, restoreState: $restoreState, eventState: $eventState, answerIsUpdated: $answerIsUpdated, answerStatusIsUpdated: $answerStatusIsUpdated, pageQuestionIsUpdated: $pageQuestionIsUpdated)';
   }
 
   @override
@@ -5089,8 +4617,6 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
                 .equals(other.showWarning, showWarning) &&
             const DeepCollectionEquality()
                 .equals(other.questionId, questionId) &&
-            const DeepCollectionEquality()
-                .equals(other._updatedQIdSet, _updatedQIdSet) &&
             const DeepCollectionEquality()
                 .equals(other._clearAnswerQIdSet, _clearAnswerQIdSet) &&
             const DeepCollectionEquality()
@@ -5160,7 +4686,6 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
         const DeepCollectionEquality().hash(warning),
         const DeepCollectionEquality().hash(showWarning),
         const DeepCollectionEquality().hash(questionId),
-        const DeepCollectionEquality().hash(_updatedQIdSet),
         const DeepCollectionEquality().hash(_clearAnswerQIdSet),
         const DeepCollectionEquality().hash(_pageQIdSet),
         const DeepCollectionEquality().hash(_contentQIdSet),
@@ -5212,7 +4737,6 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
       required final Warning warning,
       required final bool showWarning,
       required final String questionId,
-      required final Set<String> updatedQIdSet,
       required final Set<String> clearAnswerQIdSet,
       required final Set<String> pageQIdSet,
       required final Set<String> contentQIdSet,
@@ -5268,8 +4792,6 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
   bool get showWarning => throw _privateConstructorUsedError;
   @override // > 中間資料
   String get questionId => throw _privateConstructorUsedError;
-  @override
-  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
   @override
   Set<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
   @override

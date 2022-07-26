@@ -50,6 +50,10 @@ class QuestionType with _$QuestionType {
   bool get isNumber => value == 'number';
   bool get isInteger => value == 'integer';
   bool get isDateTime => ['date', 'time', 'dateTime'].contains(value);
+  bool get isDate => value == 'date';
+  bool get isTime => value == 'time';
+  bool get containsDate => ['date', 'dateTime'].contains(value);
+  bool get containsTime => ['time', 'dateTime'].contains(value);
   bool get isPhone => value == 'phone';
   bool get isTable => ['simpleTable', 'complexTable'].contains(value);
   bool get isSimpleTable => value == 'simpleTable';
@@ -286,17 +290,22 @@ enum SurveyPageUpdateType {
 class DialogType with _$DialogType {
   const DialogType._();
 
-  const factory DialogType(String value) = _DialogType;
+  const factory DialogType.none() = DialogTypeNone;
+  const factory DialogType.breakInterview() = DialogTypeBreakInterview;
+  const factory DialogType.reAnswer() = DialogTypeReAnswer;
+  const factory DialogType.confirmFinished() = DialogTypeConfirmFinished;
+  const factory DialogType.switchToSamplingWithinHouseholdModule() =
+      DialogTypeSwitchToSamplingWithinHouseholdModule;
 
-  factory DialogType.none() => const DialogType('');
-  factory DialogType.breakInterview() => const DialogType('breakInterview');
-  factory DialogType.reAnswer() => const DialogType('reAnswer');
-  factory DialogType.switchToSamplingWithinHouseholdModule() =>
-      const DialogType('switchToSamplingWithinHouseholdModule');
+  String get value => when(
+        none: () => '',
+        breakInterview: () => 'breakInterview',
+        reAnswer: () => 'reAnswer',
+        confirmFinished: () => 'confirmFinished',
+        switchToSamplingWithinHouseholdModule: () =>
+            'switchToSamplingWithinHouseholdModule',
+      );
 
-  bool get isBreakInterview => value == 'breakInterview';
-  bool get isReAnswer => value == 'reAnswer';
-  bool get isSwitchToSamplingWithinHouseholdModule =>
-      value == 'switchToSamplingWithinHouseholdModule';
-  bool get notNone => value != '';
+  bool get isReAnswer => this is DialogTypeReAnswer;
+  bool get notNone => this is! DialogTypeNone;
 }

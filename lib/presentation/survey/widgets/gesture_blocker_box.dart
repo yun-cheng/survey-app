@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../domain/core/logger.dart';
 
 class GestureBlockerBox extends StatelessWidget {

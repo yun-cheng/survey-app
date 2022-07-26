@@ -4,15 +4,17 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import '../../../application/survey/question/question_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/survey/answer/i_answer_repository.dart';
+import '../../../injection.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/delayed_widget.dart';
-import 'answer_box.dart';
+import 'answer/answer_box.dart';
+import 'answer/recode_box.dart';
 import 'complex_table_box.dart';
 import 'question_box.dart';
-import 'recode_box.dart';
 import 'simple_table_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';
@@ -134,9 +136,22 @@ class QaCard extends StatelessWidget {
                     // > RecodeBox
                     if (state.isRecodeModule && question.recodeNeeded) ...[
                       const SizedBox(height: 10),
-                      const Align(
+                      Align(
                         alignment: Alignment.topLeft,
-                        child: RecodeBox(),
+                        child: BlocProvider(
+                          create: (context) => QuestionBloc(
+                            getIt<IAnswerRepository>(),
+                            question: question,
+                            answer: state.recodeAnswerMap[question.id],
+                            isSpecialAnswer: state
+                                .recodeAnswerStatusMap[question.id]
+                                ?.isSpecialAnswer,
+                            canEdit: !state.isReadOnly,
+                            isRecodeModule: true,
+                            shouldDelay: false,
+                          ),
+                          child: const RecodeBox(),
+                        ),
                       ),
                     ],
                     const SizedBox(height: 15),
