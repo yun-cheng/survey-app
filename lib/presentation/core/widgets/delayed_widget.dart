@@ -6,42 +6,37 @@ import 'center_progress_indicator.dart';
 
 class DelayedWidget extends StatelessWidget {
   final Widget child;
-  // final int milliseconds;
-  final bool answerBox;
+  final bool isAnswer;
   final bool hideLoadingIndicator;
   final double? replacementHeight;
-  // final Widget? replacement;
+  final double? replacementWidth;
   final bool isSliver;
 
   const DelayedWidget({
     Key? key,
     required this.child,
-    // this.milliseconds = 0,
-    this.answerBox = false,
+    this.isAnswer = false,
     this.hideLoadingIndicator = false,
     this.replacementHeight,
-    // this.replacement,
+    this.replacementWidth,
     this.isSliver = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final fakeChild = SizedBox(
+      height: replacementHeight,
+      width: replacementWidth,
+      child: hideLoadingIndicator ? null : const CenterProgressIndicator(),
+    );
+
     return BlocBuilder<QuestionBloc, QuestionState>(
       buildWhen: (p, c) =>
-          !answerBox && p.qABoxIsShown != c.qABoxIsShown && c.qABoxIsShown ||
-          answerBox &&
-              p.answerBoxIsShown != c.answerBoxIsShown &&
-              c.answerBoxIsShown,
+          isAnswer ? c.answerBoxShown(p) : c.qABoxIsShownChanged(p),
       builder: (context, state) {
-        if (!answerBox && state.qABoxIsShown ||
-            answerBox && state.answerBoxIsShown) {
+        if (isAnswer ? state.answerBoxIsShown : state.qABoxIsShown) {
           return child;
         }
-
-        final fakeChild = SizedBox(
-          height: replacementHeight,
-          child: hideLoadingIndicator ? null : const CenterProgressIndicator(),
-        );
 
         if (!isSliver) {
           return fakeChild;

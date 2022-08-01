@@ -39,6 +39,7 @@ class AnswerState with _$AnswerState {
     required bool isRecodeModule,
     required Map<ModuleType, Response> respondentResponseMap,
     required Map<String, Set<String>> pageQIdSetMap,
+    required Map<String, Map<int, Set<String>>> tableRowQIdSetMap,
     // > 同 session 會變的參考資料
     required Map<String, Question> questionMap,
     required Map<String, Question> recodeQuestionMap,
@@ -87,6 +88,7 @@ class AnswerState with _$AnswerState {
         isRecodeModule: false,
         respondentResponseMap: const {},
         pageQIdSetMap: const {},
+        tableRowQIdSetMap: const {},
         // > 同 session 會變的參考資料
         questionMap: const {},
         recodeQuestionMap: const {},
@@ -170,13 +172,8 @@ class AnswerState with _$AnswerState {
   bool restoreStateSuccess(AnswerState previousState) =>
       previousState.restoreState != restoreState && restoreState.isSuccess;
 
-  // > 該題顯示或隱藏時
-  bool qIdChanged(AnswerState previousState, String questionId) =>
-      !previousState.showQIdSet.contains(questionId) ||
-      !showQIdSet.contains(questionId);
-
-  bool qIdUnchanged(AnswerState previousState, String questionId) =>
-      previousState.showQIdSet.contains(questionId) &&
+  bool showQuestionChanged(AnswerState previousState, String questionId) =>
+      previousState.showQIdSet.contains(questionId) !=
       showQIdSet.contains(questionId);
 
   bool choiceListChanged(AnswerState previousState, String questionId) =>

@@ -1,22 +1,22 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'package:linked_scroll_controller/linked_scroll_controller.dart';
-import 'package:supercharged/supercharged.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
-import '../../../domain/survey/question.dart';
 import '../../../infrastructure/core/extensions.dart';
+import '../../../infrastructure/core/use_scroll_controllers.dart';
+import '../../../infrastructure/core/visibility_notifier.dart';
 import '../../../injection.dart';
 import '../../core/style/main.dart';
-import '../../core/widgets/center_progress_indicator.dart';
-import '../../core/widgets/delayed_widget.dart';
 import 'complex_cell_box.dart';
+import 'delayed_qa_widget.dart';
+import 'question_box.dart';
 
 class ComplexTableBox extends HookWidget {
   final String tableId;
@@ -30,170 +30,129 @@ class ComplexTableBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('ComplexTableBox');
 
-    // > scroll controllers
-    final controllers = useMemoized(() => LinkedScrollControllerGroup());
-    final controllerMap = <String, ScrollController>{};
-
-    final getController = useCallback((String key) {
-      controllerMap.putIfAbsent(key, () => controllers.addAndGet());
-
-      return controllerMap[key]!;
-    }, []);
-
-    useEffect(() {
-      return () => controllerMap.values.map((c) => c.dispose());
-    }, []);
+    final getController = useScrollControllers();
 
     // > state
     final _context = useContext();
     final state = _context.read<AnswerBloc>().state;
+    final tableMap = state.tableRowQIdSetMap[tableId]!;
+    final titleSet = tableMap[-1]!;
+    final questionMap = state.questionMap;
 
-    final titleQuestionList = useRef(<Question>[]);
-    final rowQuestionMap = useRef(<int, List<Question>>{});
-    final rowList = useRef(<Row>[]);
-    final taskFinished = useState(false);
-
-    // > 提取資料任務
-    final runTask = useMemoized(() {
-      Future(() async {
-        // - 篩出是這個 tableId 的 questions
-        final tableQuestionList = state.pageQIdSet
-            .map((questionId) => state.questionMap[questionId]!)
-            .filter((question) =>
-                question.tableId == tableId && !question.type.isTable)
-            .toList();
-
-        // - 分成 title 跟 row questions
-        final pTableQuestionList =
-            tableQuestionList.partition((question) => question.rowId == -1);
-
-        // - title question list
-        titleQuestionList.value = pTableQuestionList.item1;
-
-        // - row question map
-        rowQuestionMap.value = pTableQuestionList.item2
-            .groupBy<int, Question>((question) => question.rowId);
-
-        // - row list
-        rowList.value = rowQuestionMap.value
-            .map((index, questionList) {
-              final rowQuestionCells = questionList
-                  .withoutFirst()
-                  .toList()
-                  // FIXME asMap entries 很慢
-                  .asMap()
-                  .entries
-                  .map(
-                    (e) => BlocProvider(
-                      create: (context) => QuestionBloc(
-                        getIt<IAnswerRepository>(),
-                        question: e.value,
-                        answer: state.answerMap[e.value.id],
-                        isSpecialAnswer:
-                            state.answerStatusMap[e.value.id]?.isSpecialAnswer,
-                        withinCell: true,
-                        canEdit: !state.isReadOnly,
-                        isRecodeModule: state.isRecodeModule,
-                      ),
-                      child: ComplexCellBox(
-                        colQuestionId: titleQuestionList.value[e.key].id,
-                      ),
-                    ),
-                  )
-                  .toList();
-
-              return MapEntry(
-                  index,
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BlocProvider(
+    // > row list
+    final rowList = tableMap.withoutKeys({-1}).mapEntries(
+      (i, qIdSet) => Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // >> question column
+          BlocProvider(
+            create: (context) => QuestionBloc(
+              getIt<IAnswerRepository>(),
+              question: questionMap[qIdSet.first]!,
+              withinCell: true,
+              canEdit: !state.isReadOnly,
+              isRecodeModule: state.isRecodeModule,
+            ),
+            child: const SizedBox(
+              width: kFirstColumnWidth,
+              child: VisibilityNotifier(
+                child: DelayedQaWidget(
+                  isCell: true,
+                  child: QuestionBox(),
+                ),
+              ),
+            ),
+          ),
+          // >> cells
+          Flexible(
+            child: SingleChildScrollView(
+              key: Key(UniqueId.v1().value),
+              scrollDirection: Axis.horizontal,
+              controller: getController('$i'),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: qIdSet
+                    .skip(1)
+                    .mapIndexed(
+                      (j, qId) => BlocProvider(
                         create: (context) => QuestionBloc(
                           getIt<IAnswerRepository>(),
-                          question: questionList[0],
+                          question: questionMap[qId]!,
+                          answer: state.answerMap[qId],
+                          isSpecialAnswer:
+                              state.answerStatusMap[qId]?.isSpecialAnswer,
                           withinCell: true,
                           canEdit: !state.isReadOnly,
                           isRecodeModule: state.isRecodeModule,
                         ),
-                        child: const ComplexCellBox(isFirstColumn: true),
-                      ),
-                      Flexible(
-                        child: SingleChildScrollView(
-                          key: Key(UniqueId.v1().value),
-                          scrollDirection: Axis.horizontal,
-                          controller: getController('$index'),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: rowQuestionCells,
+                        child: VisibilityNotifier(
+                          child: DelayedQaWidget(
+                            isCell: true,
+                            colQuestionId: titleSet.elementAt(j),
+                            child: const ComplexCellBox(),
                           ),
                         ),
                       ),
-                    ],
-                  ));
-            })
-            .values
-            .toList();
-
-        taskFinished.value = true;
-      });
-    });
-
-    // - 執行任務
-    useFuture(runTask);
-
-    if (!taskFinished.value) {
-      return const SliverToBoxAdapter(child: CenterProgressIndicator());
-    }
+                    )
+                    .toList(),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
 
     return SliverStickyHeader(
-      // > title
-      header: DelayedWidget(
-        answerBox: true,
-        hideLoadingIndicator: true,
-        child: Container(
-          color: Theme.of(_context).scaffoldBackgroundColor,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(width: kFirstColumnWidth),
-              Flexible(
-                child: SingleChildScrollView(
-                  key: Key(UniqueId.v1().value),
-                  scrollDirection: Axis.horizontal,
-                  controller: getController('_titleRow'),
-                  child: Row(
-                    children: titleQuestionList.value
-                        .map(
-                          (question) => BlocProvider(
-                            create: (context) => QuestionBloc(
-                              getIt<IAnswerRepository>(),
-                              question: question,
-                              withinCell: true,
-                              canEdit: !state.isReadOnly,
-                              isRecodeModule: state.isRecodeModule,
-                            ),
-                            child: const ComplexCellBox(isTitle: true),
+      // > title row
+      header: Container(
+        color: Theme.of(_context).scaffoldBackgroundColor,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const SizedBox(width: kFirstColumnWidth),
+            Flexible(
+              child: SingleChildScrollView(
+                key: Key(UniqueId.v1().value),
+                scrollDirection: Axis.horizontal,
+                controller: getController('_titleRow'),
+                child: Row(
+                  children: titleSet
+                      .map(
+                        (qId) => BlocProvider(
+                          create: (context) => QuestionBloc(
+                            getIt<IAnswerRepository>(),
+                            question: questionMap[qId]!,
+                            withinCell: true,
+                            canEdit: !state.isReadOnly,
+                            isRecodeModule: state.isRecodeModule,
                           ),
-                        )
-                        .toList(),
-                  ),
+                          child: VisibilityNotifier(
+                            child: DelayedQaWidget(
+                              isCell: true,
+                              colQuestionId: qId,
+                              child: Container(
+                                alignment: Alignment.topCenter,
+                                width: kComplexTableCellWidth,
+                                child: const QuestionBox(),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       // > rows
-      // * 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
-        child: DelayedWidget(
-          answerBox: true,
-          child: Column(
-            children: rowList.value,
-          ),
+        child: Column(
+          children: rowList,
         ),
       ),
     );

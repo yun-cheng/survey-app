@@ -62,6 +62,7 @@ class QuestionType with _$QuestionType {
       !['description', 'simpleTable', 'complexTable'].contains(value);
   bool get isValid =>
       isChoice || isInput || isDateTime || isPhone || !needAnswer;
+  bool get isDescription => value == 'description';
 }
 
 @freezed

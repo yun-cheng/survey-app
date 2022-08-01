@@ -64,4 +64,9 @@ class QuestionState with _$QuestionState {
       p.answer.contains(choice) != answer.contains(choice);
 
   bool answerChanged(QuestionState p) => p.answer != answer;
+
+  bool qABoxIsShownChanged(QuestionState p) => p.qABoxIsShown != qABoxIsShown;
+
+  bool answerBoxShown(QuestionState p) =>
+      p.answerBoxIsShown != answerBoxIsShown && answerBoxIsShown;
 }

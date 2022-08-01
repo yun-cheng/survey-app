@@ -3773,6 +3773,8 @@ mixin _$AnswerState {
   Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
   Map<String, Set<String>> get pageQIdSetMap =>
+      throw _privateConstructorUsedError;
+  Map<String, Map<int, Set<String>>> get tableRowQIdSetMap =>
       throw _privateConstructorUsedError; // > 同 session 會變的參考資料
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Map<String, Question> get recodeQuestionMap =>
@@ -3827,6 +3829,7 @@ abstract class $AnswerStateCopyWith<$Res> {
       bool isRecodeModule,
       Map<ModuleType, Response> respondentResponseMap,
       Map<String, Set<String>> pageQIdSetMap,
+      Map<String, Map<int, Set<String>>> tableRowQIdSetMap,
       Map<String, Question> questionMap,
       Map<String, Question> recodeQuestionMap,
       String surveyId,
@@ -3885,6 +3888,7 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     Object? isRecodeModule = freezed,
     Object? respondentResponseMap = freezed,
     Object? pageQIdSetMap = freezed,
+    Object? tableRowQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? surveyId = freezed,
@@ -4013,6 +4017,10 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
           ? _value.pageQIdSetMap
           : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Set<String>>,
+      tableRowQIdSetMap: tableRowQIdSetMap == freezed
+          ? _value.tableRowQIdSetMap
+          : tableRowQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<int, Set<String>>>,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -4136,6 +4144,7 @@ abstract class _$$_UpdateAnswerStatusStateCopyWith<$Res>
       bool isRecodeModule,
       Map<ModuleType, Response> respondentResponseMap,
       Map<String, Set<String>> pageQIdSetMap,
+      Map<String, Map<int, Set<String>>> tableRowQIdSetMap,
       Map<String, Question> questionMap,
       Map<String, Question> recodeQuestionMap,
       String surveyId,
@@ -4204,6 +4213,7 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? respondentResponseMap = freezed,
     Object? pageQIdSetMap = freezed,
+    Object? tableRowQIdSetMap = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
     Object? surveyId = freezed,
@@ -4332,6 +4342,10 @@ class __$$_UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value._pageQIdSetMap
           : pageQIdSetMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Set<String>>,
+      tableRowQIdSetMap: tableRowQIdSetMap == freezed
+          ? _value._tableRowQIdSetMap
+          : tableRowQIdSetMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<int, Set<String>>>,
       questionMap: questionMap == freezed
           ? _value._questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -4409,6 +4423,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
       required this.isRecodeModule,
       required final Map<ModuleType, Response> respondentResponseMap,
       required final Map<String, Set<String>> pageQIdSetMap,
+      required final Map<String, Map<int, Set<String>>> tableRowQIdSetMap,
       required final Map<String, Question> questionMap,
       required final Map<String, Question> recodeQuestionMap,
       required this.surveyId,
@@ -4429,6 +4444,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
         _showQIdSet = showQIdSet,
         _respondentResponseMap = respondentResponseMap,
         _pageQIdSetMap = pageQIdSetMap,
+        _tableRowQIdSetMap = tableRowQIdSetMap,
         _questionMap = questionMap,
         _recodeQuestionMap = recodeQuestionMap,
         _referenceList = referenceList,
@@ -4548,6 +4564,13 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
     return EqualUnmodifiableMapView(_pageQIdSetMap);
   }
 
+  final Map<String, Map<int, Set<String>>> _tableRowQIdSetMap;
+  @override
+  Map<String, Map<int, Set<String>>> get tableRowQIdSetMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_tableRowQIdSetMap);
+  }
+
 // > 同 session 會變的參考資料
   final Map<String, Question> _questionMap;
 // > 同 session 會變的參考資料
@@ -4590,7 +4613,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
 
   @override
   String toString() {
-    return 'AnswerState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, searchText: $searchText, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, surveyId: $surveyId, respondentId: $respondentId, referenceList: $referenceList, restoreState: $restoreState, eventState: $eventState, answerIsUpdated: $answerIsUpdated, answerStatusIsUpdated: $answerStatusIsUpdated, pageQuestionIsUpdated: $pageQuestionIsUpdated)';
+    return 'AnswerState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showQIdSet: $showQIdSet, direction: $direction, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, searchText: $searchText, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, restartState: $restartState, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, pageQIdSetMap: $pageQIdSetMap, tableRowQIdSetMap: $tableRowQIdSetMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, surveyId: $surveyId, respondentId: $respondentId, referenceList: $referenceList, restoreState: $restoreState, eventState: $eventState, answerIsUpdated: $answerIsUpdated, answerStatusIsUpdated: $answerStatusIsUpdated, pageQuestionIsUpdated: $pageQuestionIsUpdated)';
   }
 
   @override
@@ -4652,6 +4675,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
             const DeepCollectionEquality()
                 .equals(other._pageQIdSetMap, _pageQIdSetMap) &&
             const DeepCollectionEquality()
+                .equals(other._tableRowQIdSetMap, _tableRowQIdSetMap) &&
+            const DeepCollectionEquality()
                 .equals(other._questionMap, _questionMap) &&
             const DeepCollectionEquality()
                 .equals(other._recodeQuestionMap, _recodeQuestionMap) &&
@@ -4704,6 +4729,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
         const DeepCollectionEquality().hash(isRecodeModule),
         const DeepCollectionEquality().hash(_respondentResponseMap),
         const DeepCollectionEquality().hash(_pageQIdSetMap),
+        const DeepCollectionEquality().hash(_tableRowQIdSetMap),
         const DeepCollectionEquality().hash(_questionMap),
         const DeepCollectionEquality().hash(_recodeQuestionMap),
         const DeepCollectionEquality().hash(surveyId),
@@ -4755,6 +4781,7 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
       required final bool isRecodeModule,
       required final Map<ModuleType, Response> respondentResponseMap,
       required final Map<String, Set<String>> pageQIdSetMap,
+      required final Map<String, Map<int, Set<String>>> tableRowQIdSetMap,
       required final Map<String, Question> questionMap,
       required final Map<String, Question> recodeQuestionMap,
       required final String surveyId,
@@ -4829,6 +4856,9 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
       throw _privateConstructorUsedError;
   @override
   Map<String, Set<String>> get pageQIdSetMap =>
+      throw _privateConstructorUsedError;
+  @override
+  Map<String, Map<int, Set<String>>> get tableRowQIdSetMap =>
       throw _privateConstructorUsedError;
   @override // > 同 session 會變的參考資料
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;

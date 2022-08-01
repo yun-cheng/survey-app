@@ -406,6 +406,9 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         AnswerState.initial().eventSuccess(emit);
       },
     );
+
+    // >
+    _answerRepo.showQuestions(state.showQIdSet);
   }
 
   Future<void> _onAnswerMap(

@@ -17,8 +17,13 @@ extension MapX<K, V> on Map<K, V> {
     updateAll((key, value) => update(value));
   }
 
-  Map<K, V> subsetKeys(Iterable<K> keys) {
+  Map<K, V> subsetKeys(Set<K> keys) {
     return keys.map((k) => MapEntry(k, this[k]!)).toMap();
+  }
+
+  Map<K, V> withoutKeys(Set<K> keys) {
+    final remainKeys = this.keys.toSet().difference(keys);
+    return remainKeys.map((k) => MapEntry(k, this[k]!)).toMap();
   }
 
   Map<K, V> filterByKeys(bool Function(K) test) {

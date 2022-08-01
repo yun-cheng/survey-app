@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:sliver_tools/sliver_tools.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
+import '../../../infrastructure/core/visibility_notifier.dart';
 import '../../../injection.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/delayed_widget.dart';
@@ -35,94 +35,78 @@ class QaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final question = context.read<QuestionBloc>().state.question;
-    final questionId = question.id;
     final questionType = question.type;
     final canEdit = context.read<QuestionBloc>().state.canEdit;
 
     return BlocBuilder<AnswerBloc, AnswerState>(
-      buildWhen: (p, c) =>
-          p.showQIdSet.contains(questionId) !=
-          c.showQIdSet.contains(questionId),
+      buildWhen: (p, c) => false,
       builder: (context, state) {
         logger('Build').i('QaCard');
 
-        final visible = state.showQIdSet.contains(questionId);
-
-        if (!visible) {
-          return SliverToBoxAdapter(
-            child: AutoScrollTag(
-              key: ValueKey(questionIndex),
-              controller: scrollController,
-              index: questionIndex,
-              child: const SizedBox(),
-            ),
-          );
-        }
-
         return MultiSliver(
           children: [
+            const VisibilityNotifier(
+              isAnswer: true,
+              isSliver: true,
+            ),
             AutoScrollTag(
               key: ValueKey(questionIndex),
               controller: scrollController,
               index: questionIndex,
-              child: VisibilityDetector(
-                key: Key('__answerBox__' + questionId),
-                onVisibilityChanged: (info) {
-                  if (info.visibleFraction > 0) {
-                    context
-                        .read<QuestionBloc>()
-                        .add(const QuestionEvent.answerBoxShown(true));
-                  }
-                },
-                child: Align(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    width: double.infinity,
-                    constraints: kCardMaxWidth,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        // > QuestionBox
-                        const QuestionBox(),
-                        Row(
-                          children: [
-                            const SizedBox(height: 40),
-                            // > SpecialAnswerSwitch
-                            if (question.hasSpecialAnswer &&
-                                !questionType.isTable &&
-                                canEdit) ...[
-                              const SpecialAnswerSwitch(showText: false),
-                              const SizedBox(width: 20),
-                            ],
-                            // // > WarningBox
-                            const WarningBox(),
+              child: Align(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  width: double.infinity,
+                  constraints: kCardMaxWidth,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // > QuestionBox
+                      const QuestionBox(),
+                      Row(
+                        children: [
+                          const SizedBox(height: 40),
+                          // > SpecialAnswerSwitch
+                          if (question.hasSpecialAnswer &&
+                              !questionType.isTable &&
+                              canEdit) ...[
+                            const SpecialAnswerSwitch(showText: false),
+                            const SizedBox(width: 20),
                           ],
-                        ),
-                        // > AnswerBox
-                        if (questionType.isValid && !questionType.isTable) ...[
-                          const Align(
-                            alignment: Alignment.topLeft,
-                            child: DelayedWidget(
-                              answerBox: true,
-                              child: AnswerBox(),
-                            ),
-                          ),
+                          // // > WarningBox
+                          const WarningBox(),
                         ],
+                      ),
+                      // > AnswerBox
+                      if (questionType.isValid && !questionType.isTable) ...[
+                        const Align(
+                          alignment: Alignment.topLeft,
+                          child: DelayedWidget(
+                            isAnswer: true,
+                            child: AnswerBox(),
+                          ),
+                        ),
                       ],
-                    ),
+                    ],
                   ),
                 ),
               ),
             ),
             // > Table
             if (questionType.isSimpleTable) ...[
-              SimpleTableBox(
-                tableId: question.tableId,
+              DelayedWidget(
+                isAnswer: true,
+                child: SimpleTableBox(
+                  tableId: question.tableId,
+                ),
               ),
             ],
             if (questionType.isComplexTable) ...[
-              ComplexTableBox(
-                tableId: question.tableId,
+              DelayedWidget(
+                isAnswer: true,
+                child: ComplexTableBox(
+                  tableId: question.tableId,
+                ),
               ),
             ],
             Align(
@@ -164,6 +148,10 @@ class QaCard extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            const VisibilityNotifier(
+              isAnswer: true,
+              isSliver: true,
             ),
           ],
         );

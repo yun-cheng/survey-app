@@ -196,7 +196,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   Future<void> _onShowQuestionSet(
     Set<String> qIdSet,
   ) async {
-    if (state.answerBoxIsShown && !qIdSet.contains(question.id)) {
+    if (state.qABoxIsShown && !qIdSet.contains(question.id)) {
       add(
         const QuestionEvent.qABoxShown(false),
       );

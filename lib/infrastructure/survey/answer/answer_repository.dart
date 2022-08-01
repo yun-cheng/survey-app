@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -46,7 +47,9 @@ class AnswerRepository implements IAnswerRepository {
 
   @override
   void showQuestions(Set<String> qIdSet) {
-    _showQuestionSetStream.add(qIdSet);
+    if (!setEquals(qIdSet, _showQuestionSetStream.value)) {
+      _showQuestionSetStream.add(qIdSet);
+    }
   }
 
   @override

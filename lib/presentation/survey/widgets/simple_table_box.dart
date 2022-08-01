@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'package:linked_scroll_controller/linked_scroll_controller.dart';
-import 'package:supercharged/supercharged.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
-import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/question.dart';
+import '../../../infrastructure/core/use_scroll_controllers.dart';
+import '../../../infrastructure/core/visibility_notifier.dart';
 import '../../../injection.dart';
 import '../../core/style/main.dart';
-import '../../core/widgets/delayed_widget.dart';
+import 'delayed_qa_widget.dart';
 import 'simple_table_qa_row.dart';
 
 class SimpleTableBox extends HookWidget {
@@ -29,116 +27,78 @@ class SimpleTableBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('SimpleTableBox');
 
-    // > scroll controllers
-    final controllers = useMemoized(() => LinkedScrollControllerGroup());
-    final controllerMap = <String, ScrollController>{};
-
-    final getController = useCallback((String key) {
-      controllerMap.putIfAbsent(key, () => controllers.addAndGet());
-
-      return controllerMap[key]!;
-    }, []);
-
-    useEffect(() {
-      return () => controllerMap.values.map((c) => c.dispose());
-    }, []);
+    final getController = useScrollControllers();
 
     // > state
     final _context = useContext();
     final state = _context.read<AnswerBloc>().state;
-
-    final tableQuestionList = useRef(<Question>[]);
-    final choiceList = useRef(<Choice>[]);
-    final taskFinished = useState(false);
-
-    // > 提取資料任務
-    final runTask = useMemoized(() {
-      Future(() async {
-        // - 篩出是這個 tableId 的 questions
-        tableQuestionList.value = state.pageQIdSet
-            .map((questionId) => state.questionMap[questionId]!)
-            .filter((question) =>
-                question.tableId == tableId && !question.type.isTable)
-            .toList();
-
-        // - 取出 choiceList
-        choiceList.value = tableQuestionList.value.first.choiceList;
-        taskFinished.value = true;
-      });
-    });
-
-    // - 執行任務
-    useFuture(runTask);
-
-    if (!taskFinished.value) {
-      return const SliverToBoxAdapter(child: SizedBox());
-    }
+    final tableMap = state.tableRowQIdSetMap[tableId]!;
+    final questionMap = state.questionMap;
+    final choiceList = questionMap[tableMap[0]!.first]!.choiceList;
 
     return SliverStickyHeader(
-      header: DelayedWidget(
-        answerBox: true,
-        hideLoadingIndicator: true,
-        child: Container(
-          color: Theme.of(_context).scaffoldBackgroundColor,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(width: kFirstColumnWidth),
-              Flexible(
-                child: SingleChildScrollView(
-                  // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                  key: Key(UniqueId.v1().value),
-                  scrollDirection: Axis.horizontal,
-                  controller: getController('_titleRow'),
-                  child: Row(
-                    children: choiceList.value
-                        .map(
-                          (choice) => Container(
-                            width: kSimpleTableCellWidth,
-                            alignment: Alignment.center,
-                            child: Text(
-                              choice.toText(),
-                              style: kPTextStyle,
-                            ),
+      header: Container(
+        color: Theme.of(_context).scaffoldBackgroundColor,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const SizedBox(width: kFirstColumnWidth),
+            Flexible(
+              child: SingleChildScrollView(
+                // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                key: Key(UniqueId.v1().value),
+                scrollDirection: Axis.horizontal,
+                controller: getController('_titleRow'),
+                child: Row(
+                  children: choiceList
+                      .map(
+                        (choice) => Container(
+                          width: kSimpleTableCellWidth,
+                          alignment: Alignment.center,
+                          child: Text(
+                            choice.toText(),
+                            style: kPTextStyle,
                           ),
-                        )
-                        .toList(),
-                  ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       // * 用 SliverList 在實機上會卡，所以改 Column
       sliver: SliverToBoxAdapter(
-        child: DelayedWidget(
-          answerBox: true,
-          child: Column(
-            children: tableQuestionList.value
-                .map(
-                  (question) => BlocProvider(
-                    create: (context) => QuestionBloc(
-                      getIt<IAnswerRepository>(),
-                      question: question,
-                      answer: state.answerMap[question.id],
-                      isSpecialAnswer:
-                          state.answerStatusMap[question.id]?.isSpecialAnswer,
-                      withinCell: true,
-                      canEdit: !state.isReadOnly,
-                      isRecodeModule: state.isRecodeModule,
-                    ),
-                    child: SimpleTableQARow(
-                      // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                      // TODO 使用正確的 key (如 question.id) 也許能解決
-                      key: Key(UniqueId.v1().value),
-                      scrollController: getController(question.id),
+        child: Column(
+          children: tableMap.values
+              .map(
+                (qIdSet) => BlocProvider(
+                  create: (context) => QuestionBloc(
+                    getIt<IAnswerRepository>(),
+                    question: questionMap[qIdSet.first]!,
+                    answer: state.answerMap[qIdSet.first],
+                    isSpecialAnswer:
+                        state.answerStatusMap[qIdSet.first]?.isSpecialAnswer,
+                    withinCell: true,
+                    canEdit: !state.isReadOnly,
+                    isRecodeModule: state.isRecodeModule,
+                  ),
+                  child: VisibilityNotifier(
+                    child: DelayedQaWidget(
+                      isRow: true,
+                      child: SimpleTableQARow(
+                        // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                        // TODO 使用正確的 key (如 question.id) 也許能解決
+                        key: Key(UniqueId.v1().value),
+                        scrollController: getController(qIdSet.first),
+                      ),
                     ),
                   ),
-                )
-                .toList(),
-          ),
+                ),
+              )
+              .toList(),
         ),
       ),
     );

@@ -148,9 +148,30 @@ Tuple2<AnswerState, Response> restoreResponse(
       .groupListsBy((r) => r.moduleType)
       .mapValues((e) => e.first);
 
-  // > 輸出
+  // > tableRowQIdSetMap
   final isRecodeModule = moduleType.isRecode;
+  final questionMap = isRecodeModule
+      ? survey.module[ModuleType.main()]!.questionMap
+      : module.questionMap;
 
+  final Map<String, Map<int, Set<String>>> tableRowQIdSetMap = {};
+
+  questionMap.forEach((qId, question) {
+    if (question.tableId.isEmpty) return;
+
+    final tableMap = tableRowQIdSetMap[question.tableId] ?? {};
+
+    if (question.type.isTable) {
+      tableRowQIdSetMap[question.tableId] = {};
+    } else {
+      final currentSet = tableMap[question.rowId] ?? {};
+      tableMap[question.rowId] = {...currentSet, qId};
+    }
+
+    tableRowQIdSetMap[question.tableId] = tableMap;
+  });
+
+  // > 輸出
   state = state.copyWith(
     answerMap: isRecodeModule ? mainResponse.answerMap : response.answerMap,
     answerStatusMap: isRecodeModule
@@ -169,6 +190,7 @@ Tuple2<AnswerState, Response> restoreResponse(
     recodeQuestionMap: survey.module[ModuleType.recode()]!.questionMap,
     moduleType: moduleType,
     pageQIdSetMap: module.pageQIdSetMap,
+    tableRowQIdSetMap: tableRowQIdSetMap,
     dialogType: switchToSampling
         ? const DialogType.switchToSamplingWithinHouseholdModule()
         : const DialogType.none(),
