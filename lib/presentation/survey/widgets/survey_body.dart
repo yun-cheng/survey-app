@@ -8,7 +8,6 @@ import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
-import '../../../infrastructure/core/visibility_notifier.dart';
 import '../../../injection.dart';
 import 'delayed_qa_widget.dart';
 import 'qa_card.dart';
@@ -77,14 +76,11 @@ class SurveyBody extends StatelessWidget {
                         canEdit: !state.isReadOnly && !state.isRecodeModule,
                         shouldDelay: question.id != state.showQIdSet.first,
                       ),
-                      child: VisibilityNotifier(
+                      child: DelayedQaWidget(
                         isSliver: true,
-                        child: DelayedQaWidget(
-                          isSliver: true,
-                          child: QaCard(
-                            questionIndex: index,
-                            scrollController: scrollController,
-                          ),
+                        child: QaCard(
+                          questionIndex: index,
+                          scrollController: scrollController,
                         ),
                       ),
                     ),

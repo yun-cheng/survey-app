@@ -8,8 +8,8 @@ import '../../../application/survey/question/question_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
+import '../../../infrastructure/core/extensions.dart';
 import '../../../infrastructure/core/use_scroll_controllers.dart';
-import '../../../infrastructure/core/visibility_notifier.dart';
 import '../../../injection.dart';
 import '../../core/style/main.dart';
 import 'delayed_qa_widget.dart';
@@ -84,16 +84,15 @@ class SimpleTableBox extends HookWidget {
                     withinCell: true,
                     canEdit: !state.isReadOnly,
                     isRecodeModule: state.isRecodeModule,
+                    rowQIdSet: tableMap.mapEntries((k, v) => v.first).toSet(),
                   ),
-                  child: VisibilityNotifier(
-                    child: DelayedQaWidget(
-                      isRow: true,
-                      child: SimpleTableQARow(
-                        // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                        // TODO 使用正確的 key (如 question.id) 也許能解決
-                        key: Key(UniqueId.v1().value),
-                        scrollController: getController(qIdSet.first),
-                      ),
+                  child: DelayedQaWidget(
+                    isRow: true,
+                    child: SimpleTableQARow(
+                      // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                      // TODO 使用正確的 key (如 question.id) 也許能解決
+                      key: Key(UniqueId.v1().value),
+                      scrollController: getController(qIdSet.first),
                     ),
                   ),
                 ),

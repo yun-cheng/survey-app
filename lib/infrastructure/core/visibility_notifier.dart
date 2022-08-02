@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../application/survey/question/question_bloc.dart';
 
-class VisibilityNotifier extends StatelessWidget {
+class VisibilityNotifier extends HookWidget {
   final Widget? child;
   final bool isSliver;
   final bool isAnswer;
@@ -18,7 +19,15 @@ class VisibilityNotifier extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final questionId = context.read<QuestionBloc>().state.question.id;
+    final show = useState(false);
+
+    // * 只在沒有和 DelayedWidget 一起時有用
+    if (show.value) {
+      return child ??
+          (isSliver
+              ? const SliverToBoxAdapter(child: SizedBox())
+              : const SizedBox());
+    }
 
     void onVisibilityChanged(VisibilityInfo info) {
       if (info.visibleFraction > 0) {
@@ -27,36 +36,30 @@ class VisibilityNotifier extends StatelessWidget {
                   ? const QuestionEvent.answerBoxShown(true)
                   : const QuestionEvent.qABoxShown(true),
             );
+        show.value = true;
       }
     }
 
-    final fakeChild = isSliver
-        ? const SliverToBoxAdapter(child: SizedBox(height: 0.1))
-        : const SizedBox(height: 0.1);
-    final child = this.child ?? fakeChild;
+    final questionId = context.read<QuestionBloc>().state.question.id;
+    final qIdKey = Key('${isAnswer ? '__answerOf__' : ''}$questionId');
 
-    return BlocBuilder<QuestionBloc, QuestionState>(
-      buildWhen: (p, c) =>
-          isAnswer ? c.answerBoxShown(p) : c.qABoxIsShownChanged(p),
-      builder: (context, state) {
-        if (isAnswer ? state.answerBoxIsShown : state.qABoxIsShown) {
-          return child;
-        }
+    final newChild = child ??
+        (isSliver
+            ? const SliverToBoxAdapter(child: SizedBox(height: 0.1, width: 0.1))
+            : const SizedBox(height: 0.1, width: 0.1));
 
-        if (!isSliver) {
-          return VisibilityDetector(
-            key: Key('${isAnswer ? '__answerOf__' : ''}$questionId'),
-            onVisibilityChanged: onVisibilityChanged,
-            child: child,
-          );
-        }
+    if (!isSliver) {
+      return VisibilityDetector(
+        key: qIdKey,
+        onVisibilityChanged: onVisibilityChanged,
+        child: newChild,
+      );
+    }
 
-        return SliverVisibilityDetector(
-          key: Key('${isAnswer ? '__answerOf__' : ''}$questionId'),
-          onVisibilityChanged: onVisibilityChanged,
-          sliver: child,
-        );
-      },
+    return SliverVisibilityDetector(
+      key: qIdKey,
+      onVisibilityChanged: onVisibilityChanged,
+      sliver: newChild,
     );
   }
 }

@@ -28,7 +28,7 @@ class CommentBox extends HookWidget {
         maxLines: 3,
         decoration: InputDecoration(
           filled: true,
-          fillColor: kAnswerBackgroundColor,
+          fillColor: kAnswerBGColor,
           border: InputBorder.none,
         ),
         onChanged: (value) => context.read<CommentBloc>().add(

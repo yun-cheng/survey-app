@@ -73,7 +73,7 @@ class ChoiceItem extends StatelessWidget {
             // * 強制 rebuild 取消動畫
             color: isSelected
                 ? canEdit
-                    ? kAnswerBackgroundColor
+                    ? kAnswerBGColor
                     : kCannotEditColor
                 : null,
             child: isSingleAnswer

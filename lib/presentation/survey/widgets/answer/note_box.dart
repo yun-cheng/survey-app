@@ -36,7 +36,7 @@ class NoteBox extends HookWidget {
         style: kPTextStyle,
         decoration: InputDecoration(
           filled: true,
-          fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
+          fillColor: canEdit ? kAnswerBGColor : kCannotEditColor,
           border: const UnderlineInputBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),

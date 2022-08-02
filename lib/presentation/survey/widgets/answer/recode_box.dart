@@ -42,7 +42,7 @@ class RecodeBox extends HookWidget {
         style: kPTextStyle,
         decoration: InputDecoration(
           filled: true,
-          fillColor: kRecodeBackgroundColor,
+          fillColor: kRecodeBGColor,
           border: const UnderlineInputBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),

@@ -15,6 +15,7 @@ class QuestionState with _$QuestionState {
     required bool qABoxIsShown,
     required bool answerBoxIsShown,
     required bool answerIsCleared,
+    required int rowId,
   }) = _QuestionState;
 
   factory QuestionState.empty() => QuestionState(
@@ -28,6 +29,7 @@ class QuestionState with _$QuestionState {
         qABoxIsShown: false,
         answerBoxIsShown: false,
         answerIsCleared: false,
+        rowId: -1,
       );
 
   factory QuestionState.initial({
@@ -50,6 +52,7 @@ class QuestionState with _$QuestionState {
         qABoxIsShown: !shouldDelay,
         answerBoxIsShown: false,
         answerIsCleared: false,
+        rowId: -1,
       );
 
   void emit(Emitter<QuestionState> emit) {
@@ -67,6 +70,12 @@ class QuestionState with _$QuestionState {
 
   bool qABoxIsShownChanged(QuestionState p) => p.qABoxIsShown != qABoxIsShown;
 
+  bool answerBoxIsShownChanged(QuestionState p) =>
+      p.answerBoxIsShown != answerBoxIsShown;
+
   bool answerBoxShown(QuestionState p) =>
       p.answerBoxIsShown != answerBoxIsShown && answerBoxIsShown;
+
+  bool answerBoxHidden(QuestionState p) =>
+      p.answerBoxIsShown != answerBoxIsShown && !answerBoxIsShown;
 }

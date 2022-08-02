@@ -54,7 +54,7 @@ class DropdownBox extends StatelessWidget {
                         enabled: false,
                         value: 'G_${choice.id}',
                         child: Container(
-                          color: kChoiceGroupBackgroundColor,
+                          color: kChoiceGroupBGColor,
                           width: double.infinity,
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.all(10),
@@ -88,8 +88,7 @@ class DropdownBox extends StatelessWidget {
                   child: Container(
                     width: kAnswerElementWidth,
                     decoration: BoxDecoration(
-                      color:
-                          canEdit ? kAnswerBackgroundColor : kCannotEditColor,
+                      color: canEdit ? kAnswerBGColor : kCannotEditColor,
                     ),
                     child: DropdownButton<String>(
                       value: selectedChoice.id != '' ? selectedChoice.id : null,

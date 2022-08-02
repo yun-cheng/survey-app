@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
@@ -24,6 +25,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   final bool canEdit;
   final bool isRecodeModule;
   final bool shouldDelay;
+  final Set<String> rowQIdSet;
   final IAnswerRepository _answerRepo;
 
   StreamSubscription? _clearAnswerSubscription;
@@ -38,6 +40,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     this.canEdit = false,
     this.isRecodeModule = false,
     this.shouldDelay = true,
+    this.rowQIdSet = const {},
   }) : super(
           QuestionState.initial(
             question: question,
@@ -157,6 +160,8 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           state
               .copyWith(
                 qABoxIsShown: e.value,
+                answerBoxIsShown: e.value ? state.answerBoxIsShown : false,
+                rowId: e.value ? state.rowId : -1,
               )
               .emit(emit);
         }
@@ -166,6 +171,15 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           state
               .copyWith(
                 answerBoxIsShown: e.value,
+              )
+              .emit(emit);
+        }
+      },
+      rowIdChanged: (e) async {
+        if (state.rowId != e.rowId) {
+          state
+              .copyWith(
+                rowId: e.rowId,
               )
               .emit(emit);
         }
@@ -199,6 +213,15 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     if (state.qABoxIsShown && !qIdSet.contains(question.id)) {
       add(
         const QuestionEvent.qABoxShown(false),
+      );
+      return;
+    }
+
+    final rowId =
+        rowQIdSet.intersection(qIdSet).indexOfFirst((e) => e == question.id);
+    if (rowId != state.rowId) {
+      add(
+        QuestionEvent.rowIdChanged(rowId),
       );
     }
   }

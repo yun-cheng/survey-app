@@ -28,6 +28,7 @@ mixin _$QuestionEvent {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ mixin _$QuestionEvent {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +60,7 @@ mixin _$QuestionEvent {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) =>
@@ -74,6 +77,7 @@ mixin _$QuestionEvent {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +93,7 @@ mixin _$QuestionEvent {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +109,7 @@ mixin _$QuestionEvent {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
@@ -178,6 +184,7 @@ class _$_ClearAnswer extends _ClearAnswer {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return clearAnswer();
@@ -196,6 +203,7 @@ class _$_ClearAnswer extends _ClearAnswer {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return clearAnswer?.call();
@@ -214,6 +222,7 @@ class _$_ClearAnswer extends _ClearAnswer {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -236,6 +245,7 @@ class _$_ClearAnswer extends _ClearAnswer {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return clearAnswer(this);
@@ -254,6 +264,7 @@ class _$_ClearAnswer extends _ClearAnswer {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return clearAnswer?.call(this);
@@ -272,6 +283,7 @@ class _$_ClearAnswer extends _ClearAnswer {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -370,6 +382,7 @@ class _$_SetChoice extends _SetChoice {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return setChoice(choice);
@@ -388,6 +401,7 @@ class _$_SetChoice extends _SetChoice {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return setChoice?.call(choice);
@@ -406,6 +420,7 @@ class _$_SetChoice extends _SetChoice {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -428,6 +443,7 @@ class _$_SetChoice extends _SetChoice {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return setChoice(this);
@@ -446,6 +462,7 @@ class _$_SetChoice extends _SetChoice {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return setChoice?.call(this);
@@ -464,6 +481,7 @@ class _$_SetChoice extends _SetChoice {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -568,6 +586,7 @@ class _$_ToggleChoice extends _ToggleChoice {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return toggleChoice(choice);
@@ -586,6 +605,7 @@ class _$_ToggleChoice extends _ToggleChoice {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return toggleChoice?.call(choice);
@@ -604,6 +624,7 @@ class _$_ToggleChoice extends _ToggleChoice {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -626,6 +647,7 @@ class _$_ToggleChoice extends _ToggleChoice {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return toggleChoice(this);
@@ -644,6 +666,7 @@ class _$_ToggleChoice extends _ToggleChoice {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return toggleChoice?.call(this);
@@ -662,6 +685,7 @@ class _$_ToggleChoice extends _ToggleChoice {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -758,6 +782,7 @@ class _$_SetSpecialAnswer extends _SetSpecialAnswer {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return setSpecialAnswer(isSpecialAnswer);
@@ -776,6 +801,7 @@ class _$_SetSpecialAnswer extends _SetSpecialAnswer {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return setSpecialAnswer?.call(isSpecialAnswer);
@@ -794,6 +820,7 @@ class _$_SetSpecialAnswer extends _SetSpecialAnswer {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -816,6 +843,7 @@ class _$_SetSpecialAnswer extends _SetSpecialAnswer {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return setSpecialAnswer(this);
@@ -834,6 +862,7 @@ class _$_SetSpecialAnswer extends _SetSpecialAnswer {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return setSpecialAnswer?.call(this);
@@ -852,6 +881,7 @@ class _$_SetSpecialAnswer extends _SetSpecialAnswer {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -956,6 +986,7 @@ class _$_SetNote extends _SetNote {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return setNote(note, noteOf);
@@ -974,6 +1005,7 @@ class _$_SetNote extends _SetNote {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return setNote?.call(note, noteOf);
@@ -992,6 +1024,7 @@ class _$_SetNote extends _SetNote {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1014,6 +1047,7 @@ class _$_SetNote extends _SetNote {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return setNote(this);
@@ -1032,6 +1066,7 @@ class _$_SetNote extends _SetNote {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return setNote?.call(this);
@@ -1050,6 +1085,7 @@ class _$_SetNote extends _SetNote {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1146,6 +1182,7 @@ class _$_SetValue extends _SetValue {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return setValue(value);
@@ -1164,6 +1201,7 @@ class _$_SetValue extends _SetValue {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return setValue?.call(value);
@@ -1182,6 +1220,7 @@ class _$_SetValue extends _SetValue {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1204,6 +1243,7 @@ class _$_SetValue extends _SetValue {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return setValue(this);
@@ -1222,6 +1262,7 @@ class _$_SetValue extends _SetValue {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return setValue?.call(this);
@@ -1240,6 +1281,7 @@ class _$_SetValue extends _SetValue {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1335,6 +1377,7 @@ class _$_SetDateTime extends _SetDateTime {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return setDateTime(dateTime);
@@ -1353,6 +1396,7 @@ class _$_SetDateTime extends _SetDateTime {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return setDateTime?.call(dateTime);
@@ -1371,6 +1415,7 @@ class _$_SetDateTime extends _SetDateTime {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1393,6 +1438,7 @@ class _$_SetDateTime extends _SetDateTime {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return setDateTime(this);
@@ -1411,6 +1457,7 @@ class _$_SetDateTime extends _SetDateTime {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return setDateTime?.call(this);
@@ -1429,6 +1476,7 @@ class _$_SetDateTime extends _SetDateTime {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1524,6 +1572,7 @@ class _$_SetRecodeValue extends _SetRecodeValue {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return setRecodeValue(value);
@@ -1542,6 +1591,7 @@ class _$_SetRecodeValue extends _SetRecodeValue {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return setRecodeValue?.call(value);
@@ -1560,6 +1610,7 @@ class _$_SetRecodeValue extends _SetRecodeValue {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1582,6 +1633,7 @@ class _$_SetRecodeValue extends _SetRecodeValue {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return setRecodeValue(this);
@@ -1600,6 +1652,7 @@ class _$_SetRecodeValue extends _SetRecodeValue {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return setRecodeValue?.call(this);
@@ -1618,6 +1671,7 @@ class _$_SetRecodeValue extends _SetRecodeValue {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1713,6 +1767,7 @@ class _$_QABoxShown extends _QABoxShown {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return qABoxShown(value);
@@ -1731,6 +1786,7 @@ class _$_QABoxShown extends _QABoxShown {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return qABoxShown?.call(value);
@@ -1749,6 +1805,7 @@ class _$_QABoxShown extends _QABoxShown {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1771,6 +1828,7 @@ class _$_QABoxShown extends _QABoxShown {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return qABoxShown(this);
@@ -1789,6 +1847,7 @@ class _$_QABoxShown extends _QABoxShown {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return qABoxShown?.call(this);
@@ -1807,6 +1866,7 @@ class _$_QABoxShown extends _QABoxShown {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -1902,6 +1962,7 @@ class _$_AnswerBoxShown extends _AnswerBoxShown {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return answerBoxShown(value);
@@ -1920,6 +1981,7 @@ class _$_AnswerBoxShown extends _AnswerBoxShown {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return answerBoxShown?.call(value);
@@ -1938,6 +2000,7 @@ class _$_AnswerBoxShown extends _AnswerBoxShown {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -1960,6 +2023,7 @@ class _$_AnswerBoxShown extends _AnswerBoxShown {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return answerBoxShown(this);
@@ -1978,6 +2042,7 @@ class _$_AnswerBoxShown extends _AnswerBoxShown {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return answerBoxShown?.call(this);
@@ -1996,6 +2061,7 @@ class _$_AnswerBoxShown extends _AnswerBoxShown {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -2013,6 +2079,201 @@ abstract class _AnswerBoxShown extends QuestionEvent {
   bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_AnswerBoxShownCopyWith<_$_AnswerBoxShown> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RowIdChangedCopyWith<$Res> {
+  factory _$$_RowIdChangedCopyWith(
+          _$_RowIdChanged value, $Res Function(_$_RowIdChanged) then) =
+      __$$_RowIdChangedCopyWithImpl<$Res>;
+  $Res call({int rowId});
+}
+
+/// @nodoc
+class __$$_RowIdChangedCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements _$$_RowIdChangedCopyWith<$Res> {
+  __$$_RowIdChangedCopyWithImpl(
+      _$_RowIdChanged _value, $Res Function(_$_RowIdChanged) _then)
+      : super(_value, (v) => _then(v as _$_RowIdChanged));
+
+  @override
+  _$_RowIdChanged get _value => super._value as _$_RowIdChanged;
+
+  @override
+  $Res call({
+    Object? rowId = freezed,
+  }) {
+    return _then(_$_RowIdChanged(
+      rowId == freezed
+          ? _value.rowId
+          : rowId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RowIdChanged extends _RowIdChanged {
+  const _$_RowIdChanged(this.rowId) : super._();
+
+  @override
+  final int rowId;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.rowIdChanged(rowId: $rowId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RowIdChanged &&
+            const DeepCollectionEquality().equals(other.rowId, rowId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rowId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RowIdChangedCopyWith<_$_RowIdChanged> get copyWith =>
+      __$$_RowIdChangedCopyWithImpl<_$_RowIdChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clearAnswer,
+    required TResult Function(Choice choice) setChoice,
+    required TResult Function(Choice choice) toggleChoice,
+    required TResult Function(bool isSpecialAnswer) setSpecialAnswer,
+    required TResult Function(String note, String noteOf) setNote,
+    required TResult Function(String value) setValue,
+    required TResult Function(DateTime dateTime) setDateTime,
+    required TResult Function(String value) setRecodeValue,
+    required TResult Function(bool value) qABoxShown,
+    required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
+    required TResult Function() initialized,
+  }) {
+    return rowIdChanged(rowId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
+    TResult Function()? initialized,
+  }) {
+    return rowIdChanged?.call(rowId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clearAnswer,
+    TResult Function(Choice choice)? setChoice,
+    TResult Function(Choice choice)? toggleChoice,
+    TResult Function(bool isSpecialAnswer)? setSpecialAnswer,
+    TResult Function(String note, String noteOf)? setNote,
+    TResult Function(String value)? setValue,
+    TResult Function(DateTime dateTime)? setDateTime,
+    TResult Function(String value)? setRecodeValue,
+    TResult Function(bool value)? qABoxShown,
+    TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (rowIdChanged != null) {
+      return rowIdChanged(rowId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClearAnswer value) clearAnswer,
+    required TResult Function(_SetChoice value) setChoice,
+    required TResult Function(_ToggleChoice value) toggleChoice,
+    required TResult Function(_SetSpecialAnswer value) setSpecialAnswer,
+    required TResult Function(_SetNote value) setNote,
+    required TResult Function(_SetValue value) setValue,
+    required TResult Function(_SetDateTime value) setDateTime,
+    required TResult Function(_SetRecodeValue value) setRecodeValue,
+    required TResult Function(_QABoxShown value) qABoxShown,
+    required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return rowIdChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return rowIdChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClearAnswer value)? clearAnswer,
+    TResult Function(_SetChoice value)? setChoice,
+    TResult Function(_ToggleChoice value)? toggleChoice,
+    TResult Function(_SetSpecialAnswer value)? setSpecialAnswer,
+    TResult Function(_SetNote value)? setNote,
+    TResult Function(_SetValue value)? setValue,
+    TResult Function(_SetDateTime value)? setDateTime,
+    TResult Function(_SetRecodeValue value)? setRecodeValue,
+    TResult Function(_QABoxShown value)? qABoxShown,
+    TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (rowIdChanged != null) {
+      return rowIdChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RowIdChanged extends QuestionEvent {
+  const factory _RowIdChanged(final int rowId) = _$_RowIdChanged;
+  const _RowIdChanged._() : super._();
+
+  int get rowId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_RowIdChangedCopyWith<_$_RowIdChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2067,6 +2328,7 @@ class _$_Initialized extends _Initialized {
     required TResult Function(String value) setRecodeValue,
     required TResult Function(bool value) qABoxShown,
     required TResult Function(bool value) answerBoxShown,
+    required TResult Function(int rowId) rowIdChanged,
     required TResult Function() initialized,
   }) {
     return initialized();
@@ -2085,6 +2347,7 @@ class _$_Initialized extends _Initialized {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
   }) {
     return initialized?.call();
@@ -2103,6 +2366,7 @@ class _$_Initialized extends _Initialized {
     TResult Function(String value)? setRecodeValue,
     TResult Function(bool value)? qABoxShown,
     TResult Function(bool value)? answerBoxShown,
+    TResult Function(int rowId)? rowIdChanged,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
@@ -2125,6 +2389,7 @@ class _$_Initialized extends _Initialized {
     required TResult Function(_SetRecodeValue value) setRecodeValue,
     required TResult Function(_QABoxShown value) qABoxShown,
     required TResult Function(_AnswerBoxShown value) answerBoxShown,
+    required TResult Function(_RowIdChanged value) rowIdChanged,
     required TResult Function(_Initialized value) initialized,
   }) {
     return initialized(this);
@@ -2143,6 +2408,7 @@ class _$_Initialized extends _Initialized {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
   }) {
     return initialized?.call(this);
@@ -2161,6 +2427,7 @@ class _$_Initialized extends _Initialized {
     TResult Function(_SetRecodeValue value)? setRecodeValue,
     TResult Function(_QABoxShown value)? qABoxShown,
     TResult Function(_AnswerBoxShown value)? answerBoxShown,
+    TResult Function(_RowIdChanged value)? rowIdChanged,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
@@ -2188,6 +2455,7 @@ mixin _$QuestionState {
   bool get qABoxIsShown => throw _privateConstructorUsedError;
   bool get answerBoxIsShown => throw _privateConstructorUsedError;
   bool get answerIsCleared => throw _privateConstructorUsedError;
+  int get rowId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionStateCopyWith<QuestionState> get copyWith =>
@@ -2209,7 +2477,8 @@ abstract class $QuestionStateCopyWith<$Res> {
       bool isRecodeModule,
       bool qABoxIsShown,
       bool answerBoxIsShown,
-      bool answerIsCleared});
+      bool answerIsCleared,
+      int rowId});
 
   $UniqueIdCopyWith<$Res> get stateId;
   $QuestionCopyWith<$Res> get question;
@@ -2237,6 +2506,7 @@ class _$QuestionStateCopyWithImpl<$Res>
     Object? qABoxIsShown = freezed,
     Object? answerBoxIsShown = freezed,
     Object? answerIsCleared = freezed,
+    Object? rowId = freezed,
   }) {
     return _then(_value.copyWith(
       stateId: stateId == freezed
@@ -2279,6 +2549,10 @@ class _$QuestionStateCopyWithImpl<$Res>
           ? _value.answerIsCleared
           : answerIsCleared // ignore: cast_nullable_to_non_nullable
               as bool,
+      rowId: rowId == freezed
+          ? _value.rowId
+          : rowId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
@@ -2321,7 +2595,8 @@ abstract class _$$_QuestionStateCopyWith<$Res>
       bool isRecodeModule,
       bool qABoxIsShown,
       bool answerBoxIsShown,
-      bool answerIsCleared});
+      bool answerIsCleared,
+      int rowId});
 
   @override
   $UniqueIdCopyWith<$Res> get stateId;
@@ -2354,6 +2629,7 @@ class __$$_QuestionStateCopyWithImpl<$Res>
     Object? qABoxIsShown = freezed,
     Object? answerBoxIsShown = freezed,
     Object? answerIsCleared = freezed,
+    Object? rowId = freezed,
   }) {
     return _then(_$_QuestionState(
       stateId: stateId == freezed
@@ -2396,6 +2672,10 @@ class __$$_QuestionStateCopyWithImpl<$Res>
           ? _value.answerIsCleared
           : answerIsCleared // ignore: cast_nullable_to_non_nullable
               as bool,
+      rowId: rowId == freezed
+          ? _value.rowId
+          : rowId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -2413,7 +2693,8 @@ class _$_QuestionState extends _QuestionState {
       required this.isRecodeModule,
       required this.qABoxIsShown,
       required this.answerBoxIsShown,
-      required this.answerIsCleared})
+      required this.answerIsCleared,
+      required this.rowId})
       : super._();
 
   @override
@@ -2436,10 +2717,12 @@ class _$_QuestionState extends _QuestionState {
   final bool answerBoxIsShown;
   @override
   final bool answerIsCleared;
+  @override
+  final int rowId;
 
   @override
   String toString() {
-    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, withinCell: $withinCell, canEdit: $canEdit, isRecodeModule: $isRecodeModule, qABoxIsShown: $qABoxIsShown, answerBoxIsShown: $answerBoxIsShown, answerIsCleared: $answerIsCleared)';
+    return 'QuestionState(stateId: $stateId, question: $question, answer: $answer, isSpecialAnswer: $isSpecialAnswer, withinCell: $withinCell, canEdit: $canEdit, isRecodeModule: $isRecodeModule, qABoxIsShown: $qABoxIsShown, answerBoxIsShown: $answerBoxIsShown, answerIsCleared: $answerIsCleared, rowId: $rowId)';
   }
 
   @override
@@ -2462,7 +2745,8 @@ class _$_QuestionState extends _QuestionState {
             const DeepCollectionEquality()
                 .equals(other.answerBoxIsShown, answerBoxIsShown) &&
             const DeepCollectionEquality()
-                .equals(other.answerIsCleared, answerIsCleared));
+                .equals(other.answerIsCleared, answerIsCleared) &&
+            const DeepCollectionEquality().equals(other.rowId, rowId));
   }
 
   @override
@@ -2477,7 +2761,8 @@ class _$_QuestionState extends _QuestionState {
       const DeepCollectionEquality().hash(isRecodeModule),
       const DeepCollectionEquality().hash(qABoxIsShown),
       const DeepCollectionEquality().hash(answerBoxIsShown),
-      const DeepCollectionEquality().hash(answerIsCleared));
+      const DeepCollectionEquality().hash(answerIsCleared),
+      const DeepCollectionEquality().hash(rowId));
 
   @JsonKey(ignore: true)
   @override
@@ -2496,7 +2781,8 @@ abstract class _QuestionState extends QuestionState {
       required final bool isRecodeModule,
       required final bool qABoxIsShown,
       required final bool answerBoxIsShown,
-      required final bool answerIsCleared}) = _$_QuestionState;
+      required final bool answerIsCleared,
+      required final int rowId}) = _$_QuestionState;
   const _QuestionState._() : super._();
 
   @override
@@ -2519,6 +2805,8 @@ abstract class _QuestionState extends QuestionState {
   bool get answerBoxIsShown => throw _privateConstructorUsedError;
   @override
   bool get answerIsCleared => throw _privateConstructorUsedError;
+  @override
+  int get rowId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionStateCopyWith<_$_QuestionState> get copyWith =>

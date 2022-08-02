@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/question/question_bloc.dart';
+import '../../core/style/main.dart';
 import '../../core/widgets/delayed_widget.dart';
 
 class DelayedQaWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class DelayedQaWidget extends StatelessWidget {
   final bool isSliver;
   final bool isRow;
   final bool isCell;
+  final bool isTitleRow;
   final String colQuestionId;
 
   const DelayedQaWidget({
@@ -18,6 +20,7 @@ class DelayedQaWidget extends StatelessWidget {
     this.isSliver = false,
     this.isRow = false,
     this.isCell = false,
+    this.isTitleRow = false,
     this.colQuestionId = '',
   }) : super(key: key);
 
@@ -26,7 +29,8 @@ class DelayedQaWidget extends StatelessWidget {
     final questionId = context.read<QuestionBloc>().state.question.id;
 
     double height = isRow ? 100 : 200;
-    height = isCell ? 1 : height;
+    height = isCell ? 100 : height;
+    height = isTitleRow ? 30 : height;
 
     return BlocBuilder<AnswerBloc, AnswerState>(
         buildWhen: (p, c) =>
@@ -38,11 +42,22 @@ class DelayedQaWidget extends StatelessWidget {
           final visible = state.showQIdSet.contains(questionId);
           final colVisible = state.showQIdSet.contains(colQuestionId);
 
+          if (!visible) {
+            return isSliver
+                ? const SliverToBoxAdapter(child: SizedBox())
+                : SizedBox(
+                    width: colVisible && isCell ? kComplexTableCellWidth : null,
+                  );
+          }
+
           return DelayedWidget(
+            withNotifier: true,
             isSliver: isSliver,
-            hideLoadingIndicator: !isRow,
+            showLoadingIndicator: isRow || isCell,
             replacementHeight: visible ? height : null,
-            replacementWidth: colVisible && isCell ? 300 : null,
+            replacementWidth: visible && (isCell || isTitleRow)
+                ? kComplexTableCellWidth
+                : null,
             child: child,
           );
         });

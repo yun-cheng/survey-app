@@ -18,6 +18,7 @@ class QuestionEvent with _$QuestionEvent {
   const factory QuestionEvent.setRecodeValue(String value) = _SetRecodeValue;
   const factory QuestionEvent.qABoxShown(bool value) = _QABoxShown;
   const factory QuestionEvent.answerBoxShown(bool value) = _AnswerBoxShown;
+  const factory QuestionEvent.rowIdChanged(int rowId) = _RowIdChanged;
   const factory QuestionEvent.initialized() = _Initialized;
 
   bool get shouldUpdateAnswer =>

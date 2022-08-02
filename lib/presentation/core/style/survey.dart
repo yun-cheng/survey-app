@@ -1,10 +1,11 @@
 part of 'main.dart';
 
 // const kAnswerBackgroundColor = Color(0xfff0f0f0);
-final kQuestionBackgroundColor = Colors.grey[200];
-final kAnswerBackgroundColor = Colors.teal[50];
-final kChoiceGroupBackgroundColor = Colors.grey[350];
-final kRecodeBackgroundColor = Colors.lightBlue[50];
+final kQuestionBGColor = Colors.grey[200];
+final kAnswerBGColor = Colors.teal[50];
+final kChoiceGroupBGColor = Colors.grey[350];
+final kRecodeBGColor = Colors.lightBlue[50];
+final kTableStripeBGColor = Colors.grey[100];
 final kCannotEditColor = null;
 
 const kChoiceGroupTextStyle = TextStyle(

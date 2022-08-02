@@ -33,9 +33,7 @@ class QuestionBox extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             color: withinCell
                 ? null
-                : (isRecoding
-                    ? kRecodeBackgroundColor
-                    : kQuestionBackgroundColor),
+                : (isRecoding ? kRecodeBGColor : kQuestionBGColor),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,

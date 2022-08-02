@@ -45,7 +45,7 @@ class SearchQuestionBox extends HookWidget {
           decoration: InputDecoration(
             isCollapsed: true,
             filled: true,
-            fillColor: kAnswerBackgroundColor,
+            fillColor: kAnswerBGColor,
             border: InputBorder.none,
             prefixIcon: const Icon(Icons.search),
             suffixIcon: IconButton(

@@ -44,7 +44,7 @@ class CommentList extends HookWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: kQuestionBackgroundColor,
+                color: kQuestionBGColor,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(15),
                 ),
