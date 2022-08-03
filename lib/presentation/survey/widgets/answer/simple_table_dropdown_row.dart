@@ -18,6 +18,7 @@ class SimpleTableDropdownRow extends StatelessWidget {
 
     return Container(
       width: kSimpleTableCellWidth * choiceList.length,
+      margin: EdgeInsets.only(right: 8.0 * choiceList.length),
       alignment: Alignment.centerLeft,
       child: Container(
         width: kComplexTableCellWidth,

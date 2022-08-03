@@ -17,8 +17,6 @@ class ChoiceItem extends StatelessWidget {
     required this.isSpecialChoice,
   }) : super(key: key);
 
-  get kPTextStyle => null;
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<QuestionBloc, QuestionState>(

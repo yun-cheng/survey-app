@@ -21,8 +21,9 @@ class ComplexCellBox extends StatelessWidget {
         context.read<QuestionBloc>().state.question.hasSpecialAnswer;
     final canEdit = context.read<QuestionBloc>().state.canEdit;
 
-    return SizedBox(
+    return Container(
       width: kComplexTableCellWidth,
+      padding: const EdgeInsets.all(10),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

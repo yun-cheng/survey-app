@@ -2,8 +2,8 @@ part of 'main.dart';
 
 const kH1FontSize = 24.0;
 const kH2FontSize = 22.0;
-const kH3FontSize = 20.0; // 正常標題
-const kH4FontSize = 18.0;
+const kH3FontSize = 20.0; // 正常標題、題目
+const kH4FontSize = 18.0; // 題目說明
 const kPFontSize = 16.0;
 
 const kH1TextStyle = TextStyle(

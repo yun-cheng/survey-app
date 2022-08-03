@@ -12,6 +12,7 @@ import '../../../infrastructure/core/extensions.dart';
 import '../../../infrastructure/core/use_scroll_controllers.dart';
 import '../../../injection.dart';
 import '../../core/style/main.dart';
+import '../../core/widgets/automatic_keep_alive_widget.dart';
 import 'delayed_qa_widget.dart';
 import 'simple_table_qa_row.dart';
 
@@ -56,9 +57,12 @@ class SimpleTableBox extends HookWidget {
                         (choice) => Container(
                           width: kSimpleTableCellWidth,
                           alignment: Alignment.center,
+                          margin: const EdgeInsets.all(4),
                           child: Text(
                             choice.toText(),
-                            style: kPTextStyle,
+                            style: kH4TextStyle.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       )
@@ -69,35 +73,38 @@ class SimpleTableBox extends HookWidget {
           ],
         ),
       ),
-      // * 用 SliverList 在實機上會卡，所以改 Column
-      sliver: SliverToBoxAdapter(
-        child: Column(
-          children: tableMap.values
-              .map(
-                (qIdSet) => BlocProvider(
-                  create: (context) => QuestionBloc(
-                    getIt<IAnswerRepository>(),
-                    question: questionMap[qIdSet.first]!,
-                    answer: state.answerMap[qIdSet.first],
-                    isSpecialAnswer:
-                        state.answerStatusMap[qIdSet.first]?.isSpecialAnswer,
-                    withinCell: true,
-                    canEdit: !state.isReadOnly,
-                    isRecodeModule: state.isRecodeModule,
-                    rowQIdSet: tableMap.mapEntries((k, v) => v.first).toSet(),
-                  ),
-                  child: DelayedQaWidget(
-                    isRow: true,
-                    child: SimpleTableQARow(
-                      // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                      // TODO 使用正確的 key (如 question.id) 也許能解決
-                      key: Key(UniqueId.v1().value),
-                      scrollController: getController(qIdSet.first),
-                    ),
+      sliver: SliverList(
+        delegate: SliverChildBuilderDelegate(
+          (context, index) {
+            final questionId = tableMap[index]!.first;
+
+            return AutomaticKeepAliveWidget(
+              key: Key(questionId),
+              child: BlocProvider(
+                create: (context) => QuestionBloc(
+                  getIt<IAnswerRepository>(),
+                  question: questionMap[questionId]!,
+                  answer: state.answerMap[questionId],
+                  isSpecialAnswer:
+                      state.answerStatusMap[questionId]?.isSpecialAnswer,
+                  withinCell: true,
+                  canEdit: !state.isReadOnly,
+                  isRecodeModule: state.isRecodeModule,
+                  rowQIdSet: tableMap.mapEntries((k, v) => v.first).toSet(),
+                ),
+                child: DelayedQaWidget(
+                  isRow: true,
+                  child: SimpleTableQARow(
+                    key: Key(questionId),
+                    // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                    // key: Key(UniqueId.v1().value),
+                    scrollController: getController(questionId),
                   ),
                 ),
-              )
-              .toList(),
+              ),
+            );
+          },
+          childCount: tableMap.length,
         ),
       ),
     );

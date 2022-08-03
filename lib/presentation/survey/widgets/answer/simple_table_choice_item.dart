@@ -45,9 +45,10 @@ class SimpleTableChoiceItem extends StatelessWidget {
           }
         }
 
-        return SizedBox(
+        return Container(
           width: kSimpleTableCellWidth,
           height: 100,
+          margin: const EdgeInsets.all(4),
           child: Ink(
             child: InkWell(
               onTap: () => clickAction(toggle: !isSingleAnswer),

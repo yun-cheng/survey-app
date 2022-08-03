@@ -43,7 +43,7 @@ class QuestionBox extends StatelessWidget {
                 text: TextSpan(
                   text: withId ? '$questionId. ' : '',
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        fontSize: withinCell ? kPFontSize : kH3FontSize,
+                        fontSize: withinCell ? kH4FontSize : kH3FontSize,
                         fontWeight: FontWeight.w500,
                       ),
                   children: question.toTextSpanList(),
@@ -53,7 +53,7 @@ class QuestionBox extends StatelessWidget {
                 const SizedBox(height: 10.0),
                 Text(
                   question.note,
-                  style: (withinCell ? kPTextStyle : kH4TextStyle).copyWith(
+                  style: kH4TextStyle.copyWith(
                     fontStyle: FontStyle.italic,
                     color: Colors.blue[800],
                   ),
