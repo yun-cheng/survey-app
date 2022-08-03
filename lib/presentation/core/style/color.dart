@@ -12,3 +12,4 @@ const kCardGreenBGColor = Color.fromARGB(255, 48, 169, 96);
 const kCardBlueBGColor = Color(0xff6B91C7);
 const kCardRedBGColor = Color(0xffFF7E7C);
 const kCardYellowBGColor = Color.fromARGB(255, 252, 198, 21);
+const kCardOrangeBGColor = Color.fromARGB(255, 255, 153, 0);

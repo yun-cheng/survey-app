@@ -32,19 +32,23 @@ class ModuleButtonArea extends StatelessWidget {
                 ModuleType.samplingWithinHousehold(),
                 status: moduleProgress[ModuleType.samplingWithinHousehold()],
               ),
-              ModuleButton(
-                ModuleType.main(),
-                status: moduleProgress[ModuleType.main()],
-              ),
-              if (tabType.isStart) ...[
+              if (moduleProgress[ModuleType.samplingWithinHousehold()]
+                      ?.isFinished ??
+                  false) ...[
                 ModuleButton(
-                  ModuleType.visitReport(),
+                  ModuleType.main(),
+                  status: moduleProgress[ModuleType.main()],
                 ),
               ],
               ModuleButton(
                 ModuleType.housingType(),
                 status: moduleProgress[ModuleType.housingType()],
               ),
+              if (tabType.isStart) ...[
+                ModuleButton(
+                  ModuleType.visitReport(),
+                ),
+              ],
               if (tabType.index >= 2) ...[
                 ModuleButton(
                   ModuleType.interviewReport(),

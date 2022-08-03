@@ -31,23 +31,23 @@ class RespondentCardChipArea extends StatelessWidget {
         final visitRecord = state.visitRecordMap[respondent.id] ?? '';
         return Row(
           children: [
-            if (housingTypeProgress.isFinished && tabType.index < 2) ...[
-              const Chip(
-                label: Text(
-                  '住屋完成',
-                  style: kChipTextStyle,
-                ),
-                backgroundColor: kCardYellowBGColor,
-              ),
-            ],
             if (mainProgress.isAnswering && !visitRecord.contains('不')) ...[
-              const SizedBox(width: 10),
               const Chip(
                 label: Text(
                   '訪問中',
                   style: kChipTextStyle,
                 ),
                 backgroundColor: kCardRedBGColor,
+              ),
+            ],
+            if (housingTypeProgress.isFinished && tabType.index < 2) ...[
+              const SizedBox(width: 10),
+              const Chip(
+                label: Text(
+                  '住屋完成',
+                  style: kChipTextStyle,
+                ),
+                backgroundColor: kCardYellowBGColor,
               ),
             ],
             if (mainProgress.isFinished) ...[
