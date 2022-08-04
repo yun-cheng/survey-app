@@ -299,8 +299,13 @@ class ResponseRepository implements IResponseRepository {
       );
 
   @override
-  void openResponse(Response response) {
+  void openResponse(Response response) async {
     _response = response;
+    await _localStorage.write(
+      box: 'common',
+      key: 'responseId',
+      data: response.responseId.value,
+    );
   }
 
   @override
