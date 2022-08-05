@@ -80,6 +80,14 @@ class RespondentState with _$RespondentState {
         updateSubset: false,
       );
 
+  RespondentState updateAll() => copyWith(
+        updateRespondents: true,
+        updateTab: true,
+        updateVisitRecord: true,
+        updateHousing: true,
+        updateSubset: true,
+      );
+
   void addEmit(void Function(RespondentEvent) add) {
     add(
       RespondentEvent.stateEmitted(

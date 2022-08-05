@@ -21,4 +21,6 @@ abstract class IAnswerRepository {
   void showQuestions(Set<String> qIdSet);
 
   void updateAnswerMap(AnswerMap answerMap);
+
+  void reset();
 }

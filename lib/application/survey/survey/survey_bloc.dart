@@ -38,6 +38,9 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       initialized: (e) async {
         await repo.ready;
       },
+      stateEmitted: (e) {
+        e.state.emit(emit);
+      },
       watchSurveyMapStarted: (e) async {
         await _subscription?.cancel();
         _subscription = repo.simpleSurveyMapStream.listen(_onSurveyMap);
@@ -53,11 +56,14 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
             )
             .emit(emit);
       },
-      stateEmitted: (e) {
-        e.state.emit(emit);
-      },
-      loggedOut: (e) async {
-        _subscription?.cancel();
+      surveyClosed: (e) {
+        repo.closeSurvey();
+
+        state
+            .copyWith(
+              survey: Survey.empty(),
+            )
+            .emit(emit);
       },
     );
   }
@@ -71,7 +77,8 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     state
         .copyWith(
           surveyMap: surveyMap,
-          projectMap: repo.projectMap,
+          projectMap: surveyMap.isEmpty ? {} : repo.projectMap,
+          survey: surveyMap.isEmpty ? Survey.empty() : state.survey,
           surveyMapState: LoadState.success(),
         )
         .addEmit(add);

@@ -50,4 +50,6 @@ abstract class IResponseRepository {
   Future<Response> resumeResponse();
 
   Future<void> endResponse(bool isFinished);
+
+  Future<void> signOut();
 }

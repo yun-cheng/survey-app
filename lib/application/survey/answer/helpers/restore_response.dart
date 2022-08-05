@@ -30,7 +30,7 @@ Tuple2<AnswerState, Response> restoreResponse(
       );
     }
   } else if (!moduleType.isVisitReport && !createNewResponse) {
-    // TODO 如果是 main module，先確認戶抽是否已完成，未完成則轉跳過去
+    // - 如果是 main module，先確認戶抽是否已完成，未完成則轉跳過去
     if (moduleType.isMain) {
       switchToSampling = responseMap.values
           .where(

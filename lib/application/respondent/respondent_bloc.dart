@@ -46,7 +46,7 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
 
   CombineLatestStream<
       dynamic,
-      Tuple4<Survey, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
+      Tuple4<Survey?, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
           RespondentState>>? _stream;
   StreamSubscription? _subscription;
 
@@ -74,6 +74,9 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
         await _responseRepo.ready;
         await _isolateWorker.ready;
       },
+      stateEmitted: (e) {
+        e.state.emit(emit);
+      },
       watchReposStarted: (e) async {
         await _subscription?.cancel();
         _stream = CombineLatestStream.combine3(
@@ -81,7 +84,7 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
           _respondentRepo.respondentMapStream,
           _responseRepo.responseMapStream,
           (
-            Survey survey,
+            Survey? survey,
             RespondentMap respondentMap,
             Tuple2<ResponseMap, UniqueId?> responseMap,
           ) =>
@@ -89,7 +92,7 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
         );
         _subscription = _stream!.listen(_onReposData);
       },
-      // > 使用者搜尋文字
+      // > 使搜尋文字
       textSearched: (e) async {
         logger('Event').i('RespondentEvent: textSearched');
 
@@ -159,24 +162,11 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
             )
             .emit(emit);
       },
-      // > 離開頁面時
-      leaveButtonPressed: (e) {
-        RespondentState.initial().emit(emit);
-      },
-      stateEmitted: (e) {
-        e.state.emit(emit);
-      },
-      loggedOut: (e) async {
-        _subscription?.cancel();
-        RespondentState.initial().emit(emit);
-      },
     );
   }
 
-  // TODO 進入頁面時要先清空所有
-
   Future<void> _onReposData(
-    Tuple4<Survey, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
+    Tuple4<Survey?, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
             RespondentState>
         tuple,
   ) async {

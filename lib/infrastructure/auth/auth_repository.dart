@@ -33,7 +33,7 @@ class AuthRepository implements IAuthRepository {
   Interviewer? _interviewer;
   InterviewerList _interviewerList = [];
 
-  final _isSignedInStream = BehaviorSubject<bool>();
+  final _isSignedInStream = BehaviorSubject<bool?>();
   final _teamListStream = BehaviorSubject<TeamList>();
   final _failureStream = BehaviorSubject.seeded(AuthFailure.empty());
 
@@ -48,14 +48,14 @@ class AuthRepository implements IAuthRepository {
   @override
   Stream<TeamList> get teamListStream => _teamListStream;
   @override
-  Stream<bool> get isSignedInStream => _isSignedInStream;
+  Stream<bool?> get isSignedInStream => _isSignedInStream;
   @override
-  CombineLatestStream<dynamic, Tuple2<bool, bool>>
+  CombineLatestStream<dynamic, Tuple2<bool?, bool>>
       get watchSignInAndNetworkStream => CombineLatestStream.combine2(
             _isSignedInStream,
             _commonRepo.networkIsConnectedStream,
             (
-              bool isSignedIn,
+              bool? isSignedIn,
               bool networkIsConnected,
             ) =>
                 Tuple2(
@@ -176,6 +176,7 @@ class AuthRepository implements IAuthRepository {
 
     if (_interviewer == null) {
       _failureStream.add(AuthFailure.invalidIdAndPasswordCombination());
+      _isSignedInStream.add(false);
     } else {
       _isSignedInStream.add(true);
 
@@ -198,11 +199,32 @@ class AuthRepository implements IAuthRepository {
       );
     }
 
-    return _isSignedInStream.value;
+    return _isSignedInStream.value!;
   }
 
   @override
-  Future<void> signOut() async {}
+  Future<void> signOut() async {
+    _team = null;
+    _interviewer = null;
+    _interviewerList = [];
+    _isSignedInStream.add(false);
+
+    _localStorage.write(
+      box: 'common',
+      key: 'team',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'common',
+      key: 'interviewer',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'common',
+      key: 'isSignedIn',
+      clear: true,
+    );
+  }
 
   void commonOnError(String name, e, stackTrace) {
     logger('Error').e('$name Error!');

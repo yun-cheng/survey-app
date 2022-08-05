@@ -37,6 +37,9 @@ class CommentBloc extends Bloc<CommentEvent, CommentState> {
       initialized: (e) async {
         await _commentRepo.ready;
       },
+      stateEmitted: (e) {
+        e.state.emit(emit);
+      },
       commentsBodyToggled: (e) async {
         logger('Event').i('CommentEvent: commentsBodyToggled');
         if (state.showComments) {
@@ -79,9 +82,6 @@ class CommentBloc extends Bloc<CommentEvent, CommentState> {
               message: '',
             )
             .eventSuccess(emit);
-      },
-      stateEmitted: (e) {
-        e.state.emit(emit);
       },
       stateCleared: (e) {
         logger('Event').i('CommentEvent: stateCleared');

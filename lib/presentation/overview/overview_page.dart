@@ -5,9 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../application/auth/auth_bloc.dart';
 import '../../application/core/device/device_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
-import '../../application/respondent/respondent_bloc.dart';
-import '../../application/survey/survey/survey_bloc.dart';
 import '../../domain/core/logger.dart';
+import '../../domain/core/value_objects.dart';
 import '../../version.dart';
 import 'widgets/overview_body.dart';
 
@@ -34,16 +33,13 @@ class OverviewPage extends StatelessWidget {
                 final syncState = context.read<DeviceBloc>().state.syncState;
 
                 if (syncState.isSuccess) {
-                  context.pushNamed('sign-in');
-                  context.read<SurveyBloc>().add(const SurveyEvent.loggedOut());
-                  context
-                      .read<RespondentBloc>()
-                      .add(const RespondentEvent.loggedOut());
                   context.read<AuthBloc>().add(const AuthEvent.loggedOut());
-                  context
-                      .read<NavigationBloc>()
-                      .add(const NavigationEvent.loggedOut());
-                  // * UpdateAnswerStatusBloc 在離開問卷時已清空，不須處理
+                  context.read<NavigationBloc>().add(
+                        NavigationEvent.pageChanged(
+                          page: NavigationPage.signIn(),
+                        ),
+                      );
+                  context.pushNamed('sign-in');
                 }
               },
             ),

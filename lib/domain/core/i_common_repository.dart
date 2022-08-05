@@ -21,6 +21,4 @@ abstract class ICommonRepository {
   void onAppLifeCycleChanged(AppLifecycleState state);
 
   void updatePage(NavigationPage page);
-
-  void signOut();
 }

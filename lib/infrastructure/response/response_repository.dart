@@ -131,13 +131,14 @@ class ResponseRepository implements IResponseRepository {
       final isSignedIn = tuple.item1;
       final networkIsConnected = tuple.item2;
 
+      if (isSignedIn == null) return;
+
       if (!isSignedIn || !networkIsConnected) {
         _responseSubscription?.cancel();
         _referenceSubscription?.cancel();
 
         if (!isSignedIn) {
-          // TODO 登出清空 local storage
-
+          signOut();
         }
 
         return;
@@ -403,7 +404,27 @@ class ResponseRepository implements IResponseRepository {
     addResponse(response, triggerUpload: true);
   }
 
-  // TODO clear local
+  @override
+  Future<void> signOut() async {
+    _response = null;
+    _responseMapStream.add(const Tuple2({}, null));
+    _referenceList = [];
+    _uploadSet.clear();
+
+    _localStorage.write(
+      box: 'common',
+      key: 'responseId',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'responseMap',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'referenceList',
+      clear: true,
+    );
+  }
 
   void commonOnError(e, stackTrace) {
     if (e is FirebaseException && e.code == 'permission-denied') {

@@ -27,7 +27,7 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
     NavigationEvent event,
     Emitter<NavigationState> emit,
   ) async {
-    await event.maybeMap(
+    await event.map(
       initialized: (e) async {
         await repo.ready;
       },
@@ -49,12 +49,6 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
 
         repo.updatePage(e.page);
       },
-      loggedOut: (e) async {
-        NavigationState.initial().emit(emit);
-
-        repo.signOut();
-      },
-      orElse: () async {},
     );
   }
 }

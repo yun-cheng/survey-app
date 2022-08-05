@@ -1,7 +1,8 @@
 part of '../respondent_bloc.dart';
 
 RespondentState updateRespondentState(
-  Tuple4<Survey, RespondentMap, Tuple2<ResponseMap, UniqueId?>, RespondentState>
+  Tuple4<Survey?, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
+          RespondentState>
       tuple,
 ) {
   final survey = tuple.item1;
@@ -11,6 +12,10 @@ RespondentState updateRespondentState(
   final responseId = responseMapTuple.item2;
   final response = responseId == null ? null : responseMap[responseId];
   var state = tuple.item4;
+
+  if (survey == null || respondentMap.isEmpty) {
+    return RespondentState.initial().updateAll();
+  }
 
   // - respondents
   if (response == null) {

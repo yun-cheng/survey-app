@@ -53,4 +53,12 @@ class UploadSet {
       data: value.toList(),
     );
   }
+
+  Future<void> clear() async {
+    _stream.add({});
+    await _localStorage.write(
+      box: name,
+      clear: true,
+    );
+  }
 }

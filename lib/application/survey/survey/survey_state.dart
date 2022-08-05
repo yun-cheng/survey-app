@@ -11,7 +11,6 @@ class SurveyState with _$SurveyState {
     required SurveyMap surveyMap,
     required Survey survey,
     // > 狀態更新進度
-    required LoadState eventState,
     required LoadState surveyMapState,
     required Option<SurveyFailure> surveyFailure,
   }) = _SurveyState;
@@ -23,7 +22,6 @@ class SurveyState with _$SurveyState {
         surveyMap: const {},
         survey: Survey.empty(),
         // > 狀態更新進度
-        eventState: LoadState.initial(),
         surveyMapState: LoadState.initial(),
         surveyFailure: none(),
       );
@@ -47,10 +45,10 @@ class SurveyState with _$SurveyState {
   }
 
   bool surveyCardInfoChanged(SurveyState previousState, String surveyId) {
-    final survey = surveyMap[surveyId]!;
-    final pSurvey = previousState.surveyMap[surveyId]!;
-    final project = projectMap[survey.projectId];
-    final pProject = previousState.projectMap[survey.projectId];
+    final survey = surveyMap[surveyId];
+    final pSurvey = previousState.surveyMap[surveyId];
+    final project = projectMap[survey?.projectId];
+    final pProject = previousState.projectMap[survey?.projectId];
 
     return pProject?.name != project?.name || pSurvey != survey;
   }

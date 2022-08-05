@@ -73,8 +73,6 @@ class CommentRepository implements ICommentRepository {
     initialize();
   }
 
-  // TODO logout close repo, clean data
-
   Future<void> initialize() async {
     await _localStorage.ready;
     await _commonRepo.ready;
@@ -102,12 +100,13 @@ class CommentRepository implements ICommentRepository {
       final isSignedIn = tuple.item1;
       final networkIsConnected = tuple.item2;
 
+      if (isSignedIn == null) return;
+
       if (!isSignedIn || !networkIsConnected) {
         _subscription?.cancel();
 
         if (!isSignedIn) {
-          // TODO 登出清空 local storage
-
+          signOut();
         }
 
         return;
@@ -275,6 +274,18 @@ class CommentRepository implements ICommentRepository {
     if (_uploadAgain) {
       uploadResponseCommentsMap();
     }
+  }
+
+  @override
+  Future<void> signOut() async {
+    _responseComments = null;
+    _responseCommentsMap = {};
+    _uploadSet.clear();
+
+    _localStorage.write(
+      box: 'responseCommentsMap',
+      clear: true,
+    );
   }
 
   void commonOnError(e, stackTrace) {

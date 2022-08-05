@@ -103,9 +103,10 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
       },
       // > response
       responseStarted: (e) async {
-        blockGesture(true);
-        state
+        _answerRepo.reset();
+        AnswerState.initial()
             .copyWith(
+              blockGesture: true,
               restoreState: LoadState.inProgress(),
             )
             .emit(emit);
@@ -209,6 +210,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
                 leavePage: true,
               )
               .eventSuccess(emit);
+          _answerRepo.reset();
         }
       },
       // > 該題作答更新
@@ -398,12 +400,6 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         );
 
         newState.eventSuccess(emit);
-      },
-      // >
-      stateCleared: (e) {
-        logger('Event').i('AnswerEvent: stateCleared');
-
-        AnswerState.initial().eventSuccess(emit);
       },
     );
 

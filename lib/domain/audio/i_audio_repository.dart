@@ -12,4 +12,6 @@ abstract class IAudioRepository {
   Future<void> addAudio(Audio audio);
 
   Future<void> clearLocalAudioDirectory();
+
+  Future<void> signOut();
 }

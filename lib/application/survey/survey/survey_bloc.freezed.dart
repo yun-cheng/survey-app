@@ -18,58 +18,58 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SurveyEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() watchSurveyMapStarted,
     required TResult Function(String surveyId) surveySelected,
-    required TResult Function() loggedOut,
-    required TResult Function(SurveyState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function() surveyClosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchSurveyMapStarted value)
         watchSurveyMapStarted,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_SurveyClosed value) surveyClosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +89,291 @@ class _$SurveyEventCopyWithImpl<$Res> implements $SurveyEventCopyWith<$Res> {
   final SurveyEvent _value;
   // ignore: unused_field
   final $Res Function(SurveyEvent) _then;
+}
+
+/// @nodoc
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitializedCopyWithImpl<$Res> extends _$SurveyEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
+
+  @override
+  _$_Initialized get _value => super._value as _$_Initialized;
+}
+
+/// @nodoc
+
+class _$_Initialized implements _Initialized {
+  const _$_Initialized();
+
+  @override
+  String toString() {
+    return 'SurveyEvent.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(SurveyState state) stateEmitted,
+    required TResult Function() watchSurveyMapStarted,
+    required TResult Function(String surveyId) surveySelected,
+    required TResult Function() surveyClosed,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
+    TResult Function()? watchSurveyMapStarted,
+    TResult Function(String surveyId)? surveySelected,
+    TResult Function()? surveyClosed,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
+    TResult Function()? watchSurveyMapStarted,
+    TResult Function(String surveyId)? surveySelected,
+    TResult Function()? surveyClosed,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_WatchSurveyMapStarted value)
+        watchSurveyMapStarted,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_SurveyClosed value) surveyClosed,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_SurveyClosed value)? surveyClosed,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_SurveyClosed value)? surveyClosed,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized implements SurveyEvent {
+  const factory _Initialized() = _$_Initialized;
+}
+
+/// @nodoc
+abstract class _$$_StateEmittedCopyWith<$Res> {
+  factory _$$_StateEmittedCopyWith(
+          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
+      __$$_StateEmittedCopyWithImpl<$Res>;
+  $Res call({SurveyState state});
+
+  $SurveyStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$$_StateEmittedCopyWithImpl<$Res>
+    extends _$SurveyEventCopyWithImpl<$Res>
+    implements _$$_StateEmittedCopyWith<$Res> {
+  __$$_StateEmittedCopyWithImpl(
+      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
+      : super(_value, (v) => _then(v as _$_StateEmitted));
+
+  @override
+  _$_StateEmitted get _value => super._value as _$_StateEmitted;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_$_StateEmitted(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as SurveyState,
+    ));
+  }
+
+  @override
+  $SurveyStateCopyWith<$Res> get state {
+    return $SurveyStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_StateEmitted implements _StateEmitted {
+  const _$_StateEmitted(this.state);
+
+  @override
+  final SurveyState state;
+
+  @override
+  String toString() {
+    return 'SurveyEvent.stateEmitted(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_StateEmitted &&
+            const DeepCollectionEquality().equals(other.state, state));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(SurveyState state) stateEmitted,
+    required TResult Function() watchSurveyMapStarted,
+    required TResult Function(String surveyId) surveySelected,
+    required TResult Function() surveyClosed,
+  }) {
+    return stateEmitted(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
+    TResult Function()? watchSurveyMapStarted,
+    TResult Function(String surveyId)? surveySelected,
+    TResult Function()? surveyClosed,
+  }) {
+    return stateEmitted?.call(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
+    TResult Function()? watchSurveyMapStarted,
+    TResult Function(String surveyId)? surveySelected,
+    TResult Function()? surveyClosed,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_WatchSurveyMapStarted value)
+        watchSurveyMapStarted,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_SurveyClosed value) surveyClosed,
+  }) {
+    return stateEmitted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_SurveyClosed value)? surveyClosed,
+  }) {
+    return stateEmitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_SurveyClosed value)? surveyClosed,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateEmitted implements SurveyEvent {
+  const factory _StateEmitted(final SurveyState state) = _$_StateEmitted;
+
+  SurveyState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -133,11 +418,11 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() watchSurveyMapStarted,
     required TResult Function(String surveyId) surveySelected,
-    required TResult Function() loggedOut,
-    required TResult Function(SurveyState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function() surveyClosed,
   }) {
     return watchSurveyMapStarted();
   }
@@ -145,11 +430,11 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
   }) {
     return watchSurveyMapStarted?.call();
   }
@@ -157,11 +442,11 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
     required TResult orElse(),
   }) {
     if (watchSurveyMapStarted != null) {
@@ -173,12 +458,12 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchSurveyMapStarted value)
         watchSurveyMapStarted,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_SurveyClosed value) surveyClosed,
   }) {
     return watchSurveyMapStarted(this);
   }
@@ -186,11 +471,11 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
   }) {
     return watchSurveyMapStarted?.call(this);
   }
@@ -198,11 +483,11 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
     required TResult orElse(),
   }) {
     if (watchSurveyMapStarted != null) {
@@ -281,11 +566,11 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() watchSurveyMapStarted,
     required TResult Function(String surveyId) surveySelected,
-    required TResult Function() loggedOut,
-    required TResult Function(SurveyState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function() surveyClosed,
   }) {
     return surveySelected(surveyId);
   }
@@ -293,11 +578,11 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
   }) {
     return surveySelected?.call(surveyId);
   }
@@ -305,11 +590,11 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -321,12 +606,12 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchSurveyMapStarted value)
         watchSurveyMapStarted,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_SurveyClosed value) surveyClosed,
   }) {
     return surveySelected(this);
   }
@@ -334,11 +619,11 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
   }) {
     return surveySelected?.call(this);
   }
@@ -346,11 +631,11 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -370,322 +655,38 @@ abstract class _SurveySelected implements SurveyEvent {
 }
 
 /// @nodoc
-abstract class _$$_LoggedOutCopyWith<$Res> {
-  factory _$$_LoggedOutCopyWith(
-          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
-      __$$_LoggedOutCopyWithImpl<$Res>;
+abstract class _$$_SurveyClosedCopyWith<$Res> {
+  factory _$$_SurveyClosedCopyWith(
+          _$_SurveyClosed value, $Res Function(_$_SurveyClosed) then) =
+      __$$_SurveyClosedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoggedOutCopyWithImpl<$Res> extends _$SurveyEventCopyWithImpl<$Res>
-    implements _$$_LoggedOutCopyWith<$Res> {
-  __$$_LoggedOutCopyWithImpl(
-      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _$_LoggedOut));
-
-  @override
-  _$_LoggedOut get _value => super._value as _$_LoggedOut;
-}
-
-/// @nodoc
-
-class _$_LoggedOut implements _LoggedOut {
-  const _$_LoggedOut();
-
-  @override
-  String toString() {
-    return 'SurveyEvent.loggedOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoggedOut);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchSurveyMapStarted,
-    required TResult Function(String surveyId) surveySelected,
-    required TResult Function() loggedOut,
-    required TResult Function(SurveyState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return loggedOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchSurveyMapStarted,
-    TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return loggedOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchSurveyMapStarted,
-    TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (loggedOut != null) {
-      return loggedOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyMapStarted value)
-        watchSurveyMapStarted,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return loggedOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return loggedOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (loggedOut != null) {
-      return loggedOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoggedOut implements SurveyEvent {
-  const factory _LoggedOut() = _$_LoggedOut;
-}
-
-/// @nodoc
-abstract class _$$_StateEmittedCopyWith<$Res> {
-  factory _$$_StateEmittedCopyWith(
-          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
-      __$$_StateEmittedCopyWithImpl<$Res>;
-  $Res call({SurveyState state});
-
-  $SurveyStateCopyWith<$Res> get state;
-}
-
-/// @nodoc
-class __$$_StateEmittedCopyWithImpl<$Res>
+class __$$_SurveyClosedCopyWithImpl<$Res>
     extends _$SurveyEventCopyWithImpl<$Res>
-    implements _$$_StateEmittedCopyWith<$Res> {
-  __$$_StateEmittedCopyWithImpl(
-      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
-      : super(_value, (v) => _then(v as _$_StateEmitted));
+    implements _$$_SurveyClosedCopyWith<$Res> {
+  __$$_SurveyClosedCopyWithImpl(
+      _$_SurveyClosed _value, $Res Function(_$_SurveyClosed) _then)
+      : super(_value, (v) => _then(v as _$_SurveyClosed));
 
   @override
-  _$_StateEmitted get _value => super._value as _$_StateEmitted;
-
-  @override
-  $Res call({
-    Object? state = freezed,
-  }) {
-    return _then(_$_StateEmitted(
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as SurveyState,
-    ));
-  }
-
-  @override
-  $SurveyStateCopyWith<$Res> get state {
-    return $SurveyStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
-    });
-  }
+  _$_SurveyClosed get _value => super._value as _$_SurveyClosed;
 }
 
 /// @nodoc
 
-class _$_StateEmitted implements _StateEmitted {
-  const _$_StateEmitted(this.state);
-
-  @override
-  final SurveyState state;
+class _$_SurveyClosed implements _SurveyClosed {
+  const _$_SurveyClosed();
 
   @override
   String toString() {
-    return 'SurveyEvent.stateEmitted(state: $state)';
+    return 'SurveyEvent.surveyClosed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_StateEmitted &&
-            const DeepCollectionEquality().equals(other.state, state));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
-      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchSurveyMapStarted,
-    required TResult Function(String surveyId) surveySelected,
-    required TResult Function() loggedOut,
-    required TResult Function(SurveyState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return stateEmitted(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchSurveyMapStarted,
-    TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return stateEmitted?.call(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchSurveyMapStarted,
-    TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (stateEmitted != null) {
-      return stateEmitted(state);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchSurveyMapStarted value)
-        watchSurveyMapStarted,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return stateEmitted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return stateEmitted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (stateEmitted != null) {
-      return stateEmitted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateEmitted implements SurveyEvent {
-  const factory _StateEmitted(final SurveyState state) = _$_StateEmitted;
-
-  SurveyState get state => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitializedCopyWithImpl<$Res> extends _$SurveyEventCopyWithImpl<$Res>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
-      : super(_value, (v) => _then(v as _$_Initialized));
-
-  @override
-  _$_Initialized get _value => super._value as _$_Initialized;
-}
-
-/// @nodoc
-
-class _$_Initialized implements _Initialized {
-  const _$_Initialized();
-
-  @override
-  String toString() {
-    return 'SurveyEvent.initialized()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initialized);
+        (other.runtimeType == runtimeType && other is _$_SurveyClosed);
   }
 
   @override
@@ -694,39 +695,39 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(SurveyState state) stateEmitted,
     required TResult Function() watchSurveyMapStarted,
     required TResult Function(String surveyId) surveySelected,
-    required TResult Function() loggedOut,
-    required TResult Function(SurveyState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function() surveyClosed,
   }) {
-    return initialized();
+    return surveyClosed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
   }) {
-    return initialized?.call();
+    return surveyClosed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(SurveyState state)? stateEmitted,
     TResult Function()? watchSurveyMapStarted,
     TResult Function(String surveyId)? surveySelected,
-    TResult Function()? loggedOut,
-    TResult Function(SurveyState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function()? surveyClosed,
     required TResult orElse(),
   }) {
-    if (initialized != null) {
-      return initialized();
+    if (surveyClosed != null) {
+      return surveyClosed();
     }
     return orElse();
   }
@@ -734,47 +735,47 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchSurveyMapStarted value)
         watchSurveyMapStarted,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_SurveyClosed value) surveyClosed,
   }) {
-    return initialized(this);
+    return surveyClosed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
   }) {
-    return initialized?.call(this);
+    return surveyClosed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_SurveyClosed value)? surveyClosed,
     required TResult orElse(),
   }) {
-    if (initialized != null) {
-      return initialized(this);
+    if (surveyClosed != null) {
+      return surveyClosed(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initialized implements SurveyEvent {
-  const factory _Initialized() = _$_Initialized;
+abstract class _SurveyClosed implements SurveyEvent {
+  const factory _SurveyClosed() = _$_SurveyClosed;
 }
 
 /// @nodoc
@@ -783,7 +784,6 @@ mixin _$SurveyState {
   Map<String, Project> get projectMap => throw _privateConstructorUsedError;
   Map<String, Survey> get surveyMap => throw _privateConstructorUsedError;
   Survey get survey => throw _privateConstructorUsedError; // > 狀態更新進度
-  LoadState get eventState => throw _privateConstructorUsedError;
   LoadState get surveyMapState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
 
@@ -802,13 +802,11 @@ abstract class $SurveyStateCopyWith<$Res> {
       Map<String, Project> projectMap,
       Map<String, Survey> surveyMap,
       Survey survey,
-      LoadState eventState,
       LoadState surveyMapState,
       Option<SurveyFailure> surveyFailure});
 
   $UniqueIdCopyWith<$Res> get stateId;
   $SurveyCopyWith<$Res> get survey;
-  $LoadStateCopyWith<$Res> get eventState;
   $LoadStateCopyWith<$Res> get surveyMapState;
 }
 
@@ -826,7 +824,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
     Object? projectMap = freezed,
     Object? surveyMap = freezed,
     Object? survey = freezed,
-    Object? eventState = freezed,
     Object? surveyMapState = freezed,
     Object? surveyFailure = freezed,
   }) {
@@ -847,10 +844,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
-      eventState: eventState == freezed
-          ? _value.eventState
-          : eventState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       surveyMapState: surveyMapState == freezed
           ? _value.surveyMapState
           : surveyMapState // ignore: cast_nullable_to_non_nullable
@@ -877,13 +870,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
   }
 
   @override
-  $LoadStateCopyWith<$Res> get eventState {
-    return $LoadStateCopyWith<$Res>(_value.eventState, (value) {
-      return _then(_value.copyWith(eventState: value));
-    });
-  }
-
-  @override
   $LoadStateCopyWith<$Res> get surveyMapState {
     return $LoadStateCopyWith<$Res>(_value.surveyMapState, (value) {
       return _then(_value.copyWith(surveyMapState: value));
@@ -903,7 +889,6 @@ abstract class _$$_SurveyStateCopyWith<$Res>
       Map<String, Project> projectMap,
       Map<String, Survey> surveyMap,
       Survey survey,
-      LoadState eventState,
       LoadState surveyMapState,
       Option<SurveyFailure> surveyFailure});
 
@@ -911,8 +896,6 @@ abstract class _$$_SurveyStateCopyWith<$Res>
   $UniqueIdCopyWith<$Res> get stateId;
   @override
   $SurveyCopyWith<$Res> get survey;
-  @override
-  $LoadStateCopyWith<$Res> get eventState;
   @override
   $LoadStateCopyWith<$Res> get surveyMapState;
 }
@@ -933,7 +916,6 @@ class __$$_SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
     Object? projectMap = freezed,
     Object? surveyMap = freezed,
     Object? survey = freezed,
-    Object? eventState = freezed,
     Object? surveyMapState = freezed,
     Object? surveyFailure = freezed,
   }) {
@@ -954,10 +936,6 @@ class __$$_SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
-      eventState: eventState == freezed
-          ? _value.eventState
-          : eventState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       surveyMapState: surveyMapState == freezed
           ? _value.surveyMapState
           : surveyMapState // ignore: cast_nullable_to_non_nullable
@@ -978,7 +956,6 @@ class _$_SurveyState extends _SurveyState {
       required final Map<String, Project> projectMap,
       required final Map<String, Survey> surveyMap,
       required this.survey,
-      required this.eventState,
       required this.surveyMapState,
       required this.surveyFailure})
       : _projectMap = projectMap,
@@ -1007,15 +984,13 @@ class _$_SurveyState extends _SurveyState {
   final Survey survey;
 // > 狀態更新進度
   @override
-  final LoadState eventState;
-  @override
   final LoadState surveyMapState;
   @override
   final Option<SurveyFailure> surveyFailure;
 
   @override
   String toString() {
-    return 'SurveyState(stateId: $stateId, projectMap: $projectMap, surveyMap: $surveyMap, survey: $survey, eventState: $eventState, surveyMapState: $surveyMapState, surveyFailure: $surveyFailure)';
+    return 'SurveyState(stateId: $stateId, projectMap: $projectMap, surveyMap: $surveyMap, survey: $survey, surveyMapState: $surveyMapState, surveyFailure: $surveyFailure)';
   }
 
   @override
@@ -1030,8 +1005,6 @@ class _$_SurveyState extends _SurveyState {
                 .equals(other._surveyMap, _surveyMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality()
-                .equals(other.eventState, eventState) &&
-            const DeepCollectionEquality()
                 .equals(other.surveyMapState, surveyMapState) &&
             const DeepCollectionEquality()
                 .equals(other.surveyFailure, surveyFailure));
@@ -1044,7 +1017,6 @@ class _$_SurveyState extends _SurveyState {
       const DeepCollectionEquality().hash(_projectMap),
       const DeepCollectionEquality().hash(_surveyMap),
       const DeepCollectionEquality().hash(survey),
-      const DeepCollectionEquality().hash(eventState),
       const DeepCollectionEquality().hash(surveyMapState),
       const DeepCollectionEquality().hash(surveyFailure));
 
@@ -1060,7 +1032,6 @@ abstract class _SurveyState extends SurveyState {
       required final Map<String, Project> projectMap,
       required final Map<String, Survey> surveyMap,
       required final Survey survey,
-      required final LoadState eventState,
       required final LoadState surveyMapState,
       required final Option<SurveyFailure> surveyFailure}) = _$_SurveyState;
   const _SurveyState._() : super._();
@@ -1074,8 +1045,6 @@ abstract class _SurveyState extends SurveyState {
   @override
   Survey get survey => throw _privateConstructorUsedError;
   @override // > 狀態更新進度
-  LoadState get eventState => throw _privateConstructorUsedError;
-  @override
   LoadState get surveyMapState => throw _privateConstructorUsedError;
   @override
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;

@@ -152,7 +152,7 @@ class CommonRepository implements ICommonRepository {
       (doc) async {
         _compatibility = List<String>.from((doc.data()! as Map)['list'] ?? []);
 
-        logger('Value').e('_compatibility: ${_compatibility}');
+        logger('Value').e('_compatibility: $_compatibility');
 
         await _localStorage.write(
           box: 'common',
@@ -189,14 +189,5 @@ class CommonRepository implements ICommonRepository {
       toJson: (NavigationPage e) => e.value,
     );
     _pageStream.add(page);
-  }
-
-  @override
-  void signOut() {
-    _localStorage.write(
-      box: 'common',
-      key: 'page',
-      clear: true,
-    );
   }
 }

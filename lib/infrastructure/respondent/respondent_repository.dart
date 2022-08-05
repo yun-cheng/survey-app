@@ -86,12 +86,13 @@ class RespondentRepository implements IRespondentRepository {
       final isSignedIn = tuple.item1;
       final networkIsConnected = tuple.item2;
 
+      if (isSignedIn == null) return;
+
       if (!isSignedIn || !networkIsConnected) {
         _remoteSubscription?.cancel();
 
         if (!isSignedIn) {
-          // TODO 登出清空 local storage
-
+          signOut();
         }
 
         return;
@@ -109,7 +110,7 @@ class RespondentRepository implements IRespondentRepository {
 
     // * 不須取消
     _surveyRepo.surveyStream.listen((survey) {
-      loadRespondentMap(survey.id);
+      loadRespondentMap(survey?.id);
     });
   }
 
@@ -169,10 +170,20 @@ class RespondentRepository implements IRespondentRepository {
     );
   }
 
-  // TODO
   @override
   Future<void> signOut() async {
-    // TODO 清除 local storage
+    _respondent = null;
+    _respondentMapStream.add({});
+
+    _localStorage.write(
+      box: 'common',
+      key: 'respondent',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'surveyRespondentMap',
+      clear: true,
+    );
   }
 
   void commonOnError(e, stackTrace) {

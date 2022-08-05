@@ -47,7 +47,7 @@ class SurveyRepository implements ISurveyRepository {
   Project? _project;
   ProjectMap _projectMap = {};
 
-  final _surveyStream = BehaviorSubject<Survey>();
+  final _surveyStream = BehaviorSubject<Survey?>();
   final _simpleSurveyMapStream = BehaviorSubject<SurveyMap>();
   final _failureStream = BehaviorSubject.seeded(SurveyFailure.empty());
 
@@ -62,7 +62,7 @@ class SurveyRepository implements ISurveyRepository {
   ProjectMap get projectMap => _projectMap;
 
   @override
-  BehaviorSubject<Survey> get surveyStream => _surveyStream;
+  BehaviorSubject<Survey?> get surveyStream => _surveyStream;
   @override
   Stream<SurveyMap> get simpleSurveyMapStream => _simpleSurveyMapStream;
   @override
@@ -128,13 +128,14 @@ class SurveyRepository implements ISurveyRepository {
       final isSignedIn = tuple.item1;
       final networkIsConnected = tuple.item2;
 
+      if (isSignedIn == null) return;
+
       if (!isSignedIn || !networkIsConnected) {
         _projectMapSubscription?.cancel();
         _rawSurveySubscription?.cancel();
 
         if (!isSignedIn) {
-          // TODO 登出清空 local storage
-
+          signOut();
         }
 
         return;
@@ -247,9 +248,49 @@ class SurveyRepository implements ISurveyRepository {
     );
   }
 
-  // TODO
   @override
-  Future<void> signOut() async {}
+  Future<void> closeSurvey() async {
+    _surveyStream.add(null);
+
+    _localStorage.write(
+      box: 'common',
+      key: 'survey',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'common',
+      key: 'project',
+      clear: true,
+    );
+  }
+
+  @override
+  Future<void> signOut() async {
+    _surveyStream.add(null);
+    _project = null;
+    _projectMap = {};
+    _surveyMap = {};
+    _simpleSurveyMapStream.add({});
+
+    _localStorage.write(
+      box: 'common',
+      key: 'survey',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'common',
+      key: 'project',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'projectMap',
+      clear: true,
+    );
+    _localStorage.write(
+      box: 'surveyMap',
+      clear: true,
+    );
+  }
 
   void commonOnError(String name, e, stackTrace) {
     logger('Error').e('$name Error!');

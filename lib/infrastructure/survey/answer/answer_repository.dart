@@ -56,4 +56,11 @@ class AnswerRepository implements IAnswerRepository {
   void updateAnswerMap(AnswerMap answerMap) {
     _answerMapStream.add(Tuple3(answerMap, null, null));
   }
+
+  @override
+  void reset() {
+    _answerMapStream.add(const Tuple3({}, null, null));
+    _clearAnswerSetStream.add(const {});
+    _showQuestionSetStream.add(const {});
+  }
 }

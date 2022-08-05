@@ -2,6 +2,8 @@ part of 'answer_bloc.dart';
 
 @freezed
 class AnswerEvent with _$AnswerEvent {
+  const factory AnswerEvent.initialized() = _Initialized;
+
   // > 使用者選擇要開始進行的問卷模組
   const factory AnswerEvent.responseStarted({
     ModuleType? moduleType,
@@ -21,9 +23,6 @@ class AnswerEvent with _$AnswerEvent {
     @Default(false) bool reAnswer,
     @Default(false) bool confirmEnding,
   }) = _ResponseEnded;
-
-  // > 離開問卷時清空 state
-  const factory AnswerEvent.stateCleared() = _StateCleared;
 
   // > 該題作答更新
   factory AnswerEvent.answerUpdated({
@@ -69,6 +68,4 @@ class AnswerEvent with _$AnswerEvent {
   const factory AnswerEvent.appLifeCycleChanged({
     required bool isPaused,
   }) = _AppLifeCycleChanged;
-
-  const factory AnswerEvent.initialized() = _Initialized;
 }

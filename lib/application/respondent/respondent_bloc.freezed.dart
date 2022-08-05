@@ -18,87 +18,75 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RespondentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() watchReposStarted,
     required TResult Function(TabType tab) tabSwitched,
     required TResult Function(String group) groupSelected,
     required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function(double scrollOffset) pageScrolled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchReposStarted value) watchReposStarted,
     required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_GroupSelected value) groupSelected,
     required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_PageScrolled value) pageScrolled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +107,328 @@ class _$RespondentEventCopyWithImpl<$Res>
   final RespondentEvent _value;
   // ignore: unused_field
   final $Res Function(RespondentEvent) _then;
+}
+
+/// @nodoc
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitializedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
+
+  @override
+  _$_Initialized get _value => super._value as _$_Initialized;
+}
+
+/// @nodoc
+
+class _$_Initialized extends _Initialized {
+  const _$_Initialized() : super._();
+
+  @override
+  String toString() {
+    return 'RespondentEvent.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(String text) textSearched,
+    required TResult Function(double scrollOffset) pageScrolled,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(double scrollOffset)? pageScrolled,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(double scrollOffset)? pageScrolled,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized extends RespondentEvent {
+  const factory _Initialized() = _$_Initialized;
+  const _Initialized._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_StateEmittedCopyWith<$Res> {
+  factory _$$_StateEmittedCopyWith(
+          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
+      __$$_StateEmittedCopyWithImpl<$Res>;
+  $Res call({RespondentState state});
+
+  $RespondentStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$$_StateEmittedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_StateEmittedCopyWith<$Res> {
+  __$$_StateEmittedCopyWithImpl(
+      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
+      : super(_value, (v) => _then(v as _$_StateEmitted));
+
+  @override
+  _$_StateEmitted get _value => super._value as _$_StateEmitted;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_$_StateEmitted(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as RespondentState,
+    ));
+  }
+
+  @override
+  $RespondentStateCopyWith<$Res> get state {
+    return $RespondentStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_StateEmitted extends _StateEmitted {
+  const _$_StateEmitted(this.state) : super._();
+
+  @override
+  final RespondentState state;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.stateEmitted(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_StateEmitted &&
+            const DeepCollectionEquality().equals(other.state, state));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(String text) textSearched,
+    required TResult Function(double scrollOffset) pageScrolled,
+  }) {
+    return stateEmitted(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(double scrollOffset)? pageScrolled,
+  }) {
+    return stateEmitted?.call(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(double scrollOffset)? pageScrolled,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+  }) {
+    return stateEmitted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+  }) {
+    return stateEmitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    required TResult orElse(),
+  }) {
+    if (stateEmitted != null) {
+      return stateEmitted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateEmitted extends RespondentEvent {
+  const factory _StateEmitted(final RespondentState state) = _$_StateEmitted;
+  const _StateEmitted._() : super._();
+
+  RespondentState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -162,16 +472,14 @@ class _$_WatchReposStarted extends _WatchReposStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() watchReposStarted,
     required TResult Function(TabType tab) tabSwitched,
     required TResult Function(String group) groupSelected,
     required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function(double scrollOffset) pageScrolled,
   }) {
     return watchReposStarted();
   }
@@ -179,16 +487,14 @@ class _$_WatchReposStarted extends _WatchReposStarted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
   }) {
     return watchReposStarted?.call();
   }
@@ -196,16 +502,14 @@ class _$_WatchReposStarted extends _WatchReposStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
     required TResult orElse(),
   }) {
     if (watchReposStarted != null) {
@@ -217,16 +521,14 @@ class _$_WatchReposStarted extends _WatchReposStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchReposStarted value) watchReposStarted,
     required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_GroupSelected value) groupSelected,
     required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_PageScrolled value) pageScrolled,
   }) {
     return watchReposStarted(this);
   }
@@ -234,16 +536,14 @@ class _$_WatchReposStarted extends _WatchReposStarted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
   }) {
     return watchReposStarted?.call(this);
   }
@@ -251,16 +551,14 @@ class _$_WatchReposStarted extends _WatchReposStarted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
     required TResult orElse(),
   }) {
     if (watchReposStarted != null) {
@@ -349,16 +647,14 @@ class _$_TabSwitched extends _TabSwitched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() watchReposStarted,
     required TResult Function(TabType tab) tabSwitched,
     required TResult Function(String group) groupSelected,
     required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function(double scrollOffset) pageScrolled,
   }) {
     return tabSwitched(tab);
   }
@@ -366,16 +662,14 @@ class _$_TabSwitched extends _TabSwitched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
   }) {
     return tabSwitched?.call(tab);
   }
@@ -383,16 +677,14 @@ class _$_TabSwitched extends _TabSwitched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
     required TResult orElse(),
   }) {
     if (tabSwitched != null) {
@@ -404,16 +696,14 @@ class _$_TabSwitched extends _TabSwitched {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchReposStarted value) watchReposStarted,
     required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_GroupSelected value) groupSelected,
     required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_PageScrolled value) pageScrolled,
   }) {
     return tabSwitched(this);
   }
@@ -421,16 +711,14 @@ class _$_TabSwitched extends _TabSwitched {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
   }) {
     return tabSwitched?.call(this);
   }
@@ -438,16 +726,14 @@ class _$_TabSwitched extends _TabSwitched {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
     required TResult orElse(),
   }) {
     if (tabSwitched != null) {
@@ -532,16 +818,14 @@ class _$_GroupSelected extends _GroupSelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() watchReposStarted,
     required TResult Function(TabType tab) tabSwitched,
     required TResult Function(String group) groupSelected,
     required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function(double scrollOffset) pageScrolled,
   }) {
     return groupSelected(group);
   }
@@ -549,16 +833,14 @@ class _$_GroupSelected extends _GroupSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
   }) {
     return groupSelected?.call(group);
   }
@@ -566,16 +848,14 @@ class _$_GroupSelected extends _GroupSelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
     required TResult orElse(),
   }) {
     if (groupSelected != null) {
@@ -587,16 +867,14 @@ class _$_GroupSelected extends _GroupSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchReposStarted value) watchReposStarted,
     required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_GroupSelected value) groupSelected,
     required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_PageScrolled value) pageScrolled,
   }) {
     return groupSelected(this);
   }
@@ -604,16 +882,14 @@ class _$_GroupSelected extends _GroupSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
   }) {
     return groupSelected?.call(this);
   }
@@ -621,16 +897,14 @@ class _$_GroupSelected extends _GroupSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
     required TResult orElse(),
   }) {
     if (groupSelected != null) {
@@ -727,16 +1001,14 @@ class _$_RespondentSelected extends _RespondentSelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() watchReposStarted,
     required TResult Function(TabType tab) tabSwitched,
     required TResult Function(String group) groupSelected,
     required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function(double scrollOffset) pageScrolled,
   }) {
     return respondentSelected(respondent);
   }
@@ -744,16 +1016,14 @@ class _$_RespondentSelected extends _RespondentSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
   }) {
     return respondentSelected?.call(respondent);
   }
@@ -761,16 +1031,14 @@ class _$_RespondentSelected extends _RespondentSelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
     required TResult orElse(),
   }) {
     if (respondentSelected != null) {
@@ -782,16 +1050,14 @@ class _$_RespondentSelected extends _RespondentSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchReposStarted value) watchReposStarted,
     required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_GroupSelected value) groupSelected,
     required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_PageScrolled value) pageScrolled,
   }) {
     return respondentSelected(this);
   }
@@ -799,16 +1065,14 @@ class _$_RespondentSelected extends _RespondentSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
   }) {
     return respondentSelected?.call(this);
   }
@@ -816,16 +1080,14 @@ class _$_RespondentSelected extends _RespondentSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
     required TResult orElse(),
   }) {
     if (respondentSelected != null) {
@@ -843,6 +1105,177 @@ abstract class _RespondentSelected extends RespondentEvent {
   Respondent get respondent => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_RespondentSelectedCopyWith<_$_RespondentSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TextSearchedCopyWith<$Res> {
+  factory _$$_TextSearchedCopyWith(
+          _$_TextSearched value, $Res Function(_$_TextSearched) then) =
+      __$$_TextSearchedCopyWithImpl<$Res>;
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$_TextSearchedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$$_TextSearchedCopyWith<$Res> {
+  __$$_TextSearchedCopyWithImpl(
+      _$_TextSearched _value, $Res Function(_$_TextSearched) _then)
+      : super(_value, (v) => _then(v as _$_TextSearched));
+
+  @override
+  _$_TextSearched get _value => super._value as _$_TextSearched;
+
+  @override
+  $Res call({
+    Object? text = freezed,
+  }) {
+    return _then(_$_TextSearched(
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TextSearched extends _TextSearched {
+  const _$_TextSearched({required this.text}) : super._();
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.textSearched(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TextSearched &&
+            const DeepCollectionEquality().equals(other.text, text));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(text));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
+      __$$_TextSearchedCopyWithImpl<_$_TextSearched>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
+    required TResult Function() watchReposStarted,
+    required TResult Function(TabType tab) tabSwitched,
+    required TResult Function(String group) groupSelected,
+    required TResult Function(Respondent respondent) respondentSelected,
+    required TResult Function(String text) textSearched,
+    required TResult Function(double scrollOffset) pageScrolled,
+  }) {
+    return textSearched(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(double scrollOffset)? pageScrolled,
+  }) {
+    return textSearched?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
+    TResult Function()? watchReposStarted,
+    TResult Function(TabType tab)? tabSwitched,
+    TResult Function(String group)? groupSelected,
+    TResult Function(Respondent respondent)? respondentSelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(double scrollOffset)? pageScrolled,
+    required TResult orElse(),
+  }) {
+    if (textSearched != null) {
+      return textSearched(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
+    required TResult Function(_WatchReposStarted value) watchReposStarted,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_GroupSelected value) groupSelected,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+  }) {
+    return textSearched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+  }) {
+    return textSearched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
+    TResult Function(_WatchReposStarted value)? watchReposStarted,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_GroupSelected value)? groupSelected,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    required TResult orElse(),
+  }) {
+    if (textSearched != null) {
+      return textSearched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TextSearched extends RespondentEvent {
+  const factory _TextSearched({required final String text}) = _$_TextSearched;
+  const _TextSearched._() : super._();
+
+  String get text => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -912,16 +1345,14 @@ class _$_PageScrolled extends _PageScrolled {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(RespondentState state) stateEmitted,
     required TResult Function() watchReposStarted,
     required TResult Function(TabType tab) tabSwitched,
     required TResult Function(String group) groupSelected,
     required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
     required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
+    required TResult Function(double scrollOffset) pageScrolled,
   }) {
     return pageScrolled(scrollOffset);
   }
@@ -929,16 +1360,14 @@ class _$_PageScrolled extends _PageScrolled {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
   }) {
     return pageScrolled?.call(scrollOffset);
   }
@@ -946,16 +1375,14 @@ class _$_PageScrolled extends _PageScrolled {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(RespondentState state)? stateEmitted,
     TResult Function()? watchReposStarted,
     TResult Function(TabType tab)? tabSwitched,
     TResult Function(String group)? groupSelected,
     TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
     TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
+    TResult Function(double scrollOffset)? pageScrolled,
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
@@ -967,16 +1394,14 @@ class _$_PageScrolled extends _PageScrolled {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_StateEmitted value) stateEmitted,
     required TResult Function(_WatchReposStarted value) watchReposStarted,
     required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_GroupSelected value) groupSelected,
     required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_PageScrolled value) pageScrolled,
   }) {
     return pageScrolled(this);
   }
@@ -984,16 +1409,14 @@ class _$_PageScrolled extends _PageScrolled {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
   }) {
     return pageScrolled?.call(this);
   }
@@ -1001,16 +1424,14 @@ class _$_PageScrolled extends _PageScrolled {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_StateEmitted value)? stateEmitted,
     TResult Function(_WatchReposStarted value)? watchReposStarted,
     TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_GroupSelected value)? groupSelected,
     TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
+    TResult Function(_PageScrolled value)? pageScrolled,
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
@@ -1028,843 +1449,6 @@ abstract class _PageScrolled extends RespondentEvent {
   @JsonKey(ignore: true)
   _$$_PageScrolledCopyWith<_$_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_TextSearchedCopyWith<$Res> {
-  factory _$$_TextSearchedCopyWith(
-          _$_TextSearched value, $Res Function(_$_TextSearched) then) =
-      __$$_TextSearchedCopyWithImpl<$Res>;
-  $Res call({String text});
-}
-
-/// @nodoc
-class __$$_TextSearchedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_TextSearchedCopyWith<$Res> {
-  __$$_TextSearchedCopyWithImpl(
-      _$_TextSearched _value, $Res Function(_$_TextSearched) _then)
-      : super(_value, (v) => _then(v as _$_TextSearched));
-
-  @override
-  _$_TextSearched get _value => super._value as _$_TextSearched;
-
-  @override
-  $Res call({
-    Object? text = freezed,
-  }) {
-    return _then(_$_TextSearched(
-      text: text == freezed
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TextSearched extends _TextSearched {
-  const _$_TextSearched({required this.text}) : super._();
-
-  @override
-  final String text;
-
-  @override
-  String toString() {
-    return 'RespondentEvent.textSearched(text: $text)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TextSearched &&
-            const DeepCollectionEquality().equals(other.text, text));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(text));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
-      __$$_TextSearchedCopyWithImpl<_$_TextSearched>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchReposStarted,
-    required TResult Function(TabType tab) tabSwitched,
-    required TResult Function(String group) groupSelected,
-    required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
-    required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return textSearched(text);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return textSearched?.call(text);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (textSearched != null) {
-      return textSearched(text);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReposStarted value) watchReposStarted,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_GroupSelected value) groupSelected,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return textSearched(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return textSearched?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (textSearched != null) {
-      return textSearched(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TextSearched extends RespondentEvent {
-  const factory _TextSearched({required final String text}) = _$_TextSearched;
-  const _TextSearched._() : super._();
-
-  String get text => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_LeaveButtonPressedCopyWith<$Res> {
-  factory _$$_LeaveButtonPressedCopyWith(_$_LeaveButtonPressed value,
-          $Res Function(_$_LeaveButtonPressed) then) =
-      __$$_LeaveButtonPressedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_LeaveButtonPressedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_LeaveButtonPressedCopyWith<$Res> {
-  __$$_LeaveButtonPressedCopyWithImpl(
-      _$_LeaveButtonPressed _value, $Res Function(_$_LeaveButtonPressed) _then)
-      : super(_value, (v) => _then(v as _$_LeaveButtonPressed));
-
-  @override
-  _$_LeaveButtonPressed get _value => super._value as _$_LeaveButtonPressed;
-}
-
-/// @nodoc
-
-class _$_LeaveButtonPressed extends _LeaveButtonPressed {
-  const _$_LeaveButtonPressed() : super._();
-
-  @override
-  String toString() {
-    return 'RespondentEvent.leaveButtonPressed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LeaveButtonPressed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchReposStarted,
-    required TResult Function(TabType tab) tabSwitched,
-    required TResult Function(String group) groupSelected,
-    required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
-    required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return leaveButtonPressed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return leaveButtonPressed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (leaveButtonPressed != null) {
-      return leaveButtonPressed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReposStarted value) watchReposStarted,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_GroupSelected value) groupSelected,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return leaveButtonPressed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return leaveButtonPressed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (leaveButtonPressed != null) {
-      return leaveButtonPressed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LeaveButtonPressed extends RespondentEvent {
-  const factory _LeaveButtonPressed() = _$_LeaveButtonPressed;
-  const _LeaveButtonPressed._() : super._();
-}
-
-/// @nodoc
-abstract class _$$_LoggedOutCopyWith<$Res> {
-  factory _$$_LoggedOutCopyWith(
-          _$_LoggedOut value, $Res Function(_$_LoggedOut) then) =
-      __$$_LoggedOutCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_LoggedOutCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_LoggedOutCopyWith<$Res> {
-  __$$_LoggedOutCopyWithImpl(
-      _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _$_LoggedOut));
-
-  @override
-  _$_LoggedOut get _value => super._value as _$_LoggedOut;
-}
-
-/// @nodoc
-
-class _$_LoggedOut extends _LoggedOut {
-  const _$_LoggedOut() : super._();
-
-  @override
-  String toString() {
-    return 'RespondentEvent.loggedOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoggedOut);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchReposStarted,
-    required TResult Function(TabType tab) tabSwitched,
-    required TResult Function(String group) groupSelected,
-    required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
-    required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return loggedOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return loggedOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (loggedOut != null) {
-      return loggedOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReposStarted value) watchReposStarted,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_GroupSelected value) groupSelected,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return loggedOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return loggedOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (loggedOut != null) {
-      return loggedOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoggedOut extends RespondentEvent {
-  const factory _LoggedOut() = _$_LoggedOut;
-  const _LoggedOut._() : super._();
-}
-
-/// @nodoc
-abstract class _$$_StateEmittedCopyWith<$Res> {
-  factory _$$_StateEmittedCopyWith(
-          _$_StateEmitted value, $Res Function(_$_StateEmitted) then) =
-      __$$_StateEmittedCopyWithImpl<$Res>;
-  $Res call({RespondentState state});
-
-  $RespondentStateCopyWith<$Res> get state;
-}
-
-/// @nodoc
-class __$$_StateEmittedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_StateEmittedCopyWith<$Res> {
-  __$$_StateEmittedCopyWithImpl(
-      _$_StateEmitted _value, $Res Function(_$_StateEmitted) _then)
-      : super(_value, (v) => _then(v as _$_StateEmitted));
-
-  @override
-  _$_StateEmitted get _value => super._value as _$_StateEmitted;
-
-  @override
-  $Res call({
-    Object? state = freezed,
-  }) {
-    return _then(_$_StateEmitted(
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as RespondentState,
-    ));
-  }
-
-  @override
-  $RespondentStateCopyWith<$Res> get state {
-    return $RespondentStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_StateEmitted extends _StateEmitted {
-  const _$_StateEmitted(this.state) : super._();
-
-  @override
-  final RespondentState state;
-
-  @override
-  String toString() {
-    return 'RespondentEvent.stateEmitted(state: $state)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_StateEmitted &&
-            const DeepCollectionEquality().equals(other.state, state));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(state));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
-      __$$_StateEmittedCopyWithImpl<_$_StateEmitted>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchReposStarted,
-    required TResult Function(TabType tab) tabSwitched,
-    required TResult Function(String group) groupSelected,
-    required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
-    required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return stateEmitted(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return stateEmitted?.call(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (stateEmitted != null) {
-      return stateEmitted(state);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReposStarted value) watchReposStarted,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_GroupSelected value) groupSelected,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return stateEmitted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return stateEmitted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (stateEmitted != null) {
-      return stateEmitted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateEmitted extends RespondentEvent {
-  const factory _StateEmitted(final RespondentState state) = _$_StateEmitted;
-  const _StateEmitted._() : super._();
-
-  RespondentState get state => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
-      : super(_value, (v) => _then(v as _$_Initialized));
-
-  @override
-  _$_Initialized get _value => super._value as _$_Initialized;
-}
-
-/// @nodoc
-
-class _$_Initialized extends _Initialized {
-  const _$_Initialized() : super._();
-
-  @override
-  String toString() {
-    return 'RespondentEvent.initialized()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initialized);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchReposStarted,
-    required TResult Function(TabType tab) tabSwitched,
-    required TResult Function(String group) groupSelected,
-    required TResult Function(Respondent respondent) respondentSelected,
-    required TResult Function(double scrollOffset) pageScrolled,
-    required TResult Function(String text) textSearched,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() loggedOut,
-    required TResult Function(RespondentState state) stateEmitted,
-    required TResult Function() initialized,
-  }) {
-    return initialized();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-  }) {
-    return initialized?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchReposStarted,
-    TResult Function(TabType tab)? tabSwitched,
-    TResult Function(String group)? groupSelected,
-    TResult Function(Respondent respondent)? respondentSelected,
-    TResult Function(double scrollOffset)? pageScrolled,
-    TResult Function(String text)? textSearched,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? loggedOut,
-    TResult Function(RespondentState state)? stateEmitted,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (initialized != null) {
-      return initialized();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReposStarted value) watchReposStarted,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_GroupSelected value) groupSelected,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_StateEmitted value) stateEmitted,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return initialized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return initialized?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReposStarted value)? watchReposStarted,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_GroupSelected value)? groupSelected,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_StateEmitted value)? stateEmitted,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (initialized != null) {
-      return initialized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initialized extends RespondentEvent {
-  const factory _Initialized() = _$_Initialized;
-  const _Initialized._() : super._();
 }
 
 /// @nodoc

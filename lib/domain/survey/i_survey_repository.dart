@@ -12,7 +12,7 @@ abstract class ISurveyRepository {
   Survey? get survey;
   Survey? get simpleSurvey;
 
-  Stream<Survey> get surveyStream;
+  Stream<Survey?> get surveyStream;
   Stream<SurveyMap> get simpleSurveyMapStream;
   Stream<SurveyFailure> get failureStream;
 
@@ -26,6 +26,8 @@ abstract class ISurveyRepository {
   });
 
   Future<void> selectSurvey(String surveyId);
+
+  Future<void> closeSurvey();
 
   Future<void> signOut();
 }

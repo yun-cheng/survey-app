@@ -20,4 +20,6 @@ abstract class ICommentRepository {
   Future<ResponseComments> addComment(String message);
 
   Future<void> updateResponseComments(ResponseComments responseComments);
+
+  Future<void> signOut();
 }

@@ -79,10 +79,11 @@ class AudioRepository implements IAudioRepository {
       final isSignedIn = tuple.item1;
       final networkIsConnected = tuple.item2;
 
+      if (isSignedIn == null) return;
+
       if (!isSignedIn || !networkIsConnected) {
         if (!isSignedIn) {
-          // TODO 登出清空 local storage
-
+          signOut();
         }
 
         return;
@@ -166,6 +167,19 @@ class AudioRepository implements IAudioRepository {
       key: audio.responseId,
       toJson: AudioDto.domainToJson,
     );
+  }
+
+  @override
+  Future<void> signOut() async {
+    _audioMap = {};
+    _uploadSet.clear();
+
+    _localStorage.write(
+      box: 'audioMap',
+      clear: true,
+    );
+
+    clearLocalAudioDirectory();
   }
 
   void commonOnError(String name, e, stackTrace) {

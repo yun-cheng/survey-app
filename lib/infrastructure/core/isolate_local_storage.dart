@@ -255,7 +255,11 @@ class LocalStorageTask extends AsyncTask<Map, void> {
         final lazyBox = await openBox(msg.box);
 
         if (msg.clear) {
-          lazyBox.clear();
+          if (msg.key != null) {
+            lazyBox.delete(msg.key);
+          } else {
+            lazyBox.clear();
+          }
           channel.send('done');
           continue;
         }

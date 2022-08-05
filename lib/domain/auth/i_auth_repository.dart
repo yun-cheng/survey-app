@@ -14,8 +14,8 @@ abstract class IAuthRepository {
   Interviewer? get interviewer;
 
   Stream<TeamList> get teamListStream;
-  Stream<bool> get isSignedInStream;
-  CombineLatestStream<dynamic, Tuple2<bool, bool>>
+  Stream<bool?> get isSignedInStream;
+  CombineLatestStream<dynamic, Tuple2<bool?, bool>>
       get watchSignInAndNetworkStream;
 
   Future<void> watchRemoteTeamList();

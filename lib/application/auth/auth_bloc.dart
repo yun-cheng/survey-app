@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_repository.dart';
-import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
 import '../../domain/auth/typedefs.dart';
 import '../../domain/core/logger.dart';
@@ -33,9 +32,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthEvent event,
     Emitter<AuthState> emit,
   ) async {
-    await event.maybeMap(
+    await event.map(
       initialized: (e) async {
         await repo.ready;
+      },
+      stateEmitted: (e) {
+        e.state.emit(emit);
       },
       watchTeamListStarted: (e) async {
         await _subscription?.cancel();
@@ -104,12 +106,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               teamList: state.teamList,
             )
             .emit(emit);
-        // repo.logout();
+        repo.signOut();
       },
-      stateEmitted: (e) {
-        e.state.emit(emit);
-      },
-      orElse: () async {},
     );
   }
 

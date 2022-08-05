@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
+import '../../application/survey/survey/survey_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
@@ -44,8 +45,8 @@ class RespondentsPage extends HookWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              context.read<RespondentBloc>().add(
-                    const RespondentEvent.leaveButtonPressed(),
+              context.read<SurveyBloc>().add(
+                    const SurveyEvent.surveyClosed(),
                   );
               context.read<NavigationBloc>().add(
                     NavigationEvent.pageChanged(

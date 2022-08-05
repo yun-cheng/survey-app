@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AnswerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -25,7 +26,6 @@ mixin _$AnswerEvent {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -39,11 +39,11 @@ mixin _$AnswerEvent {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -51,7 +51,6 @@ mixin _$AnswerEvent {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -63,11 +62,11 @@ mixin _$AnswerEvent {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -75,7 +74,6 @@ mixin _$AnswerEvent {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -87,16 +85,15 @@ mixin _$AnswerEvent {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -111,15 +108,14 @@ mixin _$AnswerEvent {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -131,15 +127,14 @@ mixin _$AnswerEvent {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -151,7 +146,6 @@ mixin _$AnswerEvent {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,6 +165,205 @@ class _$AnswerEventCopyWithImpl<$Res> implements $AnswerEventCopyWith<$Res> {
   final AnswerEvent _value;
   // ignore: unused_field
   final $Res Function(AnswerEvent) _then;
+}
+
+/// @nodoc
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitializedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
+
+  @override
+  _$_Initialized get _value => super._value as _$_Initialized;
+}
+
+/// @nodoc
+
+class _$_Initialized implements _Initialized {
+  const _$_Initialized();
+
+  @override
+  String toString() {
+    return 'AnswerEvent.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(ModuleType? moduleType, UniqueId? responseId,
+            bool breakInterview, bool createNewResponse)
+        responseStarted,
+    required TResult Function() responseResumed,
+    required TResult Function(bool markFinished, bool clearState, bool reAnswer,
+            bool confirmEnding)
+        responseEnded,
+    required TResult Function(
+            String questionId, Answer answer, bool? isSpecialAnswer)
+        answerUpdated,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
+    required TResult Function(String questionId) jumpedToWarningQuestion,
+    required TResult Function() contentQuestionMapUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
+    required TResult Function() dialogClosed,
+    required TResult Function(String text) textSearched,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(ModuleType? moduleType, UniqueId? responseId,
+            bool breakInterview, bool createNewResponse)?
+        responseStarted,
+    TResult Function()? responseResumed,
+    TResult Function(bool markFinished, bool clearState, bool reAnswer,
+            bool confirmEnding)?
+        responseEnded,
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function(String questionId)? jumpedToWarningQuestion,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
+    TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(ModuleType? moduleType, UniqueId? responseId,
+            bool breakInterview, bool createNewResponse)?
+        responseStarted,
+    TResult Function()? responseResumed,
+    TResult Function(bool markFinished, bool clearState, bool reAnswer,
+            bool confirmEnding)?
+        responseEnded,
+    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function(String questionId)? jumpedToWarningQuestion,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
+    TResult Function()? dialogClosed,
+    TResult Function(String text)? textSearched,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_ResponseEnded value) responseEnded,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
+    required TResult Function(_JumpedToWarningQuestion value)
+        jumpedToWarningQuestion,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_ResponseEnded value)? responseEnded,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_ResponseEnded value)? responseEnded,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized implements AnswerEvent {
+  const factory _Initialized() = _$_Initialized;
 }
 
 /// @nodoc
@@ -305,6 +498,7 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -312,7 +506,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -326,7 +519,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return responseStarted(
         moduleType, responseId, breakInterview, createNewResponse);
@@ -335,6 +527,7 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -342,7 +535,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -354,7 +546,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return responseStarted?.call(
         moduleType, responseId, breakInterview, createNewResponse);
@@ -363,6 +554,7 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -370,7 +562,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -382,7 +573,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -395,10 +585,10 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -413,7 +603,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return responseStarted(this);
   }
@@ -421,10 +610,10 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -436,7 +625,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return responseStarted?.call(this);
   }
@@ -444,10 +632,10 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -459,7 +647,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -526,6 +713,7 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -533,7 +721,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -547,7 +734,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return responseResumed();
   }
@@ -555,6 +741,7 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -562,7 +749,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -574,7 +760,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return responseResumed?.call();
   }
@@ -582,6 +767,7 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -589,7 +775,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -601,7 +786,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -613,10 +797,10 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -631,7 +815,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return responseResumed(this);
   }
@@ -639,10 +822,10 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -654,7 +837,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return responseResumed?.call(this);
   }
@@ -662,10 +844,10 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -677,7 +859,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -797,6 +978,7 @@ class _$_ResponseEnded implements _ResponseEnded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -804,7 +986,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -818,7 +999,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return responseEnded(markFinished, clearState, reAnswer, confirmEnding);
   }
@@ -826,6 +1006,7 @@ class _$_ResponseEnded implements _ResponseEnded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -833,7 +1014,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -845,7 +1025,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return responseEnded?.call(
         markFinished, clearState, reAnswer, confirmEnding);
@@ -854,6 +1033,7 @@ class _$_ResponseEnded implements _ResponseEnded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -861,7 +1041,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -873,7 +1052,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseEnded != null) {
@@ -885,10 +1063,10 @@ class _$_ResponseEnded implements _ResponseEnded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -903,7 +1081,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return responseEnded(this);
   }
@@ -911,10 +1088,10 @@ class _$_ResponseEnded implements _ResponseEnded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -926,7 +1103,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return responseEnded?.call(this);
   }
@@ -934,10 +1110,10 @@ class _$_ResponseEnded implements _ResponseEnded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -949,7 +1125,6 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseEnded != null) {
@@ -974,212 +1149,6 @@ abstract class _ResponseEnded implements AnswerEvent {
   @JsonKey(ignore: true)
   _$$_ResponseEndedCopyWith<_$_ResponseEnded> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_StateClearedCopyWith<$Res> {
-  factory _$$_StateClearedCopyWith(
-          _$_StateCleared value, $Res Function(_$_StateCleared) then) =
-      __$$_StateClearedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_StateClearedCopyWithImpl<$Res>
-    extends _$AnswerEventCopyWithImpl<$Res>
-    implements _$$_StateClearedCopyWith<$Res> {
-  __$$_StateClearedCopyWithImpl(
-      _$_StateCleared _value, $Res Function(_$_StateCleared) _then)
-      : super(_value, (v) => _then(v as _$_StateCleared));
-
-  @override
-  _$_StateCleared get _value => super._value as _$_StateCleared;
-}
-
-/// @nodoc
-
-class _$_StateCleared implements _StateCleared {
-  const _$_StateCleared();
-
-  @override
-  String toString() {
-    return 'AnswerEvent.stateCleared()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_StateCleared);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModuleType? moduleType, UniqueId? responseId,
-            bool breakInterview, bool createNewResponse)
-        responseStarted,
-    required TResult Function() responseResumed,
-    required TResult Function(bool markFinished, bool clearState, bool reAnswer,
-            bool confirmEnding)
-        responseEnded,
-    required TResult Function() stateCleared,
-    required TResult Function(
-            String questionId, Answer answer, bool? isSpecialAnswer)
-        answerUpdated,
-    required TResult Function(Direction direction, int? page) pageNavigatedTo,
-    required TResult Function(int page, String questionId)
-        navigatedToQuestionId,
-    required TResult Function(String questionId) jumpedToWarningQuestion,
-    required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function(DialogType type) dialogShowed,
-    required TResult Function() dialogClosed,
-    required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
-  }) {
-    return stateCleared();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ModuleType? moduleType, UniqueId? responseId,
-            bool breakInterview, bool createNewResponse)?
-        responseStarted,
-    TResult Function()? responseResumed,
-    TResult Function(bool markFinished, bool clearState, bool reAnswer,
-            bool confirmEnding)?
-        responseEnded,
-    TResult Function()? stateCleared,
-    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
-        answerUpdated,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function(int page, String questionId)? navigatedToQuestionId,
-    TResult Function(String questionId)? jumpedToWarningQuestion,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function(DialogType type)? dialogShowed,
-    TResult Function()? dialogClosed,
-    TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
-  }) {
-    return stateCleared?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModuleType? moduleType, UniqueId? responseId,
-            bool breakInterview, bool createNewResponse)?
-        responseStarted,
-    TResult Function()? responseResumed,
-    TResult Function(bool markFinished, bool clearState, bool reAnswer,
-            bool confirmEnding)?
-        responseEnded,
-    TResult Function()? stateCleared,
-    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
-        answerUpdated,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function(int page, String questionId)? navigatedToQuestionId,
-    TResult Function(String questionId)? jumpedToWarningQuestion,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function(DialogType type)? dialogShowed,
-    TResult Function()? dialogClosed,
-    TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (stateCleared != null) {
-      return stateCleared();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
-    required TResult Function(_ScrolledToQuestionId value)
-        navigatedToQuestionId,
-    required TResult Function(_JumpedToWarningQuestion value)
-        jumpedToWarningQuestion,
-    required TResult Function(_ContentQuestionMapUpdated value)
-        contentQuestionMapUpdated,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_DialogShowed value) dialogShowed,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return stateCleared(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
-    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogShowed value)? dialogShowed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return stateCleared?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
-    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogShowed value)? dialogShowed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (stateCleared != null) {
-      return stateCleared(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateCleared implements AnswerEvent {
-  const factory _StateCleared() = _$_StateCleared;
 }
 
 /// @nodoc
@@ -1278,6 +1247,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -1285,7 +1255,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -1299,7 +1268,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return answerUpdated(questionId, answer, isSpecialAnswer);
   }
@@ -1307,6 +1275,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -1314,7 +1283,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -1326,7 +1294,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return answerUpdated?.call(questionId, answer, isSpecialAnswer);
   }
@@ -1334,6 +1301,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -1341,7 +1309,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -1353,7 +1320,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -1365,10 +1331,10 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -1383,7 +1349,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return answerUpdated(this);
   }
@@ -1391,10 +1356,10 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -1406,7 +1371,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return answerUpdated?.call(this);
   }
@@ -1414,10 +1378,10 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -1429,7 +1393,6 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -1529,6 +1492,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -1536,7 +1500,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -1550,7 +1513,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return pageNavigatedTo(direction, page);
   }
@@ -1558,6 +1520,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -1565,7 +1528,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -1577,7 +1539,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return pageNavigatedTo?.call(direction, page);
   }
@@ -1585,6 +1546,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -1592,7 +1554,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -1604,7 +1565,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (pageNavigatedTo != null) {
@@ -1616,10 +1576,10 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -1634,7 +1594,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return pageNavigatedTo(this);
   }
@@ -1642,10 +1601,10 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -1657,7 +1616,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return pageNavigatedTo?.call(this);
   }
@@ -1665,10 +1623,10 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -1680,7 +1638,6 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (pageNavigatedTo != null) {
@@ -1778,6 +1735,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -1785,7 +1743,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -1799,7 +1756,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return navigatedToQuestionId(page, questionId);
   }
@@ -1807,6 +1763,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -1814,7 +1771,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -1826,7 +1782,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return navigatedToQuestionId?.call(page, questionId);
   }
@@ -1834,6 +1789,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -1841,7 +1797,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -1853,7 +1808,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (navigatedToQuestionId != null) {
@@ -1865,10 +1819,10 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -1883,7 +1837,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return navigatedToQuestionId(this);
   }
@@ -1891,10 +1844,10 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -1906,7 +1859,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return navigatedToQuestionId?.call(this);
   }
@@ -1914,10 +1866,10 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -1929,7 +1881,6 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (navigatedToQuestionId != null) {
@@ -2020,6 +1971,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -2027,7 +1979,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -2041,7 +1992,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return jumpedToWarningQuestion(questionId);
   }
@@ -2049,6 +1999,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2056,7 +2007,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2068,7 +2018,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return jumpedToWarningQuestion?.call(questionId);
   }
@@ -2076,6 +2025,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2083,7 +2033,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2095,7 +2044,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (jumpedToWarningQuestion != null) {
@@ -2107,10 +2055,10 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -2125,7 +2073,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return jumpedToWarningQuestion(this);
   }
@@ -2133,10 +2080,10 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2148,7 +2095,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return jumpedToWarningQuestion?.call(this);
   }
@@ -2156,10 +2102,10 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2171,7 +2117,6 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (jumpedToWarningQuestion != null) {
@@ -2236,6 +2181,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -2243,7 +2189,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -2257,7 +2202,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return contentQuestionMapUpdated();
   }
@@ -2265,6 +2209,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2272,7 +2217,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2284,7 +2228,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return contentQuestionMapUpdated?.call();
   }
@@ -2292,6 +2235,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2299,7 +2243,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2311,7 +2254,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
@@ -2323,10 +2265,10 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -2341,7 +2283,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return contentQuestionMapUpdated(this);
   }
@@ -2349,10 +2290,10 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2364,7 +2305,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return contentQuestionMapUpdated?.call(this);
   }
@@ -2372,10 +2312,10 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2387,7 +2327,6 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
@@ -2443,6 +2382,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -2450,7 +2390,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -2464,7 +2403,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return finishedButtonPressed();
   }
@@ -2472,6 +2410,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2479,7 +2418,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2491,7 +2429,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return finishedButtonPressed?.call();
   }
@@ -2499,6 +2436,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2506,7 +2444,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2518,7 +2455,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2530,10 +2466,10 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -2548,7 +2484,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return finishedButtonPressed(this);
   }
@@ -2556,10 +2491,10 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2571,7 +2506,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return finishedButtonPressed?.call(this);
   }
@@ -2579,10 +2513,10 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2594,7 +2528,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2682,6 +2615,7 @@ class _$_DialogShowed implements _DialogShowed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -2689,7 +2623,6 @@ class _$_DialogShowed implements _DialogShowed {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -2703,7 +2636,6 @@ class _$_DialogShowed implements _DialogShowed {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return dialogShowed(type);
   }
@@ -2711,6 +2643,7 @@ class _$_DialogShowed implements _DialogShowed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2718,7 +2651,6 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2730,7 +2662,6 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return dialogShowed?.call(type);
   }
@@ -2738,6 +2669,7 @@ class _$_DialogShowed implements _DialogShowed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2745,7 +2677,6 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2757,7 +2688,6 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (dialogShowed != null) {
@@ -2769,10 +2699,10 @@ class _$_DialogShowed implements _DialogShowed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -2787,7 +2717,6 @@ class _$_DialogShowed implements _DialogShowed {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return dialogShowed(this);
   }
@@ -2795,10 +2724,10 @@ class _$_DialogShowed implements _DialogShowed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2810,7 +2739,6 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return dialogShowed?.call(this);
   }
@@ -2818,10 +2746,10 @@ class _$_DialogShowed implements _DialogShowed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -2833,7 +2761,6 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (dialogShowed != null) {
@@ -2894,6 +2821,7 @@ class _$_DialogClosed implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -2901,7 +2829,6 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -2915,7 +2842,6 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return dialogClosed();
   }
@@ -2923,6 +2849,7 @@ class _$_DialogClosed implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2930,7 +2857,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2942,7 +2868,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return dialogClosed?.call();
   }
@@ -2950,6 +2875,7 @@ class _$_DialogClosed implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -2957,7 +2883,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -2969,7 +2894,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -2981,10 +2905,10 @@ class _$_DialogClosed implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -2999,7 +2923,6 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return dialogClosed(this);
   }
@@ -3007,10 +2930,10 @@ class _$_DialogClosed implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -3022,7 +2945,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return dialogClosed?.call(this);
   }
@@ -3030,10 +2952,10 @@ class _$_DialogClosed implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -3045,7 +2967,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -3124,6 +3045,7 @@ class _$_TextSearched implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -3131,7 +3053,6 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -3145,7 +3066,6 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return textSearched(text);
   }
@@ -3153,6 +3073,7 @@ class _$_TextSearched implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -3160,7 +3081,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -3172,7 +3092,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return textSearched?.call(text);
   }
@@ -3180,6 +3099,7 @@ class _$_TextSearched implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -3187,7 +3107,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -3199,7 +3118,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (textSearched != null) {
@@ -3211,10 +3129,10 @@ class _$_TextSearched implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -3229,7 +3147,6 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return textSearched(this);
   }
@@ -3237,10 +3154,10 @@ class _$_TextSearched implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -3252,7 +3169,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return textSearched?.call(this);
   }
@@ -3260,10 +3176,10 @@ class _$_TextSearched implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -3275,7 +3191,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (textSearched != null) {
@@ -3360,6 +3275,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
     required TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)
         responseStarted,
@@ -3367,7 +3283,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)
         responseEnded,
-    required TResult Function() stateCleared,
     required TResult Function(
             String questionId, Answer answer, bool? isSpecialAnswer)
         answerUpdated,
@@ -3381,7 +3296,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
     required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
   }) {
     return appLifeCycleChanged(isPaused);
   }
@@ -3389,6 +3303,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -3396,7 +3311,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -3408,7 +3322,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
   }) {
     return appLifeCycleChanged?.call(isPaused);
   }
@@ -3416,6 +3329,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
     TResult Function(ModuleType? moduleType, UniqueId? responseId,
             bool breakInterview, bool createNewResponse)?
         responseStarted,
@@ -3423,7 +3337,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(bool markFinished, bool clearState, bool reAnswer,
             bool confirmEnding)?
         responseEnded,
-    TResult Function()? stateCleared,
     TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
@@ -3435,7 +3348,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
     TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -3447,10 +3359,10 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ScrolledToQuestionId value)
@@ -3465,7 +3377,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
   }) {
     return appLifeCycleChanged(this);
   }
@@ -3473,10 +3384,10 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -3488,7 +3399,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
   }) {
     return appLifeCycleChanged?.call(this);
   }
@@ -3496,10 +3406,10 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
@@ -3511,7 +3421,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -3529,211 +3438,6 @@ abstract class _AppLifeCycleChanged implements AnswerEvent {
   @JsonKey(ignore: true)
   _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitializedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
-      : super(_value, (v) => _then(v as _$_Initialized));
-
-  @override
-  _$_Initialized get _value => super._value as _$_Initialized;
-}
-
-/// @nodoc
-
-class _$_Initialized implements _Initialized {
-  const _$_Initialized();
-
-  @override
-  String toString() {
-    return 'AnswerEvent.initialized()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initialized);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ModuleType? moduleType, UniqueId? responseId,
-            bool breakInterview, bool createNewResponse)
-        responseStarted,
-    required TResult Function() responseResumed,
-    required TResult Function(bool markFinished, bool clearState, bool reAnswer,
-            bool confirmEnding)
-        responseEnded,
-    required TResult Function() stateCleared,
-    required TResult Function(
-            String questionId, Answer answer, bool? isSpecialAnswer)
-        answerUpdated,
-    required TResult Function(Direction direction, int? page) pageNavigatedTo,
-    required TResult Function(int page, String questionId)
-        navigatedToQuestionId,
-    required TResult Function(String questionId) jumpedToWarningQuestion,
-    required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function(DialogType type) dialogShowed,
-    required TResult Function() dialogClosed,
-    required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() initialized,
-  }) {
-    return initialized();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ModuleType? moduleType, UniqueId? responseId,
-            bool breakInterview, bool createNewResponse)?
-        responseStarted,
-    TResult Function()? responseResumed,
-    TResult Function(bool markFinished, bool clearState, bool reAnswer,
-            bool confirmEnding)?
-        responseEnded,
-    TResult Function()? stateCleared,
-    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
-        answerUpdated,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function(int page, String questionId)? navigatedToQuestionId,
-    TResult Function(String questionId)? jumpedToWarningQuestion,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function(DialogType type)? dialogShowed,
-    TResult Function()? dialogClosed,
-    TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
-  }) {
-    return initialized?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ModuleType? moduleType, UniqueId? responseId,
-            bool breakInterview, bool createNewResponse)?
-        responseStarted,
-    TResult Function()? responseResumed,
-    TResult Function(bool markFinished, bool clearState, bool reAnswer,
-            bool confirmEnding)?
-        responseEnded,
-    TResult Function()? stateCleared,
-    TResult Function(String questionId, Answer answer, bool? isSpecialAnswer)?
-        answerUpdated,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function(int page, String questionId)? navigatedToQuestionId,
-    TResult Function(String questionId)? jumpedToWarningQuestion,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function(DialogType type)? dialogShowed,
-    TResult Function()? dialogClosed,
-    TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (initialized != null) {
-      return initialized();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ResponseEnded value) responseEnded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
-    required TResult Function(_ScrolledToQuestionId value)
-        navigatedToQuestionId,
-    required TResult Function(_JumpedToWarningQuestion value)
-        jumpedToWarningQuestion,
-    required TResult Function(_ContentQuestionMapUpdated value)
-        contentQuestionMapUpdated,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_DialogShowed value) dialogShowed,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return initialized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
-    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogShowed value)? dialogShowed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return initialized?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ResponseEnded value)? responseEnded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
-    TResult Function(_JumpedToWarningQuestion value)? jumpedToWarningQuestion,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogShowed value)? dialogShowed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (initialized != null) {
-      return initialized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initialized implements AnswerEvent {
-  const factory _Initialized() = _$_Initialized;
 }
 
 /// @nodoc
