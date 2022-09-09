@@ -1,47 +1,44 @@
 part of '../answer_bloc.dart';
 
 // > 從 responseMap 回復要進行的 response
-Tuple2<AnswerState, Response> restoreResponse(
-  Tuple8<ResponseMap?, UniqueId?, bool, bool, String, Survey, Response,
-          AnswerState>
-      tuple,
-) {
-  final responseMap = tuple.value1 ?? {};
-  final responseId = tuple.value2;
-  final breakInterview = tuple.value3;
-  final createNewResponse = tuple.value4;
-  final interviewerId = tuple.value5;
-  final survey = tuple.value6;
-  final newResponse = tuple.value7;
-  AnswerState state = tuple.value8;
+Future<Tuple2<AnswerState, Response>> restoreResponse(
+  Tuple7<UniqueId?, bool, bool, String, Survey, Response, AnswerState> tuple,
+) async {
+  final responseId = tuple.value1;
+  final breakInterview = tuple.value2;
+  final createNewResponse = tuple.value3;
+  final interviewerId = tuple.value4;
+  final survey = tuple.value5;
+  final newResponse = tuple.value6;
+  AnswerState state = tuple.value7;
+
+  final localStorage = LocalStorage();
 
   ModuleType moduleType = state.moduleType;
   bool switchToSampling = false;
+
+  // -
+  final referenceList = await localStorage.getReferences(state.respondentId);
 
   // - 1 篩出 response
   Response? response;
   // - 1-c1 如果有 responseId 則直接篩出來
   if (responseId != null) {
-    response = responseMap[responseId];
-    if (response != null) {
-      moduleType = response.moduleType;
-      state = state.copyWith(
-        moduleType: response.moduleType,
-      );
-    }
+    response = await localStorage.getResponse(responseId.value);
+    moduleType = response!.moduleType;
+    state = state.copyWith(
+      moduleType: response.moduleType,
+    );
   } else if (!moduleType.isVisitReport && !createNewResponse) {
     // - 如果是 main module，先確認戶抽是否已完成，未完成則轉跳過去
     if (moduleType.isMain) {
-      switchToSampling = responseMap.values
-          .where(
-            (r) =>
-                r.respondentId == state.respondentId &&
-                r.surveyId == survey.id &&
-                r.moduleType.isSamplingWithinHousehold &&
-                r.responseStatus.isFinished,
-          )
-          .toList()
-          .isEmpty;
+      switchToSampling = await localStorage.queryResponse(
+            respondentId: state.respondentId,
+            surveyId: survey.id,
+            moduleType: ModuleType.samplingWithinHousehold().value,
+            responseStatus: ResponseStatus.finished.value,
+          ) ==
+          null;
     }
 
     if (switchToSampling) {
@@ -50,18 +47,12 @@ Tuple2<AnswerState, Response> restoreResponse(
 
     // - 1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
     // FIXME 可能要再加上篩同 deviceId
-    response = responseMap.values
-        .where(
-          (r) =>
-              r.respondentId == state.respondentId &&
-              r.surveyId == survey.id &&
-              r.moduleType == moduleType,
-        )
-        .toList()
-        .sortedByDescendingX(
-          (r) => r.lastChangedTimeStamp.toInt(),
-        )
-        .firstOrNull;
+    response = await localStorage.queryResponse(
+      respondentId: state.respondentId,
+      surveyId: survey.id,
+      moduleType: moduleType.value,
+      sortByLastChangedTimeStampDesc: true,
+    );
   }
 
   final module = survey.module[moduleType]!;
@@ -77,11 +68,8 @@ Tuple2<AnswerState, Response> restoreResponse(
     }
 
     // - 如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
-    final initAnswerList = state.referenceList.where(
-      (r) =>
-          r.respondentId == state.respondentId &&
-          r.surveyId == survey.id &&
-          r.moduleType == moduleType,
+    final initAnswerList = referenceList.where(
+      (r) => r.surveyId == survey.id && r.moduleType == moduleType,
     );
 
     for (final reference in initAnswerList) {
@@ -116,37 +104,23 @@ Tuple2<AnswerState, Response> restoreResponse(
   // - 4 如果是預過錄，則需要參考 mainResponse
   Response? mainResponse;
   if (moduleType.isRecode) {
-    mainResponse = responseMap.values
-        .where(
-          (r) =>
-              r.responseStatus.isFinished &&
-              r.respondentId == state.respondentId &&
-              r.surveyId == survey.id &&
-              r.moduleType.isMain,
-        )
-        .toList()
-        .sortedByDescendingX(
-          (r) => r.lastChangedTimeStamp.toInt(),
-        )
-        .firstOrNull;
+    mainResponse = await localStorage.queryResponse(
+      respondentId: state.respondentId,
+      surveyId: survey.id,
+      moduleType: ModuleType.main().value,
+      responseStatus: ResponseStatus.finished.value,
+      sortByLastChangedTimeStampDesc: true,
+    );
   }
   mainResponse ??= Response.empty();
 
   // - 更新當前受訪者在其他模組的 responses
   // - 篩出當前 moduleType 以外的不同 moduleType 最後更新那筆
-  final respondentResponseMap = responseMap.values
-      .where(
-        (r) =>
-            r.respondentId == state.respondentId &&
-            r.surveyId == survey.id &&
-            r.moduleType != moduleType,
-      )
-      .toList()
-      .sortedByDescendingX(
-        (r) => r.lastChangedTimeStamp.toInt(),
-      )
-      .groupListsBy((r) => r.moduleType)
-      .mapValues((e) => e.first);
+  final respondentResponseMap = await localStorage.queryRespondentResponses(
+    respondentId: state.respondentId,
+    surveyId: survey.id,
+    notModuleType: ModuleType.main().value,
+  );
 
   // > tableRowQIdSetMap
   final isRecodeModule = moduleType.isRecode;
@@ -198,6 +172,7 @@ Tuple2<AnswerState, Response> restoreResponse(
     isRecodeModule: isRecodeModule,
     isReadOnly: response.responseStatus.isFinished,
     respondentResponseMap: respondentResponseMap,
+    referenceList: referenceList,
   );
 
   state = showQuestionChecked(state, all: true);

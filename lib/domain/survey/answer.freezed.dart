@@ -280,19 +280,19 @@ abstract class _Answer extends Answer {
   const _Answer._() : super._();
 
   @override
-  AnswerType get type => throw _privateConstructorUsedError;
+  AnswerType get type;
   @override
-  bool get withNote => throw _privateConstructorUsedError;
+  bool get withNote;
   @override
-  String? get stringValue => throw _privateConstructorUsedError;
+  String? get stringValue;
   @override
-  int? get intValue => throw _privateConstructorUsedError;
+  int? get intValue;
   @override
-  SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
+  SimpleChoice? get choiceValue;
   @override
-  List<SimpleChoice>? get choiceListValue => throw _privateConstructorUsedError;
+  List<SimpleChoice>? get choiceListValue;
   @override
-  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
+  Map<String, String>? get noteMap;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerCopyWith<_$_Answer> get copyWith =>

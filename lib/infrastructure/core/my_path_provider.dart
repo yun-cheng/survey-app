@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -6,13 +7,12 @@ import 'package:path_provider/path_provider.dart';
 
 @singleton
 class MyPathProvider {
-  // - app 啟動就會取得以下路徑
   // * /data/user/0/com.yun_cheng.survey.dev/app_flutter
-  static late final String appDirPath;
+  String appDirPath = '';
   // * /data/user/0/com.yun_cheng.survey.dev/cache
-  static late final String tempDirPath;
+  String tempDirPath = '';
   // * sdcard/Download/survey_backup
-  static late final String backupDirPath;
+  String backupDirPath = '';
 
   final _completer = Completer();
   Future<void> get ready =>
@@ -22,16 +22,15 @@ class MyPathProvider {
     getPath();
   }
 
-  Future<void> getPath() async {
-    if (kIsWeb) {
-      appDirPath = '';
-      tempDirPath = '';
-      backupDirPath = '';
-    } else {
+  void getPath() async {
+    if (!kIsWeb) {
       appDirPath =
           await getApplicationDocumentsDirectory().then((dir) => dir.path);
       tempDirPath = await getTemporaryDirectory().then((dir) => dir.path);
       backupDirPath = 'sdcard/Download/survey_backup/';
+      if (!await Directory(backupDirPath).exists()) {
+        await Directory(backupDirPath).create();
+      }
     }
 
     _completer.complete();

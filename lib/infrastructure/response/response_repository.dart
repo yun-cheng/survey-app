@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart' hide Tuple2, Tuple3, Tuple4;
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
@@ -12,28 +10,19 @@ import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/response/i_response_repository.dart';
 import '../../domain/response/response_failure.dart';
-import '../../domain/response/typedefs.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/simple_survey_page_state.dart';
 import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
 import '../../injection.dart';
-import '../core/extensions.dart';
-import '../core/firestore_helpers.dart';
+import '../core/firebase_worker.dart';
 import '../core/isolate_local_storage.dart';
-import '../core/isolate_worker.dart';
 import '../core/upload_set.dart';
-import 'reference_list_dtos.dart';
-import 'response_dtos.dart';
-import 'response_map_dtos.dart';
-
-part 'response_repo_helpers.dart';
 
 @LazySingleton(as: IResponseRepository)
 class ResponseRepository implements IResponseRepository {
   final IsolateLocalStorage _localStorage;
-  final IsolateWorker _isolateWorker;
-  final FirebaseFirestore _firestore;
+  final FirebaseWorker _firebaseWorker;
   final ICommonRepository _commonRepo;
   final IAuthRepository _authRepo;
 
@@ -49,15 +38,11 @@ class ResponseRepository implements IResponseRepository {
 
   // * 即使離開問卷也不會清空
   Response? _response;
-  ReferenceList _referenceList = [];
-  bool _isUploading = false;
-  bool _uploadAgain = false;
 
-  // * tuple 附帶最後更新那筆的 responseId
-  final _responseMapStream =
-      BehaviorSubject<Tuple2<ResponseMap, UniqueId?>>.seeded(
-    const Tuple2({}, null),
+  final _updatedResponseIdListStream = BehaviorSubject<List<String>>.seeded(
+    const [],
   );
+
   final _failureStream = BehaviorSubject.seeded(ResponseFailure.empty());
 
   StreamSubscription? _responseSubscription;
@@ -66,15 +51,11 @@ class ResponseRepository implements IResponseRepository {
   @override
   Response? get response => _response;
   @override
-  ReferenceList get referenceList => _referenceList;
-  @override
-  ResponseMap get responseMap => _responseMapStream.value.item1;
-  @override
-  Set<String> get uploadSet => _uploadSet.value;
+  Set<String> get uploadSet => _uploadSet.pendingSet;
 
   @override
-  Stream<Tuple2<ResponseMap, UniqueId?>> get responseMapStream =>
-      _responseMapStream;
+  Stream<List<String>> get updatedResponseIdListStream =>
+      _updatedResponseIdListStream;
   @override
   Stream<Set<String>> get uploadSetStream => _uploadSet.stream;
   @override
@@ -82,8 +63,7 @@ class ResponseRepository implements IResponseRepository {
 
   ResponseRepository(
     this._localStorage,
-    this._isolateWorker,
-    this._firestore,
+    this._firebaseWorker,
     this._commonRepo,
     this._authRepo,
   ) {
@@ -92,38 +72,20 @@ class ResponseRepository implements IResponseRepository {
 
   Future<void> initialize() async {
     await _localStorage.ready;
+    await _firebaseWorker.ready;
     await _commonRepo.ready;
     await _authRepo.ready;
-    await _isolateWorker.ready;
 
     await loadLocalData();
     startListener();
+
+    _uploadSet.initialize(uploadingCallback);
 
     _completer.complete();
   }
 
   Future<void> loadLocalData() async {
-    _referenceList = await _localStorage.read<ReferenceList>(
-          box: 'referenceList',
-          toDomain: ReferenceListDto.jsonToDomain,
-        ) ??
-        [];
-
-    final responseMap = await _localStorage.read<ResponseMap>(
-      box: 'responseMap',
-      allKeys: true,
-      toDomain: ResponseMapDto.jsonToDomain,
-    );
-    _responseMapStream.add(
-      Tuple2(responseMap ?? {}, null),
-    );
-
-    final responseId = await _localStorage.read<UniqueId>(
-      box: 'common',
-      key: 'responseId',
-      toDomain: (String string) => UniqueId(string),
-    );
-    _response = responseMap?[responseId];
+    _response = await _localStorage.getResponse();
   }
 
   Future<void> startListener() async {
@@ -167,35 +129,19 @@ class ResponseRepository implements IResponseRepository {
     required String teamId,
     required String interviewerId,
   }) async {
-    final responseCollection = _firestore.responseCollection;
-
     await _responseSubscription?.cancel();
-    _responseSubscription = responseCollection
-        .where('teamId', isEqualTo: teamId)
-        .where('interviewerId', isEqualTo: interviewerId)
-        .snapshots()
+    _responseSubscription = _firebaseWorker
+        .watch(
+      type: 'responses',
+      teamId: teamId,
+      interviewerId: interviewerId,
+    )
         .listen(
-      (snapshot) async {
-        // TODO 改成只有在初次同步，或其他裝置有上傳才會觸發，本地端上傳時不會
-
-        final tuple = await _isolateWorker.compute(
-          mergeResponseMap,
-          Tuple2(responseMap, snapshot.docs),
-        );
-        final newResponseMap = tuple.item1;
-        final saveKeys = tuple.item2;
-
-        _responseMapStream.add(
-          Tuple2(newResponseMap, null),
-        );
-
-        await _localStorage.write(
-          box: 'responseMap',
-          // TODO 之後看 subsetKeys 是否在裡面做
-          data: newResponseMap.subsetKeys(saveKeys),
-          isMapEntries: true,
-          toJson: ResponseMapDto.domainToJson,
-        );
+      (data) async {
+        if (data is List<String> && data.isNotEmpty) {
+          logger('Value').e('watchRemoteResponseMap: ${data.length}');
+          _updatedResponseIdListStream.add(data);
+        }
       },
       onError: commonOnError,
     );
@@ -206,107 +152,42 @@ class ResponseRepository implements IResponseRepository {
     required String teamId,
     required String interviewerId,
   }) async {
-    final referenceCollection = _firestore.referenceCollection;
-
     await _referenceSubscription?.cancel();
-    _referenceSubscription = referenceCollection
-        .where('teamId', isEqualTo: teamId)
-        .where('interviewerId', isEqualTo: interviewerId)
-        .snapshots()
+    _referenceSubscription = _firebaseWorker
+        .watch(
+          type: 'references',
+          teamId: teamId,
+          interviewerId: interviewerId,
+        )
         .listen(
-      (snapshot) async {
-        final newReferenceList = await _isolateWorker.compute(
-          ReferenceListDto.firestoreToDomain,
-          snapshot.docs,
+          (data) async {},
+          onError: commonOnError,
         );
-
-        _referenceList = [...newReferenceList];
-
-        await _localStorage.write(
-          box: 'referenceList',
-          data: newReferenceList,
-          toJson: ReferenceListDto.domainToJson,
-        );
-      },
-      onError: commonOnError,
-    );
   }
 
   @override
   Future<void> uploadResponseMap() async {
-    if (uploadSet.isEmpty || !_commonRepo.networkIsConnected) return;
+    if (!_commonRepo.networkIsConnected) return;
 
-    if (_isUploading) {
-      _uploadAgain = true;
-      return;
-    }
+    await _uploadSet.upload();
+  }
 
-    _isUploading = true;
-    _uploadAgain = false;
+  Future<bool> uploadingCallback(Set<String> uploadingSet) async {
+    if (!_commonRepo.networkIsConnected) return false;
 
-    final responseCollection = _firestore.responseCollection;
-
-    final copySet = {...uploadSet};
-
-    var batch = _firestore.batch();
-    final batchIdSet = <String>{};
-    int i = 0;
-    for (final responseId in copySet) {
-      batchIdSet.add(responseId);
-      _uploadSet.remove(responseId);
-
-      final response = responseMap[UniqueId(responseId)];
-      if (response == null) continue;
-
-      final responseData = await _isolateWorker.compute(
-        ResponseDto.domainToJson,
-        response,
-      );
-
-      batch.set(responseCollection.doc(responseId), responseData);
-
-      i++;
-      if (i % 20 == 0 || i == copySet.length) {
-        // ! 可以不需要 await，但因為要判斷是否成功，先留著
-        final result = await batch
-            .commit()
-            .timeout(const Duration(seconds: 30))
-            .then((_) => right<Unit, Unit>(unit))
-            .catchError((_) => left<Unit, Unit>(unit));
-
-        if (result.isLeft()) {
-          logger('Error').e('uploadResponseMap Error!');
-          _uploadSet.addSet(batchIdSet);
-          _uploadAgain = false;
-          break;
-        }
-
-        batchIdSet.clear();
-        batch = _firestore.batch();
-      }
-    }
-    _isUploading = false;
-    _uploadSet.write();
-
-    if (_uploadAgain) {
-      uploadResponseMap();
-    }
+    return _firebaseWorker.upload('responses', uploadingSet.toList());
   }
 
   @override
   Response createResponse() => Response.empty().copyWith(
-        responseId: UniqueId(_firestore.newId),
+        responseId: UniqueId(_firebaseWorker.newId),
         deviceId: _commonRepo.deviceId,
       );
 
   @override
   void openResponse(Response response) async {
     _response = response;
-    await _localStorage.write(
-      box: 'common',
-      key: 'responseId',
-      data: response.responseId.value,
-    );
+    await _localStorage.writeKeyValue('responseId', response.responseId.value);
   }
 
   @override
@@ -324,17 +205,8 @@ class ResponseRepository implements IResponseRepository {
   }
 
   Future<void> writeResponse(Response response) async {
-    await _localStorage.write(
-      box: 'responseMap',
-      data: response,
-      key: response.responseId.value,
-      toJson: ResponseDto.domainToJson,
-    );
-    await _localStorage.write(
-      box: 'common',
-      key: 'responseId',
-      data: response.responseId.value,
-    );
+    await _localStorage.writeResponse(response);
+    await _localStorage.writeKeyValue('responseId', response.responseId.value);
   }
 
   @override
@@ -393,37 +265,21 @@ class ResponseRepository implements IResponseRepository {
       );
     }
 
-    // - 加進 responseMap
-    final newResponseMap = {...responseMap};
-    newResponseMap[response.responseId] = response;
+    // -
+    await addResponse(response, triggerUpload: true);
 
-    _responseMapStream.add(
-      Tuple2(newResponseMap, response.responseId),
-    );
-
-    addResponse(response, triggerUpload: true);
+    _updatedResponseIdListStream.add([response.responseId.value]);
   }
 
   @override
   Future<void> signOut() async {
     _response = null;
-    _responseMapStream.add(const Tuple2({}, null));
-    _referenceList = [];
+    _updatedResponseIdListStream.add([]);
     _uploadSet.clear();
 
-    _localStorage.write(
-      box: 'common',
-      key: 'responseId',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'responseMap',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'referenceList',
-      clear: true,
-    );
+    _localStorage.clearKey('responseId');
+    await _localStorage.clearResponses();
+    await _localStorage.clearReferences();
   }
 
   void commonOnError(e, stackTrace) {

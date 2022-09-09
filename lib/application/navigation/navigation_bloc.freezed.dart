@@ -334,7 +334,7 @@ abstract class _PageChanged implements NavigationEvent {
   const factory _PageChanged({required final NavigationPage page}) =
       _$_PageChanged;
 
-  NavigationPage get page => throw _privateConstructorUsedError;
+  NavigationPage get page;
   @JsonKey(ignore: true)
   _$$_PageChangedCopyWith<_$_PageChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -618,11 +618,11 @@ abstract class _NavigationState extends NavigationState {
   const _NavigationState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override
-  NavigationPage get page => throw _privateConstructorUsedError;
+  NavigationPage get page;
   @override
-  bool get pushPage => throw _privateConstructorUsedError;
+  bool get pushPage;
   @override
   @JsonKey(ignore: true)
   _$$_NavigationStateCopyWith<_$_NavigationState> get copyWith =>

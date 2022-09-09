@@ -214,15 +214,13 @@ abstract class _SurveyModule extends SurveyModule {
   const _SurveyModule._() : super._();
 
   @override
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap;
   @override
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
   @override
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap;
   @override
-  Map<String, Set<String>> get pageQIdSetMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Set<String>> get pageQIdSetMap;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyModuleCopyWith<_$_SurveyModule> get copyWith =>

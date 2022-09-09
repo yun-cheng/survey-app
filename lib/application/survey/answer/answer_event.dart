@@ -64,8 +64,6 @@ class AnswerEvent with _$AnswerEvent {
   // > 搜尋題目
   const factory AnswerEvent.textSearched(String text) = _TextSearched;
 
-  // > lifeCycle 變更時
-  const factory AnswerEvent.appLifeCycleChanged({
-    required bool isPaused,
-  }) = _AppLifeCycleChanged;
+  // >
+  const factory AnswerEvent.responsePaused() = _ResponsePaused;
 }

@@ -1,13 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:typed_data';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:supercharged/supercharged.dart';
 
 import '../../domain/survey/typedefs.dart';
 import '../core/extensions.dart';
 import 'survey_dtos.dart';
+import 'survey_info_isar.dart';
+import 'survey_isar.dart';
 
 part 'survey_map_dtos.freezed.dart';
-part 'survey_map_dtos.g.dart';
 
 @freezed
 class SurveyMapDto with _$SurveyMapDto {
@@ -23,29 +25,32 @@ class SurveyMapDto with _$SurveyMapDto {
     );
   }
 
-  SurveyMap toDomain() {
-    return map.mapValues((e) => e.toDomain());
+  SurveyMap toDomain({
+    bool forceFull = false,
+    List<String> compatibility = const [],
+  }) {
+    return map.mapValues((e) => e.toDomain(
+          forceFull: forceFull,
+          compatibility: compatibility,
+        ));
   }
 
-  factory SurveyMapDto.fromJson(Map<String, dynamic> json) =>
-      _$SurveyMapDtoFromJson(json);
-
-  factory SurveyMapDto.fromFirestore(QuerySnapshot<Object?> snapshot) {
-    final map = snapshot.docs.map(
-      (doc) {
-        return MapEntry(
-          doc.id,
-          SurveyDto.fromJson(doc.data()! as Map<String, dynamic>),
-        );
-      },
-    ).toMap();
-
-    return SurveyMapDto(map: map);
+  factory SurveyMapDto.fromInfoIsar(List<SurveyInfoIsar> isar) {
+    return SurveyMapDto(
+      map: isar
+          .map(
+            (e) => MapEntry(
+              e.surveyId,
+              SurveyDto.fromInfoIsar(e),
+            ),
+          )
+          .toMap(),
+    );
   }
 
-  static Map<String, dynamic> domainToJson(SurveyMap domain) =>
-      SurveyMapDto.fromDomain(domain).toJson()['map'] as Map<String, dynamic>;
-
-  static SurveyMap jsonToDomain(Map<String, dynamic> json) =>
-      SurveyMapDto.fromJson({'map': json}).toDomain();
+  static List<SurveyIsar> rawToIsar(Map<String, Uint8List> rawMap) => rawMap
+      .mapEntries((k, v) => SurveyIsar()
+        ..surveyId = k
+        ..survey = v)
+      .toList();
 }

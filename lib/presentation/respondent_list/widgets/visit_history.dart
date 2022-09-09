@@ -25,7 +25,8 @@ class VisitHistory extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('VisitHistory');
 
-        final recordList = state.visitRecordLMap[respondent.id];
+        final recordList =
+            state.visitRecordsMap[respondent.id]?.values.toList();
 
         if (recordList == null || recordList.isEmpty) {
           return const SizedBox();
@@ -42,7 +43,7 @@ class VisitHistory extends StatelessWidget {
                 if (record.status == '完訪 100') return;
                 context.read<AnswerBloc>().add(
                       AnswerEvent.responseStarted(
-                        responseId: record.responseId,
+                        responseId: UniqueId(record.responseId),
                       ),
                     );
                 // TODO 是否要改？？

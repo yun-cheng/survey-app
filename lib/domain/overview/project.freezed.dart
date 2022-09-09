@@ -134,9 +134,9 @@ abstract class _Project extends Project {
   const _Project._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_ProjectCopyWith<_$_Project> get copyWith =>

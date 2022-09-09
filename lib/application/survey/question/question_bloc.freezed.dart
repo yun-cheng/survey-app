@@ -496,7 +496,7 @@ abstract class _SetChoice extends QuestionEvent {
   const factory _SetChoice(final Choice choice) = _$_SetChoice;
   const _SetChoice._() : super._();
 
-  Choice get choice => throw _privateConstructorUsedError;
+  Choice get choice;
   @JsonKey(ignore: true)
   _$$_SetChoiceCopyWith<_$_SetChoice> get copyWith =>
       throw _privateConstructorUsedError;
@@ -700,7 +700,7 @@ abstract class _ToggleChoice extends QuestionEvent {
   const factory _ToggleChoice(final Choice choice) = _$_ToggleChoice;
   const _ToggleChoice._() : super._();
 
-  Choice get choice => throw _privateConstructorUsedError;
+  Choice get choice;
   @JsonKey(ignore: true)
   _$$_ToggleChoiceCopyWith<_$_ToggleChoice> get copyWith =>
       throw _privateConstructorUsedError;
@@ -897,7 +897,7 @@ abstract class _SetSpecialAnswer extends QuestionEvent {
       _$_SetSpecialAnswer;
   const _SetSpecialAnswer._() : super._();
 
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @JsonKey(ignore: true)
   _$$_SetSpecialAnswerCopyWith<_$_SetSpecialAnswer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1101,8 +1101,8 @@ abstract class _SetNote extends QuestionEvent {
       _$_SetNote;
   const _SetNote._() : super._();
 
-  String get note => throw _privateConstructorUsedError;
-  String get noteOf => throw _privateConstructorUsedError;
+  String get note;
+  String get noteOf;
   @JsonKey(ignore: true)
   _$$_SetNoteCopyWith<_$_SetNote> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1296,7 +1296,7 @@ abstract class _SetValue extends QuestionEvent {
   const factory _SetValue(final String value) = _$_SetValue;
   const _SetValue._() : super._();
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   _$$_SetValueCopyWith<_$_SetValue> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1491,7 +1491,7 @@ abstract class _SetDateTime extends QuestionEvent {
   const factory _SetDateTime(final DateTime dateTime) = _$_SetDateTime;
   const _SetDateTime._() : super._();
 
-  DateTime get dateTime => throw _privateConstructorUsedError;
+  DateTime get dateTime;
   @JsonKey(ignore: true)
   _$$_SetDateTimeCopyWith<_$_SetDateTime> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1686,7 +1686,7 @@ abstract class _SetRecodeValue extends QuestionEvent {
   const factory _SetRecodeValue(final String value) = _$_SetRecodeValue;
   const _SetRecodeValue._() : super._();
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   _$$_SetRecodeValueCopyWith<_$_SetRecodeValue> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1881,7 +1881,7 @@ abstract class _QABoxShown extends QuestionEvent {
   const factory _QABoxShown(final bool value) = _$_QABoxShown;
   const _QABoxShown._() : super._();
 
-  bool get value => throw _privateConstructorUsedError;
+  bool get value;
   @JsonKey(ignore: true)
   _$$_QABoxShownCopyWith<_$_QABoxShown> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2076,7 +2076,7 @@ abstract class _AnswerBoxShown extends QuestionEvent {
   const factory _AnswerBoxShown(final bool value) = _$_AnswerBoxShown;
   const _AnswerBoxShown._() : super._();
 
-  bool get value => throw _privateConstructorUsedError;
+  bool get value;
   @JsonKey(ignore: true)
   _$$_AnswerBoxShownCopyWith<_$_AnswerBoxShown> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2271,7 +2271,7 @@ abstract class _RowIdChanged extends QuestionEvent {
   const factory _RowIdChanged(final int rowId) = _$_RowIdChanged;
   const _RowIdChanged._() : super._();
 
-  int get rowId => throw _privateConstructorUsedError;
+  int get rowId;
   @JsonKey(ignore: true)
   _$$_RowIdChangedCopyWith<_$_RowIdChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2786,27 +2786,27 @@ abstract class _QuestionState extends QuestionState {
   const _QuestionState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override
-  Question get question => throw _privateConstructorUsedError;
+  Question get question;
   @override
-  Answer get answer => throw _privateConstructorUsedError;
+  Answer get answer;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  bool get withinCell => throw _privateConstructorUsedError;
+  bool get withinCell;
   @override
-  bool get canEdit => throw _privateConstructorUsedError;
+  bool get canEdit;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
+  bool get isRecodeModule;
   @override
-  bool get qABoxIsShown => throw _privateConstructorUsedError;
+  bool get qABoxIsShown;
   @override
-  bool get answerBoxIsShown => throw _privateConstructorUsedError;
+  bool get answerBoxIsShown;
   @override
-  bool get answerIsCleared => throw _privateConstructorUsedError;
+  bool get answerIsCleared;
   @override
-  int get rowId => throw _privateConstructorUsedError;
+  int get rowId;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionStateCopyWith<_$_QuestionState> get copyWith =>

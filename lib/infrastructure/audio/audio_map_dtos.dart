@@ -5,7 +5,6 @@ import '../core/extensions.dart';
 import 'audio_dtos.dart';
 
 part 'audio_map_dtos.freezed.dart';
-part 'audio_map_dtos.g.dart';
 
 @freezed
 class AudioMapDto with _$AudioMapDto {
@@ -22,13 +21,4 @@ class AudioMapDto with _$AudioMapDto {
   }
 
   AudioMap toDomain() => map.mapValues((v) => v.toDomain());
-
-  factory AudioMapDto.fromJson(Map<String, dynamic> json) =>
-      _$AudioMapDtoFromJson(json);
-
-  static Map<String, dynamic> domainToJson(AudioMap domain) =>
-      AudioMapDto.fromDomain(domain).toJson()['map'] as Map<String, dynamic>;
-
-  static AudioMap jsonToDomain(Map<String, dynamic> json) =>
-      AudioMapDto.fromJson({'map': json}).toDomain();
 }

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$VisitRecord {
   String get respondentId => throw _privateConstructorUsedError;
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  String get responseId => throw _privateConstructorUsedError;
   VisitTime get visitTime => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -34,12 +34,11 @@ abstract class $VisitRecordCopyWith<$Res> {
       _$VisitRecordCopyWithImpl<$Res>;
   $Res call(
       {String respondentId,
-      UniqueId responseId,
+      String responseId,
       VisitTime visitTime,
       String status,
       String description});
 
-  $UniqueIdCopyWith<$Res> get responseId;
   $VisitTimeCopyWith<$Res> get visitTime;
 }
 
@@ -67,7 +66,7 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as String,
       visitTime: visitTime == freezed
           ? _value.visitTime
           : visitTime // ignore: cast_nullable_to_non_nullable
@@ -81,13 +80,6 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
           : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  }
-
-  @override
-  $UniqueIdCopyWith<$Res> get responseId {
-    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
-      return _then(_value.copyWith(responseId: value));
-    });
   }
 
   @override
@@ -107,13 +99,11 @@ abstract class _$$_VisitRecordCopyWith<$Res>
   @override
   $Res call(
       {String respondentId,
-      UniqueId responseId,
+      String responseId,
       VisitTime visitTime,
       String status,
       String description});
 
-  @override
-  $UniqueIdCopyWith<$Res> get responseId;
   @override
   $VisitTimeCopyWith<$Res> get visitTime;
 }
@@ -144,7 +134,7 @@ class __$$_VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as String,
       visitTime: visitTime == freezed
           ? _value.visitTime
           : visitTime // ignore: cast_nullable_to_non_nullable
@@ -175,7 +165,7 @@ class _$_VisitRecord extends _VisitRecord {
   @override
   final String respondentId;
   @override
-  final UniqueId responseId;
+  final String responseId;
   @override
   final VisitTime visitTime;
   @override
@@ -221,22 +211,22 @@ class _$_VisitRecord extends _VisitRecord {
 abstract class _VisitRecord extends VisitRecord {
   const factory _VisitRecord(
       {required final String respondentId,
-      required final UniqueId responseId,
+      required final String responseId,
       required final VisitTime visitTime,
       required final String status,
       required final String description}) = _$_VisitRecord;
   const _VisitRecord._() : super._();
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override
-  VisitTime get visitTime => throw _privateConstructorUsedError;
+  VisitTime get visitTime;
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_VisitRecordCopyWith<_$_VisitRecord> get copyWith =>

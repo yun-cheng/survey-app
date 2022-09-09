@@ -226,15 +226,15 @@ abstract class _Reference extends Reference {
   const _Reference._() : super._();
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  Answer get answer => throw _privateConstructorUsedError;
+  Answer get answer;
   @override
   @JsonKey(ignore: true)
   _$$_ReferenceCopyWith<_$_Reference> get copyWith =>

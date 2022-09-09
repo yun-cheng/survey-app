@@ -217,7 +217,9 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SurveyModuleDtoToJson(this);
+    return _$$_SurveyModuleDtoToJson(
+      this,
+    );
   }
 }
 
@@ -234,16 +236,13 @@ abstract class _SurveyModuleDto extends SurveyModuleDto {
       _$_SurveyModuleDto.fromJson;
 
   @override
-  Map<String, QuestionDto> get questionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap;
   @override
-  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get answerMap;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap;
   @override
-  Map<String, List<String>> get pageQIdSetMap =>
-      throw _privateConstructorUsedError;
+  Map<String, List<String>> get pageQIdSetMap;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyModuleDtoCopyWith<_$_SurveyModuleDto> get copyWith =>

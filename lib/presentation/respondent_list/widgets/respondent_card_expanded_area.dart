@@ -15,6 +15,7 @@ class RespondentCardExpandedArea extends StatelessWidget {
         SizedBox(height: kPFontSize),
         ModuleButtonArea(),
         SizedBox(height: kPFontSize),
+        // CircularProgressIndicator(),
         HousingBox(),
         VisitHistory(),
       ],

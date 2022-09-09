@@ -370,7 +370,7 @@ class _$_StateEmitted implements _StateEmitted {
 abstract class _StateEmitted implements SurveyEvent {
   const factory _StateEmitted(final SurveyState state) = _$_StateEmitted;
 
-  SurveyState get state => throw _privateConstructorUsedError;
+  SurveyState get state;
   @JsonKey(ignore: true)
   _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -648,7 +648,7 @@ class _$_SurveySelected implements _SurveySelected {
 abstract class _SurveySelected implements SurveyEvent {
   const factory _SurveySelected(final String surveyId) = _$_SurveySelected;
 
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @JsonKey(ignore: true)
   _$$_SurveySelectedCopyWith<_$_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1037,17 +1037,17 @@ abstract class _SurveyState extends SurveyState {
   const _SurveyState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // > 主要資料
-  Map<String, Project> get projectMap => throw _privateConstructorUsedError;
+  Map<String, Project> get projectMap;
   @override
-  Map<String, Survey> get surveyMap => throw _privateConstructorUsedError;
+  Map<String, Survey> get surveyMap;
   @override
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @override // > 狀態更新進度
-  LoadState get surveyMapState => throw _privateConstructorUsedError;
+  LoadState get surveyMapState;
   @override
-  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
+  Option<SurveyFailure> get surveyFailure;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyStateCopyWith<_$_SurveyState> get copyWith =>

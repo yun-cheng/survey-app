@@ -256,18 +256,17 @@ abstract class _Comment extends Comment {
   const _Comment._() : super._();
 
   @override
-  String get commentId => throw _privateConstructorUsedError;
+  String get commentId;
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  UniqueId get deviceId => throw _privateConstructorUsedError;
+  UniqueId get deviceId;
   @override // > 狀態
-  DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
+  DeviceTimeStamp get createdTimeStamp;
   @override
-  DeviceTimeStamp get lastChangedTimeStamp =>
-      throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastChangedTimeStamp;
   @override // > 內容
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_CommentCopyWith<_$_Comment> get copyWith =>

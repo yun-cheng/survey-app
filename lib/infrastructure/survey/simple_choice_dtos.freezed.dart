@@ -144,7 +144,9 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SimpleChoiceDtoToJson(this);
+    return _$$_SimpleChoiceDtoToJson(
+      this,
+    );
   }
 }
 
@@ -158,9 +160,9 @@ abstract class _SimpleChoiceDto extends SimpleChoiceDto {
       _$_SimpleChoiceDto.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
   @JsonKey(ignore: true)
   _$$_SimpleChoiceDtoCopyWith<_$_SimpleChoiceDto> get copyWith =>

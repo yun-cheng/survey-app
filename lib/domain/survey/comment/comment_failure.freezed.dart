@@ -123,7 +123,7 @@ abstract class _CommentFailure extends CommentFailure {
   const _CommentFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_CommentFailureCopyWith<_$_CommentFailure> get copyWith =>

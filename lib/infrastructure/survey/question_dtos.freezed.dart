@@ -557,7 +557,9 @@ class _$_QuestionDto extends _QuestionDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_QuestionDtoToJson(this);
+    return _$$_QuestionDtoToJson(
+      this,
+    );
   }
 }
 
@@ -589,45 +591,45 @@ abstract class _QuestionDto extends QuestionDto {
       _$_QuestionDto.fromJson;
 
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  bool get hideQuestionId => throw _privateConstructorUsedError;
+  bool get hideQuestionId;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  List<FormattedTextDto> get questionBody => throw _privateConstructorUsedError;
+  List<FormattedTextDto> get questionBody;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  String get questionNote => throw _privateConstructorUsedError;
+  String get questionNote;
   @override
-  String get questionType => throw _privateConstructorUsedError;
+  String get questionType;
   @override
-  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
+  bool get hasSpecialAnswer;
   @override
-  String get upperQuestionId => throw _privateConstructorUsedError;
+  String get upperQuestionId;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  bool get recodeNeeded => throw _privateConstructorUsedError;
+  bool get recodeNeeded;
   @override
-  int get splitColumnChoiceCount => throw _privateConstructorUsedError;
+  int get splitColumnChoiceCount;
   @override // > choice list
-  List<ChoiceDto>? get initChoiceList => throw _privateConstructorUsedError;
+  List<ChoiceDto>? get initChoiceList;
   @override
-  List<ChoiceDto> get choiceList => throw _privateConstructorUsedError;
+  List<ChoiceDto> get choiceList;
   @override
-  List<ChoiceDto>? get specialAnswerList => throw _privateConstructorUsedError;
+  List<ChoiceDto>? get specialAnswerList;
   @override // > expression
-  FullExpressionDto get showQuestion => throw _privateConstructorUsedError;
+  FullExpressionDto get showQuestion;
   @override
-  FullExpressionDto get validateAnswer => throw _privateConstructorUsedError;
+  FullExpressionDto get validateAnswer;
   @override
-  List<String>? get childrenQIdSet => throw _privateConstructorUsedError;
+  List<String>? get childrenQIdSet;
   @override // > table
-  String get tableId => throw _privateConstructorUsedError;
+  String get tableId;
   @override
-  int get rowId => throw _privateConstructorUsedError;
+  int get rowId;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionDtoCopyWith<_$_QuestionDto> get copyWith =>

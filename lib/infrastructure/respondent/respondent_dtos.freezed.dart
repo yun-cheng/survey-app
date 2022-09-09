@@ -190,7 +190,9 @@ class _$_RespondentDto extends _RespondentDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RespondentDtoToJson(this);
+    return _$$_RespondentDtoToJson(
+      this,
+    );
   }
 }
 
@@ -206,13 +208,13 @@ abstract class _RespondentDto extends RespondentDto {
       _$_RespondentDto.fromJson;
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get countyTown => throw _privateConstructorUsedError;
+  String get countyTown;
   @override
-  String get village => throw _privateConstructorUsedError;
+  String get village;
   @override
-  String get remainAddress => throw _privateConstructorUsedError;
+  String get remainAddress;
   @override
   @JsonKey(ignore: true)
   _$$_RespondentDtoCopyWith<_$_RespondentDto> get copyWith =>

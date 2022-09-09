@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/auth/interviewer.dart';
+import 'interviewer_isar.dart';
 
 part 'interviewer_dtos.freezed.dart';
 part 'interviewer_dtos.g.dart';
@@ -26,13 +29,21 @@ class InterviewerListDto with _$InterviewerListDto {
     return list.map((dto) => dto.toDomain()).toList();
   }
 
-  // TODO 是否要 trycatch?
+  List<InterviewerIsar> toIsar() {
+    return list.map((e) => e.toIsar()).toList();
+  }
+
   factory InterviewerListDto.fromJson(Map<String, dynamic> json) =>
       _$InterviewerListDtoFromJson(json);
 
   factory InterviewerListDto.fromFirestore(DocumentSnapshot doc) {
     return InterviewerListDto.fromJson(doc.data()! as Map<String, dynamic>);
   }
+
+  static List<InterviewerIsar> firestoreToIsar(
+    DocumentSnapshot doc,
+  ) =>
+      InterviewerListDto.fromFirestore(doc).toIsar();
 }
 
 @freezed
@@ -45,11 +56,11 @@ class InterviewerDto with _$InterviewerDto {
     required String interviewerPassword,
   }) = _InterviewerDto;
 
-  factory InterviewerDto.fromDomain(Interviewer interviewer) {
+  factory InterviewerDto.fromDomain(Interviewer domain) {
     return InterviewerDto(
-      interviewerId: interviewer.id,
-      interviewerName: interviewer.name,
-      interviewerPassword: interviewer.password,
+      interviewerId: domain.id,
+      interviewerName: domain.name,
+      interviewerPassword: domain.password,
     );
   }
 
@@ -61,9 +72,26 @@ class InterviewerDto with _$InterviewerDto {
     );
   }
 
+  factory InterviewerDto.fromIsar(InterviewerIsar isar) {
+    return InterviewerDto(
+      interviewerId: isar.interviewerId,
+      interviewerName: isar.interviewerName,
+      interviewerPassword: isar.interviewerPassword,
+    );
+  }
+
+  InterviewerIsar toIsar() {
+    return InterviewerIsar()
+      ..interviewerId = interviewerId
+      ..interviewerName = interviewerName
+      ..interviewerPassword = interviewerPassword;
+  }
+
   factory InterviewerDto.fromJson(Map<String, dynamic> json) =>
       _$InterviewerDtoFromJson(json);
 
-  static Interviewer jsonToDomain(Map<String, dynamic> json) =>
-      InterviewerDto.fromJson(json).toDomain();
+  factory InterviewerDto.fromJsonStr(String jsonStr) =>
+      InterviewerDto.fromJson(json.decode(jsonStr));
+
+  String toJsonStr() => json.encode(toJson());
 }

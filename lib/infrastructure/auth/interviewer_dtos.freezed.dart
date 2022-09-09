@@ -135,7 +135,9 @@ class _$_InterviewerListDto extends _InterviewerListDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InterviewerListDtoToJson(this);
+    return _$$_InterviewerListDtoToJson(
+      this,
+    );
   }
 }
 
@@ -148,7 +150,7 @@ abstract class _InterviewerListDto extends InterviewerListDto {
       _$_InterviewerListDto.fromJson;
 
   @override
-  List<InterviewerDto> get list => throw _privateConstructorUsedError;
+  List<InterviewerDto> get list;
   @override
   @JsonKey(ignore: true)
   _$$_InterviewerListDtoCopyWith<_$_InterviewerListDto> get copyWith =>
@@ -313,7 +315,9 @@ class _$_InterviewerDto extends _InterviewerDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InterviewerDtoToJson(this);
+    return _$$_InterviewerDtoToJson(
+      this,
+    );
   }
 }
 
@@ -328,11 +332,11 @@ abstract class _InterviewerDto extends InterviewerDto {
       _$_InterviewerDto.fromJson;
 
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  String get interviewerName => throw _privateConstructorUsedError;
+  String get interviewerName;
   @override
-  String get interviewerPassword => throw _privateConstructorUsedError;
+  String get interviewerPassword;
   @override
   @JsonKey(ignore: true)
   _$$_InterviewerDtoCopyWith<_$_InterviewerDto> get copyWith =>

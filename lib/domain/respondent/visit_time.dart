@@ -35,7 +35,7 @@ class VisitTime with _$VisitTime {
       default:
         hour = 23;
     }
-    return date.update(hour: hour).microsecondsSinceEpoch;
+    return (exactTime ? date : date.update(hour: hour)).microsecondsSinceEpoch;
   }
 
   String toTimeString() {

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/overview/project.dart';
+import 'project_isar.dart';
 
 part 'project_dtos.freezed.dart';
 part 'project_dtos.g.dart';
@@ -28,12 +29,19 @@ class ProjectDto with _$ProjectDto {
     );
   }
 
+  factory ProjectDto.fromIsar(ProjectIsar isar) {
+    return ProjectDto(
+      projectId: isar.projectId,
+      projectName: isar.projectName,
+    );
+  }
+
+  ProjectIsar toIsar() {
+    return ProjectIsar()
+      ..projectId = projectId
+      ..projectName = projectName;
+  }
+
   factory ProjectDto.fromJson(Map<String, dynamic> json) =>
       _$ProjectDtoFromJson(json);
-
-  static Map<String, dynamic> domainToJson(Project domain) =>
-      ProjectDto.fromDomain(domain).toJson();
-
-  static Project jsonToDomain(Map<String, dynamic> json) =>
-      ProjectDto.fromJson(json).toDomain();
 }

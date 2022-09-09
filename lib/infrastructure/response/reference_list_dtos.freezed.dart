@@ -134,7 +134,9 @@ class _$_ReferenceListDto extends _ReferenceListDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReferenceListDtoToJson(this);
+    return _$$_ReferenceListDtoToJson(
+      this,
+    );
   }
 }
 
@@ -147,7 +149,7 @@ abstract class _ReferenceListDto extends ReferenceListDto {
       _$_ReferenceListDto.fromJson;
 
   @override
-  List<ReferenceDto> get list => throw _privateConstructorUsedError;
+  List<ReferenceDto> get list;
   @override
   @JsonKey(ignore: true)
   _$$_ReferenceListDtoCopyWith<_$_ReferenceListDto> get copyWith =>

@@ -138,7 +138,9 @@ class _$_SurveyRespondentMapDto extends _SurveyRespondentMapDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SurveyRespondentMapDtoToJson(this);
+    return _$$_SurveyRespondentMapDtoToJson(
+      this,
+    );
   }
 }
 
@@ -152,7 +154,7 @@ abstract class _SurveyRespondentMapDto extends SurveyRespondentMapDto {
       _$_SurveyRespondentMapDto.fromJson;
 
   @override
-  Map<String, RespondentMapDto> get map => throw _privateConstructorUsedError;
+  Map<String, RespondentMapDto> get map;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyRespondentMapDtoCopyWith<_$_SurveyRespondentMapDto> get copyWith =>

@@ -132,7 +132,9 @@ class _$_TeamListDto extends _TeamListDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamListDtoToJson(this);
+    return _$$_TeamListDtoToJson(
+      this,
+    );
   }
 }
 
@@ -145,7 +147,7 @@ abstract class _TeamListDto extends TeamListDto {
       _$_TeamListDto.fromJson;
 
   @override
-  List<TeamDto> get list => throw _privateConstructorUsedError;
+  List<TeamDto> get list;
   @override
   @JsonKey(ignore: true)
   _$$_TeamListDtoCopyWith<_$_TeamListDto> get copyWith =>
@@ -276,7 +278,9 @@ class _$_TeamDto extends _TeamDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamDtoToJson(this);
+    return _$$_TeamDtoToJson(
+      this,
+    );
   }
 }
 
@@ -289,9 +293,9 @@ abstract class _TeamDto extends TeamDto {
   factory _TeamDto.fromJson(Map<String, dynamic> json) = _$_TeamDto.fromJson;
 
   @override
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get teamName => throw _privateConstructorUsedError;
+  String get teamName;
   @override
   @JsonKey(ignore: true)
   _$$_TeamDtoCopyWith<_$_TeamDto> get copyWith =>

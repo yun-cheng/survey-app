@@ -186,13 +186,13 @@ abstract class _Warning extends Warning {
   const _Warning._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  WarningType get type => throw _privateConstructorUsedError;
+  WarningType get type;
   @override
   @JsonKey(ignore: true)
   _$$_WarningCopyWith<_$_Warning> get copyWith =>

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -6,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
@@ -13,21 +15,23 @@ import '../../../domain/audio/audio_recorder/i_audio_recorder.dart';
 import '../../../domain/audio/i_audio_repository.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/response.dart';
-import '../../core/path_provider.dart';
+import '../../core/isolate_worker.dart';
+import '../../core/my_path_provider.dart';
 
 @Injectable(as: IAudioRecorder)
 class AudioRecorder implements IAudioRecorder {
+  final MyPathProvider _pathProvider;
+  final IsolateWorker _isolateWorker;
   final IAudioRepository _audioRepo;
+
+  final _completer = Completer();
+  @override
+  Future<void> get ready =>
+      _completer.isCompleted ? Future.value() : _completer.future;
 
   final FlutterSoundRecorder _recorder = FlutterSoundRecorder(
     logLevel: Level.warning,
   );
-
-  final _appDirPath = MyPathProvider.appDirPath;
-  final _tempDirPath = MyPathProvider.tempDirPath;
-  String get _audioDirPath => '$_appDirPath/audio/';
-  final _backupDirPath = MyPathProvider.backupDirPath;
-  String get _backupPath => '$_backupDirPath/audio/';
 
   Audio? _audio;
 
@@ -38,8 +42,20 @@ class AudioRecorder implements IAudioRecorder {
   Stream<double> get dbStream => _recorder.onProgress!.map((e) => e.decibels!);
 
   AudioRecorder(
+    this._pathProvider,
+    this._isolateWorker,
     this._audioRepo,
-  );
+  ) {
+    initialize();
+  }
+
+  Future<void> initialize() async {
+    await _pathProvider.ready;
+    await _isolateWorker.ready;
+    await _audioRepo.ready;
+
+    _completer.complete();
+  }
 
   @override
   Future<bool> checkPermission() async {
@@ -62,6 +78,8 @@ class AudioRecorder implements IAudioRecorder {
       }
 
       if (_recorder.isRecording) return;
+
+      logger('Status').e('startRecording');
 
       _audio = Audio.fromResponse(response);
 
@@ -88,12 +106,22 @@ class AudioRecorder implements IAudioRecorder {
     try {
       if (!_recorder.isRecording) return;
 
+      logger('Status').e('stopRecording');
+
       // - 先存 audio，避免停止後立即開始錄音會覆蓋
       final audio = _audio!;
 
       await _recorder.stopRecorder();
       await _recorder.closeRecorder();
-      await moveAudio(audio);
+      await _isolateWorker.compute(
+        moveAudio,
+        Tuple4(
+          audio,
+          _pathProvider.appDirPath,
+          _pathProvider.tempDirPath,
+          _pathProvider.backupDirPath,
+        ),
+      );
       _audioRepo.addAudio(audio);
     } catch (e) {
       logger('Error').e('StopRecording Error!');
@@ -101,45 +129,53 @@ class AudioRecorder implements IAudioRecorder {
       _failureStream.add(AudioFailure.unexpected());
     }
   }
+}
 
-  Future<void> moveAudio(
-    Audio audio,
-  ) async {
-    try {
-      if (!await Directory(_audioDirPath).exists()) {
-        await Directory(_audioDirPath).create();
-      }
+Future<void> moveAudio(
+  Tuple4<Audio, String, String, String> tuple,
+) async {
+  final audio = tuple.item1;
+  final appDirPath = tuple.item2;
+  final tempDirPath = tuple.item3;
+  final backupDirPath = tuple.item4;
 
-      final surveyAudioDirPath = '$_audioDirPath/${audio.surveyId}/';
-      if (!await Directory(surveyAudioDirPath).exists()) {
-        await Directory(surveyAudioDirPath).create();
-      }
+  final audioDirPath = '$appDirPath/audio/';
+  final backupPath = '$backupDirPath/audio/';
 
-      // - 移動檔案
-      final filePath = '$surveyAudioDirPath/${audio.fileName}';
-      final tempFilePath = '$_tempDirPath/${audio.tempFileName}';
-      if (!await File(filePath).exists() && !kIsWeb) {
-        await File(tempFilePath).rename(filePath);
-      }
-
-      // > 備份路徑
-      if (!await Directory(_backupPath).exists()) {
-        await Directory(_backupPath).create();
-      }
-
-      final backupSurveyAudioDirPath = '$_backupPath/${audio.surveyId}/';
-      if (!await Directory(backupSurveyAudioDirPath).exists()) {
-        await Directory(backupSurveyAudioDirPath).create();
-      }
-
-      // - 備份檔案
-      final backupFilePath = '$backupSurveyAudioDirPath/${audio.fileName}';
-      if (!await File(backupFilePath).exists() && !kIsWeb) {
-        await File(filePath).copy(backupFilePath);
-      }
-    } catch (e) {
-      logger('Error').e('MoveAudio Error!');
-      logger('Error').e(e);
+  try {
+    if (!await Directory(audioDirPath).exists()) {
+      await Directory(audioDirPath).create();
     }
+
+    final surveyAudioDirPath = '$audioDirPath/${audio.surveyId}/';
+    if (!await Directory(surveyAudioDirPath).exists()) {
+      await Directory(surveyAudioDirPath).create();
+    }
+
+    // - 移動檔案
+    final filePath = '$surveyAudioDirPath/${audio.fileName}';
+    final tempFilePath = '$tempDirPath/${audio.tempFileName}';
+    if (!await File(filePath).exists() && !kIsWeb) {
+      await File(tempFilePath).rename(filePath);
+    }
+
+    // > 備份路徑
+    if (!await Directory(backupPath).exists()) {
+      await Directory(backupPath).create();
+    }
+
+    final backupSurveyAudioDirPath = '$backupPath/${audio.surveyId}/';
+    if (!await Directory(backupSurveyAudioDirPath).exists()) {
+      await Directory(backupSurveyAudioDirPath).create();
+    }
+
+    // - 備份檔案
+    final backupFilePath = '$backupSurveyAudioDirPath/${audio.fileName}';
+    if (!await File(backupFilePath).exists() && !kIsWeb) {
+      await File(filePath).copy(backupFilePath);
+    }
+  } catch (e) {
+    logger('Error').e('MoveAudio Error!');
+    logger('Error').e(e);
   }
 }

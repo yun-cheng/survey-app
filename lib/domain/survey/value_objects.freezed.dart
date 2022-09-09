@@ -121,7 +121,7 @@ abstract class _FormatType extends FormatType {
   const _FormatType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_FormatTypeCopyWith<_$_FormatType> get copyWith =>
@@ -236,7 +236,7 @@ abstract class _QuestionType extends QuestionType {
   const _QuestionType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionTypeCopyWith<_$_QuestionType> get copyWith =>
@@ -350,7 +350,7 @@ abstract class _AnswerType extends AnswerType {
   const _AnswerType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerTypeCopyWith<_$_AnswerType> get copyWith =>
@@ -466,7 +466,7 @@ abstract class _AnswerStatusType extends AnswerStatusType {
   const _AnswerStatusType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerStatusTypeCopyWith<_$_AnswerStatusType> get copyWith =>
@@ -580,7 +580,7 @@ abstract class _WarningType extends WarningType {
   const _WarningType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_WarningTypeCopyWith<_$_WarningType> get copyWith =>
@@ -692,7 +692,7 @@ abstract class _Operator extends Operator {
   const _Operator._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_OperatorCopyWith<_$_Operator> get copyWith =>
@@ -806,7 +806,7 @@ abstract class _ModuleType extends ModuleType {
   const _ModuleType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_ModuleTypeCopyWith<_$_ModuleType> get copyWith =>
@@ -922,7 +922,7 @@ abstract class _ResponseStatus extends ResponseStatus {
   const _ResponseStatus._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseStatusCopyWith<_$_ResponseStatus> get copyWith =>
@@ -1038,7 +1038,7 @@ abstract class _DeviceTimeStamp extends DeviceTimeStamp {
   const _DeviceTimeStamp._() : super._();
 
   @override
-  DateTime get value => throw _privateConstructorUsedError;
+  DateTime get value;
   @override
   @JsonKey(ignore: true)
   _$$_DeviceTimeStampCopyWith<_$_DeviceTimeStamp> get copyWith =>

@@ -8,12 +8,11 @@ import 'typedefs.dart';
 abstract class ISurveyRepository {
   Future<void> get ready;
 
-  ProjectMap get projectMap;
   Survey? get survey;
-  Survey? get simpleSurvey;
+  ProjectMap get projectMap;
 
-  Stream<Survey?> get surveyStream;
-  Stream<SurveyMap> get simpleSurveyMapStream;
+  Stream<String?> get surveyIdStream;
+  Stream<SurveyMap> get surveyMapStream;
   Stream<SurveyFailure> get failureStream;
 
   Future<void> watchRemoteSurveyMap({

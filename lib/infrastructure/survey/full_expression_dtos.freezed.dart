@@ -158,7 +158,9 @@ class _$_FullExpressionDto extends _FullExpressionDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FullExpressionDtoToJson(this);
+    return _$$_FullExpressionDtoToJson(
+      this,
+    );
   }
 }
 
@@ -173,10 +175,9 @@ abstract class _FullExpressionDto extends FullExpressionDto {
       _$_FullExpressionDto.fromJson;
 
   @override
-  String get fullExpressionBody => throw _privateConstructorUsedError;
+  String get fullExpressionBody;
   @override
-  Map<String, ExpressionDto> get expressionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, ExpressionDto> get expressionMap;
   @override
   @JsonKey(ignore: true)
   _$$_FullExpressionDtoCopyWith<_$_FullExpressionDto> get copyWith =>
@@ -345,7 +346,9 @@ class _$_ExpressionDto extends _ExpressionDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ExpressionDtoToJson(this);
+    return _$$_ExpressionDtoToJson(
+      this,
+    );
   }
 }
 
@@ -360,11 +363,11 @@ abstract class _ExpressionDto extends ExpressionDto {
       _$_ExpressionDto.fromJson;
 
   @override
-  String get field => throw _privateConstructorUsedError;
+  String get field;
   @override
-  String get operator => throw _privateConstructorUsedError;
+  String get operator;
   @override
-  AnswerDto get comparisonValue => throw _privateConstructorUsedError;
+  AnswerDto get comparisonValue;
   @override
   @JsonKey(ignore: true)
   _$$_ExpressionDtoCopyWith<_$_ExpressionDto> get copyWith =>

@@ -152,10 +152,9 @@ abstract class _FullExpression extends FullExpression {
   const _FullExpression._() : super._();
 
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
-  Map<String, Expression> get expressionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Expression> get expressionMap;
   @override
   @JsonKey(ignore: true)
   _$$_FullExpressionCopyWith<_$_FullExpression> get copyWith =>

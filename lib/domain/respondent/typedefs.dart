@@ -11,7 +11,6 @@ typedef TabRespondentMap = Map<TabType, Map<String, Respondent>>;
 typedef TabCountMap = Map<TabType, int>;
 typedef TabGroupMap = Map<TabType, Map<int, String>>;
 typedef TabGroupedRespondentList = Map<TabType, Map<String, List<Respondent>>>;
-typedef VisitRecordList = List<VisitRecord>;
-typedef VisitRecordLMap = Map<String, VisitRecordList>;
+typedef VisitRecordsMap = Map<String, Map<String, VisitRecord>>;
 
 class TypeDefRespondent {}

@@ -6,7 +6,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,8 +16,8 @@ dependencies:
   # > essential
   path_provider: ^2.0.10
   path: ^1.8.1
-  json_annotation: ^4.5.0
-  freezed_annotation: ^2.0.3
+  json_annotation: ^4.6.0
+  freezed_annotation: ^2.1.0
   uuid: ^3.0.6
   collection: ^1.16.0
   supercharged: ^2.1.1
@@ -33,10 +33,8 @@ dependencies:
   # flutter_bloc_devtools:
   #   path: ../clones/flutter_bloc_devtools
   # > database
-  hive: ^2.2.1
-  hive_flutter: ^1.1.0
-  # isar: ^2.5.0
-  synchronized: ^3.0.0+2
+  isar: ^3.0.0-dev.2
+  isar_flutter_libs: ^3.0.0-dev.2
   # > firebase
   firebase_core: ^1.17.1
   cloud_firestore: ^3.1.17
@@ -71,18 +69,24 @@ dependencies:
   rxdart: ^0.27.3
   expression_language: ^1.0.1
   async_task: ^1.0.18
+  flutter_isolate:
+    git:
+      url: https://github.com/srmanc/flutter_isolate.git
+      ref: flutter_3_fix
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   # > essential
-  json_serializable: ^6.2.0
-  freezed: ^2.0.3+1
+  json_serializable: ^6.3.1
+  freezed: ^2.1.0+1
   # > get_it
   injectable_generator: ^1.5.3
   # > lint
   flutter_lints: ^1.0.4
+  # > database
+  isar_generator: ^3.0.0-dev.2
 
 flutter:
   uses-material-design: true

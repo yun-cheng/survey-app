@@ -5,6 +5,7 @@ import 'package:supercharged/supercharged.dart';
 import '../../../domain/survey/comment/typedefs.dart';
 import '../../core/extensions.dart';
 import 'response_comments_dtos.dart';
+import 'response_comments_isar.dart';
 
 part 'response_comments_map_dtos.freezed.dart';
 part 'response_comments_map_dtos.g.dart';
@@ -27,6 +28,10 @@ class ResponseCommentsMapDto with _$ResponseCommentsMapDto {
     return map.mapValues((e) => e.toDomain());
   }
 
+  List<ResponseCommentsIsar> toIsar() {
+    return map.mapEntries((k, v) => v.toIsar()).toList();
+  }
+
   factory ResponseCommentsMapDto.fromJson(Map<String, dynamic> json) =>
       _$ResponseCommentsMapDtoFromJson(json);
 
@@ -47,15 +52,8 @@ class ResponseCommentsMapDto with _$ResponseCommentsMapDto {
     return ResponseCommentsMapDto(map: map);
   }
 
-  static ResponseCommentsMap firestoreToDomain(
+  static List<ResponseCommentsIsar> firestoreToIsar(
     List<QueryDocumentSnapshot<Object?>> docs,
   ) =>
-      ResponseCommentsMapDto.fromFirestore(docs).toDomain();
-
-  static Map<String, dynamic> domainToJson(ResponseCommentsMap domain) =>
-      ResponseCommentsMapDto.fromDomain(domain).toJson()['map']
-          as Map<String, dynamic>;
-
-  static ResponseCommentsMap jsonToDomain(Map<String, dynamic> json) =>
-      ResponseCommentsMapDto.fromJson({'map': json}).toDomain();
+      ResponseCommentsMapDto.fromFirestore(docs).toIsar();
 }

@@ -36,10 +36,4 @@ class RespondentDto with _$RespondentDto {
 
   factory RespondentDto.fromJson(Map<String, dynamic> json) =>
       _$RespondentDtoFromJson(json);
-
-  static Map<String, dynamic> domainToJson(Respondent domain) =>
-      RespondentDto.fromDomain(domain).toJson();
-
-  static Respondent jsonToDomain(Map<String, dynamic> json) =>
-      RespondentDto.fromJson(json).toDomain();
 }

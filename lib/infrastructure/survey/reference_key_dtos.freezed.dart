@@ -165,7 +165,9 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReferenceKeyDtoToJson(this);
+    return _$$_ReferenceKeyDtoToJson(
+      this,
+    );
   }
 }
 
@@ -180,11 +182,11 @@ abstract class _ReferenceKeyDto extends ReferenceKeyDto {
       _$_ReferenceKeyDto.fromJson;
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
   @JsonKey(ignore: true)
   _$$_ReferenceKeyDtoCopyWith<_$_ReferenceKeyDto> get copyWith =>

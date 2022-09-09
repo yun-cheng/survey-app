@@ -425,7 +425,7 @@ abstract class _StateEmitted extends RespondentEvent {
   const factory _StateEmitted(final RespondentState state) = _$_StateEmitted;
   const _StateEmitted._() : super._();
 
-  RespondentState get state => throw _privateConstructorUsedError;
+  RespondentState get state;
   @JsonKey(ignore: true)
   _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -747,7 +747,7 @@ abstract class _TabSwitched extends RespondentEvent {
   const factory _TabSwitched({required final TabType tab}) = _$_TabSwitched;
   const _TabSwitched._() : super._();
 
-  TabType get tab => throw _privateConstructorUsedError;
+  TabType get tab;
   @JsonKey(ignore: true)
   _$$_TabSwitchedCopyWith<_$_TabSwitched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -919,7 +919,7 @@ abstract class _GroupSelected extends RespondentEvent {
       _$_GroupSelected;
   const _GroupSelected._() : super._();
 
-  String get group => throw _privateConstructorUsedError;
+  String get group;
   @JsonKey(ignore: true)
   _$$_GroupSelectedCopyWith<_$_GroupSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1102,7 +1102,7 @@ abstract class _RespondentSelected extends RespondentEvent {
       _$_RespondentSelected;
   const _RespondentSelected._() : super._();
 
-  Respondent get respondent => throw _privateConstructorUsedError;
+  Respondent get respondent;
   @JsonKey(ignore: true)
   _$$_RespondentSelectedCopyWith<_$_RespondentSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1273,7 +1273,7 @@ abstract class _TextSearched extends RespondentEvent {
   const factory _TextSearched({required final String text}) = _$_TextSearched;
   const _TextSearched._() : super._();
 
-  String get text => throw _privateConstructorUsedError;
+  String get text;
   @JsonKey(ignore: true)
   _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1445,7 +1445,7 @@ abstract class _PageScrolled extends RespondentEvent {
   const factory _PageScrolled(final double scrollOffset) = _$_PageScrolled;
   const _PageScrolled._() : super._();
 
-  double get scrollOffset => throw _privateConstructorUsedError;
+  double get scrollOffset;
   @JsonKey(ignore: true)
   _$$_PageScrolledCopyWith<_$_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1468,7 +1468,7 @@ mixin _$RespondentState {
   Map<String, Map<ModuleType, ResponseStatus>> get respondentProgressMap =>
       throw _privateConstructorUsedError; // >> visitRecord
 // ? VisitRecords or VisitReports
-  Map<String, List<VisitRecord>> get visitRecordLMap =>
+  Map<String, Map<String, VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
   Map<String, String> get visitRecordMap =>
       throw _privateConstructorUsedError; // >> tab
@@ -1505,7 +1505,7 @@ abstract class $RespondentStateCopyWith<$Res> {
       Map<String, bool> subsetRespondentMap,
       Map<String, Housing> housingMap,
       Map<String, Map<ModuleType, ResponseStatus>> respondentProgressMap,
-      Map<String, List<VisitRecord>> visitRecordLMap,
+      Map<String, Map<String, VisitRecord>> visitRecordsMap,
       Map<String, String> visitRecordMap,
       Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
       Map<TabType, int> tabCountMap,
@@ -1542,7 +1542,7 @@ class _$RespondentStateCopyWithImpl<$Res>
     Object? subsetRespondentMap = freezed,
     Object? housingMap = freezed,
     Object? respondentProgressMap = freezed,
-    Object? visitRecordLMap = freezed,
+    Object? visitRecordsMap = freezed,
     Object? visitRecordMap = freezed,
     Object? tabGroupedRespondentList = freezed,
     Object? tabCountMap = freezed,
@@ -1594,10 +1594,10 @@ class _$RespondentStateCopyWithImpl<$Res>
           ? _value.respondentProgressMap
           : respondentProgressMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Map<ModuleType, ResponseStatus>>,
-      visitRecordLMap: visitRecordLMap == freezed
-          ? _value.visitRecordLMap
-          : visitRecordLMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<VisitRecord>>,
+      visitRecordsMap: visitRecordsMap == freezed
+          ? _value.visitRecordsMap
+          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<String, VisitRecord>>,
       visitRecordMap: visitRecordMap == freezed
           ? _value.visitRecordMap
           : visitRecordMap // ignore: cast_nullable_to_non_nullable
@@ -1677,7 +1677,7 @@ abstract class _$$_RespondentStateCopyWith<$Res>
       Map<String, bool> subsetRespondentMap,
       Map<String, Housing> housingMap,
       Map<String, Map<ModuleType, ResponseStatus>> respondentProgressMap,
-      Map<String, List<VisitRecord>> visitRecordLMap,
+      Map<String, Map<String, VisitRecord>> visitRecordsMap,
       Map<String, String> visitRecordMap,
       Map<TabType, Map<String, List<Respondent>>> tabGroupedRespondentList,
       Map<TabType, int> tabCountMap,
@@ -1719,7 +1719,7 @@ class __$$_RespondentStateCopyWithImpl<$Res>
     Object? subsetRespondentMap = freezed,
     Object? housingMap = freezed,
     Object? respondentProgressMap = freezed,
-    Object? visitRecordLMap = freezed,
+    Object? visitRecordsMap = freezed,
     Object? visitRecordMap = freezed,
     Object? tabGroupedRespondentList = freezed,
     Object? tabCountMap = freezed,
@@ -1771,10 +1771,10 @@ class __$$_RespondentStateCopyWithImpl<$Res>
           ? _value._respondentProgressMap
           : respondentProgressMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Map<ModuleType, ResponseStatus>>,
-      visitRecordLMap: visitRecordLMap == freezed
-          ? _value._visitRecordLMap
-          : visitRecordLMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<VisitRecord>>,
+      visitRecordsMap: visitRecordsMap == freezed
+          ? _value._visitRecordsMap
+          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<String, VisitRecord>>,
       visitRecordMap: visitRecordMap == freezed
           ? _value._visitRecordMap
           : visitRecordMap // ignore: cast_nullable_to_non_nullable
@@ -1830,7 +1830,7 @@ class _$_RespondentState extends _RespondentState {
       required final Map<String, Housing> housingMap,
       required final Map<String, Map<ModuleType, ResponseStatus>>
           respondentProgressMap,
-      required final Map<String, List<VisitRecord>> visitRecordLMap,
+      required final Map<String, Map<String, VisitRecord>> visitRecordsMap,
       required final Map<String, String> visitRecordMap,
       required final Map<TabType, Map<String, List<Respondent>>>
           tabGroupedRespondentList,
@@ -1846,7 +1846,7 @@ class _$_RespondentState extends _RespondentState {
         _subsetRespondentMap = subsetRespondentMap,
         _housingMap = housingMap,
         _respondentProgressMap = respondentProgressMap,
-        _visitRecordLMap = visitRecordLMap,
+        _visitRecordsMap = visitRecordsMap,
         _visitRecordMap = visitRecordMap,
         _tabGroupedRespondentList = tabGroupedRespondentList,
         _tabCountMap = tabCountMap,
@@ -1904,13 +1904,13 @@ class _$_RespondentState extends _RespondentState {
 
 // >> visitRecord
 // ? VisitRecords or VisitReports
-  final Map<String, List<VisitRecord>> _visitRecordLMap;
+  final Map<String, Map<String, VisitRecord>> _visitRecordsMap;
 // >> visitRecord
 // ? VisitRecords or VisitReports
   @override
-  Map<String, List<VisitRecord>> get visitRecordLMap {
+  Map<String, Map<String, VisitRecord>> get visitRecordsMap {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_visitRecordLMap);
+    return EqualUnmodifiableMapView(_visitRecordsMap);
   }
 
   final Map<String, String> _visitRecordMap;
@@ -1953,7 +1953,7 @@ class _$_RespondentState extends _RespondentState {
 
   @override
   String toString() {
-    return 'RespondentState(stateId: $stateId, respondent: $respondent, currentTab: $currentTab, selectedGroup: $selectedGroup, searchText: $searchText, tabScrollOffset: $tabScrollOffset, groupList: $groupList, subsetRespondentMap: $subsetRespondentMap, housingMap: $housingMap, respondentProgressMap: $respondentProgressMap, visitRecordLMap: $visitRecordLMap, visitRecordMap: $visitRecordMap, tabGroupedRespondentList: $tabGroupedRespondentList, tabCountMap: $tabCountMap, respondentFailure: $respondentFailure, updateRespondents: $updateRespondents, updateTab: $updateTab, updateVisitRecord: $updateVisitRecord, updateHousing: $updateHousing, updateSubset: $updateSubset)';
+    return 'RespondentState(stateId: $stateId, respondent: $respondent, currentTab: $currentTab, selectedGroup: $selectedGroup, searchText: $searchText, tabScrollOffset: $tabScrollOffset, groupList: $groupList, subsetRespondentMap: $subsetRespondentMap, housingMap: $housingMap, respondentProgressMap: $respondentProgressMap, visitRecordsMap: $visitRecordsMap, visitRecordMap: $visitRecordMap, tabGroupedRespondentList: $tabGroupedRespondentList, tabCountMap: $tabCountMap, respondentFailure: $respondentFailure, updateRespondents: $updateRespondents, updateTab: $updateTab, updateVisitRecord: $updateVisitRecord, updateHousing: $updateHousing, updateSubset: $updateSubset)';
   }
 
   @override
@@ -1981,7 +1981,7 @@ class _$_RespondentState extends _RespondentState {
             const DeepCollectionEquality()
                 .equals(other._respondentProgressMap, _respondentProgressMap) &&
             const DeepCollectionEquality()
-                .equals(other._visitRecordLMap, _visitRecordLMap) &&
+                .equals(other._visitRecordsMap, _visitRecordsMap) &&
             const DeepCollectionEquality()
                 .equals(other._visitRecordMap, _visitRecordMap) &&
             const DeepCollectionEquality().equals(
@@ -2014,7 +2014,7 @@ class _$_RespondentState extends _RespondentState {
         const DeepCollectionEquality().hash(_subsetRespondentMap),
         const DeepCollectionEquality().hash(_housingMap),
         const DeepCollectionEquality().hash(_respondentProgressMap),
-        const DeepCollectionEquality().hash(_visitRecordLMap),
+        const DeepCollectionEquality().hash(_visitRecordsMap),
         const DeepCollectionEquality().hash(_visitRecordMap),
         const DeepCollectionEquality().hash(_tabGroupedRespondentList),
         const DeepCollectionEquality().hash(_tabCountMap),
@@ -2045,7 +2045,7 @@ abstract class _RespondentState extends RespondentState {
       required final Map<String, Housing> housingMap,
       required final Map<String, Map<ModuleType, ResponseStatus>>
           respondentProgressMap,
-      required final Map<String, List<VisitRecord>> visitRecordLMap,
+      required final Map<String, Map<String, VisitRecord>> visitRecordsMap,
       required final Map<String, String> visitRecordMap,
       required final Map<TabType, Map<String, List<Respondent>>>
           tabGroupedRespondentList,
@@ -2059,52 +2059,46 @@ abstract class _RespondentState extends RespondentState {
   const _RespondentState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // > 主要資料
-  Respondent get respondent => throw _privateConstructorUsedError;
+  Respondent get respondent;
   @override
-  TabType get currentTab => throw _privateConstructorUsedError;
+  TabType get currentTab;
   @override
-  String get selectedGroup => throw _privateConstructorUsedError;
+  String get selectedGroup;
   @override
-  String get searchText => throw _privateConstructorUsedError;
+  String get searchText;
   @override
-  Map<TabType, double> get tabScrollOffset =>
-      throw _privateConstructorUsedError;
+  Map<TabType, double> get tabScrollOffset;
   @override // > 中間資料
-  List<String> get groupList => throw _privateConstructorUsedError;
+  List<String> get groupList;
   @override // FIXME 改 Set<String>?
-  Map<String, bool> get subsetRespondentMap =>
-      throw _privateConstructorUsedError;
+  Map<String, bool> get subsetRespondentMap;
   @override
-  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
+  Map<String, Housing> get housingMap;
   @override
-  Map<String, Map<ModuleType, ResponseStatus>> get respondentProgressMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Map<ModuleType, ResponseStatus>> get respondentProgressMap;
   @override // >> visitRecord
 // ? VisitRecords or VisitReports
-  Map<String, List<VisitRecord>> get visitRecordLMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Map<String, VisitRecord>> get visitRecordsMap;
   @override
-  Map<String, String> get visitRecordMap => throw _privateConstructorUsedError;
+  Map<String, String> get visitRecordMap;
   @override // >> tab
-  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList =>
-      throw _privateConstructorUsedError;
+  Map<TabType, Map<String, List<Respondent>>> get tabGroupedRespondentList;
   @override
-  Map<TabType, int> get tabCountMap => throw _privateConstructorUsedError;
+  Map<TabType, int> get tabCountMap;
   @override // > 狀態更新進度
-  Option<RespondentFailure> get respondentFailure =>
-      throw _privateConstructorUsedError;
+  Option<RespondentFailure> get respondentFailure;
   @override // > 是否更新參數
-  bool get updateRespondents => throw _privateConstructorUsedError;
+  bool get updateRespondents;
   @override
-  bool get updateTab => throw _privateConstructorUsedError;
+  bool get updateTab;
   @override
-  bool get updateVisitRecord => throw _privateConstructorUsedError;
+  bool get updateVisitRecord;
   @override
-  bool get updateHousing => throw _privateConstructorUsedError;
+  bool get updateHousing;
   @override
-  bool get updateSubset => throw _privateConstructorUsedError;
+  bool get updateSubset;
   @override
   @JsonKey(ignore: true)
   _$$_RespondentStateCopyWith<_$_RespondentState> get copyWith =>

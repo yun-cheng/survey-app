@@ -4,7 +4,10 @@ import 'package:supercharged/supercharged.dart';
 
 import '../../domain/core/value_objects.dart';
 import '../../domain/response/typedefs.dart';
+import '../core/extensions.dart';
 import 'response_dtos.dart';
+import 'response_info_isar.dart';
+import 'response_isar.dart';
 
 part 'response_map_dtos.freezed.dart';
 part 'response_map_dtos.g.dart';
@@ -29,6 +32,36 @@ class ResponseMapDto with _$ResponseMapDto {
     return map.map((k, v) => MapEntry(UniqueId(k), v.toDomain()));
   }
 
+  factory ResponseMapDto.fromInfoIsar(List<ResponseInfoIsar> list) {
+    return ResponseMapDto(
+      map: list
+          .map((e) => MapEntry(
+                e.responseId,
+                ResponseDto.fromInfoIsar(e),
+              ))
+          .toMap(),
+    );
+  }
+
+  factory ResponseMapDto.fromIsar(List<ResponseIsar> list) {
+    return ResponseMapDto(
+      map: list
+          .map((e) => MapEntry(
+                e.responseId,
+                ResponseDto.fromIsar(e),
+              ))
+          .toMap(),
+    );
+  }
+
+  List<ResponseInfoIsar> toInfoIsar() {
+    return map.mapEntries((k, v) => v.toInfoIsar()).toList();
+  }
+
+  List<ResponseIsar> toIsar() {
+    return map.mapEntries((k, v) => v.toIsar()).toList();
+  }
+
   factory ResponseMapDto.fromJson(Map<String, dynamic> json) =>
       _$ResponseMapDtoFromJson(json);
 
@@ -49,14 +82,8 @@ class ResponseMapDto with _$ResponseMapDto {
     return ResponseMapDto(map: map);
   }
 
-  static ResponseMap firestoreToDomain(
+  static List<ResponseIsar> firestoreToIsar(
     List<QueryDocumentSnapshot<Object?>> docs,
   ) =>
-      ResponseMapDto.fromFirestore(docs).toDomain();
-
-  static Map<String, dynamic> domainToJson(ResponseMap domain) =>
-      ResponseMapDto.fromDomain(domain).toJson()['map'] as Map<String, dynamic>;
-
-  static ResponseMap jsonToDomain(Map<String, dynamic> json) =>
-      ResponseMapDto.fromJson({'map': json}).toDomain();
+      ResponseMapDto.fromFirestore(docs).toIsar();
 }

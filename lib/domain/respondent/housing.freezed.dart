@@ -19,6 +19,8 @@ mixin _$Housing {
   String get respondentId => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get usage => throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastChangedTimeStamp =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HousingCopyWith<Housing> get copyWith => throw _privateConstructorUsedError;
@@ -28,7 +30,13 @@ mixin _$Housing {
 abstract class $HousingCopyWith<$Res> {
   factory $HousingCopyWith(Housing value, $Res Function(Housing) then) =
       _$HousingCopyWithImpl<$Res>;
-  $Res call({String respondentId, String type, String usage});
+  $Res call(
+      {String respondentId,
+      String type,
+      String usage,
+      DeviceTimeStamp lastChangedTimeStamp});
+
+  $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp;
 }
 
 /// @nodoc
@@ -44,6 +52,7 @@ class _$HousingCopyWithImpl<$Res> implements $HousingCopyWith<$Res> {
     Object? respondentId = freezed,
     Object? type = freezed,
     Object? usage = freezed,
+    Object? lastChangedTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
       respondentId: respondentId == freezed
@@ -58,7 +67,18 @@ class _$HousingCopyWithImpl<$Res> implements $HousingCopyWith<$Res> {
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
               as String,
+      lastChangedTimeStamp: lastChangedTimeStamp == freezed
+          ? _value.lastChangedTimeStamp
+          : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as DeviceTimeStamp,
     ));
+  }
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp {
+    return $DeviceTimeStampCopyWith<$Res>(_value.lastChangedTimeStamp, (value) {
+      return _then(_value.copyWith(lastChangedTimeStamp: value));
+    });
   }
 }
 
@@ -68,7 +88,14 @@ abstract class _$$_HousingCopyWith<$Res> implements $HousingCopyWith<$Res> {
           _$_Housing value, $Res Function(_$_Housing) then) =
       __$$_HousingCopyWithImpl<$Res>;
   @override
-  $Res call({String respondentId, String type, String usage});
+  $Res call(
+      {String respondentId,
+      String type,
+      String usage,
+      DeviceTimeStamp lastChangedTimeStamp});
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp;
 }
 
 /// @nodoc
@@ -85,6 +112,7 @@ class __$$_HousingCopyWithImpl<$Res> extends _$HousingCopyWithImpl<$Res>
     Object? respondentId = freezed,
     Object? type = freezed,
     Object? usage = freezed,
+    Object? lastChangedTimeStamp = freezed,
   }) {
     return _then(_$_Housing(
       respondentId: respondentId == freezed
@@ -99,6 +127,10 @@ class __$$_HousingCopyWithImpl<$Res> extends _$HousingCopyWithImpl<$Res>
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
               as String,
+      lastChangedTimeStamp: lastChangedTimeStamp == freezed
+          ? _value.lastChangedTimeStamp
+          : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as DeviceTimeStamp,
     ));
   }
 }
@@ -107,7 +139,10 @@ class __$$_HousingCopyWithImpl<$Res> extends _$HousingCopyWithImpl<$Res>
 
 class _$_Housing extends _Housing {
   const _$_Housing(
-      {required this.respondentId, required this.type, required this.usage})
+      {required this.respondentId,
+      required this.type,
+      required this.usage,
+      required this.lastChangedTimeStamp})
       : super._();
 
   @override
@@ -116,10 +151,12 @@ class _$_Housing extends _Housing {
   final String type;
   @override
   final String usage;
+  @override
+  final DeviceTimeStamp lastChangedTimeStamp;
 
   @override
   String toString() {
-    return 'Housing(respondentId: $respondentId, type: $type, usage: $usage)';
+    return 'Housing(respondentId: $respondentId, type: $type, usage: $usage, lastChangedTimeStamp: $lastChangedTimeStamp)';
   }
 
   @override
@@ -130,7 +167,9 @@ class _$_Housing extends _Housing {
             const DeepCollectionEquality()
                 .equals(other.respondentId, respondentId) &&
             const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.usage, usage));
+            const DeepCollectionEquality().equals(other.usage, usage) &&
+            const DeepCollectionEquality()
+                .equals(other.lastChangedTimeStamp, lastChangedTimeStamp));
   }
 
   @override
@@ -138,7 +177,8 @@ class _$_Housing extends _Housing {
       runtimeType,
       const DeepCollectionEquality().hash(respondentId),
       const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(usage));
+      const DeepCollectionEquality().hash(usage),
+      const DeepCollectionEquality().hash(lastChangedTimeStamp));
 
   @JsonKey(ignore: true)
   @override
@@ -150,15 +190,18 @@ abstract class _Housing extends Housing {
   const factory _Housing(
       {required final String respondentId,
       required final String type,
-      required final String usage}) = _$_Housing;
+      required final String usage,
+      required final DeviceTimeStamp lastChangedTimeStamp}) = _$_Housing;
   const _Housing._() : super._();
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @override
-  String get usage => throw _privateConstructorUsedError;
+  String get usage;
+  @override
+  DeviceTimeStamp get lastChangedTimeStamp;
   @override
   @JsonKey(ignore: true)
   _$$_HousingCopyWith<_$_Housing> get copyWith =>

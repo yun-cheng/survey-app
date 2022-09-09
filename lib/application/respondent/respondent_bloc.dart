@@ -11,7 +11,6 @@ import 'package:tuple/tuple.dart';
 
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
-import '../../domain/overview/survey.dart';
 import '../../domain/respondent/housing.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent.dart';
@@ -29,6 +28,7 @@ import '../../domain/survey/question.dart';
 import '../../domain/survey/value_objects.dart';
 import '../../infrastructure/core/extensions.dart';
 import '../../infrastructure/core/isolate_worker.dart';
+import '../../infrastructure/core/local_storage.dart';
 
 part 'helpers/helpers.dart';
 part 'helpers/update_housing_map.dart';
@@ -44,10 +44,8 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
   final IResponseRepository _responseRepo;
   final IsolateWorker _isolateWorker;
 
-  CombineLatestStream<
-      dynamic,
-      Tuple4<Survey?, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
-          RespondentState>>? _stream;
+  CombineLatestStream<dynamic,
+      Tuple4<String?, RespondentMap, List<String>, RespondentState>>? _stream;
   StreamSubscription? _subscription;
 
   RespondentBloc(
@@ -80,15 +78,15 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
       watchReposStarted: (e) async {
         await _subscription?.cancel();
         _stream = CombineLatestStream.combine3(
-          _surveyRepo.surveyStream,
+          _surveyRepo.surveyIdStream,
           _respondentRepo.respondentMapStream,
-          _responseRepo.responseMapStream,
+          _responseRepo.updatedResponseIdListStream,
           (
-            Survey? survey,
+            String? surveyId,
             RespondentMap respondentMap,
-            Tuple2<ResponseMap, UniqueId?> responseMap,
+            List<String> updatedResponseIdList,
           ) =>
-              Tuple4(survey, respondentMap, responseMap, state),
+              Tuple4(surveyId, respondentMap, updatedResponseIdList, state),
         );
         _subscription = _stream!.listen(_onReposData);
       },
@@ -166,9 +164,7 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
   }
 
   Future<void> _onReposData(
-    Tuple4<Survey?, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
-            RespondentState>
-        tuple,
+    Tuple4<String?, RespondentMap, List<String>, RespondentState> tuple,
   ) async {
     (await _isolateWorker.compute(
       updateRespondentState,

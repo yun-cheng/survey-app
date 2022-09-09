@@ -174,11 +174,11 @@ abstract class _ReferenceKey extends ReferenceKey {
   const _ReferenceKey._() : super._();
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
   @JsonKey(ignore: true)
   _$$_ReferenceKeyCopyWith<_$_ReferenceKey> get copyWith =>

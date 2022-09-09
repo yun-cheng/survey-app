@@ -180,13 +180,13 @@ abstract class _Respondent extends Respondent {
   const _Respondent._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get countyTown => throw _privateConstructorUsedError;
+  String get countyTown;
   @override
-  String get village => throw _privateConstructorUsedError;
+  String get village;
   @override
-  String get remainAddress => throw _privateConstructorUsedError;
+  String get remainAddress;
   @override
   @JsonKey(ignore: true)
   _$$_RespondentCopyWith<_$_Respondent> get copyWith =>

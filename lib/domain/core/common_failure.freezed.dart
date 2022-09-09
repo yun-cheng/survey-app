@@ -123,7 +123,7 @@ abstract class _CommonFailure extends CommonFailure {
   const _CommonFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_CommonFailureCopyWith<_$_CommonFailure> get copyWith =>

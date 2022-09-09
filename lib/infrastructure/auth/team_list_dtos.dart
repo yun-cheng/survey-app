@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/auth/team.dart';
+import 'team_isar.dart';
 
 part 'team_list_dtos.freezed.dart';
 part 'team_list_dtos.g.dart';
@@ -24,14 +25,31 @@ class TeamListDto with _$TeamListDto {
     return list.map((dto) => dto.toDomain()).toList();
   }
 
+  factory TeamListDto.fromIsar(List<TeamIsar> list) {
+    return TeamListDto(
+      list: list.map((e) => TeamDto.fromIsar(e)).toList(),
+    );
+  }
+
+  List<TeamIsar> toIsar() {
+    return list.map((e) => e.toIsar()).toList();
+  }
+
   factory TeamListDto.fromJson(Map<String, dynamic> json) =>
       _$TeamListDtoFromJson(json);
 
-  factory TeamListDto.fromFirestore(QuerySnapshot snapshot) {
-    final list = snapshot.docs.map((doc) => doc.data()).toList();
+  factory TeamListDto.fromFirestore(
+    List<QueryDocumentSnapshot<Object?>> docs,
+  ) {
+    final list = docs.map((doc) => doc.data()).toList();
 
     return TeamListDto.fromJson({'list': list});
   }
+
+  static List<TeamIsar> firestoreToIsar(
+    List<QueryDocumentSnapshot<Object?>> docs,
+  ) =>
+      TeamListDto.fromFirestore(docs).toIsar();
 }
 
 @freezed
@@ -57,9 +75,19 @@ class TeamDto with _$TeamDto {
     );
   }
 
+  factory TeamDto.fromIsar(TeamIsar isar) {
+    return TeamDto(
+      teamId: isar.teamId,
+      teamName: isar.teamName,
+    );
+  }
+
+  TeamIsar toIsar() {
+    return TeamIsar()
+      ..teamId = teamId
+      ..teamName = teamName;
+  }
+
   factory TeamDto.fromJson(Map<String, dynamic> json) =>
       _$TeamDtoFromJson(json);
-
-  static Team jsonToDomain(Map<String, dynamic> json) =>
-      TeamDto.fromJson(json).toDomain();
 }

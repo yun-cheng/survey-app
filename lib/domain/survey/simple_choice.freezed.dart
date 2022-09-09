@@ -135,9 +135,9 @@ abstract class _Choice extends SimpleChoice {
   const _Choice._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
   @JsonKey(ignore: true)
   _$$_ChoiceCopyWith<_$_Choice> get copyWith =>

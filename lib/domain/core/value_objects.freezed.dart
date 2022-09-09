@@ -85,23 +85,15 @@ class __$$_UniqueIdCopyWithImpl<$Res> extends _$UniqueIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UniqueId extends _UniqueId with DiagnosticableTreeMixin {
+class _$_UniqueId extends _UniqueId {
   const _$_UniqueId(this.value) : super._();
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UniqueId(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UniqueId'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -127,7 +119,7 @@ abstract class _UniqueId extends UniqueId {
   const _UniqueId._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_UniqueIdCopyWith<_$_UniqueId> get copyWith =>
@@ -205,23 +197,15 @@ class __$$_LoadStateCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadState extends _LoadState with DiagnosticableTreeMixin {
+class _$_LoadState extends _LoadState {
   const _$_LoadState(this.value) : super._();
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'LoadState(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'LoadState'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -247,7 +231,7 @@ abstract class _LoadState extends LoadState {
   const _LoadState._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_LoadStateCopyWith<_$_LoadState> get copyWith =>
@@ -325,23 +309,15 @@ class __$$_PageStateCopyWithImpl<$Res> extends _$PageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PageState extends _PageState with DiagnosticableTreeMixin {
+class _$_PageState extends _PageState {
   const _$_PageState(this.value) : super._();
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'PageState(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PageState'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -367,7 +343,7 @@ abstract class _PageState extends PageState {
   const _PageState._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_PageStateCopyWith<_$_PageState> get copyWith =>
@@ -449,23 +425,15 @@ class __$$_NavigationPageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NavigationPage extends _NavigationPage with DiagnosticableTreeMixin {
+class _$_NavigationPage extends _NavigationPage {
   const _$_NavigationPage(this.value) : super._();
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NavigationPage(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NavigationPage'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -491,7 +459,7 @@ abstract class _NavigationPage extends NavigationPage {
   const _NavigationPage._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_NavigationPageCopyWith<_$_NavigationPage> get copyWith =>
@@ -571,23 +539,15 @@ class __$$_NetworkTypeCopyWithImpl<$Res> extends _$NetworkTypeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NetworkType extends _NetworkType with DiagnosticableTreeMixin {
+class _$_NetworkType extends _NetworkType {
   const _$_NetworkType(this.value) : super._();
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NetworkType(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NetworkType'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -613,7 +573,7 @@ abstract class _NetworkType extends NetworkType {
   const _NetworkType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_NetworkTypeCopyWith<_$_NetworkType> get copyWith =>
@@ -691,23 +651,15 @@ class __$$_SyncStateCopyWithImpl<$Res> extends _$SyncStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SyncState extends _SyncState with DiagnosticableTreeMixin {
+class _$_SyncState extends _SyncState {
   const _$_SyncState(this.value) : super._();
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SyncState(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SyncState'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -733,7 +685,7 @@ abstract class _SyncState extends SyncState {
   const _SyncState._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_SyncStateCopyWith<_$_SyncState> get copyWith =>

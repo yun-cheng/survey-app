@@ -38,7 +38,7 @@ mixin _$AnswerEvent {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,7 +61,7 @@ mixin _$AnswerEvent {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,7 +84,7 @@ mixin _$AnswerEvent {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,7 +107,7 @@ mixin _$AnswerEvent {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -126,7 +126,7 @@ mixin _$AnswerEvent {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -145,7 +145,7 @@ mixin _$AnswerEvent {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -227,7 +227,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return initialized();
   }
@@ -253,7 +253,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return initialized?.call();
   }
@@ -279,7 +279,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -308,7 +308,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return initialized(this);
   }
@@ -330,7 +330,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return initialized?.call(this);
   }
@@ -352,7 +352,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -518,7 +518,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return responseStarted(
         moduleType, responseId, breakInterview, createNewResponse);
@@ -545,7 +545,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return responseStarted?.call(
         moduleType, responseId, breakInterview, createNewResponse);
@@ -572,7 +572,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -602,7 +602,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return responseStarted(this);
   }
@@ -624,7 +624,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return responseStarted?.call(this);
   }
@@ -646,7 +646,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -663,10 +663,10 @@ abstract class _ResponseStarted implements AnswerEvent {
       final bool breakInterview,
       final bool createNewResponse}) = _$_ResponseStarted;
 
-  ModuleType? get moduleType => throw _privateConstructorUsedError;
-  UniqueId? get responseId => throw _privateConstructorUsedError;
-  bool get breakInterview => throw _privateConstructorUsedError;
-  bool get createNewResponse => throw _privateConstructorUsedError;
+  ModuleType? get moduleType;
+  UniqueId? get responseId;
+  bool get breakInterview;
+  bool get createNewResponse;
   @JsonKey(ignore: true)
   _$$_ResponseStartedCopyWith<_$_ResponseStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -733,7 +733,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return responseResumed();
   }
@@ -759,7 +759,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return responseResumed?.call();
   }
@@ -785,7 +785,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -814,7 +814,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return responseResumed(this);
   }
@@ -836,7 +836,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return responseResumed?.call(this);
   }
@@ -858,7 +858,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -998,7 +998,7 @@ class _$_ResponseEnded implements _ResponseEnded {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return responseEnded(markFinished, clearState, reAnswer, confirmEnding);
   }
@@ -1024,7 +1024,7 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return responseEnded?.call(
         markFinished, clearState, reAnswer, confirmEnding);
@@ -1051,7 +1051,7 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (responseEnded != null) {
@@ -1080,7 +1080,7 @@ class _$_ResponseEnded implements _ResponseEnded {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return responseEnded(this);
   }
@@ -1102,7 +1102,7 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return responseEnded?.call(this);
   }
@@ -1124,7 +1124,7 @@ class _$_ResponseEnded implements _ResponseEnded {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (responseEnded != null) {
@@ -1142,10 +1142,10 @@ abstract class _ResponseEnded implements AnswerEvent {
       final bool confirmEnding}) = _$_ResponseEnded;
 
 // * 是否標記已完成這份問卷
-  bool get markFinished => throw _privateConstructorUsedError;
-  bool get clearState => throw _privateConstructorUsedError;
-  bool get reAnswer => throw _privateConstructorUsedError;
-  bool get confirmEnding => throw _privateConstructorUsedError;
+  bool get markFinished;
+  bool get clearState;
+  bool get reAnswer;
+  bool get confirmEnding;
   @JsonKey(ignore: true)
   _$$_ResponseEndedCopyWith<_$_ResponseEnded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1267,7 +1267,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return answerUpdated(questionId, answer, isSpecialAnswer);
   }
@@ -1293,7 +1293,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return answerUpdated?.call(questionId, answer, isSpecialAnswer);
   }
@@ -1319,7 +1319,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -1348,7 +1348,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return answerUpdated(this);
   }
@@ -1370,7 +1370,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return answerUpdated?.call(this);
   }
@@ -1392,7 +1392,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -1408,9 +1408,9 @@ abstract class _AnswerUpdated implements AnswerEvent {
       required final Answer answer,
       final bool? isSpecialAnswer}) = _$_AnswerUpdated;
 
-  String get questionId => throw _privateConstructorUsedError;
-  Answer get answer => throw _privateConstructorUsedError;
-  bool? get isSpecialAnswer => throw _privateConstructorUsedError;
+  String get questionId;
+  Answer get answer;
+  bool? get isSpecialAnswer;
   @JsonKey(ignore: true)
   _$$_AnswerUpdatedCopyWith<_$_AnswerUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1512,7 +1512,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return pageNavigatedTo(direction, page);
   }
@@ -1538,7 +1538,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return pageNavigatedTo?.call(direction, page);
   }
@@ -1564,7 +1564,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (pageNavigatedTo != null) {
@@ -1593,7 +1593,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return pageNavigatedTo(this);
   }
@@ -1615,7 +1615,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return pageNavigatedTo?.call(this);
   }
@@ -1637,7 +1637,7 @@ class _$_PageNavigatedTo implements _PageNavigatedTo {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (pageNavigatedTo != null) {
@@ -1651,8 +1651,8 @@ abstract class _PageNavigatedTo implements AnswerEvent {
   const factory _PageNavigatedTo({final Direction direction, final int? page}) =
       _$_PageNavigatedTo;
 
-  Direction get direction => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
+  Direction get direction;
+  int? get page;
   @JsonKey(ignore: true)
   _$$_PageNavigatedToCopyWith<_$_PageNavigatedTo> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1755,7 +1755,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return navigatedToQuestionId(page, questionId);
   }
@@ -1781,7 +1781,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return navigatedToQuestionId?.call(page, questionId);
   }
@@ -1807,7 +1807,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (navigatedToQuestionId != null) {
@@ -1836,7 +1836,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return navigatedToQuestionId(this);
   }
@@ -1858,7 +1858,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return navigatedToQuestionId?.call(this);
   }
@@ -1880,7 +1880,7 @@ class _$_ScrolledToQuestionId implements _ScrolledToQuestionId {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (navigatedToQuestionId != null) {
@@ -1895,8 +1895,8 @@ abstract class _ScrolledToQuestionId implements AnswerEvent {
       {required final int page,
       required final String questionId}) = _$_ScrolledToQuestionId;
 
-  int get page => throw _privateConstructorUsedError;
-  String get questionId => throw _privateConstructorUsedError;
+  int get page;
+  String get questionId;
   @JsonKey(ignore: true)
   _$$_ScrolledToQuestionIdCopyWith<_$_ScrolledToQuestionId> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1991,7 +1991,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return jumpedToWarningQuestion(questionId);
   }
@@ -2017,7 +2017,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return jumpedToWarningQuestion?.call(questionId);
   }
@@ -2043,7 +2043,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (jumpedToWarningQuestion != null) {
@@ -2072,7 +2072,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return jumpedToWarningQuestion(this);
   }
@@ -2094,7 +2094,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return jumpedToWarningQuestion?.call(this);
   }
@@ -2116,7 +2116,7 @@ class _$_JumpedToWarningQuestion implements _JumpedToWarningQuestion {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (jumpedToWarningQuestion != null) {
@@ -2130,7 +2130,7 @@ abstract class _JumpedToWarningQuestion implements AnswerEvent {
   const factory _JumpedToWarningQuestion({required final String questionId}) =
       _$_JumpedToWarningQuestion;
 
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @JsonKey(ignore: true)
   _$$_JumpedToWarningQuestionCopyWith<_$_JumpedToWarningQuestion>
       get copyWith => throw _privateConstructorUsedError;
@@ -2201,7 +2201,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return contentQuestionMapUpdated();
   }
@@ -2227,7 +2227,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return contentQuestionMapUpdated?.call();
   }
@@ -2253,7 +2253,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
@@ -2282,7 +2282,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return contentQuestionMapUpdated(this);
   }
@@ -2304,7 +2304,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return contentQuestionMapUpdated?.call(this);
   }
@@ -2326,7 +2326,7 @@ class _$_ContentQuestionMapUpdated implements _ContentQuestionMapUpdated {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
@@ -2402,7 +2402,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return finishedButtonPressed();
   }
@@ -2428,7 +2428,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return finishedButtonPressed?.call();
   }
@@ -2454,7 +2454,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2483,7 +2483,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return finishedButtonPressed(this);
   }
@@ -2505,7 +2505,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return finishedButtonPressed?.call(this);
   }
@@ -2527,7 +2527,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2635,7 +2635,7 @@ class _$_DialogShowed implements _DialogShowed {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return dialogShowed(type);
   }
@@ -2661,7 +2661,7 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return dialogShowed?.call(type);
   }
@@ -2687,7 +2687,7 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (dialogShowed != null) {
@@ -2716,7 +2716,7 @@ class _$_DialogShowed implements _DialogShowed {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return dialogShowed(this);
   }
@@ -2738,7 +2738,7 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return dialogShowed?.call(this);
   }
@@ -2760,7 +2760,7 @@ class _$_DialogShowed implements _DialogShowed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (dialogShowed != null) {
@@ -2774,7 +2774,7 @@ abstract class _DialogShowed implements AnswerEvent {
   const factory _DialogShowed({required final DialogType type}) =
       _$_DialogShowed;
 
-  DialogType get type => throw _privateConstructorUsedError;
+  DialogType get type;
   @JsonKey(ignore: true)
   _$$_DialogShowedCopyWith<_$_DialogShowed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2841,7 +2841,7 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return dialogClosed();
   }
@@ -2867,7 +2867,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return dialogClosed?.call();
   }
@@ -2893,7 +2893,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -2922,7 +2922,7 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return dialogClosed(this);
   }
@@ -2944,7 +2944,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return dialogClosed?.call(this);
   }
@@ -2966,7 +2966,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -3065,7 +3065,7 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
     return textSearched(text);
   }
@@ -3091,7 +3091,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
     return textSearched?.call(text);
   }
@@ -3117,7 +3117,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
     if (textSearched != null) {
@@ -3146,7 +3146,7 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
     return textSearched(this);
   }
@@ -3168,7 +3168,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
     return textSearched?.call(this);
   }
@@ -3190,7 +3190,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
     if (textSearched != null) {
@@ -3203,74 +3203,49 @@ class _$_TextSearched implements _TextSearched {
 abstract class _TextSearched implements AnswerEvent {
   const factory _TextSearched(final String text) = _$_TextSearched;
 
-  String get text => throw _privateConstructorUsedError;
+  String get text;
   @JsonKey(ignore: true)
   _$$_TextSearchedCopyWith<_$_TextSearched> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AppLifeCycleChangedCopyWith<$Res> {
-  factory _$$_AppLifeCycleChangedCopyWith(_$_AppLifeCycleChanged value,
-          $Res Function(_$_AppLifeCycleChanged) then) =
-      __$$_AppLifeCycleChangedCopyWithImpl<$Res>;
-  $Res call({bool isPaused});
+abstract class _$$_ResponsePausedCopyWith<$Res> {
+  factory _$$_ResponsePausedCopyWith(
+          _$_ResponsePaused value, $Res Function(_$_ResponsePaused) then) =
+      __$$_ResponsePausedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AppLifeCycleChangedCopyWithImpl<$Res>
+class __$$_ResponsePausedCopyWithImpl<$Res>
     extends _$AnswerEventCopyWithImpl<$Res>
-    implements _$$_AppLifeCycleChangedCopyWith<$Res> {
-  __$$_AppLifeCycleChangedCopyWithImpl(_$_AppLifeCycleChanged _value,
-      $Res Function(_$_AppLifeCycleChanged) _then)
-      : super(_value, (v) => _then(v as _$_AppLifeCycleChanged));
+    implements _$$_ResponsePausedCopyWith<$Res> {
+  __$$_ResponsePausedCopyWithImpl(
+      _$_ResponsePaused _value, $Res Function(_$_ResponsePaused) _then)
+      : super(_value, (v) => _then(v as _$_ResponsePaused));
 
   @override
-  _$_AppLifeCycleChanged get _value => super._value as _$_AppLifeCycleChanged;
-
-  @override
-  $Res call({
-    Object? isPaused = freezed,
-  }) {
-    return _then(_$_AppLifeCycleChanged(
-      isPaused: isPaused == freezed
-          ? _value.isPaused
-          : isPaused // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+  _$_ResponsePaused get _value => super._value as _$_ResponsePaused;
 }
 
 /// @nodoc
 
-class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
-  const _$_AppLifeCycleChanged({required this.isPaused});
-
-  @override
-  final bool isPaused;
+class _$_ResponsePaused implements _ResponsePaused {
+  const _$_ResponsePaused();
 
   @override
   String toString() {
-    return 'AnswerEvent.appLifeCycleChanged(isPaused: $isPaused)';
+    return 'AnswerEvent.responsePaused()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AppLifeCycleChanged &&
-            const DeepCollectionEquality().equals(other.isPaused, isPaused));
+        (other.runtimeType == runtimeType && other is _$_ResponsePaused);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isPaused));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
-      __$$_AppLifeCycleChangedCopyWithImpl<_$_AppLifeCycleChanged>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -3295,9 +3270,9 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function(String text) textSearched,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() responsePaused,
   }) {
-    return appLifeCycleChanged(isPaused);
+    return responsePaused();
   }
 
   @override
@@ -3321,9 +3296,9 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
   }) {
-    return appLifeCycleChanged?.call(isPaused);
+    return responsePaused?.call();
   }
 
   @override
@@ -3347,11 +3322,11 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function(String text)? textSearched,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? responsePaused,
     required TResult orElse(),
   }) {
-    if (appLifeCycleChanged != null) {
-      return appLifeCycleChanged(isPaused);
+    if (responsePaused != null) {
+      return responsePaused();
     }
     return orElse();
   }
@@ -3376,9 +3351,9 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_ResponsePaused value) responsePaused,
   }) {
-    return appLifeCycleChanged(this);
+    return responsePaused(this);
   }
 
   @override
@@ -3398,9 +3373,9 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
   }) {
-    return appLifeCycleChanged?.call(this);
+    return responsePaused?.call(this);
   }
 
   @override
@@ -3420,24 +3395,18 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_ResponsePaused value)? responsePaused,
     required TResult orElse(),
   }) {
-    if (appLifeCycleChanged != null) {
-      return appLifeCycleChanged(this);
+    if (responsePaused != null) {
+      return responsePaused(this);
     }
     return orElse();
   }
 }
 
-abstract class _AppLifeCycleChanged implements AnswerEvent {
-  const factory _AppLifeCycleChanged({required final bool isPaused}) =
-      _$_AppLifeCycleChanged;
-
-  bool get isPaused => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_AppLifeCycleChangedCopyWith<_$_AppLifeCycleChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _ResponsePaused implements AnswerEvent {
+  const factory _ResponsePaused() = _$_ResponsePaused;
 }
 
 /// @nodoc
@@ -4500,91 +4469,85 @@ abstract class _UpdateAnswerStatusState extends AnswerState {
 
   @override // !!! 因為 bloc 內部會去比較 emit state 前後是否有變，因此只要每次 emit
 //  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // > 主要資料
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
   @override
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap;
   @override
-  Map<String, Answer> get recodeAnswerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get recodeAnswerMap;
   @override
-  Map<String, AnswerStatus> get recodeAnswerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get recodeAnswerStatusMap;
   @override
-  int get page => throw _privateConstructorUsedError;
+  int get page;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  Warning get warning => throw _privateConstructorUsedError;
+  Warning get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override // > 中間資料
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  Set<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
+  Set<String> get clearAnswerQIdSet;
   @override
-  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
+  Set<String> get pageQIdSet;
   @override
-  Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  Set<String> get contentQIdSet;
   @override
-  Set<String> get showQIdSet => throw _privateConstructorUsedError;
+  Set<String> get showQIdSet;
   @override
-  Direction get direction => throw _privateConstructorUsedError;
+  Direction get direction;
   @override
-  DialogType get dialogType => throw _privateConstructorUsedError;
+  DialogType get dialogType;
   @override
-  bool get showLeaveButton => throw _privateConstructorUsedError;
+  bool get showLeaveButton;
   @override
-  bool get leavePage => throw _privateConstructorUsedError;
+  bool get leavePage;
   @override
-  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool get appIsPaused;
   @override
-  String get searchText => throw _privateConstructorUsedError;
+  String get searchText;
   @override
-  int get scrollToQuestionIndex => throw _privateConstructorUsedError;
+  int get scrollToQuestionIndex;
   @override
-  bool get blockGesture => throw _privateConstructorUsedError;
+  bool get blockGesture;
   @override
-  bool get restartState => throw _privateConstructorUsedError;
+  bool get restartState;
   @override // > 同 session 不變的參考資料
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isReadOnly;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
+  bool get isRecodeModule;
   @override
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<ModuleType, Response> get respondentResponseMap;
   @override
-  Map<String, Set<String>> get pageQIdSetMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Set<String>> get pageQIdSetMap;
   @override
-  Map<String, Map<int, Set<String>>> get tableRowQIdSetMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Map<int, Set<String>>> get tableRowQIdSetMap;
   @override // > 同 session 會變的參考資料
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap;
   @override
-  Map<String, Question> get recodeQuestionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Question> get recodeQuestionMap;
   @override // > 外部資料
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  List<Reference> get referenceList;
   @override // > 狀態更新進度
-  LoadState get restoreState => throw _privateConstructorUsedError;
+  LoadState get restoreState;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override
-  bool get answerIsUpdated => throw _privateConstructorUsedError;
+  bool get answerIsUpdated;
   @override
-  bool get answerStatusIsUpdated => throw _privateConstructorUsedError;
+  bool get answerStatusIsUpdated;
   @override
-  bool get pageQuestionIsUpdated => throw _privateConstructorUsedError;
+  bool get pageQuestionIsUpdated;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateAnswerStatusStateCopyWith<_$_UpdateAnswerStatusState>

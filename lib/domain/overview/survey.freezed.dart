@@ -276,23 +276,21 @@ abstract class _Survey extends Survey {
   const _Survey._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get version => throw _privateConstructorUsedError;
+  String get version;
   @override
-  bool get isCompatible => throw _privateConstructorUsedError;
+  bool get isCompatible;
   @override
-  DeviceTimeStamp get lastUpdatedTimeStamp =>
-      throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastUpdatedTimeStamp;
   @override
-  Map<ModuleType, SurveyModule> get module =>
-      throw _privateConstructorUsedError;
+  Map<ModuleType, SurveyModule> get module;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyCopyWith<_$_Survey> get copyWith =>

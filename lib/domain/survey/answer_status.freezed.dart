@@ -216,15 +216,13 @@ abstract class _AnswerStatus extends AnswerStatus {
   const _AnswerStatus._() : super._();
 
   @override
-  AnswerStatusType get type => throw _privateConstructorUsedError;
+  AnswerStatusType get type;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  DeviceTimeStamp get lastChangedTimeStamp =>
-      throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastChangedTimeStamp;
   @override
-  Map<String, AnswerStatusType> get noteMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusType> get noteMap;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerStatusCopyWith<_$_AnswerStatus> get copyWith =>

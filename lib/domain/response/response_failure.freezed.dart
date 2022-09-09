@@ -123,7 +123,7 @@ abstract class _ResponseFailure extends ResponseFailure {
   const _ResponseFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseFailureCopyWith<_$_ResponseFailure> get copyWith =>

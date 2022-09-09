@@ -5,6 +5,7 @@ import 'package:supercharged/supercharged.dart';
 import '../../domain/overview/typedefs.dart';
 import '../core/extensions.dart';
 import 'project_dtos.dart';
+import 'project_isar.dart';
 
 part 'project_map_dtos.freezed.dart';
 part 'project_map_dtos.g.dart';
@@ -27,11 +28,28 @@ class ProjectMapDto with _$ProjectMapDto {
     return map.mapValues((e) => e.toDomain());
   }
 
+  factory ProjectMapDto.fromIsar(List<ProjectIsar> list) {
+    return ProjectMapDto(
+      map: list
+          .map((e) => MapEntry(
+                e.projectId,
+                ProjectDto.fromIsar(e),
+              ))
+          .toMap(),
+    );
+  }
+
+  List<ProjectIsar> toIsar() {
+    return map.mapEntries((k, v) => v.toIsar()).toList();
+  }
+
   factory ProjectMapDto.fromJson(Map<String, dynamic> json) =>
       _$ProjectMapDtoFromJson(json);
 
-  factory ProjectMapDto.fromFirestore(QuerySnapshot<Object?> snapshot) {
-    final map = snapshot.docs.map(
+  factory ProjectMapDto.fromFirestore(
+    List<QueryDocumentSnapshot<Object?>> docs,
+  ) {
+    final map = docs.map(
       (doc) {
         return MapEntry(
           doc.id,
@@ -43,8 +61,8 @@ class ProjectMapDto with _$ProjectMapDto {
     return ProjectMapDto(map: map);
   }
 
-  Map<String, dynamic> dtoToJson() => toJson()['map'] as Map<String, dynamic>;
-
-  static ProjectMap jsonToDomain(Map<String, dynamic> json) =>
-      ProjectMapDto.fromJson({'map': json}).toDomain();
+  static List<ProjectIsar> firestoreToIsar(
+    List<QueryDocumentSnapshot<Object?>> docs,
+  ) =>
+      ProjectMapDto.fromFirestore(docs).toIsar();
 }

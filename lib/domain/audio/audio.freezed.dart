@@ -233,17 +233,17 @@ abstract class _Audio extends Audio {
   const _Audio._() : super._();
 
   @override
-  String get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get dateTime => throw _privateConstructorUsedError;
+  String get dateTime;
   @override
-  String get fileType => throw _privateConstructorUsedError;
+  String get fileType;
   @override
   @JsonKey(ignore: true)
   _$$_AudioCopyWith<_$_Audio> get copyWith =>

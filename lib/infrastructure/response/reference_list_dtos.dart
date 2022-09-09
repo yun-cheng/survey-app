@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/survey/reference.dart';
+import '../../domain/response/typedefs.dart';
 import 'reference_dtos.dart';
+import 'reference_isar.dart';
 
 part 'reference_list_dtos.freezed.dart';
 part 'reference_list_dtos.g.dart';
@@ -15,7 +16,7 @@ class ReferenceListDto with _$ReferenceListDto {
     required List<ReferenceDto> list,
   }) = _ReferenceListDto;
 
-  factory ReferenceListDto.fromDomain(List<Reference> domain) {
+  factory ReferenceListDto.fromDomain(ReferenceList domain) {
     return ReferenceListDto(
       list: domain
           .map((reference) => ReferenceDto.fromDomain(reference))
@@ -23,8 +24,18 @@ class ReferenceListDto with _$ReferenceListDto {
     );
   }
 
-  List<Reference> toDomain() {
+  ReferenceList toDomain() {
     return list.map((dto) => dto.toDomain()).toList();
+  }
+
+  factory ReferenceListDto.fromIsar(List<ReferenceIsar> list) {
+    return ReferenceListDto(
+      list: list.map((e) => ReferenceDto.fromIsar(e)).toList(),
+    );
+  }
+
+  List<ReferenceIsar> toIsar() {
+    return list.map((e) => e.toIsar()).toList();
   }
 
   factory ReferenceListDto.fromJson(Map<String, dynamic> json) =>
@@ -41,14 +52,8 @@ class ReferenceListDto with _$ReferenceListDto {
     return ReferenceListDto.fromJson({'list': list});
   }
 
-  static List<Reference> firestoreToDomain(
+  static List<ReferenceIsar> firestoreToIsar(
     List<QueryDocumentSnapshot<Object?>> docs,
   ) =>
-      ReferenceListDto.fromFirestore(docs).toDomain();
-
-  static Map<String, dynamic> domainToJson(List<Reference> domain) =>
-      ReferenceListDto.fromDomain(domain).toJson();
-
-  static List<Reference> jsonToDomain(Map<String, dynamic> json) =>
-      ReferenceListDto.fromJson(json).toDomain();
+      ReferenceListDto.fromFirestore(docs).toIsar();
 }

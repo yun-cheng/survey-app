@@ -156,11 +156,11 @@ abstract class _VisitTime extends VisitTime {
   const _VisitTime._() : super._();
 
   @override
-  bool get exactTime => throw _privateConstructorUsedError;
+  bool get exactTime;
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
-  String get timeSession => throw _privateConstructorUsedError;
+  String get timeSession;
   @override
   @JsonKey(ignore: true)
   _$$_VisitTimeCopyWith<_$_VisitTime> get copyWith =>

@@ -298,7 +298,9 @@ class _$_ChoiceDto extends _ChoiceDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChoiceDtoToJson(this);
+    return _$$_ChoiceDtoToJson(
+      this,
+    );
   }
 }
 
@@ -320,25 +322,25 @@ abstract class _ChoiceDto extends ChoiceDto {
       _$_ChoiceDto.fromJson;
 
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  String get choiceId => throw _privateConstructorUsedError;
+  String get choiceId;
   @override
-  String get transformedId => throw _privateConstructorUsedError;
+  String get transformedId;
   @override
-  String get choiceBody => throw _privateConstructorUsedError;
+  String get choiceBody;
   @override
-  bool get asNote => throw _privateConstructorUsedError;
+  bool get asNote;
   @override
-  bool get asSingle => throw _privateConstructorUsedError;
+  bool get asSingle;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  String get choiceGroup => throw _privateConstructorUsedError;
+  String get choiceGroup;
   @override
-  bool get isGroupFirst => throw _privateConstructorUsedError;
+  bool get isGroupFirst;
   @override
-  String get upperChoiceId => throw _privateConstructorUsedError;
+  String get upperChoiceId;
   @override
   @JsonKey(ignore: true)
   _$$_ChoiceDtoCopyWith<_$_ChoiceDto> get copyWith =>

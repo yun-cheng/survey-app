@@ -121,7 +121,7 @@ abstract class _AuthFailure extends AuthFailure {
   const _AuthFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_AuthFailureCopyWith<_$_AuthFailure> get copyWith =>

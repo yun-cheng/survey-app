@@ -37,6 +37,7 @@ class RespondentsPage extends HookWidget {
               );
         }
       });
+      return () => {};
     }, []);
 
     return TapOutDismissKeyboard(

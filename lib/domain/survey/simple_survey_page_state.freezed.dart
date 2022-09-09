@@ -222,15 +222,15 @@ abstract class _SimpleSurveyPageState extends SimpleSurveyPageState {
   const _SimpleSurveyPageState._() : super._();
 
   @override
-  int get page => throw _privateConstructorUsedError;
+  int get page;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  Warning get warning => throw _privateConstructorUsedError;
+  Warning get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override
   @JsonKey(ignore: true)
   _$$_SimpleSurveyPageStateCopyWith<_$_SimpleSurveyPageState> get copyWith =>

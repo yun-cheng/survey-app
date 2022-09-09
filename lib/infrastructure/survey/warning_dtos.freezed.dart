@@ -189,7 +189,9 @@ class _$_WarningDto extends _WarningDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WarningDtoToJson(this);
+    return _$$_WarningDtoToJson(
+      this,
+    );
   }
 }
 
@@ -205,13 +207,13 @@ abstract class _WarningDto extends WarningDto {
       _$_WarningDto.fromJson;
 
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  String get warningType => throw _privateConstructorUsedError;
+  String get warningType;
   @override
   @JsonKey(ignore: true)
   _$$_WarningDtoCopyWith<_$_WarningDto> get copyWith =>

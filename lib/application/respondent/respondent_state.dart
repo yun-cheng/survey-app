@@ -20,7 +20,7 @@ class RespondentState with _$RespondentState {
     required RespondentProgressMap respondentProgressMap,
     // >> visitRecord
     // ? VisitRecords or VisitReports
-    required VisitRecordLMap visitRecordLMap,
+    required VisitRecordsMap visitRecordsMap,
     required Map<String, String> visitRecordMap,
     // >> tab
     required TabGroupedRespondentList tabGroupedRespondentList,
@@ -49,7 +49,7 @@ class RespondentState with _$RespondentState {
         housingMap: const {},
         respondentProgressMap: const {},
         // >> visitRecord
-        visitRecordLMap: const {},
+        visitRecordsMap: const {},
         visitRecordMap: const {},
         // >> tab
         tabGroupedRespondentList: const {},

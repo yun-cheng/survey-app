@@ -641,52 +641,48 @@ abstract class _Response extends Response {
   const _Response._() : super._();
 
   @override // > 區分不同 response
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override // > 區分 response 版本
 // * 每次新的 edit session 都會產生新的 responseId，
 //  因此不會發生不同設備同 responseId 的情形
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  UniqueId get responseId;
   @override // * 每次的 response update 都會產生新的 tempResponseId
 //  在 edit session 結束時會改成跟 responseId 相同
-  UniqueId get tempResponseId => throw _privateConstructorUsedError;
+  UniqueId get tempResponseId;
   @override
-  UniqueId get ticketId => throw _privateConstructorUsedError;
+  UniqueId get ticketId;
   @override
-  bool get editFinished => throw _privateConstructorUsedError;
+  bool get editFinished;
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  UniqueId get deviceId => throw _privateConstructorUsedError;
+  UniqueId get deviceId;
   @override // > 狀態
-  DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
+  DeviceTimeStamp get createdTimeStamp;
   @override
-  DeviceTimeStamp get sessionStartTimeStamp =>
-      throw _privateConstructorUsedError;
+  DeviceTimeStamp get sessionStartTimeStamp;
   @override
-  DeviceTimeStamp get sessionEndTimeStamp => throw _privateConstructorUsedError;
+  DeviceTimeStamp get sessionEndTimeStamp;
   @override
-  DeviceTimeStamp get lastChangedTimeStamp =>
-      throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastChangedTimeStamp;
   @override
-  ResponseStatus get responseStatus => throw _privateConstructorUsedError;
+  ResponseStatus get responseStatus;
   @override
-  bool get isDeleted => throw _privateConstructorUsedError;
+  bool get isDeleted;
   @override // > 內容
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
   @override
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap;
   @override
-  SimpleSurveyPageState get surveyPageState =>
-      throw _privateConstructorUsedError;
+  SimpleSurveyPageState get surveyPageState;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseCopyWith<_$_Response> get copyWith =>

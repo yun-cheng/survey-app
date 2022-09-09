@@ -25,11 +25,11 @@ class CommonRepository implements ICommonRepository {
       _completer.isCompleted ? Future.value() : _completer.future;
 
   UniqueId? _deviceId;
+  NavigationPage? _page;
   List<String> _compatibility = [];
 
   final _networkIsConnectedStream = BehaviorSubject<bool>.seeded(kIsWeb);
   final _appIsPausedStream = BehaviorSubject<bool>.seeded(false);
-  final _pageStream = BehaviorSubject<NavigationPage>();
 
   StreamSubscription? _networkSubscription;
   StreamSubscription? _compatibilitySubscription;
@@ -37,11 +37,11 @@ class CommonRepository implements ICommonRepository {
   @override
   UniqueId get deviceId => _deviceId!;
   @override
+  NavigationPage get page => _page!;
+  @override
   bool get networkIsConnected => _networkIsConnectedStream.value;
   @override
   List<String> get compatibility => _compatibility;
-  @override
-  NavigationPage get page => _pageStream.value;
 
   @override
   Stream<bool> get networkIsConnectedStream => _networkIsConnectedStream;
@@ -68,33 +68,18 @@ class CommonRepository implements ICommonRepository {
   }
 
   Future<void> loadLocalData() async {
-    _deviceId = await _localStorage.read(
-      box: 'common',
-      key: 'deviceId',
-      toDomain: (String e) => UniqueId(e),
-    );
-    if (_deviceId == null) {
-      _deviceId = UniqueId.v1();
-      await _localStorage.write(
-        box: 'common',
-        key: 'deviceId',
-        data: _deviceId,
-        toJson: (UniqueId e) => e.value,
-      );
+    final deviceIdStr = await _localStorage.getValueByKey('deviceId');
+    _deviceId = deviceIdStr != null ? UniqueId(deviceIdStr) : UniqueId.v1();
+    if (deviceIdStr == null) {
+      await _localStorage.writeKeyValue('deviceId', _deviceId!.value);
     }
 
-    final page = await _localStorage.read(
-      box: 'common',
-      key: 'page',
-      toDomain: (String e) => NavigationPage(e),
-    );
-    _pageStream.add(page ?? NavigationPage.signIn());
+    final pageStr = await _localStorage.getValueByKey('page');
+    _page = pageStr != null ? NavigationPage(pageStr) : NavigationPage.signIn();
 
-    _compatibility = await _localStorage.read(
-          box: 'common',
-          key: 'compatibility',
-        ) ??
-        [];
+    _compatibility =
+        await _localStorage.getValueByKey('compatibility') as List<String>? ??
+            [];
   }
 
   Future<void> startListener() async {
@@ -152,13 +137,7 @@ class CommonRepository implements ICommonRepository {
       (doc) async {
         _compatibility = List<String>.from((doc.data()! as Map)['list'] ?? []);
 
-        logger('Value').e('_compatibility: $_compatibility');
-
-        await _localStorage.write(
-          box: 'common',
-          key: 'compatibility',
-          data: _compatibility,
-        );
+        await _localStorage.writeKeyValue('compatibility', _compatibility);
       },
       // TODO
       // onError: commonOnError,
@@ -182,12 +161,7 @@ class CommonRepository implements ICommonRepository {
 
   @override
   void updatePage(NavigationPage page) {
-    _localStorage.write(
-      box: 'common',
-      key: 'page',
-      data: page,
-      toJson: (NavigationPage e) => e.value,
-    );
-    _pageStream.add(page);
+    _page = page;
+    _localStorage.writeKeyValue('page', page.value);
   }
 }

@@ -134,7 +134,9 @@ class _$_RespondentMapDto extends _RespondentMapDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RespondentMapDtoToJson(this);
+    return _$$_RespondentMapDtoToJson(
+      this,
+    );
   }
 }
 
@@ -147,7 +149,7 @@ abstract class _RespondentMapDto extends RespondentMapDto {
       _$_RespondentMapDto.fromJson;
 
   @override
-  Map<String, RespondentDto> get map => throw _privateConstructorUsedError;
+  Map<String, RespondentDto> get map;
   @override
   @JsonKey(ignore: true)
   _$$_RespondentMapDtoCopyWith<_$_RespondentMapDto> get copyWith =>

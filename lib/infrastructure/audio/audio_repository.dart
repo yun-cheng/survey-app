@@ -6,22 +6,20 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/audio/audio.dart';
 import '../../domain/audio/i_audio_repository.dart';
-import '../../domain/audio/typedefs.dart';
 import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
 import '../../domain/core/logger.dart';
 import '../../injection.dart';
-import '../core/firestore_helpers.dart';
+import '../core/firebase_worker.dart';
 import '../core/isolate_local_storage.dart';
-import '../core/path_provider.dart';
+import '../core/my_path_provider.dart';
 import '../core/upload_set.dart';
-import 'audio_dtos.dart';
-import 'audio_map_dtos.dart';
 
 @LazySingleton(as: IAudioRepository)
 class AudioRepository implements IAudioRepository {
+  final MyPathProvider _pathProvider;
   final IsolateLocalStorage _localStorage;
-  final FirebaseStorage _storage;
+  final FirebaseWorker _firebaseWorker;
   final ICommonRepository _commonRepo;
   final IAuthRepository _authRepo;
 
@@ -35,20 +33,16 @@ class AudioRepository implements IAudioRepository {
     getIt<IsolateLocalStorage>(),
   );
 
-  final appDirPath = MyPathProvider.appDirPath;
-  final tempDirPath = MyPathProvider.tempDirPath;
-  AudioMap _audioMap = {};
-  bool _isUploading = false;
-
   @override
-  Set<String> get uploadSet => _uploadSet.value;
+  Set<String> get uploadSet => _uploadSet.pendingSet;
 
   @override
   Stream<Set<String>> get uploadSetStream => _uploadSet.stream;
 
   AudioRepository(
+    this._pathProvider,
     this._localStorage,
-    this._storage,
+    this._firebaseWorker,
     this._commonRepo,
     this._authRepo,
   ) {
@@ -56,22 +50,16 @@ class AudioRepository implements IAudioRepository {
   }
 
   Future<void> initialize() async {
+    await _pathProvider.ready;
     await _localStorage.ready;
+    await _firebaseWorker.ready;
     await _commonRepo.ready;
 
-    await loadLocalData();
     startListener();
 
-    _completer.complete();
-  }
+    _uploadSet.initialize(uploadingCallback);
 
-  Future<void> loadLocalData() async {
-    _audioMap = await _localStorage.read<AudioMap>(
-          box: 'audioMap',
-          allKeys: true,
-          toDomain: AudioMapDto.jsonToDomain,
-        ) ??
-        {};
+    _completer.complete();
   }
 
   Future<void> startListener() async {
@@ -96,88 +84,31 @@ class AudioRepository implements IAudioRepository {
 
   @override
   Future<void> uploadAudioMap() async {
-    if (_isUploading || uploadSet.isEmpty || !_commonRepo.networkIsConnected) {
-      return;
-    }
+    if (!_commonRepo.networkIsConnected) return;
 
-    _isUploading = true;
+    await _uploadSet.upload();
+  }
 
-    final audioRef = _storage.audioRef;
+  Future<bool> uploadingCallback(Set<String> uploadingSet) async {
+    if (!_commonRepo.networkIsConnected) return false;
 
-    while (uploadSet.isNotEmpty) {
-      final responseId = uploadSet.first;
-      final audio = _audioMap[responseId]!;
-
-      final filePath = '$appDirPath/audio/${audio.surveyId}/${audio.fileName}';
-
-      // - 檢查是否已上傳
-      ListResult result;
-
-      try {
-        result = await audioRef
-            .child(audio.storageDirPath)
-            .list(const ListOptions(maxResults: 1))
-            .timeout(const Duration(seconds: 30));
-      } catch (e, stackTrace) {
-        _isUploading = false;
-        _uploadSet.write();
-        commonOnError('uploadAudioMap', e, stackTrace);
-        break;
-      }
-
-      // - 若未上傳
-      if (result.items.isEmpty) {
-        final metadata = SettableMetadata(
-          contentType: 'audio/m4a',
-        );
-
-        try {
-          final task = await audioRef
-              .child(audio.storageFilePath)
-              .putFile(File(filePath), metadata)
-              .timeout(const Duration(minutes: 3));
-        } catch (e, stackTrace) {
-          _isUploading = false;
-          _uploadSet.write();
-          commonOnError('uploadAudioMap', e, stackTrace);
-          break;
-        }
-      }
-
-      _uploadSet.remove(responseId);
-    }
-    _isUploading = false;
-    _uploadSet.write();
+    return _firebaseWorker.upload('audios', uploadingSet.toList());
   }
 
   @override
   Future<void> addAudio(
     Audio audio,
   ) async {
-    _audioMap[audio.responseId] = audio;
-    await writeAudio(audio);
+    await _localStorage.writeAudio(audio);
     _uploadSet.add(audio.responseId);
     uploadAudioMap();
   }
 
-  Future<void> writeAudio(Audio audio) async {
-    await _localStorage.write(
-      box: 'audioMap',
-      data: audio,
-      key: audio.responseId,
-      toJson: AudioDto.domainToJson,
-    );
-  }
-
   @override
   Future<void> signOut() async {
-    _audioMap = {};
     _uploadSet.clear();
 
-    _localStorage.write(
-      box: 'audioMap',
-      clear: true,
-    );
+    _localStorage.clearAudio();
 
     clearLocalAudioDirectory();
   }
@@ -193,7 +124,7 @@ class AudioRepository implements IAudioRepository {
   @override
   Future<void> clearLocalAudioDirectory() async {
     try {
-      final audioDirPath = '$appDirPath/audio/';
+      final audioDirPath = '${_pathProvider.appDirPath}/audio/';
 
       if (await Directory(audioDirPath).exists()) {
         await Directory(audioDirPath).delete(recursive: true);

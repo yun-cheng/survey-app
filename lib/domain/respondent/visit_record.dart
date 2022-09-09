@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/value_objects.dart';
 import 'visit_time.dart';
 
 part 'visit_record.freezed.dart';
@@ -11,7 +10,7 @@ class VisitRecord with _$VisitRecord {
 
   const factory VisitRecord({
     required String respondentId,
-    required UniqueId responseId,
+    required String responseId,
     required VisitTime visitTime,
     required String status,
     required String description,
@@ -19,7 +18,7 @@ class VisitRecord with _$VisitRecord {
 
   factory VisitRecord.empty() => VisitRecord(
         respondentId: '',
-        responseId: UniqueId.v1(),
+        responseId: '',
         visitTime: VisitTime.empty(),
         status: '',
         description: '',

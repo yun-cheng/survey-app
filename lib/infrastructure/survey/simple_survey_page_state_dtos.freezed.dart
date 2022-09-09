@@ -224,7 +224,9 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SimpleSurveyPageStateDtoToJson(this);
+    return _$$_SimpleSurveyPageStateDtoToJson(
+      this,
+    );
   }
 }
 
@@ -241,15 +243,15 @@ abstract class _SimpleSurveyPageStateDto extends SimpleSurveyPageStateDto {
       _$_SimpleSurveyPageStateDto.fromJson;
 
   @override
-  int get page => throw _privateConstructorUsedError;
+  int get page;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  WarningDto get warning => throw _privateConstructorUsedError;
+  WarningDto get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override
   @JsonKey(ignore: true)
   _$$_SimpleSurveyPageStateDtoCopyWith<_$_SimpleSurveyPageStateDto>

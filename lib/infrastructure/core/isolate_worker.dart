@@ -3,8 +3,11 @@ import 'dart:collection';
 
 import 'package:async_task/async_task.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../domain/core/logger.dart';
+import 'local_storage.dart';
 
 @singleton
 class IsolateWorker {
@@ -21,12 +24,16 @@ class IsolateWorker {
   }
 
   Future<void> initialize() async {
-    const instance = 8;
+    const instance = 5;
     executor = AsyncExecutor(
       name: 'IsolateWorker',
       parallelism: instance,
       taskTypeRegister: _taskTypeRegister,
     );
+
+    final appDirPath =
+        await getApplicationDocumentsDirectory().then((dir) => dir.path);
+    const backupDirPath = 'sdcard/Download/survey_backup/';
 
     int i = 0;
     while (i < instance) {
@@ -34,9 +41,9 @@ class IsolateWorker {
       executor!.execute(asyncTask);
       // * 用來傳資訊進 isolate
       final channel = await asyncTask.channel();
-      channelList.add(channel!);
+      channel!.send(Tuple2(appDirPath, backupDirPath));
+      channelList.add(channel);
       queue.add(i);
-      logger('Test').e(i);
       i++;
     }
 
@@ -49,7 +56,7 @@ class IsolateWorker {
   ) async {
     final i = queue.removeFirst();
 
-    if (queue.length <= 4) {
+    if (queue.length <= 3) {
       logger('Warning').e('remain ${queue.length} worker!!!!!');
     }
 
@@ -97,6 +104,12 @@ class WorkerTask extends AsyncTask<Map, void> {
   @override
   FutureOr<void> run() async {
     final channel = channelResolved()!;
+
+    final tuple = await channel.waitMessage() as Tuple2<String, String>;
+    final appDirPath = tuple.item1;
+    final backupDirPath = tuple.item2;
+
+    final localStorage = LocalStorage(appDirPath);
 
     while (true) {
       final msg = await channel.waitMessage();

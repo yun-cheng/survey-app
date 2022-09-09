@@ -133,9 +133,9 @@ abstract class _Team extends Team {
   const _Team._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_TeamCopyWith<_$_Team> get copyWith => throw _privateConstructorUsedError;

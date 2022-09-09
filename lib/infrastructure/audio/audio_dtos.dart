@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/audio/audio.dart';
+import 'audio_isar.dart';
 
 part 'audio_dtos.freezed.dart';
-part 'audio_dtos.g.dart';
 
 @freezed
 class AudioDto with _$AudioDto {
@@ -40,9 +40,24 @@ class AudioDto with _$AudioDto {
     );
   }
 
-  factory AudioDto.fromJson(Map<String, dynamic> json) =>
-      _$AudioDtoFromJson(json);
+  factory AudioDto.fromIsar(AudioIsar isar) {
+    return AudioDto(
+      responseId: isar.responseId,
+      surveyId: isar.surveyId,
+      moduleType: isar.moduleType,
+      respondentId: isar.respondentId,
+      dateTime: isar.dateTime,
+      fileType: isar.fileType,
+    );
+  }
 
-  static Map<String, dynamic> domainToJson(Audio domain) =>
-      AudioDto.fromDomain(domain).toJson();
+  AudioIsar toIsar() {
+    return AudioIsar()
+      ..responseId = responseId
+      ..surveyId = surveyId
+      ..moduleType = moduleType
+      ..respondentId = respondentId
+      ..dateTime = dateTime
+      ..fileType = fileType;
+  }
 }

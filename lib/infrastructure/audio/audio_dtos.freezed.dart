@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AudioDto _$AudioDtoFromJson(Map<String, dynamic> json) {
-  return _AudioDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$AudioDto {
   String get responseId => throw _privateConstructorUsedError;
@@ -27,7 +23,6 @@ mixin _$AudioDto {
   String get dateTime => throw _privateConstructorUsedError;
   String get fileType => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AudioDtoCopyWith<AudioDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -156,7 +151,7 @@ class __$$_AudioDtoCopyWithImpl<$Res> extends _$AudioDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_AudioDto extends _AudioDto {
   const _$_AudioDto(
       {required this.responseId,
@@ -166,9 +161,6 @@ class _$_AudioDto extends _AudioDto {
       required this.dateTime,
       required this.fileType})
       : super._();
-
-  factory _$_AudioDto.fromJson(Map<String, dynamic> json) =>
-      _$$_AudioDtoFromJson(json);
 
   @override
   final String responseId;
@@ -204,7 +196,6 @@ class _$_AudioDto extends _AudioDto {
             const DeepCollectionEquality().equals(other.fileType, fileType));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -219,11 +210,6 @@ class _$_AudioDto extends _AudioDto {
   @override
   _$$_AudioDtoCopyWith<_$_AudioDto> get copyWith =>
       __$$_AudioDtoCopyWithImpl<_$_AudioDto>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_AudioDtoToJson(this);
-  }
 }
 
 abstract class _AudioDto extends AudioDto {
@@ -236,20 +222,18 @@ abstract class _AudioDto extends AudioDto {
       required final String fileType}) = _$_AudioDto;
   const _AudioDto._() : super._();
 
-  factory _AudioDto.fromJson(Map<String, dynamic> json) = _$_AudioDto.fromJson;
-
   @override
-  String get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get dateTime => throw _privateConstructorUsedError;
+  String get dateTime;
   @override
-  String get fileType => throw _privateConstructorUsedError;
+  String get fileType;
   @override
   @JsonKey(ignore: true)
   _$$_AudioDtoCopyWith<_$_AudioDto> get copyWith =>

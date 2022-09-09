@@ -314,7 +314,7 @@ class _$_StateEmitted implements _StateEmitted {
 abstract class _StateEmitted implements DeviceEvent {
   const factory _StateEmitted(final DeviceState state) = _$_StateEmitted;
 
-  DeviceState get state => throw _privateConstructorUsedError;
+  DeviceState get state;
   @JsonKey(ignore: true)
   _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -460,9 +460,9 @@ abstract class _DeviceState extends DeviceState {
   const _DeviceState._() : super._();
 
   @override
-  bool get networkIsConnected => throw _privateConstructorUsedError;
+  bool get networkIsConnected;
   @override
-  SyncState get syncState => throw _privateConstructorUsedError;
+  SyncState get syncState;
   @override
   @JsonKey(ignore: true)
   _$$_DeviceStateCopyWith<_$_DeviceState> get copyWith =>

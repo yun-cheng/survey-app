@@ -220,13 +220,13 @@ abstract class _FormattedText extends FormattedText {
   const _FormattedText._() : super._();
 
   @override
-  FormatType get type => throw _privateConstructorUsedError;
+  FormatType get type;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  ReferenceKey get referenceKey => throw _privateConstructorUsedError;
+  ReferenceKey get referenceKey;
   @override
-  Answer get answer => throw _privateConstructorUsedError;
+  Answer get answer;
   @override
   @JsonKey(ignore: true)
   _$$_FormattedTextCopyWith<_$_FormattedText> get copyWith =>

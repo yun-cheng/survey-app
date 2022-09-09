@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/survey/reference.dart';
 import '../../domain/survey/value_objects.dart';
 import '../survey/answer_dtos.dart';
+import 'reference_isar.dart';
 
 part 'reference_dtos.freezed.dart';
 part 'reference_dtos.g.dart';
@@ -37,6 +40,27 @@ class ReferenceDto with _$ReferenceDto {
       questionId: questionId,
       answer: answer.toDomain(),
     );
+  }
+
+  factory ReferenceDto.fromIsar(ReferenceIsar isar) {
+    return ReferenceDto(
+      respondentId: isar.respondentId,
+      surveyId: isar.surveyId,
+      moduleType: isar.moduleType,
+      questionId: isar.questionId,
+      answer: AnswerDto.fromJson(
+        json.decode(isar.answer) as Map<String, dynamic>,
+      ),
+    );
+  }
+
+  ReferenceIsar toIsar() {
+    return ReferenceIsar()
+      ..respondentId = respondentId
+      ..surveyId = surveyId
+      ..moduleType = moduleType
+      ..questionId = questionId
+      ..answer = json.encode(answer.toJson());
   }
 
   factory ReferenceDto.fromJson(Map<String, dynamic> json) =>

@@ -122,7 +122,7 @@ abstract class _AudioFailure extends AudioFailure {
   const _AudioFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_AudioFailureCopyWith<_$_AudioFailure> get copyWith =>

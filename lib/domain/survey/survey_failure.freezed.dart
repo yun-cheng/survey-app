@@ -123,7 +123,7 @@ abstract class _SurveyFailure extends SurveyFailure {
   const _SurveyFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyFailureCopyWith<_$_SurveyFailure> get copyWith =>

@@ -256,19 +256,19 @@ abstract class _ResponseComments extends ResponseComments {
   const _ResponseComments._() : super._();
 
   @override // > 針對哪個 response 的 comments
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  String get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override // > 內容
-  Map<String, Comment> get commentMap => throw _privateConstructorUsedError;
+  Map<String, Comment> get commentMap;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseCommentsCopyWith<_$_ResponseComments> get copyWith =>

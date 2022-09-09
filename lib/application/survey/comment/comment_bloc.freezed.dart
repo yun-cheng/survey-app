@@ -379,7 +379,7 @@ abstract class _CommentUpdated extends CommentEvent {
   const factory _CommentUpdated(final String message) = _$_CommentUpdated;
   const _CommentUpdated._() : super._();
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$$_CommentUpdatedCopyWith<_$_CommentUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -677,7 +677,7 @@ abstract class _StateEmitted extends CommentEvent {
   const factory _StateEmitted(final CommentState state) = _$_StateEmitted;
   const _StateEmitted._() : super._();
 
-  CommentState get state => throw _privateConstructorUsedError;
+  CommentState get state;
   @JsonKey(ignore: true)
   _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1170,15 +1170,15 @@ abstract class _CommentState extends CommentState {
   const _CommentState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // > 主要資料
-  ResponseComments get responseComments => throw _privateConstructorUsedError;
+  ResponseComments get responseComments;
   @override
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @override // > 狀態
-  bool get showComments => throw _privateConstructorUsedError;
+  bool get showComments;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override
   @JsonKey(ignore: true)
   _$$_CommentStateCopyWith<_$_CommentState> get copyWith =>

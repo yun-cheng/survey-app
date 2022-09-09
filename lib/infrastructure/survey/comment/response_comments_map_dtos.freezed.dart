@@ -139,7 +139,9 @@ class _$_ResponseCommentsMapDto extends _ResponseCommentsMapDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResponseCommentsMapDtoToJson(this);
+    return _$$_ResponseCommentsMapDtoToJson(
+      this,
+    );
   }
 }
 
@@ -153,8 +155,7 @@ abstract class _ResponseCommentsMapDto extends ResponseCommentsMapDto {
       _$_ResponseCommentsMapDto.fromJson;
 
   @override
-  Map<String, ResponseCommentsDto> get map =>
-      throw _privateConstructorUsedError;
+  Map<String, ResponseCommentsDto> get map;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseCommentsMapDtoCopyWith<_$_ResponseCommentsMapDto> get copyWith =>

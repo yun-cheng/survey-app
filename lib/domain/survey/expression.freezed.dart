@@ -182,11 +182,11 @@ abstract class _Expression extends Expression {
   const _Expression._() : super._();
 
   @override
-  String get field => throw _privateConstructorUsedError;
+  String get field;
   @override
-  Operator get operator => throw _privateConstructorUsedError;
+  Operator get operator;
   @override
-  Answer get comparisonValue => throw _privateConstructorUsedError;
+  Answer get comparisonValue;
   @override
   @JsonKey(ignore: true)
   _$$_ExpressionCopyWith<_$_Expression> get copyWith =>

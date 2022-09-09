@@ -219,7 +219,9 @@ class _$_ReferenceDto extends _ReferenceDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReferenceDtoToJson(this);
+    return _$$_ReferenceDtoToJson(
+      this,
+    );
   }
 }
 
@@ -236,15 +238,15 @@ abstract class _ReferenceDto extends ReferenceDto {
       _$_ReferenceDto.fromJson;
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  AnswerDto get answer => throw _privateConstructorUsedError;
+  AnswerDto get answer;
   @override
   @JsonKey(ignore: true)
   _$$_ReferenceDtoCopyWith<_$_ReferenceDto> get copyWith =>

@@ -14,15 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SurveyMapDto _$SurveyMapDtoFromJson(Map<String, dynamic> json) {
-  return _SurveyMapDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$SurveyMapDto {
   Map<String, SurveyDto> get map => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SurveyMapDtoCopyWith<SurveyMapDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -92,14 +87,11 @@ class __$$_SurveyMapDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_SurveyMapDto extends _SurveyMapDto {
   const _$_SurveyMapDto({required final Map<String, SurveyDto> map})
       : _map = map,
         super._();
-
-  factory _$_SurveyMapDto.fromJson(Map<String, dynamic> json) =>
-      _$$_SurveyMapDtoFromJson(json);
 
   final Map<String, SurveyDto> _map;
   @override
@@ -121,7 +113,6 @@ class _$_SurveyMapDto extends _SurveyMapDto {
             const DeepCollectionEquality().equals(other._map, _map));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_map));
@@ -130,11 +121,6 @@ class _$_SurveyMapDto extends _SurveyMapDto {
   @override
   _$$_SurveyMapDtoCopyWith<_$_SurveyMapDto> get copyWith =>
       __$$_SurveyMapDtoCopyWithImpl<_$_SurveyMapDto>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SurveyMapDtoToJson(this);
-  }
 }
 
 abstract class _SurveyMapDto extends SurveyMapDto {
@@ -142,11 +128,8 @@ abstract class _SurveyMapDto extends SurveyMapDto {
       _$_SurveyMapDto;
   const _SurveyMapDto._() : super._();
 
-  factory _SurveyMapDto.fromJson(Map<String, dynamic> json) =
-      _$_SurveyMapDto.fromJson;
-
   @override
-  Map<String, SurveyDto> get map => throw _privateConstructorUsedError;
+  Map<String, SurveyDto> get map;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyMapDtoCopyWith<_$_SurveyMapDto> get copyWith =>

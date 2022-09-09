@@ -11,18 +11,13 @@ import '../../domain/respondent/respondent.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/typedefs.dart';
 import '../../domain/survey/i_survey_repository.dart';
-import '../core/firestore_helpers.dart';
+import '../core/firebase_worker.dart';
 import '../core/isolate_local_storage.dart';
-import '../core/isolate_worker.dart';
-import 'respondent_dtos.dart';
-import 'respondent_map_dtos.dart';
-import 'survey_respondent_map_dtos.dart';
 
 @LazySingleton(as: IRespondentRepository)
 class RespondentRepository implements IRespondentRepository {
   final IsolateLocalStorage _localStorage;
-  final IsolateWorker _isolateWorker;
-  final FirebaseFirestore _firestore;
+  final FirebaseWorker _firebaseWorker;
   final ICommonRepository _commonRepo;
   final IAuthRepository _authRepo;
   final ISurveyRepository _surveyRepo;
@@ -32,7 +27,7 @@ class RespondentRepository implements IRespondentRepository {
   Future<void> get ready =>
       _completer.isCompleted ? Future.value() : _completer.future;
 
-  Respondent? _respondent;
+  String? _respondentId;
 
   final _respondentMapStream = BehaviorSubject<RespondentMap>();
   final _failureStream = BehaviorSubject.seeded(RespondentFailure.empty());
@@ -40,7 +35,7 @@ class RespondentRepository implements IRespondentRepository {
   StreamSubscription? _remoteSubscription;
 
   @override
-  Respondent? get respondent => _respondent;
+  String? get respondentId => _respondentId;
   @override
   RespondentMap get respondentMap => _respondentMapStream.value;
 
@@ -52,17 +47,17 @@ class RespondentRepository implements IRespondentRepository {
 
   RespondentRepository(
     this._localStorage,
-    this._firestore,
+    this._firebaseWorker,
     this._commonRepo,
     this._authRepo,
     this._surveyRepo,
-    this._isolateWorker,
   ) {
     initialize();
   }
 
   Future<void> initialize() async {
     await _localStorage.ready;
+    await _firebaseWorker.ready;
     await _commonRepo.ready;
     await _authRepo.ready;
     await _surveyRepo.ready;
@@ -74,11 +69,8 @@ class RespondentRepository implements IRespondentRepository {
   }
 
   Future<void> loadLocalData() async {
-    _respondent = await _localStorage.read(
-      box: 'common',
-      key: 'respondent',
-      toDomain: RespondentDto.jsonToDomain,
-    );
+    _respondentId =
+        await _localStorage.getValueByKey('respondentId') as String?;
   }
 
   Future<void> startListener() async {
@@ -109,8 +101,8 @@ class RespondentRepository implements IRespondentRepository {
     });
 
     // * 不須取消
-    _surveyRepo.surveyStream.listen((survey) {
-      loadRespondentMap(survey?.id);
+    _surveyRepo.surveyIdStream.listen((surveyId) {
+      loadRespondentMap(surveyId);
     });
   }
 
@@ -122,12 +114,9 @@ class RespondentRepository implements IRespondentRepository {
       return;
     }
 
-    final respondentMap = await _localStorage.read<RespondentMap>(
-      box: 'surveyRespondentMap',
-      key: _surveyId,
-      toDomain: RespondentMapDto.jsonToDomain,
-    );
-    _respondentMapStream.add(respondentMap ?? {});
+    final respondentMap = await _localStorage.getRespondents(_surveyId);
+
+    _respondentMapStream.add(respondentMap);
   }
 
   @override
@@ -135,23 +124,18 @@ class RespondentRepository implements IRespondentRepository {
     required String teamId,
     required String interviewerId,
   }) async {
-    final respondentCollection = _firestore.respondentCollection;
-
     await _remoteSubscription?.cancel();
-    _remoteSubscription = respondentCollection
-        .where('teamId', isEqualTo: teamId)
-        .where('interviewerId', isEqualTo: interviewerId)
-        .snapshots()
+    _remoteSubscription = _firebaseWorker
+        .watch(
+      type: 'respondents',
+      teamId: teamId,
+      interviewerId: interviewerId,
+    )
         .listen(
-      (snapshot) async {
-        await _localStorage.write(
-          box: 'surveyRespondentMap',
-          data: snapshot.docs,
-          isMapEntries: true,
-          toJson: SurveyRespondentMapDto.firestoreToJson,
-        );
-
-        loadRespondentMap();
+      (data) async {
+        if (data is bool && data) {
+          loadRespondentMap();
+        }
       },
       onError: commonOnError,
     );
@@ -161,29 +145,17 @@ class RespondentRepository implements IRespondentRepository {
   Future<void> selectRespondent(
     Respondent respondent,
   ) async {
-    _respondent = respondent;
-    await _localStorage.write(
-      box: 'common',
-      key: 'respondent',
-      data: respondent,
-      toJson: RespondentDto.domainToJson,
-    );
+    _respondentId = respondent.id;
+    await _localStorage.writeKeyValue('respondentId', respondent.id);
   }
 
   @override
   Future<void> signOut() async {
-    _respondent = null;
+    _respondentId = null;
     _respondentMapStream.add({});
 
-    _localStorage.write(
-      box: 'common',
-      key: 'respondent',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'surveyRespondentMap',
-      clear: true,
-    );
+    await _localStorage.clearKey('respondentId');
+    await _localStorage.clearRespondents();
   }
 
   void commonOnError(e, stackTrace) {

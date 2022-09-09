@@ -419,7 +419,7 @@ class _$_StateEmitted implements _StateEmitted {
 abstract class _StateEmitted implements AuthEvent {
   const factory _StateEmitted(final AuthState state) = _$_StateEmitted;
 
-  AuthState get state => throw _privateConstructorUsedError;
+  AuthState get state;
   @JsonKey(ignore: true)
   _$$_StateEmittedCopyWith<_$_StateEmitted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -729,7 +729,7 @@ class _$_TeamSelected implements _TeamSelected {
 abstract class _TeamSelected implements AuthEvent {
   const factory _TeamSelected(final String teamId) = _$_TeamSelected;
 
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @JsonKey(ignore: true)
   _$$_TeamSelectedCopyWith<_$_TeamSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -898,7 +898,7 @@ class _$_IdChanged implements _IdChanged {
 abstract class _IdChanged implements AuthEvent {
   const factory _IdChanged(final String id) = _$_IdChanged;
 
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @JsonKey(ignore: true)
   _$$_IdChangedCopyWith<_$_IdChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1068,7 +1068,7 @@ class _$_PasswordChanged implements _PasswordChanged {
 abstract class _PasswordChanged implements AuthEvent {
   const factory _PasswordChanged(final String password) = _$_PasswordChanged;
 
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @JsonKey(ignore: true)
   _$$_PasswordChangedCopyWith<_$_PasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1673,23 +1673,23 @@ abstract class _AuthState extends AuthState {
   const _AuthState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // > 主要資料
-  List<Team> get teamList => throw _privateConstructorUsedError;
+  List<Team> get teamList;
   @override
-  Team get team => throw _privateConstructorUsedError;
+  Team get team;
   @override // > 中間資料
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
-  bool get validating => throw _privateConstructorUsedError;
+  bool get validating;
   @override // > 狀態更新進度
-  LoadState get signInState => throw _privateConstructorUsedError;
+  LoadState get signInState;
   @override
-  Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
+  Option<AuthFailure> get authFailure;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

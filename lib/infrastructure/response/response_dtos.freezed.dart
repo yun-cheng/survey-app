@@ -522,7 +522,9 @@ class _$_ResponseDto extends _ResponseDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResponseDtoToJson(this);
+    return _$$_ResponseDtoToJson(
+      this,
+    );
   }
 }
 
@@ -555,47 +557,45 @@ abstract class _ResponseDto extends ResponseDto {
       _$_ResponseDto.fromJson;
 
   @override // > 區分不同 response
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override // > 區分 response 版本
-  String get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override
-  String get tempResponseId => throw _privateConstructorUsedError;
+  String get tempResponseId;
   @override
-  String get ticketId => throw _privateConstructorUsedError;
+  String get ticketId;
   @override
-  bool get editFinished => throw _privateConstructorUsedError;
+  bool get editFinished;
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  String get deviceId => throw _privateConstructorUsedError;
+  String get deviceId;
   @override // > 狀態
-  int get createdTimeStamp => throw _privateConstructorUsedError;
+  int get createdTimeStamp;
   @override
-  int get sessionStartTimeStamp => throw _privateConstructorUsedError;
+  int get sessionStartTimeStamp;
   @override
-  int get sessionEndTimeStamp => throw _privateConstructorUsedError;
+  int get sessionEndTimeStamp;
   @override
-  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp;
   @override
-  String get responseStatus => throw _privateConstructorUsedError;
+  String get responseStatus;
   @override
-  bool get isDeleted => throw _privateConstructorUsedError;
+  bool get isDeleted;
   @override // > 內容
-  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get answerMap;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap;
   @override
-  SimpleSurveyPageStateDto get surveyPageState =>
-      throw _privateConstructorUsedError;
+  SimpleSurveyPageStateDto get surveyPageState;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseDtoCopyWith<_$_ResponseDto> get copyWith =>

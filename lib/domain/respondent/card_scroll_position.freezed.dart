@@ -183,11 +183,11 @@ abstract class _CardScrollPosition extends CardScrollPosition {
   const _CardScrollPosition._() : super._();
 
   @override
-  int get firstCardIndex => throw _privateConstructorUsedError;
+  int get firstCardIndex;
   @override
-  double get firstCardAlignment => throw _privateConstructorUsedError;
+  double get firstCardAlignment;
   @override
-  Respondent get firstRespondent => throw _privateConstructorUsedError;
+  Respondent get firstRespondent;
   @override
   @JsonKey(ignore: true)
   _$$_CardScrollPositionCopyWith<_$_CardScrollPosition> get copyWith =>

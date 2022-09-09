@@ -157,11 +157,11 @@ abstract class _Interviewer extends Interviewer {
   const _Interviewer._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$_InterviewerCopyWith<_$_Interviewer> get copyWith =>

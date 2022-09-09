@@ -24,9 +24,8 @@ mixin _$SurveyDto {
   String get surveyName => throw _privateConstructorUsedError;
   String get projectId => throw _privateConstructorUsedError;
   String get teamId => throw _privateConstructorUsedError;
-  String? get version => throw _privateConstructorUsedError;
-  bool? get isCompatible => throw _privateConstructorUsedError;
-  int? get lastUpdatedTimeStamp => throw _privateConstructorUsedError;
+  String get version => throw _privateConstructorUsedError;
+  int get lastUpdatedTimeStamp => throw _privateConstructorUsedError;
   Map<String, SurveyModuleDto>? get module =>
       throw _privateConstructorUsedError;
 
@@ -45,9 +44,8 @@ abstract class $SurveyDtoCopyWith<$Res> {
       String surveyName,
       String projectId,
       String teamId,
-      String? version,
-      bool? isCompatible,
-      int? lastUpdatedTimeStamp,
+      String version,
+      int lastUpdatedTimeStamp,
       Map<String, SurveyModuleDto>? module});
 }
 
@@ -66,7 +64,6 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
     Object? projectId = freezed,
     Object? teamId = freezed,
     Object? version = freezed,
-    Object? isCompatible = freezed,
     Object? lastUpdatedTimeStamp = freezed,
     Object? module = freezed,
   }) {
@@ -90,15 +87,11 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isCompatible: isCompatible == freezed
-          ? _value.isCompatible
-          : isCompatible // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as String,
       lastUpdatedTimeStamp: lastUpdatedTimeStamp == freezed
           ? _value.lastUpdatedTimeStamp
           : lastUpdatedTimeStamp // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
@@ -118,9 +111,8 @@ abstract class _$$_SurveyDtoCopyWith<$Res> implements $SurveyDtoCopyWith<$Res> {
       String surveyName,
       String projectId,
       String teamId,
-      String? version,
-      bool? isCompatible,
-      int? lastUpdatedTimeStamp,
+      String version,
+      int lastUpdatedTimeStamp,
       Map<String, SurveyModuleDto>? module});
 }
 
@@ -141,7 +133,6 @@ class __$$_SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
     Object? projectId = freezed,
     Object? teamId = freezed,
     Object? version = freezed,
-    Object? isCompatible = freezed,
     Object? lastUpdatedTimeStamp = freezed,
     Object? module = freezed,
   }) {
@@ -165,15 +156,11 @@ class __$$_SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
       version: version == freezed
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isCompatible: isCompatible == freezed
-          ? _value.isCompatible
-          : isCompatible // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as String,
       lastUpdatedTimeStamp: lastUpdatedTimeStamp == freezed
           ? _value.lastUpdatedTimeStamp
           : lastUpdatedTimeStamp // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       module: module == freezed
           ? _value._module
           : module // ignore: cast_nullable_to_non_nullable
@@ -190,9 +177,8 @@ class _$_SurveyDto extends _SurveyDto {
       required this.surveyName,
       required this.projectId,
       required this.teamId,
-      this.version,
-      this.isCompatible,
-      this.lastUpdatedTimeStamp,
+      required this.version,
+      required this.lastUpdatedTimeStamp,
       final Map<String, SurveyModuleDto>? module})
       : _module = module,
         super._();
@@ -209,11 +195,9 @@ class _$_SurveyDto extends _SurveyDto {
   @override
   final String teamId;
   @override
-  final String? version;
+  final String version;
   @override
-  final bool? isCompatible;
-  @override
-  final int? lastUpdatedTimeStamp;
+  final int lastUpdatedTimeStamp;
   final Map<String, SurveyModuleDto>? _module;
   @override
   Map<String, SurveyModuleDto>? get module {
@@ -225,7 +209,7 @@ class _$_SurveyDto extends _SurveyDto {
 
   @override
   String toString() {
-    return 'SurveyDto(surveyId: $surveyId, surveyName: $surveyName, projectId: $projectId, teamId: $teamId, version: $version, isCompatible: $isCompatible, lastUpdatedTimeStamp: $lastUpdatedTimeStamp, module: $module)';
+    return 'SurveyDto(surveyId: $surveyId, surveyName: $surveyName, projectId: $projectId, teamId: $teamId, version: $version, lastUpdatedTimeStamp: $lastUpdatedTimeStamp, module: $module)';
   }
 
   @override
@@ -240,8 +224,6 @@ class _$_SurveyDto extends _SurveyDto {
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality().equals(other.version, version) &&
             const DeepCollectionEquality()
-                .equals(other.isCompatible, isCompatible) &&
-            const DeepCollectionEquality()
                 .equals(other.lastUpdatedTimeStamp, lastUpdatedTimeStamp) &&
             const DeepCollectionEquality().equals(other._module, _module));
   }
@@ -255,7 +237,6 @@ class _$_SurveyDto extends _SurveyDto {
       const DeepCollectionEquality().hash(projectId),
       const DeepCollectionEquality().hash(teamId),
       const DeepCollectionEquality().hash(version),
-      const DeepCollectionEquality().hash(isCompatible),
       const DeepCollectionEquality().hash(lastUpdatedTimeStamp),
       const DeepCollectionEquality().hash(_module));
 
@@ -266,7 +247,9 @@ class _$_SurveyDto extends _SurveyDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SurveyDtoToJson(this);
+    return _$$_SurveyDtoToJson(
+      this,
+    );
   }
 }
 
@@ -276,9 +259,8 @@ abstract class _SurveyDto extends SurveyDto {
       required final String surveyName,
       required final String projectId,
       required final String teamId,
-      final String? version,
-      final bool? isCompatible,
-      final int? lastUpdatedTimeStamp,
+      required final String version,
+      required final int lastUpdatedTimeStamp,
       final Map<String, SurveyModuleDto>? module}) = _$_SurveyDto;
   const _SurveyDto._() : super._();
 
@@ -286,22 +268,19 @@ abstract class _SurveyDto extends SurveyDto {
       _$_SurveyDto.fromJson;
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get surveyName => throw _privateConstructorUsedError;
+  String get surveyName;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String? get version => throw _privateConstructorUsedError;
+  String get version;
   @override
-  bool? get isCompatible => throw _privateConstructorUsedError;
+  int get lastUpdatedTimeStamp;
   @override
-  int? get lastUpdatedTimeStamp => throw _privateConstructorUsedError;
-  @override
-  Map<String, SurveyModuleDto>? get module =>
-      throw _privateConstructorUsedError;
+  Map<String, SurveyModuleDto>? get module;
   @override
   @JsonKey(ignore: true)
   _$$_SurveyDtoCopyWith<_$_SurveyDto> get copyWith =>

@@ -198,7 +198,9 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AnswerStatusDtoToJson(this);
+    return _$$_AnswerStatusDtoToJson(
+      this,
+    );
   }
 }
 
@@ -214,13 +216,13 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
       _$_AnswerStatusDto.fromJson;
 
   @override
-  String get answerStatusType => throw _privateConstructorUsedError;
+  String get answerStatusType;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp;
   @override
-  Map<String, String> get noteMap => throw _privateConstructorUsedError;
+  Map<String, String> get noteMap;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerStatusDtoCopyWith<_$_AnswerStatusDto> get copyWith =>

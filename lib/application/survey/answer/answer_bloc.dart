@@ -15,7 +15,6 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
 import '../../../domain/respondent/i_respondent_repository.dart';
 import '../../../domain/response/i_response_repository.dart';
-import '../../../domain/response/typedefs.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer/i_answer_repository.dart';
 import '../../../domain/survey/answer_status.dart';
@@ -29,6 +28,7 @@ import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../../infrastructure/core/isolate_worker.dart';
+import '../../../infrastructure/core/local_storage.dart';
 
 part './helpers/helpers.dart';
 part './helpers/restore_response.dart';
@@ -49,7 +49,8 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
   final IsolateWorker _isolateWorker;
   final IAudioRecorder _recorder;
 
-  StreamSubscription? _subscription;
+  StreamSubscription? _answerMapSubscription;
+  StreamSubscription? _appIsPausedSubscription;
 
   AnswerBloc(
     this._commonRepo,
@@ -92,6 +93,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         await _respondentRepo.ready;
         await _responseRepo.ready;
         await _isolateWorker.ready;
+        await _recorder.ready;
 
         if (_commonRepo.page.isSurvey && _responseRepo.response != null) {
           add(
@@ -103,6 +105,10 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
       },
       // > response
       responseStarted: (e) async {
+        _appIsPausedSubscription?.cancel();
+        _appIsPausedSubscription = _commonRepo.appIsPausedStream.listen(
+          _onAppIsPaused,
+        );
         _answerRepo.reset();
         AnswerState.initial()
             .copyWith(
@@ -111,20 +117,17 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
             )
             .emit(emit);
 
-        final _responseMap = _responseRepo.responseMap;
         final interviewer = _authRepo.interviewer!;
         final survey = _surveyRepo.survey!;
         final initState = AnswerState.initial().copyWith(
           moduleType: e.moduleType ?? ModuleType.empty(),
           surveyId: survey.id,
-          respondentId: _respondentRepo.respondent!.id,
-          referenceList: _responseRepo.referenceList,
+          respondentId: _respondentRepo.respondentId!,
         );
 
         final result = await _isolateWorker.compute(
           restoreResponse,
-          tuple8(
-            _responseMap,
+          tuple7(
             e.responseId,
             e.breakInterview,
             e.createNewResponse,
@@ -139,8 +142,9 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         final response = result.value2;
 
         _answerRepo.updateAnswerMap(response.answerMap);
-        _subscription?.cancel();
-        _subscription = _answerRepo.answerMapStream.listen(_onAnswerMap);
+        _answerMapSubscription?.cancel();
+        _answerMapSubscription =
+            _answerRepo.answerMapStream.listen(_onAnswerMap);
 
         newState
             .copyWith(
@@ -154,11 +158,26 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         }
       },
       // >
+      responsePaused: (e) {
+        logger('Event').i('AnswerEvent: responsePaused');
+
+        _responseRepo.endResponse(false);
+        _recorder.stopRecording();
+
+        state
+            .copyWith(
+              appIsPaused: true,
+              dialogType: const DialogType.breakInterview(),
+            )
+            .eventSuccess(emit);
+      },
+      // >
       responseResumed: (e) async {
         logger('User Event').i('AnswerEvent: responseResumed');
 
         state
             .copyWith(
+              appIsPaused: false,
               dialogType: const DialogType.none(),
             )
             .eventSuccess(emit);
@@ -211,6 +230,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
               )
               .eventSuccess(emit);
           _answerRepo.reset();
+          _appIsPausedSubscription?.cancel();
         }
       },
       // > 該題作答更新
@@ -316,24 +336,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
 
         newState.eventSuccess(emit);
       },
-      // > lifeCycle 變更時
-      // TODO 改成觸發 responseEnded?
-      appLifeCycleChanged: (e) {
-        logger('Event').i('AnswerEvent: appLifeCycleChanged');
 
-        DialogType dialogType = state.dialogType;
-
-        if (e.isPaused && state.moduleType.shouldRecord && !state.isReadOnly) {
-          dialogType = const DialogType.breakInterview();
-        }
-
-        state
-            .copyWith(
-              appIsPaused: e.isPaused,
-              dialogType: dialogType,
-            )
-            .eventSuccess(emit);
-      },
       // > 關閉 dialog
       dialogClosed: (e) {
         logger('User Event').i('AnswerEvent: dialogClosed');
@@ -450,10 +453,29 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
     );
   }
 
+  void _onAppIsPaused(bool appIsPaused) {
+    if (appIsPaused &&
+        !state.appIsPaused &&
+        state.moduleType.shouldRecord &&
+        !state.isReadOnly) {
+      add(
+        const AnswerEvent.responsePaused(),
+      );
+    }
+  }
+
   // TODO 重置
   void restart() {
     add(
       const AnswerEvent.responseEnded(),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _answerMapSubscription?.cancel();
+    _appIsPausedSubscription?.cancel();
+
+    return super.close();
   }
 }

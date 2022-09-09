@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:supercharged/supercharged.dart';
@@ -5,6 +7,7 @@ import 'package:supercharged/supercharged.dart';
 import '../../domain/respondent/typedefs.dart';
 import '../core/extensions.dart';
 import 'respondent_map_dtos.dart';
+import 'respondents_isar.dart';
 
 part 'survey_respondent_map_dtos.freezed.dart';
 part 'survey_respondent_map_dtos.g.dart';
@@ -27,6 +30,16 @@ class SurveyRespondentMapDto with _$SurveyRespondentMapDto {
     return map.mapValues((e) => e.toDomain());
   }
 
+  List<RespondentsIsar> toIsar() {
+    return map
+        .mapEntries(
+          (k, v) => RespondentsIsar()
+            ..surveyId = k
+            ..respondentMap = json.encode(v.toJson()),
+        )
+        .toList();
+  }
+
   factory SurveyRespondentMapDto.fromJson(Map<String, dynamic> json) =>
       _$SurveyRespondentMapDtoFromJson(json);
 
@@ -47,9 +60,8 @@ class SurveyRespondentMapDto with _$SurveyRespondentMapDto {
     return SurveyRespondentMapDto(map: map);
   }
 
-  static Map<String, dynamic> firestoreToJson(
+  static List<RespondentsIsar> firestoreToIsar(
     List<QueryDocumentSnapshot<Object?>> docs,
   ) =>
-      SurveyRespondentMapDto.fromFirestore(docs).toJson()['map']
-          as Map<String, dynamic>;
+      SurveyRespondentMapDto.fromFirestore(docs).toIsar();
 }

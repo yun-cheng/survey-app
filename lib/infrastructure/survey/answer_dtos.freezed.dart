@@ -272,7 +272,9 @@ class _$_AnswerDto extends _AnswerDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AnswerDtoToJson(this);
+    return _$$_AnswerDtoToJson(
+      this,
+    );
   }
 }
 
@@ -291,20 +293,19 @@ abstract class _AnswerDto extends AnswerDto {
       _$_AnswerDto.fromJson;
 
   @override
-  String? get type => throw _privateConstructorUsedError;
+  String? get type;
   @override
-  bool? get withNote => throw _privateConstructorUsedError;
+  bool? get withNote;
   @override
-  String? get stringValue => throw _privateConstructorUsedError;
+  String? get stringValue;
   @override
-  int? get intValue => throw _privateConstructorUsedError;
+  int? get intValue;
   @override
-  SimpleChoiceDto? get choiceValue => throw _privateConstructorUsedError;
+  SimpleChoiceDto? get choiceValue;
   @override
-  List<SimpleChoiceDto>? get choiceListValue =>
-      throw _privateConstructorUsedError;
+  List<SimpleChoiceDto>? get choiceListValue;
   @override
-  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
+  Map<String, String>? get noteMap;
   @override
   @JsonKey(ignore: true)
   _$$_AnswerDtoCopyWith<_$_AnswerDto> get copyWith =>

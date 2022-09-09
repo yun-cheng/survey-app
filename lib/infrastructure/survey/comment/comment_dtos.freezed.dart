@@ -226,7 +226,9 @@ class _$_CommentDto extends _CommentDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CommentDtoToJson(this);
+    return _$$_CommentDtoToJson(
+      this,
+    );
   }
 }
 
@@ -244,17 +246,17 @@ abstract class _CommentDto extends CommentDto {
       _$_CommentDto.fromJson;
 
   @override
-  String get commentId => throw _privateConstructorUsedError;
+  String get commentId;
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  String get deviceId => throw _privateConstructorUsedError;
+  String get deviceId;
   @override // > 狀態
-  int get createdTimeStamp => throw _privateConstructorUsedError;
+  int get createdTimeStamp;
   @override
-  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp;
   @override // > 內容
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_CommentDtoCopyWith<_$_CommentDto> get copyWith =>

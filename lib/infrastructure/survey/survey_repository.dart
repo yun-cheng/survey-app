@@ -1,39 +1,24 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart' hide Reference;
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:supercharged/supercharged.dart';
 
 import '../../domain/auth/i_auth_repository.dart';
 import '../../domain/core/i_common_repository.dart';
 import '../../domain/core/logger.dart';
-import '../../domain/overview/project.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/overview/typedefs.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/typedefs.dart';
-import '../core/extensions.dart';
-import '../core/firestore_helpers.dart';
+import '../core/firebase_worker.dart';
 import '../core/isolate_local_storage.dart';
-import '../core/isolate_worker.dart';
-import '../overview/project_dtos.dart';
-import '../overview/project_map_dtos.dart';
-import 'survey_dtos.dart';
-import 'survey_map_dtos.dart';
-
-part 'survey_repo_helpers.dart';
 
 @LazySingleton(as: ISurveyRepository)
 class SurveyRepository implements ISurveyRepository {
   final IsolateLocalStorage _localStorage;
-  final IsolateWorker _isolateWorker;
-  final FirebaseFirestore _firestore;
-  final FirebaseStorage _storage;
+  final FirebaseWorker _firebaseWorker;
   final ICommonRepository _commonRepo;
   final IAuthRepository _authRepo;
 
@@ -42,37 +27,32 @@ class SurveyRepository implements ISurveyRepository {
   Future<void> get ready =>
       _completer.isCompleted ? Future.value() : _completer.future;
 
+  Survey? _survey;
   SurveyMap _surveyMap = {};
-  SurveyMap get _simpleSurveyMap => _surveyMap.mapValues((e) => e.simplify());
-  Project? _project;
   ProjectMap _projectMap = {};
 
-  final _surveyStream = BehaviorSubject<Survey?>();
-  final _simpleSurveyMapStream = BehaviorSubject<SurveyMap>();
+  final _surveyIdStream = BehaviorSubject<String?>();
+  final _surveyMapStream = BehaviorSubject<SurveyMap>();
   final _failureStream = BehaviorSubject.seeded(SurveyFailure.empty());
 
   StreamSubscription? _projectMapSubscription;
   StreamSubscription? _rawSurveySubscription;
 
   @override
-  Survey? get survey => _surveyStream.valueOrNull;
-  @override
-  Survey? get simpleSurvey => survey?.simplify();
+  Survey? get survey => _survey;
   @override
   ProjectMap get projectMap => _projectMap;
 
   @override
-  BehaviorSubject<Survey?> get surveyStream => _surveyStream;
+  BehaviorSubject<String?> get surveyIdStream => _surveyIdStream;
   @override
-  Stream<SurveyMap> get simpleSurveyMapStream => _simpleSurveyMapStream;
+  Stream<SurveyMap> get surveyMapStream => _surveyMapStream;
   @override
   Stream<SurveyFailure> get failureStream => _failureStream;
 
   SurveyRepository(
     this._localStorage,
-    this._isolateWorker,
-    this._firestore,
-    this._storage,
+    this._firebaseWorker,
     this._commonRepo,
     this._authRepo,
   ) {
@@ -81,9 +61,9 @@ class SurveyRepository implements ISurveyRepository {
 
   Future<void> initialize() async {
     await _localStorage.ready;
+    await _firebaseWorker.ready;
     await _commonRepo.ready;
     await _authRepo.ready;
-    await _isolateWorker.ready;
 
     await loadLocalData();
     startListener();
@@ -92,35 +72,13 @@ class SurveyRepository implements ISurveyRepository {
   }
 
   Future<void> loadLocalData() async {
-    final survey = await _localStorage.read(
-      box: 'common',
-      key: 'survey',
-      toDomain: SurveyDto.jsonToDomain,
-    );
-    if (survey != null) {
-      _surveyStream.add(survey);
+    _survey = await _localStorage.getSurvey();
+    if (_survey != null) {
+      _surveyIdStream.add(_survey!.id);
     }
 
-    _project = await _localStorage.read(
-      box: 'common',
-      key: 'project',
-      toDomain: ProjectDto.jsonToDomain,
-    );
-
-    _projectMap = await _localStorage.read(
-          box: 'projectMap',
-          allKeys: true,
-          toDomain: ProjectMapDto.jsonToDomain,
-        ) ??
-        {};
-
-    _surveyMap = await _localStorage.read<SurveyMap>(
-          box: 'surveyMap',
-          allKeys: true,
-          toDomain: SurveyMapDto.jsonToDomain,
-        ) ??
-        {};
-    _simpleSurveyMapStream.add(_simpleSurveyMap);
+    _surveyMap = await _localStorage.getSurveyInfos(_commonRepo.compatibility);
+    _surveyMapStream.add(_surveyMap);
   }
 
   Future<void> startListener() async {
@@ -155,50 +113,20 @@ class SurveyRepository implements ISurveyRepository {
     required String teamId,
     required String interviewerId,
   }) async {
-    final surveyCollection = _firestore.surveyCollection;
-
     await _rawSurveySubscription?.cancel();
-    _rawSurveySubscription = surveyCollection
-        .where('teamId', isEqualTo: teamId)
-        .where('interviewerList', arrayContains: interviewerId)
-        .snapshots()
+    _rawSurveySubscription = _firebaseWorker
+        .watch(
+      type: 'surveys',
+      teamId: teamId,
+      interviewerId: interviewerId,
+    )
         .listen(
-      (snapshot) async {
-        final dataMap = <String, Uint8List?>{};
-
-        // * Future.wait 會等裡面的東西都齊全
-        await Future.wait(
-          snapshot.docs.map((doc) async {
-            final surveyId = doc.id;
-            final surveyRef =
-                _storage.surveyRef.child('$surveyId/$surveyId.json');
-
-            final data = await surveyRef
-                .getData()
-                .timeout(const Duration(minutes: 1))
-                .onError((e, stackTrace) {
-              commonOnError('watchRemoteSurveyMap', e, stackTrace);
-              return;
-            });
-
-            dataMap[surveyId] = data;
-          }),
-        );
-
-        if (dataMap.isEmpty || dataMap.values.any((e) => e == null)) return;
-
-        _surveyMap = await _isolateWorker.compute(
-          rawSurveyMapToDomain,
-          [dataMap, _commonRepo.compatibility],
-        );
-        _simpleSurveyMapStream.add(_simpleSurveyMap);
-
-        await _localStorage.write(
-          box: 'surveyMap',
-          data: _surveyMap,
-          isMapEntries: true,
-          toJson: SurveyMapDto.domainToJson,
-        );
+      (data) async {
+        if (data as bool && data) {
+          _surveyMap =
+              await _localStorage.getSurveyInfos(_commonRepo.compatibility);
+          _surveyMapStream.add(_surveyMap);
+        }
       },
     );
   }
@@ -207,21 +135,17 @@ class SurveyRepository implements ISurveyRepository {
   Future<void> watchRemoteProjectMap({
     required String teamId,
   }) async {
-    final projectCollection = _firestore.projectCollection;
-
     await _projectMapSubscription?.cancel();
-    _projectMapSubscription =
-        projectCollection.where('teamId', isEqualTo: teamId).snapshots().listen(
-      (snapshot) async {
-        final dto = ProjectMapDto.fromFirestore(snapshot);
-        _projectMap = dto.toDomain();
-
-        await _localStorage.write(
-          box: 'projectMap',
-          data: dto,
-          isMapEntries: true,
-          toJson: (ProjectMapDto e) => e.dtoToJson(),
-        );
+    _projectMapSubscription = _firebaseWorker
+        .watch(
+      type: 'projects',
+      teamId: teamId,
+    )
+        .listen(
+      (data) async {
+        if (data as bool && data) {
+          _projectMap = await _localStorage.getProjects();
+        }
       },
       onError: (e, stackTrace) =>
           commonOnError('watchRemoteProjectMap', e, stackTrace),
@@ -230,66 +154,32 @@ class SurveyRepository implements ISurveyRepository {
 
   @override
   Future<void> selectSurvey(String surveyId) async {
-    final survey = _surveyMap[surveyId]!;
-    _surveyStream.add(survey);
-    _project = _projectMap[survey.projectId]!;
-
-    _localStorage.write(
-      box: 'common',
-      key: 'survey',
-      data: survey,
-      toJson: SurveyDto.domainToJson,
-    );
-    _localStorage.write(
-      box: 'common',
-      key: 'project',
-      data: _project,
-      toJson: ProjectDto.domainToJson,
-    );
+    _survey = await _localStorage.getSurvey(surveyId);
+    _surveyIdStream.add(_survey!.id);
+    _localStorage.writeKeyValue('surveyId', surveyId);
+    _localStorage.writeKeyValue('projectId', _survey!.projectId);
   }
 
   @override
   Future<void> closeSurvey() async {
-    _surveyStream.add(null);
-
-    _localStorage.write(
-      box: 'common',
-      key: 'survey',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'common',
-      key: 'project',
-      clear: true,
-    );
+    _survey = null;
+    _surveyIdStream.add(null);
+    _localStorage.clearKey('surveyId');
+    _localStorage.clearKey('projectId');
   }
 
   @override
   Future<void> signOut() async {
-    _surveyStream.add(null);
-    _project = null;
-    _projectMap = {};
+    _survey = null;
     _surveyMap = {};
-    _simpleSurveyMapStream.add({});
+    _projectMap = {};
+    _surveyIdStream.add(null);
+    _surveyMapStream.add({});
 
-    _localStorage.write(
-      box: 'common',
-      key: 'survey',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'common',
-      key: 'project',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'projectMap',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'surveyMap',
-      clear: true,
-    );
+    _localStorage.clearKey('surveyId');
+    _localStorage.clearKey('projectId');
+    await _localStorage.clearSurveys();
+    await _localStorage.clearProjects();
   }
 
   void commonOnError(String name, e, stackTrace) {

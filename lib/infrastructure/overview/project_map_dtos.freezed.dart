@@ -134,7 +134,9 @@ class _$_ProjectMapDto extends _ProjectMapDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectMapDtoToJson(this);
+    return _$$_ProjectMapDtoToJson(
+      this,
+    );
   }
 }
 
@@ -147,7 +149,7 @@ abstract class _ProjectMapDto extends ProjectMapDto {
       _$_ProjectMapDto.fromJson;
 
   @override
-  Map<String, ProjectDto> get map => throw _privateConstructorUsedError;
+  Map<String, ProjectDto> get map;
   @override
   @JsonKey(ignore: true)
   _$$_ProjectMapDtoCopyWith<_$_ProjectMapDto> get copyWith =>

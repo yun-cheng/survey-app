@@ -298,25 +298,25 @@ abstract class _Choice extends Choice {
   const _Choice._() : super._();
 
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get transformedId => throw _privateConstructorUsedError;
+  String get transformedId;
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
-  bool get asNote => throw _privateConstructorUsedError;
+  bool get asNote;
   @override
-  bool get asSingle => throw _privateConstructorUsedError;
+  bool get asSingle;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  String get group => throw _privateConstructorUsedError;
+  String get group;
   @override
-  bool get isGroupFirst => throw _privateConstructorUsedError;
+  bool get isGroupFirst;
   @override
-  String get upperChoiceId => throw _privateConstructorUsedError;
+  String get upperChoiceId;
   @override
   @JsonKey(ignore: true)
   _$$_ChoiceCopyWith<_$_Choice> get copyWith =>

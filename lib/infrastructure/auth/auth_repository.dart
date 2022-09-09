@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tuple/tuple.dart';
@@ -13,15 +12,13 @@ import '../../domain/auth/team.dart';
 import '../../domain/auth/typedefs.dart';
 import '../../domain/core/i_common_repository.dart';
 import '../../domain/core/logger.dart';
-import '../core/firestore_helpers.dart';
+import '../core/firebase_worker.dart';
 import '../core/isolate_local_storage.dart';
-import 'interviewer_dtos.dart';
-import 'team_list_dtos.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   final IsolateLocalStorage _localStorage;
-  final FirebaseFirestore _firestore;
+  final FirebaseWorker _firebaseWorker;
   final ICommonRepository _commonRepo;
 
   final _completer = Completer();
@@ -31,7 +28,6 @@ class AuthRepository implements IAuthRepository {
 
   Team? _team;
   Interviewer? _interviewer;
-  InterviewerList _interviewerList = [];
 
   final _isSignedInStream = BehaviorSubject<bool?>();
   final _teamListStream = BehaviorSubject<TeamList>();
@@ -66,7 +62,7 @@ class AuthRepository implements IAuthRepository {
 
   AuthRepository(
     this._localStorage,
-    this._firestore,
+    this._firebaseWorker,
     this._commonRepo,
   ) {
     initialize();
@@ -74,6 +70,7 @@ class AuthRepository implements IAuthRepository {
 
   Future<void> initialize() async {
     await _localStorage.ready;
+    await _firebaseWorker.ready;
     await _commonRepo.ready;
 
     await loadLocalData();
@@ -83,22 +80,10 @@ class AuthRepository implements IAuthRepository {
   }
 
   Future<void> loadLocalData() async {
-    _team = await _localStorage.read(
-      box: 'common',
-      key: 'team',
-      toDomain: TeamDto.jsonToDomain,
-    );
+    _team = await _localStorage.getTeam();
+    _interviewer = await _localStorage.getInterviewer();
+    final isSignedIn = await _localStorage.getValueByKey('isSignedIn') as bool?;
 
-    _interviewer = await _localStorage.read(
-      box: 'common',
-      key: 'interviewer',
-      toDomain: InterviewerDto.jsonToDomain,
-    );
-
-    final isSignedIn = await _localStorage.read(
-      box: 'common',
-      key: 'isSignedIn',
-    );
     _isSignedInStream.add(isSignedIn ?? false);
   }
 
@@ -118,20 +103,13 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<void> watchRemoteTeamList() async {
-    final teamCollection = _firestore.teamCollection;
-
     await _teamListSubscription?.cancel();
-    _teamListSubscription = teamCollection.snapshots().listen(
-      (snapshot) async {
-        final dto = TeamListDto.fromFirestore(snapshot);
-        _teamListStream.add(dto.toDomain());
-
-        await _localStorage.write(
-          box: 'common',
-          key: 'teamList',
-          data: dto,
-          toJson: (TeamListDto e) => e.toJson(),
-        );
+    _teamListSubscription = _firebaseWorker.watch(type: 'teams').listen(
+      (data) async {
+        if (data is bool && data) {
+          final teamList = await _localStorage.getTeams();
+          _teamListStream.add(teamList);
+        }
       },
       onError: (e, stackTrace) {
         commonOnError('watchRemoteTeamList', e, stackTrace);
@@ -141,18 +119,16 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<void> watchRemoteInterviewerList() async {
-    final interviewerListCollection = _firestore.interviewerListCollection;
-
     await _interviewerListSubscription?.cancel();
     if (team == null) return;
 
-    final teamId = team!.id;
-    _interviewerListSubscription =
-        interviewerListCollection.doc(teamId).snapshots().listen(
-      (snapshot) async {
-        _interviewerList =
-            InterviewerListDto.fromFirestore(snapshot).toDomain();
-      },
+    _interviewerListSubscription = _firebaseWorker
+        .watch(
+      type: 'interviewers',
+      teamId: team!.id,
+    )
+        .listen(
+      (snapshot) async {},
       onError: (e, stackTrace) {
         commonOnError('watchRemoteInterviewerList', e, stackTrace);
       },
@@ -171,8 +147,7 @@ class AuthRepository implements IAuthRepository {
     required String id,
     required String password,
   }) async {
-    _interviewer = _interviewerList.firstWhereOrNull((interviewer) =>
-        interviewer.id == id && interviewer.password == password);
+    _interviewer = await _localStorage.queryInterviewer(id, password);
 
     if (_interviewer == null) {
       _failureStream.add(AuthFailure.invalidIdAndPasswordCombination());
@@ -180,23 +155,9 @@ class AuthRepository implements IAuthRepository {
     } else {
       _isSignedInStream.add(true);
 
-      _localStorage.write(
-        box: 'common',
-        key: 'team',
-        data: team,
-        toJson: (Team e) => TeamDto.fromDomain(e).toJson(),
-      );
-      _localStorage.write(
-        box: 'common',
-        key: 'interviewer',
-        data: interviewer,
-        toJson: (Interviewer e) => InterviewerDto.fromDomain(e).toJson(),
-      );
-      _localStorage.write(
-        box: 'common',
-        key: 'isSignedIn',
-        data: true,
-      );
+      _localStorage.writeKeyValue('teamId', team!.id);
+      _localStorage.writeKeyValue('interviewerId', interviewer!.id);
+      _localStorage.writeKeyValue('isSignedIn', true);
     }
 
     return _isSignedInStream.value!;
@@ -206,24 +167,11 @@ class AuthRepository implements IAuthRepository {
   Future<void> signOut() async {
     _team = null;
     _interviewer = null;
-    _interviewerList = [];
     _isSignedInStream.add(false);
 
-    _localStorage.write(
-      box: 'common',
-      key: 'team',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'common',
-      key: 'interviewer',
-      clear: true,
-    );
-    _localStorage.write(
-      box: 'common',
-      key: 'isSignedIn',
-      clear: true,
-    );
+    _localStorage.clearKey('teamId');
+    _localStorage.clearKey('interviewerId');
+    _localStorage.clearKey('isSignedIn');
   }
 
   void commonOnError(String name, e, stackTrace) {

@@ -220,7 +220,9 @@ class _$_FormattedTextDto extends _FormattedTextDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FormattedTextDtoToJson(this);
+    return _$$_FormattedTextDtoToJson(
+      this,
+    );
   }
 }
 
@@ -236,13 +238,13 @@ abstract class _FormattedTextDto extends FormattedTextDto {
       _$_FormattedTextDto.fromJson;
 
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  ReferenceKeyDto? get referenceKey => throw _privateConstructorUsedError;
+  ReferenceKeyDto? get referenceKey;
   @override
-  AnswerDto? get answer => throw _privateConstructorUsedError;
+  AnswerDto? get answer;
   @override
   @JsonKey(ignore: true)
   _$$_FormattedTextDtoCopyWith<_$_FormattedTextDto> get copyWith =>

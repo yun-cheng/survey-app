@@ -1,39 +1,73 @@
 part of '../respondent_bloc.dart';
 
-RespondentState updateRespondentState(
-  Tuple4<Survey?, RespondentMap, Tuple2<ResponseMap, UniqueId?>,
-          RespondentState>
-      tuple,
-) {
-  final survey = tuple.item1;
+Future<RespondentState> updateRespondentState(
+  Tuple4<String?, RespondentMap, List<String>, RespondentState> tuple,
+) async {
+  final surveyId = tuple.item1;
   final respondentMap = tuple.item2;
-  final responseMapTuple = tuple.item3;
-  final responseMap = responseMapTuple.item1;
-  final responseId = responseMapTuple.item2;
-  final response = responseId == null ? null : responseMap[responseId];
+  List<String> updatedResponseIdList = tuple.item3;
   var state = tuple.item4;
 
-  if (survey == null || respondentMap.isEmpty) {
+  final localStorage = LocalStorage();
+
+  final responseMap = await localStorage.getResponseInfos();
+
+  if (surveyId == null || respondentMap.isEmpty) {
     return RespondentState.initial().updateAll();
   }
 
-  // - respondents
-  if (response == null) {
-    final groupList =
-        respondentMap.values.map((e) => e.countyTown).toSet().toList();
-    groupList.sort();
-    groupList.insert(0, '所有訪區');
-
-    state = state.copyWith(
-      groupList: groupList,
-      updateRespondents: true,
-    );
+  // - 首次進畫面時
+  if (state.respondentProgressMap.isEmpty) {
+    updatedResponseIdList = responseMap.keys.map((e) => e.value).toList();
   }
 
+  bool updateTab = false;
+  final housingResponseIdList = <String>[];
+  final mainResponseIdList = <String>[];
+  final visitReportResponseIdList = <String>[];
+  for (final responseId in updatedResponseIdList) {
+    final response = responseMap[UniqueId(responseId)]!;
+
+    if (response.surveyId != surveyId) continue;
+
+    if (!updateTab && !response.moduleType.isVisitReport) {
+      updateTab = true;
+    }
+
+    if (response.moduleType.isHousingType) {
+      housingResponseIdList.add(responseId);
+      continue;
+    }
+
+    if (response.responseStatus.isFinished &&
+        response.moduleType.isVisitReport) {
+      visitReportResponseIdList.add(responseId);
+      continue;
+    }
+
+    if (response.responseStatus.isFinished && response.moduleType.isMain) {
+      mainResponseIdList.add(responseId);
+      continue;
+    }
+  }
+
+  // - respondents
+  // if (response == null) {
+  final groupList =
+      respondentMap.values.map((e) => e.countyTown).toSet().toList();
+  groupList.sort();
+  groupList.insert(0, '所有訪區');
+
+  state = state.copyWith(
+    groupList: groupList,
+    updateRespondents: true,
+  );
+  // }
+
   // - tab
-  if (response == null || !response.moduleType.isVisitReport) {
+  if (updateTab) {
     final tabRespondentMap = updateTabRespondentMap(
-      surveyId: survey.id,
+      surveyId: surveyId,
       respondentMap: respondentMap,
       responseMap: responseMap,
     );
@@ -44,7 +78,7 @@ RespondentState updateRespondentState(
     );
 
     final respondentProgressMap = updateRespondentProgressMap(
-      surveyId: survey.id,
+      surveyId: surveyId,
       responseMap: responseMap,
     );
 
@@ -54,11 +88,14 @@ RespondentState updateRespondentState(
   }
 
   // - housing
-  if (response == null || response.moduleType.isHousingType) {
-    final housingMap = updateHousingMap(
-      responseMap: responseMap,
-      surveyId: survey.id,
-      questionMap: survey.module[ModuleType.housingType()]!.questionMap,
+  if (housingResponseIdList.isNotEmpty) {
+    final survey = await localStorage.getSurvey();
+
+    final housingMap = await updateHousingMap(
+      localStorage,
+      housingMap: state.housingMap,
+      responseIdList: housingResponseIdList,
+      questionMap: survey!.module[ModuleType.housingType()]!.questionMap,
     );
 
     state = state.copyWith(
@@ -68,11 +105,15 @@ RespondentState updateRespondentState(
   }
 
   // - visitRecord
-  if (response == null || response.moduleType.isMainOrVisitReport) {
-    state = updateVisitRecordData(
+  if (visitReportResponseIdList.isNotEmpty || mainResponseIdList.isNotEmpty) {
+    final survey = await localStorage.getSurvey();
+
+    state = await updateVisitRecordData(
+      localStorage,
+      visitReportResponseIdList: visitReportResponseIdList,
+      mainResponseIdList: mainResponseIdList,
       responseMap: responseMap,
-      surveyId: survey.id,
-      choiceList: survey
+      choiceList: survey!
           .module[ModuleType.visitReport()]!.questionMap['status']?.choiceList,
       state: state,
     );

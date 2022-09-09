@@ -14,15 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AudioMapDto _$AudioMapDtoFromJson(Map<String, dynamic> json) {
-  return _AudioMapDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$AudioMapDto {
   Map<String, AudioDto> get map => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AudioMapDtoCopyWith<AudioMapDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -91,14 +86,11 @@ class __$$_AudioMapDtoCopyWithImpl<$Res> extends _$AudioMapDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_AudioMapDto extends _AudioMapDto {
   const _$_AudioMapDto({required final Map<String, AudioDto> map})
       : _map = map,
         super._();
-
-  factory _$_AudioMapDto.fromJson(Map<String, dynamic> json) =>
-      _$$_AudioMapDtoFromJson(json);
 
   final Map<String, AudioDto> _map;
   @override
@@ -120,7 +112,6 @@ class _$_AudioMapDto extends _AudioMapDto {
             const DeepCollectionEquality().equals(other._map, _map));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_map));
@@ -129,11 +120,6 @@ class _$_AudioMapDto extends _AudioMapDto {
   @override
   _$$_AudioMapDtoCopyWith<_$_AudioMapDto> get copyWith =>
       __$$_AudioMapDtoCopyWithImpl<_$_AudioMapDto>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_AudioMapDtoToJson(this);
-  }
 }
 
 abstract class _AudioMapDto extends AudioMapDto {
@@ -141,11 +127,8 @@ abstract class _AudioMapDto extends AudioMapDto {
       _$_AudioMapDto;
   const _AudioMapDto._() : super._();
 
-  factory _AudioMapDto.fromJson(Map<String, dynamic> json) =
-      _$_AudioMapDto.fromJson;
-
   @override
-  Map<String, AudioDto> get map => throw _privateConstructorUsedError;
+  Map<String, AudioDto> get map;
   @override
   @JsonKey(ignore: true)
   _$$_AudioMapDtoCopyWith<_$_AudioMapDto> get copyWith =>

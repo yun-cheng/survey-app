@@ -7,7 +7,7 @@ import 'typedefs.dart';
 abstract class IRespondentRepository {
   Future<void> get ready;
 
-  Respondent? get respondent;
+  String? get respondentId;
   RespondentMap get respondentMap;
 
   Stream<RespondentMap> get respondentMapStream;

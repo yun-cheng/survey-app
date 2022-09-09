@@ -568,45 +568,45 @@ abstract class _Question extends Question {
   const _Question._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  bool get hideId => throw _privateConstructorUsedError;
+  bool get hideId;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  List<FormattedText> get body => throw _privateConstructorUsedError;
+  List<FormattedText> get body;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  String get note => throw _privateConstructorUsedError;
+  String get note;
   @override
-  QuestionType get type => throw _privateConstructorUsedError;
+  QuestionType get type;
   @override
-  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
+  bool get hasSpecialAnswer;
   @override
-  String get upperQuestionId => throw _privateConstructorUsedError;
+  String get upperQuestionId;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  bool get recodeNeeded => throw _privateConstructorUsedError;
+  bool get recodeNeeded;
   @override
-  int get splitColumnChoiceCount => throw _privateConstructorUsedError;
+  int get splitColumnChoiceCount;
   @override // > choice list
-  List<Choice> get initChoiceList => throw _privateConstructorUsedError;
+  List<Choice> get initChoiceList;
   @override
-  List<Choice> get choiceList => throw _privateConstructorUsedError;
+  List<Choice> get choiceList;
   @override
-  List<Choice> get specialAnswerList => throw _privateConstructorUsedError;
+  List<Choice> get specialAnswerList;
   @override // > expression
-  FullExpression get show => throw _privateConstructorUsedError;
+  FullExpression get show;
   @override
-  FullExpression get validateAnswer => throw _privateConstructorUsedError;
+  FullExpression get validateAnswer;
   @override
-  Set<String> get childrenQIdSet => throw _privateConstructorUsedError;
+  Set<String> get childrenQIdSet;
   @override // > table
-  String get tableId => throw _privateConstructorUsedError;
+  String get tableId;
   @override
-  int get rowId => throw _privateConstructorUsedError;
+  int get rowId;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionCopyWith<_$_Question> get copyWith =>
