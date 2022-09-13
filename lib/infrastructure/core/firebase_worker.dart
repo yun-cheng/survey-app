@@ -109,18 +109,24 @@ class FirebaseWorker {
   }
 
   // >
+  final _streamType = [
+    'responses',
+    'references',
+    'respondents',
+    'surveys',
+    'projects',
+    'teams',
+    'interviewers',
+    'comments',
+  ];
+  final _streamMap = <String, BehaviorSubject>{};
   SendPort? watchPort;
-  final _emptyStream = BehaviorSubject<String>();
-  final _responseStream = BehaviorSubject<List<String>>();
-  final _referenceStream = BehaviorSubject<bool>();
-  final _respondentStream = BehaviorSubject<bool>();
-  final _surveyStream = BehaviorSubject<bool>();
-  final _projectStream = BehaviorSubject<bool>();
-  final _teamStream = BehaviorSubject<bool>();
-  final _interviewerStream = BehaviorSubject<bool>();
-  final _commentStream = BehaviorSubject<bool>();
 
   void initializeWatchIsolate() {
+    for (final type in _streamType) {
+      _streamMap[type] = BehaviorSubject();
+    }
+
     final mainIsolatePort = ReceivePort();
 
     final watchIsolate = FlutterIsolate.spawn(
@@ -134,23 +140,7 @@ class FirebaseWorker {
 
         _completer.complete();
       } else if (msg is List) {
-        if (msg[0] == 'responses') {
-          _responseStream.add(msg[1]);
-        } else if (msg[0] == 'references') {
-          _referenceStream.add(msg[1]);
-        } else if (msg[0] == 'respondents') {
-          _respondentStream.add(msg[1]);
-        } else if (msg[0] == 'surveys') {
-          _surveyStream.add(msg[1]);
-        } else if (msg[0] == 'projects') {
-          _projectStream.add(msg[1]);
-        } else if (msg[0] == 'teams') {
-          _teamStream.add(msg[1]);
-        } else if (msg[0] == 'interviewers') {
-          _interviewerStream.add(msg[1]);
-        } else if (msg[0] == 'comments') {
-          _commentStream.add(msg[1]);
-        }
+        _streamMap[msg[0]]!.add(msg[1]);
       }
     });
   }
@@ -171,17 +161,10 @@ class FirebaseWorker {
       );
     }
 
-    watchPort!.send([type, teamId, interviewerId]);
+    watchPort!.send([type, true, teamId, interviewerId]);
 
-    if (type == 'responses') return _responseStream;
-    if (type == 'references') return _referenceStream;
-    if (type == 'respondents') return _respondentStream;
-    if (type == 'surveys') return _surveyStream;
-    if (type == 'projects') return _projectStream;
-    if (type == 'teams') return _teamStream;
-    if (type == 'interviewers') return _interviewerStream;
-    if (type == 'comments') return _commentStream;
-
-    return _emptyStream;
+    return _streamMap[type]!.doOnCancel(() {
+      watchPort!.send([type, false, teamId, interviewerId]);
+    });
   }
 }

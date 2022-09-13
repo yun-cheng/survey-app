@@ -8,6 +8,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../domain/core/logger.dart';
 import 'local_storage.dart';
+import 'my_path_provider.dart';
 
 @singleton
 class IsolateWorker {
@@ -33,7 +34,6 @@ class IsolateWorker {
 
     final appDirPath =
         await getApplicationDocumentsDirectory().then((dir) => dir.path);
-    const backupDirPath = 'sdcard/Download/survey_backup/';
 
     int i = 0;
     while (i < instance) {

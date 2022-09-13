@@ -22,6 +22,7 @@ import '../../domain/survey/response.dart';
 import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
 import 'local_storage.dart';
+import 'my_path_provider.dart';
 
 @singleton
 class IsolateLocalStorage implements ILocalStorage {
@@ -51,7 +52,6 @@ class IsolateLocalStorage implements ILocalStorage {
 
     final appDirPath =
         await getApplicationDocumentsDirectory().then((dir) => dir.path);
-    const backupDirPath = 'sdcard/Download/survey_backup/';
 
     final asyncTask = LocalStorageTask();
     executor!.execute(asyncTask);
@@ -323,6 +323,11 @@ class IsolateLocalStorage implements ILocalStorage {
   FutureOr<bool> clearAudio() {
     return channel!.sendAndWaitResponse(['clearAudio']);
   }
+
+  @override
+  FutureOr<bool> backup() {
+    return channel!.sendAndWaitResponse(['backup']);
+  }
 }
 
 List<AsyncTask> _taskTypeRegister() => [LocalStorageTask()];
@@ -452,6 +457,8 @@ class LocalStorageTask extends AsyncTask<Map, void> {
         result = await localStorage.writeAudio(msg[1]);
       } else if (task == 'clearAudio') {
         result = await localStorage.clearAudio();
+      } else if (task == 'backup') {
+        result = await localStorage.backup();
       } else {
         throw Exception('Unknown task: $task');
       }

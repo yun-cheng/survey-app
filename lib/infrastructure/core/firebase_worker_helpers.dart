@@ -44,6 +44,9 @@ uploadTask(SendPort mainIsolatePort) async {
   final appDirPath =
       await getApplicationDocumentsDirectory().then((dir) => dir.path);
 
+  // FIXME 調整備份時機
+  Future.delayed(const Duration(minutes: 5), () => localStorage.backup());
+
   uploadIsolatePort.listen((msg) async {
     final type = msg[0] as String;
     final uploadingList = msg[1] as List<String>;
@@ -58,29 +61,6 @@ uploadTask(SendPort mainIsolatePort) async {
     );
 
     mainIsolatePort.send(result);
-  });
-}
-
-watchTask(SendPort mainIsolatePort) async {
-  final watchIsolatePort = ReceivePort();
-
-  mainIsolatePort.send(watchIsolatePort.sendPort);
-
-  final firestore = await firebaseIsolateInit();
-  final storage = FirebaseStorage.instance;
-  final localStorage = LocalStorage();
-
-  watchIsolatePort.listen((msg) async {
-    watchFirestore(
-      firestore,
-      storage,
-      localStorage,
-      type: msg[0],
-      teamId: msg[1],
-      interviewerId: msg[2],
-    ).listen((data) async {
-      mainIsolatePort.send([msg[0], data]);
-    });
   });
 }
 
@@ -206,6 +186,33 @@ Future<bool> uploadAudios(
   }
 
   return true;
+}
+
+watchTask(SendPort mainIsolatePort) async {
+  final watchIsolatePort = ReceivePort();
+
+  mainIsolatePort.send(watchIsolatePort.sendPort);
+
+  final firestore = await firebaseIsolateInit();
+  final storage = FirebaseStorage.instance;
+  final localStorage = LocalStorage();
+  final _streamSubscriptionMap = <String, StreamSubscription>{};
+
+  watchIsolatePort.listen((msg) async {
+    _streamSubscriptionMap[msg[0]]?.cancel();
+    if (msg[1] as bool) {
+      _streamSubscriptionMap[msg[0]] = watchFirestore(
+        firestore,
+        storage,
+        localStorage,
+        type: msg[0],
+        teamId: msg[2],
+        interviewerId: msg[3],
+      ).listen((data) async {
+        mainIsolatePort.send([msg[0], data]);
+      });
+    }
+  });
 }
 
 Stream watchFirestore(

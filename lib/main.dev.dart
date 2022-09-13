@@ -3,21 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:survey/infrastructure/core/common_isar.dart';
-import 'package:survey/infrastructure/response/reference_isar.dart';
 
 import 'firebase_options.dart';
-import 'infrastructure/audio/audio_isar.dart';
-import 'infrastructure/auth/interviewer_isar.dart';
-import 'infrastructure/auth/team_isar.dart';
-import 'infrastructure/overview/project_isar.dart';
-import 'infrastructure/respondent/respondents_isar.dart';
-import 'infrastructure/response/response_info_isar.dart';
-import 'infrastructure/response/response_isar.dart';
-import 'infrastructure/survey/comment/response_comments_isar.dart';
-import 'infrastructure/survey/survey_info_isar.dart';
-import 'infrastructure/survey/survey_isar.dart';
+import 'infrastructure/core/isar_schemas.dart';
+import 'infrastructure/core/my_path_provider.dart';
 import 'injection.dart';
 import 'presentation/core/app_widget.dart';
 
@@ -38,27 +27,23 @@ Future<void> main() async {
     persistenceEnabled: false,
   );
 
-  final appDirPath =
-      await getApplicationDocumentsDirectory().then((dir) => dir.path);
+  final pathProvider = getIt<MyPathProvider>();
+  await pathProvider.ready;
+
+  // final appDirPath =
+  //     await getApplicationDocumentsDirectory().then((dir) => dir.path);
   Isar.getInstance('main') ??
       await Isar.open(
         name: 'main',
-        schemas: [
-          ResponseIsarSchema,
-          ResponseInfoIsarSchema,
-          ReferenceIsarSchema,
-          CommonIsarSchema,
-          TeamIsarSchema,
-          InterviewerIsarSchema,
-          RespondentsIsarSchema,
-          SurveyIsarSchema,
-          SurveyInfoIsarSchema,
-          ProjectIsarSchema,
-          ResponseCommentsIsarSchema,
-          AudioIsarSchema,
-        ],
-        directory: appDirPath,
+        schemas: isarSchemas,
+        directory: pathProvider.appDirPath,
       );
+  // Isar.getInstance('backup') ??
+  //     await Isar.open(
+  //       name: 'backup',
+  //       schemas: isarSchemas,
+  //       directory: backupDirPath,
+  //     );
 
   runApp(const AppWidget());
 

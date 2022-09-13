@@ -134,4 +134,6 @@ abstract class ILocalStorage {
   FutureOr<bool> writeAudio(Audio audio);
 
   FutureOr<bool> clearAudio();
+
+  FutureOr<bool> backup();
 }

@@ -1,23 +1,23 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../../domain/core/i_common_repository.dart';
-import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../version.dart';
+import 'app_is_paused.dart';
 import 'firestore_helpers.dart';
 import 'isolate_local_storage.dart';
+import 'network_is_connected.dart';
 
 @LazySingleton(as: ICommonRepository)
 class CommonRepository implements ICommonRepository {
   final IsolateLocalStorage _localStorage;
   final FirebaseFirestore _firestore;
+  final AppIsPaused _appIsPaused;
+  final NetworkIsConnected _networkIsConnected;
 
   final _completer = Completer();
   @override
@@ -28,10 +28,6 @@ class CommonRepository implements ICommonRepository {
   NavigationPage? _page;
   List<String> _compatibility = [];
 
-  final _networkIsConnectedStream = BehaviorSubject<bool>.seeded(kIsWeb);
-  final _appIsPausedStream = BehaviorSubject<bool>.seeded(false);
-
-  StreamSubscription? _networkSubscription;
   StreamSubscription? _compatibilitySubscription;
 
   @override
@@ -39,18 +35,20 @@ class CommonRepository implements ICommonRepository {
   @override
   NavigationPage get page => _page!;
   @override
-  bool get networkIsConnected => _networkIsConnectedStream.value;
+  bool get networkIsConnected => _networkIsConnected.value;
   @override
   List<String> get compatibility => _compatibility;
 
   @override
-  Stream<bool> get networkIsConnectedStream => _networkIsConnectedStream;
+  Stream<bool> get networkIsConnectedStream => _networkIsConnected.stream;
   @override
-  Stream<bool> get appIsPausedStream => _appIsPausedStream;
+  Stream<bool> get appIsPausedStream => _appIsPaused.stream;
 
   CommonRepository(
     this._localStorage,
     this._firestore,
+    this._appIsPaused,
+    this._networkIsConnected,
   ) {
     initialize();
   }
@@ -62,7 +60,7 @@ class CommonRepository implements ICommonRepository {
     await _localStorage.ready;
 
     await loadLocalData();
-    await startListener();
+    startListener();
 
     _completer.complete();
   }
@@ -83,48 +81,24 @@ class CommonRepository implements ICommonRepository {
   }
 
   Future<void> startListener() async {
-    await watchNetwork();
+    _networkIsConnected.stream.listen((networkIsConnected) async {
+      if (networkIsConnected) {
+        await _firestore.enableNetwork();
 
-    _networkIsConnectedStream.listen((networkIsConnected) {
-      if (!networkIsConnected) {
+        watchRemoteCompatibility();
+      } else {
+        await _firestore.disableNetwork();
+
         _compatibilitySubscription?.cancel();
-
-        return;
       }
-
-      watchRemoteCompatibility();
     });
-  }
 
-  @override
-  Future<void> watchNetwork() async {
-    // - 初始狀態
-    final result = await Connectivity().checkConnectivity();
-    await onNetworkChanged(result);
-
-    _networkSubscription?.cancel();
-    _networkSubscription =
-        Connectivity().onConnectivityChanged.listen(onNetworkChanged);
-  }
-
-  Future<void> onNetworkChanged(ConnectivityResult result) async {
-    // FIXME 目前先一律允許 web 上傳
-    if (kIsWeb) return;
-
-    final networkType = NetworkType.fromIndex(result.index);
-
-    final _networkIsConnected = networkIsConnected;
-
-    // - 視網路連線狀態開關 firestore、storage 功能
-    if (networkType.isConnected && !_networkIsConnected) {
-      logger('Status').e('Network is connected');
-      _networkIsConnectedStream.add(true);
-      await _firestore.enableNetwork();
-    } else if (!networkType.isConnected && _networkIsConnected) {
-      logger('Status').e('Network is disconnected');
-      _networkIsConnectedStream.add(false);
-      await _firestore.disableNetwork();
-    }
+    _appIsPaused.stream.listen((appIsPaused) {
+      if (!appIsPaused) {
+        // - 如果 app 從閒置中回復，則觸發檢查網路狀態
+        _networkIsConnected.checkNetwork();
+      }
+    });
   }
 
   @override
@@ -142,21 +116,6 @@ class CommonRepository implements ICommonRepository {
       // TODO
       // onError: commonOnError,
     );
-  }
-
-  @override
-  void onAppLifeCycleChanged(AppLifecycleState state) {
-    final appIsPaused = _appIsPausedStream.value;
-
-    if (state == AppLifecycleState.paused && !appIsPaused) {
-      logger('Status').e('App is paused');
-      _appIsPausedStream.add(true);
-    } else if (state == AppLifecycleState.resumed && appIsPaused) {
-      logger('Status').e('App is resumed');
-      _appIsPausedStream.add(false);
-      // - 如果 app 從閒置中回復，則重新監聽網路狀態
-      watchNetwork();
-    }
   }
 
   @override

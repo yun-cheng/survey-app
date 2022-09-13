@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../domain/core/i_common_repository.dart';
+import '../../infrastructure/core/app_is_paused.dart';
 import '../../injection.dart';
 import '../core/app_listeners.dart';
 
@@ -11,10 +11,10 @@ class SplashPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // > 監聽 app lifecycle
-    final repo = getIt<ICommonRepository>();
+    final appIsPaused = getIt<AppIsPaused>();
 
     useOnAppLifecycleStateChange(
-      (p, c) => repo.onAppLifeCycleChanged(c),
+      (p, c) => appIsPaused.onAppLifeCycleChanged(c),
     );
 
     return const AppListeners(

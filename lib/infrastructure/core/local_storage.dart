@@ -1,17 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:survey/infrastructure/core/my_path_provider.dart';
 
 import '../../domain/audio/audio.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
 import '../../domain/auth/typedefs.dart';
 import '../../domain/core/i_local_storage.dart';
+import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/overview/typedefs.dart';
@@ -47,10 +50,12 @@ import '../survey/survey_isar.dart';
 import '../survey/survey_map_dtos.dart';
 import 'common_isar.dart';
 import 'extensions.dart';
+import 'isar_schemas.dart';
 
 class LocalStorage implements ILocalStorage {
   String? appDirPath;
   late final Isar isar;
+  late final Isar backupIsar;
 
   LocalStorage([
     this.appDirPath,
@@ -59,27 +64,19 @@ class LocalStorage implements ILocalStorage {
   }
 
   void initialize() async {
-    const backupDirPath = 'sdcard/Download/survey_backup/';
     isar = Isar.getInstance('main') ??
         await Isar.open(
           name: 'main',
-          schemas: [
-            ResponseIsarSchema,
-            ResponseInfoIsarSchema,
-            ReferenceIsarSchema,
-            CommonIsarSchema,
-            TeamIsarSchema,
-            InterviewerIsarSchema,
-            RespondentsIsarSchema,
-            SurveyIsarSchema,
-            SurveyInfoIsarSchema,
-            ProjectIsarSchema,
-            ResponseCommentsIsarSchema,
-            AudioIsarSchema,
-          ],
+          schemas: isarSchemas,
           directory: appDirPath ??
               await getApplicationDocumentsDirectory().then((dir) => dir.path),
         );
+    // backupIsar = Isar.getInstance('backup') ??
+    //     await Isar.open(
+    //       name: 'backup',
+    //       schemas: isarSchemas,
+    //       directory: backupDirPath,
+    //     );
   }
 
   // > key value
@@ -136,6 +133,10 @@ class LocalStorage implements ILocalStorage {
     isar.writeTxnSync(() {
       isar.commonIsars.putSync(isarData);
     });
+
+    // backupIsar.writeTxnSync(() async {
+    //   backupIsar.commonIsars.putSync(isarData);
+    // });
 
     return true;
   }
@@ -401,6 +402,7 @@ class LocalStorage implements ILocalStorage {
         .respondentIdEqualTo(respondentId)
         .filter()
         .moduleTypeEqualTo(moduleType)
+        .surveyIdEqualTo(surveyId)
         .optional(
           responseStatus != null,
           (q) => q.responseStatusEqualTo(responseStatus!),
@@ -426,6 +428,7 @@ class LocalStorage implements ILocalStorage {
         .filter()
         .not()
         .moduleTypeEqualTo(notModuleType)
+        .surveyIdEqualTo(surveyId)
         .sortByLastChangedTimeStampDesc()
         .findAllSync();
 
@@ -488,6 +491,10 @@ class LocalStorage implements ILocalStorage {
 
       isar.responseIsars.putSync(isarData);
     });
+
+    // backupIsar.writeTxnSync(() async {
+    //   backupIsar.responseIsars.putSync(isarData);
+    // });
 
     return true;
   }
@@ -577,6 +584,10 @@ class LocalStorage implements ILocalStorage {
       isar.responseCommentsIsars.putSync(isarData);
     });
 
+    // backupIsar.writeTxnSync(() async {
+    //   backupIsar.responseCommentsIsars.putSync(isarData);
+    // });
+
     return true;
   }
 
@@ -604,6 +615,10 @@ class LocalStorage implements ILocalStorage {
       isar.audioIsars.putSync(isarData);
     });
 
+    // backupIsar.writeTxnSync(() async {
+    //   backupIsar.audioIsars.putSync(isarData);
+    // });
+
     return true;
   }
 
@@ -611,6 +626,42 @@ class LocalStorage implements ILocalStorage {
   FutureOr<bool> clearAudio() {
     isar.writeTxnSync(() {
       isar.audioIsars.clearSync();
+    });
+
+    return true;
+  }
+
+  @override
+  FutureOr<bool> backup() async {
+    logger('Status').e('backup');
+
+    const dataPath = '$backupDirPath/data';
+
+    if (!await Directory(dataPath).exists()) {
+      await Directory(dataPath).create();
+    }
+
+    final now = DeviceTimeStamp.now().toFileNameString();
+    final backupPath = '$dataPath/$now';
+
+     if (!await Directory(backupPath).exists()) {
+      await Directory(backupPath).create();
+    }
+
+    await isar.commonIsars.where().exportJsonRaw((data) {
+      File('$backupPath/common_$now.json').writeAsBytesSync(data);
+    });
+
+    await isar.audioIsars.where().exportJsonRaw((data) {
+      File('$backupPath/audio_$now.json').writeAsBytesSync(data);
+    });
+
+    await isar.responseCommentsIsars.where().exportJsonRaw((data) {
+      File('$backupPath/responseComments_$now.json').writeAsBytesSync(data);
+    });
+
+    await isar.responseIsars.where().exportJsonRaw((data) {
+      File('$backupPath/response_$now.json').writeAsBytesSync(data);
     });
 
     return true;

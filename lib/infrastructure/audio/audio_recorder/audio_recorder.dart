@@ -119,7 +119,7 @@ class AudioRecorder implements IAudioRecorder {
           audio,
           _pathProvider.appDirPath,
           _pathProvider.tempDirPath,
-          _pathProvider.backupDirPath,
+          backupDirPath,
         ),
       );
       _audioRepo.addAudio(audio);
